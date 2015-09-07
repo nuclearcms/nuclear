@@ -54,7 +54,7 @@ return [
         'reactor_default' => [
             'extends'    => null,
             'views-path' => 'reactor',
-            'asset-path' => 'reactor',
+            'asset-path' => 'reactor_assets',
         ],
 
     ],

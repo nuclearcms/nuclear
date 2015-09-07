@@ -1,0 +1,21 @@
+.button
+    line-height: 2.85714286em
+    height: 2.85714286em
+    padding: 0 2em
+    font-family: $fontHeading
+    font-size: 0.875em
+    background-color: transparent
+    color: $secondaryAccent
+    cursor: pointer
+
+.button-icon
+    padding-right: 1.25em
+
+.button-emphasized
+    background-color: $success
+    color: $lightGray-1
+    +transition(background-color $animationFast)
+
+.no-touch
+    .button-emphasized:hover
+        background-color: $successHover

@@ -22,14 +22,18 @@ Route::get('/', function ()
 Route::group(['prefix' => 'reactor'], function ()
 {
     // Dashboard
-    Route::get('/', [
-        'as' => 'dashboard',
-        'uses' => 'DashboardController@index'
-    ]);
+    Route::get('/', 'DashboardController@index');
 
     // Authentication
     Route::get('auth/login', 'Auth\AuthController@getLogin');
     Route::post('auth/login', 'Auth\AuthController@postLogin');
     Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+    // Password Reset
+    Route::get('password/email', 'Auth\PasswordController@getEmail');
+    Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+    Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+    Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 });

@@ -14,7 +14,7 @@ class DashboardController extends ReactorController {
      */
     public function index()
     {
-        //
+        return view('dashboard');
     }
 
 }

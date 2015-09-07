@@ -4,7 +4,7 @@ var elixir = require('laravel-elixir');
  * Config for reactor theme
  */
 elixir.config.assetsPath = 'resources/assets/reactor';
-elixir.config.publicPath = 'public/reactor';
+elixir.config.publicPath = 'public/reactor_assets';
 
 /*
  |--------------------------------------------------------------------------
@@ -18,5 +18,7 @@ elixir.config.publicPath = 'public/reactor';
  */
 
 elixir(function (mix) {
-    mix.sass('app.sass');
+    mix
+        .sass('app.sass')
+        .scripts(['Modernizr.js']);
 });

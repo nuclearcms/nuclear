@@ -1,0 +1,35 @@
+.container
+    width: 100%
+    max-width: 74em
+    margin: auto
+
+    &.container-main
+        padding-left: 24em
+        position: relative
+
+        @media screen and (max-width: $collapseThreshold)
+            padding-left: 0
+
+.container-navigation
+    width: 24em
+    position: fixed
+    left: calc(50% - 37em)
+    top: 0
+    height: 100%
+    z-index: 100
+
+    @media screen and (max-width: $shrinkThreshold)
+        left: 0
+    @media screen and (max-width: $collapseThreshold)
+        left: -24em
+
+.container-content
+    width: 100%
+
+.container-fullscreen
+    +position(absolute, 0 null null 0)
+    +size(100%)
+
+.dialog-static
+    +position(absolute, 0 0 0 0)
+    margin: auto

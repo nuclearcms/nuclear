@@ -7,6 +7,9 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
 {
+
+    protected $redirectPath = '/reactor';
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -28,5 +31,7 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        $this->subject = trans('passwords.mail_subject');
     }
 }

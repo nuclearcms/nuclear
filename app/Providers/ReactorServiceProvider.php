@@ -14,7 +14,7 @@ class ReactorServiceProvider extends ServiceProvider {
      */
     public function register()
     {
-        //
+        $this->registerHelpers();
     }
 
     /**
@@ -25,6 +25,18 @@ class ReactorServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->setTheme();
+
+
+    }
+
+    /**
+     * Registers helper methods
+     *
+     * @return void
+     */
+    protected function registerHelpers()
+    {
+        require __DIR__ . '/../Support/helpers.php';
     }
 
     /**

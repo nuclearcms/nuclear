@@ -35,18 +35,19 @@
         "laracasts/generators": "~1.1",
         "laracasts/presenter": "0.2.*",
         "laracasts/utilities": "~2.0",
-        "barryvdh/laravel-debugbar": "~2.0",
         "doctrine/dbal": "~2.5",
         "intervention/image": "~2.3",
         "intervention/imagecache": "~2.3",
         "chumper/zipper": "0.6.*",
-        "igaster/laravel-theme": "^1.0"
+        "igaster/laravel-theme": "^1.0",
+        "guzzlehttp/guzzle": "^6.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
-        "orchestra/testbench": "3.1.*"
+        "orchestra/testbench": "3.1.*",
+        "barryvdh/laravel-debugbar": "~2.0"
     },
     "autoload": {
         "classmap": [

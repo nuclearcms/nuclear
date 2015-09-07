@@ -1,0 +1,46 @@
+input
+    width: 100%
+    height: 2.5em
+    background-color: transparent
+    font-size: 1em
+    color: $darkGray-2
+    outline: none
+    font-family: $fontDefault
+
+    +placeholder
+        color: $midGray-1
+
+label
+    user-select: none
+
+.form-group
+    margin-bottom: 1em
+
+    input
+        border-bottom: 1px solid $midGray-1
+
+        +transition(border-bottom $animationFast)
+
+        &:focus
+            border-bottom: 1px solid $secondaryAccent
+
+
+.form-group-icon-label
+    +clearfix
+
+    .icon-label
+        float: right
+        color: $midGray-1
+        display: inline-block
+        width: 2em
+        text-align: center
+        font-size: 1.25em
+        line-height: 2em
+        +transition(color $animationFast)
+
+    input
+        float: right
+        width: calc(100% - 2.5em)
+
+        &:focus + .icon-label
+            color: $secondaryAccent
