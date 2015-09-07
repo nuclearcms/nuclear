@@ -1,6 +1,6 @@
 {
-    "name": "nuclear/nuclear",
-    "description": "Polymorphic Nuclear CMS powered by Laravel 5.",
+    "name": "nuclearcms/nuclearcms",
+    "description": "Polymorphic CMS powered by Laravel 5.",
     "license": "MIT",
     "keywords": [
         "kenarkose",
