@@ -17,7 +17,10 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'login' => 'Login',
+    'logout' => 'Logout',
     'remember' => 'Remember',
-    'forgot' => 'I can\'t access my account!'
+    'forgot' => 'I can\'t access my account!',
+
+    'edit_profile' => 'Update Profile',
 
 ];

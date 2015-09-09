@@ -17,7 +17,10 @@ return [
     'throttle' => 'Çok fazla oturum açma girişimleri. :seconds saniye içinde tekrar deneyin.',
 
     'login' => 'Giriş Yap',
+    'logout' => 'Çıkış Yap',
     'remember' => 'Hatırla',
-    'forgot' => 'Hesabıma giremiyorum!'
+    'forgot' => 'Hesabıma giremiyorum!',
+
+    'edit_profile' => 'Profili Güncelle',
 
 ];

@@ -1,14 +1,7 @@
-@extends('layout.base')
+@extends('layout.reactor')
 
 @section('pageTitle', trans('general.dashboard'))
 
-@section('body')
-    <main class="container container-main">
-        <div class="container-navigation">
-            NAV
-        </div>
-        <div class="container-content">
-            CONTENT
-        </div>
-    </main>
+@section('content')
+    CONTENT
 @endsection

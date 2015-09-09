@@ -20,5 +20,9 @@ elixir.config.publicPath = 'public/reactor_assets';
 elixir(function (mix) {
     mix
         .sass('app.sass')
-        .scripts(['Modernizr.js']);
+        .scripts([
+            'components/Modernizr.js',
+            'components/vue.min.js',
+            'components/zepto.min.js'
+        ]);
 });

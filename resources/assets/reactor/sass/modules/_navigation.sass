@@ -1,0 +1,119 @@
+.container-navigation
+    padding-top: 64px
+
+.navigation-tab
+    display: inline-block
+    height: 100%
+    position: relative
+    vertical-align: top
+
+.scroll-container
+    position: relative
+    +size(100%)
+    overflow: hidden
+
+.scroller
+    overflow: auto
+    +position(absolute, 0 -2em 0 0)
+
+.navigation-modules
+    width: 5em
+    padding: 0 1em
+
+.navigation-modules-list
+    width: 3em
+    padding: 0 0.25em
+    margin: 0
+
+.navigation-module
+    border-bottom: 1px solid $lightGray-3
+    text-align: center
+    position: relative
+    margin-bottom: 1em
+
+    i
+        color: $midGray-2
+        font-size: 1.25em
+        line-height: 2.8em
+        display: inline-block
+        cursor: pointer
+
+    .module-dropdown
+        +position(absolute, 0.5em null null 2.5em)
+        text-align: left
+        opacity: 0
+        z-index: -1
+        +transition(opacity $animationNav, z-index 0ms ease $animationNav)
+
+        &.module-dropdown-hidden
+            display: none
+
+    .module-sub
+        border-bottom: 0.5em solid $lightGray-3
+
+        a
+            color: $midGray-2
+            display: block
+            padding: 0 1.5em 0 0.5em
+            white-space: nowrap
+
+            i
+                font-size: 1em
+                width: 2.5em
+                color: inherit
+                text-align: center
+                line-height: 2em
+
+.module-info
+    background-color: $lightGray-3
+    font-size: 0.875em
+    line-height: 2.85714286em
+    padding: 0 1.5em 0 1em
+    white-space: nowrap
+    font-family: $fontHeading
+
+.navigation-user
+    border-bottom: 0
+    padding: 0.25em
+    margin-top: 1.5em
+    margin-bottom: 2em
+
+    .module-dropdown
+        top: 0em
+
+.navigation-user-frame
+    display: block
+    +size(2em)
+    border-radius: 50%
+    background-color: $midGray-2
+    color: $lightGray-1
+    overflow: hidden
+    line-height: 2em
+    cursor: pointer
+
+.navigation-version
+    text-align: center
+
+    img
+        width: 2em
+
+    a, a:hover
+        color: $midGray-1
+        font-size: 0.75em
+
+.no-touch
+    .navigation-module
+        & > i, & > a > i
+            +transition(color $animationNav)
+
+        .module-sub a:hover
+            color: $accent
+
+        &:hover
+            & > i, & > a > i
+                color: $accent
+
+            .module-dropdown
+                z-index: 100
+                opacity: 1
+                +transition(opacity $animationNav)

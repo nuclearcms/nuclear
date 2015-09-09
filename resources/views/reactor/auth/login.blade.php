@@ -30,7 +30,7 @@
                     <i class="icon-cancel"></i><i class="icon-check"></i>
                 </span>
             </label>
-            <button class="button button-emphasized button-icon" type="submit">{{ uppercase(trans('auth.login')) }} <i class="icon-right-open-big"></i></button>
+            <button class="button button-emphasized button-icon" type="submit">{{ uppercase(trans('auth.login')) }} <i class="icon-login"></i></button>
         </div>
     </form>
     <div class="auth-option">

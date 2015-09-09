@@ -10,12 +10,14 @@
     {!! Theme::css('css/app.css') !!}
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Oxygen:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
-    {!! Theme::js('js/all.js') !!}
+    @yield('styles')
+
 </head>
 <body>
 
     @yield('body')
 
+    {!! Theme::js('js/all.js') !!}
     @yield('scripts')
 
 </body>

@@ -7,6 +7,8 @@ use Illuminate\Support\ServiceProvider;
 
 class ReactorServiceProvider extends ServiceProvider {
 
+    const VERSION = '2.0.0';
+
     /**
      * Register any application services.
      *
@@ -26,7 +28,7 @@ class ReactorServiceProvider extends ServiceProvider {
     {
         $this->setTheme();
 
-
+        $this->registerViewBindings();
     }
 
     /**
@@ -51,6 +53,18 @@ class ReactorServiceProvider extends ServiceProvider {
         {
             \Theme::set('reactor_default');
         }
+    }
+
+    /**
+     * Shares information with views
+     *
+     * @return void
+     */
+    protected function registerViewBindings()
+    {
+        view()->composer('*', function ($view) {
+            $view->with('user', auth()->user());
+        });
     }
 
 }

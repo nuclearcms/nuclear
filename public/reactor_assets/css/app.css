@@ -49,8 +49,8 @@ table {
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?38238624");
-  src: url("../font/fontello.eot?38238624#iefix") format("embedded-opentype"), url("../font/fontello.woff?38238624") format("woff"), url("../font/fontello.ttf?38238624") format("truetype"), url("../font/fontello.svg?38238624#fontello") format("svg");
+  src: url("../font/fontello.eot?51843617");
+  src: url("../font/fontello.eot?51843617#iefix") format("embedded-opentype"), url("../font/fontello.woff?51843617") format("woff"), url("../font/fontello.ttf?51843617") format("truetype"), url("../font/fontello.svg?51843617#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -60,7 +60,7 @@ table {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?38238624#fontello') format('svg');
+    src: url('../font/fontello.svg?51843617#fontello') format('svg');
   }
 }
 */
@@ -343,6 +343,18 @@ table {
   content: '\e83e'; }
 
 /* '' */
+.icon-newspaper:before {
+  content: '\e83f'; }
+
+/* '' */
+.icon-logout:before {
+  content: '\e840'; }
+
+/* '' */
+.icon-login:before {
+  content: '\e841'; }
+
+/* '' */
 /* Reset */
 /* Main reset */
 *, *:after, *::before {
@@ -374,10 +386,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #3498DB; }
+  color: #3498DB;
+  transition: color 200ms; }
 
 .no-touch a:hover {
-  color: #258cd1; }
+  color: #217dbb; }
 
 .container {
   width: 100%;
@@ -505,6 +518,128 @@ h2 {
 .material-light {
   background-color: #FAFAFA;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2); }
+
+.container-navigation {
+  padding-top: 64px; }
+
+.navigation-tab {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  vertical-align: top; }
+
+.scroll-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; }
+
+.scroller {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  right: -2em;
+  bottom: 0;
+  left: 0; }
+
+.navigation-modules {
+  width: 5em;
+  padding: 0 1em; }
+
+.navigation-modules-list {
+  width: 3em;
+  padding: 0 0.25em;
+  margin: 0; }
+
+.navigation-module {
+  border-bottom: 1px solid #ECF0F1;
+  text-align: center;
+  position: relative;
+  margin-bottom: 1em; }
+  .navigation-module i {
+    color: #95A5A6;
+    font-size: 1.25em;
+    line-height: 2.8em;
+    display: inline-block;
+    cursor: pointer; }
+  .navigation-module .module-dropdown {
+    position: absolute;
+    top: 0.5em;
+    left: 2.5em;
+    text-align: left;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 250ms, z-index 0ms ease 250ms; }
+    .navigation-module .module-dropdown.module-dropdown-hidden {
+      display: none; }
+  .navigation-module .module-sub {
+    border-bottom: 0.5em solid #ECF0F1; }
+    .navigation-module .module-sub a {
+      color: #95A5A6;
+      display: block;
+      padding: 0 1.5em 0 0.5em;
+      white-space: nowrap; }
+      .navigation-module .module-sub a i {
+        font-size: 1em;
+        width: 2.5em;
+        color: inherit;
+        text-align: center;
+        line-height: 2em; }
+
+.module-info {
+  background-color: #ECF0F1;
+  font-size: 0.875em;
+  line-height: 2.85714286em;
+  padding: 0 1.5em 0 1em;
+  white-space: nowrap;
+  font-family: "Lato", sans-serif; }
+
+.navigation-user {
+  border-bottom: 0;
+  padding: 0.25em;
+  margin-top: 1.5em;
+  margin-bottom: 2em; }
+  .navigation-user .module-dropdown {
+    top: 0em; }
+
+.navigation-user-frame {
+  display: block;
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  background-color: #95A5A6;
+  color: #FAFAFA;
+  overflow: hidden;
+  line-height: 2em;
+  cursor: pointer; }
+
+.navigation-version {
+  text-align: center; }
+  .navigation-version img {
+    width: 2em; }
+  .navigation-version a, .navigation-version a:hover {
+    color: #BDC3C7;
+    font-size: 0.75em; }
+
+.no-touch .navigation-module > i, .no-touch .navigation-module > a > i {
+  transition: color 250ms; }
+
+.no-touch .navigation-module .module-sub a:hover {
+  color: #E74C3C; }
+
+.no-touch .navigation-module:hover > i, .no-touch .navigation-module:hover > a > i {
+  color: #E74C3C; }
+
+.no-touch .navigation-module:hover .module-dropdown {
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 250ms; }
+
+.navigation-nodes {
+  width: 17em; }
+  .navigation-nodes .navigation-nodes-container {
+    height: 100%;
+    width: 100%; }
 
 /* Pages */
 .auth-dialog {
