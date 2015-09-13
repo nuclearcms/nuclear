@@ -5,10 +5,20 @@
 
     &.container-main
         padding-left: 24em
+        padding-right: 2em
         position: relative
 
         @media screen and (max-width: $collapseThreshold)
             padding-left: 0
+            padding-right: 0
+
+.blackout
+    +position(fixed, 0 null null 0)
+    +size(100%)
+    background-color: $darkGray-2
+    opacity: 0
+    z-index: -1
+    +transition(opacity $animationNav, z-index 0 ease $animationNav)
 
 .container-navigation
     width: 24em
@@ -17,11 +27,25 @@
     top: 0
     height: 100%
     z-index: 100
+    padding-top: 4em
 
     @media screen and (max-width: $shrinkThreshold)
         left: 0
     @media screen and (max-width: $collapseThreshold)
-        left: -24em
+        left: -20em
+        +transition(transform $animationNav)
+        padding-top: 0
+        width: 20em
+        background-color: $lightGray-3
+
+        &.open
+            +transform(translateX(20em))
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5)
+
+            & + .blackout
+                opacity: 0.9
+                z-index: 99
+                +transition(opacity $animationNav)
 
 .container-content
     width: 100%
@@ -29,6 +53,10 @@
 .container-fullscreen
     +position(absolute, 0 null null 0)
     +size(100%)
+
+
+.content-main
+    padding: 0 2em 2em
 
 .dialog-static
     +position(absolute, 0 0 0 0)

@@ -23,6 +23,7 @@ elixir(function (mix) {
         .scripts([
             'components/Modernizr.js',
             'components/vue.min.js',
-            'components/zepto.min.js'
+            'components/zepto.min.js',
+            'navigation.js'
         ]);
 });

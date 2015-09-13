@@ -3,3 +3,38 @@ h2
     font-size: 2em
     margin-bottom: 0.5em
     color: $darkGray-1
+
+.header
+    padding: 3em 0 2em
+
+    @media screen and (max-width: $collapseThreshold)
+        padding: 1.5em 1em 1em 4em
+
+    h3
+        font-family: $fontHeading
+        font-size: 0.75em
+        font-weight: 700
+        color: $midGray-1
+
+    h1
+        font-size: 2em
+        color: $midGray-3
+
+        @media screen and (max-width: $collapseThreshold)
+            font-size: 1.5em
+
+.content-header
+    padding: 2em 1em
+    text-align: center
+
+    h4
+        font-size: 1.5em
+        color: $darkGray-1
+        margin-bottom: 0.25em
+
+        @media screen and (max-width: $collapseThreshold)
+            font-size: 1.25em
+
+    p
+        font-size: 0.875em
+        color: $midGray-1

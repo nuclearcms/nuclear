@@ -1,35 +1,56 @@
-.container-navigation
-    padding-top: 64px
+@media screen and (max-width: $collapseThreshold)
+    .scroll-container
+        position: relative
+        +size(100%)
+        overflow: hidden
+
+    .scroller
+        overflow: auto
+        +position(absolute, 0 -2.5em 0 0)
+        -webkit-overflow-scrolling: touch
 
 .navigation-tab
     display: inline-block
     height: 100%
-    position: relative
     vertical-align: top
 
-.scroll-container
-    position: relative
-    +size(100%)
-    overflow: hidden
+    @media screen and (max-width: $collapseThreshold)
+        +position(absolute, 3.5em null null 0)
+        height: calc(100% - 3.5em)
+        opacity: 0
+        z-index: -1
+        background-color: $lightGray-1
 
-.scroller
-    overflow: auto
-    +position(absolute, 0 -2em 0 0)
+        &.active
+            z-index: 100
+            opacity: 1
+
 
 .navigation-modules
     width: 5em
     padding: 0 1em
+
+    @media screen and (max-width: $collapseThreshold)
+        width: 100%
+        padding: 0.25em 0
 
 .navigation-modules-list
     width: 3em
     padding: 0 0.25em
     margin: 0
 
+    @media screen and (max-width: $collapseThreshold)
+        width: 20em
+        padding: 0
+
 .navigation-module
     border-bottom: 1px solid $lightGray-3
     text-align: center
     position: relative
-    margin-bottom: 1em
+    margin-bottom: 0.5em
+
+    &.module-hidden
+        display: none
 
     i
         color: $midGray-2
@@ -38,6 +59,18 @@
         display: inline-block
         cursor: pointer
 
+    @media screen and (max-width: $collapseThreshold)
+        margin-bottom: 0
+        border-bottom: 0
+
+        & > i
+            display: none
+
+        &.module-hidden-collapse
+            display: none
+        &.module-hidden
+            display: block
+
     .module-dropdown
         +position(absolute, 0.5em null null 2.5em)
         text-align: left
@@ -45,17 +78,25 @@
         z-index: -1
         +transition(opacity $animationNav, z-index 0ms ease $animationNav)
 
-        &.module-dropdown-hidden
-            display: none
+        @media screen and (max-width: $collapseThreshold)
+            position: static
+            opacity: 1
+            box-shadow: none
 
     .module-sub
         border-bottom: 0.5em solid $lightGray-3
+
+        @media screen and (max-width: $collapseThreshold)
+            border-bottom: 0
 
         a
             color: $midGray-2
             display: block
             padding: 0 1.5em 0 0.5em
             white-space: nowrap
+
+            @media screen and (max-width: $collapseThreshold)
+                line-height: 3em
 
             i
                 font-size: 1em
@@ -67,19 +108,22 @@
 .module-info
     background-color: $lightGray-3
     font-size: 0.875em
-    line-height: 2.85714286em
-    padding: 0 1.5em 0 1em
+    padding: 1em 2em 0.5em 1em
     white-space: nowrap
     font-family: $fontHeading
 
 .navigation-user
     border-bottom: 0
     padding: 0.25em
-    margin-top: 1.5em
-    margin-bottom: 2em
+    margin-top: 1em
+    margin-bottom: 3em
 
     .module-dropdown
         top: 0em
+
+    @media screen and (max-width: $collapseThreshold)
+        padding: 0
+        margin: 0
 
 .navigation-user-frame
     display: block
@@ -91,8 +135,12 @@
     line-height: 2em
     cursor: pointer
 
+    @media screen and (max-width: $collapseThreshold)
+        display: none
+
 .navigation-version
     text-align: center
+    border-bottom: 0
 
     img
         width: 2em
@@ -100,6 +148,65 @@
     a, a:hover
         color: $midGray-1
         font-size: 0.75em
+
+
+.hamburger
+    font-size: 1.75em
+    +size(2em)
+    +position(fixed, 0.4em null null 0.225em)
+    background-color: transparent
+    opacity: 0.25
+    cursor: pointer
+    display: none
+    +transition(opacity $animationFast)
+
+    @media screen and (max-width: $collapseThreshold)
+        display: inline-block
+
+.navigation-tabs
+    height: calc(3.5em)
+    border-bottom: 1px solid $midGray-1
+    padding-left: 1em
+    display: none
+
+    @media screen and (max-width: $collapseThreshold)
+        display: block
+
+    li
+        float: left
+        height: 2.25em
+        width: 2.4em
+        margin-top: 0.55em
+        text-align: center
+        font-size: 1.25em
+        line-height: 2.25em
+        color: $midGray-2
+        cursor: pointer
+        +transition(color $animationFast)
+        border: 1px solid transparent
+
+        &.active
+            border: 1px solid $midGray-1
+            border-bottom: 1px solid $lightGray-1
+            background-color: $lightGray-1
+            color: $darkGray-1
+
+.navigation-close
+    +position(absolute, 0.25em 0.1em null null)
+    font-size: 1.5em
+    +size(2em)
+    line-height: 2em
+    background-color: transparent
+    display: none
+    color: $midGray-3
+    cursor: pointer
+
+    @media screen and (max-width: $collapseThreshold)
+        display: inline-block
+
+.touch
+    .navigation-module .module-sub a
+        color: $darkGray-1
 
 .no-touch
     .navigation-module
@@ -117,3 +224,9 @@
                 z-index: 100
                 opacity: 1
                 +transition(opacity $animationNav)
+
+    .hamburger:hover
+        opacity: 0.5
+
+    .navigation-tabs li:hover
+        color: $darkGray-1
