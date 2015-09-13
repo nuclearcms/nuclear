@@ -477,7 +477,7 @@ a {
 .button {
   line-height: 2.85714286em;
   height: 2.85714286em;
-  padding: 0 2em;
+  padding: 0 1.75em;
   font-family: "Lato", sans-serif;
   font-size: 0.875em;
   background-color: transparent;
@@ -571,6 +571,9 @@ h2 {
     @media screen and (max-width: 992px) {
       .header h1 {
         font-size: 1.5em; } }
+
+.header-action {
+  float: right; }
 
 .content-header {
   padding: 2em 1em;
