@@ -36,4 +36,8 @@ Route::group(['prefix' => 'reactor'], function ()
     Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
     Route::post('password/reset', 'Auth\PasswordController@postReset');
 
+    // Users
+    Route::resource('users', 'UsersController', ['except' => 'show']);
+    Route::get('users/search', 'UsersController@search');
+
 });

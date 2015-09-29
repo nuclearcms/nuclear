@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('first_name', 50);
             $table->string('last_name', 50);
-            $table->integer('avatar_id')->unsigned();
+            $table->integer('avatar_id')->unsigned()->nullable();
 
             $table->rememberToken();
             $table->timestamps();

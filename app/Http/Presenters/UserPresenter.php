@@ -1,6 +1,6 @@
 <?php
 
-namespace Reactor\Presenters;
+namespace Reactor\Http\Presenters;
 
 
 use Laracasts\Presenter\Presenter;
@@ -16,6 +16,18 @@ class UserPresenter extends Presenter {
     public function fullName()
     {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function thumbnail()
+    {
+        // Empty if no avatar kk?
+        // Wrap this shit with a helper for thumbnail container
+        return '';
+    }
+
+    public function userGroup()
+    {
+        return 'User Group';
     }
 
 }

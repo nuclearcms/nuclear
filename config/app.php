@@ -151,6 +151,7 @@ return [
         Kenarkose\Chronicle\ChronicleServiceProvider::class,
         Kenarkose\Files\Provider\FilesServiceProvider::class,
         Kenarkose\Settlement\Provider\Laravel\SettlementServiceProvider::class,
+        Kenarkose\Sortable\SortableServiceProvider::class,
         Kenarkose\Synthesizer\Provider\Laravel\SynthesizerServiceProvider::class,
         Kenarkose\Transit\Provider\TransitServiceProvider::class,
 

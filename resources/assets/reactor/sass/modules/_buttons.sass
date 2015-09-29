@@ -7,6 +7,7 @@
     background-color: transparent
     color: $secondaryAccent
     cursor: pointer
+    display: inline-block
 
 .button-icon
     padding-right: 1.25em
@@ -16,6 +17,14 @@
     color: $lightGray-1
     +transition(background-color $animationFast)
 
+.button-icon-primary
+    width: 6em
+    text-align: center
+    font-size: 1em
+    line-height: 2.5em
+    height: 2.5em
+
 .no-touch
     .button-emphasized:hover
         background-color: $successHover
+        color: $lightGray-1

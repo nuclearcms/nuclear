@@ -6,9 +6,10 @@ h2
 
 .header
     padding: 3em 0 2em
+    +clearfix
 
     @media screen and (max-width: $collapseThreshold)
-        padding: 1.5em 1em 1em 4em
+        padding: 1.5em 0 1em 4em
 
     h3
         font-family: $fontHeading
@@ -23,8 +24,14 @@ h2
         @media screen and (max-width: $collapseThreshold)
             font-size: 1.5em
 
+.header-headings
+    float: left
+    padding-bottom: 0.5em
+
 .header-action
     float: right
+    margin-top: 0.5em
+    margin-left: 1em
 
 .content-header
     padding: 2em 1em

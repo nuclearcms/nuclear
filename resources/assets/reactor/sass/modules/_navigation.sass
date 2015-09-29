@@ -127,13 +127,15 @@
 
 .navigation-user-frame
     display: block
-    +size(2em)
+    +size(2.28571429em)
     border-radius: 50%
     background-color: $midGray-2
     color: $lightGray-1
     overflow: hidden
-    line-height: 2em
+    line-height: 2.28571429em
     cursor: pointer
+    font-size: 0.875em
+    font-family: $fontHeading
 
     @media screen and (max-width: $collapseThreshold)
         display: none
@@ -159,6 +161,7 @@
     cursor: pointer
     display: none
     +transition(opacity $animationFast)
+    z-index: 99
 
     @media screen and (max-width: $collapseThreshold)
         display: inline-block

@@ -1,0 +1,204 @@
+.content-options
+    +clearfix
+
+.content-search
+    float: left
+    position: relative
+
+    @media screen and (max-width: $microThreshold)
+        width: 100%
+
+    i
+        position: absolute
+        display: block
+        font-size: 1.25em
+        line-height: 2em
+        width: 2em
+        text-align: center
+        +position(absolute, 0 null null 0)
+        color: $midGray-3
+
+    .search-input
+        width: 100%
+        font-size: 0.75em
+        padding-left: 3.33333333em
+        padding-right: 1em
+        height: 3.33333333em
+        min-width: 22em
+
+.content-search-emphasized
+    padding: 0 1em 0 0
+
+    @media screen and (max-width: $collapseThreshold)
+        padding-left: 1em
+
+    .form-group
+        max-width: 30em
+
+    p
+        margin-bottom: 0.25em
+        color: $darkGray-1
+
+        &.muted
+            font-size: 0.75em
+            color: $midGray-3
+
+.content-list-container
+    margin-top: 4.25em
+    position: relative
+
+    a
+        color: $darkGray-2
+        display: inline-block
+
+.content-list
+    width: 100%
+    position: relative
+    top: -2.75em
+
+    tr
+        line-height: 1.5em
+
+    td, th
+        font-size: 0.875em
+        padding: 0.75em 1em 0.75em 0
+        color: $midGray-3
+        +clearfix
+        vertical-align: top
+
+    th
+        padding: 1em 1em 0.5em 0
+        vertical-align: bottom
+        font-weight: 700
+        font-family: $fontHeading
+        text-align: left
+
+        a.active
+            color: $secondaryAccent
+
+            &:after
+                display: inline-block
+                border-left: 0.3em solid transparent
+                border-right: 0.3em solid transparent
+                content: ''
+                height: 0.3em
+                width: 0.6em
+                margin-left: 0.5em
+                margin-bottom: 0.25em
+
+            &.asc:after
+                border-bottom: 0.3em solid $secondaryAccent
+
+            &.desc:after
+                border-top: 0.3em solid $secondaryAccent
+
+.content-item, .content-noresults
+    border-bottom: 1px solid $lightGray-3
+
+.content-item-thumbnail
+    width: 4em
+    text-align: center
+    vertical-align: middle !important
+    padding-right: 0 !important
+
+.content-item-options
+    width: 3em
+    text-align: center
+    padding: 0 !important
+    position: relative
+
+.content-item-options-button
+    cursor: pointer
+    display: block
+    +size(100%)
+    background-color: transparent
+    font-size: inherit
+    color: inherit
+    line-height: inherit
+    text-align: center
+    padding: 0.75em 1em
+    opacity: 0
+
+.content-item-options-list
+    +position(absolute, 0.5em 0.5em null null)
+    min-width: 16em
+    opacity: 0
+    z-index: -1
+    +transition(opacity $animationFast)
+
+    li
+        text-align: left
+
+    a, button
+        display: block
+        line-height: 2.85714286em
+        padding: 0 1em
+
+    button
+        background-color: transparent
+        font-size: inherit
+        color: $darkGray-2
+        cursor: pointer
+        width: 100%
+        text-align: left
+
+    .option-delete
+        +transition(color $animationFast)
+
+.content-noresults
+    padding: 3em 1em !important
+    font-size: 1.25em !important
+    text-align: center
+
+.content-footer
+    +clearfix
+    +position(absolute, null 0 0 null)
+    padding: 0.125em 0.25em
+    width: 100%
+    text-align: center
+
+    .pager
+
+        li
+            display: inline-block
+            font-size: 1.25em
+            min-width: 2em
+            text-align: center
+            line-height: 2em
+            vertical-align: text-top
+
+            span
+                display: block
+
+        .pager-indicator
+            padding: 0 0.5em
+            font-family: $fontHeading
+
+            span
+                font-size: 0.6em
+
+        .disabled
+            color: $midGray-2
+
+@media screen and (max-width: $collapseThreshold)
+    .content-column-hidden
+        display: none
+
+.no-touch
+    .content-item-options
+        .content-item-options-list .option-delete:hover
+            color: $accent
+
+        &:hover .content-item-options-list
+            opacity: 1
+            z-index: 30
+            +transition(opacity $animationFast, z-index 0ms ease $animationFast)
+
+    .content-item:hover
+        background-color: $lightGray-2
+
+        .content-item-options-button
+            opacity: 1
+
+    .content-list-container a:hover
+        color: $secondaryAccent

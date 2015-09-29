@@ -9,4 +9,12 @@ return [
     'content' => 'Content',
     'home' => 'Home',
 
+    'page' => 'Page',
+
+    'keywords' => 'Keywords',
+    'search_no_results' => 'Your search returned no results.',
+    'searched_for' => 'You have searched for',
+    'found_results' => 'And found :count results.',
+    'relevance_ordered' => 'Ordered by relevance.',
+
 ];

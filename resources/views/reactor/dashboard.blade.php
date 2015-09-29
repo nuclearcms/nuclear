@@ -5,7 +5,7 @@
 
 @section('content')
 
-    @include('partials.content_header', [
+    @include('partials.content.header', [
         'headerTitle' => trans('general.hello') . ', ' . $user->first_name . '!',
         'headerHint' => trans('general.dashboard_hint')
     ])

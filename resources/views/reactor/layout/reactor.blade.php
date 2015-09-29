@@ -7,12 +7,16 @@
 
         <div class="container-content">
             <header class="header">
-                <h3>@yield('contentSubtitle')</h3>
-                <h1>@yield('pageTitle')</h1>
+
+                <hgroup class="header-headings">
+                    <h3>@yield('contentSubtitle')</h3>
+                    <h1>@yield('pageTitle')</h1>
+                </hgroup>
 
                 <div class="header-action material-light">
                     @yield('action')
                 </div>
+                
             </header>
 
             @yield('content')

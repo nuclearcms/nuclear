@@ -3,6 +3,7 @@
 namespace Reactor\Providers;
 
 
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class ReactorServiceProvider extends ServiceProvider {
@@ -17,6 +18,8 @@ class ReactorServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->registerHelpers();
+
+        $this->setTimeLocale();
     }
 
     /**
@@ -39,6 +42,16 @@ class ReactorServiceProvider extends ServiceProvider {
     protected function registerHelpers()
     {
         require __DIR__ . '/../Support/helpers.php';
+    }
+
+    /**
+     * Sets the time locale for locale based time outputting
+     */
+    protected function setTimeLocale()
+    {
+        setlocale(LC_TIME, $this->app->getLocale());
+
+        Carbon::setLocale($this->app->getLocale());
     }
 
     /**
