@@ -1,0 +1,61 @@
+$animationModal: 400ms
+
+.modal-container
+    +position(fixed, 0 null null 0)
+    z-index: -1
+    +size(100%)
+    opacity: 0
+    +transition(opacity $animationModal, z-index 0ms ease $animationModal)
+
+    &.open
+        z-index: 110
+        opacity: 1
+        +transition(opacity $animationModal)
+
+        .blackout
+            opacity: 1
+            z-index: 110
+            +transition(opacity $animationModal)
+
+.modal
+    background-color: $lightGray-1
+    +position(relative, 50% null null 50%)
+    +transform(translate(-50%, -50%) scale(1.2, 1.2))
+    +transition(all $animationModal)
+    opacity: 0
+    width: 100%
+    max-width: 36em
+    padding: 1.5em 2em 0
+
+    .open &
+        +transform(translate(-50%, -50%) scale(1, 1))
+        opacity: 1
+        z-index: 100
+
+    .modal-content
+        padding: 2.5em 0
+
+        @media screen and (max-width: $collapseThreshold)
+            padding: 1.25em 0
+
+    .modal-buttons
+        text-align: right
+        padding-bottom: 1em
+
+    h4
+        font-size: 2em
+        line-height: 1.25em
+        font-family: $fontHeading
+
+    &.modal-notice h4
+        color: $secondaryAccent
+    &.modal-error h4
+        color: $error
+    &.model-success h4
+        color: $success
+
+    @media screen and (max-width: $collapseThreshold)
+        padding: 1em 1em 0
+
+        h4
+            font-size: 1.5em

@@ -2,11 +2,11 @@
 
 namespace Reactor\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Reactor\User;
 
-class UsersController extends ReactorController
-{
+class UsersController extends ReactorController {
 
     /**
      * Display a listing of the resource.
@@ -43,24 +43,35 @@ class UsersController extends ReactorController
      */
     public function create()
     {
-        return view('users.create');
+        $form = $this->form('Users\CreateForm', [
+            'method' => 'POST',
+            'url'    => '/reactor/users'
+        ]);
+
+        return view('users.create', compact('form'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param Request $request
      * @return Response
      */
     public function store(Request $request)
     {
-        //
+        $this->validateForm('Users\CreateForm', $request);
+
+        $user = User::create($request->all());
+
+        flash()->success(trans('users.created'));
+
+        return redirect('/reactor/users/' . $user->getKey() . '/edit');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -71,8 +82,8 @@ class UsersController extends ReactorController
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -83,13 +94,17 @@ class UsersController extends ReactorController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
-        User::findOrFail($id);
+        $user = User::findOrFail($id);
 
-        // Soft delete
+        $user->delete();
+
+        flash()->success(trans('users.deleted'));
+
+        return redirect('/reactor/users');
     }
 }

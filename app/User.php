@@ -6,6 +6,7 @@ namespace Reactor;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -20,7 +21,7 @@ class User extends Model implements AuthenticatableContract,
     CanResetPasswordContract,
     PresentableInterface {
 
-    use Authenticatable, Authorizable, CanResetPassword,
+    use Authenticatable, Authorizable, CanResetPassword, SoftDeletes,
         PresentableTrait, Sortable, SearchableTrait;
 
     /**
@@ -35,7 +36,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['email', 'password', 'first_name', 'last_name', 'avatar_id'];
+    protected $fillable = ['email', 'first_name', 'last_name', 'avatar_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -91,5 +92,32 @@ class User extends Model implements AuthenticatableContract,
             'email'      => 5
         ]
     ];
+
+    /**
+     * Password setter
+     *
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    /**
+     * Static constructor for User
+     *
+     * @param array $attributes
+     * @return static
+     */
+    public static function create(array $attributes = [])
+    {
+        $user = new static($attributes);
+
+        $user->setPassword($attributes['password']);
+
+        $user->save();
+
+        return $user;
+    }
 
 }

@@ -163,6 +163,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Chumper\Zipper\ZipperServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class
 
     ],
 
@@ -227,6 +228,7 @@ return [
         'Image'        => Intervention\Image\Facades\Image::class,
         'Zipper'       => Chumper\Zipper\Zipper::class,
         'Theme'        => igaster\laravelTheme\Facades\Theme::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class
 
     ],
 

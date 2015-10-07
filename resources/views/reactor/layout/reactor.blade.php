@@ -6,6 +6,9 @@
         @include('partials.navigation')
 
         <div class="container-content">
+
+            @yield('form_start')
+
             <header class="header">
 
                 <hgroup class="header-headings">
@@ -19,8 +22,11 @@
                 
             </header>
 
+            @include('partials.flash')
+
             @yield('content')
 
+            @yield('form_end')
         </div>
 
     </main>

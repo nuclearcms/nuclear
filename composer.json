@@ -42,7 +42,8 @@
         "chumper/zipper": "0.6.*",
         "igaster/laravel-theme": "^1.0",
         "guzzlehttp/guzzle": "^6.0",
-        "nicolaslopezj/searchable": "^1.5"
+        "nicolaslopezj/searchable": "^1.5",
+        "kris/laravel-form-builder": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

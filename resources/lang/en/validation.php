@@ -109,6 +109,8 @@ return [
         'password' => 'Password',
         'password_confirmation' => 'Password Confirmation',
         'keywords' => 'Keywords',
+        'first_name' => 'First Name',
+        'last_name' => 'Last Name',
     ],
 
 ];

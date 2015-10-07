@@ -108,7 +108,9 @@ return [
         'email' => 'E-mail',
         'password' => 'Şifre',
         'password_confirmation' => 'Şifre Onayı',
-        'keywords' => 'Anahtar Kelimeler'
+        'keywords' => 'Anahtar Kelimeler',
+        'first_name' => 'Ad',
+        'last_name' => 'Soyad',
     ],
 
 ];

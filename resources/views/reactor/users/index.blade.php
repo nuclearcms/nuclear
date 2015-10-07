@@ -32,3 +32,22 @@
 @section('content_footer')
     @include('partials.pagination', ['pagination' => $users])
 @endsection
+
+@section('modules')
+    @include('modal.confirm', [
+        'modalTitle' => trans('general.warning'),
+        'modalContent' => trans('users.confirm_delete')
+    ])
+@endsection
+
+@section('scripts')
+    <script>
+        var deleteDialog = new Modal($('.modal-container'),
+            {
+                onConfirmEvent : function(dialog) {
+                    dialog.current.closest('form').submit();
+                }
+            },
+            $('form > .option-delete'));
+    </script>
+@endsection

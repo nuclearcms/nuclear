@@ -1,7 +1,11 @@
 @extends('layout.content')
 
 @section('pageTitle', trans('users.search'))
-@section('contentSubtitle', uppercase(trans('users.title')))
+@section('contentSubtitle')
+    <a href="/reactor/users">
+        {{ uppercase(trans('users.title')) }}
+    </a>
+@endsection
 
 @section('content_options')
     @include('partials.content.bigsearch', ['result_count' => $users->count()])

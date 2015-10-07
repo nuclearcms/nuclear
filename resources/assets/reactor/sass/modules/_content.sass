@@ -120,16 +120,22 @@
     opacity: 0
 
 .content-item-options-list
-    +position(absolute, 0.5em 0.5em null null)
+    +position(absolute, 2em 1em null null)
     min-width: 16em
     opacity: 0
     z-index: -1
-    +transition(opacity $animationFast)
+    padding-bottom: 0.5em
 
     li
         text-align: left
 
-    a, button
+    .list-header
+        padding: 0.75em 1.5em 0
+        font-size: 0.75em
+        color: $midGray-3
+        font-family: $fontHeading
+
+    a, button, .disabled
         display: block
         line-height: 2.85714286em
         padding: 0 1em
@@ -141,6 +147,10 @@
         cursor: pointer
         width: 100%
         text-align: left
+
+    .disabled
+        color: $midGray-2
+        text-decoration: line-through
 
     .option-delete
         +transition(color $animationFast)
@@ -192,7 +202,7 @@
         &:hover .content-item-options-list
             opacity: 1
             z-index: 30
-            +transition(opacity $animationFast, z-index 0ms ease $animationFast)
+            +transition(opacity $animationFast)
 
     .content-item:hover
         background-color: $lightGray-2

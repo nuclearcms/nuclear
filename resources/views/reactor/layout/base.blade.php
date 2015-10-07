@@ -17,7 +17,10 @@
 
     @yield('body')
 
-    {!! Theme::js('js/all.js') !!}
+    {!! Theme::js('js/app.js') !!}
+
+    @yield('modules')
+
     @yield('scripts')
 
 </body>

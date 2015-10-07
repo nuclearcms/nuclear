@@ -139,8 +139,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
-    <nav id="nav_nodes" class="navigation-tab navigation-nodes">
+    </nav><nav id="nav_nodes" class="navigation-tab navigation-nodes">
         @include('partials.nodes')
     </nav>
 </div>
