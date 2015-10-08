@@ -97,10 +97,13 @@ class User extends Model implements AuthenticatableContract,
      * Password setter
      *
      * @param string $password
+     * @return $this for chaining
      */
     public function setPassword($password)
     {
         $this->attributes['password'] = bcrypt($password);
+
+        return $this;
     }
 
     /**

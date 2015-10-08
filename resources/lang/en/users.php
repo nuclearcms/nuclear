@@ -15,6 +15,14 @@ return [
     'delete' => 'Delete User',
     'deleted' => 'User was deleted.',
     'confirm_delete' => 'Are you sure you want to delete this user?',
+    'change_password' => 'Change Password',
+    'changed_password' => 'User password was changed.',
+
+    'profile' => 'Profile',
+    'password' => 'Password',
+    'roles' => 'Roles',
+    'groups' => 'Groups',
+    'history' => 'History',
 
     'search' => 'Search Users',
     'all' => 'All Users',

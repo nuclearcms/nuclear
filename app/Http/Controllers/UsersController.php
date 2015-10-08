@@ -61,11 +61,11 @@ class UsersController extends ReactorController {
     {
         $this->validateForm('Users\CreateForm', $request);
 
-        $user = User::create($request->all());
+        $profile = User::create($request->all());
 
         flash()->success(trans('users.created'));
 
-        return redirect('/reactor/users/' . $user->getKey() . '/edit');
+        return redirect('/reactor/users/' . $profile->getKey() . '/edit');
     }
 
     /**
@@ -76,7 +76,15 @@ class UsersController extends ReactorController {
      */
     public function edit($id)
     {
-        User::findOrFail($id);
+        $profile = User::findOrFail($id);
+
+        $form = $this->form('Users\EditForm', [
+            'method' => 'PUT',
+            'url'    => '/reactor/users/' . $id,
+            'model' => $profile
+        ]);
+
+        return view('users.edit', compact('form', 'profile'));
     }
 
     /**
@@ -88,7 +96,17 @@ class UsersController extends ReactorController {
      */
     public function update(Request $request, $id)
     {
-        User::findOrFail($id);
+        $profile = User::findOrFail($id);
+
+        $this->validateForm('Users\EditForm', $request, [
+            'email' => 'required|email|unique:users,email,' . $profile->getKey()
+        ]);
+
+        $profile->update($request->all());
+
+        flash()->success(trans('users.edited'));
+
+        return redirect('/reactor/users/' . $profile->getKey() . '/edit');
     }
 
     /**
@@ -107,4 +125,43 @@ class UsersController extends ReactorController {
 
         return redirect('/reactor/users');
     }
+
+    /**
+     * Show the form for updating password.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function password($id)
+    {
+        $profile = User::findOrFail($id);
+
+        $form = $this->form('Users\PasswordForm', [
+            'method' => 'PUT',
+            'url'    => '/reactor/users/' . $id . '/password',
+        ]);
+
+        return view('users.password', compact('form', 'profile'));
+    }
+
+    /**
+     * Update users password
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function updatePassword(Request $request, $id)
+    {
+        $profile = User::findOrFail($id);
+
+        $this->validateForm('Users\PasswordForm', $request);
+
+        $profile->setPassword($request->input('password'))->save();
+
+        flash()->success(trans('users.changed_password'));
+
+        return redirect('/reactor/users/' . $profile->getKey() . '/password');
+    }
+
 }

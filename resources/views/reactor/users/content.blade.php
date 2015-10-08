@@ -22,7 +22,7 @@
             <button class="content-item-options-button">
                 <i class="icon-ellipsis-vert"></i>
             </button>
-            <ul class="content-item-options-list material-light">
+            <ul class="content-item-options-list material-middle">
                 <li class="list-header">{{ uppercase(trans('general.options')) }}</li>
                 <li>
                     <a href="/reactor/users/{{ $profile->getKey() }}/edit">

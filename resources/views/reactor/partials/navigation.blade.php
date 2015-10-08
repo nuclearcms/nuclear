@@ -38,7 +38,7 @@
                     <li class="navigation-module">
                         <i class="icon-flow-cascade"></i>
 
-                        <div class="module-dropdown material-light">
+                        <div class="module-dropdown material-middle">
                             <div class="module-info">
                                 {{ uppercase(trans('nodes.management')) }}
                             </div>
@@ -51,7 +51,7 @@
                     <li class="navigation-module">
                         <i class="icon-docs"></i>
 
-                        <div class="module-dropdown material-light">
+                        <div class="module-dropdown material-middle">
                             <div class="module-info">
                                 {{ uppercase(trans('documents.title')) }}
                             </div>
@@ -71,7 +71,7 @@
                     <li class="navigation-module">
                         <i class="icon-user"></i>
 
-                        <div class="module-dropdown material-light">
+                        <div class="module-dropdown material-middle">
                             <div class="module-info">
                                 {{ uppercase(trans('users.title')) }}
                             </div>
@@ -94,7 +94,7 @@
                     <li class="navigation-module">
                         <i class="icon-cog"></i>
 
-                        <div class="module-dropdown material-light">
+                        <div class="module-dropdown material-middle">
                             <div class="module-info">
                                 {{ uppercase(trans('settings.title')) }}
                             </div>
@@ -114,7 +114,7 @@
                     {!! $user->present()->avatar !!}
                 </span>
 
-                        <div class="module-dropdown material-light">
+                        <div class="module-dropdown material-middle">
                             <div class="module-info">{{ uppercase($user->present()->fullName) }}</div>
                             <ul class="module-sub">
                                 <li>

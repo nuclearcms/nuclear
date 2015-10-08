@@ -43,6 +43,31 @@
             font-size: 0.75em
             color: $midGray-3
 
+.content-tabs-bar
+    text-align: center
+    background-color: $secondaryAccent
+    white-space: nowrap
+    overflow: auto
+    padding: 0 1.5em
+
+    li
+        display: inline-block
+        font-family: $fontHeading
+        line-height: 2.5em
+
+    .content-tab-flap
+        padding: 0 1.5em
+        display: block
+        font-size: 0.75em
+        line-height: 3.33333333em
+        border-bottom: 0.33333333em solid transparent
+        color: lighten($secondaryAccent, 25%)
+        font-weight: 700
+
+        &.active
+            border-bottom-color: darken($secondaryAccent, 10%)
+            color: $lightGray-1
+
 .content-list-container
     margin-top: 4.25em
     position: relative
@@ -124,7 +149,7 @@
     min-width: 16em
     opacity: 0
     z-index: -1
-    padding-bottom: 0.5em
+    padding-bottom: 0.25em
 
     li
         text-align: left
@@ -195,6 +220,9 @@
         display: none
 
 .no-touch
+    .content-tabs-bar .content-tab-flap:hover
+        color: $lightGray-1
+
     .content-item-options
         .content-item-options-list .option-delete:hover
             color: $accent

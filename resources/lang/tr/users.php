@@ -15,6 +15,14 @@ return [
     'delete' => 'Kullanıcıyı Düzenle',
     'deleted' => 'Kullanıcı silindi.',
     'confirm_delete' => 'Bu kullanıcıyı silmek istediğinizden emin misiniz?',
+    'change_password' => 'Şifre Değiştirme',
+    'changed_password' => 'Kullanıcının şifresi değiştirildi.',
+
+    'profile' => 'Profil',
+    'password' => 'Şifre',
+    'roles' => 'Roller',
+    'groups' => 'Gruplar',
+    'history' => 'Geçmiş',
 
     'search' => 'Kullanıcı Ara',
     'all' => 'Tüm Kullanıcılar',
