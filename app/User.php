@@ -15,6 +15,8 @@ use Kenarkose\Sortable\Sortable;
 use Laracasts\Presenter\Contracts\PresentableInterface;
 use Laracasts\Presenter\PresentableTrait;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Reactor\ACL\HasPermissions;
+use Reactor\ACL\HasRoles;
 
 class User extends Model implements AuthenticatableContract,
     AuthorizableContract,
@@ -22,7 +24,8 @@ class User extends Model implements AuthenticatableContract,
     PresentableInterface {
 
     use Authenticatable, Authorizable, CanResetPassword, SoftDeletes,
-        PresentableTrait, Sortable, SearchableTrait;
+        PresentableTrait, Sortable, SearchableTrait,
+        HasRoles, HasPermissions;
 
     /**
      * The database table used by the model.
@@ -74,13 +77,6 @@ class User extends Model implements AuthenticatableContract,
     protected $sortableDirection = 'asc';
 
     /**
-     * Searchable columns for eloquence
-     *
-     * @var array
-     */
-    protected $searchableColumns = ['first_name', 'last_name', 'email'];
-
-    /**
      * Searchable columns.
      *
      * @var array
@@ -89,7 +85,7 @@ class User extends Model implements AuthenticatableContract,
         'columns' => [
             'first_name' => 10,
             'last_name'  => 10,
-            'email'      => 5
+            'email'      => 10
         ]
     ];
 

@@ -68,6 +68,7 @@
                         </div>
                     </li>
 
+                    @can('ACCESS_USERS')
                     <li class="navigation-module">
                         <i class="icon-user"></i>
 
@@ -79,17 +80,22 @@
                                 <li>
                                     <a href="/reactor/users"><i class="icon-user"></i>{{ trans('users.manage') }}</a>
                                 </li>
+                                @can('ACCESS_ROLES')
                                 <li>
-                                    <a href="/reactor/users/groups"><i
-                                        class="icon-users"></i>{{ trans('users.manage_groups') }}</a>
+                                    <a href="/reactor/roles"><i
+                                        class="icon-users"></i>{{ trans('users.manage_roles') }}</a>
                                 </li>
+                                @endcan
+                                @can('ACCESS_PERMISSIONS')
                                 <li>
-                                    <a href="/reactor/users/roles"><i
-                                        class="icon-list-add"></i>{{ trans('users.manage_roles') }}</a>
+                                    <a href="/reactor/permissions"><i
+                                        class="icon-list-add"></i>{{ trans('users.manage_permissions') }}</a>
                                 </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>
+                    @endcan
 
                     <li class="navigation-module">
                         <i class="icon-cog"></i>

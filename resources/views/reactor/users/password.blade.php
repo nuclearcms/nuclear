@@ -26,9 +26,9 @@
             </li><li>
                 <span class="content-tab-flap active">{{ uppercase(trans('users.password')) }}</span>
             </li><li>
-                <a href="/reactor/users/{{ $profile->getKey() }}/roles" class="content-tab-flap">{{ uppercase(trans('users.roles')) }}</a>
+                <a href="/reactor/users/{{ $profile->getKey() }}/permissions" class="content-tab-flap">{{ uppercase(trans('users.permissions')) }}</a>
             </li><li>
-                <a href="/reactor/users/{{ $profile->getKey() }}/groups" class="content-tab-flap">{{ uppercase(trans('users.groups')) }}</a>
+                <a href="/reactor/users/{{ $profile->getKey() }}/roles" class="content-tab-flap">{{ uppercase(trans('users.roles')) }}</a>
             </li><li>
                 <a href="/reactor/users/{{ $profile->getKey() }}/history" class="content-tab-flap">{{ uppercase(trans('users.history')) }}</a>
             </li>

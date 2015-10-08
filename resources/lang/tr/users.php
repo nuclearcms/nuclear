@@ -5,8 +5,8 @@ return [
     'title' => 'Kullanıcılar',
 
     'manage' => 'Kullanıcıları Yönet',
-    'manage_groups' => 'Grupları Yönet',
-    'manage_roles' => 'Rolleri Yönet',
+    'manage_groups' => 'Rolleri Yönet',
+    'manage_permissions' => 'İzinleri Yönet',
 
     'create' => 'Kullanıcı Yarat',
     'created' => 'Kullanıcı oluşturuldu.',
@@ -20,8 +20,8 @@ return [
 
     'profile' => 'Profil',
     'password' => 'Şifre',
+    'permissions' => 'İzinler',
     'roles' => 'Roller',
-    'groups' => 'Gruplar',
     'history' => 'Geçmiş',
 
     'search' => 'Kullanıcı Ara',

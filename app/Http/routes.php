@@ -41,16 +41,16 @@ Route::group(['prefix' => 'reactor'], function ()
     Route::get('users/search', 'UsersController@search');
     Route::get('users/{id}/password', 'UsersController@password');
     Route::put('users/{id}/password', 'UsersController@updatePassword');
+    Route::get('users/{id}/permissions', 'UsersController@permissions');
+    Route::put('users/{id}/permissions', 'UsersController@updatePermissions');
     Route::get('users/{id}/roles', 'UsersController@roles');
     Route::put('users/{id}/roles', 'UsersController@updateRoles');
-    Route::get('users/{id}/groups', 'UsersController@groups');
-    Route::put('users/{id}/groups', 'UsersController@updateGroups');
     Route::get('users/{id}/history', 'UsersController@history');
 
-    // Groups
-
     // Roles
-    Route::resource('roles', 'RolesController', ['except' => 'show']);
-    Route::get('roles/search', 'RolesController@search');
+
+    // Permissions
+    Route::resource('permissions', 'PermissionsController', ['except' => 'show']);
+    Route::get('permissions/search', 'PermissionsController@search');
 
 });

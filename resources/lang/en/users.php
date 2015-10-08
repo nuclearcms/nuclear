@@ -5,8 +5,8 @@ return [
     'title' => 'Users',
 
     'manage' => 'Manage Users',
-    'manage_groups' => 'Manage Groups',
     'manage_roles' => 'Manage Roles',
+    'manage_permissions' => 'Manage Permissions',
 
     'create' => 'Create User',
     'created' => 'User was created.',
@@ -20,8 +20,8 @@ return [
 
     'profile' => 'Profile',
     'password' => 'Password',
+    'permissions' => 'Permissions',
     'roles' => 'Roles',
-    'groups' => 'Groups',
     'history' => 'History',
 
     'search' => 'Search Users',
