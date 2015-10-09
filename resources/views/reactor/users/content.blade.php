@@ -15,7 +15,7 @@
         </td>
         <td class="content-column-hidden">
             <a href="/reactor/users/groups/0/edit">
-                {{ $profile->present()->userGroup }}
+                {{ $profile->present()->joinedAt }}
             </a>
         </td>
         <td class="content-item-options">

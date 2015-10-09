@@ -89,7 +89,7 @@
                                 @can('ACCESS_PERMISSIONS')
                                 <li>
                                     <a href="/reactor/permissions"><i
-                                        class="icon-list-add"></i>{{ trans('users.manage_permissions') }}</a>
+                                        class="icon-list"></i>{{ trans('users.manage_permissions') }}</a>
                                 </li>
                                 @endcan
                             </ul>

@@ -21,7 +21,7 @@
         {!! sortable_link('email', uppercase(trans('validation.attributes.email'))) !!}
     </th>
     <th class="content-column-hidden">
-        {!! uppercase(trans('users.group')) !!}
+        {!! sortable_link('created_at', uppercase(trans('users.joined_at'))) !!}
     </th>
 @endsection
 

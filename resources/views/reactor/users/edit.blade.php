@@ -15,8 +15,7 @@
 
 @section('content')
     @include('partials.content.header', [
-        'headerTitle' => $profile->present()->fullName,
-        'headerHint' => $profile->present()->userGroup
+        'headerTitle' => $profile->present()->fullName
     ])
 
     <div class="material-light">

@@ -60,7 +60,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $sortableColumns = ['first_name', 'email'];
+    protected $sortableColumns = ['first_name', 'email', 'created_at'];
 
     /**
      * Default sortable key

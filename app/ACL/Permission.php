@@ -3,9 +3,13 @@
 namespace Reactor\ACL;
 
 use Illuminate\Database\Eloquent\Model;
+use Kenarkose\Sortable\Sortable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Permission extends Model
 {
+
+    use Sortable, SearchableTrait;
 
     /**
      * Indicates if the model should be timestamped.
@@ -20,6 +24,13 @@ class Permission extends Model
      * @var array
      */
     protected $fillable = ['name'];
+
+    /**
+     * Sortable columns
+     *
+     * @var array
+     */
+    protected $sortableColumns = ['name'];
 
     /**
      * Default sortable key

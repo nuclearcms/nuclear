@@ -8,7 +8,7 @@ return [
     'manage_groups' => 'Rolleri Yönet',
     'manage_permissions' => 'İzinleri Yönet',
 
-    'create' => 'Kullanıcı Yarat',
+    'create' => 'Kullanıcı Oluştur',
     'created' => 'Kullanıcı oluşturuldu.',
     'edit' => 'Kullanıcıyı Sil',
     'edited' => 'Kullanıcı bilgileri düzenlendi.',
@@ -28,7 +28,17 @@ return [
     'all' => 'Tüm Kullanıcılar',
 
     'name' => 'İsim',
-    'group' => 'Grup',
     'joined_at' => 'Katılma',
+
+    'search_permissions' => 'İzin Ara',
+    'all_permissions' => 'Tüm İzinler',
+
+    'create' => 'İzin Oluştur',
+    'created' => 'İzin oluşturuldu.',
+    'edit' => 'İzni Sil',
+    'edited' => 'İzin düzenlendi.',
+    'delete' => 'İzni Düzenle',
+    'deleted' => 'İzin silindi.',
+    'confirm_delete' => 'Bu izni silmek istediğinizden emin misiniz?',
 
 ];

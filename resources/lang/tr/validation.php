@@ -111,6 +111,7 @@ return [
         'keywords' => 'Anahtar Kelimeler',
         'first_name' => 'Ad',
         'last_name' => 'Soyad',
+        'name' => 'İsim',
     ],
 
 ];

@@ -3,9 +3,13 @@
 namespace Reactor\ACL;
 
 use Illuminate\Database\Eloquent\Model;
+use Kenarkose\Sortable\Sortable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Role extends Model
 {
+
+    use Sortable, SearchableTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -13,6 +17,13 @@ class Role extends Model
      * @var array
      */
     protected $fillable = ['name', 'label'];
+
+    /**
+     * Sortable columns
+     *
+     * @var array
+     */
+    protected $sortableColumns = ['label', 'name'];
 
     /**
      * Default sortable key

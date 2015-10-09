@@ -25,9 +25,9 @@ class UserPresenter extends Presenter {
         return '';
     }
 
-    public function userGroup()
+    public function joinedAt()
     {
-        return 'User Group';
+        return $this->created_at->formatLocalized('%b %e, %Y');
     }
 
 }

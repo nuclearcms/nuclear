@@ -3,10 +3,9 @@
 namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Reactor\Http\Requests;
-use Reactor\Http\Controllers\Controller;
+use Reactor\ACL\Permission;
 
-class PermissionsController extends Controller
+class PermissionsController extends ReactorController
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,24 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-        return 'derp';
+        $permissions = Permission::sortable()->paginate();
+
+        return view('permissions.index')
+            ->with(compact('permissions'));
+    }
+
+    /**
+     * Display results of searching the resource.
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function search(Request $request)
+    {
+        $permissions = Permission::search($request->input('q'))->get();
+
+        return view('permissions.search')
+            ->with(compact('permissions'));
     }
 
     /**
@@ -25,7 +41,12 @@ class PermissionsController extends Controller
      */
     public function create()
     {
-        //
+        $form = $this->form('Permissions\CreateEditForm', [
+            'method' => 'POST',
+            'url'    => '/reactor/permissions'
+        ]);
+
+        return view('permissions.create', compact('form'));
     }
 
     /**
@@ -36,18 +57,13 @@ class PermissionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validateForm('Permissions\CreateEditForm', $request);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $permission = Permission::create($request->all());
+
+        flash()->success(trans('users.created_permission'));
+
+        return redirect('/reactor/permissions/' . $permission->getKey() . '/edit');
     }
 
     /**
@@ -58,7 +74,15 @@ class PermissionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+
+        $form = $this->form('Permissions\CreateEditForm', [
+            'method' => 'PUT',
+            'url'    => '/reactor/permissions/' . $id,
+            'model' => $permission
+        ]);
+
+        return view('permissions.edit', compact('form', 'permission'));
     }
 
     /**
@@ -70,7 +94,19 @@ class PermissionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+
+        $this->validateForm('Permissions\CreateEditForm', $request, [
+            'name' => ['required', 'max:255',
+                'unique:permissions,name,' . $permission->getKey(),
+                'regex:/^(ACCESS|WRITE)(_([A-Z]+))+$/']
+        ]);
+
+        $permission->update($request->all());
+
+        flash()->success(trans('users.edited_permission'));
+
+        return redirect('/reactor/permissions/' . $permission->getKey() . '/edit');
     }
 
     /**
@@ -81,6 +117,12 @@ class PermissionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $permission = Permission::findOrFail($id);
+
+        $permission->delete();
+
+        flash()->success(trans('users.deleted_permission'));
+
+        return redirect('/reactor/permissions');
     }
 }

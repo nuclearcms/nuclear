@@ -19,7 +19,7 @@
         {{ uppercase(trans('validation.attributes.email')) }}
     </th>
     <th class="content-column-hidden">
-        {!! uppercase(trans('users.group')) !!}
+        {{ uppercase(trans('users.joined_at')) }}
     </th>
 @endsection
 
