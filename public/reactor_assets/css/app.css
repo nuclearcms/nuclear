@@ -811,9 +811,10 @@ label {
     display: table; }
   .form-group .control-label {
     font-size: 0.875em;
-    color: #7F8C8D;
-    font-family: "Lato", sans-serif;
-    transition: color 200ms; }
+    font-weight: 700;
+    color: #5F696A;
+    transition: color 200ms;
+    padding-left: 0.75em; }
   .form-group.focus .control-label {
     color: #3498DB; }
   .form-group input {
