@@ -99,7 +99,7 @@ class PermissionsController extends ReactorController
         $this->validateForm('Permissions\CreateEditForm', $request, [
             'name' => ['required', 'max:255',
                 'unique:permissions,name,' . $permission->getKey(),
-                'regex:/^(ACCESS|WRITE)(_([A-Z]+))+$/']
+                'regex:/^(ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+$/']
         ]);
 
         $permission->update($request->all());
