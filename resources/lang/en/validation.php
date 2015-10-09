@@ -112,6 +112,7 @@ return [
         'first_name' => 'First Name',
         'last_name' => 'Last Name',
         'name' => 'Name',
+        'label' => 'Label',
     ],
 
 ];

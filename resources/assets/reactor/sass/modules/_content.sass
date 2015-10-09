@@ -118,6 +118,23 @@
             &.desc:after
                 border-top: 0.3em solid $secondaryAccent
 
+.content-list-sub-container
+    padding: 2em
+    margin-top: 0
+
+    @media screen and (max-width: $collapseThreshold)
+        padding: 1.5em
+
+.content-list-sub
+    top: 0
+    margin-top: 0
+
+    td,th
+        padding-left: 1em
+
+    .content-body
+        border-top: 1px solid $lightGray-3
+
 .content-item, .content-noresults
     border-bottom: 1px solid $lightGray-3
 

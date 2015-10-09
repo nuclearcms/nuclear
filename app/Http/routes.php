@@ -48,6 +48,13 @@ Route::group(['prefix' => 'reactor'], function ()
     Route::get('users/{id}/history', 'UsersController@history');
 
     // Roles
+    Route::resource('roles', 'RolesController', ['except' => 'show']);
+    Route::get('roles/search', 'RolesController@search');
+    Route::get('roles/{id}/permissions', 'RolesController@permissions');
+    Route::put('roles/{id}/permissions', 'RolesController@addPermission');
+    Route::delete('roles/{id}/permissions', 'RolesController@removePermission');
+    Route::get('roles/{id}/users', 'RolesController@users');
+    Route::delete('roles/{id}/users', 'RolesController@removeUser');
 
     // Permissions
     Route::resource('permissions', 'PermissionsController', ['except' => 'show']);

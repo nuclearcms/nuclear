@@ -5,11 +5,12 @@ namespace Reactor\ACL;
 use Illuminate\Database\Eloquent\Model;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Reactor\User;
 
 class Role extends Model
 {
 
-    use Sortable, SearchableTrait;
+    use Sortable, SearchableTrait, HasPermissions;
 
     /**
      * The attributes that are mass assignable.
@@ -52,24 +53,26 @@ class Role extends Model
     ];
 
     /**
-     * Permissions relation
+     * Users relation
      *
      * @return Relation
      */
-    public function permissions()
+    public function users()
     {
-        return $this->belongsToMany(Permission::class);
+        return $this->belongsToMany(User::class);
     }
 
     /**
-     * Helper for adding a permission
+     * Unlink a user from role
      *
-     * @param Permission $permission
-     * @return $permission
+     * @param int $id
+     * @return User
      */
-    public function givePermissionTo(Permission $permission)
+    public function dissociateUser($id)
     {
-        return $this->permissions()->attach($permission);
+        return $this->users()->detach(
+            User::find($id)
+        );
     }
 
 }

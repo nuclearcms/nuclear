@@ -112,6 +112,7 @@ return [
         'first_name' => 'Ad',
         'last_name' => 'Soyad',
         'name' => 'İsim',
+        'label' => 'Etiket',
     ],
 
 ];
