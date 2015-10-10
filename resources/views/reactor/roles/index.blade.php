@@ -4,7 +4,7 @@
 @section('contentSubtitle', uppercase(trans('users.roles')))
 
 @section('action')
-    {!! action_button('/reactor/roles/create', 'icon-plus') !!}
+    {!! action_button(route('reactor.roles.create'), 'icon-plus') !!}
 @endsection
 
 @section('content_options')

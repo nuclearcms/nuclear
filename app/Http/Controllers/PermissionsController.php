@@ -43,7 +43,7 @@ class PermissionsController extends ReactorController
     {
         $form = $this->form('Permissions\CreateEditForm', [
             'method' => 'POST',
-            'url'    => '/reactor/permissions'
+            'url'    => route('reactor.permissions.store')
         ]);
 
         return view('permissions.create', compact('form'));
@@ -63,7 +63,7 @@ class PermissionsController extends ReactorController
 
         flash()->success(trans('users.created_permission'));
 
-        return redirect('/reactor/permissions/' . $permission->getKey() . '/edit');
+        return redirect()->route('reactor.permissions.edit', $permission->getKey());
     }
 
     /**
@@ -78,7 +78,7 @@ class PermissionsController extends ReactorController
 
         $form = $this->form('Permissions\CreateEditForm', [
             'method' => 'PUT',
-            'url'    => '/reactor/permissions/' . $id,
+            'url'    => route('reactor.permissions.update', $id),
             'model' => $permission
         ]);
 
@@ -106,7 +106,7 @@ class PermissionsController extends ReactorController
 
         flash()->success(trans('users.edited_permission'));
 
-        return redirect('/reactor/permissions/' . $permission->getKey() . '/edit');
+        return redirect()->route('reactor.permissions.edit', $id);
     }
 
     /**
@@ -123,6 +123,6 @@ class PermissionsController extends ReactorController
 
         flash()->success(trans('users.deleted_permission'));
 
-        return redirect('/reactor/permissions');
+        return redirect()->route('reactor.permissions.index');
     }
 }

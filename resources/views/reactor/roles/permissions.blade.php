@@ -2,9 +2,7 @@
 
 @section('pageTitle', trans('users.permissions'))
 @section('contentSubtitle')
-    <a href="/reactor/roles">
-        {{ uppercase(trans('users.roles')) }}
-    </a>
+    {!! link_to_route('reactor.roles.index', uppercase(trans('users.roles'))) !!}
 @endsection
 
 @section('content')
@@ -16,11 +14,11 @@
     <div class="material-light">
         <ul class="content-tabs-bar">
             <li>
-                <a href="/reactor/roles/{{ $role->getKey() }}/edit" class="content-tab-flap">{{ uppercase(trans('users.role')) }}</a>
+                {!! link_to_route('reactor.roles.edit', uppercase(trans('users.role')), $role->getKey(), ['class' => 'content-tab-flap']) !!}
             </li><li>
                 <span class="content-tab-flap active">{{ uppercase(trans('users.permissions')) }}</span>
             </li><li>
-                <a href="/reactor/roles/{{ $role->getKey() }}/users" class="content-tab-flap">{{ uppercase(trans('users.title')) }}</a>
+                {!! link_to_route('reactor.roles.users', uppercase(trans('users.title')), $role->getKey(), ['class' => 'content-tab-flap']) !!}
             </li>
         </ul>
         @include('permissions.subtable', ['permissions' => $role->permissions])

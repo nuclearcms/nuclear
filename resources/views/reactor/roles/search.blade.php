@@ -2,9 +2,7 @@
 
 @section('pageTitle', trans('users.search_roles'))
 @section('contentSubtitle')
-    <a href="/reactor/roles">
-        {{ uppercase(trans('users.roles')) }}
-    </a>
+    {!! link_to_route('reactor.roles.index', uppercase(trans('users.roles'))) !!}
 @endsection
 
 @section('content_options')
@@ -26,7 +24,7 @@
 @endsection
 
 @section('content_footer')
-    {!! back_to_all_link('/reactor/roles', 'users.all_roles') !!}
+    {!! back_to_all_link(route('reactor.roles.index'), 'users.all_roles') !!}
 @endsection
 
 @include('partials.content.delete_modal', ['message' => 'users.confirm_delete_role'])

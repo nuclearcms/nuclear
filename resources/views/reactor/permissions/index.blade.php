@@ -4,7 +4,7 @@
 @section('contentSubtitle', uppercase(trans('users.permissions')))
 
 @section('action')
-    {!! action_button('/reactor/permissions/create', 'icon-list-add') !!}
+    {!! action_button(route('reactor.permissions.create'), 'icon-list-add') !!}
 @endsection
 
 @section('content_options')

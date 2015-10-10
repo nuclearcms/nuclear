@@ -4,21 +4,19 @@
 
         </td>
         <td>
-            <a href="/reactor/roles/{{ $role->getKey() }}/edit">
-                {{ $role->label }}
-            </a>
+            {!! link_to_route('reactor.roles.edit', $role->label, $role->getKey()) !!}
         </td>
         <td>
             {{ $role->name }}
         </td>
         {!! content_options_open() !!}
             <li>
-                <a href="/reactor/roles/{{ $role->getKey() }}/edit">
+                <a href="{{ route('reactor.roles.edit', $role->getKey()) }}">
                     <i class="icon-pencil"></i> {{ trans('users.edit_role') }}</a>
             </li>
             <li>
                 {!! delete_form(
-                    '/reactor/roles/' . $role->getKey(),
+                    route('reactor.roles.destroy', $role->getKey()),
                     trans('users.delete_role')
                 ) !!}
             </li>

@@ -5,14 +5,12 @@
         @foreach ($users as $profile)
             <tr class="content-item">
                 <td>
-                    <a href="/reactor/users/{{ $profile->getKey() }}/edit">
-                        {{ $profile->present()->fullName }}
-                    </a>
+                    {!! link_to_route('reactor.users.edit', $profile->present()->fullName, $profile->getKey()) !!}
                 </td>
                 {!! content_options_open() !!}
                     <li>
                         {!! delete_form(
-                            '/reactor/roles/' . $role->getKey() . '/users',
+                            route('reactor.roles.user.remove', $role->getKey()),
                             trans('users.unlink_user')
                         ) !!}
                     </li>

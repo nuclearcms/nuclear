@@ -45,7 +45,7 @@ class UsersController extends ReactorController {
     {
         $form = $this->form('Users\CreateForm', [
             'method' => 'POST',
-            'url'    => '/reactor/users'
+            'url'    => route('reactor.users.store')
         ]);
 
         return view('users.create', compact('form'));
@@ -65,7 +65,7 @@ class UsersController extends ReactorController {
 
         flash()->success(trans('users.created'));
 
-        return redirect('/reactor/users/' . $profile->getKey() . '/edit');
+        return redirect()->route('reactor.users.edit', $profile->getKey());
     }
 
     /**
@@ -80,7 +80,7 @@ class UsersController extends ReactorController {
 
         $form = $this->form('Users\EditForm', [
             'method' => 'PUT',
-            'url'    => '/reactor/users/' . $id,
+            'url'    => route('reactor.users.update', $id),
             'model' => $profile
         ]);
 
@@ -106,7 +106,7 @@ class UsersController extends ReactorController {
 
         flash()->success(trans('users.edited'));
 
-        return redirect('/reactor/users/' . $profile->getKey() . '/edit');
+        return redirect()->route('reactor.users.edit', $id);
     }
 
     /**
@@ -123,7 +123,7 @@ class UsersController extends ReactorController {
 
         flash()->success(trans('users.deleted'));
 
-        return redirect('/reactor/users');
+        return redirect()->route('reactor.users.index');
     }
 
     /**
@@ -138,7 +138,7 @@ class UsersController extends ReactorController {
 
         $form = $this->form('Users\PasswordForm', [
             'method' => 'PUT',
-            'url'    => '/reactor/users/' . $id . '/password',
+            'url'    => route('reactor.users.password.post', $id),
         ]);
 
         return view('users.password', compact('form', 'profile'));
@@ -161,7 +161,7 @@ class UsersController extends ReactorController {
 
         flash()->success(trans('users.changed_password'));
 
-        return redirect('/reactor/users/' . $profile->getKey() . '/password');
+        return redirect()->route('reactor.users.password', $id);
     }
 
 }

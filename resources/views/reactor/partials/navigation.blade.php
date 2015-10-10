@@ -19,7 +19,7 @@
                 <ul class="navigation-modules-list">
 
                     <li class="navigation-module module-hidden-collapse">
-                        <a href="/reactor">
+                        <a href="{{ route('reactor.dashboard') }}">
                             <i class="icon-gauge"></i>
                         </a>
                     </li>
@@ -28,7 +28,7 @@
                         <div class="module-dropdown">
                             <ul class="module-sub">
                                 <li>
-                                    <a href="/reactor"><i
+                                    <a href="{{ route('reactor.dashboard') }}"><i
                                         class="icon-gauge"></i>{{ trans('general.dashboard') }}</a>
                                 </li>
                             </ul>
@@ -57,11 +57,11 @@
                             </div>
                             <ul class="module-sub">
                                 <li>
-                                    <a href="/reactor/documents"><i
+                                    <a href="#"><i
                                         class="icon-folder-empty"></i>{{ trans('documents.manage') }}</a>
                                 </li>
                                 <li>
-                                    <a href="/reactor/documents/upload"><i
+                                    <a href="#"><i
                                         class="icon-upload-cloud"></i>{{ trans('documents.upload') }}</a>
                                 </li>
                             </ul>
@@ -77,14 +77,14 @@
                             </div>
                             <ul class="module-sub">
                                 <li>
-                                    <a href="/reactor/users"><i class="icon-user"></i>{{ trans('users.manage') }}</a>
+                                    <a href="{{ route('reactor.users.index') }}"><i class="icon-user"></i>{{ trans('users.manage') }}</a>
                                 </li>
                                 <li>
-                                    <a href="/reactor/roles"><i
+                                    <a href="{{ route('reactor.roles.index') }}"><i
                                         class="icon-users"></i>{{ trans('users.manage_roles') }}</a>
                                 </li>
                                 <li>
-                                    <a href="/reactor/permissions"><i
+                                    <a href="{{ route('reactor.permissions.index') }}"><i
                                         class="icon-list"></i>{{ trans('users.manage_permissions') }}</a>
                                 </li>
                             </ul>
@@ -100,10 +100,7 @@
                             </div>
                             <ul class="module-sub">
                                 <li>
-                                    <a href="/reactor/settings"><i class="icon-list"></i>{{ trans('settings.all') }}</a>
-                                </li>
-                                <li>
-                                    <a href="/reactor/settings"><i class="icon-list"></i>NEED TO LIST GROUPS</a>
+                                    <a href="#"><i class="icon-list"></i>{{ trans('settings.all') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -118,11 +115,11 @@
                             <div class="module-info">{{ uppercase($user->present()->fullName) }}</div>
                             <ul class="module-sub">
                                 <li>
-                                    <a href="/reactor/users/{{ $user->getKey() }}/edit"><i
+                                    <a href="{{ route('reactor.users.edit', $user->getKey()) }}"><i
                                         class="icon-newspaper"></i>{{ trans('auth.edit_profile') }}</a>
                                 </li>
                                 <li>
-                                    <a href="/reactor/auth/logout"><i class="icon-logout"></i>{{ trans('auth.logout') }}
+                                    <a href="{{ route('reactor.auth.logout') }}"><i class="icon-logout"></i>{{ trans('auth.logout') }}
                                     </a>
                                 </li>
                             </ul>
@@ -130,7 +127,7 @@
                     </li>
 
                     <li class="navigation-module navigation-version module-hidden-collapse">
-                        <a href="/reactor/nuclear">
+                        <a href="#">
                             {!! Theme::img('img/nuclear-logo.svg', 'Nuclear Logo') !!}
                             <span>v{{ nuclear_version() }}</span>
                         </a>

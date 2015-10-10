@@ -2,9 +2,7 @@
 
 @section('pageTitle', trans('users.create_permission'))
 @section('contentSubtitle')
-    <a href="/reactor/permissions">
-        {{ uppercase(trans('users.permissions')) }}
-    </a>
+    {!! link_to_route('reactor.permissions.index', uppercase(trans('users.permissions'))) !!}
 @endsection
 
 @section('action')

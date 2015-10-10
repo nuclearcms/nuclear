@@ -2,9 +2,7 @@
 
 @section('pageTitle', trans('users.edit'))
 @section('contentSubtitle')
-    <a href="/reactor/users">
-        {{ uppercase(trans('users.title')) }}
-    </a>
+    {!! link_to_route('reactor.users.index', uppercase(trans('users.title'))) !!}
 @endsection
 
 @section('action')
@@ -21,13 +19,13 @@
             <li>
                 <span class="content-tab-flap active">{{ uppercase(trans('users.profile')) }}</span>
             </li><li>
-                <a href="/reactor/users/{{ $profile->getKey() }}/password" class="content-tab-flap">{{ uppercase(trans('users.password')) }}</a>
+                {!! link_to_route('reactor.users.password', uppercase(trans('users.password')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
             </li><li>
-                <a href="/reactor/users/{{ $profile->getKey() }}/permissions" class="content-tab-flap">{{ uppercase(trans('users.permissions')) }}</a>
+                {!! link_to_route('reactor.users.permissions', uppercase(trans('users.permissions')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
             </li><li>
-                <a href="/reactor/users/{{ $profile->getKey() }}/roles" class="content-tab-flap">{{ uppercase(trans('users.roles')) }}</a>
+                {!! link_to_route('reactor.users.roles', uppercase(trans('users.roles')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
             </li><li>
-                <a href="/reactor/users/{{ $profile->getKey() }}/history" class="content-tab-flap">{{ uppercase(trans('users.history')) }}</a>
+                {!! link_to_route('reactor.users.history', uppercase(trans('users.history')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
             </li>
         </ul>
         <div class="content-form">

@@ -5,14 +5,12 @@
         @foreach ($permissions as $permission)
             <tr class="content-item">
                 <td>
-                    <a href="/reactor/permissions/{{ $permission->getKey() }}/edit">
-                        {{ $permission->name }}
-                    </a>
+                    {!! link_to_route('reactor.permissions.edit', $permission->name, $permission->getKey()) !!}
                 </td>
                 {!! content_options_open() !!}
                     <li>
                         {!! delete_form(
-                            '/reactor/roles/' . $role->getKey() . '/permissions',
+                            route('reactor.roles.permission.remove', $role->getKey()),
                             trans('users.unlink_permission')
                         ) !!}
                     </li>

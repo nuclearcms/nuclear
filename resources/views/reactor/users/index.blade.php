@@ -4,7 +4,7 @@
 @section('contentSubtitle', uppercase(trans('users.title')))
 
 @section('action')
-    {!! action_button('/reactor/users/create', 'icon-user-add') !!}
+    {!! action_button(route('reactor.users.create'), 'icon-user-add') !!}
 @endsection
 
 @section('content_options')

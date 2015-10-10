@@ -45,7 +45,7 @@ class RolesController extends ReactorController
     {
         $form = $this->form('Roles\CreateEditForm', [
             'method' => 'POST',
-            'url'    => '/reactor/roles'
+            'url'    => route('reactor.roles.store')
         ]);
 
         return view('roles.create', compact('form'));
@@ -65,7 +65,7 @@ class RolesController extends ReactorController
 
         flash()->success(trans('users.created_role'));
 
-        return redirect('/reactor/roles/' . $role->getKey() . '/edit');
+        return redirect()->route('reactor.roles.edit', $role->getKey());
     }
 
     /**
@@ -80,7 +80,7 @@ class RolesController extends ReactorController
 
         $form = $this->form('Roles\CreateEditForm', [
             'method' => 'PUT',
-            'url'    => '/reactor/roles/' . $id,
+            'url'    => route('reactor.roles.update', $id),
             'model' => $role
         ]);
 
@@ -108,7 +108,7 @@ class RolesController extends ReactorController
 
         flash()->success(trans('users.edited_role'));
 
-        return redirect('/reactor/roles/' . $role->getKey() . '/edit');
+        return redirect()->route('reactor.roles.edit', $id);
     }
 
     /**
@@ -125,7 +125,7 @@ class RolesController extends ReactorController
 
         flash()->success(trans('users.deleted_role'));
 
-        return redirect('/reactor/roles');
+        return redirect()->route('reactor.roles.index');
     }
 
     /**
@@ -170,7 +170,7 @@ class RolesController extends ReactorController
 
         flash()->success(trans('users.unlinked_permission'));
 
-        return redirect('/reactor/roles/' . $role->getKey() . '/permissions');
+        return redirect()->route('reactor.roles.permissions', $id);
     }
 
     /**
@@ -203,7 +203,7 @@ class RolesController extends ReactorController
 
         flash()->success(trans('users.unlinked_user'));
 
-        return redirect('/reactor/roles/' . $role->getKey() . '/users');
+        return redirect()->route('reactor.roles.users', $id);
     }
 
 }

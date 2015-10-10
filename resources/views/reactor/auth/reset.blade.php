@@ -7,7 +7,7 @@
 
     @include('auth.error')
 
-    <form method="POST" action="/reactor/password/reset">
+    <form method="POST" action="{{ route('reactor.password.reset.post') }}">
         {!! csrf_field() !!}
         <input type="hidden" name="token" value="{{ $token }}">
 

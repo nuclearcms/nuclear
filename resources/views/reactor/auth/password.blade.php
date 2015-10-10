@@ -12,7 +12,7 @@
         @include('auth.error')
     @endif
 
-    <form class="auth-form-space" method="POST" action="/reactor/password/email">
+    <form class="auth-form-space" method="POST" action="{{ route('reactor.password.email.post') }}">
         {!! csrf_field() !!}
 
         <div class="form-group form-group-icon-label">
@@ -27,6 +27,6 @@
         </div>
     </form>
     <div class="auth-option">
-        <a href="/reactor/auth/login"><i class="icon-left-open-big"></i>{{ trans('passwords.back_to_login') }}</a>
+        <a href="{{ route('reactor.auth.login') }}"><i class="icon-left-open-big"></i>{{ trans('passwords.back_to_login') }}</a>
     </div>
 @endsection

@@ -11,8 +11,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 class AuthController extends Controller
 {
 
-    protected $redirectPath = '/reactor';
-    protected $loginPath = '/reactor/auth/login';
+    protected $redirectPath;
+    protected $loginPath;
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +35,9 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+
+        $this->redirectPath = route('reactor.dashboard');
+        $this->loginPath = route('reactor.auth.login');
     }
 
     /**

@@ -2,9 +2,7 @@
 
 @section('pageTitle', trans('users.create_role'))
 @section('contentSubtitle')
-    <a href="/reactor/roles">
-        {{ uppercase(trans('users.roles')) }}
-    </a>
+    {!! link_to_route('reactor.roles.index', uppercase(trans('users.roles'))) !!}
 @endsection
 
 @section('action')

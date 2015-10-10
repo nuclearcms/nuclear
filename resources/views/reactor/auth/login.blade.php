@@ -5,7 +5,7 @@
 @section('content')
     <h2>{{ trans('auth.login') }}</h2>
     @include('auth.error')
-    <form method="POST" action="/reactor/auth/login">
+    <form method="POST" action="{{ route('reactor.auth.login.post') }}">
         {!! csrf_field() !!}
 
         <div class="form-group form-group-icon-label">
@@ -34,6 +34,6 @@
         </div>
     </form>
     <div class="auth-option">
-        <a href="/reactor/password/email">{{ trans('auth.forgot') }}</a>
+        {!! link_to_route('reactor.password.email', trans('auth.forgot')) !!}
     </div>
 @endsection

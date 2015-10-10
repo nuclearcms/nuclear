@@ -4,9 +4,7 @@
             {{ $profile->present()->thumbnail }}
         </td>
         <td>
-            <a href="/reactor/users/{{ $profile->getKey() }}/edit">
-                {{ $profile->present()->fullName }}
-            </a>
+            {!! link_to_route('reactor.users.edit', $profile->present()->fullName, $profile->getKey()) !!}
         </td>
         <td class="content-column-hidden">
             <a href="mailto:{{ $profile->email }}">
@@ -14,20 +12,18 @@
             </a>
         </td>
         <td class="content-column-hidden">
-            <a href="/reactor/users/groups/0/edit">
-                {{ $profile->present()->joinedAt }}
-            </a>
+            {{ $profile->present()->joinedAt }}
         </td>
         {!! content_options_open() !!}
             <li>
-                <a href="/reactor/users/{{ $profile->getKey() }}/edit">
+                <a href="{{ route('reactor.users.edit', $profile->getKey()) }}">
                     <i class="icon-pencil"></i> {{ trans('users.edit') }}</a>
             </li>
 
             @if($profile->getKey() !== $user->getKey())
                 <li>
                     {!! delete_form(
-                        '/reactor/users/' . $profile->getKey(),
+                        route('reactor.users.destroy', $profile->getKey()),
                         trans('users.delete')
                     ) !!}
                 </li>

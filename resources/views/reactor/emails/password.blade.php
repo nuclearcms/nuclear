@@ -5,7 +5,7 @@
 @section('content')
     <h3>{{ trans('general.hello') }}!</h3>
     <p>{{ trans('passwords.reset_requested') }}</p>
-    {{ url('reactor/password/reset/'.$token) }}
+    {!! link_to_route('reactor.password.reset', null, $token) !!}
     <p>{{ trans('passwords.ignore') }}</p>
 
     <p>{{ trans('general.thank_you') }}!</p>

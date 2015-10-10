@@ -16,7 +16,7 @@ if ( ! function_exists('delete_form'))
             method_field('DELETE') . csrf_field() .
             '<button type="submit" class="option-delete">
                 <i class="%s"></i> %s
-            </button>',
+            </button></form>',
             $action, $icon, $text);
     }
 }

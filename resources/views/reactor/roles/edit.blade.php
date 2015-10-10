@@ -2,9 +2,7 @@
 
 @section('pageTitle', trans('users.edit_role'))
 @section('contentSubtitle')
-    <a href="/reactor/roles">
-        {{ uppercase(trans('users.roles')) }}
-    </a>
+    {!! link_to_route('reactor.roles.index', uppercase(trans('users.roles'))) !!}
 @endsection
 
 @section('action')
@@ -22,9 +20,9 @@
             <li>
                 <span class="content-tab-flap active">{{ uppercase(trans('users.role')) }}</span>
             </li><li>
-                <a href="/reactor/roles/{{ $role->getKey() }}/permissions" class="content-tab-flap">{{ uppercase(trans('users.permissions')) }}</a>
+                {!! link_to_route('reactor.roles.permissions', uppercase(trans('users.permissions')), $role->getKey(), ['class' => 'content-tab-flap']) !!}
             </li><li>
-                <a href="/reactor/roles/{{ $role->getKey() }}/users" class="content-tab-flap">{{ uppercase(trans('users.title')) }}</a>
+                {!! link_to_route('reactor.roles.users', uppercase(trans('users.title')), $role->getKey(), ['class' => 'content-tab-flap']) !!}
             </li>
         </ul>
         <div class="content-form">

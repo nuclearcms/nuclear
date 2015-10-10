@@ -2,9 +2,7 @@
 
 @section('pageTitle', trans('users.search_permissions'))
 @section('contentSubtitle')
-    <a href="/reactor/permissions">
-        {{ uppercase(trans('users.permissions')) }}
-    </a>
+    {!! link_to_route('reactor.permissions.index', uppercase(trans('users.permissions'))) !!}
 @endsection
 
 @section('content_options')
@@ -26,7 +24,7 @@
 @endsection
 
 @section('content_footer')
-    {!! back_to_all_link('/reactor/permissions', 'users.all_permissions') !!}
+    {!! back_to_all_link(route('reactor.permissions.index'), 'users.all_permissions') !!}
 @endsection
 
 @include('partials.content.delete_modal', ['message' => 'users.confirm_delete_permission'])
