@@ -22,42 +22,71 @@ Route::get('/', function ()
 Route::group(['prefix' => 'reactor'], function ()
 {
     // Dashboard
-    Route::get('/', 'DashboardController@index');
+    Route::get('/', ['uses' => 'DashboardController@index',
+                     'as' => 'reactor.dashboard']);
 
     // Authentication
-    Route::get('auth/login', 'Auth\AuthController@getLogin');
-    Route::post('auth/login', 'Auth\AuthController@postLogin');
-    Route::get('auth/logout', 'Auth\AuthController@getLogout');
+    Route::get('auth/login', ['uses' => 'Auth\AuthController@getLogin',
+        'as' => 'reactor.auth.login']);
+    Route::post('auth/login', ['uses' => 'Auth\AuthController@postLogin',
+        'as' => 'reactor.auth.login.post']);
+    Route::get('auth/logout', ['uses' => 'Auth\AuthController@getLogout',
+        'as' => 'reactor.auth.logout']);
 
     // Password Reset
-    Route::get('password/email', 'Auth\PasswordController@getEmail');
-    Route::post('password/email', 'Auth\PasswordController@postEmail');
+    Route::get('password/email', ['uses' => 'Auth\PasswordController@getEmail',
+        'as' => 'reactor.password.email']);
+    Route::post('password/email', ['uses' => 'Auth\PasswordController@postEmail',
+        'as' => 'reactor.pasword.email.post']);
 
-    Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-    Route::post('password/reset', 'Auth\PasswordController@postReset');
+    Route::get('password/reset/{token}', ['uses' => 'Auth\PasswordController@getReset',
+        'as' => 'reactor.password.reset']);
+    Route::post('password/reset', ['uses' => 'Auth\PasswordController@postReset',
+        'as' => 'reactor.password.reset.post']);
 
     // Users
     Route::resource('users', 'UsersController', ['except' => 'show']);
-    Route::get('users/search', 'UsersController@search');
-    Route::get('users/{id}/password', 'UsersController@password');
-    Route::put('users/{id}/password', 'UsersController@updatePassword');
-    Route::get('users/{id}/permissions', 'UsersController@permissions');
-    Route::put('users/{id}/permissions', 'UsersController@updatePermissions');
-    Route::get('users/{id}/roles', 'UsersController@roles');
-    Route::put('users/{id}/roles', 'UsersController@updateRoles');
-    Route::get('users/{id}/history', 'UsersController@history');
+    Route::get('users/search', ['uses' => 'UsersController@search',
+        'as' => 'reactor.users.search']);
+    Route::get('users/{id}/password', ['uses' => 'UsersController@password',
+        'as' => 'reactor.users.password']);
+    Route::put('users/{id}/password', ['uses' => 'UsersController@updatePassword',
+        'as' => 'reactor.users.password.post']);
+    Route::get('users/{id}/permissions', ['uses' => 'UsersController@permissions',
+        'as' => 'reactor.users.permissions']);
+    Route::put('users/{id}/permissions', ['uses' => 'UsersController@addPermission',
+        'as' => 'reactor.users.permission.add']);
+    Route::delete('users/{id}/permissions', ['uses' => 'UsersController@removePermission',
+        'as' => 'reactor.users.permission.remove']);
+    Route::get('users/{id}/roles', ['uses' => 'UsersController@roles',
+        'as' => 'reactor.users.roles']);
+    Route::put('users/{id}/roles', ['uses' => 'UsersController@addRole',
+        'as' => 'reactor.users.role.add']);
+    Route::put('users/{id}/roles', ['uses' => 'UsersController@removeRole',
+        'as' => 'reactor.users.role.remove']);
+    Route::get('users/{id}/history', ['uses' => 'UsersController@history',
+        'as' => 'reactor.users.history']);
 
     // Roles
     Route::resource('roles', 'RolesController', ['except' => 'show']);
-    Route::get('roles/search', 'RolesController@search');
-    Route::get('roles/{id}/permissions', 'RolesController@permissions');
-    Route::put('roles/{id}/permissions', 'RolesController@addPermission');
-    Route::delete('roles/{id}/permissions', 'RolesController@removePermission');
-    Route::get('roles/{id}/users', 'RolesController@users');
-    Route::delete('roles/{id}/users', 'RolesController@removeUser');
+    Route::get('roles/search', ['uses' => 'RolesController@search',
+        'as' => 'reactor.roles.search']);
+    Route::get('roles/{id}/permissions', ['uses' => 'RolesController@permissions',
+        'as' => 'reactor.roles.permissions']);
+    Route::put('roles/{id}/permissions', ['uses' => 'RolesController@addPermission',
+        'as' => 'reactor.roles.permission.add']);
+    Route::delete('roles/{id}/permissions', ['uses' => 'RolesController@removePermission',
+        'as' => 'reactor.roles.permission.remove']);
+    Route::get('roles/{id}/users', ['uses' => 'RolesController@users',
+        'as' => 'reactor.roles.users']);
+    Route::put('roles/{id}/users', ['uses' => 'RolesController@addUser',
+        'as' => 'reactor.roles.user.add']);
+    Route::delete('roles/{id}/users', ['uses' => 'RolesController@removeUser',
+        'as' => 'reactor.roles.user.remove']);
 
     // Permissions
     Route::resource('permissions', 'PermissionsController', ['except' => 'show']);
-    Route::get('permissions/search', 'PermissionsController@search');
+    Route::get('permissions/search', ['uses' => 'PermissionsController@search',
+        'as' => 'reactor.permissions.search']);
 
 });
