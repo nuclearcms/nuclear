@@ -7,22 +7,16 @@
     </div>
 
     <div class="content-list-container material-light">
-        <table class="content-list">
-            <thead class="content-header">
-                <tr>
-                    <th></th>
 
-                    @yield('content_sortable_links')
+        {!! content_table_open() !!}
 
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody class="content-body">
+            @yield('content_sortable_links')
 
-                @yield('content_list')
+        {!! content_table_middle() !!}
 
-            </tbody>
-        </table>
+            @yield('content_list')
+
+        {!! content_table_close() !!}
 
         <div class="content-footer">
             @yield('content_footer')

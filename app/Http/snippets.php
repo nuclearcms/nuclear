@@ -83,3 +83,64 @@ if ( ! function_exists('back_to_all_link'))
             <i class="icon-left-thin"></i>%s</a>', $link, trans($text));
     }
 }
+
+if ( ! function_exists('content_table_open'))
+{
+    /**
+     * Snippet for outputting opening of content tables
+     *
+     * @param bool $sub
+     * @param string|null $wrapper
+     * @return string
+     */
+    function content_table_open($sub = false, $wrapper = null)
+    {
+        if ($sub && is_null($wrapper))
+        {
+            $wrapper = '<div class="content-list-container content-list-sub-container">';
+        }
+
+        $thumbnail = ($sub) ? '' : '<th></th>';
+
+        return sprintf('%s<table class="content-list">
+            <thead class="content-header">
+                <tr>%s',
+            $wrapper, $thumbnail);
+    }
+}
+
+if ( ! function_exists('content_table_middle'))
+{
+    /**
+     * Snippet for outputting middle parts of content tables
+     *
+     * @return string
+     */
+    function content_table_middle()
+    {
+        return '<th></th>
+            </tr>
+        </thead>
+        <tbody class="content-body">';
+    }
+}
+
+if ( ! function_exists('content_table_close'))
+{
+    /**
+     * Snippet for outputting closing of content tables
+     *
+     * @param bool $sub
+     * @param string|null $wrapper
+     * @return string
+     */
+    function content_table_close($sub = false, $wrapper = null)
+    {
+        if ($sub and is_null($wrapper))
+        {
+            $wrapper = '</div>';
+        }
+
+        return sprintf('</tbody></table>%s', $wrapper);
+    }
+}

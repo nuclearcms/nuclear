@@ -3,7 +3,7 @@
         <td class="content-item-thumbnail">
             {{ $profile->present()->thumbnail }}
         </td>
-        <td class="content-item-title">
+        <td>
             <a href="/reactor/users/{{ $profile->getKey() }}/edit">
                 {{ $profile->present()->fullName }}
             </a>

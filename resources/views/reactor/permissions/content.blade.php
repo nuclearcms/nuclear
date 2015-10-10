@@ -3,7 +3,7 @@
         <td class="content-item-thumbnail">
 
         </td>
-        <td class="content-item-title">
+        <td>
             <a href="/reactor/permissions/{{ $permission->getKey() }}/edit">
                 {{ $permission->name }}
             </a>
