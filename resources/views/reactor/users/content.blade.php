@@ -18,29 +18,25 @@
                 {{ $profile->present()->joinedAt }}
             </a>
         </td>
-        <td class="content-item-options">
-            <button class="content-item-options-button">
-                <i class="icon-ellipsis-vert"></i>
-            </button>
-            <ul class="content-item-options-list material-middle">
-                <li class="list-header">{{ uppercase(trans('general.options')) }}</li>
+        {!! content_options_open() !!}
+            <li>
+                <a href="/reactor/users/{{ $profile->getKey() }}/edit">
+                    <i class="icon-pencil"></i> {{ trans('users.edit') }}</a>
+            </li>
+
+            @if($profile->getKey() !== $user->getKey())
                 <li>
-                    <a href="/reactor/users/{{ $profile->getKey() }}/edit">
-                        <i class="icon-pencil"></i> {{ trans('users.edit') }}</a>
+                    {!! delete_form(
+                        '/reactor/users/' . $profile->getKey(),
+                        trans('users.delete')
+                    ) !!}
                 </li>
-                @if($profile->getKey() !== $user->getKey())
-                    <li>
-                        {!! delete_form(
-                            '/reactor/users/' . $profile->getKey(),
-                            trans('users.delete')
-                        ) !!}
-                    </li>
-                @else
-                    <li class="disabled">
-                        <i class="icon-trash"></i> {{ trans('users.delete') }}
-                    </li>
-                @endif
-            </ul>
-        </td>
+            @else
+                <li class="disabled">
+                    <i class="icon-trash"></i> {{ trans('users.delete') }}
+                </li>
+            @endif
+
+        {!! content_options_close() !!}
     </tr>
 @endforeach

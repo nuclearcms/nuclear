@@ -15,20 +15,14 @@
                             {{ $profile->present()->fullName }}
                         </a>
                     </td>
-                    <td class="content-item-options">
-                        <button class="content-item-options-button">
-                            <i class="icon-ellipsis-vert"></i>
-                        </button>
-                        <ul class="content-item-options-list material-middle">
-                            <li class="list-header">{{ uppercase(trans('general.options')) }}</li>
-                            <li>
-                                {!! delete_form(
-                                    '/reactor/roles/' . $role->getKey() . '/users',
-                                    trans('users.unlink_user')
-                                ) !!}
-                            </li>
-                        </ul>
-                    </td>
+                    {!! content_options_open() !!}
+                        <li>
+                            {!! delete_form(
+                                '/reactor/roles/' . $role->getKey() . '/users',
+                                trans('users.unlink_user')
+                            ) !!}
+                        </li>
+                    {!! content_options_close() !!}
                 </tr>
             @endforeach
         @else
