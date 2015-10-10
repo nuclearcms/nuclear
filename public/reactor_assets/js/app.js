@@ -256,13 +256,13 @@ flaps.on('click', function () {
         _bindClick: function () {
             var self = this;
 
-            $('html').bind('click touchstart', function () {
+            $(document).bind('click touchstart', function () {
                 self._closeLists();
             });
         },
         // Dynamically unbinds click event for closing lists
         _unbindClick: function () {
-            $('html').unbind('click touchstart');
+            $(document).unbind('click touchstart');
         }
     };
 
