@@ -182,3 +182,56 @@ if ( ! function_exists('action_button'))
         </a>', $link, $icon);
     }
 }
+
+if ( ! function_exists('navigation_module_open'))
+{
+    /**
+     * Snippet for generating navigation menu openings
+     *
+     * @param string $icon
+     * @param string $title
+     * @return string
+     */
+    function navigation_module_open($icon, $title)
+    {
+        return sprintf('<li class="navigation-module">
+            <i class="%s"></i>
+            <div class="module-dropdown material-middle">
+                <div class="module-info">%s</div>
+                <ul class="module-sub">', $icon, uppercase(trans($title)));
+    }
+}
+
+if ( ! function_exists('navigation_module_close'))
+{
+    /**
+     * Snippet for generating navigation menu closings
+     *
+     * @return string
+     */
+    function navigation_module_close()
+    {
+        return '</ul></div></li>';
+    }
+}
+
+if ( ! function_exists('navigation_module_link'))
+{
+    /**
+     * Snippet for generating module links
+     *
+     * @param string $route
+     * @param string $icon
+     * @param string $title
+     * @param mixed $parameters
+     * @return string
+     */
+    function navigation_module_link($route, $icon, $title, $parameters = [])
+    {
+        return sprintf('<li><a href="%s"><i class="%s"></i>%s</a>',
+            route($route, $parameters),
+            $icon,
+            trans($title)
+        );
+    }
+}

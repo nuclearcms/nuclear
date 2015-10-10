@@ -27,101 +27,40 @@
                     <li class="navigation-module module-hidden">
                         <div class="module-dropdown">
                             <ul class="module-sub">
-                                <li>
-                                    <a href="{{ route('reactor.dashboard') }}"><i
-                                        class="icon-gauge"></i>{{ trans('general.dashboard') }}</a>
-                                </li>
+                                {!! navigation_module_link('reactor.dashboard', 'icon-gauge', 'general.dashboard') !!}
                             </ul>
                         </div>
                     </li>
 
-                    <li class="navigation-module">
-                        <i class="icon-flow-cascade"></i>
+                    {!! navigation_module_open('icon-flow-cascade', 'nodes.management') !!}
 
-                        <div class="module-dropdown material-middle">
-                            <div class="module-info">
-                                {{ uppercase(trans('nodes.management')) }}
-                            </div>
-                            <ul class="module-sub">
+                    {!! navigation_module_close() !!}
 
-                            </ul>
-                        </div>
-                    </li>
+                    {!! navigation_module_open('icon-docs', 'documents.title') !!}
+                        {!! navigation_module_link('reactor.dashboard', 'icon-folder-empty', 'documents.manage') !!}
+                        {!! navigation_module_link('reactor.dashboard', 'icon-upload-cloud', 'documents.upload') !!}
+                    {!! navigation_module_close() !!}
 
-                    <li class="navigation-module">
-                        <i class="icon-docs"></i>
+                    {!! navigation_module_open('icon-user', 'users.title') !!}
+                        {!! navigation_module_link('reactor.users.index', 'icon-user', 'users.manage') !!}
+                        {!! navigation_module_link('reactor.roles.index', 'icon-users', 'users.manage_roles') !!}
+                        {!! navigation_module_link('reactor.permissions.index', 'icon-list', 'users.manage_permissions') !!}
+                    {!! navigation_module_close() !!}
 
-                        <div class="module-dropdown material-middle">
-                            <div class="module-info">
-                                {{ uppercase(trans('documents.title')) }}
-                            </div>
-                            <ul class="module-sub">
-                                <li>
-                                    <a href="#"><i
-                                        class="icon-folder-empty"></i>{{ trans('documents.manage') }}</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i
-                                        class="icon-upload-cloud"></i>{{ trans('documents.upload') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="navigation-module">
-                        <i class="icon-user"></i>
-
-                        <div class="module-dropdown material-middle">
-                            <div class="module-info">
-                                {{ uppercase(trans('users.title')) }}
-                            </div>
-                            <ul class="module-sub">
-                                <li>
-                                    <a href="{{ route('reactor.users.index') }}"><i class="icon-user"></i>{{ trans('users.manage') }}</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('reactor.roles.index') }}"><i
-                                        class="icon-users"></i>{{ trans('users.manage_roles') }}</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('reactor.permissions.index') }}"><i
-                                        class="icon-list"></i>{{ trans('users.manage_permissions') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="navigation-module">
-                        <i class="icon-cog"></i>
-
-                        <div class="module-dropdown material-middle">
-                            <div class="module-info">
-                                {{ uppercase(trans('settings.title')) }}
-                            </div>
-                            <ul class="module-sub">
-                                <li>
-                                    <a href="#"><i class="icon-list"></i>{{ trans('settings.all') }}</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    {!! navigation_module_open('icon-cog', 'settings.title') !!}
+                        {!! navigation_module_link('reactor.dashboard', 'icon-list', 'settings.all') !!}
+                    {!! navigation_module_close() !!}
 
                     <li class="navigation-module navigation-user">
-                <span class="navigation-user-frame">
-                    {!! $user->present()->avatar !!}
-                </span>
+                        <span class="navigation-user-frame">
+                            {!! $user->present()->avatar !!}
+                        </span>
 
                         <div class="module-dropdown material-middle">
                             <div class="module-info">{{ uppercase($user->present()->fullName) }}</div>
                             <ul class="module-sub">
-                                <li>
-                                    <a href="{{ route('reactor.users.edit', $user->getKey()) }}"><i
-                                        class="icon-newspaper"></i>{{ trans('auth.edit_profile') }}</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('reactor.auth.logout') }}"><i class="icon-logout"></i>{{ trans('auth.logout') }}
-                                    </a>
-                                </li>
+                                {!! navigation_module_link('reactor.users.edit', 'icon-newspaper', 'auth.edit_profile', $user->getKey()) !!}
+                                {!! navigation_module_link('reactor.auth.logout', 'icon-logout', 'auth.logout') !!}
                             </ul>
                         </div>
                     </li>
