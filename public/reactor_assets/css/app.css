@@ -615,11 +615,12 @@ a {
       content: "";
       display: table; }
   .content-list th {
-    padding: 1em 1em 0.5em 0;
+    padding: 1.2em 1.2em 0.5em 0;
     vertical-align: bottom;
     font-weight: 700;
     font-family: "Lato", sans-serif;
-    text-align: left; }
+    text-align: left;
+    font-size: 0.75em; }
     .content-list th a.active {
       color: #3498DB; }
       .content-list th a.active:after {
