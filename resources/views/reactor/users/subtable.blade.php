@@ -11,7 +11,8 @@
                     <li>
                         {!! delete_form(
                             route('reactor.roles.user.remove', $role->getKey()),
-                            trans('users.unlink_user')
+                            trans('users.unlink_user'),
+                            '<input type="hidden" name="user" value="' . $profile->getKey() . '">'
                         ) !!}
                     </li>
                 {!! content_options_close() !!}

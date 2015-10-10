@@ -7,17 +7,18 @@ if ( ! function_exists('delete_form'))
      *
      * @param string $action
      * @param string $text
+     * @param string $input
      * @param string $icon
      * @return string
      */
-    function delete_form($action, $text, $icon = 'icon-trash')
+    function delete_form($action, $text, $input = '', $icon = 'icon-trash')
     {
         return sprintf('<form action="%s" method="POST">' .
             method_field('DELETE') . csrf_field() .
-            '<button type="submit" class="option-delete">
+            '%s<button type="submit" class="option-delete">
                 <i class="%s"></i> %s
             </button></form>',
-            $action, $icon, $text);
+            $action, $input, $icon, $text);
     }
 }
 
