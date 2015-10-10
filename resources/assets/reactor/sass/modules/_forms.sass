@@ -24,10 +24,25 @@ label
         font-weight: 700
         color: $darkGray-1
         +transition(color $animationFast)
-        padding-left: 0.75em
+        padding-left: 1em
+        position: relative
+
+        &:before
+            content: ''
+            width: 0.75em
+            height: 1px
+            position: absolute
+            bottom: 0.25em
+            border-bottom: 1px solid $midGray-1
+            +transition(border-bottom-color $animationFast)
+
+        &:before
+            left: 0
 
     &.focus .control-label
         color: $secondaryAccent
+        &:before
+            border-bottom-color: $secondaryAccent
 
     input
         border-bottom: 1px solid $midGray-1
@@ -43,6 +58,8 @@ label
 
         .control-label
             color: $accent
+            &:before
+                border-bottom-color: $accent
 
 .form-group-content
     margin-bottom: 1.5em

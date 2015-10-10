@@ -813,9 +813,22 @@ label {
     font-weight: 700;
     color: #5F696A;
     transition: color 200ms;
-    padding-left: 0.75em; }
+    padding-left: 1em;
+    position: relative; }
+    .form-group .control-label:before {
+      content: '';
+      width: 0.75em;
+      height: 1px;
+      position: absolute;
+      bottom: 0.25em;
+      border-bottom: 1px solid #BDC3C7;
+      transition: border-bottom-color 200ms; }
+    .form-group .control-label:before {
+      left: 0; }
   .form-group.focus .control-label {
     color: #3498DB; }
+    .form-group.focus .control-label:before {
+      border-bottom-color: #3498DB; }
   .form-group input {
     border-bottom: 1px solid #BDC3C7;
     transition: border-bottom 200ms; }
@@ -825,6 +838,8 @@ label {
     border-bottom-color: #E74C3C; }
   .form-group.error .control-label {
     color: #E74C3C; }
+    .form-group.error .control-label:before {
+      border-bottom-color: #E74C3C; }
 
 .form-group-content {
   margin-bottom: 1.5em; }
