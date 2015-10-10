@@ -15,19 +15,11 @@
     ])
 
     <div class="material-light">
-        <ul class="content-tabs-bar">
-            <li>
-                <span class="content-tab-flap active">{{ uppercase(trans('users.profile')) }}</span>
-            </li><li>
-                {!! link_to_route('reactor.users.password', uppercase(trans('users.password')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
-            </li><li>
-                {!! link_to_route('reactor.users.permissions', uppercase(trans('users.permissions')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
-            </li><li>
-                {!! link_to_route('reactor.users.roles', uppercase(trans('users.roles')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
-            </li><li>
-                {!! link_to_route('reactor.users.history', uppercase(trans('users.history')), $profile->getKey(), ['class' => 'content-tab-flap']) !!}
-            </li>
-        </ul>
+        @include('users.tabs', [
+            'currentTab' => 'reactor.users.profile',
+            'currentKey' => $profile->getKey()
+        ])
+
         <div class="content-form">
             {!! form_rest($form) !!}
         </div>

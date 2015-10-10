@@ -16,15 +16,11 @@
     ])
 
     <div class="material-light">
-        <ul class="content-tabs-bar">
-            <li>
-                <span class="content-tab-flap active">{{ uppercase(trans('users.role')) }}</span>
-            </li><li>
-                {!! link_to_route('reactor.roles.permissions', uppercase(trans('users.permissions')), $role->getKey(), ['class' => 'content-tab-flap']) !!}
-            </li><li>
-                {!! link_to_route('reactor.roles.users', uppercase(trans('users.title')), $role->getKey(), ['class' => 'content-tab-flap']) !!}
-            </li>
-        </ul>
+        @include('roles.tabs', [
+            'currentTab' => 'reactor.roles.edit',
+            'currentKey' => $role->getKey()
+        ])
+
         <div class="content-form">
             {!! form_rest($form) !!}
         </div>
