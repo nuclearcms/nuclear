@@ -160,7 +160,7 @@
     line-height: inherit
     text-align: center
     padding: 0.75em 1em
-    opacity: 0
+    +transition(color $animationFast)
 
 .content-item-options-list
     +position(absolute, 2em 1em null null)
@@ -168,6 +168,11 @@
     opacity: 0
     z-index: -1
     padding-bottom: 0.25em
+
+    &.open
+        opacity: 1
+        z-index: 30
+        +transition(opacity $animationFast)
 
     li
         text-align: left
@@ -238,6 +243,9 @@
         display: none
 
 .no-touch
+    .content-item-options-button:hover
+        color: $darkGray-2
+
     .content-tabs-bar .content-tab-flap:hover
         color: $lightGray-1
 
@@ -245,16 +253,8 @@
         .content-item-options-list .option-delete:hover
             color: $accent
 
-        &:hover .content-item-options-list
-            opacity: 1
-            z-index: 30
-            +transition(opacity $animationFast)
-
     .content-item:hover
         background-color: $lightGray-2
-
-        .content-item-options-button
-            opacity: 1
 
     .content-list-container a:hover
         color: $secondaryAccent

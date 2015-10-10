@@ -16,7 +16,7 @@
 
     <div class="material-light">
         @include('users.tabs', [
-            'currentTab' => 'reactor.users.profile',
+            'currentTab' => 'reactor.users.edit',
             'currentKey' => $profile->getKey()
         ])
 

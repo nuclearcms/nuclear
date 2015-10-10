@@ -24,7 +24,8 @@ elixir(function (mix) {
             'components/Modernizr.js',
             'components/zepto.min.js',
             'navigation.js',
-            'modal.js'
+            'modal.js',
+            'option.js'
         ], 'public/reactor_assets/js/app.js').
         scripts([
             'password.js',
