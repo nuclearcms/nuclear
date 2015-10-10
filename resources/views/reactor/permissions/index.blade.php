@@ -27,21 +27,4 @@
     @include('partials.pagination', ['pagination' => $permissions])
 @endsection
 
-@section('modules')
-    @include('modal.confirm', [
-        'modalTitle' => trans('general.warning'),
-        'modalContent' => trans('users.confirm_delete_permission')
-    ])
-@endsection
-
-@section('scripts')
-    <script>
-        var deleteDialog = new Modal($('.modal-container'),
-            {
-                onConfirmEvent : function(dialog) {
-                    dialog.current.closest('form').submit();
-                }
-            },
-            $('form > .option-delete'));
-    </script>
-@endsection
+@include('partials.content.delete_modal', ['message' => 'users.confirm_delete_permission'])

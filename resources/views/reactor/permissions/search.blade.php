@@ -26,7 +26,7 @@
 @endsection
 
 @section('content_footer')
-    <a class="button back-link" href="/reactor/permissions">
-        <i class="icon-left-thin"></i>{{ trans('users.all_permissions') }}
-    </a>
+    {!! back_to_all_link('/reactor/permissions', 'users.all_permissions') !!}
 @endsection
+
+@include('partials.content.delete_modal', ['message' => 'users.confirm_delete_permission'])

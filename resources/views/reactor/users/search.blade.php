@@ -32,7 +32,7 @@
 @endsection
 
 @section('content_footer')
-    <a class="button back-link" href="/reactor/users">
-        <i class="icon-left-thin"></i>{{ trans('users.all') }}
-    </a>
+    {!! back_to_all_link('/reactor/users', 'users.all') !!}
 @endsection
+
+@include('partials.content.delete_modal', ['message' => 'users.confirm_delete'])

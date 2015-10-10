@@ -26,7 +26,7 @@
 @endsection
 
 @section('content_footer')
-    <a class="button back-link" href="/reactor/roles">
-        <i class="icon-left-thin"></i>{{ trans('users.all_roles') }}
-    </a>
+    {!! back_to_all_link('/reactor/roles', 'users.all_roles') !!}
 @endsection
+
+@include('partials.content.delete_modal', ['message' => 'users.confirm_delete_role'])

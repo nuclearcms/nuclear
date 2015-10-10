@@ -67,3 +67,19 @@ if ( ! function_exists('content_options_close'))
         return '</ul></td>';
     }
 }
+
+if ( ! function_exists('back_to_all_link'))
+{
+    /**
+     * Snippet for generating back links (mainly for search pages)
+     *
+     * @param string $link
+     * @param string $text
+     * @return string
+     */
+    function back_to_all_link($link, $text)
+    {
+        return sprintf('<a class="button back-link" href="%s">
+            <i class="icon-left-thin"></i>%s</a>', $link, trans($text));
+    }
+}
