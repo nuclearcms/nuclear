@@ -4,9 +4,7 @@
 @section('contentSubtitle', uppercase(trans('users.title')))
 
 @section('action')
-    <a href="/reactor/users/create" class="button button-emphasized button-icon-primary">
-        <i class="icon-user-add"></i>
-    </a>
+    {!! action_button('/reactor/users/create', 'icon-user-add') !!}
 @endsection
 
 @section('content_options')

@@ -33,7 +33,7 @@
         </div>
 
         <div class="auth-buttons">
-            <button class="button button-emphasized button-icon" type="submit">{{ uppercase(trans('passwords.reset_password')) }} <i class="icon-right-open-big"></i></button>
+            {!! submit_button('icon-right-open-big', 'passwords.reset_password') !!}
         </div>
     </form>
 @endsection

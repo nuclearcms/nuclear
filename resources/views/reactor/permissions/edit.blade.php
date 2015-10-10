@@ -8,9 +8,7 @@
 @endsection
 
 @section('action')
-    <button class="button button-emphasized button-icon-primary" type="submit">
-        <i class="icon-floppy"></i>
-    </button>
+    {!! submit_button('icon-floppy') !!}
 @endsection
 
 @section('content')

@@ -8,9 +8,7 @@
 @endsection
 
 @section('action')
-    <button class="button button-emphasized button-icon-primary" type="submit">
-        <i class="icon-list-add"></i>
-    </button>
+    {!! submit_button('icon-list-add') !!}
 @endsection
 
 @section('content')

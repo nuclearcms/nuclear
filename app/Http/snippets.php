@@ -144,3 +144,40 @@ if ( ! function_exists('content_table_close'))
         return sprintf('</tbody></table>%s', $wrapper);
     }
 }
+
+if ( ! function_exists('action_button'))
+{
+    /**
+     * Snippet for generating a submit button
+     *
+     * @param string $icon
+     * @param string $text
+     * @return string
+     */
+    function submit_button($icon, $text = '')
+    {
+        $class = empty($text) ? 'button-icon-primary' : 'button-icon';
+
+        return sprintf('<button class="button button-emphasized %s" type="submit">
+            %s <i class="%s"></i>
+        </button>', $class, uppercase(trans($text)), $icon);
+    }
+
+}
+
+if ( ! function_exists('action_button'))
+{
+    /**
+     * Snippet for generating an action button
+     *
+     * @param string $link
+     * @param string $icon
+     * @return string
+     */
+    function action_button($link, $icon)
+    {
+        return sprintf('<a href="%s" class="button button-emphasized button-icon-primary">
+            <i class="%s"></i>
+        </a>', $link, $icon);
+    }
+}

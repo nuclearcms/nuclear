@@ -23,7 +23,7 @@
         </div>
 
         <div class="auth-buttons">
-            <button class="button button-emphasized button-icon" type="submit">{{ uppercase(trans('passwords.send_link')) }} <i class="icon-lock"></i></button>
+            {!! submit_button('icon-lock', 'passwords.send_link') !!}
         </div>
     </form>
     <div class="auth-option">
