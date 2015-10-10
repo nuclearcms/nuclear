@@ -402,10 +402,14 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
 /* Animation */
 /* Thresholds */
 /* Base */
+html {
+  height: 100%; }
+
 body {
   font-size: 1em;
   font-family: "Oxygen", sans-serif;
   color: #404647;
+  min-height: 100%;
   background-color: #F5F5F5; }
 
 a {
@@ -1028,7 +1032,7 @@ h2 {
     color: #2ECC71; }
   @media screen and (max-width: 64em) {
     .modal {
-      padding: 1em 1em 0; }
+      padding: 1.5em 1.5em 0; }
       .modal h4 {
         font-size: 1.5em; } }
 
