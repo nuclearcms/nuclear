@@ -32,11 +32,7 @@
                     </tr>
                 @endforeach
             @else
-                <tr>
-                    <td colspan="42" class="content-noresults">
-                        {{ trans('users.no_permissions') }}
-                    </td>
-                </tr>
+                {!! no_results_row('users.no_permissions') !!}
             @endif
         </tbody>
     </table>

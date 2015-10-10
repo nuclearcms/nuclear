@@ -21,7 +21,7 @@
     @if($permissions->count())
         @include('permissions.content')
     @else
-        @include('partials.content.nocontent')
+        {!! no_results_row() !!}
     @endif
 @endsection
 

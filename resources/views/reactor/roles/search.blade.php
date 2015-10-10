@@ -21,7 +21,7 @@
     @if($roles->count())
         @include('roles.content')
     @else
-        @include('partials.content.noresults')
+        {!! no_results_row() !!}
     @endif
 @endsection
 

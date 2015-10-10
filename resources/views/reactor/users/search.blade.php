@@ -27,7 +27,7 @@
     @if($users->count())
         @include('users.content')
     @else
-        @include('partials.content.noresults')
+        {!! no_results_row() !!}
     @endif
 @endsection
 

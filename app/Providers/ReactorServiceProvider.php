@@ -43,7 +43,7 @@ class ReactorServiceProvider extends ServiceProvider {
     {
         require __DIR__ . '/../Support/helpers.php';
 
-        require __DIR__ . '/../Http/helpers.php';
+        require __DIR__ . '/../Http/snippets.php';
     }
 
     /**

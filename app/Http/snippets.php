@@ -3,7 +3,7 @@
 if ( ! function_exists('delete_form'))
 {
     /**
-     * Helper for for outputting html for delete forms
+     * Snippet for for outputting html for delete forms
      *
      * @param string $action
      * @param string $text
@@ -18,5 +18,23 @@ if ( ! function_exists('delete_form'))
                 <i class="%s"></i> %s
             </button>',
             $action, $icon, $text);
+    }
+}
+
+if ( ! function_exists('no_results_row'))
+{
+    /**
+     * Snippet for displaying no results row on tables
+     *
+     * @param string $message
+     * @return string
+     */
+    function no_results_row($message = 'general.search_no_results')
+    {
+        return '<tr>
+            <td colspan="42" class="content-noresults">' .
+                trans($message) .
+            '</td>
+        </tr>';
     }
 }
