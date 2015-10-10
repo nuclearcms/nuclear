@@ -24,6 +24,10 @@
             </li>
         </ul>
         @include('permissions.subtable', ['permissions' => $role->permissions])
+
+        {{-- @include('permissions.subform', [
+            'permissions' => $permissions->diff($role->permissions)
+        ])--}}
     </div>
 
 @endsection

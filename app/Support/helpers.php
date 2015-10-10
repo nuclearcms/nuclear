@@ -1,5 +1,18 @@
 <?php
 
+if ( ! function_exists('nuclear_version'))
+{
+    /**
+     * Returns the current nuclear version
+     *
+     * @return int
+     */
+    function nuclear_version()
+    {
+        return Reactor\Providers\ReactorServiceProvider::VERSION;
+    }
+}
+
 if ( ! function_exists('uppercase'))
 {
     /**
@@ -18,18 +31,5 @@ if ( ! function_exists('uppercase'))
         }
 
         return mb_strtoupper($string, 'UTF-8');
-    }
-}
-
-if ( ! function_exists('nuclear_version'))
-{
-    /**
-     * Returns the current nuclear version
-     *
-     * @return int
-     */
-    function nuclear_version()
-    {
-        return Reactor\Providers\ReactorServiceProvider::VERSION;
     }
 }

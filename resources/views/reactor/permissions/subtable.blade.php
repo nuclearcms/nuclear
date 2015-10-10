@@ -22,14 +22,10 @@
                             <ul class="content-item-options-list material-middle">
                                 <li class="list-header">{{ uppercase(trans('general.options')) }}</li>
                                 <li>
-                                    <form action="/reactor/roles/{{ $role->getKey() }}/permissions" method="POST">
-                                        {!! method_field('DELETE') !!}
-                                        {!! csrf_field() !!}
-                                        <input type="hidden" name="permission" value="{{ $permission->name }}">
-                                        <button type="submit" class="option-delete">
-                                            <i class="icon-trash"></i> {{ trans('users.unlink_permission') }}
-                                        </button>
-                                    </form>
+                                    {!! delete_form(
+                                        '/reactor/roles/' . $role->getKey() . '/permissions',
+                                        trans('users.unlink_permission')
+                                    ) !!}
                                 </li>
                             </ul>
                         </td>

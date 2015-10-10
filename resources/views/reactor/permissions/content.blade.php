@@ -19,13 +19,10 @@
                         <i class="icon-pencil"></i> {{ trans('users.edit_permission') }}</a>
                 </li>
                 <li>
-                    <form action="/reactor/permissions/{{ $permission->getKey() }}" method="POST">
-                        {!! method_field('DELETE') !!}
-                        {!! csrf_field() !!}
-                        <button type="submit" class="option-delete">
-                            <i class="icon-trash"></i> {{ trans('users.delete_permission') }}
-                        </button>
-                    </form>
+                    {!! delete_form(
+                        '/reactor/permissions/' . $permission->getKey(),
+                        trans('users.delete_permission')
+                    ) !!}
                 </li>
             </ul>
         </td>

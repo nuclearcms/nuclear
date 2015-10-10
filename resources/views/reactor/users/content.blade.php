@@ -30,13 +30,10 @@
                 </li>
                 @if($profile->getKey() !== $user->getKey())
                     <li>
-                        <form action="/reactor/users/{{ $profile->getKey() }}" method="POST">
-                            {!! method_field('DELETE') !!}
-                            {!! csrf_field() !!}
-                            <button type="submit" class="option-delete">
-                                <i class="icon-trash"></i> {{ trans('users.delete') }}
-                            </button>
-                        </form>
+                        {!! delete_form(
+                            '/reactor/users/' . $profile->getKey(),
+                            trans('users.delete')
+                        ) !!}
                     </li>
                 @else
                     <li class="disabled">

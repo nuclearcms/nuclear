@@ -22,13 +22,10 @@
                         <i class="icon-pencil"></i> {{ trans('users.edit_role') }}</a>
                 </li>
                 <li>
-                    <form action="/reactor/roles/{{ $role->getKey() }}" method="POST">
-                        {!! method_field('DELETE') !!}
-                        {!! csrf_field() !!}
-                        <button type="submit" class="option-delete">
-                            <i class="icon-trash"></i> {{ trans('users.delete_role') }}
-                        </button>
-                    </form>
+                    {!! delete_form(
+                        '/reactor/roles/' . $role->getKey(),
+                        trans('users.delete_role')
+                    ) !!}
                 </li>
             </ul>
         </td>

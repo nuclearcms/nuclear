@@ -42,6 +42,8 @@ class ReactorServiceProvider extends ServiceProvider {
     protected function registerHelpers()
     {
         require __DIR__ . '/../Support/helpers.php';
+
+        require __DIR__ . '/../Http/helpers.php';
     }
 
     /**
