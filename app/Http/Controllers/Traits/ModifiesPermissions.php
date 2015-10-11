@@ -84,6 +84,7 @@ trait ModifiesPermissions {
 
         $model->givePermissionById($request->input('permission'));
 
+        chronicle()->record($model, 'added_permission');
         flash()->success(trans('users.added_permission'));
 
         return redirect()->back();
@@ -104,6 +105,7 @@ trait ModifiesPermissions {
 
         $model->revokePermission($request->input('permission'));
 
+        chronicle()->record($model, 'revoked_permission');
         flash()->success(trans('users.unlinked_permission'));
 
         return redirect()->back();

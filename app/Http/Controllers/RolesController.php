@@ -206,6 +206,7 @@ class RolesController extends ReactorController
 
         $role->associateUser($request->input('user'));
 
+        chronicle()->record($role, 'associated_user_to_role');
         flash()->success(trans('users.added_user'));
 
         return redirect()->back();
@@ -224,6 +225,7 @@ class RolesController extends ReactorController
 
         $role->dissociateUser($request->input('user'));
 
+        chronicle()->record($role, 'dissociated_user_from_role');
         flash()->success(trans('users.unlinked_user'));
 
         return redirect()->route('reactor.roles.users', $id);

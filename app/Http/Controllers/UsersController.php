@@ -124,6 +124,7 @@ class UsersController extends ReactorController {
 
         $profile->update($request->all());
 
+        chronicle()->record($profile, 'updated_user_information');
         flash()->success(trans('users.edited'));
 
         return redirect()->route('reactor.users.edit', $id);
@@ -181,6 +182,7 @@ class UsersController extends ReactorController {
 
         $profile->setPassword($request->input('password'))->save();
 
+        chronicle()->record($profile, 'updated_user_password');
         flash()->success(trans('users.changed_password'));
 
         return redirect()->route('reactor.users.password', $id);
@@ -243,6 +245,7 @@ class UsersController extends ReactorController {
 
         $user->assignRoleById($request->input('role'));
 
+        chronicle()->record($user, 'added_role_to_user');
         flash()->success(trans('users.added_role'));
 
         return redirect()->back();
@@ -261,6 +264,7 @@ class UsersController extends ReactorController {
 
         $user->retractRole($request->input('role'));
 
+        chronicle()->record($user, 'removed_role_from_user');
         flash()->success(trans('users.unlinked_role'));
 
         return redirect()->back();

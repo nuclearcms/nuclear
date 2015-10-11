@@ -3,13 +3,14 @@
 namespace Reactor\ACL;
 
 use Illuminate\Database\Eloquent\Model;
+use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Permission extends Model
 {
 
-    use Sortable, SearchableTrait;
+    use Sortable, SearchableTrait, RecordsActivity;
 
     /**
      * Indicates if the model should be timestamped.

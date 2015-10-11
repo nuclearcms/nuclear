@@ -3,6 +3,7 @@
 namespace Reactor\ACL;
 
 use Illuminate\Database\Eloquent\Model;
+use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Reactor\User;
@@ -10,7 +11,7 @@ use Reactor\User;
 class Role extends Model
 {
 
-    use Sortable, SearchableTrait, HasPermissions;
+    use Sortable, SearchableTrait, HasPermissions, RecordsActivity;
 
     /**
      * The attributes that are mass assignable.

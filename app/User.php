@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Sortable\Sortable;
 use Laracasts\Presenter\Contracts\PresentableInterface;
 use Laracasts\Presenter\PresentableTrait;
@@ -25,7 +26,7 @@ class User extends Model implements AuthenticatableContract,
 
     use Authenticatable, Authorizable, CanResetPassword, SoftDeletes,
         PresentableTrait, Sortable, SearchableTrait,
-        HasRoles, HasPermissions;
+        HasRoles, HasPermissions, RecordsActivity;
 
     /**
      * The database table used by the model.
@@ -88,6 +89,13 @@ class User extends Model implements AuthenticatableContract,
             'email'      => 10
         ]
     ];
+
+    /**
+     * Events for recording
+     *
+     * @var array
+     */
+    protected static $recordEvents = ['created', 'deleted'];
 
     /**
      * Password setter
