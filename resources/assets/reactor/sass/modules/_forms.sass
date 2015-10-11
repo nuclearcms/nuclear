@@ -26,6 +26,7 @@ label
         +transition(color $animationFast)
         padding-left: 1em
         position: relative
+        display: block
 
         &:before
             content: ''
@@ -112,6 +113,33 @@ label
         .strong
             background-color: $success
 
+.form-select-container
+    display: inline-block
+    position: relative
+    border-bottom: 1px solid $midGray-1
+    margin-right: 1em
+
+    i
+        +position(absolute, 0.625em 0 null null)
+        color: $darkGray-1
+        font-size: 0.875em
+        +transition(color $animationFast)
+
+    select
+        height: 2em
+        position: relative
+        z-index: 1
+        cursor: pointer
+        background: transparent
+        -webkit-appearance: none
+        border: 0
+        box-shadow: none
+        outline: none
+        padding-right: 1.5em
+        font-size: 1em
+        color: $darkGray-2
+        padding-top: 0.25em
+
 .form-group-icon-label
 
     .icon-label
@@ -134,7 +162,23 @@ label
 .content-form
     padding: 6em 2em 3em
 
+    h3
+        font-size: 1.5em
+        font-family: $fontHeading
+        margin-bottom: 1em
+        color: $midGray-3
+
     @media screen and (max-width: $collapseThreshold)
         padding: 5em 1.5em 2em
     @media screen and (max-width: $microThreshold)
         padding: 4em 1em 1em
+
+.content-form-sub
+    padding: 2em
+    border-top: 1px solid $secondaryAccent
+    margin-top: 1em
+
+.no-touch
+    .form-select-container:hover
+        i
+            color: $darkGray-2

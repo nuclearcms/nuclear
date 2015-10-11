@@ -44,6 +44,13 @@ return [
     'deleted_permission' => 'İzin silindi.',
     'confirm_delete_permission' => 'Bu izni silmek istediğinizden emin misiniz?',
 
+    'add_a_permission' => 'Bir İzin Ekle',
+    'add_permission' => 'İzin Ekle',
+    'added_permission' => 'İzin eklendi',
+    'unlink_permission' => 'İzni Ayrıştır',
+    'unlinked_permission' => 'İzin ayrıştırıldı.',
+    'no_permissions' => 'İzin bulunamadı.',
+
     'search_roles' => 'Rol Ara',
     'all_roles' => 'Tüm İzinler',
 
@@ -55,10 +62,16 @@ return [
     'deleted_role' => 'Rol silindi.',
     'confirm_delete_role' => 'Bu rolü silmek istediğinizden emin misiniz?',
 
-    'unlink_permission' => 'İzni Ayrıştır',
-    'unlinked_permission' => 'İzin ayrıştırıldı.',
-    'no_permissions' => 'İzin bulunamadı.',
+    'add_a_role' => 'Bir Rol Ekle',
+    'add_role' => 'Rol Ekle',
+    'added_role' => 'Rol eklendi.',
+    'unlink_role' => 'Rolü Ayrıştır',
+    'unlinked_role' => 'Rol ayrıştırıldı.',
+    'no_roles' => 'Rol bulunamadı.',
 
+    'add_an_user' => 'Bir Kullanıcı Ekle',
+    'add_user' => 'Kullanıcı Ekle',
+    'added_user' => 'Kullanıcı eklendi.',
     'unlink_user' => 'Kullanıcıyı Ayrıştır',
     'unlinked_user' => 'Kullanıcı ayrıştırıldı.',
     'no_users' => 'Kullanıcı bulunamadı.',

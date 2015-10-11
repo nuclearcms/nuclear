@@ -63,6 +63,19 @@ class Role extends Model
     }
 
     /**
+     * Link a user to role
+     *
+     * @param int $id
+     * @return User
+     */
+    public function associateUser($id)
+    {
+        return $this->users()->attach(
+            User::findOrFail($id)
+        );
+    }
+
+    /**
      * Unlink a user from role
      *
      * @param int $id
@@ -71,7 +84,7 @@ class Role extends Model
     public function dissociateUser($id)
     {
         return $this->users()->detach(
-            User::find($id)
+            User::findOrFail($id)
         );
     }
 

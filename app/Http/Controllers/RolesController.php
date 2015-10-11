@@ -3,12 +3,23 @@
 namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Reactor\ACL\Permission;
 use Reactor\ACL\Role;
+use Reactor\Http\Controllers\Traits\ModifiesPermissions;
 use Reactor\User;
 
 class RolesController extends ReactorController
 {
+
+    use ModifiesPermissions;
+
+    /**
+     * Self model path required for ModifiesPermissions
+     *
+     * @var string
+     */
+    protected $modelPath = Role::class;
+    protected $routeViewPrefix = 'roles';
+
     /**
      * Display a listing of the resource.
      *
@@ -129,51 +140,6 @@ class RolesController extends ReactorController
     }
 
     /**
-     * List the specified resource permissions.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function permissions($id)
-    {
-        $role = Role::with('permissions')->findOrFail($id);
-        $permissions = Permission::all();
-
-        return view('roles.permissions')
-            ->with(compact('role', 'permissions'));
-    }
-
-    /**
-     * Add a permission to the specified resource.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function addPermission(Request $request, $id)
-    {
-
-    }
-
-    /**
-     * Remove a permission from the specified resource.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function removePermission(Request $request, $id)
-    {
-        $role = Role::findOrFail($id);
-
-        $role->revokePermission($request->input('permission'));
-
-        flash()->success(trans('users.unlinked_permission'));
-
-        return redirect()->route('reactor.roles.permissions', $id);
-    }
-
-    /**
      * List the specified resource users.
      *
      * @param int $id
@@ -182,10 +148,57 @@ class RolesController extends ReactorController
     public function users($id)
     {
         $role = Role::with('users')->findOrFail($id);
-        $users = User::all();
+
+        $form = $this->getAddUserForm($id, $role);
 
         return view('roles.users')
-            ->with(compact('role', 'users'));
+            ->with(compact('role', 'form'));
+    }
+
+    /**
+     * Creates a form for adding permissions
+     *
+     * @param int $id
+     * @param Role $role
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getAddUserForm($id, Role $role)
+    {
+        $form = $this->form('Users\AddUserForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.roles.user.add', $id)
+        ]);
+
+        $choices = User::all()
+            ->diff($role->users)
+            ->lists('first_name', 'id')
+            ->toArray();
+
+        $form->modify('user', 'select', [
+            'choices' => $choices
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * Add an user to the specified resource.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function addUser(Request $request, $id)
+    {
+        $this->validateForm('Users\AddUserForm', $request);
+
+        $role = Role::findOrFail($id);
+
+        $role->associateUser($request->input('user'));
+
+        flash()->success(trans('users.added_user'));
+
+        return redirect()->back();
     }
 
     /**

@@ -18,6 +18,8 @@
         ])
 
         @include('users.subtable', ['users' => $role->users])
+
+        @include('users.add')
     </div>
 
 @endsection

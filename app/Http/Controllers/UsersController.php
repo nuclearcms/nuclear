@@ -4,9 +4,21 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Reactor\ACL\Role;
+use Reactor\Http\Controllers\Traits\ModifiesPermissions;
 use Reactor\User;
 
 class UsersController extends ReactorController {
+
+    use ModifiesPermissions;
+
+    /**
+     * Self model path required for ModifiesPermissions
+     *
+     * @var string
+     */
+    protected $modelPath = User::class;
+    protected $routeViewPrefix = 'users';
 
     /**
      * Display a listing of the resource.
@@ -162,6 +174,86 @@ class UsersController extends ReactorController {
         flash()->success(trans('users.changed_password'));
 
         return redirect()->route('reactor.users.password', $id);
+    }
+
+    /**
+     * List the specified resource roles.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function roles($id)
+    {
+        $profile = User::with('roles')->findOrFail($id);
+
+        $form = $this->getAddRoleForm($id, $profile);
+
+        return view('users.roles')
+            ->with(compact('profile', 'form'));
+    }
+
+    /**
+     * Creates a form for adding permissions
+     *
+     * @param int $id
+     * @param User $user
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getAddRoleForm($id, User $user)
+    {
+        $form = $this->form('Roles\AddRoleForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.users.role.add', $id)
+        ]);
+
+        $choices = Role::all()
+            ->diff($user->roles)
+            ->lists('label', 'id')
+            ->toArray();
+
+        $form->modify('role', 'select', [
+            'choices' => $choices
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * Add a role to the specified resource.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function addRole(Request $request, $id)
+    {
+        $this->validateForm('Roles\AddRoleForm', $request);
+
+        $user = User::findOrFail($id);
+
+        $user->assignRoleById($request->input('role'));
+
+        flash()->success(trans('users.added_role'));
+
+        return redirect()->back();
+    }
+
+    /**
+     * Remove a permission from the specified resource.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function removeRole(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->retractRole($request->input('role'));
+
+        flash()->success(trans('users.unlinked_role'));
+
+        return redirect()->back();
     }
 
 }

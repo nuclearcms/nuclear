@@ -10,9 +10,9 @@
                 {!! content_options_open() !!}
                     <li>
                         {!! delete_form(
-                            route('reactor.roles.permission.remove', $role->getKey()),
+                            $route,
                             trans('users.unlink_permission'),
-                            '<input type="hidden" name="permission" value="' . $permission->getKey() . '">'
+                            '<input type="hidden" name="permission" value="' . $permission->name . '">'
                         ) !!}
                     </li>
                 {!! content_options_close() !!}

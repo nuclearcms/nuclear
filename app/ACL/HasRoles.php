@@ -45,6 +45,19 @@ trait HasRoles {
     }
 
     /**
+     * Assign a role to the user by id
+     *
+     * @param int $id
+     * @return Role
+     */
+    public function assignRoleById($id)
+    {
+        return $this->roles()->attach(
+            Role::findOrFail($id)
+        );
+    }
+
+    /**
      * Retract a role from the user
      *
      * @param string $role

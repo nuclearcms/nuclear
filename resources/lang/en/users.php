@@ -44,6 +44,13 @@ return [
     'deleted_permission' => 'Permission was deleted.',
     'confirm_delete_permission' => 'Are you sure you want to delete this permission?',
 
+    'add_a_permission' => 'Add a Permission',
+    'add_permission' => 'Add Permission',
+    'added_permission' => 'Added permission.',
+    'unlink_permission' => 'Unlink Permission',
+    'unlinked_permission' => 'Unlinked permission.',
+    'no_permissions' => 'No permissions were found.',
+
     'search_roles' => 'Search Roles',
     'all_roles' => 'All Roles',
 
@@ -55,10 +62,16 @@ return [
     'deleted_role' => 'Role was deleted.',
     'confirm_delete_role' => 'Are you sure you want to delete this role?',
 
-    'unlink_permission' => 'Unlink Permission',
-    'unlinked_permission' => 'Unlinked permission.',
-    'no_permissions' => 'No permissions were found.',
+    'add_a_role' => 'Add a Role',
+    'add_role' => 'Add Role',
+    'added_role' => 'Added role.',
+    'unlink_role' => 'Unlink Role',
+    'unlinked_role' => 'Unlinked role.',
+    'no_roles' => 'No roles were found.',
 
+    'add_an_user' => 'Add an User',
+    'add_user' => 'Add User',
+    'added_user' => 'Added user.',
     'unlink_user' => 'Unlink User',
     'unlinked_user' => 'Unlinked user.',
     'no_users' => 'No users were found.',

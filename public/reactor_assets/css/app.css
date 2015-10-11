@@ -819,7 +819,8 @@ label {
     color: #5F696A;
     transition: color 200ms;
     padding-left: 1em;
-    position: relative; }
+    position: relative;
+    display: block; }
     .form-group .control-label:before {
       content: '';
       width: 0.75em;
@@ -893,6 +894,33 @@ label {
   .form-group-password .strength-meter .strong {
     background-color: #2ECC71; }
 
+.form-select-container {
+  display: inline-block;
+  position: relative;
+  border-bottom: 1px solid #BDC3C7;
+  margin-right: 1em; }
+  .form-select-container i {
+    position: absolute;
+    top: 0.625em;
+    right: 0;
+    color: #5F696A;
+    font-size: 0.875em;
+    transition: color 200ms; }
+  .form-select-container select {
+    height: 2em;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    background: transparent;
+    -webkit-appearance: none;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    padding-right: 1.5em;
+    font-size: 1em;
+    color: #404647;
+    padding-top: 0.25em; }
+
 .form-group-icon-label .icon-label {
   float: right;
   color: #BDC3C7;
@@ -911,12 +939,25 @@ label {
 
 .content-form {
   padding: 6em 2em 3em; }
+  .content-form h3 {
+    font-size: 1.5em;
+    font-family: "Lato", sans-serif;
+    margin-bottom: 1em;
+    color: #7F8C8D; }
   @media screen and (max-width: 64em) {
     .content-form {
       padding: 5em 1.5em 2em; } }
   @media screen and (max-width: 30em) {
     .content-form {
       padding: 4em 1em 1em; } }
+
+.content-form-sub {
+  padding: 2em;
+  border-top: 1px solid #3498DB;
+  margin-top: 1em; }
+
+.no-touch .form-select-container:hover i {
+  color: #404647; }
 
 h2 {
   text-align: center;

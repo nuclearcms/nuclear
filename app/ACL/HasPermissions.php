@@ -40,6 +40,19 @@ trait HasPermissions {
     }
 
     /**
+     * Give a permission to the user by id
+     *
+     * @param int $id
+     * @return Permission
+     */
+    public function givePermissionById($id)
+    {
+        return $this->permissions()->attach(
+            Permission::findOrFail($id)
+        );
+    }
+
+    /**
      * Revoke a permission from the user
      *
      * @param string $permission

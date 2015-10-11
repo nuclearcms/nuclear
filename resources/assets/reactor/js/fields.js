@@ -1,4 +1,4 @@
-// Highlighters
+// General highlighters
 $('.form-group input').focus(function () {
     $(this).closest('.form-group').addClass('focus');
 });
@@ -8,6 +8,6 @@ $('.form-group input').blur(function () {
 });
 
 // Password strength meter
-$('.form-group-password').each(function() {
+$('.form-group-password').each(function () {
     new Meter($(this));
 });
