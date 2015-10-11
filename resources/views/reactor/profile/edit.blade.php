@@ -1,12 +1,10 @@
 @extends('layout.form')
 
-@section('pageTitle', trans('users.change_password'))
-@section('contentSubtitle')
-    {!! link_to_route('reactor.users.index', uppercase(trans('users.title'))) !!}
-@endsection
+@section('pageTitle', trans('auth.edit_profile'))
+@section('contentSubtitle', uppercase(trans('users.profile')))
 
 @section('action')
-    {!! submit_button('icon-lock') !!}
+    {!! submit_button('icon-floppy') !!}
 @endsection
 
 @section('content')
@@ -15,8 +13,8 @@
     ])
 
     <div class="material-light">
-        @include('users.tabs', [
-            'currentTab' => 'reactor.users.password',
+        @include('profile.tabs', [
+            'currentTab' => 'reactor.profile.edit',
             'currentKey' => $profile->getKey()
         ])
 

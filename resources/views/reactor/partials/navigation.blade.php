@@ -76,7 +76,7 @@
                         <div class="module-dropdown material-middle">
                             <div class="module-info">{{ uppercase($user->present()->fullName) }}</div>
                             <ul class="module-sub">
-                                {!! navigation_module_link('reactor.users.edit', 'icon-newspaper', 'auth.edit_profile', $user->getKey()) !!}
+                                {!! navigation_module_link('reactor.profile.edit', 'icon-newspaper', 'auth.edit_profile') !!}
                                 {!! navigation_module_link('reactor.auth.logout', 'icon-logout', 'auth.logout') !!}
                             </ul>
                         </div>

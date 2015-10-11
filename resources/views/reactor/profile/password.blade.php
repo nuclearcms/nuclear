@@ -1,9 +1,7 @@
 @extends('layout.form')
 
 @section('pageTitle', trans('users.change_password'))
-@section('contentSubtitle')
-    {!! link_to_route('reactor.users.index', uppercase(trans('users.title'))) !!}
-@endsection
+@section('contentSubtitle', uppercase(trans('users.profile')))
 
 @section('action')
     {!! submit_button('icon-lock') !!}
@@ -15,8 +13,8 @@
     ])
 
     <div class="material-light">
-        @include('users.tabs', [
-            'currentTab' => 'reactor.users.password',
+        @include('profile.tabs', [
+            'currentTab' => 'reactor.profile.password',
             'currentKey' => $profile->getKey()
         ])
 

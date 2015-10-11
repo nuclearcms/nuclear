@@ -47,6 +47,18 @@ Route::group(['prefix' => 'reactor'], function ()
         Route::get('/', ['uses' => 'DashboardController@index',
                          'as' => 'reactor.dashboard']);
 
+        // Profile
+        Route::get('profile', ['uses' => 'ProfileController@edit',
+            'as' => 'reactor.profile.edit']);
+        Route::put('profile', ['uses' => 'ProfileController@update',
+            'as' => 'reactor.profile.update']);
+        Route::get('profile/password', ['uses' => 'ProfileController@password',
+            'as' => 'reactor.profile.password']);
+        Route::put('profile/password', ['uses' => 'ProfileController@updatePassword',
+            'as' => 'reactor.profile.password.post']);
+        Route::get('profile/history', ['uses' => 'ProfileController@history',
+            'as' => 'reactor.profile.history']);
+
         // Users
         Route::group(['middleware' => 'guard:ACCESS_USERS'], function()
         {
