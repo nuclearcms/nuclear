@@ -11,14 +11,6 @@ abstract class ReactorController extends Controller {
     use FormBuilderTrait;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Validates a form
      *
      * @param string

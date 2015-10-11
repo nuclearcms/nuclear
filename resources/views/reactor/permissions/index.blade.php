@@ -3,9 +3,11 @@
 @section('pageTitle', trans('users.manage_permissions'))
 @section('contentSubtitle', uppercase(trans('users.permissions')))
 
+@can('ACCESS_PERMISSIONS_CREATE')
 @section('action')
     {!! action_button(route('reactor.permissions.create'), 'icon-list-add') !!}
 @endsection
+@endcan
 
 @section('content_options')
     @include('partials.content.search', ['placeholder' => trans('users.search_permissions')])

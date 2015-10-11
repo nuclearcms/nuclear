@@ -32,24 +32,41 @@
                         </div>
                     </li>
 
+                    @can('ACCESS_NODES')
                     {!! navigation_module_open('icon-flow-cascade', 'nodes.management') !!}
 
                     {!! navigation_module_close() !!}
+                    @endcan
 
+                    @can('ACCESS_DOCUMENTS')
                     {!! navigation_module_open('icon-docs', 'documents.title') !!}
                         {!! navigation_module_link('reactor.dashboard', 'icon-folder-empty', 'documents.manage') !!}
-                        {!! navigation_module_link('reactor.dashboard', 'icon-upload-cloud', 'documents.upload') !!}
-                    {!! navigation_module_close() !!}
 
+                        @can('ACCESS_DOCUMENTS_UPLOAD')
+                        {!! navigation_module_link('reactor.dashboard', 'icon-upload-cloud', 'documents.upload') !!}
+                        @endcan
+                    {!! navigation_module_close() !!}
+                    @endcan
+
+                    @can('ACCESS_USERS')
                     {!! navigation_module_open('icon-user', 'users.title') !!}
                         {!! navigation_module_link('reactor.users.index', 'icon-user', 'users.manage') !!}
-                        {!! navigation_module_link('reactor.roles.index', 'icon-users', 'users.manage_roles') !!}
-                        {!! navigation_module_link('reactor.permissions.index', 'icon-list', 'users.manage_permissions') !!}
-                    {!! navigation_module_close() !!}
 
+                        @can('ACCESS_ROLES')
+                        {!! navigation_module_link('reactor.roles.index', 'icon-users', 'users.manage_roles') !!}
+                        @endcan
+
+                        @can('ACCESS_PERMISSIONS')
+                        {!! navigation_module_link('reactor.permissions.index', 'icon-list', 'users.manage_permissions') !!}
+                        @endcan
+                    {!! navigation_module_close() !!}
+                    @endcan
+
+                    @can('ACCESS_SETTINGS')
                     {!! navigation_module_open('icon-cog', 'settings.title') !!}
                         {!! navigation_module_link('reactor.dashboard', 'icon-list', 'settings.all') !!}
                     {!! navigation_module_close() !!}
+                    @endcan
 
                     <li class="navigation-module navigation-user">
                         <span class="navigation-user-frame">

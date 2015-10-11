@@ -55,6 +55,8 @@ class UsersController extends ReactorController {
      */
     public function create()
     {
+        $this->authorize('ACCESS_USERS_CREATE');
+
         $form = $this->form('Users\CreateForm', [
             'method' => 'POST',
             'url'    => route('reactor.users.store')
@@ -71,6 +73,8 @@ class UsersController extends ReactorController {
      */
     public function store(Request $request)
     {
+        $this->authorize('ACCESS_USERS_CREATE');
+
         $this->validateForm('Users\CreateForm', $request);
 
         $profile = User::create($request->all());
@@ -88,6 +92,8 @@ class UsersController extends ReactorController {
      */
     public function edit($id)
     {
+        $this->authorize('ACCESS_USERS_EDIT');
+
         $profile = User::findOrFail($id);
 
         $form = $this->form('Users\EditForm', [
@@ -108,6 +114,8 @@ class UsersController extends ReactorController {
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('ACCESS_USERS_EDIT');
+
         $profile = User::findOrFail($id);
 
         $this->validateForm('Users\EditForm', $request, [
@@ -129,6 +137,8 @@ class UsersController extends ReactorController {
      */
     public function destroy($id)
     {
+        $this->authorize('ACCESS_USERS_DELETE');
+
         $user = User::findOrFail($id);
 
         $user->delete();

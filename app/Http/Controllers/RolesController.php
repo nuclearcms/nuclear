@@ -54,6 +54,8 @@ class RolesController extends ReactorController
      */
     public function create()
     {
+        $this->authorize('ACCESS_ROLES_CREATE');
+
         $form = $this->form('Roles\CreateEditForm', [
             'method' => 'POST',
             'url'    => route('reactor.roles.store')
@@ -70,6 +72,8 @@ class RolesController extends ReactorController
      */
     public function store(Request $request)
     {
+        $this->authorize('ACCESS_ROLES_CREATE');
+
         $this->validateForm('Roles\CreateEditForm', $request);
 
         $role = Role::create($request->all());
@@ -87,6 +91,8 @@ class RolesController extends ReactorController
      */
     public function edit($id)
     {
+        $this->authorize('ACCESS_ROLES_EDIT');
+
         $role = Role::findOrFail($id);
 
         $form = $this->form('Roles\CreateEditForm', [
@@ -107,6 +113,8 @@ class RolesController extends ReactorController
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('ACCESS_ROLES_EDIT');
+
         $role = Role::findOrFail($id);
 
         $this->validateForm('Roles\CreateEditForm', $request, [
@@ -130,6 +138,8 @@ class RolesController extends ReactorController
      */
     public function destroy($id)
     {
+        $this->authorize('ACCESS_ROLES_DELETE');
+
         $role = Role::findOrFail($id);
 
         $role->delete();

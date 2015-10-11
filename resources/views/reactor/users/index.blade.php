@@ -3,9 +3,11 @@
 @section('pageTitle', trans('users.manage'))
 @section('contentSubtitle', uppercase(trans('users.title')))
 
+@can('ACCESS_USERS_CREATE')
 @section('action')
     {!! action_button(route('reactor.users.create'), 'icon-user-add') !!}
 @endsection
+@endcan
 
 @section('content_options')
     @include('partials.content.search', ['placeholder' => trans('users.search')])

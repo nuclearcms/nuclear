@@ -41,6 +41,8 @@ class PermissionsController extends ReactorController
      */
     public function create()
     {
+        $this->authorize('ACCESS_PERMISSIONS_CREATE');
+
         $form = $this->form('Permissions\CreateEditForm', [
             'method' => 'POST',
             'url'    => route('reactor.permissions.store')
@@ -57,6 +59,8 @@ class PermissionsController extends ReactorController
      */
     public function store(Request $request)
     {
+        $this->authorize('ACCESS_PERMISSIONS_CREATE');
+
         $this->validateForm('Permissions\CreateEditForm', $request);
 
         $permission = Permission::create($request->all());
@@ -74,6 +78,8 @@ class PermissionsController extends ReactorController
      */
     public function edit($id)
     {
+        $this->authorize('ACCESS_PERMISSIONS_EDIT');
+
         $permission = Permission::findOrFail($id);
 
         $form = $this->form('Permissions\CreateEditForm', [
@@ -94,6 +100,8 @@ class PermissionsController extends ReactorController
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('ACCESS_PERMISSIONS_EDIT');
+
         $permission = Permission::findOrFail($id);
 
         $this->validateForm('Permissions\CreateEditForm', $request, [
@@ -117,6 +125,8 @@ class PermissionsController extends ReactorController
      */
     public function destroy($id)
     {
+        $this->authorize('ACCESS_PERMISSIONS_DELETE');
+
         $permission = Permission::findOrFail($id);
 
         $permission->delete();

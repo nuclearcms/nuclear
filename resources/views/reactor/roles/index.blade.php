@@ -3,9 +3,11 @@
 @section('pageTitle', trans('users.manage_roles'))
 @section('contentSubtitle', uppercase(trans('users.roles')))
 
+@can('ACCESS_ROLES_CREATE')
 @section('action')
     {!! action_button(route('reactor.roles.create'), 'icon-plus') !!}
 @endsection
+@endcan
 
 @section('content_options')
     @include('partials.content.search', ['placeholder' => trans('users.search_roles')])
