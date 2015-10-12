@@ -105,7 +105,7 @@ return [
     */
 
     'attributes' => [
-        'email' => 'E-mail',
+        'email' => 'E-posta',
         'password' => 'Şifre',
         'password_confirmation' => 'Şifre Onayı',
         'keywords' => 'Anahtar Kelimeler',

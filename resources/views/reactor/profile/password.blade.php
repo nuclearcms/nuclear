@@ -15,7 +15,7 @@
     <div class="material-light">
         @include('profile.tabs', [
             'currentTab' => 'reactor.profile.password',
-            'currentKey' => $profile->getKey()
+            'currentKey' => []
         ])
 
         <div class="content-form">

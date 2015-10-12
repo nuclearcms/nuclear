@@ -10,8 +10,13 @@
         'headerHint' => trans('general.dashboard_hint')
     ])
 
-    <div class="content-main material-light">
-        MAIN CONTENT HERE
+    <div class="material-light">
+        @include('dashboard.tabs', [
+            'currentTab' => 'reactor.dashboard.history',
+            'currentKey' => []
+        ])
+
+        @include('activities.list')
     </div>
 
 @endsection

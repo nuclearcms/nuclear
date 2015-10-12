@@ -127,7 +127,7 @@
         padding: 0
         margin: 0
 
-.navigation-user-frame
+.user-frame
     display: block
     +size(2.28571429em)
     border-radius: 50%
@@ -138,8 +138,10 @@
     cursor: pointer
     font-size: 0.875em
     font-family: $fontHeading
+    text-align: center
 
-    @media screen and (max-width: $collapseThreshold)
+@media screen and (max-width: $collapseThreshold)
+    .navigation-user .user-frame
         display: none
 
 .navigation-version

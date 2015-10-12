@@ -45,7 +45,11 @@ Route::group(['prefix' => 'reactor'], function ()
     {
         // Dashboard
         Route::get('/', ['uses' => 'DashboardController@index',
-                         'as' => 'reactor.dashboard']);
+            'as' => 'reactor.dashboard']);
+        Route::get('dashboard/history', [
+            'middleware' => 'guard:ACCESS_HISTORY',
+            'uses' => 'DashboardController@history',
+            'as' => 'reactor.dashboard.history']);
 
         // Profile
         Route::get('profile', ['uses' => 'ProfileController@edit',

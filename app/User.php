@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Kenarkose\Chronicle\Activity;
 use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Sortable\Sortable;
 use Laracasts\Presenter\Contracts\PresentableInterface;
@@ -125,6 +126,16 @@ class User extends Model implements AuthenticatableContract,
         $user->save();
 
         return $user;
+    }
+
+    /**
+     * Relation for user activity
+     *
+     * @return HasMany
+     */
+    public function activity()
+    {
+        return $this->hasMany(Activity::class);
     }
 
 }

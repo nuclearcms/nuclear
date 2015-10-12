@@ -1348,16 +1348,16 @@
         },
         {
             "name": "kenarkose/chronicle",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Chronicle.git",
-                "reference": "0406dce384703107ef6fd784accdf7fc091f08a7"
+                "reference": "b6eba1f7347ce8efe67e75c43434c9e58fa451be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/0406dce384703107ef6fd784accdf7fc091f08a7",
-                "reference": "0406dce384703107ef6fd784accdf7fc091f08a7",
+                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/b6eba1f7347ce8efe67e75c43434c9e58fa451be",
+                "reference": "b6eba1f7347ce8efe67e75c43434c9e58fa451be",
                 "shasum": ""
             },
             "require": {
@@ -1402,7 +1402,7 @@
                 "laravel5",
                 "log"
             ],
-            "time": "2015-10-11 17:27:16"
+            "time": "2015-10-11 18:58:39"
         },
         {
             "name": "kenarkose/files",

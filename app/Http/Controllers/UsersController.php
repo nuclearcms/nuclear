@@ -182,7 +182,7 @@ class UsersController extends ReactorController {
 
         $profile->setPassword($request->input('password'))->save();
 
-        chronicle()->record($profile, 'updated_user_password');
+        chronicle()->record($profile, 'changed_user_password');
         flash()->success(trans('users.changed_password'));
 
         return redirect()->route('reactor.users.password', $id);
@@ -245,7 +245,7 @@ class UsersController extends ReactorController {
 
         $user->assignRoleById($request->input('role'));
 
-        chronicle()->record($user, 'added_role_to_user');
+        chronicle()->record($user, 'assigned_role_to_user');
         flash()->success(trans('users.added_role'));
 
         return redirect()->back();
@@ -264,10 +264,25 @@ class UsersController extends ReactorController {
 
         $user->retractRole($request->input('role'));
 
-        chronicle()->record($user, 'removed_role_from_user');
+        chronicle()->record($user, 'retracted_role_from_user');
         flash()->success(trans('users.unlinked_role'));
 
         return redirect()->back();
+    }
+
+    /**
+     * Shows the history for the user
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function history($id)
+    {
+        $profile = User::findOrFail($id);
+        $activities = chronicle()->getUserActivity($id, 20);
+
+        return view('users.history')
+            ->with(compact('profile', 'activities'));
     }
 
 }

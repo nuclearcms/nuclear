@@ -11,6 +11,6 @@ return [
     | Default model is 'Kenarkose\Chronicle\Activity'.
 	|
 	*/
-    'model' => 'Kenarkose\Chronicle\Activity',
+    'model' => 'Reactor\Chronicle\Activity',
 
 ];

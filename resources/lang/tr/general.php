@@ -12,8 +12,11 @@ return [
     'confirm' => 'Tamam',
 
     'dashboard' => 'Dashboard',
+    'metrics' => 'İstatistikler',
+    'recent_activity' => 'Son Etkinlikler',
     'dashboard_hint' => 'Burada sitenizin yakın zamandaki hareketlerini görebilirsiniz.',
     'content' => 'İçerik',
+
     'home' => 'Anasayfa',
     'page' => 'Sayfa',
     'options' => 'Seçenekler',

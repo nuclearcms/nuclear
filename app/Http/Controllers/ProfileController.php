@@ -51,7 +51,6 @@ class ProfileController extends ReactorController
 
         $profile->update($request->all());
 
-        chronicle()->record($profile, 'updated_profile');
         flash()->success(trans('users.edited'));
 
         return redirect()->route('reactor.profile.edit');
@@ -88,9 +87,23 @@ class ProfileController extends ReactorController
 
         $profile->setPassword($request->input('password'))->save();
 
-        chronicle()->record($profile, 'changed_password');
         flash()->success(trans('users.changed_password'));
 
         return redirect()->route('reactor.profile.password');
     }
+
+    /**
+     * Shows the history for the user
+     *
+     * @return Response
+     */
+    public function history()
+    {
+        $profile = $this->getProfile();
+        $activities = chronicle()->getUserActivity($profile->getKey(), 30);
+
+        return view('profile.history')
+            ->with(compact('profile', 'activities'));
+    }
+
 }

@@ -14,7 +14,20 @@ class DashboardController extends ReactorController {
      */
     public function index()
     {
-        return view('dashboard');
+        return view('dashboard.index');
+    }
+
+    /**
+     * Shows the history for the user
+     *
+     * @return Response
+     */
+    public function history()
+    {
+        $activities = chronicle()->getRecords(30);
+
+        return view('dashboard.history')
+            ->with(compact('activities'));
     }
 
 }

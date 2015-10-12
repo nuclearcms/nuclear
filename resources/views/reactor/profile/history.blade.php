@@ -1,11 +1,7 @@
-@extends('layout.form')
+@extends('layout.content')
 
-@section('pageTitle', trans('auth.edit_profile'))
+@section('pageTitle', trans('users.history'))
 @section('contentSubtitle', uppercase(trans('users.profile')))
-
-@section('action')
-    {!! submit_button('icon-floppy') !!}
-@endsection
 
 @section('content')
     @include('partials.content.header', [
@@ -14,12 +10,10 @@
 
     <div class="material-light">
         @include('profile.tabs', [
-            'currentTab' => 'reactor.profile.edit',
+            'currentTab' => 'reactor.profile.history',
             'currentKey' => []
         ])
 
-        <div class="content-form">
-            {!! form_rest($form) !!}
-        </div>
+        @include('activities.list')
     </div>
 @endsection

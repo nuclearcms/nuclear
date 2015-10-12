@@ -69,7 +69,7 @@
                     @endcan
 
                     <li class="navigation-module navigation-user">
-                        <span class="navigation-user-frame">
+                        <span class="user-frame">
                             {!! $user->present()->avatar !!}
                         </span>
 
