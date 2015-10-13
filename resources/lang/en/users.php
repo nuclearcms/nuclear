@@ -43,6 +43,7 @@ return [
     'delete_permission' => 'Delete Permission',
     'deleted_permission' => 'Permission was deleted.',
     'confirm_delete_permission' => 'Are you sure you want to delete this permission?',
+    'confirm_unlink_permission' => 'Are you sure you want to unlink this permission?',
 
     'add_a_permission' => 'Add a Permission',
     'add_permission' => 'Add Permission',
@@ -61,6 +62,7 @@ return [
     'delete_role' => 'Delete Role',
     'deleted_role' => 'Role was deleted.',
     'confirm_delete_role' => 'Are you sure you want to delete this role?',
+    'confirm_unlink_role' => 'Are you sure you want to unlink this role?',
 
     'add_a_role' => 'Add a Role',
     'add_role' => 'Add Role',
@@ -75,5 +77,6 @@ return [
     'unlink_user' => 'Unlink User',
     'unlinked_user' => 'Unlinked user.',
     'no_users' => 'No users were found.',
+    'confirm_unlink_user' => 'Are you sure you want to unlink this user?',
 
 ];

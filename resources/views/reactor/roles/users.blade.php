@@ -23,3 +23,5 @@
     </div>
 
 @endsection
+
+@include('partials.content.delete_modal', ['message' => 'users.confirm_unlink_user'])

@@ -43,6 +43,7 @@ return [
     'delete_permission' => 'İzni Düzenle',
     'deleted_permission' => 'İzin silindi.',
     'confirm_delete_permission' => 'Bu izni silmek istediğinizden emin misiniz?',
+    'confirm_delete_permission' => 'Bu izni ayrıştırmak istediğinizden emin misiniz?',
 
     'add_a_permission' => 'Bir İzin Ekle',
     'add_permission' => 'İzin Ekle',
@@ -61,6 +62,7 @@ return [
     'delete_role' => 'Rolü Düzenle',
     'deleted_role' => 'Rol silindi.',
     'confirm_delete_role' => 'Bu rolü silmek istediğinizden emin misiniz?',
+    'confirm_delete_role' => 'Bu rolü ayrıştırmak istediğinizden emin misiniz?',
 
     'add_a_role' => 'Bir Rol Ekle',
     'add_role' => 'Rol Ekle',
@@ -75,5 +77,6 @@ return [
     'unlink_user' => 'Kullanıcıyı Ayrıştır',
     'unlinked_user' => 'Kullanıcı ayrıştırıldı.',
     'no_users' => 'Kullanıcı bulunamadı.',
+    'confirm_unlink_user' => 'Bu kullanıcıyı ayrıştırmak istediğinizden emin misiniz?',
 
 ];
