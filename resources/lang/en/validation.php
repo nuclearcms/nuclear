@@ -117,6 +117,11 @@ return [
         'last_name' => 'Last Name',
         'name' => 'Name',
         'label' => 'Label',
+        'type' => 'Type',
+        'key' => 'Key',
+        'group' => 'Group',
+        'role' => 'Role',
+        'user' => 'User',
     ],
 
 ];

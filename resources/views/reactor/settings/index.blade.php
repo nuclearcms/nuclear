@@ -14,7 +14,10 @@
         {!! uppercase(trans('validation.attributes.label')) !!}
     </th>
     <th>
-        {!! uppercase(trans('validation.attributes.name')) !!}
+        {!! uppercase(trans('validation.attributes.key')) !!}
+    </th>
+    <th>
+        {!! uppercase(trans('validation.attributes.type')) !!}
     </th>
 @endsection
 

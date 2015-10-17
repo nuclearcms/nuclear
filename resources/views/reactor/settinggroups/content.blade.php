@@ -4,13 +4,7 @@
 
         </td>
         <td>
-            <a href="{{ route('reactor.settinggroups.edit', $key) }}">
-                @if(trans()->has('settings.' . $key))
-                    @trans('settings.' . $key)
-                @else
-                    {{ $group }}
-                @endif
-            </a>
+            {!! link_to_route('reactor.settinggroups.edit', $group, $key) !!}
         </td>
         {!! content_options_open() !!}
         <li>

@@ -100,7 +100,7 @@ class ReactorServiceProvider extends ServiceProvider {
                 return true;
             }
 
-            return ! settings()->hasSetting($value);
+            return ! settings()->has($value);
         });
 
         Validator::extend('unique_setting_group', function ($attribute, $value, $parameters, $validator)

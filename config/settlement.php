@@ -12,7 +12,7 @@ return [
     | The default driver is Kenarkose\Settlement\Repository\LaravelJSONRepository.
 	|
 	*/
-    'driver' => 'Kenarkose\Settlement\Repository\LaravelJSONRepository',
+    'driver' => 'Reactor\Settlement\SettingsRepository',
 
     /*
 	|--------------------------------------------------------------------------

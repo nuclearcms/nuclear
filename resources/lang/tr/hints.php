@@ -8,7 +8,7 @@ return [
     'permission_name' => 'Şu kalıpta olmalıdır: (ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+',
     'role_label' => 'Rol için okunaklı isim',
     'role_name' => 'Sadece büyük ASCII harfler içermelidir.',
-    'settinggroup_key' => 'Sadece harf ve rakam içermelidir.',
+    'settings_key' => 'Sadece harf ve rakam içermelidir.',
     'settinggroup_name' => 'Ayar grubu için okunaklı isim.',
 
 ];

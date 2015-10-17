@@ -15,7 +15,7 @@ class SettingGroupsController extends ReactorController {
      */
     public function index()
     {
-        $groups = settings()->groups();
+        $groups = settings()->getGroups();
 
         return view('settinggroups.index')
             ->with(compact('groups'));
@@ -101,7 +101,7 @@ class SettingGroupsController extends ReactorController {
         }
 
         $this->validateForm('SettingGroups\CreateEditForm', $request, [
-            'key' => 'required|max:25|alpha_num|unique_setting_group:' . $key
+            'key' => 'required|max:25|alpha_dash|unique_setting_group:' . $key
         ]);
 
         settings()->setGroup($key, $request->input('name'));

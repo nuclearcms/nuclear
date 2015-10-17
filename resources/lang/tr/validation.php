@@ -117,6 +117,11 @@ return [
         'last_name' => 'Soyad',
         'name' => 'İsim',
         'label' => 'Etiket',
+        'type' => 'Tip',
+        'key' => 'Anahtar',
+        'group' => 'Grup',
+        'role' => 'Rol',
+        'user' => 'Kullanıcı',
     ],
 
 ];

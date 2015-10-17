@@ -73,10 +73,8 @@
                         @can('ACCESS_SETTINGS_MODIFY')
                         {!! navigation_module_link('reactor.settings.group.edit', 'icon-blank', 'settings.all', []) !!}
 
-                        @foreach(settings()->groups() as $key => $group)
-                            {!! navigation_module_link('reactor.settings.group.edit', 'icon-blank',
-                            (trans()->has('settings.group_' . $key)) ? trans('settings.group_' . $key) : $group,
-                            $key) !!}
+                        @foreach(settings()->getGroups() as $key => $group)
+                            {!! navigation_module_link('reactor.settings.group.edit', 'icon-blank', $group, $key) !!}
                         @endforeach
 
                         @endcan

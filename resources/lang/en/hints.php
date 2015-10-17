@@ -8,7 +8,7 @@ return [
     'permission_name' => 'Should be in this pattern: (ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+',
     'role_label' => 'Readable name for the role.',
     'role_name' => 'Should only contain capital ASCII letters.',
-    'settinggroup_key' => 'Has to be alphanumeric.',
+    'settings_key' => 'Has to be alphanumeric.',
     'settinggroup_name' => 'User-friendly name for the setting group.',
 
 ];

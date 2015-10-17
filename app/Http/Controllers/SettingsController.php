@@ -27,7 +27,14 @@ class SettingsController extends ReactorController
      */
     public function create()
     {
-        //
+        $this->authorize('ACCESS_SETTINGS_CREATE');
+
+        $form = $this->form('Settings\CreateForm', [
+            'method' => 'POST',
+            'url'    => route('reactor.settings.store')
+        ]);
+
+        return view('settings.create', compact('form'));
     }
 
     /**
@@ -38,41 +45,99 @@ class SettingsController extends ReactorController
      */
     public function store(Request $request)
     {
-        //
+        $this->validateForm('Settings\CreateForm', $request);
+
+        settings()->set(
+            $key = $request->input('key'),
+            $request->input('value'),
+            $request->input('type'),
+            $request->input('group')
+        );
+
+        flash()->success(trans('settings.created'));
+
+        return redirect()->route('reactor.settings.edit', $key);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $key
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($key)
     {
-        //
+        $this->authorize('ACCESS_SETTINGS_EDIT');
+
+        if ( ! settings()->has($key))
+        {
+            abort(404);
+        }
+
+        $setting = settings()->getComplete($key);
+        $setting['key'] = $key;
+
+        $form = $this->form('Settings\EditForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.settings.update', $key),
+            'model'  => $setting
+        ]);
+
+        return view('settings.edit', compact('form', 'setting'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $key
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $key)
     {
-        //
+        $this->authorize('ACCESS_SETTINGS_EDIT');
+
+        if ( ! settings()->has($key))
+        {
+            abort(404);
+        }
+
+        $this->validateForm('Settings\EditForm', $request);
+
+        $setting = settings()->getComplete($key);
+
+        settings()->set(
+            $key,
+            $setting['value'],
+            $request->input('type'),
+            $request->input('group')
+        );
+
+        flash()->success(trans('settings.edited'));
+
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $key
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($key)
     {
-        //
+        $this->authorize('ACCESS_SETTINGS_DELETE');
+
+        if ( ! settings()->has($key))
+        {
+            abort(404);
+        }
+
+        settings()->delete($key);
+
+        flash()->success(trans('settings.deleted'));
+
+        return redirect()->route('reactor.settings.index');
     }
 
     /**
