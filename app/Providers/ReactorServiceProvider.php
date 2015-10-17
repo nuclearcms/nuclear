@@ -4,6 +4,7 @@ namespace Reactor\Providers;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
 class ReactorServiceProvider extends ServiceProvider {
@@ -32,6 +33,8 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->setTheme();
 
         $this->registerViewBindings();
+
+        $this->registerCustomValidationRules();
     }
 
     /**
@@ -77,8 +80,37 @@ class ReactorServiceProvider extends ServiceProvider {
      */
     protected function registerViewBindings()
     {
-        view()->composer('*', function ($view) {
+        view()->composer('*', function ($view)
+        {
             $view->with('user', auth()->user());
+        });
+    }
+
+    /**
+     * Registers custom validation rules
+     *
+     * @return void
+     */
+    protected function registerCustomValidationRules()
+    {
+        Validator::extend('unique_setting', function ($attribute, $value, $parameters, $validator)
+        {
+            if(isset($parameters[0]) && $value === $parameters[0])
+            {
+                return true;
+            }
+
+            return ! settings()->hasSetting($value);
+        });
+
+        Validator::extend('unique_setting_group', function ($attribute, $value, $parameters, $validator)
+        {
+            if(isset($parameters[0]) && $value === $parameters[0])
+            {
+                return true;
+            }
+
+            return ! settings()->hasGroup($value);
         });
     }
 

@@ -76,6 +76,10 @@ return [
     'unique'               => 'The :attribute has already been taken.',
     'url'                  => 'The :attribute format is invalid.',
 
+    // Custom rule translations
+    'unique_setting' => 'This setting key has already been taken.',
+    'unique_setting_group' => 'This setting group key has already been taken.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

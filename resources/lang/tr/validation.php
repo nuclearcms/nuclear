@@ -76,6 +76,10 @@ return [
     'unique'                => ':attribute daha önceden kayıt edilmiş.',
     'url'                   => ':attribute biçimi geçersiz.',
 
+    // Custom rule translations
+    'unique_setting' => 'Bu ayar anahtarı daha önceden kayıt edilmiş.',
+    'unique_setting_group' => 'Bu ayar grubu anahtarı daha önceden kayıt edilmiş.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

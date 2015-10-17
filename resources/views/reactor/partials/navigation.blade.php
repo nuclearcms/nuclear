@@ -64,7 +64,22 @@
 
                     @can('ACCESS_SETTINGS')
                     {!! navigation_module_open('icon-cog', 'settings.title') !!}
-                        {!! navigation_module_link('reactor.dashboard', 'icon-list', 'settings.all') !!}
+                        {!! navigation_module_link('reactor.settings.index', 'icon-cog', 'settings.manage') !!}
+
+                        @can('ACCESS_SETTINGGROUPS')
+                        {!! navigation_module_link('reactor.settinggroups.index', 'icon-list', 'settings.manage_groups') !!}
+                        @endcan
+
+                        @can('ACCESS_SETTINGS_MODIFY')
+                        {!! navigation_module_link('reactor.settings.group.edit', 'icon-blank', 'settings.all', []) !!}
+
+                        @foreach(settings()->groups() as $key => $group)
+                            {!! navigation_module_link('reactor.settings.group.edit', 'icon-blank',
+                            (trans()->has('settings.group_' . $key)) ? trans('settings.group_' . $key) : $group,
+                            $key) !!}
+                        @endforeach
+
+                        @endcan
                     {!! navigation_module_close() !!}
                     @endcan
 

@@ -52,17 +52,19 @@ Route::group(['prefix' => 'reactor'], function ()
             'as' => 'reactor.dashboard.history']);
 
         // Profile
-        Route::get('profile', ['uses' => 'ProfileController@edit',
-            'as' => 'reactor.profile.edit']);
-        Route::put('profile', ['uses' => 'ProfileController@update',
-            'as' => 'reactor.profile.update']);
-        Route::get('profile/password', ['uses' => 'ProfileController@password',
-            'as' => 'reactor.profile.password']);
-        Route::put('profile/password', ['uses' => 'ProfileController@updatePassword',
-            'as' => 'reactor.profile.password.post']);
-        Route::get('profile/history', ['uses' => 'ProfileController@history',
-            'as' => 'reactor.profile.history']);
-
+        Route::group(['prefix' => 'profile'], function()
+        {
+            Route::get('/', ['uses' => 'ProfileController@edit',
+                'as' => 'reactor.profile.edit']);
+            Route::put('/', ['uses' => 'ProfileController@update',
+                'as' => 'reactor.profile.update']);
+            Route::get('password', ['uses' => 'ProfileController@password',
+                'as' => 'reactor.profile.password']);
+            Route::put('password', ['uses' => 'ProfileController@updatePassword',
+                'as' => 'reactor.profile.password.post']);
+            Route::get('history', ['uses' => 'ProfileController@history',
+                'as' => 'reactor.profile.history']);
+        });
         // Users
         Route::group(['middleware' => 'guard:ACCESS_USERS'], function()
         {
@@ -144,6 +146,36 @@ Route::group(['prefix' => 'reactor'], function ()
             ]]);
             Route::get('permissions/search', ['uses' => 'PermissionsController@search',
                 'as' => 'reactor.permissions.search']);
+        });
+
+        // Settings
+        Route::group(['middleware' => 'guard:ACCESS_SETTINGS'], function()
+        {
+            Route::resource('settings', 'SettingsController', ['except' => 'show', 'names' => [
+                'index' => 'reactor.settings.index',
+                'create' => 'reactor.settings.create',
+                'store' => 'reactor.settings.store',
+                'edit' => 'reactor.settings.edit',
+                'update' => 'reactor.settings.update',
+                'destroy' => 'reactor.settings.destroy',
+            ]]);
+            Route::get('settings/group/{group?}', ['uses' => 'SettingsController@editSettings',
+                'as' => 'reactor.settings.group.edit']);
+            Route::put('settings/group/{group?}', ['uses' => 'SettingsController@updateSettings',
+                'as' => 'reactor.settings.group.update']);
+        });
+
+        // Setting groups
+        Route::group(['middleware' => 'guard:ACCESS_SETTINGGROUPS'], function()
+        {
+            Route::resource('setting-groups', 'SettingGroupsController', ['except' => 'show', 'names' => [
+                'index' => 'reactor.settinggroups.index',
+                'create' => 'reactor.settinggroups.create',
+                'store' => 'reactor.settinggroups.store',
+                'edit' => 'reactor.settinggroups.edit',
+                'update' => 'reactor.settinggroups.update',
+                'destroy' => 'reactor.settinggroups.destroy',
+            ]]);
         });
 
     });
