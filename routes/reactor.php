@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['prefix' => 'reactor'], function ()
+Route::group(['prefix' => config('app.reactor_prefix')], function ()
 {
     // Authentication
     Route::get('auth/login', ['uses' => 'Auth\AuthController@getLogin',
