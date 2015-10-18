@@ -90,11 +90,11 @@
 
 })(window);
 // General highlighters
-$('.form-group input').focus(function () {
+$('.form-group input, .form-group textarea').focus(function () {
     $(this).closest('.form-group').addClass('focus');
 });
 
-$('.form-group input').blur(function () {
+$('.form-group input, .form-group textarea').blur(function () {
     $(this).closest('.form-group').removeClass('focus');
 });
 

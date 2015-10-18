@@ -161,7 +161,7 @@ Route::group(['prefix' => 'reactor'], function ()
             ]]);
             Route::get('settings/group/{group?}', ['uses' => 'SettingsController@editSettings',
                 'as' => 'reactor.settings.group.edit']);
-            Route::put('settings/group/{group?}', ['uses' => 'SettingsController@updateSettings',
+            Route::put('settings/group/{group}', ['uses' => 'SettingsController@updateSettings',
                 'as' => 'reactor.settings.group.update']);
         });
 

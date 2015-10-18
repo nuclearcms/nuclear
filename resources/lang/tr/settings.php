@@ -15,6 +15,8 @@ return [
     'edited' => 'Ayar düzenlendi.',
     'delete' => 'Ayarı Sil',
     'deleted' => 'Ayar silindi.',
+    'modify' => 'Ayarları Değiştir',
+    'modified' => 'Ayarlar değiştirildi.',
     'confirm_delete' => 'Bu ayarı silmek istediğinizden emin misiniz?',
 
     'create_group' => 'Ayar Grubu Oluştur',
@@ -26,9 +28,9 @@ return [
     'confirm_delete_group' => 'Bu ayar grubunu silmek istediğinizden emin misiniz?',
 
     'group_api' => 'APIler',
-    'group_email' => 'E-posta',
     'group_site' => 'Site Bilgileri',
     'group_social' => 'Sosyal Medya',
+    'group_theme' => 'Temalar',
 
     'type_text' => 'Tek-satır Metin',
     'type_textarea' => 'Düz Metin',
@@ -40,14 +42,4 @@ return [
     'type_color' => 'Renk',
     'type_datetime' => 'Tarih-zaman',
 
-    'key_analytics' => 'Google Analytics Anahtarı',
-    'key_email-address' => 'Site E-posta Adresi',
-    'key_email-sender' => 'Site E-posta Gönderen İsmi',
-    'key_site-title' => 'Site Başlığı',
-    'key_site-description' => 'Site Tanımı',
-    'key_site-author' => 'Site Yazarı',
-    'key_social-facebook-url' => 'Facebook URL',
-    'key_social-twitter-username' => 'Twitter Kullanıcı Adı',
-    'key_social-twitter-url' => 'Twitter URL',
-    'key_social-instagram-url' => 'Instagram URL',
 ];

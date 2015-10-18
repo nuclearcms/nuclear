@@ -821,7 +821,7 @@ a {
 .alert-danger {
   background-color: #E74C3C !important; }
 
-input:not([type="checkbox"]) {
+input:not([type="checkbox"]), textarea {
   width: 100%;
   height: 2.5em;
   background-color: transparent;
@@ -831,13 +831,13 @@ input:not([type="checkbox"]) {
   font-family: "Oxygen", sans-serif;
   -webkit-appearance: none;
   border-radius: 0; }
-  input:not([type="checkbox"])::-webkit-input-placeholder {
+  input:not([type="checkbox"])::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     color: #BDC3C7; }
-  input:not([type="checkbox"])::-moz-placeholder {
+  input:not([type="checkbox"])::-moz-placeholder, textarea::-moz-placeholder {
     color: #BDC3C7; }
-  input:not([type="checkbox"]):-moz-placeholder {
+  input:not([type="checkbox"]):-moz-placeholder, textarea:-moz-placeholder {
     color: #BDC3C7; }
-  input:not([type="checkbox"]):-ms-input-placeholder {
+  input:not([type="checkbox"]):-ms-input-placeholder, textarea:-ms-input-placeholder {
     color: #BDC3C7; }
 
 label {
@@ -874,12 +874,15 @@ label {
     color: #3498DB; }
     .form-group.focus .control-label:before {
       border-bottom-color: #3498DB; }
-  .form-group input {
+  .form-group input, .form-group textarea {
     border-bottom: 1px solid #BDC3C7;
     transition: border-bottom 200ms; }
-    .form-group input:focus {
+    .form-group input:focus, .form-group textarea:focus {
       border-bottom: 1px solid #3498DB; }
-  .form-group.error input {
+  .form-group textarea {
+    max-width: 28em;
+    min-height: 8em; }
+  .form-group.error input, .form-group.error textarea {
     border-bottom-color: #E74C3C; }
   .form-group.error .control-label {
     color: #E74C3C; }

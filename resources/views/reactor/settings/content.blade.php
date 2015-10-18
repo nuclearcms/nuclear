@@ -5,7 +5,7 @@
         </td>
         <td>
             {!! link_to_route('reactor.settings.edit',
-            (trans()->has('settings.key_' . $key)) ? trans('settings.key_' . $key) : $key,
+            (trans()->has('validation.attributes.' . $key)) ? trans('validation.attributes.' . $key) : $key,
             $key) !!}
         </td>
         <td>

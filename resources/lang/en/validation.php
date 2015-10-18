@@ -122,6 +122,18 @@ return [
         'group' => 'Group',
         'role' => 'Role',
         'user' => 'User',
+
+        // Settings specific
+        'analytics' => 'Google Analytics Key',
+        'site-title' => 'Site Title',
+        'site-description' => 'Site Description',
+        'site-author' => 'Site Author',
+        'social-facebook-url' => 'Facebook URL',
+        'social-twitter-username' => 'Twitter Username',
+        'social-twitter-url' => 'Twitter URL',
+        'social-instagram-url' => 'Instagram URL',
+        'theme-reactor' => 'Reactor Theme',
+        'theme-site' => 'Site Theme',
     ],
 
 ];

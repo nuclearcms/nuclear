@@ -5,7 +5,7 @@ return [
     // Templates
     'form'          => 'laravel-form-builder::form',
     'text'          => 'fields.text',
-    'textarea'      => 'laravel-form-builder::textarea',
+    'textarea'      => 'fields.textarea',
     'button'        => 'laravel-form-builder::button',
     'radio'         => 'laravel-form-builder::radio',
     'checkbox'      => 'laravel-form-builder::checkbox',

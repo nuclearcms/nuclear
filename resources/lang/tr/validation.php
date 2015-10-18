@@ -122,6 +122,18 @@ return [
         'group' => 'Grup',
         'role' => 'Rol',
         'user' => 'Kullanıcı',
+
+        // Settings specific
+        'analytics' => 'Google Analytics Anahtarı',
+        'site-title' => 'Site Başlığı',
+        'site-description' => 'Site Tanımı',
+        'site-author' => 'Site Yazarı',
+        'social-facebook-url' => 'Facebook URL',
+        'social-twitter-username' => 'Twitter Kullanıcı Adı',
+        'social-twitter-url' => 'Twitter URL',
+        'social-instagram-url' => 'Instagram URL',
+        'theme-reactor' => 'Reactor Teması',
+        'theme-site' => 'Site Teması',
     ],
 
 ];

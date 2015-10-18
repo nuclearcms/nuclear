@@ -1,4 +1,4 @@
-input:not([type="checkbox"])
+input:not([type="checkbox"]), textarea
     width: 100%
     height: 2.5em
     background-color: transparent
@@ -45,7 +45,7 @@ label
         &:before
             border-bottom-color: $secondaryAccent
 
-    input
+    input, textarea
         border-bottom: 1px solid $midGray-1
 
         +transition(border-bottom $animationFast)
@@ -53,8 +53,12 @@ label
         &:focus
             border-bottom: 1px solid $secondaryAccent
 
+    textarea
+        max-width: 28em
+        min-height: 8em
+
     &.error
-        input
+        input, textarea
             border-bottom-color: $accent
 
         .control-label

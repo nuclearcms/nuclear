@@ -1,5 +1,18 @@
 <?php
 
+if ( ! function_exists('is_reactor'))
+{
+    /**
+     * Checks if the request is a reactor request
+     *
+     * @return bool
+     */
+    function is_reactor()
+    {
+        return (request()->segment(1) === config('app.reactor_prefix'));
+    }
+}
+
 if ( ! function_exists('nuclear_version'))
 {
     /**
