@@ -10,5 +10,5 @@ return [
     'role_name' => 'Sadece büyük ASCII harfler içermelidir.',
     'settings_key' => 'Sadece harf ve rakam içermelidir.',
     'settinggroup_name' => 'Ayar grubu için okunaklı isim.',
-    
+
 ];

@@ -132,8 +132,6 @@ return [
         'social-twitter-username' => 'Twitter Kullanıcı Adı',
         'social-twitter-url' => 'Twitter URL',
         'social-instagram-url' => 'Instagram URL',
-        'theme-reactor' => 'Reactor Teması',
-        'theme-site' => 'Site Teması',
     ],
 
 ];

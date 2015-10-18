@@ -27,6 +27,7 @@ return [
     */
 
     'active' => 'default',
+    'active_reactor' => 'reactor',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +52,7 @@ return [
             'asset-path' => '',
         ],
 
-        'reactor_default' => [
+        'reactor' => [
             'extends'    => null,
             'views-path' => 'reactor',
             'asset-path' => 'reactor_assets',

@@ -1,51 +1,32 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
-
-Route::get('/', function ()
-{
-    return view('welcome');
-});
-
-/**
- * Reactor routes
- */
 Route::group(['prefix' => 'reactor'], function ()
 {
     // Authentication
     Route::get('auth/login', ['uses' => 'Auth\AuthController@getLogin',
-        'as' => 'reactor.auth.login']);
+                              'as' => 'reactor.auth.login']);
     Route::post('auth/login', ['uses' => 'Auth\AuthController@postLogin',
-        'as' => 'reactor.auth.login.post']);
+                               'as' => 'reactor.auth.login.post']);
     Route::get('auth/logout', ['uses' => 'Auth\AuthController@getLogout',
-        'as' => 'reactor.auth.logout']);
+                               'as' => 'reactor.auth.logout']);
 
     // Password Reset
     Route::get('password/email', ['uses' => 'Auth\PasswordController@getEmail',
-        'as' => 'reactor.password.email']);
+                                  'as' => 'reactor.password.email']);
     Route::post('password/email', ['uses' => 'Auth\PasswordController@postEmail',
-        'as' => 'reactor.password.email.post']);
+                                   'as' => 'reactor.password.email.post']);
 
     Route::get('password/reset/{token}', ['uses' => 'Auth\PasswordController@getReset',
-        'as' => 'reactor.password.reset']);
+                                          'as' => 'reactor.password.reset']);
     Route::post('password/reset', ['uses' => 'Auth\PasswordController@postReset',
-        'as' => 'reactor.password.reset.post']);
+                                   'as' => 'reactor.password.reset.post']);
 
     // General reactor group
     Route::group(['middleware' => ['auth', 'guard:ACCESS_REACTOR']], function()
     {
         // Dashboard
         Route::get('/', ['uses' => 'DashboardController@index',
-            'as' => 'reactor.dashboard']);
+                         'as' => 'reactor.dashboard']);
         Route::get('dashboard/history', [
             'middleware' => 'guard:ACCESS_HISTORY',
             'uses' => 'DashboardController@history',
@@ -55,15 +36,15 @@ Route::group(['prefix' => 'reactor'], function ()
         Route::group(['prefix' => 'profile'], function()
         {
             Route::get('/', ['uses' => 'ProfileController@edit',
-                'as' => 'reactor.profile.edit']);
+                             'as' => 'reactor.profile.edit']);
             Route::put('/', ['uses' => 'ProfileController@update',
-                'as' => 'reactor.profile.update']);
+                             'as' => 'reactor.profile.update']);
             Route::get('password', ['uses' => 'ProfileController@password',
-                'as' => 'reactor.profile.password']);
+                                    'as' => 'reactor.profile.password']);
             Route::put('password', ['uses' => 'ProfileController@updatePassword',
-                'as' => 'reactor.profile.password.post']);
+                                    'as' => 'reactor.profile.password.post']);
             Route::get('history', ['uses' => 'ProfileController@history',
-                'as' => 'reactor.profile.history']);
+                                   'as' => 'reactor.profile.history']);
         });
         // Users
         Route::group(['middleware' => 'guard:ACCESS_USERS'], function()
@@ -77,28 +58,28 @@ Route::group(['prefix' => 'reactor'], function ()
                 'destroy' => 'reactor.users.destroy',
             ]]);
             Route::get('users/search', ['uses' => 'UsersController@search',
-                'as' => 'reactor.users.search']);
+                                        'as' => 'reactor.users.search']);
 
             Route::group(['middleware' => 'guard:ACCESS_ROLES_EDIT'], function()
             {
                 Route::get('users/{id}/password', ['uses' => 'UsersController@password',
-                    'as' => 'reactor.users.password']);
+                                                   'as' => 'reactor.users.password']);
                 Route::put('users/{id}/password', ['uses' => 'UsersController@updatePassword',
-                    'as' => 'reactor.users.password.post']);
+                                                   'as' => 'reactor.users.password.post']);
                 Route::get('users/{id}/permissions', ['uses' => 'UsersController@permissions',
-                    'as' => 'reactor.users.permissions']);
+                                                      'as' => 'reactor.users.permissions']);
                 Route::put('users/{id}/permissions', ['uses' => 'UsersController@addPermission',
-                    'as' => 'reactor.users.permission.add']);
+                                                      'as' => 'reactor.users.permission.add']);
                 Route::delete('users/{id}/permissions', ['uses' => 'UsersController@removePermission',
-                    'as' => 'reactor.users.permission.remove']);
+                                                         'as' => 'reactor.users.permission.remove']);
                 Route::get('users/{id}/roles', ['uses' => 'UsersController@roles',
-                    'as' => 'reactor.users.roles']);
+                                                'as' => 'reactor.users.roles']);
                 Route::put('users/{id}/roles', ['uses' => 'UsersController@addRole',
-                    'as' => 'reactor.users.role.add']);
+                                                'as' => 'reactor.users.role.add']);
                 Route::delete('users/{id}/roles', ['uses' => 'UsersController@removeRole',
-                    'as' => 'reactor.users.role.remove']);
+                                                   'as' => 'reactor.users.role.remove']);
                 Route::get('users/{id}/history', ['uses' => 'UsersController@history',
-                    'as' => 'reactor.users.history']);
+                                                  'as' => 'reactor.users.history']);
             });
         });
 
@@ -114,22 +95,22 @@ Route::group(['prefix' => 'reactor'], function ()
                 'destroy' => 'reactor.roles.destroy',
             ]]);
             Route::get('roles/search', ['uses' => 'RolesController@search',
-                'as' => 'reactor.roles.search']);
+                                        'as' => 'reactor.roles.search']);
 
             Route::group(['middleware' => 'guard:ACCESS_ROLES_EDIT'], function()
             {
                 Route::get('roles/{id}/permissions', ['uses' => 'RolesController@permissions',
-                    'as' => 'reactor.roles.permissions']);
+                                                      'as' => 'reactor.roles.permissions']);
                 Route::put('roles/{id}/permissions', ['uses' => 'RolesController@addPermission',
-                    'as' => 'reactor.roles.permission.add']);
+                                                      'as' => 'reactor.roles.permission.add']);
                 Route::delete('roles/{id}/permissions', ['uses' => 'RolesController@removePermission',
-                    'as' => 'reactor.roles.permission.remove']);
+                                                         'as' => 'reactor.roles.permission.remove']);
                 Route::get('roles/{id}/users', ['uses' => 'RolesController@users',
-                    'as' => 'reactor.roles.users']);
+                                                'as' => 'reactor.roles.users']);
                 Route::put('roles/{id}/users', ['uses' => 'RolesController@addUser',
-                    'as' => 'reactor.roles.user.add']);
+                                                'as' => 'reactor.roles.user.add']);
                 Route::delete('roles/{id}/users', ['uses' => 'RolesController@removeUser',
-                    'as' => 'reactor.roles.user.remove']);
+                                                   'as' => 'reactor.roles.user.remove']);
             });
         });
 
@@ -145,7 +126,7 @@ Route::group(['prefix' => 'reactor'], function ()
                 'destroy' => 'reactor.permissions.destroy',
             ]]);
             Route::get('permissions/search', ['uses' => 'PermissionsController@search',
-                'as' => 'reactor.permissions.search']);
+                                              'as' => 'reactor.permissions.search']);
         });
 
         // Settings
@@ -160,9 +141,9 @@ Route::group(['prefix' => 'reactor'], function ()
                 'destroy' => 'reactor.settings.destroy',
             ]]);
             Route::get('settings/group/{group?}', ['uses' => 'SettingsController@editSettings',
-                'as' => 'reactor.settings.group.edit']);
+                                                   'as' => 'reactor.settings.group.edit']);
             Route::put('settings/group/{group}', ['uses' => 'SettingsController@updateSettings',
-                'as' => 'reactor.settings.group.update']);
+                                                  'as' => 'reactor.settings.group.update']);
         });
 
         // Setting groups

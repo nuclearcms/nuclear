@@ -30,7 +30,6 @@ return [
     'group_api' => 'APIs',
     'group_site' => 'Site Information',
     'group_social' => 'Social Media',
-    'group_theme' => 'Themes',
 
     'type_text' => 'Single-line Text',
     'type_textarea' => 'Plain Text',

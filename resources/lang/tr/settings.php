@@ -30,7 +30,6 @@ return [
     'group_api' => 'APIler',
     'group_site' => 'Site Bilgileri',
     'group_social' => 'Sosyal Medya',
-    'group_theme' => 'Temalar',
 
     'type_text' => 'Tek-satır Metin',
     'type_textarea' => 'Düz Metin',

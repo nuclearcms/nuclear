@@ -69,7 +69,7 @@ class ReactorServiceProvider extends ServiceProvider {
         // We check if the request segment has 'reactor'
         if (is_reactor())
         {
-            \Theme::set('reactor_default');
+            \Theme::set($this->app['config']->get('themes.active_reactor'));
         }
     }
 
