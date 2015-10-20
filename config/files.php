@@ -10,7 +10,7 @@ return [
 	| You may configure the default media class path here.
 	|
 	*/
-    'media_model' => 'Kenarkose\Files\Media\Media',
+    'media_model' => 'Reactor\Documents\Media',
 
     /*
 	|--------------------------------------------------------------------------
@@ -23,18 +23,21 @@ return [
 	|
 	*/
     'media_types' => [
-        'audio'    => [
+        'audio'            => [
             'audio/aac', 'audio/mp4', 'audio/mpeg', 'audio/ogg', 'audio/wav', 'audio/webm'
         ],
-        'document' => [
+        'document'         => [
             'text/plain', 'application/pdf', 'application/msword', 'application/vnd.ms-excel', 'application/vnd.ms-powerpoint'
         ],
-        'image'    => [
+        'image'            => [
             'image/jpeg', 'image/gif', 'image/png', 'image/bmp', 'image/svg+xml'
         ],
-        'video'    => [
+        'video'            => [
             'video/mp4', 'video/ogg', 'video/webm'
-        ]
+        ],
+        'video-youtube'    => ['video/youtube'],
+        'video-vimeo'      => ['video/vimeo'],
+        'video-soundcloud' => ['audio/soundcloud'],
     ],
 
     /*
@@ -46,10 +49,13 @@ return [
 	|
 	*/
     'model_types' => [
-        'audio'    => 'Kenarkose\Files\Media\Audio',
-        'document' => 'Kenarkose\Files\Media\Document',
-        'image'    => 'Kenarkose\Files\Media\Image',
-        'video'    => 'Kenarkose\Files\Media\Video'
+        'audio'            => 'Reactor\Documents\Audio',
+        'document'         => 'Reactor\Documents\Document',
+        'image'            => 'Reactor\Documents\Image',
+        'video'            => 'Reactor\Documents\Video',
+        'video-youtube'    => 'Reactor\Documents\YoutubeVideo',
+        'video-vimeo'      => 'Reactor\Documents\VimeoVideo',
+        'audio-soundcloud' => 'Reactor\Documents\SoundcloudAudio',
     ]
 
 ];

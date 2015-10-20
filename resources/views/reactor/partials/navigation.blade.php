@@ -40,10 +40,10 @@
 
                     @can('ACCESS_DOCUMENTS')
                     {!! navigation_module_open('icon-docs', 'documents.title') !!}
-                        {!! navigation_module_link('reactor.dashboard', 'icon-folder-empty', 'documents.manage') !!}
+                        {!! navigation_module_link('reactor.documents.index', 'icon-folder-empty', 'documents.manage') !!}
 
                         @can('ACCESS_DOCUMENTS_UPLOAD')
-                        {!! navigation_module_link('reactor.dashboard', 'icon-upload-cloud', 'documents.upload') !!}
+                        {!! navigation_module_link('reactor.documents.upload', 'icon-upload-cloud', 'documents.upload') !!}
                         @endcan
                     {!! navigation_module_close() !!}
                     @endcan

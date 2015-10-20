@@ -23,7 +23,7 @@ return [
     | must implement "Kenarkose\Transit\Contract\Uploadable" interface.
 	|
 	*/
-    'model' => 'Kenarkose\Transit\File\File',
+    'model' => 'Reactor\Documents\Media',
 
 
     /*

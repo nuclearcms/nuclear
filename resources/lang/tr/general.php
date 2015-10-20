@@ -11,6 +11,9 @@ return [
     'dismiss' => 'Kapat',
     'confirm' => 'Tamam',
 
+    'or' => 'ya da',
+    'and' => 've',
+
     'dashboard' => 'Dashboard',
     'metrics' => 'İstatistikler',
     'recent_activity' => 'Son Etkinlikler',

@@ -8,7 +8,7 @@
      * @param DOM Object
      * @param object
      */
-    function OptionListsHelper(buttons, lists, blackout) {
+    function OptionListsHelper(buttons, lists) {
         this.buttons = buttons;
         this.lists = lists;
 

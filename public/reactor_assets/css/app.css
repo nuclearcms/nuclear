@@ -806,6 +806,112 @@ a {
 .no-touch .content-list-container a:hover {
   color: #3498DB; }
 
+.dropzone {
+  background-color: #F5F5F5;
+  text-align: center;
+  transition: background-color 400ms;
+  margin-bottom: 2em; }
+  .dropzone.dragenter {
+    background-color: #7ee2a8;
+    cursor: copy; }
+  .dropzone h3 {
+    font-size: 3em;
+    line-height: 1em;
+    padding-top: 0.5em;
+    color: #5F696A;
+    font-family: "Lato", sans-serif;
+    font-weight: 700; }
+  .dropzone .dropzone-message {
+    font-size: 1.25em;
+    line-height: 1.5em; }
+  .dropzone .dropzone-message-muted {
+    font-size: 0.875em;
+    color: #5F696A; }
+  .dropzone .dropzone-rule {
+    font-size: 0.75em;
+    line-height: 1.66666667em; }
+  .dropzone .dropzone-file {
+    display: none; }
+  .dropzone .button-dropzone {
+    margin: 0.5em 0;
+    width: 15em; }
+  .dropzone .dropzone-container {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    background-size: 2em 2em;
+    padding: 0 1em 0.75em;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.5) 75%, transparent 75%, transparent); }
+
+.upload-progress-container {
+  width: 100%;
+  height: 3em;
+  overflow: hidden;
+  position: relative;
+  transition: height 200ms ease 100ms; }
+
+.upload-progress-bar {
+  height: 3em;
+  width: 0;
+  background-color: #2ECC71;
+  transition: width 100ms; }
+
+.upload-list li {
+  height: 3em;
+  margin-bottom: 0.5em;
+  overflow: hidden; }
+  .upload-list li.error .upload-progress-container, .upload-list li.complete .upload-progress-container {
+    height: 0; }
+  .upload-list li.error {
+    background-color: #E74C3C;
+    color: #FAFAFA; }
+
+.upload-list p {
+  float: left;
+  margin-left: -2.5em;
+  padding-left: 3.5em;
+  width: 100%; }
+
+.upload-text {
+  display: block;
+  line-height: 1.66666667em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  font-size: 0.75em; }
+  .upload-text.muted {
+    opacity: 0.75; }
+
+.upload-message-wrapper {
+  padding: 0.25em 1em;
+  width: 100%;
+  height: 3em;
+  position: relative; }
+
+.upload-thumbnail {
+  display: block;
+  float: left;
+  height: 2.5em;
+  width: 2.5em;
+  text-align: center; }
+  .upload-thumbnail img {
+    width: 100%;
+    vertical-align: bottom; }
+  .upload-thumbnail i {
+    line-height: 2em;
+    display: inline-block;
+    font-size: 1.25em; }
+
+.touch .dropzone {
+  height: auto;
+  background-color: transparent;
+  padding-top: 3em; }
+  .touch .dropzone h3, .touch .dropzone .dropzone-message {
+    display: none; }
+  .touch .dropzone .dropzone-container {
+    background: transparent; }
+
 .alert {
   margin-bottom: 2em;
   padding: 1em 1.5em;

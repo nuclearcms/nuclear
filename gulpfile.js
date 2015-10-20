@@ -22,13 +22,16 @@ elixir(function (mix) {
         .sass('app.sass')
         .scripts([
             'components/Modernizr.js',
-            'components/zepto.min.js',
+            'components/jquery.min.js',
+            'components/touch-dnd.js',
             'navigation.js',
+            'helpers.js',
             'modal.js',
             'option.js'
         ], 'public/reactor_assets/js/app.js').
         scripts([
             'password.js',
-            'fields.js'
+            'fields.js',
+            'upload.js'
         ], 'public/reactor_assets/js/form.js');
 });

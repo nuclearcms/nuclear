@@ -11,6 +11,9 @@ return [
     'dismiss' => 'Dismiss',
     'confirm' => 'Confirm',
 
+    'or' => 'or',
+    'and' => 'and',
+
     'dashboard' => 'Dashboard',
     'metrics' => 'Metrics',
     'recent_activity' => 'Recent Activity',

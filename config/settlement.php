@@ -22,7 +22,7 @@ return [
 	| Path for JSON driver to load and save the json file.
 	|
 	*/
-    'path' => storage_path(),
+    'path' => storage_path('app'),
 
     /*
 	|--------------------------------------------------------------------------
