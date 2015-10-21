@@ -49,8 +49,8 @@ table {
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?5077464");
-  src: url("../font/fontello.eot?5077464#iefix") format("embedded-opentype"), url("../font/fontello.woff?5077464") format("woff"), url("../font/fontello.ttf?5077464") format("truetype"), url("../font/fontello.svg?5077464#fontello") format("svg");
+  src: url("../font/fontello.eot?95810936");
+  src: url("../font/fontello.eot?95810936#iefix") format("embedded-opentype"), url("../font/fontello.woff?95810936") format("woff"), url("../font/fontello.ttf?95810936") format("truetype"), url("../font/fontello.svg?95810936#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -60,7 +60,7 @@ table {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?5077464#fontello') format('svg');
+    src: url('../font/fontello.svg?95810936#fontello') format('svg');
   }
 }
 */
@@ -371,6 +371,18 @@ table {
   content: '\e845'; }
 
 /* '' */
+.icon-soundcloud:before {
+  content: '\e846'; }
+
+/* '' */
+.icon-vimeo:before {
+  content: '\e847'; }
+
+/* '' */
+.icon-youtube-play:before {
+  content: '\e848'; }
+
+/* '' */
 /* Reset */
 /* Main reset */
 *, *:after, *::before {
@@ -478,7 +490,8 @@ a {
           transition: opacity 250ms; } }
 
 .container-content {
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 8em; }
 
 .container-fullscreen {
   position: absolute;
@@ -728,7 +741,7 @@ a {
   padding-bottom: 0.25em; }
   .content-item-options-list.open {
     opacity: 1;
-    z-index: 30;
+    z-index: 110;
     transition: opacity 200ms; }
   .content-item-options-list li {
     text-align: left; }
@@ -760,9 +773,6 @@ a {
   text-align: center; }
 
 .content-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
   padding: 0.125em 0.25em;
   width: 100%;
   text-align: center; }
@@ -786,6 +796,11 @@ a {
       font-size: 0.6em; }
   .content-footer .pager .disabled {
     color: #95A5A6; }
+
+.content-footer-table {
+  position: absolute;
+  right: 0;
+  bottom: 0; }
 
 @media screen and (max-width: 64em) {
   .content-column-hidden {
@@ -1568,6 +1583,89 @@ h2 {
     text-align: center;
     padding: 1em 0;
     border-top: 1px solid #F5F5F5; }
+
+.document-list {
+  margin-top: 3em; }
+  .document-list::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .document-list .document {
+    float: left;
+    display: inline-block;
+    margin: 0 1.1% 1.5em 0;
+    width: 15.75%;
+    position: relative; }
+    .document-list .document:nth-child(6n) {
+      margin-right: 0; }
+  @media screen and (max-width: 72em) {
+    .document-list li, .document-list li:nth-child(6n) {
+      margin-right: 1.25%; }
+    .document-list li {
+      width: 19%; }
+      .document-list li:nth-child(5n) {
+        margin-right: 0; } }
+  @media screen and (max-width: 48em) {
+    .document-list li, .document-list li:nth-child(5n) {
+      margin-right: 1.33333333%; }
+    .document-list li {
+      width: 24%; }
+      .document-list li:nth-child(4n) {
+        margin-right: 0; } }
+  @media screen and (max-width: 30em) {
+    .document-list li, .document-list li:nth-child(4n) {
+      margin-right: 2%; }
+    .document-list li {
+      width: 32%; }
+      .document-list li:nth-child(3n) {
+        margin-right: 0; } }
+
+.document-thumbnail {
+  width: 100%;
+  padding-top: 100%;
+  position: relative; }
+  .document-thumbnail img, .document-thumbnail i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  .document-thumbnail i {
+    text-align: center;
+    display: block;
+    top: 50%;
+    font-size: 3em;
+    line-height: 1em;
+    margin-top: -0.25em;
+    color: #5F696A; }
+
+.document-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-size: 0.625em;
+  line-height: 4em;
+  background-color: #FAFAFA;
+  padding: 0 4.25em 0 0.5em;
+  position: relative; }
+
+.document-options {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 0.875em;
+  display: block;
+  height: 2.85714em;
+  width: 2.85714em; }
+  .document-options a {
+    color: #404647; }
+  .document-options .list-header {
+    line-height: 2.35em; }
+  .document-options .content-item-options-button {
+    color: #7F8C8D;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center; }
 
 .texture-overlay {
   background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/line_diagonal2.png") repeat center center; }

@@ -9,12 +9,16 @@
 @endsection
 @endcan
 
-@section('content_options')
-    @include('partials.content.search', ['placeholder' => trans('documents.search')])
-@endsection
+@section('content')
+    <div class="content-options">
+        @include('partials.content.search', ['placeholder' => trans('documents.search')])
+    </div>
 
-@section('content_footer')
-    @include('partials.pagination', ['pagination' => $documents])
+    @include('documents.content')
+
+    <div class="content-footer">
+        @include('partials.pagination', ['pagination' => $documents])
+    </div>
 @endsection
 
 @include('partials.content.delete_modal', ['message' => 'documents.confirm_delete'])

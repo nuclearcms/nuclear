@@ -7,12 +7,13 @@ use Kenarkose\Ownable\AutoAssociatesOwner;
 use Kenarkose\Ownable\Ownable;
 use Kenarkose\Sortable\Sortable;
 use Kenarkose\Transit\File\File as TransitFile;
+use Laracasts\Presenter\PresentableTrait;
 use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Media extends TransitFile {
 
     use Ownable, AutoAssociatesOwner, AutoDeterminesType,
-        Sortable, SearchableTrait;
+        Sortable, SearchableTrait, PresentableTrait;
 
     /**
      * @var string
@@ -25,6 +26,13 @@ class Media extends TransitFile {
      * @var  array
      */
     protected $fillable = ['extension', 'mimetype', 'size', 'name', 'path'];
+
+    /**
+     * Presenter for the model
+     *
+     * @var string
+     */
+    protected $presenter = 'Reactor\Http\Presenters\Documents\MediaPresenter';
 
     /**
      * Sortable columns
@@ -58,4 +66,37 @@ class Media extends TransitFile {
         ]
     ];
 
+    /**
+     * Path accessor
+     *
+     * @param string $value
+     * @return string
+     */
+    public function getPathAttribute($value)
+    {
+        return $value;
+    }
+
+    /**
+     * Getter for file path
+     *
+     * @return string
+     */
+    public function getFilePath()
+    {
+        return upload_path($this->getAttribute('path'));
+    }
+
+    /**
+     * Returns upload response
+     */
+    public function uploadResponse()
+    {
+        return [
+            'thumbnail' => $this->present()->thumbnail,
+            'name' => $this->name,
+            'mimetype' => $this->mimetype,
+            'size' => $this->size
+        ];
+    }
 }

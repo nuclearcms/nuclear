@@ -1,0 +1,84 @@
+.document-list
+    +clearfix
+    margin-top: 3em
+
+    .document
+        float: left
+        display: inline-block
+        margin: 0 1.1% 1.5em 0
+        width: 15.75%
+        position: relative
+
+        &:nth-child(6n)
+            margin-right: 0
+
+    @media screen and (max-width: 72em)
+        li, li:nth-child(6n)
+            margin-right: 1.25%
+        li
+            width: 19%
+            &:nth-child(5n)
+                margin-right: 0
+
+    @media screen and (max-width: 48em)
+        li, li:nth-child(5n)
+            margin-right: 1.33333333%
+        li
+            width: 24%
+            &:nth-child(4n)
+                margin-right: 0
+
+    @media screen and (max-width: 30em)
+        li, li:nth-child(4n)
+            margin-right: 2%
+        li
+            width: 32%
+            &:nth-child(3n)
+                margin-right: 0
+
+.document-thumbnail
+    width: 100%
+    padding-top: 100%
+    position: relative
+
+    img, i
+        +position(absolute, 0 null null 0)
+        width: 100%
+
+    i
+        text-align: center
+        display: block
+        top: 50%
+        font-size: 3em
+        line-height: 1em
+        margin-top: -0.25em
+        color: $darkGray-1
+
+.document-name
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    width: 100%
+    font-size: 0.625em
+    line-height: 4em
+    background-color: $lightGray-1
+    padding: 0 4.25em 0 0.5em
+    position: relative
+
+.document-options
+    +position(absolute, null 0 0 null)
+    font-size: 0.875em
+    display: block
+    +size(2.85714286em)
+
+    a
+        color: $darkGray-2
+
+    .list-header
+        line-height: 2.35em
+
+    .content-item-options-button
+        color: $midGray-3
+        padding-left: 0
+        padding-right: 0
+        text-align: center

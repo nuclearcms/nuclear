@@ -7,6 +7,13 @@ return [
     'manage' => 'Manage Documents',
     'upload' => 'Upload Documents',
     'search' => 'Search Documents',
+    'all' => 'All Documents',
+
+    'edit' => 'Edit Document',
+    'edited' => 'Document was updated.',
+    'delete' => 'Delete Document',
+    'deleted' => 'Document was deleted.',
+    'confirm_delete' => 'Are you sure you want to delete this document?',
 
     'drop' => 'Drag and drop files to upload',
     'select' => 'Select files',

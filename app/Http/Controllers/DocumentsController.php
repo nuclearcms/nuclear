@@ -82,7 +82,8 @@ class DocumentsController extends ReactorController {
             return $this->makeUploadResponse('error', $response);
         }
 
-        return $this->makeUploadResponse('success', $media);
+        return $this->makeUploadResponse('success',
+            $media->uploadResponse());
     }
 
     /**
@@ -141,7 +142,15 @@ class DocumentsController extends ReactorController {
      */
     public function destroy($id)
     {
-        //
+        $this->authorize('ACCESS_DOCUMENTS_DELETE');
+
+        $media = Media::findOrFail($id);
+
+        $media->delete();
+
+        flash()->success(trans('documents.deleted'));
+
+        return redirect()->route('reactor.documents.index');
     }
 
     /**

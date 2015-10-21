@@ -18,7 +18,7 @@
 
         {!! content_table_close() !!}
 
-        <div class="content-footer">
+        <div class="content-footer content-footer-table">
             @yield('content_footer')
         </div>
 

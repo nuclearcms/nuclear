@@ -344,7 +344,7 @@ $('.form-group-password').each(function () {
         _success : function(data) {
             $(this.parent).addClass('complete');
 
-            this.thumbnail.html('<img src="">');
+            this.thumbnail.html(data.thumbnail);
 
             this.message.html(data.mimetype + ' | ' + this.message.text());
         },

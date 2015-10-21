@@ -171,7 +171,7 @@
 
     &.open
         opacity: 1
-        z-index: 30
+        z-index: 110
         +transition(opacity $animationFast)
 
     li
@@ -210,7 +210,6 @@
 
 .content-footer
     +clearfix
-    +position(absolute, null 0 0 null)
     padding: 0.125em 0.25em
     width: 100%
     text-align: center
@@ -237,6 +236,9 @@
 
         .disabled
             color: $midGray-2
+
+.content-footer-table
+    +position(absolute, null 0 0 null)
 
 @media screen and (max-width: $collapseThreshold)
     .content-column-hidden

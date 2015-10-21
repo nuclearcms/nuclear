@@ -51,9 +51,6 @@ return array(
     */
    
     'templates' => array(
-        'small' => 'Intervention\Image\Templates\Small',
-        'medium' => 'Intervention\Image\Templates\Medium',
-        'large' => 'Intervention\Image\Templates\Large',
         'rthumb' => 'Reactor\Documents\Templates\Thumbnail',
     ),
 

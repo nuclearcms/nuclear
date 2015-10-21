@@ -7,6 +7,13 @@ return [
     'manage' => 'Dosyaları Yönet',
     'upload' => 'Dosya Yükle',
     'search' => 'Dosya Ara',
+    'all' => 'Tüm Dosyalar',
+
+    'edit' => 'Dosyayı Düzenle',
+    'edited' => 'Dosya düzenlendi.',
+    'delete' => 'Dosyayı Düzenle',
+    'deleted' => 'Dosya silindi.',
+    'confirm_delete' => 'Bu dosyayı silmek istediğinizden emin misiniz?',
 
     'drop' => 'Yüklemek için dosyaları sürükleyip bırakın',
     'select' => 'Dosyaları seçin',
