@@ -10,4 +10,11 @@ class YoutubeVideo extends Media {
      */
     protected $mediaType = 'video-youtube';
 
+    /**
+     * Presenter for the model
+     *
+     * @var string
+     */
+    protected $presenter = 'Reactor\Http\Presenters\Documents\YoutubeVideoPresenter';
+
 }

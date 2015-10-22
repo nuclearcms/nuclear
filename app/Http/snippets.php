@@ -146,7 +146,7 @@ if ( ! function_exists('content_table_close'))
     }
 }
 
-if ( ! function_exists('action_button'))
+if ( ! function_exists('submit_button'))
 {
     /**
      * Snippet for generating a submit button
@@ -173,13 +173,17 @@ if ( ! function_exists('action_button'))
      *
      * @param string $link
      * @param string $icon
+     * @param bool $secondary
      * @return string
      */
-    function action_button($link, $icon)
+    function action_button($link, $icon, $secondary = false)
     {
-        return sprintf('<a href="%s" class="button button-emphasized button-icon-primary">
+        return sprintf('<a href="%s" class="button button-emphasized button-icon-primary %s">
             <i class="%s"></i>
-        </a>', $link, $icon);
+        </a>',
+            $link,
+            ($secondary) ? 'button-secondary' : '',
+            $icon);
     }
 }
 

@@ -10,4 +10,11 @@ class VimeoVideo extends Media {
      */
     protected $mediaType = 'video-vimeo';
 
+    /**
+     * Presenter for the model
+     *
+     * @var string
+     */
+    protected $presenter = 'Reactor\Http\Presenters\Documents\VimeoVideoPresenter';
+
 }

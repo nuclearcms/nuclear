@@ -12,11 +12,6 @@
 .button-icon
     padding-right: 1.25em
 
-.button-emphasized
-    background-color: $success
-    color: $lightGray-1
-    +transition(background-color $animationFast)
-
 .button-icon-primary
     width: 6em
     text-align: center
@@ -24,7 +19,19 @@
     line-height: 2.5em
     height: 2.5em
 
+.button-emphasized
+    background-color: $success
+    color: $lightGray-1
+    +transition(background-color $animationFast)
+
+.button-secondary
+    background-color: $notification
+    width: 4em
+    padding: 0 0.75em
+
 .no-touch
     .button-emphasized:hover
         background-color: $successHover
         color: $lightGray-1
+    .button-secondary:hover
+        background-color: $notificationHover

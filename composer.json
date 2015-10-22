@@ -25,7 +25,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "kenarkose/chronicle": "~1.0",
-        "kenarkose/files": "0.9.*",
+        "kenarkose/files": "~1.0",
         "kenarkose/ownable": "~1.1",
         "kenarkose/settlement": "~1.0",
         "kenarkose/sortable": "~1.0",

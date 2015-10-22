@@ -122,6 +122,8 @@ return [
         'group' => 'Grup',
         'role' => 'Rol',
         'user' => 'Kullanıcı',
+        'public_url' => 'Görünür URL',
+        'absolute_path' => 'Tam Dosya Yolu',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',

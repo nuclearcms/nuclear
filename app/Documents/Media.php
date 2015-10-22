@@ -88,6 +88,16 @@ class Media extends TransitFile {
     }
 
     /**
+     * Public url accessor
+     *
+     * @return string
+     */
+    public function getPublicURL()
+    {
+        return uploaded_asset($this->path);
+    }
+
+    /**
      * Returns upload response
      */
     public function uploadResponse()
@@ -99,4 +109,15 @@ class Media extends TransitFile {
             'size' => $this->size
         ];
     }
+
+    /**
+     * Checks if the media is an image
+     *
+     * @return bool
+     */
+    public function isImage()
+    {
+        return ($this->type === 'image');
+    }
+
 }

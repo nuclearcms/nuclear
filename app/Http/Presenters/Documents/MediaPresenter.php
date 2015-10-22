@@ -49,4 +49,17 @@ class MediaPresenter extends Presenter {
         return '<i class="icon-doc"></i>';
     }
 
+    public function tag()
+    {
+        return sprintf('%s | %s',
+            $this->mimetype,
+            readable_size($this->size)
+        );
+    }
+
+    public function preview()
+    {
+        return '';
+    }
+
 }

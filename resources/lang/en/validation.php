@@ -122,6 +122,8 @@ return [
         'group' => 'Group',
         'role' => 'Role',
         'user' => 'User',
+        'public_url' => 'Public URL',
+        'absolute_path' => 'Absolute Path',
 
         // Settings specific
         'analytics' => 'Google Analytics Key',

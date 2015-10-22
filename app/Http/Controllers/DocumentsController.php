@@ -119,7 +119,22 @@ class DocumentsController extends ReactorController {
      */
     public function edit($id)
     {
-        //
+        $this->authorize('ACCESS_DOCUMENTS_EDIT');
+
+        $media = Media::findOrFail($id);
+
+        $form = $this->form('Documents\EditForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.documents.update', $id),
+            'model' => $media
+        ]);
+
+        $form->modify('public_url', 'text',
+            ['default_value' => $media->getPublicURL()]);
+        $form->modify('absolute_path', 'text',
+            ['default_value' => $media->getFilePath()]);
+
+        return view('documents.edit', compact('form', 'media'));
     }
 
     /**
@@ -131,7 +146,17 @@ class DocumentsController extends ReactorController {
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authorize('ACCESS_DOCUMENTS_EDIT');
+
+        $media = Media::findOrFail($id);
+
+        $this->validateForm('Documents\EditForm', $request);
+
+        $media->update($request->all());
+
+        flash()->success(trans('documents.edited'));
+
+        return redirect()->back();
     }
 
     /**

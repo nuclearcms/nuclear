@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8ca77fa34d4cb5f5d6a00d5626d9cf4f",
+    "hash": "66c125caa8feabf66dd0e62655dcd69a",
     "packages": [
         {
             "name": "baum/baum",
@@ -1406,16 +1406,16 @@
         },
         {
             "name": "kenarkose/files",
-            "version": "0.9.3",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Files.git",
-                "reference": "19d6d0628875ba8768330d216393cca366e72fb9"
+                "reference": "0fc0412be42d24836ac0877ccc93161545f04d4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Files/zipball/19d6d0628875ba8768330d216393cca366e72fb9",
-                "reference": "19d6d0628875ba8768330d216393cca366e72fb9",
+                "url": "https://api.github.com/repos/kenarkose/Files/zipball/0fc0412be42d24836ac0877ccc93161545f04d4e",
+                "reference": "0fc0412be42d24836ac0877ccc93161545f04d4e",
                 "shasum": ""
             },
             "require": {
@@ -1463,7 +1463,7 @@
                 "management",
                 "media"
             ],
-            "time": "2015-07-10 21:06:48"
+            "time": "2015-10-22 15:49:23"
         },
         {
             "name": "kenarkose/ownable",
@@ -1701,16 +1701,16 @@
         },
         {
             "name": "kenarkose/transit",
-            "version": "1.2.3",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Transit.git",
-                "reference": "b367172cb24c378ef7866838e418091b2122bd16"
+                "reference": "3370443fff1b4fdf5df38afffbcd7154dad2b827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/b367172cb24c378ef7866838e418091b2122bd16",
-                "reference": "b367172cb24c378ef7866838e418091b2122bd16",
+                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/3370443fff1b4fdf5df38afffbcd7154dad2b827",
+                "reference": "3370443fff1b4fdf5df38afffbcd7154dad2b827",
                 "shasum": ""
             },
             "require": {
@@ -1729,7 +1729,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1761,7 +1761,7 @@
                 "transit",
                 "upload"
             ],
-            "time": "2015-10-19 22:32:15"
+            "time": "2015-10-22 15:44:37"
         },
         {
             "name": "kris/laravel-form-builder",
@@ -3682,16 +3682,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.10.4",
+            "version": "v1.10.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219"
+                "reference": "30e53e8a28284b69dd223c9f5ee8957befd72636"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/7b2006e6e095126b5a061ec33fca3d90ea8a8219",
-                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/30e53e8a28284b69dd223c9f5ee8957befd72636",
+                "reference": "30e53e8a28284b69dd223c9f5ee8957befd72636",
                 "shasum": ""
             },
             "require": {
@@ -3734,7 +3734,7 @@
             "keywords": [
                 "debug"
             ],
-            "time": "2015-02-05 07:51:20"
+            "time": "2015-10-19 20:35:12"
         },
         {
             "name": "mockery/mockery",
@@ -4269,16 +4269,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.14",
+            "version": "4.8.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b4900675926860bef091644849305399b986efa2"
+                "reference": "be8f7b9eacf8243940f8412f8b4a9a434c73dd7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b4900675926860bef091644849305399b986efa2",
-                "reference": "b4900675926860bef091644849305399b986efa2",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/be8f7b9eacf8243940f8412f8b4a9a434c73dd7b",
+                "reference": "be8f7b9eacf8243940f8412f8b4a9a434c73dd7b",
                 "shasum": ""
             },
             "require": {
@@ -4337,7 +4337,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-17 15:03:30"
+            "time": "2015-10-22 09:05:37"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
