@@ -131,8 +131,6 @@ class DocumentsController extends ReactorController {
 
         $form->modify('public_url', 'text',
             ['default_value' => $media->getPublicURL()]);
-        $form->modify('absolute_path', 'text',
-            ['default_value' => $media->getFilePath()]);
 
         return view('documents.edit', compact('form', 'media'));
     }
@@ -185,7 +183,14 @@ class DocumentsController extends ReactorController {
      */
     public function embed()
     {
+        $this->authorize('ACCESS_DOCUMENTS_EMBED');
 
+        $form = $this->form('Documents\EmbedForm', [
+            'method' => 'POST',
+            'url'    => route('reactor.documents.embed.store')
+        ]);
+
+        return view('documents.embed', compact('form'));
     }
 
     /**
@@ -196,7 +201,15 @@ class DocumentsController extends ReactorController {
      */
     public function storeEmbedded(Request $request)
     {
+        $this->authorize('ACCESS_DOCUMENTS_EMBED');
 
+        $this->validateForm('Documents\EmbedForm', $request);
+
+        $media = Media::create($request->all());
+
+        flash()->success(trans('documents.embedded'));
+
+        return redirect()->route('reactor.documents.edit', $media->getKey());
     }
 
     /**

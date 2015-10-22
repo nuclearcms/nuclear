@@ -15,7 +15,7 @@ class TransitCreateMediaTable extends Migration {
         {
             $table->increments('id');
 
-            $table->string('path');
+            $table->text('path');
             $table->string('name');
             $table->string('extension');
             $table->string('mimetype');

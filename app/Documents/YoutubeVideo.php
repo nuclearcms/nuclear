@@ -5,6 +5,8 @@ namespace Reactor\Documents;
 
 class YoutubeVideo extends Media {
 
+    use Embeddable;
+
     /**
      * @var string
      */

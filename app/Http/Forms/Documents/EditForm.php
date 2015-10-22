@@ -15,9 +15,6 @@ class EditForm extends Form {
         $this->add('public_url', 'text', [
             'attr' => ['disabled']
         ]);
-        $this->add('absolute_path', 'text', [
-            'attr' => ['disabled']
-        ]);
     }
 
 }

@@ -3,11 +3,16 @@
 @section('pageTitle', trans('documents.manage'))
 @section('contentSubtitle', uppercase(trans('documents.title')))
 
-@can('ACCESS_DOCUMENTS_UPLOAD')
+
 @section('action')
-    {!! action_button(route('reactor.documents.upload'), 'icon-upload-cloud') !!}
+    @can('ACCESS_DOCUMENTS_UPLOAD')
+        {!! action_button(route('reactor.documents.upload'), 'icon-upload-cloud') !!}
+    @endcan
+    @can('ACCESS_DOCUMENTS_UPLOAD')
+        {!! action_button(route('reactor.documents.embed'), 'icon-code', true) !!}
+    @endcan
 @endsection
-@endcan
+
 
 @section('content')
     <div class="content-options">

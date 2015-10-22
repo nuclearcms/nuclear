@@ -5,6 +5,8 @@ namespace Reactor\Documents;
 
 class SoundcloudAudio extends Media {
 
+    use Embeddable;
+
     /**
      * @var string
      */

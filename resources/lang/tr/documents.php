@@ -13,7 +13,12 @@ return [
     'edited' => 'Dosya düzenlendi.',
     'delete' => 'Dosyayı Düzenle',
     'deleted' => 'Dosya silindi.',
+    'embed' => 'Dosya Yerleştir',
+    'embedded' => 'Dosya yerleştirildi.',
     'confirm_delete' => 'Bu dosyayı silmek istediğinizden emin misiniz?',
+
+    'embed_identifier' => 'Platform Tanımlayıcısı',
+    'embed_service' => 'Platform',
 
     'drop' => 'Yüklemek için dosyaları sürükleyip bırakın',
     'select' => 'Dosyaları seçin',

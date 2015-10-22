@@ -13,7 +13,12 @@ return [
     'edited' => 'Document was updated.',
     'delete' => 'Delete Document',
     'deleted' => 'Document was deleted.',
+    'embed' => 'Embed Document',
+    'embedded' => 'Document was embedded.',
     'confirm_delete' => 'Are you sure you want to delete this document?',
+
+    'embed_identifier' => 'Platform Identifier',
+    'embed_service' => 'Platform',
 
     'drop' => 'Drag and drop files to upload',
     'select' => 'Select files',

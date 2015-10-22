@@ -3,21 +3,11 @@
 namespace Reactor\Http\Presenters\Documents;
 
 
-class SoundcloudAudioPresenter extends Presenter {
+class SoundcloudAudioPresenter extends EmbedPresenter {
 
     public function thumbnail()
     {
-        return '<i class="icon-soundcloud">';
-    }
-
-    public function tag()
-    {
-        return 'soundcloud url?';
-    }
-
-    public function preview()
-    {
-        return 'soundcloud embed';
+        return '<i class="icon-soundcloud"></i>';
     }
 
 }

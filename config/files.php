@@ -40,7 +40,7 @@ return [
         ],
         'video-youtube'    => ['video/youtube'],
         'video-vimeo'      => ['video/vimeo'],
-        'video-soundcloud' => ['audio/soundcloud'],
+        'audio-soundcloud' => ['audio/soundcloud'],
     ],
 
     /*

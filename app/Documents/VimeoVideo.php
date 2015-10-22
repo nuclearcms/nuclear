@@ -5,6 +5,8 @@ namespace Reactor\Documents;
 
 class VimeoVideo extends Media {
 
+    use Embeddable;
+
     /**
      * @var string
      */

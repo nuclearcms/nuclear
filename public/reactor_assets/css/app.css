@@ -1684,8 +1684,10 @@ h2 {
 .document-preview {
   text-align: center;
   margin-bottom: 2em; }
-  .document-preview img {
-    max-width: 100%; }
+  .document-preview img, .document-preview iframe {
+    max-width: 100%;
+    vertical-align: bottom;
+    max-height: 56.25%; }
 
 .texture-overlay {
   background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/textures/inverted/line_diagonal2.png") repeat center center; }

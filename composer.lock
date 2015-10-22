@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "66c125caa8feabf66dd0e62655dcd69a",
+    "hash": "3024377c036f59dfbfcd064789d338a1",
     "packages": [
+        {
+            "name": "alb/oembed",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arnaud-lb/alb-oembed.git",
+                "reference": "503c52e35996d6301d74c8cb66cbca4e0aa36caa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arnaud-lb/alb-oembed/zipball/503c52e35996d6301d74c8cb66cbca4e0aa36caa",
+                "reference": "503c52e35996d6301d74c8cb66cbca4e0aa36caa",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Alb\\OEmbed\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arnaud Le Blanc",
+                    "email": "arnaud.lb@gmail.com"
+                }
+            ],
+            "description": "oEmbed consumer library",
+            "homepage": "https://github.com/arnaud-lb/alb-oembed",
+            "keywords": [
+                "oembed"
+            ],
+            "time": "2013-03-27 20:37:56"
+        },
         {
             "name": "baum/baum",
             "version": "1.1.1",
@@ -1406,16 +1443,16 @@
         },
         {
             "name": "kenarkose/files",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Files.git",
-                "reference": "0fc0412be42d24836ac0877ccc93161545f04d4e"
+                "reference": "b0b61549d581a4ad481ce8163842abf475e25aec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Files/zipball/0fc0412be42d24836ac0877ccc93161545f04d4e",
-                "reference": "0fc0412be42d24836ac0877ccc93161545f04d4e",
+                "url": "https://api.github.com/repos/kenarkose/Files/zipball/b0b61549d581a4ad481ce8163842abf475e25aec",
+                "reference": "b0b61549d581a4ad481ce8163842abf475e25aec",
                 "shasum": ""
             },
             "require": {
@@ -1463,7 +1500,7 @@
                 "management",
                 "media"
             ],
-            "time": "2015-10-22 15:49:23"
+            "time": "2015-10-22 19:40:35"
         },
         {
             "name": "kenarkose/ownable",
@@ -2675,6 +2712,100 @@
                 "shell"
             ],
             "time": "2015-07-16 15:26:57"
+        },
+        {
+            "name": "simexis/embed",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jooorooo/embed.git",
+                "reference": "078e70a093f246dc8e10b92f909f9166932c4106"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jooorooo/embed/zipball/078e70a093f246dc8e10b92f909f9166932c4106",
+                "reference": "078e70a093f246dc8e10b92f909f9166932c4106",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "guzzlehttp/guzzle": "~5.3|~6.0.1|~6.1",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Embed\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Georgi Nachev",
+                    "email": "jooorooo@gmail.com",
+                    "homepage": "http://simexis.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to retrieve page info using oembed, opengraph, etc",
+            "homepage": "https://github.com/oscarotero/Embed",
+            "keywords": [
+                "embed",
+                "embedly",
+                "oembed",
+                "opengraph",
+                "simexis",
+                "twitter cards"
+            ],
+            "time": "2015-10-05 08:44:23"
+        },
+        {
+            "name": "simexis/oembed",
+            "version": "1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jooorooo/oembed.git",
+                "reference": "b0f050407af282e7b2686191f39d5ef89fe58749"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jooorooo/oembed/zipball/b0f050407af282e7b2686191f39d5ef89fe58749",
+                "reference": "b0f050407af282e7b2686191f39d5ef89fe58749",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "5.1.*",
+                "illuminate/support": "5.1.*",
+                "php": ">=5.4.0",
+                "simexis/embed": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Simexis\\Oembed\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Georgi Nachev",
+                    "email": "jooorooo@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 - Retrieve page info using oembed, opengraph, etc.",
+            "keywords": [
+                "laravel",
+                "laravel-oembed",
+                "oembed",
+                "simexis"
+            ],
+            "time": "2015-10-01 15:07:14"
         },
         {
             "name": "swiftmailer/swiftmailer",

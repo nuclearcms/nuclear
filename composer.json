@@ -42,7 +42,8 @@
         "igaster/laravel-theme": "^1.0",
         "guzzlehttp/guzzle": "^6.0",
         "nicolaslopezj/searchable": "^1.5",
-        "kris/laravel-form-builder": "^1.6"
+        "kris/laravel-form-builder": "^1.6",
+        "simexis/oembed": "^1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

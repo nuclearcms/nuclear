@@ -3,23 +3,11 @@
 namespace Reactor\Http\Presenters\Documents;
 
 
-use Laracasts\Presenter\Presenter;
-
-class VimeoVideoPresenter extends Presenter {
+class VimeoVideoPresenter extends EmbedPresenter {
 
     public function thumbnail()
     {
-        return '<i class="icon-vimeo">';
-    }
-
-    public function tag()
-    {
-        return 'vimeo url?';
-    }
-
-    public function preview()
-    {
-        return 'vimeo embed';
+        return '<i class="icon-vimeo"></i>';
     }
 
 }

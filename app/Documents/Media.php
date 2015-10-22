@@ -62,7 +62,8 @@ class Media extends TransitFile {
      */
     protected $searchable = [
         'columns' => [
-            'name'  => 10
+            'name'  => 10,
+            'mimetype' => 5
         ]
     ];
 
