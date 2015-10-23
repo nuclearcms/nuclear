@@ -1,7 +1,7 @@
 @foreach($users as $profile)
     <tr class="content-item">
         <td class="content-item-thumbnail">
-            {{ $profile->present()->thumbnail }}
+            
         </td>
         <td>
             {!! link_to_route('reactor.users.edit', $profile->present()->fullName, $profile->getKey()) !!}

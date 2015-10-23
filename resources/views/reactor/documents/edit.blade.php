@@ -8,7 +8,7 @@
 @section('action')
     {!! submit_button('icon-floppy') !!}
     @if($media->isImage())
-        {!! action_button(route('reactor.documents.image', $media->getKey()), 'icon-pencil', true) !!}
+        {!! action_button(route('reactor.documents.image', $media->getKey()), 'icon-picture', true) !!}
     @endif
 @endsection
 

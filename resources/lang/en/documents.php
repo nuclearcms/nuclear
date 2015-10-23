@@ -15,6 +15,8 @@ return [
     'deleted' => 'Document was deleted.',
     'embed' => 'Embed Document',
     'embedded' => 'Document was embedded.',
+    'edit_image' => 'Edit Image',
+    'edited_image' => 'Image was edited',
     'confirm_delete' => 'Are you sure you want to delete this document?',
 
     'embed_identifier' => 'Platform Identifier',

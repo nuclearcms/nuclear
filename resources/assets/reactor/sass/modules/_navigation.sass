@@ -139,6 +139,11 @@
     font-size: 0.875em
     font-family: $fontHeading
     text-align: center
+    position: relative
+
+    img
+        +position(absolute, 0 null null 0)
+        z-index: 2
 
 @media screen and (max-width: $collapseThreshold)
     .navigation-user .user-frame

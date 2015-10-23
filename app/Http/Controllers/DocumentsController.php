@@ -220,7 +220,11 @@ class DocumentsController extends ReactorController {
      */
     public function image($id)
     {
+        $this->authorize('ACCESS_DOCUMENTS_EDIT');
 
+        $media = Media::whereType('image')->findOrFail($id);
+
+        return view('documents.image', compact('media'));
     }
 
     /**

@@ -28,10 +28,13 @@ elixir(function (mix) {
             'helpers.js',
             'modal.js',
             'option.js'
-        ], 'public/reactor_assets/js/app.js').
+        ], elixir.config.publicPath + '/js/app.js').
         scripts([
             'password.js',
             'fields.js',
             'upload.js'
-        ], 'public/reactor_assets/js/form.js');
+        ], elixir.config.publicPath + '/js/form.js').
+        scripts([
+            'image.js'
+        ], elixir.config.publicPath + '/js/image.js');
 });

@@ -4,7 +4,7 @@
             <li class="activity">
                 <div class="activity-actor">
                     <span class="user-frame">
-                        {{ $activity->user->present()->avatar }}
+                        {!! $activity->user->present()->avatar !!}
                     </span>
                 </div><div class="activity-subject">
                     <span class="time">{{ $activity->created_at->diffForHumans() }}</span>
