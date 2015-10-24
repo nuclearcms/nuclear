@@ -4,7 +4,7 @@ namespace Reactor\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class NodeTypesProvider extends ServiceProvider
+class NodeTypesServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.

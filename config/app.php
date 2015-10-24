@@ -156,7 +156,7 @@ return [
         Reactor\Providers\AuthServiceProvider::class,
         Reactor\Providers\EventServiceProvider::class,
         Reactor\Providers\RouteServiceProvider::class,
-        Reactor\Providers\NodeTypesProvider::class,
+        Reactor\Providers\NodeTypesServiceProvider::class,
 
         /**
          * Other Service Providers for Reactor
