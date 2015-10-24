@@ -34,7 +34,7 @@
 
                     @can('ACCESS_NODES')
                     {!! navigation_module_open('icon-flow-cascade', 'nodes.management') !!}
-
+                        {!! navigation_module_link('reactor.nodes.index', 'icon-flow-cascade', 'nodes.manage') !!}
                     {!! navigation_module_close() !!}
                     @endcan
 

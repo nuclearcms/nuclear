@@ -60,6 +60,31 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as'   => 'reactor.profile.history']);
         });
 
+        // Nodes
+        Route::group(['middleware' => 'guard:ACCESS_NODES'], function ()
+        {
+            Route::resource('nodes', 'NodeTypesController', ['except' => ['show'], 'names' => [
+                'index'   => 'reactor.nodes.index',
+                'create'   => 'reactor.nodes.create',
+                'store'   => 'reactor.nodes.store',
+                'edit'    => 'reactor.nodes.edit',
+                'update'  => 'reactor.nodes.update',
+                'destroy' => 'reactor.nodes.destroy',
+            ]]);
+            Route::get('nodes/search', [
+                'uses' => 'NodeTypesController@search',
+                'as'   => 'reactor.nodes.search']);
+            Route::get('nodes/{id}/fields', [
+                'uses' => 'NodeTypesController@fields',
+                'as'   => 'reactor.nodes.fields']);
+            Route::put('nodes/{id}/fields', [
+                'uses' => 'NodeTypesController@addField',
+                'as'   => 'reactor.nodes.field.add']);
+            Route::delete('nodes/{id}/fields', [
+                'uses' => 'NodeTypesController@removeField',
+                'as'   => 'reactor.nodes.field.remove']);
+        });
+
         // Documents
         Route::group(['middleware' => 'guard:ACCESS_DOCUMENTS'], function ()
         {
