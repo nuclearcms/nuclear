@@ -82,6 +82,8 @@ class DocumentsController extends ReactorController {
             return $this->makeUploadResponse('error', $response);
         }
 
+        chronicle()->record($media, 'created_media');
+
         return $this->makeUploadResponse('success',
             $media->uploadResponse());
     }
@@ -152,6 +154,7 @@ class DocumentsController extends ReactorController {
 
         $media->update($request->all());
 
+        chronicle()->record($media, 'updated_media');
         flash()->success(trans('documents.edited'));
 
         return redirect()->back();
@@ -171,6 +174,7 @@ class DocumentsController extends ReactorController {
 
         $media->delete();
 
+        chronicle()->record($media, 'deleted_media');
         flash()->success(trans('documents.deleted'));
 
         return redirect()->route('reactor.documents.index');
@@ -207,6 +211,7 @@ class DocumentsController extends ReactorController {
 
         $media = Media::create($request->all());
 
+        chronicle()->record($media, 'embedded_media');
         flash()->success(trans('documents.embedded'));
 
         return redirect()->route('reactor.documents.edit', $media->getKey());
@@ -249,6 +254,7 @@ class DocumentsController extends ReactorController {
 
         $media->editImage($request->input('action'));
 
+        chronicle()->record($media, 'edited_image');
         flash()->success(trans('documents.edited_image'));
 
         return redirect()->back();
