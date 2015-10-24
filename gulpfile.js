@@ -35,6 +35,7 @@ elixir(function (mix) {
             'upload.js'
         ], elixir.config.publicPath + '/js/form.js').
         scripts([
+            'components/cropper.js',
             'image.js'
         ], elixir.config.publicPath + '/js/image.js');
 });

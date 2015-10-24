@@ -101,16 +101,25 @@
     li
         display: inline-block
 
+    button.disabled
+        opacity: 0.5
+        color: $darkGray-2
+        cursor: default
+
 .document-edit-container
     text-align: center
+    background-color: $darkGray-2
+
+    form
+        display: none
 
 .document-edit-image
+    width: 30em
     display: inline-block
-    text-align: center
-    max-width: 100%
+    vertical-align: bottom
 
-    img
+    .cropper-container
+        background-image: none
+
+    & > img
         max-width: 100%
-        vertical-align: bottom
-        pointer-events: none
-        user-select: none

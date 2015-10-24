@@ -17,7 +17,7 @@
 
     <ul class="document-image-options">
         <li>
-            <button id="crop" class="button">
+            <button id="crop" class="button disabled">
                 <i class="icon-crop"></i>
             </button>
         </li>
@@ -44,10 +44,12 @@
     </ul>
 
     <div class="document-edit-container">
-        <div class="document-edit-image">
+        <figure class="document-edit-image">
             <img src="{{ $media->getPublicURL() }}" class="image-editable">
             <div class="document-crop-frame"></div>
-        </div>
+        </figure>
+
+        {!! form($form) !!}
     </div>
 
 @endsection

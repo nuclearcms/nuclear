@@ -4,45 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3024377c036f59dfbfcd064789d338a1",
+    "hash": "a0658651a21ae556008043b0e1cb83e8",
     "packages": [
-        {
-            "name": "alb/oembed",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/arnaud-lb/alb-oembed.git",
-                "reference": "503c52e35996d6301d74c8cb66cbca4e0aa36caa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/arnaud-lb/alb-oembed/zipball/503c52e35996d6301d74c8cb66cbca4e0aa36caa",
-                "reference": "503c52e35996d6301d74c8cb66cbca4e0aa36caa",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Alb\\OEmbed\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Arnaud Le Blanc",
-                    "email": "arnaud.lb@gmail.com"
-                }
-            ],
-            "description": "oEmbed consumer library",
-            "homepage": "https://github.com/arnaud-lb/alb-oembed",
-            "keywords": [
-                "oembed"
-            ],
-            "time": "2013-03-27 20:37:56"
-        },
         {
             "name": "baum/baum",
             "version": "1.1.1",
@@ -1738,16 +1701,16 @@
         },
         {
             "name": "kenarkose/transit",
-            "version": "1.3.1",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Transit.git",
-                "reference": "3370443fff1b4fdf5df38afffbcd7154dad2b827"
+                "reference": "fb049a10bece3f12c777784593c29824e99be4c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/3370443fff1b4fdf5df38afffbcd7154dad2b827",
-                "reference": "3370443fff1b4fdf5df38afffbcd7154dad2b827",
+                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/fb049a10bece3f12c777784593c29824e99be4c9",
+                "reference": "fb049a10bece3f12c777784593c29824e99be4c9",
                 "shasum": ""
             },
             "require": {
@@ -1798,7 +1761,7 @@
                 "transit",
                 "upload"
             ],
-            "time": "2015-10-22 15:44:37"
+            "time": "2015-10-24 13:26:46"
         },
         {
             "name": "kris/laravel-form-builder",
@@ -2511,16 +2474,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "7647ac58c35ece044b939e01c85dbaa73ed26351"
+                "reference": "2fa50aa2f17066fa74ba00d943e8cee1a98284af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/7647ac58c35ece044b939e01c85dbaa73ed26351",
-                "reference": "7647ac58c35ece044b939e01c85dbaa73ed26351",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/2fa50aa2f17066fa74ba00d943e8cee1a98284af",
+                "reference": "2fa50aa2f17066fa74ba00d943e8cee1a98284af",
                 "shasum": ""
             },
             "require": {
@@ -2552,7 +2515,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-10-20 15:22:41"
+            "time": "2015-10-23 13:21:37"
         },
         {
             "name": "psr/http-message",
@@ -4400,16 +4363,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.15",
+            "version": "4.8.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "be8f7b9eacf8243940f8412f8b4a9a434c73dd7b"
+                "reference": "625f8c345606ed0f3a141dfb88f4116f0e22978e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/be8f7b9eacf8243940f8412f8b4a9a434c73dd7b",
-                "reference": "be8f7b9eacf8243940f8412f8b4a9a434c73dd7b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/625f8c345606ed0f3a141dfb88f4116f0e22978e",
+                "reference": "625f8c345606ed0f3a141dfb88f4116f0e22978e",
                 "shasum": ""
             },
             "require": {
@@ -4468,7 +4431,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-22 09:05:37"
+            "time": "2015-10-23 06:48:33"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

@@ -224,7 +224,12 @@ class DocumentsController extends ReactorController {
 
         $media = Media::whereType('image')->findOrFail($id);
 
-        return view('documents.image', compact('media'));
+        $form = $this->form('Documents\ImageForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.documents.image.update', $id),
+        ]);
+
+        return view('documents.image', compact('media', 'form'));
     }
 
     /**
@@ -236,6 +241,16 @@ class DocumentsController extends ReactorController {
      */
     public function imageUpdate(Request $request, $id)
     {
+        $this->authorize('ACCESS_DOCUMENTS_EDIT');
 
+        $media = Media::findOrFail($id);
+
+        $this->validateForm('Documents\ImageForm', $request);
+
+        $media->editImage($request->input('action'));
+
+        flash()->success(trans('documents.edited_image'));
+
+        return redirect()->back();
     }
 }
