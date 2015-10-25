@@ -170,7 +170,6 @@ return [
 
         Baum\Providers\BaumServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        Laracasts\Generators\GeneratorsServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Chumper\Zipper\ZipperServiceProvider::class,
