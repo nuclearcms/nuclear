@@ -13,6 +13,8 @@ return [
 
     'or' => 'or',
     'and' => 'and',
+    'yes' => 'Yes',
+    'no' => 'No',
 
     'dashboard' => 'Dashboard',
     'metrics' => 'Metrics',

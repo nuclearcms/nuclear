@@ -30,6 +30,7 @@ elixir(function (mix) {
             'option.js'
         ], elixir.config.publicPath + '/js/app.js').
         scripts([
+            'components/minicolors.js',
             'password.js',
             'fields.js',
             'upload.js'

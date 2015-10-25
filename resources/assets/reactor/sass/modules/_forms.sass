@@ -163,6 +163,41 @@ label
         &:focus + .icon-label
             color: $secondaryAccent
 
+.form-checkbox
+    display: block
+    float: left
+
+    span
+        +transition(color $animationFast)
+        color: $error
+
+        .icon-check
+            display: none
+
+    input
+        display: none
+
+        &:checked
+            & + span
+                color: $success
+
+                .icon-check
+                    display: inline
+                .icon-cancel
+                    display: none
+
+.minicolors-no-data-uris .minicolors-sprite
+    background-image: url('../img/minicolors.png')
+
+.minicolors-theme-default .minicolors-input
+    height: 2em
+    padding-left: 2em
+
+.minicolors-theme-default .minicolors-swatch
+    top: 0.5em
+    left: 0.4em
+    border: 0
+
 .content-form
     padding: 6em 2em 3em
 

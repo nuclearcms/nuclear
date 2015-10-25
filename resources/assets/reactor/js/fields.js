@@ -11,3 +11,6 @@ $('.form-group input, .form-group textarea').blur(function () {
 $('.form-group-password').each(function () {
     new Meter($(this));
 });
+
+// Initialize color pickers
+$('input.minicolors').minicolors();

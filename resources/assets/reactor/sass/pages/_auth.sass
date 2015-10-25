@@ -34,29 +34,6 @@
         button
             float: right
 
-    .auth-remember-check
-        display: block
-        float: left
-
-        span
-            +transition(color $animationFast)
-            color: $error
-
-            .icon-check
-                display: none
-
-        input
-            display: none
-
-            &:checked
-                & + span
-                    color: $success
-
-                    .icon-check
-                        display: inline
-                    .icon-cancel
-                        display: none
-
     .auth-option
         text-align: center
         padding: 1em 0

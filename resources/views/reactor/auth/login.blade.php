@@ -23,7 +23,7 @@
         </div>
 
         <div class="auth-buttons">
-            <label class="button auth-remember-check">
+            <label class="button form-checkbox">
                 <input type="checkbox" name="remember">
                 <span>
                     {{ uppercase(trans('auth.remember')) }}

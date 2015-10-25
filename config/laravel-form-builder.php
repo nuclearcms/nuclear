@@ -8,7 +8,7 @@ return [
     'textarea'      => 'fields.textarea',
     'button'        => 'laravel-form-builder::button',
     'radio'         => 'laravel-form-builder::radio',
-    'checkbox'      => 'laravel-form-builder::checkbox',
+    'checkbox'      => 'fields.checkbox',
     'select'        => 'fields.select',
     'choice'        => 'laravel-form-builder::choice',
     'collection'    => 'laravel-form-builder::collection',
@@ -19,5 +19,6 @@ return [
 
     'custom_fields' => [
         'password' => 'Reactor\Http\Forms\Fields\PasswordField',
+        'color' => 'Reactor\Http\Forms\Fields\ColorField',
     ]
 ];

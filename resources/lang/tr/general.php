@@ -13,6 +13,8 @@ return [
 
     'or' => 'ya da',
     'and' => 've',
+    'yes' => 'Evet',
+    'no' => 'Hayır',
 
     'dashboard' => 'Dashboard',
     'metrics' => 'İstatistikler',
