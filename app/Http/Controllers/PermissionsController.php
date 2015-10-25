@@ -43,10 +43,7 @@ class PermissionsController extends ReactorController
     {
         $this->authorize('ACCESS_PERMISSIONS_CREATE');
 
-        $form = $this->form('Permissions\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.permissions.store')
-        ]);
+        $form = $this->getCreatePermissionForm();
 
         return view('permissions.create', compact('form'));
     }
@@ -65,7 +62,7 @@ class PermissionsController extends ReactorController
 
         $permission = Permission::create($request->all());
 
-        flash()->success(trans('users.created_permission'));
+        $this->notify('users.created_permission');
 
         return redirect()->route('reactor.permissions.edit', $permission->getKey());
     }
@@ -82,11 +79,7 @@ class PermissionsController extends ReactorController
 
         $permission = Permission::findOrFail($id);
 
-        $form = $this->form('Permissions\CreateEditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.permissions.update', $id),
-            'model' => $permission
-        ]);
+        $form = $this->getEditPermissionForm($id, $permission);
 
         return view('permissions.edit', compact('form', 'permission'));
     }
@@ -104,15 +97,11 @@ class PermissionsController extends ReactorController
 
         $permission = Permission::findOrFail($id);
 
-        $this->validateForm('Permissions\CreateEditForm', $request, [
-            'name' => ['required', 'max:255',
-                'unique:permissions,name,' . $permission->getKey(),
-                'regex:/^(ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+$/']
-        ]);
+        $this->validateUpdatePermission($request, $permission);
 
         $permission->update($request->all());
 
-        flash()->success(trans('users.edited_permission'));
+        $this->notify('users.edited_permission');
 
         return redirect()->route('reactor.permissions.edit', $id);
     }
@@ -131,8 +120,50 @@ class PermissionsController extends ReactorController
 
         $permission->delete();
 
-        flash()->success(trans('users.deleted_permission'));
+        $this->notify('users.deleted_permission');
 
         return redirect()->route('reactor.permissions.index');
+    }
+
+    /**
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getCreatePermissionForm()
+    {
+        $form = $this->form('Permissions\CreateEditForm', [
+            'method' => 'POST',
+            'url'    => route('reactor.permissions.store')
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param $id
+     * @param $permission
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditPermissionForm($id, $permission)
+    {
+        $form = $this->form('Permissions\CreateEditForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.permissions.update', $id),
+            'model'  => $permission
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $permission
+     */
+    protected function validateUpdatePermission(Request $request, $permission)
+    {
+        $this->validateForm('Permissions\CreateEditForm', $request, [
+            'name' => ['required', 'max:255',
+                'unique:permissions,name,' . $permission->getKey(),
+                'regex:/^(ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+$/']
+        ]);
     }
 }

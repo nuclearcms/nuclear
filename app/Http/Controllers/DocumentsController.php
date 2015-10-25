@@ -82,7 +82,7 @@ class DocumentsController extends ReactorController {
             return $this->makeUploadResponse('error', $response);
         }
 
-        chronicle()->record($media, 'created_media');
+        $this->notify(null, 'created_media', $media);
 
         return $this->makeUploadResponse('success',
             $media->uploadResponse());
@@ -125,14 +125,7 @@ class DocumentsController extends ReactorController {
 
         $media = Media::findOrFail($id);
 
-        $form = $this->form('Documents\EditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.documents.update', $id),
-            'model' => $media
-        ]);
-
-        $form->modify('public_url', 'text',
-            ['default_value' => $media->getPublicURL()]);
+        $form = $this->getEditMediaForm($id, $media);
 
         return view('documents.edit', compact('form', 'media'));
     }
@@ -154,8 +147,7 @@ class DocumentsController extends ReactorController {
 
         $media->update($request->all());
 
-        chronicle()->record($media, 'updated_media');
-        flash()->success(trans('documents.edited'));
+        $this->notify('documents.edited', 'updated_media', $media);
 
         return redirect()->back();
     }
@@ -174,8 +166,7 @@ class DocumentsController extends ReactorController {
 
         $media->delete();
 
-        chronicle()->record($media, 'deleted_media');
-        flash()->success(trans('documents.deleted'));
+        $this->notify('documents.deleted', 'deleted_media', $media);
 
         return redirect()->route('reactor.documents.index');
     }
@@ -189,10 +180,7 @@ class DocumentsController extends ReactorController {
     {
         $this->authorize('ACCESS_DOCUMENTS_EMBED');
 
-        $form = $this->form('Documents\EmbedForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.documents.embed.store')
-        ]);
+        $form = $this->getEmbedMediaForm();
 
         return view('documents.embed', compact('form'));
     }
@@ -211,8 +199,7 @@ class DocumentsController extends ReactorController {
 
         $media = Media::create($request->all());
 
-        chronicle()->record($media, 'embedded_media');
-        flash()->success(trans('documents.embedded'));
+        $this->notify('documents.embedded', 'embedded_media', $media);
 
         return redirect()->route('reactor.documents.edit', $media->getKey());
     }
@@ -229,10 +216,7 @@ class DocumentsController extends ReactorController {
 
         $media = Media::whereType('image')->findOrFail($id);
 
-        $form = $this->form('Documents\ImageForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.documents.image.update', $id),
-        ]);
+        $form = $this->getEditImageForm($id);
 
         return view('documents.image', compact('media', 'form'));
     }
@@ -254,9 +238,51 @@ class DocumentsController extends ReactorController {
 
         $media->editImage($request->input('action'));
 
-        chronicle()->record($media, 'edited_image');
-        flash()->success(trans('documents.edited_image'));
+        $this->notify('documents.edited_image', 'edited_image', $media);
 
         return redirect()->back();
+    }
+
+    /**
+     * @param $id
+     * @param $media
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditMediaForm($id, $media)
+    {
+        $form = $this->form('Documents\EditForm', [
+            'url'   => route('reactor.documents.update', $id),
+            'model' => $media
+        ]);
+
+        $form->modify('public_url', 'text',
+            ['default_value' => $media->getPublicURL()]);
+
+        return $form;
+    }
+
+    /**
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEmbedMediaForm()
+    {
+        $form = $this->form('Documents\EmbedForm', [
+            'url' => route('reactor.documents.embed.store')
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param $id
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditImageForm($id)
+    {
+        $form = $this->form('Documents\ImageForm', [
+            'url' => route('reactor.documents.image.update', $id),
+        ]);
+
+        return $form;
     }
 }

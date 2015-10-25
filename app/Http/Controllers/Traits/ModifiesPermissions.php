@@ -51,7 +51,6 @@ trait ModifiesPermissions {
     protected function getAddPermissionForm($id, Model $model, $modelPrefix)
     {
         $form = $this->form('Permissions\AddPermissionForm', [
-            'method' => 'PUT',
             'url'    => route('reactor.' . $modelPrefix . '.permission.add', $id)
         ]);
 
@@ -84,8 +83,7 @@ trait ModifiesPermissions {
 
         $model->givePermissionById($request->input('permission'));
 
-        chronicle()->record($model, 'added_permission');
-        flash()->success(trans('users.added_permission'));
+        $this->notify('users.added_permission', 'added_permission', $model);
 
         return redirect()->back();
     }
@@ -105,8 +103,7 @@ trait ModifiesPermissions {
 
         $model->revokePermission($request->input('permission'));
 
-        chronicle()->record($model, 'revoked_permission');
-        flash()->success(trans('users.unlinked_permission'));
+        $this->notify('users.unlinked_permission', 'revoked_permission', $model);
 
         return redirect()->back();
     }

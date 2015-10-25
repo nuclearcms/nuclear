@@ -7,6 +7,15 @@ use Kris\LaravelFormBuilder\Form;
 
 class EditForm extends Form {
 
+    /**
+     * Form options
+     *
+     * @var array
+     */
+    protected $formOptions = [
+        'method' => 'PUT'
+    ];
+
     public function buildForm()
     {
         $this->add('type', 'select', [

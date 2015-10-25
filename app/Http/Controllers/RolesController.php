@@ -56,10 +56,7 @@ class RolesController extends ReactorController
     {
         $this->authorize('ACCESS_ROLES_CREATE');
 
-        $form = $this->form('Roles\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.roles.store')
-        ]);
+        $form = $this->getCreateRoleForm();
 
         return view('roles.create', compact('form'));
     }
@@ -78,7 +75,7 @@ class RolesController extends ReactorController
 
         $role = Role::create($request->all());
 
-        flash()->success(trans('users.created_role'));
+        $this->notify('users.created_role');
 
         return redirect()->route('reactor.roles.edit', $role->getKey());
     }
@@ -95,11 +92,7 @@ class RolesController extends ReactorController
 
         $role = Role::findOrFail($id);
 
-        $form = $this->form('Roles\CreateEditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.roles.update', $id),
-            'model' => $role
-        ]);
+        $form = $this->getEditRoleForm($id, $role);
 
         return view('roles.edit', compact('form', 'role'));
     }
@@ -117,15 +110,11 @@ class RolesController extends ReactorController
 
         $role = Role::findOrFail($id);
 
-        $this->validateForm('Roles\CreateEditForm', $request, [
-            'name' => ['required', 'max:255',
-                'unique:roles,name,' . $role->getKey(),
-                'regex:/^([A-Z]+)$/']
-        ]);
+        $this->validateUpdateRole($request, $role);
 
         $role->update($request->all());
 
-        flash()->success(trans('users.edited_role'));
+        $this->notify('users.edited_role');
 
         return redirect()->route('reactor.roles.edit', $id);
     }
@@ -144,7 +133,7 @@ class RolesController extends ReactorController
 
         $role->delete();
 
-        flash()->success(trans('users.deleted_role'));
+        $this->notify('users.deleted_role');
 
         return redirect()->route('reactor.roles.index');
     }
@@ -175,7 +164,6 @@ class RolesController extends ReactorController
     protected function getAddUserForm($id, Role $role)
     {
         $form = $this->form('Users\AddUserForm', [
-            'method' => 'PUT',
             'url'    => route('reactor.roles.user.add', $id)
         ]);
 
@@ -206,8 +194,7 @@ class RolesController extends ReactorController
 
         $role->associateUser($request->input('user'));
 
-        chronicle()->record($role, 'associated_user_to_role');
-        flash()->success(trans('users.added_user'));
+        $this->notify('users.added_user', 'associated_user_to_role', $role);
 
         return redirect()->back();
     }
@@ -225,10 +212,51 @@ class RolesController extends ReactorController
 
         $role->dissociateUser($request->input('user'));
 
-        chronicle()->record($role, 'dissociated_user_from_role');
-        flash()->success(trans('users.unlinked_user'));
+        $this->notify('users.unlinked_user', 'dissociated_user_from_role', $role);
 
         return redirect()->route('reactor.roles.users', $id);
+    }
+
+    /**
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getCreateRoleForm()
+    {
+        $form = $this->form('Roles\CreateEditForm', [
+            'method' => 'POST',
+            'url'    => route('reactor.roles.store')
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param $id
+     * @param $role
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditRoleForm($id, $role)
+    {
+        $form = $this->form('Roles\CreateEditForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.roles.update', $id),
+            'model'  => $role
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $role
+     */
+    protected function validateUpdateRole(Request $request, $role)
+    {
+        $this->validateForm('Roles\CreateEditForm', $request, [
+            'name' => ['required', 'max:255',
+                'unique:roles,name,' . $role->getKey(),
+                'regex:/^([A-Z]+)$/']
+        ]);
     }
 
 }

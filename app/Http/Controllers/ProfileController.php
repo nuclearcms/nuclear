@@ -16,11 +16,7 @@ class ProfileController extends ReactorController
     {
         $profile = $this->getProfile();
 
-        $form = $this->form('Users\EditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.profile.update'),
-            'model' => $profile
-        ]);
+        $form = $this->getEditProfileForm($profile);
 
         return view('profile.edit', compact('form', 'profile'));
     }
@@ -45,13 +41,11 @@ class ProfileController extends ReactorController
     {
         $profile = $this->getProfile();
 
-        $this->validateForm('Users\EditForm', $request, [
-            'email' => 'required|email|unique:users,email,' . $profile->getKey()
-        ]);
+        $this->validateUpdateProfile($request, $profile);
 
         $profile->update($request->all());
 
-        flash()->success(trans('users.edited'));
+        $this->notify('users.edited');
 
         return redirect()->route('reactor.profile.edit');
     }
@@ -65,10 +59,7 @@ class ProfileController extends ReactorController
     {
         $profile = $this->getProfile();
 
-        $form = $this->form('Users\PasswordForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.profile.password.post'),
-        ]);
+        $form = $this->getPasswordForm();
 
         return view('profile.password', compact('form', 'profile'));
     }
@@ -87,7 +78,7 @@ class ProfileController extends ReactorController
 
         $profile->setPassword($request->input('password'))->save();
 
-        flash()->success(trans('users.changed_password'));
+        $this->notify('users.changed_password');
 
         return redirect()->route('reactor.profile.password');
     }
@@ -104,6 +95,43 @@ class ProfileController extends ReactorController
 
         return view('profile.history')
             ->with(compact('profile', 'activities'));
+    }
+
+    /**
+     * @param $profile
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditProfileForm($profile)
+    {
+        $form = $this->form('Users\EditForm', [
+            'url'   => route('reactor.profile.update'),
+            'model' => $profile
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $profile
+     */
+    protected function validateUpdateProfile(Request $request, $profile)
+    {
+        $this->validateForm('Users\EditForm', $request, [
+            'email' => 'required|email|unique:users,email,' . $profile->getKey()
+        ]);
+    }
+
+    /**
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getPasswordForm()
+    {
+        $form = $this->form('Users\PasswordForm', [
+            'url' => route('reactor.profile.password.post'),
+        ]);
+
+        return $form;
     }
 
 }

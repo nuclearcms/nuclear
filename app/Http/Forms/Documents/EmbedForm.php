@@ -7,6 +7,15 @@ use Kris\LaravelFormBuilder\Form;
 
 class EmbedForm extends Form {
 
+    /**
+     * Form options
+     *
+     * @var array
+     */
+    protected $formOptions = [
+        'method' => 'POST'
+    ];
+
     public function buildForm()
     {
         $this->add('name', 'text', [

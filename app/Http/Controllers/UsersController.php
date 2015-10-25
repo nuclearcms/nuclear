@@ -57,10 +57,7 @@ class UsersController extends ReactorController {
     {
         $this->authorize('ACCESS_USERS_CREATE');
 
-        $form = $this->form('Users\CreateForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.users.store')
-        ]);
+        $form = $this->getCreateUserForm();
 
         return view('users.create', compact('form'));
     }
@@ -79,7 +76,7 @@ class UsersController extends ReactorController {
 
         $profile = User::create($request->all());
 
-        flash()->success(trans('users.created'));
+        $this->notify('users.created');
 
         return redirect()->route('reactor.users.edit', $profile->getKey());
     }
@@ -96,11 +93,7 @@ class UsersController extends ReactorController {
 
         $profile = User::findOrFail($id);
 
-        $form = $this->form('Users\EditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.users.update', $id),
-            'model' => $profile
-        ]);
+        $form = $this->getEditUserForm($id, $profile);
 
         return view('users.edit', compact('form', 'profile'));
     }
@@ -118,14 +111,11 @@ class UsersController extends ReactorController {
 
         $profile = User::findOrFail($id);
 
-        $this->validateForm('Users\EditForm', $request, [
-            'email' => 'required|email|unique:users,email,' . $profile->getKey()
-        ]);
+        $this->validateEditUserForm($request, $profile);
 
         $profile->update($request->all());
 
-        chronicle()->record($profile, 'updated_user_information');
-        flash()->success(trans('users.edited'));
+        $this->notify('users.edited', 'updated_user_information', $profile);
 
         return redirect()->route('reactor.users.edit', $id);
     }
@@ -144,7 +134,7 @@ class UsersController extends ReactorController {
 
         $user->delete();
 
-        flash()->success(trans('users.deleted'));
+        $this->notify('users.deleted');
 
         return redirect()->route('reactor.users.index');
     }
@@ -159,10 +149,7 @@ class UsersController extends ReactorController {
     {
         $profile = User::findOrFail($id);
 
-        $form = $this->form('Users\PasswordForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.users.password.post', $id),
-        ]);
+        $form = $this->getPasswordForm($id);
 
         return view('users.password', compact('form', 'profile'));
     }
@@ -182,8 +169,7 @@ class UsersController extends ReactorController {
 
         $profile->setPassword($request->input('password'))->save();
 
-        chronicle()->record($profile, 'changed_user_password');
-        flash()->success(trans('users.changed_password'));
+        $this->notify('users.changed_password', 'changed_user_password', $profile);
 
         return redirect()->route('reactor.users.password', $id);
     }
@@ -214,7 +200,6 @@ class UsersController extends ReactorController {
     protected function getAddRoleForm($id, User $user)
     {
         $form = $this->form('Roles\AddRoleForm', [
-            'method' => 'PUT',
             'url'    => route('reactor.users.role.add', $id)
         ]);
 
@@ -245,8 +230,7 @@ class UsersController extends ReactorController {
 
         $user->assignRoleById($request->input('role'));
 
-        chronicle()->record($user, 'assigned_role_to_user');
-        flash()->success(trans('users.added_role'));
+        $this->notify('users.added_role', 'assigned_role_to_user', $user);
 
         return redirect()->back();
     }
@@ -264,8 +248,7 @@ class UsersController extends ReactorController {
 
         $user->retractRole($request->input('role'));
 
-        chronicle()->record($user, 'retracted_role_from_user');
-        flash()->success(trans('users.unlinked_role'));
+        $this->notify('users.unlinked_role', 'retracted_role_from_user', $user);
 
         return redirect()->back();
     }
@@ -279,10 +262,62 @@ class UsersController extends ReactorController {
     public function history($id)
     {
         $profile = User::findOrFail($id);
+
         $activities = chronicle()->getUserActivity($id, 20);
 
         return view('users.history')
             ->with(compact('profile', 'activities'));
+    }
+
+    /**
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getCreateUserForm()
+    {
+        $form = $this->form('Users\CreateForm', [
+            'url' => route('reactor.users.store')
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param $id
+     * @param $profile
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditUserForm($id, $profile)
+    {
+        $form = $this->form('Users\EditForm', [
+            'url'   => route('reactor.users.update', $id),
+            'model' => $profile
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $profile
+     */
+    protected function validateEditUserForm(Request $request, $profile)
+    {
+        $this->validateForm('Users\EditForm', $request, [
+            'email' => 'required|email|unique:users,email,' . $profile->getKey()
+        ]);
+    }
+
+    /**
+     * @param $id
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getPasswordForm($id)
+    {
+        $form = $this->form('Users\PasswordForm', [
+            'url' => route('reactor.users.password.post', $id),
+        ]);
+
+        return $form;
     }
 
 }

@@ -30,10 +30,7 @@ class SettingGroupsController extends ReactorController {
     {
         $this->authorize('ACCESS_SETTINGGROUPS_CREATE');
 
-        $form = $this->form('SettingGroups\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.settinggroups.store')
-        ]);
+        $form = $this->getCreateSettingGroupForm();
 
         return view('settinggroups.create', compact('form'));
     }
@@ -48,12 +45,9 @@ class SettingGroupsController extends ReactorController {
     {
         $this->validateForm('SettingGroups\CreateEditForm', $request);
 
-        settings()->setGroup(
-            $key = $request->input('key'),
-            $request->input('name')
-        );
+        $key = $this->setGroup($request);
 
-        flash()->success(trans('settings.created_group'));
+        $this->notify('settings.created_group');
 
         return redirect()->route('reactor.settinggroups.edit', $key);
     }
@@ -68,18 +62,9 @@ class SettingGroupsController extends ReactorController {
     {
         $this->authorize('ACCESS_SETTINGGROUPS_EDIT');
 
-        if ( ! settings()->hasGroup($key))
-        {
-            abort(404);
-        }
+        $name = $this->findSettingGroupOrFail($key);
 
-        $name = settings()->getGroup($key);
-
-        $form = $this->form('SettingGroups\CreateEditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.settinggroups.update', $key),
-            'model'  => compact('key', 'name')
-        ]);
+        $form = $this->getEditSettingGroupForm($key, $name);
 
         return view('settinggroups.edit', compact('form', 'name'));
     }
@@ -95,18 +80,13 @@ class SettingGroupsController extends ReactorController {
     {
         $this->authorize('ACCESS_SETTINGGROUPS_EDIT');
 
-        if ( ! settings()->hasGroup($key))
-        {
-            abort(404);
-        }
+        $this->findSettingGroupOrFail($key);
 
-        $this->validateForm('SettingGroups\CreateEditForm', $request, [
-            'key' => 'required|max:25|alpha_dash|unique_setting_group:' . $key
-        ]);
+        $this->validateUpdateGroup($request, $key);
 
-        settings()->setGroup($key, $request->input('name'));
+        $this->updateGroup($request, $key);
 
-        flash()->success(trans('settings.edited_group'));
+        $this->notify('settings.edited_group');
 
         return redirect()->back();
     }
@@ -121,15 +101,91 @@ class SettingGroupsController extends ReactorController {
     {
         $this->authorize('ACCESS_SETTINGGROUPS_DELETE');
 
+        $this->findSettingGroupOrFail($key);
+
+        settings()->deleteGroup($key);
+
+        $this->notify('settings.deleted_group');
+
+        return redirect()->route('reactor.settinggroups.index');
+    }
+
+    /**
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getCreateSettingGroupForm()
+    {
+        $form = $this->form('SettingGroups\CreateEditForm', [
+            'method' => 'POST',
+            'url'    => route('reactor.settinggroups.store')
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @return array|string
+     */
+    protected function setGroup(Request $request)
+    {
+        settings()->setGroup(
+            $key = $request->input('key'),
+            $request->input('name')
+        );
+
+        return $key;
+    }
+
+    /**
+     * @param $key
+     * @return mixed
+     */
+    protected function findSettingGroupOrFail($key)
+    {
         if ( ! settings()->hasGroup($key))
         {
             abort(404);
         }
 
-        settings()->deleteGroup($key);
+        $name = settings()->getGroup($key);
 
-        flash()->success(trans('settings.deleted_group'));
+        return $name;
+    }
 
-        return redirect()->route('reactor.settinggroups.index');
+    /**
+     * @param $key
+     * @param $name
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditSettingGroupForm($key, $name)
+    {
+        $form = $this->form('SettingGroups\CreateEditForm', [
+            'method' => 'PUT',
+            'url'    => route('reactor.settinggroups.update', $key),
+            'model'  => compact('key', 'name')
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $key
+     */
+    protected function updateGroup(Request $request, $key)
+    {
+        settings()->setGroup($key, $request->input('name'));
+    }
+
+    /**
+     * @param Request $request
+     * @param $key
+     */
+    protected function validateUpdateGroup(Request $request, $key)
+    {
+        $this->validateForm('SettingGroups\CreateEditForm', $request, [
+            'key' => 'required|max:25|alpha_dash|unique_setting_group:' . $key
+        ]);
     }
 }

@@ -34,4 +34,24 @@ abstract class ReactorController extends Controller {
         session()->forget('flash_notification');
     }
 
+    /**
+     * Flash and chronicle notification
+     *
+     * @param string $flash
+     * @param null|string $activity
+     * @param null|Model $subject
+     */
+    public function notify($flash = null, $activity = null, $subject = null)
+    {
+        if ( ! is_null($flash))
+        {
+            flash()->success(trans($flash));
+        }
+
+        if ( ! is_null($activity))
+        {
+            chronicle()->record($subject, $activity);
+        }
+    }
+
 }

@@ -62,7 +62,7 @@ class Media extends TransitFile {
      */
     protected $searchable = [
         'columns' => [
-            'name'  => 10,
+            'name'     => 10,
             'mimetype' => 5
         ]
     ];
@@ -105,9 +105,9 @@ class Media extends TransitFile {
     {
         return [
             'thumbnail' => $this->present()->thumbnail,
-            'name' => $this->name,
-            'mimetype' => $this->mimetype,
-            'size' => $this->size
+            'name'      => $this->name,
+            'mimetype'  => $this->mimetype,
+            'size'      => $this->size
         ];
     }
 
