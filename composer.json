@@ -53,10 +53,12 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "database",
+            "gen"
         ],
         "psr-4": {
-            "Reactor\\": "app/"
+            "Reactor\\": "app/",
+            "Extension\\": "extension"
         }
     },
     "autoload-dev": {
