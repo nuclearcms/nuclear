@@ -51,4 +51,36 @@ class NodeType extends Eloquent
         ]
     ];
 
+    /**
+     * Fields relation
+     *
+     * @return HasMany
+     */
+    public function fields()
+    {
+        return $this->hasMany(NodeField::class);
+    }
+
+    /**
+     * Add a field to the node type
+     *
+     * @param NodeField $field
+     * @return NodeField
+     */
+    public function addField(NodeField $field)
+    {
+        return $this->fields()->attach($field);
+    }
+
+    /**
+     * Remove a field from the node type
+     *
+     * @param NodeField $field
+     * @return NodeField
+     */
+    public function removeField(NodeField $field)
+    {
+        return $this->fields()->detach($field);
+    }
+
 }

@@ -21,7 +21,9 @@
             'currentKey' => $nodeType->getKey()
         ])
 
-        Here is the field sub table
+        @include('nodefields.subtable', ['fields' => $nodeType->fields])
     </div>
 
 @endsection
+
+@include('partials.content.delete_modal', ['message' => 'nodes.confirm_delete_field'])

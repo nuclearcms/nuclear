@@ -24,10 +24,10 @@ class CreateNodeFieldsTable extends Migration {
             $table->string('type');
             $table->boolean('visible');
 
-            $table->string('rules');
-            $table->text('default_value');
-            $table->text('value');
-            $table->text('options');
+            $table->text('rules')->nullable();
+            $table->text('default_value')->nullable();
+            $table->text('value')->nullable();
+            $table->text('options')->nullable();
 
             $table->timestamps();
 
