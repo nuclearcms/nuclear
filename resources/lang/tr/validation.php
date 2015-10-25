@@ -124,6 +124,10 @@ return [
         'user' => 'Kullanıcı',
         'public_url' => 'Görünür URL',
         'absolute_path' => 'Tam Dosya Yolu',
+        'description' => 'Açıklama',
+        'visible' => 'Görünür',
+        'hides_nodes' => 'Altındaki Düğümleri Saklar',
+        'color' => 'Renk',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',

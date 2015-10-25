@@ -10,5 +10,7 @@ return [
     'role_name' => 'Sadece büyük ASCII harfler içermelidir.',
     'settings_key' => 'Sadece harf ve rakam içermelidir.',
     'settinggroup_name' => 'Ayar grubu için okunaklı isim.',
-
+    'nodetype_name' => 'Sadece küçük ASCII harfler içermelidir.',
+    'nodetype_label' => 'Düğüm tipi için okunaklı isim.',
+    'nodetype_color' => 'Düğüm tiplerini ayırt edebilmek için renk.',
 ];

@@ -124,6 +124,10 @@ return [
         'user' => 'User',
         'public_url' => 'Public URL',
         'absolute_path' => 'Absolute Path',
+        'description' => 'Description',
+        'visible' => 'Visible',
+        'hides_nodes' => 'Hides Child Nodes',
+        'color' => 'Color',
 
         // Settings specific
         'analytics' => 'Google Analytics Key',

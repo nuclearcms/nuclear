@@ -4,6 +4,7 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Reactor\Http\Requests;
+use Reactor\Nodes\NodeType;
 
 class NodeTypesController extends ReactorController
 {
@@ -14,7 +15,10 @@ class NodeTypesController extends ReactorController
      */
     public function index()
     {
-        //
+        $nodeTypes = NodeType::sortable()->paginate();
+
+        return view('nodes.index')
+            ->with(compact('nodeTypes'));
     }
 
     /**
@@ -25,7 +29,24 @@ class NodeTypesController extends ReactorController
      */
     public function search(Request $request)
     {
+        $nodeTypes = NodeType::search($request->input('q'))->get();
 
+        return view('nodes.search')
+            ->with(compact('nodeTypes'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $this->authorize('ACCESS_NODES_CREATE');
+
+        $form = $this->getCreateNodeTypeForm();
+
+        return view('nodes.create', compact('form'));
     }
 
     /**
@@ -36,18 +57,15 @@ class NodeTypesController extends ReactorController
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->authorize('ACCESS_NODES_CREATE');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $this->validateForm('Nodes\CreateNodeTypeForm', $request);
+
+        $nodeType = NodeType::create($request->all());
+
+        $this->notify('nodes.created');
+
+        return redirect()->route('reactor.nodes.edit', $nodeType->getKey());
     }
 
     /**
@@ -58,7 +76,13 @@ class NodeTypesController extends ReactorController
      */
     public function edit($id)
     {
-        //
+        $this->authorize('ACCESS_NODES_EDIT');
+
+        $nodeType = NodeType::findOrFail($id);
+
+        $form = $this->getEditNodeTypeForm($id, $nodeType);
+
+        return view('nodes.edit', compact('form', 'nodeType'));
     }
 
     /**
@@ -70,7 +94,17 @@ class NodeTypesController extends ReactorController
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authorize('ACCESS_NODES_EDIT');
+
+        $nodeType = NodeType::findOrFail($id);
+
+        $this->validateForm('Nodes\EditNodeTypeForm', $request);
+
+        $nodeType->update($request->all());
+
+        $this->notify('nodes.edited');
+
+        return redirect()->route('reactor.nodes.edit', $id);
     }
 
     /**
@@ -81,7 +115,15 @@ class NodeTypesController extends ReactorController
      */
     public function destroy($id)
     {
-        //
+        $this->authorize('ACCESS_NODES_DELETE');
+
+        $nodeType = NodeType::findOrFail($id);
+
+        $nodeType->delete();
+
+        $this->notify('nodes.deleted');
+
+        return redirect()->route('reactor.nodes.index');
     }
 
     /**
@@ -92,31 +134,38 @@ class NodeTypesController extends ReactorController
      */
     public function fields($id)
     {
+        $this->authorize('ACCESS_NODES_EDIT');
 
+        $nodeType = NodeType::findOrFail($id);
+
+        return view('nodes.fields', compact('nodeType'));
     }
 
     /**
-     * Add a field to the specified resource.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
+     * @return \Kris\LaravelFormBuilder\Form
      */
-    public function addField(Request $request, $id)
+    protected function getCreateNodeTypeForm()
     {
+        $form = $this->form('Nodes\CreateNodeTypeForm', [
+            'url' => route('reactor.nodes.store')
+        ]);
 
+        return $form;
     }
 
     /**
-     * Remove a field from the specified resource.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
+     * @param $id
+     * @param $nodeType
+     * @return \Kris\LaravelFormBuilder\Form
      */
-    public function removeField(Request $request, $id)
+    protected function getEditNodeTypeForm($id, $nodeType)
     {
+        $form = $this->form('Nodes\EditNodeTypeForm', [
+            'url'    => route('reactor.nodes.update', $id),
+            'model'  => $nodeType
+        ]);
 
+        return $form;
     }
 
 }

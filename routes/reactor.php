@@ -77,12 +77,23 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::get('nodes/{id}/fields', [
                 'uses' => 'NodeTypesController@fields',
                 'as'   => 'reactor.nodes.fields']);
-            Route::put('nodes/{id}/fields', [
-                'uses' => 'NodeTypesController@addField',
-                'as'   => 'reactor.nodes.field.add']);
-            Route::delete('nodes/{id}/fields', [
-                'uses' => 'NodeTypesController@removeField',
-                'as'   => 'reactor.nodes.field.remove']);
+
+            // Node Fields
+            Route::get('nodes/{id}/fields/create', [
+                'uses' => 'NodeFieldsController@create',
+                'as'   => 'reactor.nodes.field.create']);
+            Route::post('nodes/{id}/fields', [
+                'uses' => 'NodeFieldsController@store',
+                'as'   => 'reactor.nodes.field.store']);
+            Route::get('nodes/fields/{id}', [
+                'uses' => 'NodeFieldsController@edit',
+                'as'   => 'reactor.nodes.field.edit']);
+            Route::put('nodes/fields/{id}', [
+                'uses' => 'NodeFieldsController@update',
+                'as'   => 'reactor.nodes.field.update']);
+            Route::delete('nodes/fields/{id}', [
+                'uses' => 'NodeFieldsController@destroy',
+                'as'   => 'reactor.nodes.field.destroy']);
         });
 
         // Documents

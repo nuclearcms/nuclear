@@ -30,6 +30,11 @@ class CreateNodeFieldsTable extends Migration {
             $table->text('options');
 
             $table->timestamps();
+
+            $table->foreign('node_type_id')
+                ->references('id')
+                ->on('node_types')
+                ->onDelete('cascade');
         });
     }
 
