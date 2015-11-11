@@ -20,7 +20,7 @@
 
 @section('content_list')
     @if($nodeTypes->count())
-        @include('nodes.content')
+        @include('nodetypes.content')
     @else
         {!! no_results_row() !!}
     @endif

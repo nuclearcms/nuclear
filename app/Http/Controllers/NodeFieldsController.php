@@ -3,7 +3,10 @@
 namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Nuclear\Hierarchy\Repositories\NodeFieldRepository;
 use Reactor\Http\Requests;
+use Reactor\Nodes\NodeField;
+use Reactor\Nodes\NodeType;
 
 class NodeFieldsController extends ReactorController
 {
@@ -15,19 +18,34 @@ class NodeFieldsController extends ReactorController
      */
     public function create($id)
     {
-        //
+        $this->authorize('ACCESS_NODES_EDIT');
+
+        $nodeType = NodeType::findOrFail($id);
+
+        $form = $this->getCreateNodeFieldForm($id);
+
+        return view('nodesfields.create', compact('form', 'nodeType'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param int $id
-     * @param  \Illuminate\Http\Request  $request
+     * @param NodeFieldRepository $nodeFieldRepository
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id, Request $request)
+    public function store($id, NodeFieldRepository $nodeFieldRepository, Request $request)
     {
-        //
+        $this->authorize('ACCESS_NODES_EDIT');
+
+        $this->validateForm('Nodes\CreateNodeFieldForm', $request);
+
+        $nodeField = $nodeFieldRepository->create($id, $request->all());
+
+        $this->notify('nodes.created_field');
+
+        return redirect()->route('reactor.nodes.field.edit', $nodeField->getKey());
     }
 
     /**
@@ -38,7 +56,13 @@ class NodeFieldsController extends ReactorController
      */
     public function edit($id)
     {
-        //
+        $this->authorize('ACCESS_NODES_EDIT');
+
+        $nodeField = NodeField::findOrFail($id);
+
+        $form = $this->getEditNodeFieldForm($id, $nodeField);
+
+        return view('nodefields.edit', compact('form', 'nodeField'));
     }
 
     /**
@@ -50,17 +74,42 @@ class NodeFieldsController extends ReactorController
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->authorize('ACCESS_NODES_EDIT');
+
+        $nodeField = NodeField::findOrFail($id);
+
+        $this->validateForm('Nodes\EditNodeFieldForm', $request);
+
+        $nodeField->update($request->all());
+
+        $this->notify('nodes.edited_field');
+
+        return redirect()->route('reactor.nodes.field.edit', $id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param NodeFieldRepository $nodeFieldRepository
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(NodeFieldRepository $nodeFieldRepository, $id)
     {
-        //
+        $this->authorize('ACCESS_NODES_EDIT');
+
+        $nodeFieldRepository->destroy($id);
+
+        $this->notify('nodes.deleted_field');
+
+        return redirect()->back();
+    }
+
+    /**
+     * @param $id
+     */
+    protected function getCreateNodeFieldForm($id)
+    {
+
     }
 }

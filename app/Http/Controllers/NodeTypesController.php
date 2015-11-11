@@ -3,6 +3,7 @@
 namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Nuclear\Hierarchy\Repositories\NodeTypeRepository;
 use Reactor\Http\Requests;
 use Reactor\Nodes\NodeType;
 
@@ -17,7 +18,7 @@ class NodeTypesController extends ReactorController
     {
         $nodeTypes = NodeType::sortable()->paginate();
 
-        return view('nodes.index')
+        return view('nodetypes.index')
             ->with(compact('nodeTypes'));
     }
 
@@ -31,7 +32,7 @@ class NodeTypesController extends ReactorController
     {
         $nodeTypes = NodeType::search($request->input('q'))->get();
 
-        return view('nodes.search')
+        return view('nodetypes.search')
             ->with(compact('nodeTypes'));
     }
 
@@ -46,24 +47,25 @@ class NodeTypesController extends ReactorController
 
         $form = $this->getCreateNodeTypeForm();
 
-        return view('nodes.create', compact('form'));
+        return view('nodetypes.create', compact('form'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param NodeTypeRepository $nodeTypeRepository
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NodeTypeRepository $nodeTypeRepository, Request $request)
     {
         $this->authorize('ACCESS_NODES_CREATE');
 
         $this->validateForm('Nodes\CreateNodeTypeForm', $request);
 
-        $nodeType = NodeType::create($request->all());
+        $nodeType = $nodeTypeRepository->create($request->all());
 
-        $this->notify('nodes.created');
+        $this->notify('nodes.created_type');
 
         return redirect()->route('reactor.nodes.edit', $nodeType->getKey());
     }
@@ -82,7 +84,7 @@ class NodeTypesController extends ReactorController
 
         $form = $this->getEditNodeTypeForm($id, $nodeType);
 
-        return view('nodes.edit', compact('form', 'nodeType'));
+        return view('nodetypes.edit', compact('form', 'nodeType'));
     }
 
     /**
@@ -102,7 +104,7 @@ class NodeTypesController extends ReactorController
 
         $nodeType->update($request->all());
 
-        $this->notify('nodes.edited');
+        $this->notify('nodes.edited_type');
 
         return redirect()->route('reactor.nodes.edit', $id);
     }
@@ -110,18 +112,17 @@ class NodeTypesController extends ReactorController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param NodeTypeRepository $nodeTypeRepository
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(NodeTypeRepository $nodeTypeRepository, $id)
     {
         $this->authorize('ACCESS_NODES_DELETE');
 
-        $nodeType = NodeType::findOrFail($id);
+        $nodeTypeRepository->destroy($id);
 
-        $nodeType->delete();
-
-        $this->notify('nodes.deleted');
+        $this->notify('nodes.deleted_type');
 
         return redirect()->route('reactor.nodes.index');
     }
@@ -138,7 +139,7 @@ class NodeTypesController extends ReactorController
 
         $nodeType = NodeType::findOrFail($id);
 
-        return view('nodes.fields', compact('nodeType'));
+        return view('nodetypes.fields', compact('nodeType'));
     }
 
     /**

@@ -15,10 +15,12 @@ class ChronicleCreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('subject_id')->index();
-            $table->string('subject_type')->index();
+            $table->integer('subject_id')->unsigned();
+            $table->string('subject_type');
             $table->string('name');
             $table->integer('user_id')->index();
+
+            $table->index(['subject_id', 'subject_type']);
 
             $table->timestamps();
         });

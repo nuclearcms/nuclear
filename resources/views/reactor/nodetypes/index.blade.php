@@ -23,11 +23,11 @@
 @endsection
 
 @section('content_list')
-    @include('nodes.content')
+    @include('nodetypes.content')
 @endsection
 
 @section('content_footer')
     @include('partials.pagination', ['pagination' => $nodeTypes])
 @endsection
 
-@include('partials.content.delete_modal', ['message' => 'nodes.confirm_delete'])
+@include('partials.content.delete_modal', ['message' => 'nodes.confirm_delete_type'])

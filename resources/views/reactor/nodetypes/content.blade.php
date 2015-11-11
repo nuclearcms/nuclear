@@ -12,12 +12,12 @@
         {!! content_options_open() !!}
         <li>
             <a href="{{ route('reactor.nodes.edit', $nodeType->getKey()) }}">
-                <i class="icon-pencil"></i> {{ trans('nodes.edit') }}</a>
+                <i class="icon-pencil"></i> {{ trans('nodes.edit_type') }}</a>
         </li>
         <li>
             {!! delete_form(
                 route('reactor.nodes.destroy', $nodeType->getKey()),
-                trans('nodes.delete')
+                trans('nodes.delete_type')
             ) !!}
         </li>
         {!! content_options_close() !!}

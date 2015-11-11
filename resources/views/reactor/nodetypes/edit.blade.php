@@ -1,6 +1,6 @@
 @extends('layout.form')
 
-@section('pageTitle', trans('nodes.edit'))
+@section('pageTitle', trans('nodes.edit_type'))
 @section('contentSubtitle')
     {!! link_to_route('reactor.nodes.index', uppercase(trans('nodes.title'))) !!}
 @endsection
@@ -16,7 +16,7 @@
     ])
 
     <div class="material-light">
-        @include('nodes.tabs', [
+        @include('nodetypes.tabs', [
             'currentTab' => 'reactor.nodes.edit',
             'currentKey' => $nodeType->getKey()
         ])

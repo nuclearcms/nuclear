@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNodeTypesTable extends Migration {
+class HierarchyCreateNodeTypesTable extends Migration {
 
     /**
      * Run the migrations.
@@ -18,10 +18,10 @@ class CreateNodeTypesTable extends Migration {
 
             $table->string('name');
             $table->string('label');
-            $table->text('description');
-            $table->boolean('visible');
-            $table->boolean('hides_nodes');
-            $table->string('color');
+            $table->text('description')->nullable();
+            $table->boolean('visible')->default(1);
+            $table->boolean('hides_nodes')->default(0);
+            $table->string('color', 32)->default('#000000');
 
             $table->timestamps();
         });

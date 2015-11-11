@@ -16,12 +16,13 @@
     ])
 
     <div class="material-light">
-        @include('nodes.tabs', [
+        @include('nodetypes.tabs', [
             'currentTab' => 'reactor.nodes.fields',
             'currentKey' => $nodeType->getKey()
         ])
 
-        @include('nodefields.subtable', ['fields' => $nodeType->fields])
+        @include('nodefields.subtable', ['fields' => $nodeType->getFields()])
+
     </div>
 
 @endsection

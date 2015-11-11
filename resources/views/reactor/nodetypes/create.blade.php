@@ -1,6 +1,6 @@
 @extends('layout.form')
 
-@section('pageTitle', trans('nodes.create'))
+@section('pageTitle', trans('nodes.create_type'))
 @section('contentSubtitle')
     {!! link_to_route('reactor.nodes.index', uppercase(trans('nodes.title'))) !!}
 @endsection

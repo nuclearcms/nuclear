@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNodeFieldsTable extends Migration {
+class HierarchyCreateNodeFieldsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -15,18 +15,17 @@ class CreateNodeFieldsTable extends Migration {
         Schema::create('node_fields', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->integer('node_type_id')->unsigned();
+            $table->integer('node_type_id')->unsigned()->nullable();
 
             $table->string('name');
             $table->string('label');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->double('position')->unsigned();
             $table->string('type');
-            $table->boolean('visible');
+            $table->boolean('visible')->default(1);
 
             $table->text('rules')->nullable();
             $table->text('default_value')->nullable();
-            $table->text('value')->nullable();
             $table->text('options')->nullable();
 
             $table->timestamps();

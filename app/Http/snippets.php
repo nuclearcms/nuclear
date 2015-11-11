@@ -174,15 +174,18 @@ if ( ! function_exists('action_button'))
      * @param string $link
      * @param string $icon
      * @param bool $secondary
+     * @param string|null $text
      * @return string
      */
-    function action_button($link, $icon, $secondary = false)
+    function action_button($link, $icon, $secondary = false, $text = null)
     {
-        return sprintf('<a href="%s" class="button button-emphasized button-icon-primary %s">
-            <i class="%s"></i>
+        return sprintf('<a href="%s" class="button button-emphasized %s %s">
+            %s<i class="%s"></i>
         </a>',
             $link,
+            (is_null($text)) ? 'button-icon-primary' : '',
             ($secondary) ? 'button-secondary' : '',
+            (!is_null($text)) ? uppercase(trans($text)) . ' ' : '',
             $icon);
     }
 }

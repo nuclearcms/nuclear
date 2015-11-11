@@ -167,8 +167,8 @@ return [
         Kenarkose\Sortable\SortableServiceProvider::class,
         Kenarkose\Synthesizer\Provider\Laravel\SynthesizerServiceProvider::class,
         Kenarkose\Transit\Provider\TransitServiceProvider::class,
-
-        Baum\Providers\BaumServiceProvider::class,
+        Nuclear\Hierarchy\Providers\HierarchyServiceProvider::class,
+        
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,

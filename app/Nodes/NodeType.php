@@ -2,21 +2,14 @@
 
 namespace Reactor\Nodes;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
 use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Nuclear\Hierarchy\NodeType as HierarchyNodeType;
 
-class NodeType extends Eloquent
+class NodeType extends HierarchyNodeType
 {
     use Sortable, SearchableTrait, RecordsActivity;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['name', 'label', 'description', 'visible', 'hides_nodes', 'color'];
 
     /**
      * Sortable columns
@@ -50,37 +43,5 @@ class NodeType extends Eloquent
             'label' => 10
         ]
     ];
-
-    /**
-     * Fields relation
-     *
-     * @return HasMany
-     */
-    public function fields()
-    {
-        return $this->hasMany(NodeField::class);
-    }
-
-    /**
-     * Add a field to the node type
-     *
-     * @param NodeField $field
-     * @return NodeField
-     */
-    public function addField(NodeField $field)
-    {
-        return $this->fields()->attach($field);
-    }
-
-    /**
-     * Remove a field from the node type
-     *
-     * @param NodeField $field
-     * @return NodeField
-     */
-    public function removeField(NodeField $field)
-    {
-        return $this->fields()->detach($field);
-    }
 
 }
