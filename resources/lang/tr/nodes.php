@@ -31,4 +31,16 @@ return [
     'deleted_field' => 'Düğüm alanı silindi.',
     'confirm_delete_field' => 'Bu düğüm alanını silmek istediğinizden emin misiniz?',
 
+    'type_text' => 'Yazı',
+    'type_textarea' => 'Yazı Alanı',
+    'type_markdown' => 'Markdown',
+    'type_file' => 'Dosya',
+    'type_gallery' => 'Galeri',
+    'type_checkbox' => 'Onay Kutusu',
+    'type_select' => 'Seçim',
+    'type_number' => 'Sayı',
+    'type_color' => 'Renk',
+    'type_slug' => 'Slug',
+    'type_tag' => 'Etiket',
+    'type_password' => 'Şifre'
 ];

@@ -24,7 +24,7 @@ class NodeFieldsController extends ReactorController
 
         $form = $this->getCreateNodeFieldForm($id);
 
-        return view('nodesfields.create', compact('form', 'nodeType'));
+        return view('nodefields.create', compact('form', 'nodeType'));
     }
 
     /**
@@ -62,7 +62,7 @@ class NodeFieldsController extends ReactorController
 
         $form = $this->getEditNodeFieldForm($id, $nodeField);
 
-        return view('nodefields.edit', compact('form', 'nodeField'));
+        return view('nodefields.edit', compact('form', 'nodeField', 'nodeType'));
     }
 
     /**
@@ -107,9 +107,29 @@ class NodeFieldsController extends ReactorController
 
     /**
      * @param $id
+     * @return \Kris\LaravelFormBuilder\Form
      */
     protected function getCreateNodeFieldForm($id)
     {
+        $form = $this->form('Nodes\CreateNodeFieldForm', [
+            'url' => route('reactor.nodes.field.store', $id)
+        ]);
 
+        return $form;
+    }
+
+    /**
+     * @param $id
+     * @param NodeField $nodeField
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditNodeFieldForm($id, NodeField $nodeField)
+    {
+        $form = $this->form('Nodes\EditNodeFieldForm', [
+            'url'    => route('reactor.nodes.field.update', $id),
+            'model'  => $nodeField
+        ]);
+
+        return $form;
     }
 }

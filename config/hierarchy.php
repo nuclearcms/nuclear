@@ -25,15 +25,15 @@ return [
 	|
 	*/
     'type_map' => [
+		'text'     => 'string',
+        'textarea' => 'text',
+        'markdown' => 'longtext',
+        'file'     => 'unsignedInteger',
+        'gallery'  => 'text',
 		'checkbox' => 'boolean',
 		'select'   => 'string',
-		'textarea' => 'text',
-		'text'     => 'string',
 		'number'   => 'double',
 		'color'    => 'string',
-		'markdown' => 'longtext',
-		'file'     => 'unsignedInteger',
-		'gallery'  => 'text',
 		'slug'     => 'string',
 		'tag'      => 'text',
 		'password' => 'string'

@@ -13,13 +13,13 @@
                 </td>
                 {!! content_options_open() !!}
                 <li>
-                    {!! link_to_route('reactor.nodes.field.edit', 'nodes.edit_field', $field->getKey()) !!}
+                    <a href="{{ route('reactor.nodes.field.edit', $field->getKey()) }}">
+                        <i class="icon-pencil"></i> {{ trans('nodes.edit_field') }}</a>
                 </li>
                 <li>
                     {!! delete_form(
-                        $route,
-                        trans('nodes.delete_field'),
-                        '<input type="hidden" name="field" value="' . $field->getKey() . '">'
+                        route('reactor.nodes.field.destroy', $field->getKey()),
+                        trans('nodes.delete_field')
                     ) !!}
                 </li>
                 {!! content_options_close() !!}

@@ -12,5 +12,7 @@ return [
     'settinggroup_name' => 'Ayar grubu için okunaklı isim.',
     'nodetype_name' => 'Sadece küçük ASCII harfler içermelidir.',
     'nodetype_label' => 'Düğüm tipi için okunaklı isim.',
+    'nodefield_name' => 'Sadece küçük ASCII harfler içermelidir.',
+    'nodefield_label' => 'Düğüm alanı için okunaklı isim.',
     'nodetype_color' => 'Düğüm tiplerini ayırt edebilmek için renk.',
 ];

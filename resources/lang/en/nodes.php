@@ -31,4 +31,16 @@ return [
     'deleted_field' => 'Node field was deleted.',
     'confirm_delete_field' => 'Are you sure you want to remove this field.',
 
+    'type_text' => 'Text',
+    'type_textarea' => 'Textarea',
+    'type_markdown' => 'Markdown',
+    'type_file' => 'File',
+    'type_gallery' => 'Gallery',
+    'type_checkbox' => 'Checkbox',
+    'type_select' => 'Select',
+    'type_number' => 'Number',
+    'type_color' => 'Color',
+    'type_slug' => 'Slug',
+    'type_tag' => 'Tag',
+    'type_password' => 'Password'
 ];
