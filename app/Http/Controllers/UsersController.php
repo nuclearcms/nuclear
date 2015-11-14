@@ -72,7 +72,7 @@ class UsersController extends ReactorController {
     {
         $this->authorize('ACCESS_USERS_CREATE');
 
-        $this->validateForm('Users\CreateForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Users\CreateForm', $request);
 
         $profile = User::create($request->all());
 
@@ -165,7 +165,7 @@ class UsersController extends ReactorController {
     {
         $profile = User::findOrFail($id);
 
-        $this->validateForm('Users\PasswordForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Users\PasswordForm', $request);
 
         $profile->setPassword($request->input('password'))->save();
 
@@ -199,7 +199,7 @@ class UsersController extends ReactorController {
      */
     protected function getAddRoleForm($id, User $user)
     {
-        $form = $this->form('Roles\AddRoleForm', [
+        $form = $this->form('Reactor\Http\Forms\Roles\AddRoleForm', [
             'url'    => route('reactor.users.role.add', $id)
         ]);
 
@@ -224,7 +224,7 @@ class UsersController extends ReactorController {
      */
     public function addRole(Request $request, $id)
     {
-        $this->validateForm('Roles\AddRoleForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Roles\AddRoleForm', $request);
 
         $user = User::findOrFail($id);
 
@@ -274,7 +274,7 @@ class UsersController extends ReactorController {
      */
     protected function getCreateUserForm()
     {
-        $form = $this->form('Users\CreateForm', [
+        $form = $this->form('Reactor\Http\Forms\Users\CreateForm', [
             'url' => route('reactor.users.store')
         ]);
 
@@ -288,7 +288,7 @@ class UsersController extends ReactorController {
      */
     protected function getEditUserForm($id, $profile)
     {
-        $form = $this->form('Users\EditForm', [
+        $form = $this->form('Reactor\Http\Forms\Users\EditForm', [
             'url'   => route('reactor.users.update', $id),
             'model' => $profile
         ]);
@@ -302,7 +302,7 @@ class UsersController extends ReactorController {
      */
     protected function validateEditUserForm(Request $request, $profile)
     {
-        $this->validateForm('Users\EditForm', $request, [
+        $this->validateForm('Reactor\Http\Forms\Users\EditForm', $request, [
             'email' => 'required|email|unique:users,email,' . $profile->getKey()
         ]);
     }
@@ -313,7 +313,7 @@ class UsersController extends ReactorController {
      */
     protected function getPasswordForm($id)
     {
-        $form = $this->form('Users\PasswordForm', [
+        $form = $this->form('Reactor\Http\Forms\Users\PasswordForm', [
             'url' => route('reactor.users.password.post', $id),
         ]);
 

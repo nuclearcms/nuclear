@@ -61,7 +61,7 @@ class NodeTypesController extends ReactorController
     {
         $this->authorize('ACCESS_NODES_CREATE');
 
-        $this->validateForm('Nodes\CreateNodeTypeForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Nodes\CreateNodeTypeForm', $request);
 
         $nodeType = $nodeTypeRepository->create($request->all());
 
@@ -100,7 +100,7 @@ class NodeTypesController extends ReactorController
 
         $nodeType = NodeType::findOrFail($id);
 
-        $this->validateForm('Nodes\EditNodeTypeForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeTypeForm', $request);
 
         $nodeType->update($request->all());
 
@@ -147,7 +147,7 @@ class NodeTypesController extends ReactorController
      */
     protected function getCreateNodeTypeForm()
     {
-        $form = $this->form('Nodes\CreateNodeTypeForm', [
+        $form = $this->form('Reactor\Http\Forms\Nodes\CreateNodeTypeForm', [
             'url' => route('reactor.nodes.store')
         ]);
 
@@ -161,7 +161,7 @@ class NodeTypesController extends ReactorController
      */
     protected function getEditNodeTypeForm($id, $nodeType)
     {
-        $form = $this->form('Nodes\EditNodeTypeForm', [
+        $form = $this->form('Reactor\Http\Forms\Nodes\EditNodeTypeForm', [
             'url'    => route('reactor.nodes.update', $id),
             'model'  => $nodeType
         ]);

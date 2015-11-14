@@ -39,7 +39,7 @@ class NodeFieldsController extends ReactorController
     {
         $this->authorize('ACCESS_NODES_EDIT');
 
-        $this->validateForm('Nodes\CreateNodeFieldForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Nodes\CreateNodeFieldForm', $request);
 
         $nodeField = $nodeFieldRepository->create($id, $request->all());
 
@@ -78,7 +78,7 @@ class NodeFieldsController extends ReactorController
 
         $nodeField = NodeField::findOrFail($id);
 
-        $this->validateForm('Nodes\EditNodeFieldForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeFieldForm', $request);
 
         $nodeField->update($request->all());
 
@@ -111,7 +111,7 @@ class NodeFieldsController extends ReactorController
      */
     protected function getCreateNodeFieldForm($id)
     {
-        $form = $this->form('Nodes\CreateNodeFieldForm', [
+        $form = $this->form('Reactor\Http\Forms\Nodes\CreateNodeFieldForm', [
             'url' => route('reactor.nodes.field.store', $id)
         ]);
 
@@ -125,7 +125,7 @@ class NodeFieldsController extends ReactorController
      */
     protected function getEditNodeFieldForm($id, NodeField $nodeField)
     {
-        $form = $this->form('Nodes\EditNodeFieldForm', [
+        $form = $this->form('Reactor\Http\Forms\Nodes\EditNodeFieldForm', [
             'url'    => route('reactor.nodes.field.update', $id),
             'model'  => $nodeField
         ]);

@@ -22,7 +22,7 @@ class CreateForm extends Form {
             'rules' => 'required|max:25|alpha_dash|unique_setting',
             'help_block' => ['text' => trans('hints.settings_key')]
         ]);
-        $this->compose('Settings\EditForm');
+        $this->compose('Reactor\Http\Forms\Settings\EditForm');
     }
 
 }

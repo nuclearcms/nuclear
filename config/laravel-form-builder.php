@@ -14,9 +14,6 @@ return [
     'collection'    => 'laravel-form-builder::collection',
     'static'        => 'laravel-form-builder::static',
 
-    // Default Namespace
-    'default_namespace' => 'Reactor\Http\Forms',
-
     'custom_fields' => [
         'password' => 'Reactor\Http\Forms\Fields\PasswordField',
         'color' => 'Reactor\Http\Forms\Fields\ColorField',

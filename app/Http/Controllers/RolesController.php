@@ -71,7 +71,7 @@ class RolesController extends ReactorController
     {
         $this->authorize('ACCESS_ROLES_CREATE');
 
-        $this->validateForm('Roles\CreateEditForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Roles\CreateEditForm', $request);
 
         $role = Role::create($request->all());
 
@@ -163,7 +163,7 @@ class RolesController extends ReactorController
      */
     protected function getAddUserForm($id, Role $role)
     {
-        $form = $this->form('Users\AddUserForm', [
+        $form = $this->form('Reactor\Http\Forms\Users\AddUserForm', [
             'url'    => route('reactor.roles.user.add', $id)
         ]);
 
@@ -188,7 +188,7 @@ class RolesController extends ReactorController
      */
     public function addUser(Request $request, $id)
     {
-        $this->validateForm('Users\AddUserForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Users\AddUserForm', $request);
 
         $role = Role::findOrFail($id);
 
@@ -222,7 +222,7 @@ class RolesController extends ReactorController
      */
     protected function getCreateRoleForm()
     {
-        $form = $this->form('Roles\CreateEditForm', [
+        $form = $this->form('Reactor\Http\Forms\Roles\CreateEditForm', [
             'method' => 'POST',
             'url'    => route('reactor.roles.store')
         ]);
@@ -237,7 +237,7 @@ class RolesController extends ReactorController
      */
     protected function getEditRoleForm($id, $role)
     {
-        $form = $this->form('Roles\CreateEditForm', [
+        $form = $this->form('Reactor\Http\Forms\Roles\CreateEditForm', [
             'method' => 'PUT',
             'url'    => route('reactor.roles.update', $id),
             'model'  => $role
@@ -252,7 +252,7 @@ class RolesController extends ReactorController
      */
     protected function validateUpdateRole(Request $request, $role)
     {
-        $this->validateForm('Roles\CreateEditForm', $request, [
+        $this->validateForm('Reactor\Http\Forms\Roles\CreateEditForm', $request, [
             'name' => ['required', 'max:255',
                 'unique:roles,name,' . $role->getKey(),
                 'regex:/^([A-Z]+)$/']

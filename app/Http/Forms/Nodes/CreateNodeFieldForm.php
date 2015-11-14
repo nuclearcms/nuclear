@@ -27,7 +27,7 @@ class CreateNodeFieldForm extends Form {
             'choices' => $this->getFieldTypes()
         ]);
 
-        $this->compose('Nodes\EditNodeFieldForm');
+        $this->compose('Reactor\Http\Forms\Nodes\EditNodeFieldForm');
 
         $this->add('rules', 'textarea');
         $this->add('default_value', 'textarea');

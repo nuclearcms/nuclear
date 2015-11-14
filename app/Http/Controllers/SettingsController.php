@@ -43,7 +43,7 @@ class SettingsController extends ReactorController {
      */
     public function store(Request $request)
     {
-        $this->validateForm('Settings\CreateForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Settings\CreateForm', $request);
 
         $key = $this->setSetting($request);
 
@@ -82,7 +82,7 @@ class SettingsController extends ReactorController {
 
         $setting = $this->findSettingOrFail($key);
 
-        $this->validateForm('Settings\EditForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Settings\EditForm', $request);
 
         $this->updateSetting($request, $key, $setting);
 
@@ -166,7 +166,7 @@ class SettingsController extends ReactorController {
      */
     protected function getCreateSettingForm()
     {
-        $form = $this->form('Settings\CreateForm', [
+        $form = $this->form('Reactor\Http\Forms\Settings\CreateForm', [
             'url' => route('reactor.settings.store')
         ]);
 
@@ -196,7 +196,7 @@ class SettingsController extends ReactorController {
      */
     protected function getEditSettingsForm($key, $setting)
     {
-        $form = $this->form('Settings\EditForm', [
+        $form = $this->form('Reactor\Http\Forms\Settings\EditForm', [
             'url'   => route('reactor.settings.update', $key),
             'model' => $setting
         ]);
@@ -259,7 +259,7 @@ class SettingsController extends ReactorController {
      */
     protected function getModifySettingsForm($group, $settings)
     {
-        $form = $this->form('Settings\ModifyForm', [
+        $form = $this->form('Reactor\Http\Forms\Settings\ModifyForm', [
             'url'   => route('reactor.settings.group.update', is_null($group) ? 'all' : $group),
             'model' => $this->makeSettingsModel($settings)
         ], $settings);

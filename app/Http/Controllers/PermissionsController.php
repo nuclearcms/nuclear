@@ -58,7 +58,7 @@ class PermissionsController extends ReactorController
     {
         $this->authorize('ACCESS_PERMISSIONS_CREATE');
 
-        $this->validateForm('Permissions\CreateEditForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Permissions\CreateEditForm', $request);
 
         $permission = Permission::create($request->all());
 
@@ -130,7 +130,7 @@ class PermissionsController extends ReactorController
      */
     protected function getCreatePermissionForm()
     {
-        $form = $this->form('Permissions\CreateEditForm', [
+        $form = $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
             'method' => 'POST',
             'url'    => route('reactor.permissions.store')
         ]);
@@ -145,7 +145,7 @@ class PermissionsController extends ReactorController
      */
     protected function getEditPermissionForm($id, $permission)
     {
-        $form = $this->form('Permissions\CreateEditForm', [
+        $form = $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
             'method' => 'PUT',
             'url'    => route('reactor.permissions.update', $id),
             'model'  => $permission
@@ -160,7 +160,7 @@ class PermissionsController extends ReactorController
      */
     protected function validateUpdatePermission(Request $request, $permission)
     {
-        $this->validateForm('Permissions\CreateEditForm', $request, [
+        $this->validateForm('Reactor\Http\Forms\Permissions\CreateEditForm', $request, [
             'name' => ['required', 'max:255',
                 'unique:permissions,name,' . $permission->getKey(),
                 'regex:/^(ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+$/']

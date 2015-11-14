@@ -43,7 +43,7 @@ class SettingGroupsController extends ReactorController {
      */
     public function store(Request $request)
     {
-        $this->validateForm('SettingGroups\CreateEditForm', $request);
+        $this->validateForm('Reactor\Http\Forms\SettingGroups\CreateEditForm', $request);
 
         $key = $this->setGroup($request);
 
@@ -115,7 +115,7 @@ class SettingGroupsController extends ReactorController {
      */
     protected function getCreateSettingGroupForm()
     {
-        $form = $this->form('SettingGroups\CreateEditForm', [
+        $form = $this->form('Reactor\Http\Forms\SettingGroups\CreateEditForm', [
             'method' => 'POST',
             'url'    => route('reactor.settinggroups.store')
         ]);
@@ -160,7 +160,7 @@ class SettingGroupsController extends ReactorController {
      */
     protected function getEditSettingGroupForm($key, $name)
     {
-        $form = $this->form('SettingGroups\CreateEditForm', [
+        $form = $this->form('Reactor\Http\Forms\SettingGroups\CreateEditForm', [
             'method' => 'PUT',
             'url'    => route('reactor.settinggroups.update', $key),
             'model'  => compact('key', 'name')
@@ -184,7 +184,7 @@ class SettingGroupsController extends ReactorController {
      */
     protected function validateUpdateGroup(Request $request, $key)
     {
-        $this->validateForm('SettingGroups\CreateEditForm', $request, [
+        $this->validateForm('Reactor\Http\Forms\SettingGroups\CreateEditForm', $request, [
             'key' => 'required|max:25|alpha_dash|unique_setting_group:' . $key
         ]);
     }

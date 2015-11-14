@@ -143,7 +143,7 @@ class DocumentsController extends ReactorController {
 
         $media = Media::findOrFail($id);
 
-        $this->validateForm('Documents\EditForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Documents\EditForm', $request);
 
         $media->update($request->all());
 
@@ -195,7 +195,7 @@ class DocumentsController extends ReactorController {
     {
         $this->authorize('ACCESS_DOCUMENTS_EMBED');
 
-        $this->validateForm('Documents\EmbedForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Documents\EmbedForm', $request);
 
         $media = Media::create($request->all());
 
@@ -234,7 +234,7 @@ class DocumentsController extends ReactorController {
 
         $media = Media::findOrFail($id);
 
-        $this->validateForm('Documents\ImageForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Documents\ImageForm', $request);
 
         $media->editImage($request->input('action'));
 
@@ -250,7 +250,7 @@ class DocumentsController extends ReactorController {
      */
     protected function getEditMediaForm($id, $media)
     {
-        $form = $this->form('Documents\EditForm', [
+        $form = $this->form('Reactor\Http\Forms\Documents\EditForm', [
             'url'   => route('reactor.documents.update', $id),
             'model' => $media
         ]);
@@ -266,7 +266,7 @@ class DocumentsController extends ReactorController {
      */
     protected function getEmbedMediaForm()
     {
-        $form = $this->form('Documents\EmbedForm', [
+        $form = $this->form('Reactor\Http\Forms\Documents\EmbedForm', [
             'url' => route('reactor.documents.embed.store')
         ]);
 
@@ -279,7 +279,7 @@ class DocumentsController extends ReactorController {
      */
     protected function getEditImageForm($id)
     {
-        $form = $this->form('Documents\ImageForm', [
+        $form = $this->form('Reactor\Http\Forms\Documents\ImageForm', [
             'url' => route('reactor.documents.image.update', $id),
         ]);
 

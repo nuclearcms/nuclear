@@ -74,7 +74,7 @@ class ProfileController extends ReactorController
     {
         $profile = $this->getProfile();
 
-        $this->validateForm('Users\PasswordForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Users\PasswordForm', $request);
 
         $profile->setPassword($request->input('password'))->save();
 
@@ -103,7 +103,7 @@ class ProfileController extends ReactorController
      */
     protected function getEditProfileForm($profile)
     {
-        $form = $this->form('Users\EditForm', [
+        $form = $this->form('Reactor\Http\Forms\Users\EditForm', [
             'url'   => route('reactor.profile.update'),
             'model' => $profile
         ]);
@@ -117,7 +117,7 @@ class ProfileController extends ReactorController
      */
     protected function validateUpdateProfile(Request $request, $profile)
     {
-        $this->validateForm('Users\EditForm', $request, [
+        $this->validateForm('Reactor\Http\Forms\Users\EditForm', $request, [
             'email' => 'required|email|unique:users,email,' . $profile->getKey()
         ]);
     }
@@ -127,7 +127,7 @@ class ProfileController extends ReactorController
      */
     protected function getPasswordForm()
     {
-        $form = $this->form('Users\PasswordForm', [
+        $form = $this->form('Reactor\Http\Forms\Users\PasswordForm', [
             'url' => route('reactor.profile.password.post'),
         ]);
 

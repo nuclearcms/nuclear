@@ -16,7 +16,7 @@ class CreateForm extends Form
 
     public function buildForm()
     {
-        $this->compose('Users\EditForm');
-        $this->compose('Users\PasswordForm');
+        $this->compose('Reactor\Http\Forms\Users\EditForm');
+        $this->compose('Reactor\Http\Forms\Users\PasswordForm');
     }
 }

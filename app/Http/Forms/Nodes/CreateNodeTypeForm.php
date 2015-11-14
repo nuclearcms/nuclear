@@ -22,6 +22,6 @@ class CreateNodeTypeForm extends Form {
             'rules' => ['required', 'between:3,20', 'regex:/^([a-z])+$/', 'unique:node_types'],
             'help_block' => ['text' => trans('hints.nodetype_name')]
         ]);
-        $this->compose('Nodes\EditNodeTypeForm');
+        $this->compose('Reactor\Http\Forms\Nodes\EditNodeTypeForm');
     }
 }

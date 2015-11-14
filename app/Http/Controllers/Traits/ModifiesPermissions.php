@@ -50,7 +50,7 @@ trait ModifiesPermissions {
      */
     protected function getAddPermissionForm($id, Model $model, $modelPrefix)
     {
-        $form = $this->form('Permissions\AddPermissionForm', [
+        $form = $this->form('Reactor\Http\Forms\Permissions\AddPermissionForm', [
             'url'    => route('reactor.' . $modelPrefix . '.permission.add', $id)
         ]);
 
@@ -75,7 +75,7 @@ trait ModifiesPermissions {
      */
     public function addPermission(Request $request, $id)
     {
-        $this->validateForm('Permissions\AddPermissionForm', $request);
+        $this->validateForm('Reactor\Http\Forms\Permissions\AddPermissionForm', $request);
 
         extract($this->getResourceNames());
 
