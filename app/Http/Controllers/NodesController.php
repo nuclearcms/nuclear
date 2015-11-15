@@ -128,15 +128,13 @@ class NodesController extends ReactorController {
 
         $node = Node::findOrFail($id);
 
-        $this->validateForm(
-            'gen\\Forms\\' . source_form_name($node->nodeType->name),
-            $request);
+        $this->validateUpdateNodeForm($request, $node);
 
         $node->update([
             config('app.locale') => $request->all()
         ]);
 
-        $this->notify('nodes.edited_type');
+        $this->notify('nodes.edited');
 
         return redirect()->route('reactor.contents.edit', $id);
     }
@@ -150,6 +148,92 @@ class NodesController extends ReactorController {
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Show the form for editing the specified resources seo params.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function seo($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $form = $this->getEditNodeSEOForm($id, $node);
+
+        return view('nodes.seo', compact('form', 'node'));
+    }
+
+    /**
+     * Update the specified resources seo params in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateSEO(Request $request, $id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeSEOForm', $request);
+
+        $node->update([
+            config('app.locale') => $request->all()
+        ]);
+
+        $this->notify('nodes.edited');
+
+        return redirect()->route('reactor.contents.seo', $id);
+    }
+
+    /**
+     * Show the form for editing the specified resources parameters.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function parameters($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $form = $this->getEditNodeParametersForm($id, $node);
+
+        return view('nodes.parameters', compact('form', 'node'));
+    }
+
+    /**
+     * Update the specified resources paramaters in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateParameters(Request $request, $id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeParametersForm', $request);
+
+        $node->update($request->all());
+
+        if ($request->input('home') === '1')
+        {
+            $home = Node::whereHome(1)->first();
+            $home->update(['home' => 0]);
+        }
+
+        $this->notify('nodes.edited');
+
+        return redirect()->route('reactor.contents.parameters', $id);
     }
 
     /**
@@ -184,8 +268,51 @@ class NodesController extends ReactorController {
         $nodeTypeForm = 'gen\\Forms\\' . source_form_name($nodeType);
 
         $form = $this->form($nodeTypeForm, [
-            'url'    => route('reactor.contents.update', $id),
-            'model'  => $node
+            'url'   => route('reactor.contents.update', $id),
+            'model' => $node
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param $id
+     * @param $node
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditNodeSEOForm($id, $node)
+    {
+        $form = $this->form('Reactor\Http\Forms\Nodes\EditNodeSEOForm', [
+            'url'   => route('reactor.contents.seo.update', $id),
+            'model' => $node
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $node
+     */
+    protected function validateUpdateNodeForm(Request $request, $node)
+    {
+        $this->validateForm(
+            'gen\\Forms\\' . source_form_name($node->nodeType->name),
+            $request, [
+            'node_name' => 'max:255|alpha_dash|unique:node_sources,node_name,' . $node->getKey()
+        ]);
+    }
+
+    /**
+     * @param $id
+     * @param $node
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditNodeParametersForm($id, $node)
+    {
+        $form = $this->form('Reactor\Http\Forms\Nodes\EditNodeParametersForm', [
+            'url'   => route('reactor.contents.parameters.update', $id),
+            'model' => $node
         ]);
 
         return $form;

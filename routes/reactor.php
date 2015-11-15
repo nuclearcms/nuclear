@@ -74,12 +74,18 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'update'  => 'reactor.contents.update',
                 'destroy' => 'reactor.contents.destroy',
             ]]);
-            Route::get('contents/{id?}/parameters', [
-                'uses' => 'NodesController@parameters',
-                'as'   => 'reactor.contents.parameters']);
             Route::get('contents/{id?}/seo', [
                 'uses' => 'NodesController@seo',
                 'as'   => 'reactor.contents.seo']);
+            Route::put('contents/{id?}/seo', [
+                'uses' => 'NodesController@updateSEO',
+                'as'   => 'reactor.contents.seo.update']);
+            Route::get('contents/{id?}/parameters', [
+                'uses' => 'NodesController@parameters',
+                'as'   => 'reactor.contents.parameters']);
+            Route::put('contents/{id?}/parameters', [
+                'uses' => 'NodesController@updateParameters',
+                'as'   => 'reactor.contents.parameters.update']);
             Route::get('contents/search', [
                 'uses' => 'NodesController@search',
                 'as'   => 'reactor.contents.search']);
