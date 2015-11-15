@@ -3,6 +3,7 @@
 return [
 
     'email' => 'Please enter a valid e-mail address.',
+    'node_name' => 'Can only contain ASCII characters, dashes(-) and underscores(_).',
     'password' => 'Choose a strong password!',
     'password_confirmation' => 'Confirm your password.',
     'permission_name' => 'Should be in this pattern: (ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+',

@@ -17,5 +17,9 @@ return [
     'custom_fields' => [
         'password' => 'Reactor\Http\Forms\Fields\PasswordField',
         'color' => 'Reactor\Http\Forms\Fields\ColorField',
+        'slug' => 'Reactor\Http\Forms\Fields\SlugField',
+        'markdown' => 'Reactor\Http\Forms\Fields\MarkdownField',
+        'gallery' => 'Reactor\Http\Forms\Fields\GalleryField',
+        'document' => 'Reactor\Http\Forms\Fields\DocumentField',
     ]
 ];

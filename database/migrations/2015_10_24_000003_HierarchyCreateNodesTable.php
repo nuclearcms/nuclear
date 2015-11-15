@@ -24,6 +24,8 @@ class HierarchyCreateNodesTable extends Migration {
 
             $table->boolean('visible')->default(1);
             $table->boolean('sterile')->default(0);
+            $table->boolean('home')->default(0);
+            $table->boolean('locked')->default(0);
             $table->integer('status')->default(30);
             $table->boolean('hides_children')->default(0);
             $table->double('priority')->unsigned()->default(1);

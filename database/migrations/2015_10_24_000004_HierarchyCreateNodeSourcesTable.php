@@ -18,7 +18,7 @@ class HierarchyCreateNodeSourcesTable extends Migration {
             $table->integer('node_id')->unsigned()->nullable();
 
             $table->string('title');
-            $table->string('node_name');
+            $table->string('node_name')->unique();
             $table->string('locale', 16);
             $table->string('source_type');
 

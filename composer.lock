@@ -2482,16 +2482,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.0.3",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "82ca3a5d4252737c412528ef251c2654d9a4ca96"
+                "reference": "c9503078b9bf664d13b3b77619589a32be73715d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/82ca3a5d4252737c412528ef251c2654d9a4ca96",
-                "reference": "82ca3a5d4252737c412528ef251c2654d9a4ca96",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/c9503078b9bf664d13b3b77619589a32be73715d",
+                "reference": "c9503078b9bf664d13b3b77619589a32be73715d",
                 "shasum": ""
             },
             "require": {
@@ -2545,7 +2545,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2015-11-13 17:53:55"
+            "time": "2015-11-15 09:19:43"
         },
         {
             "name": "paragonie/random_compat",

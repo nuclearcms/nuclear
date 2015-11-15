@@ -60,7 +60,32 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as'   => 'reactor.profile.history']);
         });
 
-        // Nodes
+        // Content
+        Route::group(['middleware' => 'guard:ACCESS_CONTENTS'], function ()
+        {
+            Route::get('contents/create/{id?}', [
+                'uses' => 'NodesController@create',
+                'as'   => 'reactor.contents.create']);
+            Route::post('contents/create/{id?}', [
+                'uses' => 'NodesController@store',
+                'as'   => 'reactor.contents.store']);
+            Route::resource('contents', 'NodesController', ['except' => ['index', 'create', 'store', 'show'], 'names' => [
+                'edit'    => 'reactor.contents.edit',
+                'update'  => 'reactor.contents.update',
+                'destroy' => 'reactor.contents.destroy',
+            ]]);
+            Route::get('contents/{id?}/parameters', [
+                'uses' => 'NodesController@parameters',
+                'as'   => 'reactor.contents.parameters']);
+            Route::get('contents/{id?}/seo', [
+                'uses' => 'NodesController@seo',
+                'as'   => 'reactor.contents.seo']);
+            Route::get('contents/search', [
+                'uses' => 'NodesController@search',
+                'as'   => 'reactor.contents.search']);
+        });
+
+        // Nodes Types and Fields
         Route::group(['middleware' => 'guard:ACCESS_NODES'], function ()
         {
             Route::resource('nodes', 'NodeTypesController', ['except' => ['show'], 'names' => [

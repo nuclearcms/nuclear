@@ -3,6 +3,7 @@
 return [
 
     'email' => 'Lütfen geçerli bir e-posta adresi giriniz.',
+    'node_name' => 'Sadece ASCII karakterler, tire(-) ve alttire(_) içerebilir.',
     'password' => 'Kuvvetli bir şifre seçin!',
     'password_confirmation' => 'Şifrenizi onaylayın.',
     'permission_name' => 'Şu kalıpta olmalıdır: (ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+',

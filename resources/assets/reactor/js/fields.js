@@ -12,5 +12,10 @@ $('.form-group-password').each(function () {
     new Meter($(this));
 });
 
+// Slug fields
+$('.form-group-slug').each(function () {
+    new Slug($(this));
+});
+
 // Initialize color pickers
 $('input.minicolors').minicolors();

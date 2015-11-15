@@ -9,6 +9,18 @@ return [
     'search' => 'Search Node Types',
     'all' => 'All Node Types',
 
+    'content' => 'Content',
+    'parameters' => 'Parameters',
+    'seo' => 'SEO',
+
+    'create' => 'Create Node',
+    'created' => 'Node was created',
+    'edit' => 'Edit Node',
+    'edited' => 'Node was edited.',
+    'delete' => 'Delete Node',
+    'deleted' => 'Node was deleted.',
+    'confirm_delete' => 'Are you sure you want to delete this node?',
+
     'create_type' => 'Create Node Type',
     'created_type' => 'Node type was created',
     'edit_type' => 'Edit Node Type',

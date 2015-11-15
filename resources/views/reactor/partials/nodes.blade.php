@@ -11,7 +11,7 @@
 
     <div class="nodes-header">
         <h2>{{ trans('general.content') }}</h2>
-        <a href="#">
+        <a href="{{ route('reactor.contents.create') }}">
             <i class="icon-plus"></i>
         </a>
     </div>

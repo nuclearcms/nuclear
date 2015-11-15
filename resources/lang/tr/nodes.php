@@ -9,6 +9,18 @@ return [
     'search' => 'Düğüm Tiplerinde Ara',
     'all' => 'Tüm Düğüm Tipleri',
 
+    'content' => 'İçerik',
+    'parameters' => 'Ayarlar',
+    'seo' => 'SEO',
+
+    'create' => 'Düğüm Oluştur',
+    'created' => 'Düğüm oluşturuldu.',
+    'edit' => 'Düğümü Düzenle',
+    'edited' => 'Düğüm düzenlendi.',
+    'delete' => 'Düğümü Sil',
+    'deleted' => 'Düğüm silindi.',
+    'confirm_delete' => 'Bu düğümü silmek istediğinizden emin misiniz?',
+
     'create_type' => 'Düğüm Tipi Oluştur',
     'created_type' => 'Düğüm tipi oluşturuldu.',
     'edit_type' => 'Düğüm Tipini Düzenle',
