@@ -1183,6 +1183,31 @@ a {
       border-bottom-color: #217dbb;
       color: #FAFAFA; }
 
+.secondary-tabs-bar {
+  background-color: #ECF0F1; }
+  .secondary-tabs-bar .content-tab-flap {
+    color: #95A5A6; }
+    .secondary-tabs-bar .content-tab-flap.active {
+      border-bottom-color: #95A5A6;
+      color: #5F696A; }
+
+.translation-tabs {
+  position: relative; }
+  .translation-tabs .secondary-tabs-bar {
+    padding: 0 3em; }
+  .translation-tabs .add-translation-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 3em;
+    width: 3em;
+    line-height: 2.75em;
+    text-align: center;
+    color: #95A5A6; }
+    .translation-tabs .add-translation-button i {
+      font-size: 1.5em; }
+
 .content-list-container {
   margin-top: 4.25em;
   position: relative; }
@@ -1350,6 +1375,12 @@ a {
 
 .no-touch .content-tabs-bar .content-tab-flap:hover {
   color: #FAFAFA; }
+
+.no-touch .secondary-tabs-bar .content-tab-flap:hover {
+  color: #5F696A; }
+
+.no-touch .translation-tabs .add-translation-button:hover {
+  color: #5F696A; }
 
 .no-touch .content-item-options .content-item-options-list .option-delete:hover {
   color: #E74C3C; }

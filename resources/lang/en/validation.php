@@ -109,6 +109,8 @@ return [
     */
 
     'attributes' => [
+        'title' => 'Title',
+        'node_name' => 'Node Name',
         'email' => 'E-mail',
         'password' => 'Password',
         'password_confirmation' => 'Password Confirmation',
@@ -126,8 +128,16 @@ return [
         'absolute_path' => 'Absolute Path',
         'description' => 'Description',
         'visible' => 'Visible',
-        'hides_nodes' => 'Hides Child Nodes',
+        'hides_children' => 'Hides Child Nodes',
         'color' => 'Color',
+        'sterile' => 'Has Children',
+        'home' => 'Homepage Node',
+        'locked' => 'Locked',
+        'status' => 'Status',
+        'published_at' => 'Published At',
+        'priority' => 'Priority',
+        'children_order' => 'Children Order',
+        'children_order_direction' => 'Children Order Direction',
 
         // Settings specific
         'analytics' => 'Google Analytics Key',

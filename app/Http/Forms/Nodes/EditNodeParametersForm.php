@@ -30,9 +30,7 @@ class EditNodeParametersForm extends Form {
                 60 => trans('nodes.archived')
             ]
         ]);
-        $this->add('published_at', 'date', [
-            'rules' => 'date'
-        ]);
+        $this->add('published_at', 'date');
         $this->add('hides_children', 'checkbox');
         $this->add('priority', 'number');
         $this->add('children_order', 'select', [

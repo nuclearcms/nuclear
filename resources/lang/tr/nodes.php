@@ -13,6 +13,18 @@ return [
     'parameters' => 'Ayarlar',
     'seo' => 'SEO',
 
+    'draft' => 'Taslak',
+    'pending' => 'Beklemede',
+    'published' => 'Yayınlandı',
+    'archived' => 'Arşivlendi',
+
+    'position' => 'Sıra',
+    'ascending' => 'Artan',
+    'descending' => 'Azalan',
+
+    'add_translation' => 'Çeviri Ekle',
+    'added_translation' => 'Çeviri eklendi.',
+    'no_available_locale' => 'Uygun çeviri dili kalmadı.',
     'create' => 'Düğüm Oluştur',
     'created' => 'Düğüm oluşturuldu.',
     'edit' => 'Düğümü Düzenle',

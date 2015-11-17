@@ -23,6 +23,17 @@ class NodesController extends ReactorController {
     }
 
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @param int|null $id
@@ -101,94 +112,120 @@ class NodesController extends ReactorController {
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
+     * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $source = null)
     {
         $this->authorize('ACCESS_CONTENTS_EDIT');
 
         $node = Node::findOrFail($id);
 
-        $form = $this->getEditNodeForm($id, $node);
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
 
-        return view('nodes.edit', compact('form', 'node'));
+        $form = $this->getEditNodeForm($id, $node, $source);
+
+        return view('nodes.edit', compact('form', 'node', 'locale', 'source'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $source = null)
     {
         $this->authorize('ACCESS_CONTENTS_EDIT');
 
         $node = Node::findOrFail($id);
 
-        $this->validateUpdateNodeForm($request, $node);
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+
+        $this->validateUpdateNodeForm($request, $node, $source);
 
         $node->update([
-            config('app.locale') => $request->all()
+            $locale => $request->all()
         ]);
 
         $this->notify('nodes.edited');
 
-        return redirect()->route('reactor.contents.edit', $id);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->back();
     }
 
     /**
      * Show the form for editing the specified resources seo params.
      *
-     * @param  int $id
+     * @param int $id
+     * @param int|null $source
      * @return \Illuminate\Http\Response
      */
-    public function seo($id)
+    public function seo($id, $source = null)
     {
         $this->authorize('ACCESS_CONTENTS_EDIT');
 
         $node = Node::findOrFail($id);
 
-        $form = $this->getEditNodeSEOForm($id, $node);
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
 
-        return view('nodes.seo', compact('form', 'node'));
+        $form = $this->getEditNodeSEOForm($id, $source);
+
+        return view('nodes.seo', compact('form', 'node', 'locale', 'source'));
     }
 
     /**
      * Update the specified resources seo params in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @param int|null $source
      * @return \Illuminate\Http\Response
      */
-    public function updateSEO(Request $request, $id)
+    public function updateSEO(Request $request, $id, $source = null)
     {
         $this->authorize('ACCESS_CONTENTS_EDIT');
 
         $node = Node::findOrFail($id);
 
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+
         $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeSEOForm', $request);
 
         $node->update([
-            config('app.locale') => $request->all()
+            $locale => $request->all()
         ]);
 
         $this->notify('nodes.edited');
 
-        return redirect()->route('reactor.contents.seo', $id);
+        return redirect()->back();
+    }
+
+    /**
+     * Determines the current editing locale
+     *
+     * @param $source
+     * @param $node
+     * @return string
+     */
+    protected function determineLocaleAndSource($source, $node)
+    {
+        if ($source)
+        {
+            $source = $node->translations->find($source);
+
+            if (is_null($source))
+            {
+                abort(404);
+            }
+        } else
+        {
+            $source = $node->translate();
+        }
+
+        return [$source->locale, $source];
     }
 
     /**
@@ -223,17 +260,123 @@ class NodesController extends ReactorController {
 
         $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeParametersForm', $request);
 
-        $node->update($request->all());
+        $this->determineHomeNode($request, $id);
 
-        if ($request->input('home') === '1')
-        {
-            $home = Node::whereHome(1)->first();
-            $home->update(['home' => 0]);
-        }
+        $node->update($request->all());
 
         $this->notify('nodes.edited');
 
         return redirect()->route('reactor.contents.parameters', $id);
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function determineHomeNode(Request $request, $id)
+    {
+        if ($request->input('home') === '1')
+        {
+            $home = Node::whereHome(1)->where('id', '<>', $id)->first();
+
+            if ($home)
+            {
+                $home->update(['home' => 0]);
+            }
+        }
+    }
+
+    /**
+     * Adds a translation to the resource
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createTranslation($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        // Check if there are any available locales
+        if (count($node->translations) >= locale_count())
+        {
+            flash()->error(trans('nodes.no_available_locale'));
+
+            return redirect()->back();
+        }
+
+        $locales = $this->getAvailableLocales($node);
+
+        $form = $this->getCreateNodeTranslationForm($node, $locales);
+
+        return view('nodes.translate', compact('form', 'node'));
+    }
+
+    /**
+     * @param $node
+     * @return array
+     */
+    protected function getAvailableLocales($node)
+    {
+        $locales = [];
+
+        $nodeTranslations = $node->translations
+            ->lists('locale')->toArray();
+
+        foreach (config('translatable.locales') as $locale)
+        {
+            if ( ! in_array($locale, $nodeTranslations))
+            {
+                $locales[$locale] = trans('general.' . $locale);
+            }
+        }
+
+        return $locales;
+    }
+
+    /**
+     * Stores a translation in the resource
+     *
+     * @param Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeTranslation(Request $request, $id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $this->validateCreateNodeTranslationForm($request, $node);
+
+        $locale = $this->validateLocale($request);
+
+        $node->update([
+            $locale => $request->all()
+        ]);
+
+        $this->notify('nodes.added_translation');
+
+        return redirect()->route('reactor.contents.edit', [
+            'id' => $node->getKey(),
+            'source' => $node->translate($locale)->getKey()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return string
+     */
+    protected function validateLocale(Request $request)
+    {
+        $locale = $request->input('locale');
+
+        if ( ! in_array($locale, config('translatable.locales')))
+        {
+            abort(500);
+        }
+
+        return $locale;
     }
 
     /**
@@ -260,16 +403,22 @@ class NodesController extends ReactorController {
     /**
      * @param $id
      * @param $node
+     * @param $source
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditNodeForm($id, $node)
+    protected function getEditNodeForm($id, $node, $source)
     {
         $nodeType = $node->nodeType->name;
         $nodeTypeForm = 'gen\\Forms\\' . source_form_name($nodeType);
 
+        $params = [
+            'id'     => $id,
+            'source' => $source->getKey()
+        ];
+
         $form = $this->form($nodeTypeForm, [
-            'url'   => route('reactor.contents.update', $id),
-            'model' => $node
+            'url'   => route('reactor.contents.update', $params),
+            'model' => $source
         ]);
 
         return $form;
@@ -277,14 +426,19 @@ class NodesController extends ReactorController {
 
     /**
      * @param $id
-     * @param $node
+     * @param $source
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditNodeSEOForm($id, $node)
+    protected function getEditNodeSEOForm($id, $source)
     {
+        $params = [
+            'id'     => $id,
+            'source' => $source->getKey()
+        ];
+
         $form = $this->form('Reactor\Http\Forms\Nodes\EditNodeSEOForm', [
-            'url'   => route('reactor.contents.seo.update', $id),
-            'model' => $node
+            'url'   => route('reactor.contents.seo.update', $params),
+            'model' => $source
         ]);
 
         return $form;
@@ -293,13 +447,14 @@ class NodesController extends ReactorController {
     /**
      * @param Request $request
      * @param $node
+     * @param $source
      */
-    protected function validateUpdateNodeForm(Request $request, $node)
+    protected function validateUpdateNodeForm(Request $request, $node, $source)
     {
         $this->validateForm(
             'gen\\Forms\\' . source_form_name($node->nodeType->name),
             $request, [
-            'node_name' => 'max:255|alpha_dash|unique:node_sources,node_name,' . $node->getKey()
+            'node_name' => 'max:255|alpha_dash|unique:node_sources,node_name,' . $source->getKey()
         ]);
     }
 
@@ -317,4 +472,39 @@ class NodesController extends ReactorController {
 
         return $form;
     }
+
+    /**
+     * @param $node
+     * @param array $locales
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getCreateNodeTranslationForm($node, $locales)
+    {
+        $nodeType = $node->nodeType->name;
+        $nodeTypeForm = 'gen\\Forms\\' . source_form_name($nodeType);
+
+        $form = $this->form($nodeTypeForm, [
+            'method' => 'post',
+            'url'    => route('reactor.contents.translation.store', $node->getKey())
+        ]);
+
+
+        $form->addBefore('title', 'locale', 'select', [
+            'choices' => $locales
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     * @param $node
+     */
+    protected function validateCreateNodeTranslationForm(Request $request, $node)
+    {
+        $this->validateForm(
+            'gen\\Forms\\' . source_form_name($node->nodeType->name),
+            $request);
+    }
+
 }

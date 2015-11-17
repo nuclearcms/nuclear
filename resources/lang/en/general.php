@@ -34,4 +34,12 @@ return [
 
     'error_saving' => 'There were error(s) while saving!',
 
+    'en' => 'English',
+    'tr' => 'Turkish',
+    'fr' => 'French',
+    'de' => 'German',
+    'ru' => 'Russian',
+    'es' => 'Spanish',
+    'zh' => 'Chinese',
+    'ja' => 'Japanese',
 ];

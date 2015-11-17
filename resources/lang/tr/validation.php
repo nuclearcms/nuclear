@@ -109,6 +109,8 @@ return [
     */
 
     'attributes' => [
+        'title' => 'Başlık',
+        'node_name' => 'Düğüm İsmi',
         'email' => 'E-posta',
         'password' => 'Şifre',
         'password_confirmation' => 'Şifre Onayı',
@@ -126,8 +128,16 @@ return [
         'absolute_path' => 'Tam Dosya Yolu',
         'description' => 'Açıklama',
         'visible' => 'Görünür',
-        'hides_nodes' => 'Altındaki Düğümleri Saklar',
+        'hides_children' => 'Altındaki Düğümleri Saklar',
         'color' => 'Renk',
+        'sterile' => 'Çocuk Düğümleri Var',
+        'home' => 'Anasayfa Düğümü',
+        'locked' => 'Kilitli',
+        'status' => 'Durum',
+        'published_at' => 'Yayınlanma Tarihi',
+        'priority' => 'Öncelik',
+        'children_order' => 'Çocuk Düğüm Sırası',
+        'children_order_direction' => 'Çocuk Düğüm Sırası Yönü',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',

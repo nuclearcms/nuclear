@@ -46,3 +46,16 @@ if ( ! function_exists('uppercase'))
         return mb_strtoupper($string, 'UTF-8');
     }
 }
+
+if ( ! function_exists('locale_count'))
+{
+    /**
+     * Returns the locale count of the app
+     *
+     * @return int
+     */
+    function locale_count()
+    {
+        return count(config('translatable.locales'));
+    }
+}

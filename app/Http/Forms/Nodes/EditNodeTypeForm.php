@@ -24,7 +24,7 @@ class EditNodeTypeForm extends Form {
         ]);
         $this->add('description', 'textarea');
         $this->add('visible', 'checkbox');
-        $this->add('hides_nodes', 'checkbox');
+        $this->add('hides_children', 'checkbox');
         $this->add('color', 'color', [
             'rules' => 'required',
             'default_value' => '#000000',

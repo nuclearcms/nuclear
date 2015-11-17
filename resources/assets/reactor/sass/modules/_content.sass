@@ -68,6 +68,33 @@
             border-bottom-color: darken($secondaryAccent, 10%)
             color: $lightGray-1
 
+.secondary-tabs-bar
+    background-color: $lightGray-3
+
+    .content-tab-flap
+        color: $midGray-2
+
+        &.active
+            border-bottom-color: $midGray-2
+            color: $darkGray-1
+
+.translation-tabs
+    position: relative
+
+    .secondary-tabs-bar
+        padding: 0 3em
+
+    .add-translation-button
+        +position(absolute, 0 0 null null)
+        display: inline-block
+        +size(3em)
+        line-height: 2.75em
+        text-align: center
+        color: $midGray-2
+
+        i
+            font-size: 1.5em
+
 .content-list-container
     margin-top: 4.25em
     position: relative
@@ -250,6 +277,12 @@
 
     .content-tabs-bar .content-tab-flap:hover
         color: $lightGray-1
+
+    .secondary-tabs-bar .content-tab-flap:hover
+        color: $darkGray-1
+
+    .translation-tabs .add-translation-button:hover
+        color: $darkGray-1
 
     .content-item-options
         .content-item-options-list .option-delete:hover

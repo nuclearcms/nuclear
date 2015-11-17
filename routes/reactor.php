@@ -69,23 +69,42 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::post('contents/create/{id?}', [
                 'uses' => 'NodesController@store',
                 'as'   => 'reactor.contents.store']);
-            Route::resource('contents', 'NodesController', ['except' => ['index', 'create', 'store', 'show'], 'names' => [
-                'edit'    => 'reactor.contents.edit',
-                'update'  => 'reactor.contents.update',
-                'destroy' => 'reactor.contents.destroy',
-            ]]);
-            Route::get('contents/{id?}/seo', [
+
+            Route::get('contents/{id}/edit/{source?}', [
+                'uses' => 'NodesController@edit',
+                'as' => 'reactor.contents.edit'
+            ]);
+            Route::put('contents/{id}/edit/{source?}', [
+                'uses' => 'NodesController@update',
+                'as' => 'reactor.contents.update'
+            ]);
+
+            Route::delete('contents/{id}', [
+                'uses' => 'NodesController@destroy',
+                'as' => 'reactor.contents.destroy'
+            ]);
+
+            Route::get('contents/{id}/seo/{source?}', [
                 'uses' => 'NodesController@seo',
                 'as'   => 'reactor.contents.seo']);
-            Route::put('contents/{id?}/seo', [
+            Route::put('contents/{id}/seo/{source?}', [
                 'uses' => 'NodesController@updateSEO',
                 'as'   => 'reactor.contents.seo.update']);
-            Route::get('contents/{id?}/parameters', [
+
+            Route::get('contents/{id}/parameters', [
                 'uses' => 'NodesController@parameters',
                 'as'   => 'reactor.contents.parameters']);
-            Route::put('contents/{id?}/parameters', [
+            Route::put('contents/{id}/parameters', [
                 'uses' => 'NodesController@updateParameters',
                 'as'   => 'reactor.contents.parameters.update']);
+
+            Route::get('contents/{id}/translate', [
+                'uses' => 'NodesController@createTranslation',
+                'as'   => 'reactor.contents.translation.create']);
+            Route::post('contents/{id}/translate', [
+                'uses' => 'NodesController@storeTranslation',
+                'as'   => 'reactor.contents.translation.store']);
+
             Route::get('contents/search', [
                 'uses' => 'NodesController@search',
                 'as'   => 'reactor.contents.search']);

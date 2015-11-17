@@ -153,15 +153,20 @@ if ( ! function_exists('submit_button'))
      *
      * @param string $icon
      * @param string $text
+     * @param string $type
      * @return string
      */
-    function submit_button($icon, $text = '')
+    function submit_button($icon, $text = '', $type = 'submit')
     {
         $class = empty($text) ? 'button-icon-primary' : 'button-icon';
 
-        return sprintf('<button class="button button-emphasized %s" type="submit">
+        return sprintf('<button class="button button-emphasized %s" type="%s">
             %s <i class="%s"></i>
-        </button>', $class, uppercase(trans($text)), $icon);
+        </button>',
+            $class,
+            $type,
+            uppercase(trans($text)),
+            $icon);
     }
 
 }

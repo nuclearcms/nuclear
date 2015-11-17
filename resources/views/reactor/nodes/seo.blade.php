@@ -21,6 +21,10 @@
             'currentKey' => $node->getKey()
         ])
 
+        @include('nodes.translationtabs', [
+            'route' => 'reactor.contents.seo'
+        ])
+
         <div class="content-form">
             {!! form_rest($form) !!}
         </div>

@@ -20,7 +20,7 @@ class HierarchyCreateNodeTypesTable extends Migration {
             $table->string('label');
             $table->text('description')->nullable();
             $table->boolean('visible')->default(1);
-            $table->boolean('hides_nodes')->default(0);
+            $table->boolean('hides_children')->default(0);
             $table->string('color', 32)->default('#000000');
 
             $table->timestamps();

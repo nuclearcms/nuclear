@@ -34,4 +34,12 @@ return [
 
     'error_saving' => 'Kaydederken hata(lar) oluştu!',
 
+    'en' => 'İngilizce',
+    'tr' => 'Türkçe',
+    'fr' => 'Fransızca',
+    'de' => 'Almanca',
+    'ru' => 'Rusça',
+    'es' => 'İspanyolca',
+    'zh' => 'Çince',
+    'ja' => 'Japonca',
 ];

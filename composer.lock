@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "eb3474216faa60546873d9a7b87e3f62",
-    "content-hash": "f73b1cceacd3883e638a8c71d6805f2a",
+    "hash": "3c45a3f1a6eb9c00349546774311cdcb",
+    "content-hash": "7e75295bfbb74d948058689f8a78c2d5",
     "packages": [
         {
             "name": "baum/baum",
@@ -284,16 +284,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "dev-master",
+            "version": "v5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "3381f271f6f273a27481ec5d2649e9508a6a5e84"
+                "reference": "222d8ab86c7529e644bd819930e22ad9dd0527b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/3381f271f6f273a27481ec5d2649e9508a6a5e84",
-                "reference": "3381f271f6f273a27481ec5d2649e9508a6a5e84",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/222d8ab86c7529e644bd819930e22ad9dd0527b1",
+                "reference": "222d8ab86c7529e644bd819930e22ad9dd0527b1",
                 "shasum": ""
             },
             "require": {
@@ -331,7 +331,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2015-11-09 17:01:40"
+            "time": "2015-11-15 20:32:59"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1817,16 +1817,16 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.6.30",
+            "version": "1.6.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "9b2a8dddb4ff99766cdfd8ca4b85b1ae2e691a1a"
+                "reference": "b02fea98d078515c84dcda451892688e492029fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/9b2a8dddb4ff99766cdfd8ca4b85b1ae2e691a1a",
-                "reference": "9b2a8dddb4ff99766cdfd8ca4b85b1ae2e691a1a",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/b02fea98d078515c84dcda451892688e492029fd",
+                "reference": "b02fea98d078515c84dcda451892688e492029fd",
                 "shasum": ""
             },
             "require": {
@@ -1867,7 +1867,7 @@
                 }
             ],
             "description": "Laravel form builder - symfony like",
-            "time": "2015-09-22 11:12:40"
+            "time": "2015-11-16 13:40:04"
         },
         {
             "name": "laracasts/flash",
@@ -2482,21 +2482,21 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.0.12",
+            "version": "1.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "74b12d735d73c629b4a2c4e4e3e7d28c8201bf91"
+                "reference": "2148e41b2559330c447e565627cd3e1d50c0f01f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/74b12d735d73c629b4a2c4e4e3e7d28c8201bf91",
-                "reference": "74b12d735d73c629b4a2c4e4e3e7d28c8201bf91",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/2148e41b2559330c447e565627cd3e1d50c0f01f",
+                "reference": "2148e41b2559330c447e565627cd3e1d50c0f01f",
                 "shasum": ""
             },
             "require": {
                 "baum/baum": "~1.1",
-                "dimsav/laravel-translatable": "dev-master#3381f271f6f273a27481ec5d2649e9508a6a5e84",
+                "dimsav/laravel-translatable": "~5.4",
                 "doctrine/dbal": "~2.5",
                 "kris/laravel-form-builder": "^1.6",
                 "php": ">=5.5.9"
@@ -2545,7 +2545,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2015-11-15 09:48:23"
+            "time": "2015-11-17 20:27:01"
         },
         {
             "name": "paragonie/random_compat",
@@ -4966,9 +4966,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "stability-flags": [],
-    "prefer-stable": true,
+    "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.5.9"

@@ -13,6 +13,18 @@ return [
     'parameters' => 'Parameters',
     'seo' => 'SEO',
 
+    'draft' => 'Draft',
+    'pending' => 'Pending',
+    'published' => 'Published',
+    'archived' => 'Archived',
+
+    'position' => 'Position',
+    'ascending' => 'Ascending',
+    'descending' => 'Descending',
+
+    'add_translation' => 'Add Translation',
+    'added_translation' => 'Translation was added.',
+    'no_available_locale' => 'No locales are available for translation.',
     'create' => 'Create Node',
     'created' => 'Node was created',
     'edit' => 'Edit Node',
