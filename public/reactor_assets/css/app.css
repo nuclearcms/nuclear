@@ -409,17 +409,16 @@ table {
 /* '' */
 /* Secondary Components */
 /*!
- * Cropper v1.0.0
+ * Cropper v2.0.1
  * https://github.com/fengyuanchen/cropper
  *
  * Copyright (c) 2014-2015 Fengyuan Chen and contributors
  * Released under the MIT license
  *
- * Date: 2015-10-10T02:10:06.999Z
+ * Date: 2015-11-18T03:13:43.400Z
  */
 .cropper-container {
   position: relative;
-  overflow: hidden;
   font-size: 0;
   line-height: 0;
   -ms-touch-action: none;
@@ -442,6 +441,7 @@ table {
   max-height: none !important;
   image-orientation: 0deg !important; }
 
+.cropper-wrap-box,
 .cropper-canvas,
 .cropper-drag-box,
 .cropper-crop-box,
@@ -451,6 +451,9 @@ table {
   right: 0;
   bottom: 0;
   left: 0; }
+
+.cropper-wrap-box {
+  overflow: hidden; }
 
 .cropper-drag-box {
   background-color: #fff;
@@ -503,8 +506,7 @@ table {
   filter: alpha(opacity=75);
   opacity: .75; }
 
-.cropper-center:before,
-.cropper-center:after {
+.cropper-center:before, .cropper-center:after {
   position: absolute;
   display: block;
   content: " ";
