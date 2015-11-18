@@ -1886,7 +1886,7 @@ h2 {
   @media screen and (max-width: 64em) {
     .navigation-modules {
       width: 100%;
-      padding: 0.25em 0; } }
+      padding: 0.25em 0 2em; } }
 
 .navigation-modules-list {
   width: 3em;
@@ -1914,7 +1914,8 @@ h2 {
   @media screen and (max-width: 64em) {
     .navigation-module {
       margin-bottom: 0;
-      border-bottom: 0; }
+      border-bottom: 0;
+      padding: 0 !important; }
       .navigation-module > i {
         display: none; }
       .navigation-module.module-hidden-collapse {
@@ -1970,7 +1971,7 @@ h2 {
     top: 0em; }
   @media screen and (max-width: 64em) {
     .navigation-user {
-      padding: 0;
+      padding: 0 !important;
       margin: 0; } }
 
 .user-frame {
