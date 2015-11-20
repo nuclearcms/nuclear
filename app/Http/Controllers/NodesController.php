@@ -78,15 +78,18 @@ class NodesController extends ReactorController {
     protected function createNode(Request $request, $id)
     {
         $node = new Node;
+
         $node->setNodeTypeByKey($request->input('type'));
 
         $node->fill([
             config('app.locale') => $request->all()
         ]);
 
+        $node = $this->locateNodeInTree($id, $node);
+
         $node->save();
 
-        return $this->locateNodeInTree($id, $node);
+        return $node;
     }
 
     /**
@@ -98,13 +101,11 @@ class NodesController extends ReactorController {
     {
         if (is_null($id))
         {
-            $node->makeRoot();
-
-            return $node;
+            return $node->makeRoot();
         }
 
         $parent = Node::findOrFail($id);
-        $node->makeChildOf($parent);
+        $node->appendTo($parent);
 
         return $node;
     }
@@ -377,6 +378,19 @@ class NodesController extends ReactorController {
         }
 
         return $locale;
+    }
+
+    /**
+     * Changes the displayed tree locale
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function changeTreeLocale(Request $request)
+    {
+        $locale = $this->validateLocale($request);
+
+        session()->set('reactor.tree_locale', $locale);
     }
 
     /**

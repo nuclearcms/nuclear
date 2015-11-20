@@ -6,6 +6,7 @@ namespace Reactor\Providers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Nuclear\Hierarchy\Node;
 
 class ReactorServiceProvider extends ServiceProvider {
 
@@ -84,6 +85,11 @@ class ReactorServiceProvider extends ServiceProvider {
         {
             $view->with('user', auth()->user());
         });
+
+        view()->composer('partials.nodes', function ($view)
+        {
+            $view->with('roots', Node::whereIsRoot()->get());
+        });
     }
 
     /**
@@ -95,7 +101,7 @@ class ReactorServiceProvider extends ServiceProvider {
     {
         Validator::extend('unique_setting', function ($attribute, $value, $parameters, $validator)
         {
-            if(isset($parameters[0]) && $value === $parameters[0])
+            if (isset($parameters[0]) && $value === $parameters[0])
             {
                 return true;
             }
@@ -105,7 +111,7 @@ class ReactorServiceProvider extends ServiceProvider {
 
         Validator::extend('unique_setting_group', function ($attribute, $value, $parameters, $validator)
         {
-            if(isset($parameters[0]) && $value === $parameters[0])
+            if (isset($parameters[0]) && $value === $parameters[0])
             {
                 return true;
             }

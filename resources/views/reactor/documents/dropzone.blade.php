@@ -1,5 +1,4 @@
 <form id="dropzone" class="dropzone" enctype="multipart/form-data" action="{{ route('reactor.documents.store') }}" method="post" data-maxsize="{{ max_upload_size() }}" data-editroute="{{ route('reactor.documents.edit') }}">
-    {!! csrf_field() !!}
 
     <div class="dropzone-container">
         <h3>DROPZONE</h3>

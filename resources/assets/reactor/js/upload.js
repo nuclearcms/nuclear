@@ -14,7 +14,7 @@
          * @param DOM Object
          * @param array
          */
-        _init : function(self, options, app, external) {
+        _init : function(self, options) {
             this.zone = self;
 
             var defaults = {
@@ -25,7 +25,6 @@
             };
 
             this.options = $.extend(defaults, options);
-            this.token = this.zone.find("input[name='_token']").first().val();
             this.action = $(this.zone).attr('action');
 
             this.fileQueue = [];
@@ -148,11 +147,6 @@
                     contentType : false,
                     processData : false,
                     cache : false,
-
-                    beforeSend: function(request) {
-                        return request.setRequestHeader('X-CSRF-Token', self.token);
-                    },
-
                     data : fd,
 
                     success : function(data) {

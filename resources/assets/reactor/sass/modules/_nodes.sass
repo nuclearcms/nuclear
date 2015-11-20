@@ -4,12 +4,16 @@
     @media screen and (max-width: $collapseThreshold)
         width: 100%
 
+        .navigation-nodes-content
+            width: 18em
+
     .navigation-nodes-container
         +size(100%)
         padding: 0.5em 1em 0
 
         @media screen and (max-width: $collapseThreshold)
             box-shadow: none
+            width: 20em
 
     #search-nodes
         border-bottom: 1px solid $midGray-1
@@ -56,6 +60,52 @@
             font-size: 1.5em
             color: $midGray-1
 
+.node-tabs
+    margin: 0.75em 0
+    text-align: center
+    color: $midGray-2
+    font-size: 0.875em
+
+    li
+        display: inline-block
+        padding: 1em 0.5em 0.5em
+        width: 2.5em
+        border-bottom: 2px solid transparent
+        text-align: center
+        cursor: pointer
+        +transition(color $animationFast)
+        user-select: none
+
+        &.active
+            color: $darkGray-1
+            cursor: default
+            border-bottom-color: $accent
+
+.nodes-list-tab
+    display: none
+    &.active
+        display: block
+
+.nodes-list li
+    line-height: 2em
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
+
+.node-root
+    border-bottom: 1px solid $lightGray-3
+    padding: 1em 0
+    font-size: 0.75em
+
+    &:last-child
+        border-bottom: 0
+
+.node-children
+    padding-left: 1em
+
 .no-touch
     .navigation-nodes .nodes-header a:hover
         color: $midGray-3
+
+    .node-tabs li:hover
+        color: $darkGray-1

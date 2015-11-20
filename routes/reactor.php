@@ -108,6 +108,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::get('contents/search', [
                 'uses' => 'NodesController@search',
                 'as'   => 'reactor.contents.search']);
+
+            Route::post('contents/locale', [
+                'uses' => 'NodesController@changeTreeLocale',
+                'as' => 'reactor.contents.locale'
+            ]);
         });
 
         // Nodes Types and Fields

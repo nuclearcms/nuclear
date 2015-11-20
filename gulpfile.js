@@ -24,7 +24,9 @@ elixir(function (mix) {
             'components/Modernizr.js',
             'components/jquery.min.js',
             'components/touch-dnd.js',
+            'common.js',
             'navigation.js',
+            'nodes.js',
             'helpers.js',
             'modal.js',
             'option.js'

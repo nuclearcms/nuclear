@@ -8,61 +8,6 @@
     "content-hash": "7e75295bfbb74d948058689f8a78c2d5",
     "packages": [
         {
-            "name": "baum/baum",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/etrepat/baum.git",
-                "reference": "9290bed862d329aaaef666a71e0a2734afc28286"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/etrepat/baum/zipball/9290bed862d329aaaef666a71e0a2734afc28286",
-                "reference": "9290bed862d329aaaef666a71e0a2734afc28286",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "5.*",
-                "illuminate/database": "5.*",
-                "illuminate/events": "5.*",
-                "illuminate/filesystem": "5.*",
-                "illuminate/support": "5.*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "d11wtq/boris": "~1.0.10",
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Baum": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Estanislau Trepat",
-                    "email": "estanis@etrepat.com",
-                    "homepage": "http://etrepat.com"
-                }
-            ],
-            "description": "Baum is an implementation of the Nested Set pattern for Eloquent models.",
-            "keywords": [
-                "Laravel 4",
-                "database",
-                "eloquent",
-                "laravel",
-                "laravel 5",
-                "nested set"
-            ],
-            "time": "2015-03-04 12:07:54"
-        },
-        {
             "name": "cebe/markdown",
             "version": "1.1.0",
             "source": {
@@ -1399,6 +1344,52 @@
             "time": "2015-03-11 20:06:43"
         },
         {
+            "name": "kalnoy/nestedset",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lazychaser/laravel-nestedset.git",
+                "reference": "2d779aca90f296c3e04620ec3590172083d0dd95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/2d779aca90f296c3e04620ec3590172083d0dd95",
+                "reference": "2d779aca90f296c3e04620ec3590172083d0dd95",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.1.0",
+                "illuminate/events": "~5.1.0",
+                "illuminate/support": "~5.1.0",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kalnoy\\Nestedset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kalnoy",
+                    "email": "lazychaser@gmail.com"
+                }
+            ],
+            "description": "Nested Set Model for Laravel 4",
+            "keywords": [
+                "database",
+                "hierarchy",
+                "laravel",
+                "nested sets",
+                "nsm"
+            ],
+            "time": "2015-09-10 05:40:54"
+        },
+        {
             "name": "kenarkose/chronicle",
             "version": "1.0.5",
             "source": {
@@ -2482,22 +2473,22 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.0.15",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "2148e41b2559330c447e565627cd3e1d50c0f01f"
+                "reference": "3208b11c9df2927cea68d2b27038a7d3347439e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/2148e41b2559330c447e565627cd3e1d50c0f01f",
-                "reference": "2148e41b2559330c447e565627cd3e1d50c0f01f",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/3208b11c9df2927cea68d2b27038a7d3347439e4",
+                "reference": "3208b11c9df2927cea68d2b27038a7d3347439e4",
                 "shasum": ""
             },
             "require": {
-                "baum/baum": "~1.1",
                 "dimsav/laravel-translatable": "~5.4",
                 "doctrine/dbal": "~2.5",
+                "kalnoy/nestedset": "~3.1",
                 "kris/laravel-form-builder": "^1.6",
                 "php": ">=5.5.9"
             },
@@ -2545,7 +2536,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2015-11-17 20:27:01"
+            "time": "2015-11-20 14:46:19"
         },
         {
             "name": "paragonie/random_compat",
@@ -3955,7 +3946,7 @@
         },
         {
             "name": "orchestra/database",
-            "version": "v3.1.12",
+            "version": "v3.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/database.git",
