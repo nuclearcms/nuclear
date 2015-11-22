@@ -7,12 +7,12 @@
 
 @section('scripts')
     <script>
-        var deleteDialog = new Modal($('.modal-container'),
+        var deleteDialog = new Modal($('.modal-content'),
             {
                 onConfirmEvent : function(dialog) {
                     dialog.current.closest('form').submit();
                 }
             },
-            $('form > .option-delete'));
+            $('.container-content form > .option-delete'));
     </script>
 @endsection

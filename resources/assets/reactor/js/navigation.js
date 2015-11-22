@@ -4,7 +4,8 @@ var nav = $('#navigation'),
     close = $('#nav_close'),
     tabs = $('.navigation-tab'),
     flaps = $('.navigation-tabs > li'),
-    body = $('body');
+    body = $('body'),
+    modules = $('.navigation-module');
 
 
 function toggleNav() {
@@ -34,6 +35,11 @@ close.on('click', function () {
     hideNav();
 });
 
+// Close open option lists
+modules.on('mouseenter', function()
+{
+    optionListsHelper.closeLists()
+});
 
 function changeTab(flap) {
     tabs.removeClass('active');

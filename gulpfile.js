@@ -25,11 +25,11 @@ elixir(function (mix) {
             'components/jquery.min.js',
             'components/touch-dnd.js',
             'common.js',
+            'option.js',
             'navigation.js',
             'nodes.js',
             'helpers.js',
-            'modal.js',
-            'option.js'
+            'modal.js'
         ], elixir.config.publicPath + '/js/app.js').
         scripts([
             'components/minicolors.js',

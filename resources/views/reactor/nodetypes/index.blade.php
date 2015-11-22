@@ -1,7 +1,7 @@
 @extends('layout.content')
 
 @section('pageTitle', trans('nodes.manage'))
-@section('contentSubtitle', uppercase(trans('nodes.title')))
+@section('contentSubtitle', uppercase(trans('nodes.title_type')))
 
 @can('ACCESS_NODES_CREATE')
 @section('action')
@@ -10,7 +10,7 @@
 @endcan
 
 @section('content_options')
-    @include('partials.content.search', ['placeholder' => trans('nodes.search')])
+    @include('partials.content.search', ['placeholder' => trans('nodes.search_type')])
 @endsection
 
 @section('content_sortable_links')

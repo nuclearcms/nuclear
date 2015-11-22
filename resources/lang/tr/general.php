@@ -21,6 +21,7 @@ return [
     'recent_activity' => 'Son Etkinlikler',
     'dashboard_hint' => 'Burada sitenizin yakın zamandaki hareketlerini görebilirsiniz.',
     'content' => 'İçerik',
+    'search' => 'Arama',
 
     'home' => 'Anasayfa',
     'page' => 'Sayfa',

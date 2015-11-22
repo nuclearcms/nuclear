@@ -30,4 +30,12 @@
         </div>
 
     </main>
+
+@endsection
+
+@section('modal')
+    @include('partials.nodes.delete_modal',[
+        'message' => 'nodes.confirm_delete',
+        'containerClass' => 'modal-node'
+    ])
 @endsection

@@ -21,6 +21,7 @@ return [
     'recent_activity' => 'Recent Activity',
     'dashboard_hint' => 'Here is some of the recent activity on your website.',
     'content' => 'Content',
+    'search' => 'Search',
 
     'home' => 'Home',
     'page' => 'Page',

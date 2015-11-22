@@ -12,6 +12,17 @@ use Reactor\Nodes\NodeType;
 class NodesController extends ReactorController {
 
     /**
+     * Shows the children nodes of the resourse
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function tree($id)
+    {
+
+    }
+
+    /**
      * Display results of searching the resource.
      *
      * @param Request $request
@@ -19,18 +30,10 @@ class NodesController extends ReactorController {
      */
     public function search(Request $request)
     {
+        $nodes = Node::search($request->input('q'))->get();
 
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('nodes.search')
+            ->with(compact('nodes'));
     }
 
     /**
@@ -45,9 +48,25 @@ class NodesController extends ReactorController {
 
         $parent = ! is_null($id) ? Node::findOrFail($id) : null;
 
+        $this->validateParentCanHaveChildren($parent);
+
         $form = $this->getCreateNodeForm($id);
 
         return view('nodes.create', compact('form', 'parent'));
+    }
+
+    /**
+     * Validates if the parent can have children nodes
+     *
+     * @param $parent
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function validateParentCanHaveChildren($parent)
+    {
+        if ($parent && $parent->sterile)
+        {
+            abort(500, 'Node is sterile.');
+        }
     }
 
     /**
@@ -155,6 +174,25 @@ class NodesController extends ReactorController {
         $this->notify('nodes.edited');
 
         return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_DELETE');
+
+        $node = Node::findOrFail($id);
+
+        $node->delete();
+
+        $this->notify('nodes.deleted');
+
+        return redirect()->route('reactor.dashboard');
     }
 
     /**
@@ -359,7 +397,7 @@ class NodesController extends ReactorController {
         $this->notify('nodes.added_translation');
 
         return redirect()->route('reactor.contents.edit', [
-            'id' => $node->getKey(),
+            'id'     => $node->getKey(),
             'source' => $node->translate($locale)->getKey()
         ]);
     }

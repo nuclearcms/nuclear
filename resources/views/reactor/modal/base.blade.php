@@ -1,4 +1,4 @@
-<div class="modal-container">
+<div class="modal-container {{ $containerClass or 'modal-content' }}">
     <div class="blackout">
         <div class="modal modal-{{ $type or 'notice' }}">
             <h4>{{ $modalTitle or trans('general.notice') }}</h4>

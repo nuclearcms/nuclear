@@ -2,7 +2,7 @@
 
 @section('pageTitle', trans('nodes.fields'))
 @section('contentSubtitle')
-    {!! link_to_route('reactor.nodes.index', uppercase(trans('nodes.title'))) !!}
+    {!! link_to_route('reactor.nodes.index', uppercase(trans('nodes.title_type'))) !!}
 @endsection
 
 @section('action')

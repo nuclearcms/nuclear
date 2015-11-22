@@ -21,6 +21,8 @@
 
     {!! Theme::js('js/app.js') !!}
 
+    @yield('modal')
+
     @yield('modules')
 
     @yield('scripts')

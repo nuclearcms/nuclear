@@ -130,7 +130,7 @@ return [
         'visible' => 'Visible',
         'hides_children' => 'Hides Child Nodes',
         'color' => 'Color',
-        'sterile' => 'Has Children',
+        'sterile' => 'Sterile',
         'home' => 'Homepage Node',
         'locked' => 'Locked',
         'status' => 'Status',

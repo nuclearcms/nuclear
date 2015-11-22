@@ -130,7 +130,7 @@ return [
         'visible' => 'Görünür',
         'hides_children' => 'Altındaki Düğümleri Saklar',
         'color' => 'Renk',
-        'sterile' => 'Çocuk Düğümleri Var',
+        'sterile' => 'Çocuk Düğümleri Engelle',
         'home' => 'Anasayfa Düğümü',
         'locked' => 'Kilitli',
         'status' => 'Durum',

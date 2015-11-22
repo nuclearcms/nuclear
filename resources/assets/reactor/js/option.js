@@ -34,7 +34,7 @@
         },
         // Opens a list
         _openListFor: function (button) {
-            this._closeLists();
+            this.closeLists();
 
             button.next().addClass('open');
 
@@ -42,7 +42,7 @@
             this._bindClick();
         },
         // Closes all lists
-        _closeLists: function () {
+        closeLists: function () {
             this.lists.removeClass('open');
 
             this._unbindEscape();
@@ -55,7 +55,7 @@
             $(document).bind('keydown', function (e) {
                 var keyCode = e.keyCode || e.which;
                 if (keyCode === 27) {
-                    self._closeLists();
+                    self.closeLists();
                 }
             });
         },
@@ -68,7 +68,7 @@
             var self = this;
 
             $(document).bind('click touchstart', function () {
-                self._closeLists();
+                self.closeLists();
             });
         },
         // Dynamically unbinds click event for closing lists

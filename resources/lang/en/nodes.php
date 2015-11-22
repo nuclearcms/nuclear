@@ -3,10 +3,12 @@
 return [
 
     'title' => 'Nodes',
+    'title_type' => 'Node Types',
 
     'management' => 'Node Management',
     'manage' => 'Manage Node Types',
-    'search' => 'Search Node Types',
+    'search' => 'Search Nodes',
+    'search_type' => 'Search Node Types',
     'all' => 'All Node Types',
 
     'content' => 'Content',
@@ -25,6 +27,7 @@ return [
     'add_translation' => 'Add Translation',
     'added_translation' => 'Translation was added.',
     'no_available_locale' => 'No locales are available for translation.',
+    'add_child' => 'Add Child Node',
     'create' => 'Create Node',
     'created' => 'Node was created',
     'edit' => 'Edit Node',

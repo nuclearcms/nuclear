@@ -21,7 +21,13 @@ class EditNodeParametersForm extends Form {
         $this->add('visible', 'checkbox');
         $this->add('sterile', 'checkbox');
         $this->add('home', 'checkbox');
-        $this->add('locked', 'checkbox');
+        $this->add('hides_children', 'checkbox');
+        $this->add('priority', 'number', [
+            'default_value' => 1,
+            'attr' => [
+                'step' => 'any'
+            ]
+        ]);
         $this->add('status', 'select', [
             'choices' => [
                 30 => trans('nodes.draft'),
@@ -31,12 +37,10 @@ class EditNodeParametersForm extends Form {
             ]
         ]);
         $this->add('published_at', 'date');
-        $this->add('hides_children', 'checkbox');
-        $this->add('priority', 'number');
         $this->add('children_order', 'select', [
             'choices' => [
                 'title' => trans('validation.attributes.title'),
-                'lft' => trans('nodes.position')
+                '_lft' => trans('nodes.position')
             ]
         ]);
         $this->add('children_order_direction', 'select', [

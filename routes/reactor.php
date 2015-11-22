@@ -70,6 +70,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@store',
                 'as'   => 'reactor.contents.store']);
 
+            Route::get('contents/{id}/tree', [
+                'uses' => 'NodesController@tree',
+                'as' => 'reactor.contents.tree'
+            ]);
+
             Route::get('contents/{id}/edit/{source?}', [
                 'uses' => 'NodesController@edit',
                 'as' => 'reactor.contents.edit'

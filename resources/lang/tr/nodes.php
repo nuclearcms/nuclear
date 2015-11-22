@@ -3,10 +3,12 @@
 return [
 
     'title' => 'Düğümler',
+    'title_type' => 'Düğüm Tipleri',
 
     'management' => 'Düğüm Yönetimi',
     'manage' => 'Düğümleri Tiplerini Yönet',
-    'search' => 'Düğüm Tiplerinde Ara',
+    'search' => 'Düğüm Ara',
+    'search_type' => 'Düğüm Tiplerinde Ara',
     'all' => 'Tüm Düğüm Tipleri',
 
     'content' => 'İçerik',
@@ -25,6 +27,7 @@ return [
     'add_translation' => 'Çeviri Ekle',
     'added_translation' => 'Çeviri eklendi.',
     'no_available_locale' => 'Uygun çeviri dili kalmadı.',
+    'add_child' => 'Çocuk Düğüm Ekle',
     'create' => 'Düğüm Oluştur',
     'created' => 'Düğüm oluşturuldu.',
     'edit' => 'Düğümü Düzenle',

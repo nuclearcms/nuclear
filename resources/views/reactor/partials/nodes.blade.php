@@ -1,16 +1,14 @@
 <div class="navigation-nodes-container material-light">
-    <div class="scroll-container">
-        <div class="scroller">
+    <div class="scroll-container-nodes">
+        <div class="scroller-nodes">
 
             <div id="navigation-nodes-content" class="navigation-nodes-content" data-localeurl="{{ route('reactor.contents.locale') }}">
 
-                <form id="search-nodes" method="post" action="#">
-
-                    <input type="search" name="keywords" id="keywords" placeholder="{{ trans('validation.attributes.keywords') }}" required>
+                <form id="search-nodes" method="GET" action="{{ route('reactor.contents.search') }}">
+                    <input type="search" name="q" id="keywords" placeholder="{{ trans('general.search') }}" required>
                     <label class="icon-label" for="keywords">
                         <i class="icon-search"></i>
                     </label>
-
                 </form>
 
                 <div class="nodes-header">

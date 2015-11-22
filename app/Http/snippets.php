@@ -43,16 +43,17 @@ if ( ! function_exists('content_options_open'))
     /**
      * Snippet for displaying content options opening
      *
+     * @param $header
      * @return string
      */
-    function content_options_open()
+    function content_options_open($header = null)
     {
-        return '<td class="content-item-options">
+        return sprintf('<td class="content-item-options">
             <button class="content-item-options-button">
                 <i class="icon-ellipsis-vert"></i>
             </button>
-            <ul class="content-item-options-list material-middle">
-                <li class="list-header">' . uppercase(trans('general.options')) . '</li>';
+            <ul class="content-item-options-list material-middle">%s',
+            $header ?: '<li class="list-header">' . uppercase(trans('general.options')) . '</li>');
     }
 }
 
@@ -190,7 +191,7 @@ if ( ! function_exists('action_button'))
             $link,
             (is_null($text)) ? 'button-icon-primary' : '',
             ($secondary) ? 'button-secondary' : '',
-            (!is_null($text)) ? uppercase(trans($text)) . ' ' : '',
+            ( ! is_null($text)) ? uppercase(trans($text)) . ' ' : '',
             $icon);
     }
 }
@@ -245,5 +246,41 @@ if ( ! function_exists('navigation_module_link'))
             $icon,
             trans($title)
         );
+    }
+}
+
+if ( ! function_exists('node_options_list'))
+{
+    /**
+     * Snippet for generating node options
+     *
+     * @param $node
+     * @return string
+     */
+    function node_options_list($node)
+    {
+        $list = '<div class="node-options">' . content_options_open(
+            '<li class="options-header" style="background-color:' . $node->nodeType->color . ';">'
+            . uppercase($node->nodeType->label) .
+            '</li>'
+        );
+
+        if ( ! $node->sterile)
+        {
+            $list .= '<li>
+                <a href="' . route('reactor.contents.create', $node->getKey()) . '">
+                    <i class="icon-plus"></i>' . trans('nodes.add_child') . '</a>
+            </li>';
+        }
+
+        $list .= '<li>
+            <a href="' . route('reactor.contents.edit', $node->getKey()) . '">
+                <i class="icon-pencil"></i>' . trans('nodes.edit') . '</a>
+        </li><li>' . delete_form(
+            route('reactor.contents.destroy', $node->getKey()),
+            trans('nodes.delete')
+        ) .'</li>' . content_options_close() . '</div>';
+
+        return $list;
     }
 }

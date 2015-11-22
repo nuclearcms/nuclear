@@ -11,7 +11,7 @@
         this.el = el;
         this.triggers = triggers;
         this.current = null;
-
+        console.log(el);
         this.options = $.extend(this.options, options);
 
         this.isOpen = false;

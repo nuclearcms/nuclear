@@ -24,9 +24,11 @@ class EditNodeFieldForm extends Form {
         ]);
         $this->add('description', 'textarea');
         $this->add('position', 'number', [
-            'default_value' => 0.8
+            'default_value' => 0.8,
+            'attr' => [
+                'step' => 'any'
+            ]
         ]);
-        $this->add('visible', 'checkbox');
     }
 
 }
