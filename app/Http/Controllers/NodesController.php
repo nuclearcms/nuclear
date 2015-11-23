@@ -19,7 +19,11 @@ class NodesController extends ReactorController {
      */
     public function tree($id)
     {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
 
+        $node = Node::findOrFail($id);
+
+        return view('nodes.tree', compact('node'));
     }
 
     /**

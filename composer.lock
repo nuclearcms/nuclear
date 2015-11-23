@@ -821,16 +821,16 @@
         },
         {
             "name": "erusev/parsedown-extra",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/erusev/parsedown-extra.git",
-                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5"
+                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/11a44e076d02ffcc4021713398a60cd73f78b6f5",
-                "reference": "11a44e076d02ffcc4021713398a60cd73f78b6f5",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/0db5cce7354e4b76f155d092ab5eb3981c21258c",
+                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c",
                 "shasum": ""
             },
             "require": {
@@ -861,7 +861,7 @@
                 "parsedown",
                 "parser"
             ],
-            "time": "2015-01-25 14:52:34"
+            "time": "2015-11-01 10:19:22"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -2382,16 +2382,16 @@
         },
         {
             "name": "nicolaslopezj/searchable",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolaslopezj/searchable.git",
-                "reference": "8d97d2c97dc17bc0795220b11b9ce0769d7d9173"
+                "reference": "30453f6bf2b68f871c52ce3e5a613eccca9370aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/8d97d2c97dc17bc0795220b11b9ce0769d7d9173",
-                "reference": "8d97d2c97dc17bc0795220b11b9ce0769d7d9173",
+                "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/30453f6bf2b68f871c52ce3e5a613eccca9370aa",
+                "reference": "30453f6bf2b68f871c52ce3e5a613eccca9370aa",
                 "shasum": ""
             },
             "require": {
@@ -2424,7 +2424,7 @@
                 "search",
                 "searchable"
             ],
-            "time": "2015-10-28 02:46:28"
+            "time": "2015-11-23 18:12:44"
         },
         {
             "name": "nikic/php-parser",
@@ -2473,16 +2473,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "d6a614a6c51609af13114dc4789edc2ec953b951"
+                "reference": "d46636b5b67c9b61c8351f729b06a1f0eed8bef8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/d6a614a6c51609af13114dc4789edc2ec953b951",
-                "reference": "d6a614a6c51609af13114dc4789edc2ec953b951",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/d46636b5b67c9b61c8351f729b06a1f0eed8bef8",
+                "reference": "d46636b5b67c9b61c8351f729b06a1f0eed8bef8",
                 "shasum": ""
             },
             "require": {
@@ -2536,7 +2536,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2015-11-23 14:42:11"
+            "time": "2015-11-23 22:05:20"
         },
         {
             "name": "paragonie/random_compat",

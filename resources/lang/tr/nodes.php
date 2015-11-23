@@ -14,6 +14,7 @@ return [
     'content' => 'İçerik',
     'parameters' => 'Ayarlar',
     'seo' => 'SEO',
+    'tree' => 'Ağaç',
 
     'draft' => 'Taslak',
     'pending' => 'Beklemede',

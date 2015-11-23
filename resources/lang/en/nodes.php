@@ -14,6 +14,7 @@ return [
     'content' => 'Content',
     'parameters' => 'Parameters',
     'seo' => 'SEO',
+    'tree' => 'Tree',
 
     'draft' => 'Draft',
     'pending' => 'Pending',
