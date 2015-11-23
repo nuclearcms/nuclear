@@ -6,7 +6,7 @@ namespace Reactor\Providers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Nuclear\Hierarchy\Node;
+use Reactor\Nodes\Node;
 
 class ReactorServiceProvider extends ServiceProvider {
 

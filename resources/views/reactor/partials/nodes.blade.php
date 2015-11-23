@@ -1,8 +1,10 @@
+<div id="navigation-nodes-whiteout" class="navigation-nodes-whiteout"></div>
+
 <div class="navigation-nodes-container material-light">
     <div class="scroll-container-nodes">
         <div class="scroller-nodes">
 
-            <div id="navigation-nodes-content" class="navigation-nodes-content" data-localeurl="{{ route('reactor.contents.locale') }}">
+            <div id="navigation-nodes-content" class="navigation-nodes-content" data-localeurl="{{ route('reactor.contents.locale') }}" data-sorturl="{{ route('reactor.contents.sort') }}">
 
                 <form id="search-nodes" method="GET" action="{{ route('reactor.contents.search') }}">
                     <input type="search" name="q" id="keywords" placeholder="{{ trans('general.search') }}" required>

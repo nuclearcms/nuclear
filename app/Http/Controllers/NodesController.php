@@ -432,6 +432,35 @@ class NodesController extends ReactorController {
     }
 
     /**
+     * Sorts the node inside the tree
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function sortNode(Request $request)
+    {
+        $node = Node::findOrFail($request->input('node'));
+        $sibling = Node::findOrFail($request->input('sibling'));
+
+        if ($request->input('action') === 'after')
+        {
+            $node->afterNode($sibling);
+        }
+
+        if ($request->input('action') === 'before')
+        {
+            $node->beforeNode($sibling);
+        }
+
+        // Touch the model so that model will be dirty and the
+        // saving event will run. (We have to do this because saving event
+        // do not fire in Translatable's save method if parent model is not dirty.
+        $node->touch();
+
+        return response()->json(['save' => $node->save()]);
+    }
+
+    /**
      * @param int|null $id
      * @return \Kris\LaravelFormBuilder\Form
      */

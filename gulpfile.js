@@ -23,7 +23,7 @@ elixir(function (mix) {
         .scripts([
             'components/Modernizr.js',
             'components/jquery.min.js',
-            'components/touch-dnd.js',
+            'components/jquery-ui.js',
             'common.js',
             'option.js',
             'navigation.js',

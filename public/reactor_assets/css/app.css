@@ -2105,7 +2105,8 @@ h2 {
   color: #5F696A; }
 
 .navigation-nodes {
-  width: 17em; }
+  width: 17em;
+  position: relative; }
   .navigation-nodes .navigation-nodes-content {
     width: 15em; }
   @media screen and (max-width: 64em) {
@@ -2116,7 +2117,8 @@ h2 {
   .navigation-nodes .navigation-nodes-container {
     height: 100%;
     width: 100%;
-    padding: 0.5em 1em 0; }
+    padding: 0.5em 1em 0;
+    position: relative; }
     @media screen and (max-width: 64em) {
       .navigation-nodes .navigation-nodes-container {
         box-shadow: none;
@@ -2164,6 +2166,20 @@ h2 {
       font-size: 1.5em;
       color: #BDC3C7; }
 
+.navigation-nodes-whiteout {
+  background-color: rgba(250, 250, 250, 0.7);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0;
+  transition: z-index 0ms ease 250ms, opacity 250ms; }
+  .navigation-nodes-whiteout.active {
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 250ms; }
+
 .node-tabs {
   margin: 0.5em 0 1em;
   text-align: center;
@@ -2198,8 +2214,18 @@ h2 {
 .nodes-list li {
   padding: 0.5em 0;
   line-height: 1em;
-  position: relative; }
-  .nodes-list li > a {
+  background: url("../img/pixel.png") 0 0 no-repeat, url("../img/pixel.png") 0 1.125em no-repeat;
+  background-size: 1px 100%, 0.75em 1px; }
+  .nodes-list li:last-child {
+    background-size: 1px 1.25em, 0.75em 1px;
+    background-position: 0 0, 0 1.125em;
+    padding-bottom: 0; }
+  > .nodes-list li:first-child {
+    background-size: 1px 100%, 0.75em 1px;
+    background-position: 0 1.125em, 0 1.125em; }
+  .nodes-list li .node-label {
+    position: relative; }
+  .nodes-list li .node-label > a {
     color: #404647;
     vertical-align: top;
     white-space: nowrap;
@@ -2208,24 +2234,19 @@ h2 {
     width: calc(100% - 4em);
     overflow: hidden;
     line-height: 1.25em; }
-
-.nodes-list.node-tree li {
-  background: url("../img/pixel.png") 0 0 no-repeat, url("../img/pixel.png") 0 1.125em no-repeat;
-  background-size: 1px 100%, 0.75em 1px; }
-  .nodes-list.node-tree li:last-child {
-    background-size: 1px 1.25em, 0.75em 1px;
-    background-position: 0 0, 0 1.125em;
-    padding-bottom: 0; }
-  > .nodes-list.node-tree li:first-child {
-    background-size: 1px 100%, 0.75em 1px;
-    background-position: 0 1.125em, 0 1.125em; }
+  .nodes-list li.placeholder {
+    border: 1px dashed #BDC3C7;
+    min-height: 2.25em;
+    background: transparent; }
 
 .nodes-list .node-options {
   position: absolute;
-  top: 0;
+  top: -0.5em;
   right: -1em;
   width: 3em;
   height: 2.5em; }
+  .nodes-list .node-options a {
+    color: #404647; }
   .nodes-list .node-options .content-item-options-button {
     color: #BDC3C7;
     padding: 0.25em 0.75em;
@@ -2249,13 +2270,13 @@ h2 {
     font-weight: 700;
     line-height: 1.25em; }
 
-.node-root {
+.nodes-list > li {
   border-bottom: 1px solid #ECF0F1;
   font-size: 0.75em;
   background: transparent !important;
   padding-bottom: 1em !important;
   margin-top: 0.5em; }
-  .node-root:last-child {
+  .nodes-list > li:last-child {
     border-bottom: 0; }
 
 .node-children {
@@ -2263,8 +2284,6 @@ h2 {
   .node-children li:first-child {
     padding-top: 1em !important;
     background-position: 0 0, 0 1.625em !important; }
-    .node-children li:first-child .node-options {
-      top: 0.5em !important; }
     .node-children li:first-child:only-child {
       background-size: 1px 1.625em, 0.75em 1px !important;
       background-position: 0 0, 0 1.625em !important; }
@@ -2286,6 +2305,9 @@ h2 {
   border-radius: 50%;
   border: 1px solid #BDC3C7;
   background-color: #FAFAFA; }
+
+.drag-handle {
+  cursor: move; }
 
 .node-hides-children {
   position: relative; }
@@ -2312,7 +2334,7 @@ h2 {
 .no-touch .node-tabs li:hover {
   color: #5F696A; }
 
-.no-touch .nodes-list li > a:hover {
+.no-touch .nodes-list li a:hover {
   color: #3498DB; }
 
 .no-touch .nodes-list .node-options .content-item-options-button:hover {

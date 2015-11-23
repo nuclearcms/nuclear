@@ -118,6 +118,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@changeTreeLocale',
                 'as' => 'reactor.contents.locale'
             ]);
+
+            Route::post('contents/sort', [
+                'uses' => 'NodesController@sortNode',
+                'as' => 'reactor.contents.sort'
+            ]);
         });
 
         // Nodes Types and Fields

@@ -44,15 +44,17 @@ if ( ! function_exists('content_options_open'))
      * Snippet for displaying content options opening
      *
      * @param $header
+     * @param bool $table
      * @return string
      */
-    function content_options_open($header = null)
+    function content_options_open($header = null, $table = true)
     {
-        return sprintf('<td class="content-item-options">
+        return sprintf('%s
             <button class="content-item-options-button">
                 <i class="icon-ellipsis-vert"></i>
             </button>
             <ul class="content-item-options-list material-middle">%s',
+            $table ? '<td class="content-item-options">' : '',
             $header ?: '<li class="list-header">' . uppercase(trans('general.options')) . '</li>');
     }
 }
@@ -62,11 +64,12 @@ if ( ! function_exists('content_options_close'))
     /**
      * Snippet for displaying content options closing
      *
+     * @param bool $table
      * @return string
      */
-    function content_options_close()
+    function content_options_close($table = true)
     {
-        return '</ul></td>';
+        return '</ul>' . ($table) ? '</td>' : '';
     }
 }
 
@@ -262,7 +265,7 @@ if ( ! function_exists('node_options_list'))
         $list = '<div class="node-options">' . content_options_open(
             '<li class="options-header" style="background-color:' . $node->nodeType->color . ';">'
             . uppercase($node->nodeType->label) .
-            '</li>'
+            '</li>', false
         );
 
         if ( ! $node->sterile)
@@ -279,7 +282,7 @@ if ( ! function_exists('node_options_list'))
         </li><li>' . delete_form(
             route('reactor.contents.destroy', $node->getKey()),
             trans('nodes.delete')
-        ) .'</li>' . content_options_close() . '</div>';
+        ) .'</li>' . content_options_close(false) . '</div>';
 
         return $list;
     }
