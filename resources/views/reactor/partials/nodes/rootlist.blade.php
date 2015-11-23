@@ -3,7 +3,7 @@
     @if($root->hasTranslation($locale))
     <li data-nodeid="{{ $root->getKey() }}">
         @if($root->hides_children || $root->nodeType->hides_children)
-            <div  -class="node-label">
+            <div class="node-label">
                 @if($root->home)
                     <div class="drag-handle node-icon node-home"><i class="icon-home"></i></div>
                 @else

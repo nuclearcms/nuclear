@@ -77,12 +77,14 @@
             $.post(this.localeURL, {'locale': locale});
         },
         _move: function (item) {
-            var data = this._determineMovement(item),
+            var movement = this._determineMovement(item),
                 self = this;
 
             this._disable();
 
-            $.post(this.sortURL, data, function (data) {
+            $.post(this.sortURL, movement, function (data) {
+                self._refreshAllTrees(movement);
+
                 self._enable();
             });
         },
@@ -124,6 +126,29 @@
         },
         _enableView: function () {
             this.whiteout.removeClass('active');
+        },
+        _refreshAllTrees: function (movement) {
+            if (movement.action === 'before') {
+                this._insertBefore(movement.node, movement.sibling);
+            } else {
+                this._insertAfter(movement.node, movement.sibling);
+            }
+        },
+        _insertBefore: function (node, sibling) {
+            for (var i = 0; i < this.sortableTrees.length; i++) {
+                var treeNode = this.sortableTrees[i].find('[data-nodeid="' + node + '"]'),
+                    treeSibling = this.sortableTrees[i].find('[data-nodeid="' + sibling + '"]');
+
+                treeNode.insertBefore(treeSibling);
+            }
+        },
+        _insertAfter: function (node, sibling) {
+            for (var i = 0; i < this.sortableTrees.length; i++) {
+                var treeNode = this.sortableTrees[i].find('[data-nodeid="' + node + '"]'),
+                    treeSibling = this.sortableTrees[i].find('[data-nodeid="' + sibling + '"]');
+
+                treeNode.insertAfter(treeSibling);
+            }
         }
     };
 
