@@ -5980,6 +5980,8 @@ flaps.on('click', function () {
                     delay: 50,
                     start: function (e, ui) {
                         ui.placeholder.height(ui.item.height());
+
+                        optionListsHelper.closeLists();
                     },
                     stop: function (e, ui) {
                         self._move(ui.item);
