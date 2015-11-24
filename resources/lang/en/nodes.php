@@ -15,6 +15,7 @@ return [
     'parameters' => 'Parameters',
     'seo' => 'SEO',
     'tree' => 'Tree',
+    'ancestors' => 'Ancestors',
 
     'draft' => 'Draft',
     'pending' => 'Pending',
@@ -28,6 +29,7 @@ return [
     'add_translation' => 'Add Translation',
     'added_translation' => 'Translation was added.',
     'no_available_locale' => 'No locales are available for translation.',
+    'no_children' => 'No children nodes were found.',
     'add_child' => 'Add Child Node',
     'create' => 'Create Node',
     'created' => 'Node was created',
@@ -62,7 +64,7 @@ return [
     'type_text' => 'Text',
     'type_textarea' => 'Textarea',
     'type_markdown' => 'Markdown',
-    'type_file' => 'File',
+    'type_document' => 'Document',
     'type_gallery' => 'Gallery',
     'type_checkbox' => 'Checkbox',
     'type_select' => 'Select',
@@ -70,5 +72,6 @@ return [
     'type_color' => 'Color',
     'type_slug' => 'Slug',
     'type_tag' => 'Tag',
-    'type_password' => 'Password'
+    'type_password' => 'Password',
+    'type_datetime' => 'Date-time',
 ];

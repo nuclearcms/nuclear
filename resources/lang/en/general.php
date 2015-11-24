@@ -17,6 +17,7 @@ return [
     'no' => 'No',
 
     'dashboard' => 'Dashboard',
+    'more_features_here_soon' => 'There will be more features here soon.',
     'metrics' => 'Metrics',
     'recent_activity' => 'Recent Activity',
     'dashboard_hint' => 'Here is some of the recent activity on your website.',

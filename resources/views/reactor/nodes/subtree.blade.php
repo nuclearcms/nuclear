@@ -17,12 +17,18 @@
 
         @foreach(config('translatable.locales') as $locale)
             <div class="nodes-list-tab nodes-list-{{ $locale }} {{ (session('reactor.tree_locale', config('app.locale')) === $locale) ? 'active' : '' }}">
-                <ul class="nodes-list" id="nodes-sublist-{{ $locale }}">
-                    @include('partials.nodes.leaflist', [
-                        'locale' => $locale,
-                        'leafs' => $nodes
-                    ])
-                </ul>
+                @if($node->hasTranslatedChildren($locale))
+                    <ul class="nodes-list" id="nodes-sublist-{{ $locale }}">
+                        @include('partials.nodes.leaflist', [
+                            'locale' => $locale,
+                            'leafs' => $nodes
+                        ])
+                    </ul>
+                @else
+                    <div class="content-message">
+                        {{ trans('nodes.no_children') }}
+                    </div>
+                @endif
             </div>
         @endforeach
 

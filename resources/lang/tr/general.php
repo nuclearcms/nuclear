@@ -17,6 +17,7 @@ return [
     'no' => 'Hayır',
 
     'dashboard' => 'Dashboard',
+    'more_features_here_soon' => 'Yakında burada daha çok özellik olacak.',
     'metrics' => 'İstatistikler',
     'recent_activity' => 'Son Etkinlikler',
     'dashboard_hint' => 'Burada sitenizin yakın zamandaki hareketlerini görebilirsiniz.',

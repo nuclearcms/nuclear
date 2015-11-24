@@ -10,6 +10,10 @@
 @endsection
 
 @section('content')
+    @include('partials.nodes.ancestors', [
+        'ancestors' => $node->getAncestors()
+    ])
+
     @include('partials.content.header', [
         'headerTitle' => $node->title,
         'headerHint' => $node->nodeType->label
@@ -22,7 +26,7 @@
         ])
 
         @include('nodes.subtree', [
-            'nodes' => $node->getPositionOrderedChildren()
+            'nodes' => $node->getPositionOrderedChildren(),
         ])
     </div>
 

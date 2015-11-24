@@ -16,7 +16,9 @@
             'currentKey' => []
         ])
 
-        METRICS HERE
+        <div class="content-message">
+            {{ trans('general.more_features_here_soon') }}
+        </div>
     </div>
 
 @endsection

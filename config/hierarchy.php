@@ -26,17 +26,18 @@ return [
 	*/
     'type_map' => [
 		'text'     => 'string',
-        'textarea' => 'text',
-        'markdown' => 'longtext',
-        'file'     => 'unsignedInteger',
-        'gallery'  => 'text',
+		'textarea' => 'text',
+		'markdown' => 'longtext',
+		'document'     => 'unsignedInteger',
+		'gallery'  => 'text',
 		'checkbox' => 'boolean',
 		'select'   => 'string',
 		'number'   => 'double',
 		'color'    => 'string',
 		'slug'     => 'string',
 		'tag'      => 'text',
-		'password' => 'string'
+		'password' => 'string',
+		'datetime' => 'timestamp'
     ],
     'default_type' => 'string',
 

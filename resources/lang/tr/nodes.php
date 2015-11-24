@@ -15,6 +15,7 @@ return [
     'parameters' => 'Ayarlar',
     'seo' => 'SEO',
     'tree' => 'Ağaç',
+    'ancestors' => 'Soy Ağacı',
 
     'draft' => 'Taslak',
     'pending' => 'Beklemede',
@@ -28,6 +29,7 @@ return [
     'add_translation' => 'Çeviri Ekle',
     'added_translation' => 'Çeviri eklendi.',
     'no_available_locale' => 'Uygun çeviri dili kalmadı.',
+    'no_children' => 'Çocuk düğüm bulunamadı.',
     'add_child' => 'Çocuk Düğüm Ekle',
     'create' => 'Düğüm Oluştur',
     'created' => 'Düğüm oluşturuldu.',
@@ -62,7 +64,7 @@ return [
     'type_text' => 'Yazı',
     'type_textarea' => 'Yazı Alanı',
     'type_markdown' => 'Markdown',
-    'type_file' => 'Dosya',
+    'type_document' => 'Dosya',
     'type_gallery' => 'Galeri',
     'type_checkbox' => 'Onay Kutusu',
     'type_select' => 'Seçim',
@@ -70,5 +72,6 @@ return [
     'type_color' => 'Renk',
     'type_slug' => 'Slug',
     'type_tag' => 'Etiket',
-    'type_password' => 'Şifre'
+    'type_password' => 'Şifre',
+    'type_datetime' => 'Tarih-zaman'
 ];

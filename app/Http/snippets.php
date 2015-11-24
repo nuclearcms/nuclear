@@ -263,10 +263,10 @@ if ( ! function_exists('node_options_list'))
     function node_options_list($node)
     {
         $list = '<div class="node-options">' . content_options_open(
-            '<li class="options-header" style="background-color:' . $node->nodeType->color . ';">'
-            . uppercase($node->nodeType->label) .
-            '</li>', false
-        );
+                '<li class="options-header" style="background-color:' . $node->nodeType->color . ';">'
+                . uppercase($node->nodeType->label) .
+                '</li>', false
+            );
 
         if ( ! $node->sterile)
         {
@@ -280,10 +280,31 @@ if ( ! function_exists('node_options_list'))
             <a href="' . route('reactor.contents.edit', $node->getKey()) . '">
                 <i class="icon-pencil"></i>' . trans('nodes.edit') . '</a>
         </li><li>' . delete_form(
-            route('reactor.contents.destroy', $node->getKey()),
-            trans('nodes.delete')
-        ) .'</li>' . content_options_close(false) . '</div>';
+                route('reactor.contents.destroy', $node->getKey()),
+                trans('nodes.delete')
+            ) . '</li>' . content_options_close(false) . '</div>';
 
         return $list;
+    }
+}
+
+if ( ! function_exists('ancestor_links'))
+{
+    /**
+     * Makes an array of ancestor links
+     *
+     * @param Collection
+     * @return array
+     */
+    function ancestor_links($ancestors)
+    {
+        $links = [];
+
+        foreach ($ancestors as $ancestor)
+        {
+            $links[] = link_to_route('reactor.contents.edit', $ancestor->title, $ancestor->getKey());
+        }
+
+        return $links;
     }
 }
