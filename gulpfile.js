@@ -27,7 +27,7 @@ elixir(function (mix) {
             'common.js',
             'option.js',
             'navigation.js',
-            'nodes.js',
+            'tree.js',
             'helpers.js',
             'modal.js'
         ], elixir.config.publicPath + '/js/app.js').

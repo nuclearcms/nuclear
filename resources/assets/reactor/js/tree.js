@@ -3,20 +3,21 @@
     'use strict';
 
     /**
-     * NodesNavigation constructor
+     * TreeNavigation constructor
      */
-    function NodesNavigation() {
-        this._init();
+    function TreeNavigation(container, whiteout) {
+        this._init(container, whiteout);
     }
 
-    // NodesNavigation prototype
-    NodesNavigation.prototype = {
-        _init: function () {
+    // TreeNavigation prototype
+    TreeNavigation.prototype = {
+        _init: function (container, whiteout) {
+            this.container = container;
+            this.whiteout = whiteout;
+
             this.tabs = $('.nodes-list-tab');
-            this.flaps = $('.node-tabs > li');
-            this.container = $('#navigation-nodes-content');
-            this.trees = this.container.find('ul.nodes-list');
-            this.whiteout = $('#navigation-nodes-whiteout');
+            this.flaps = $('.node-tab-flaps > li');
+            this.trees = $('ul.nodes-list');
 
             this.sortableTrees = [];
 
@@ -30,7 +31,8 @@
         _initEvents: function () {
             var self = this;
 
-            this.flaps.on('click', function () {
+            this.flaps.unbind('click')
+                .bind('click', function () {
                 self._changeTab($(this));
             });
 
@@ -64,7 +66,8 @@
                 this.flaps.removeClass('active');
                 this.tabs.removeClass('active');
 
-                flap.addClass('active');
+                var flaps = $('li[data-for="' + flap.data('for') + '"]');
+                flaps.addClass('active');
                 $('.nodes-list-' + flap.data('for')).addClass('active');
 
                 this._changeTreeLocale(
@@ -153,10 +156,11 @@
     };
 
     // Register to window namespace
-    window.NodesNavigation = NodesNavigation;
+    window.TreeNavigation = TreeNavigation;
 
 })(window);
 
-$(document).ready(function () {
-    var nodesNavigation = new NodesNavigation();
-});
+var treeNavigation = new TreeNavigation(
+    $('#navigation-nodes-content'),
+    $('#navigation-nodes-whiteout')
+);

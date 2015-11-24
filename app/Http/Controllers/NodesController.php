@@ -196,7 +196,7 @@ class NodesController extends ReactorController {
 
         $this->notify('nodes.deleted');
 
-        return redirect()->route('reactor.dashboard');
+        return redirect()->back();
     }
 
     /**

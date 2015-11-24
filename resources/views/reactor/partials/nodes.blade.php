@@ -20,7 +20,8 @@
                     </a>
                 </div>
 
-                <ul class="node-tabs">
+                @if(locale_count() > 1)
+                <ul class="node-tabs node-tab-flaps">
                     @foreach(config('translatable.locales') as $locale)
                         <li
                             data-for="{{ $locale }}"
@@ -28,10 +29,13 @@
                         >{{ $locale }}</li>
                     @endforeach
                 </ul>
+                @endif
 
                 @foreach(config('translatable.locales') as $locale)
                     <div class="nodes-list-tab nodes-list-{{ $locale }} {{ (session('reactor.tree_locale', config('app.locale')) === $locale) ? 'active' : '' }}">
-                        @include('partials.nodes.rootlist', ['locale' => $locale])
+                        <ul class="nodes-list" id="nodes-list-{{ $locale }}">
+                        @include('partials.nodes.leaflist', ['locale' => $locale])
+                        </ul>
                     </div>
                 @endforeach
 

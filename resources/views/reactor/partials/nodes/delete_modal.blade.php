@@ -10,5 +10,5 @@
                 dialog.current.closest('form').submit();
             }
         },
-        $('.navigation-nodes-container form > .option-delete'));
+        $('.nodes-list form > .option-delete'));
 </script>

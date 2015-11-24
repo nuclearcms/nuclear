@@ -21,7 +21,9 @@
             'currentKey' => $node->getKey()
         ])
 
-        WE HAVE THE TREE HERE SORTABLE SHIZ
+        @include('nodes.subtree', [
+            'nodes' => $node->getPositionOrderedChildren()
+        ])
     </div>
 
 @endsection

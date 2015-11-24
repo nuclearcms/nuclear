@@ -88,7 +88,7 @@ class ReactorServiceProvider extends ServiceProvider {
 
         view()->composer('partials.nodes', function ($view)
         {
-            $view->with('roots', Node::whereIsRoot()->get());
+            $view->with('leafs', Node::whereIsRoot()->get());
         });
     }
 

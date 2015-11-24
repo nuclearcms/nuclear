@@ -1,4 +1,3 @@
-<ul class="node-children">
 @foreach($leafs as $leaf)
     @if($leaf->hasTranslation($locale))
     <li data-nodeid="{{ $leaf->getKey() }}">
@@ -32,9 +31,10 @@
                 {!! node_options_list($leaf) !!}
             </div>
 
+            <ul class="node-children">
             @include('partials.nodes.leaflist', ['leafs' => $leaf->getPositionOrderedChildren()])
+            </ul>
         @endif
     </li>
     @endif
 @endforeach
-</ul>

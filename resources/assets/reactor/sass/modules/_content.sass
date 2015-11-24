@@ -57,16 +57,18 @@
 
     .content-tab-flap
         padding: 0.25em 1.5em 0
-        display: block
+        display: inline-block
         font-size: 0.75em
         line-height: 3.33333333em
         border-bottom: 0.33333333em solid transparent
         color: lighten($secondaryAccent, 25%)
         font-weight: 700
+        cursor: pointer
 
         &.active
             border-bottom-color: darken($secondaryAccent, 10%)
             color: $lightGray-1
+            cursor: default
 
 .secondary-tabs-bar
     background-color: $lightGray-3
