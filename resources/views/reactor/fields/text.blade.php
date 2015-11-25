@@ -1,5 +1,8 @@
 @if($options['wrapper'] !== false)
-    <div class="form-group form-group-content {{ $errors->has($name) ? 'error' : '' }}" {!! $options['wrapperAttrs'] !!} >
+    <div class="form-group form-group-content
+        {{ $errors->has($name) ? 'error' : '' }}
+        {{ (isset($options['inline']) and $options['inline']) ? 'inline' : '' }}"
+        {!! $options['wrapperAttrs'] !!} >
 @endif
 
 <div class="form-group-column form-group-column-field">

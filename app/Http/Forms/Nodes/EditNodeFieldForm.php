@@ -23,12 +23,6 @@ class EditNodeFieldForm extends Form {
             'help_block' => ['text' => trans('hints.nodefield_label')]
         ]);
         $this->add('description', 'textarea');
-        $this->add('position', 'number', [
-            'default_value' => 0.8,
-            'attr' => [
-                'step' => 'any'
-            ]
-        ]);
     }
 
 }

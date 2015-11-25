@@ -18,15 +18,16 @@ class EditNodeParametersForm extends Form {
 
     public function buildForm()
     {
-        $this->add('visible', 'checkbox');
-        $this->add('sterile', 'checkbox');
-        $this->add('home', 'checkbox');
-        $this->add('hides_children', 'checkbox');
+        $this->add('visible', 'checkbox', ['inline' => true]);
+        $this->add('sterile', 'checkbox', ['inline' => true]);
+        $this->add('home', 'checkbox', ['inline' => true]);
+        $this->add('hides_children', 'checkbox', ['inline' => true]);
         $this->add('priority', 'number', [
             'default_value' => 1,
             'attr' => [
                 'step' => 'any'
-            ]
+            ],
+            'inline' => true
         ]);
         $this->add('status', 'select', [
             'choices' => [
@@ -34,7 +35,8 @@ class EditNodeParametersForm extends Form {
                 40 => trans('nodes.pending'),
                 50 => trans('nodes.published'),
                 60 => trans('nodes.archived')
-            ]
+            ],
+            'inline' => true
         ]);
         $this->add('published_at', 'date', [
             'rules' => 'date_mysql'

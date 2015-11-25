@@ -1577,6 +1577,9 @@ label {
     clear: both;
     content: "";
     display: table; }
+  .form-group.inline {
+    display: inline-block;
+    min-width: 25%; }
   .form-group .control-label {
     font-size: 0.875em;
     font-weight: 700;
