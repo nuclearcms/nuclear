@@ -79,6 +79,7 @@ return [
     // Custom rule translations
     'unique_setting' => 'Bu ayar anahtarı daha önceden kayıt edilmiş.',
     'unique_setting_group' => 'Bu ayar grubu anahtarı daha önceden kayıt edilmiş.',
+    'date_mysql' => 'Geçersiz tarih-zaman formatı.',
 
     /*
     |--------------------------------------------------------------------------

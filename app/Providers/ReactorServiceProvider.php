@@ -118,6 +118,16 @@ class ReactorServiceProvider extends ServiceProvider {
 
             return ! settings()->hasGroup($value);
         });
+
+        Validator::extend('date_mysql', function ($attribute, $value, $parameters, $validator)
+        {
+            if (\DateTime::createFromFormat('Y-m-d H:i:s', $value))
+            {
+                return true;
+            }
+
+            return false;
+        });
     }
 
 }

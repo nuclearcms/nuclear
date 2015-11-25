@@ -28,8 +28,7 @@ class HierarchyCreateNodesTable extends Migration {
             $table->boolean('hides_children')->default(0);
             $table->double('priority')->unsigned()->default(1);
 
-            $table->timestamp('published_at')
-                ->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('published_at')->nullable();
             $table->string('children_order')->default('_lft');
             $table->string('children_order_direction', 4)->default('asc');
 

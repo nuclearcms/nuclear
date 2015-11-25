@@ -16,4 +16,5 @@ return [
     'nodefield_name' => 'Sadece küçük ASCII harfler içermelidir.',
     'nodefield_label' => 'Düğüm alanı için okunaklı isim.',
     'nodetype_color' => 'Düğüm tiplerini ayırt edebilmek için renk.',
+    'published_at' => 'YYYY-AA-GG SS:DD:ss formatında olmalıdır.',
 ];

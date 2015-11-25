@@ -16,4 +16,5 @@ return [
     'nodefield_name' => 'Can only contain lowercase ASCII letters.',
     'nodefield_label' => 'Pretty name for the node field.',
     'nodetype_color' => 'Color for identifying the node type.',
+    'published_at' => 'Has to be in YYYY-MM-DD HH:MM:SS format.',
 ];

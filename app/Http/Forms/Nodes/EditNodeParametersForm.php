@@ -36,7 +36,9 @@ class EditNodeParametersForm extends Form {
                 60 => trans('nodes.archived')
             ]
         ]);
-        $this->add('published_at', 'date');
+        $this->add('published_at', 'date', [
+            'rules' => 'date_mysql'
+        ]);
         $this->add('children_order', 'select', [
             'choices' => [
                 'title' => trans('validation.attributes.title'),

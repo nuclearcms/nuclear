@@ -305,11 +305,27 @@ class NodesController extends ReactorController {
 
         $this->determineHomeNode($request, $id);
 
-        $node->update($request->all());
+        $node->update(
+            $this->filterTimeInput($request)
+        );
 
         $this->notify('nodes.edited');
 
         return redirect()->route('reactor.contents.parameters', $id);
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    protected function filterTimeInput(Request $request)
+    {
+        if (empty($request->input('published_at')))
+        {
+            return $request->except('published_at');
+        }
+
+        return $request->all();
     }
 
     /**

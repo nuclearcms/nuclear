@@ -33,8 +33,8 @@
 
             this.flaps.unbind('click')
                 .bind('click', function () {
-                self._changeTab($(this));
-            });
+                    self._changeTab($(this));
+                });
 
             this.trees.each(function () {
                 var treeID = $(this).attr('id');
@@ -70,6 +70,8 @@
                 flaps.addClass('active');
                 $('.nodes-list-' + flap.data('for')).addClass('active');
 
+                this._disable;
+
                 this._changeTreeLocale(
                     flap.data('for')
                 );
@@ -77,7 +79,11 @@
 
         },
         _changeTreeLocale: function (locale) {
-            $.post(this.localeURL, {'locale': locale});
+            var self = this;
+
+            $.post(this.localeURL, {'locale': locale}, function (data) {
+                self._enable();
+            });
         },
         _move: function (item) {
             var movement = this._determineMovement(item),
