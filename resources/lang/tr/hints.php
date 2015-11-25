@@ -17,4 +17,6 @@ return [
     'nodefield_label' => 'Düğüm alanı için okunaklı isim.',
     'nodetype_color' => 'Düğüm tiplerini ayırt edebilmek için renk.',
     'published_at' => 'YYYY-AA-GG SS:DD:ss formatında olmalıdır.',
+    'tags' => 'Etiketleri tab, boşluk veya enter tuşlarıyla ayırabilirsiniz.',
+    'tags_placeholder' => 'Etiketleri buraya yazın...'
 ];

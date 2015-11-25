@@ -21,7 +21,7 @@ label
 
     &.inline
         display: inline-block
-        min-width: 25%
+        min-width: 24%
 
     .control-label
         font-size: 0.875em
@@ -189,6 +189,45 @@ label
                     display: inline
                 .icon-cancel
                     display: none
+
+.form-group-tag
+    .taglist
+        position: relative
+        padding-top: 0.25em
+        padding-bottom: 2.5em
+        overflow-y: hidden
+
+        &.empty
+            padding-top: 0
+            padding-bottom: 2em
+
+    .tag
+        float: left
+        margin: 0.375em 0.375em 0 0
+        border-radius: 0.125em
+        background-color: $secondaryAccent
+        color: $lightGray-1
+        line-height: 2em
+        padding: 0 2em 0 0.5em
+        position: relative
+        +transition(background-color 500ms)
+
+        &.flash
+            background-color: $accent
+            +transition(background-color 0ms)
+
+        i
+            +position(absolute, 0 0 null null)
+            display: block
+            +size(2em)
+            opacity: 0.7
+            cursor: pointer
+            text-align: center
+
+    .tag-input
+        +position(absolute, null null 0 0)
+        width: 100%
+        border-top: 1px dashed lighten($midGray-1, 10%)
 
 .minicolors-no-data-uris .minicolors-sprite
     background-image: url('../img/minicolors.png')

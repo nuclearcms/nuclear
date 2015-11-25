@@ -36,6 +36,7 @@ elixir(function (mix) {
             'password.js',
             'upload.js',
             'slug.js',
+            'tag.js',
             'fields.js'
         ], elixir.config.publicPath + '/js/form.js').
         scripts([

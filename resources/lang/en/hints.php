@@ -17,4 +17,6 @@ return [
     'nodefield_label' => 'Pretty name for the node field.',
     'nodetype_color' => 'Color for identifying the node type.',
     'published_at' => 'Has to be in YYYY-MM-DD HH:MM:SS format.',
+    'tags' => 'You may separate tag values by using tab, comma or enter.',
+    'tags_placeholder' => 'Type tags here...'
 ];

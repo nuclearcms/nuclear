@@ -519,7 +519,11 @@ class NodesController extends ReactorController {
 
         $form = $this->form($nodeTypeForm, [
             'url'   => route('reactor.contents.update', $params),
-            'model' => $source
+            // We do this because object_get method does not work for node sources
+            // which FormBuilder uses to access attributes
+            // Instead we prefer it to use array_get since toArray from Hierarchy
+            // retrieves data properly.
+            'model' => $source->toArray()
         ]);
 
         return $form;

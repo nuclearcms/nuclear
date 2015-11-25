@@ -17,5 +17,10 @@ $('.form-group-slug').each(function () {
     new Slug($(this));
 });
 
+// Slug fields
+$('.form-group-tag').each(function () {
+    new Tag($(this));
+});
+
 // Initialize color pickers
 $('input.minicolors').minicolors();

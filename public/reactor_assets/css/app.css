@@ -1164,7 +1164,7 @@ a {
       color: #7F8C8D; }
 
 .content-ancestors {
-  padding: 2em 1em 0;
+  padding: 1em 1em 0;
   font-size: 0.75em;
   text-align: center; }
   .content-ancestors h4 {
@@ -1579,7 +1579,7 @@ label {
     display: table; }
   .form-group.inline {
     display: inline-block;
-    min-width: 25%; }
+    min-width: 24%; }
   .form-group .control-label {
     font-size: 0.875em;
     font-weight: 700;
@@ -1723,6 +1723,46 @@ label {
         display: inline; }
       .form-checkbox input:checked + span .icon-cancel {
         display: none; }
+
+.form-group-tag .taglist {
+  position: relative;
+  padding-top: 0.25em;
+  padding-bottom: 2.5em;
+  overflow-y: hidden; }
+  .form-group-tag .taglist.empty {
+    padding-top: 0;
+    padding-bottom: 2em; }
+
+.form-group-tag .tag {
+  float: left;
+  margin: 0.375em 0.375em 0 0;
+  border-radius: 0.125em;
+  background-color: #3498DB;
+  color: #FAFAFA;
+  line-height: 2em;
+  padding: 0 2em 0 0.5em;
+  position: relative;
+  transition: background-color 500ms; }
+  .form-group-tag .tag.flash {
+    background-color: #E74C3C;
+    transition: background-color 0ms; }
+  .form-group-tag .tag i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 2em;
+    width: 2em;
+    opacity: 0.7;
+    cursor: pointer;
+    text-align: center; }
+
+.form-group-tag .tag-input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px dashed #d9dcde; }
 
 .minicolors-no-data-uris .minicolors-sprite {
   background-image: url("../img/minicolors.png"); }
@@ -2203,7 +2243,7 @@ h2 {
 
 .nodes-subtree-container {
   position: relative;
-  padding: 1em; }
+  padding: 1em 1.5em; }
   .nodes-subtree-container .nodes-list {
     padding-bottom: 0; }
     .nodes-subtree-container .nodes-list > li > .node-label {

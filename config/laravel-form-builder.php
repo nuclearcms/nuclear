@@ -21,5 +21,6 @@ return [
         'markdown' => 'Reactor\Http\Forms\Fields\MarkdownField',
         'gallery' => 'Reactor\Http\Forms\Fields\GalleryField',
         'document' => 'Reactor\Http\Forms\Fields\DocumentField',
+        'tag' => 'Reactor\Http\Forms\Fields\TagField',
     ]
 ];
