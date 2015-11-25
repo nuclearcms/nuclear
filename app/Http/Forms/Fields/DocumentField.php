@@ -14,7 +14,7 @@ class DocumentField extends FormField {
      */
     protected function getTemplate()
     {
-        return 'fields.text';
+        return 'fields.document';
     }
 
 }

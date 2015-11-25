@@ -14,7 +14,7 @@ class GalleryField extends FormField {
      */
     protected function getTemplate()
     {
-        return 'fields.text';
+        return 'fields.gallery';
     }
 
 }

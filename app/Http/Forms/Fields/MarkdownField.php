@@ -14,7 +14,7 @@ class MarkdownField extends FormField {
      */
     protected function getTemplate()
     {
-        return 'fields.text';
+        return 'fields.markdown';
     }
 
 }
