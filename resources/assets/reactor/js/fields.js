@@ -24,3 +24,21 @@ $('.form-group-tag').each(function () {
 
 // Initialize color pickers
 $('input.minicolors').minicolors();
+
+// Temp placeholder
+var library = {
+    run: function(controller)
+    {
+        console.log(controller);
+    }
+};
+
+// Initialize gallery fields
+$('.form-group-gallery').each(function() {
+    var gallery = new Gallery($(this), library);
+});
+
+// Initialize document fields
+$('.form-group-document').each(function() {
+    var document = new Document($(this), library);
+});

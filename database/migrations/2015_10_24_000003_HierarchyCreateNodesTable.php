@@ -17,6 +17,7 @@ class HierarchyCreateNodesTable extends Migration {
         {
             $table->increments('id');
             $table->integer('node_type_id')->unsigned();
+            $table->integer('user_id')->unsigned();
 
             NestedSet::columns($table);
 
@@ -38,6 +39,10 @@ class HierarchyCreateNodesTable extends Migration {
                 ->references('id')
                 ->on('node_types')
                 ->onDelete('cascade');
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 

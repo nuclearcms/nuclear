@@ -16,8 +16,9 @@ return [
     'embed' => 'Embed Document',
     'embedded' => 'Document was embedded.',
     'edit_image' => 'Edit Image',
-    'edited_image' => 'Image was edited',
+    'edited_image' => 'Image was edited.',
     'confirm_delete' => 'Are you sure you want to delete this document?',
+    'no_media_selected' => 'No media selected.',
 
     'embed_identifier' => 'Platform Identifier',
     'embed_service' => 'Platform',

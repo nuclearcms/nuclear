@@ -15,6 +15,8 @@ return [
     'and' => 've',
     'yes' => 'Evet',
     'no' => 'Hayır',
+    'clear' => 'Temizle',
+    'add_or_change' => 'Ekle/Değiştir',
 
     'dashboard' => 'Dashboard',
     'more_features_here_soon' => 'Yakında burada daha çok özellik olacak.',

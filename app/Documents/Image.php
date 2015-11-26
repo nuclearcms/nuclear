@@ -34,6 +34,33 @@ class Image extends Media {
     }
 
     /**
+     * Retrieves gallery for given media
+     *
+     * @param string $gallery
+     * @return Collection|null
+     */
+    public static function gallery($gallery)
+    {
+        if (empty($gallery))
+        {
+            return null;
+        }
+
+        $gallery = json_decode($gallery, true);
+
+        if (is_array($gallery))
+        {
+            $placeholders = implode(',', array_fill(0, count($gallery), '?'));
+
+            $gallery = static::whereIn('id', $gallery)
+                ->orderByRaw('field(id,' . $placeholders . ')', $gallery)
+                ->get();
+        }
+
+        return (count($gallery) > 0) ? $gallery : null;
+    }
+
+    /**
      * Loads the associated image with the model
      *
      * @return Image

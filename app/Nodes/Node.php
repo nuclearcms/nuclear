@@ -3,12 +3,14 @@
 namespace Reactor\Nodes;
 
 
+use Kenarkose\Ownable\AutoAssociatesOwner;
+use Kenarkose\Ownable\Ownable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Nuclear\Hierarchy\Node as HierarchyNode;
 
 class Node extends HierarchyNode {
 
-    use SearchableTrait;
+    use SearchableTrait, Ownable, AutoAssociatesOwner;
 
     /**
      * Searchable columns.

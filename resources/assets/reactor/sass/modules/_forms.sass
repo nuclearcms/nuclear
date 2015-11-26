@@ -17,7 +17,7 @@ label
 
 .form-group
     +clearfix
-    margin-bottom: 1em
+    margin-bottom: 1.5em
 
     &.inline
         display: inline-block
@@ -229,6 +229,85 @@ label
         width: 100%
         border-top: 1px dashed lighten($midGray-1, 10%)
 
+.form-media-container
+    padding-top: 0.5em
+
+    .empty-notification
+        line-height: 1.5em
+        display: none
+        color: $darkGray-1
+
+    .form-media-gallery
+        +clearfix
+
+        i
+            +position(absolute, 0 0 null null)
+            display: block
+            +size(2em)
+            color: $lightGray-1
+            background-color: rgba(64, 70, 71, 0.8)
+            cursor: pointer
+            line-height: 2em
+            text-align: center
+
+        li
+            float: left
+            vertical-align: bottom
+            width: 16.66666667%
+            position: relative
+            cursor: move
+
+            &.ui-sortable-helper i
+                display: none
+
+            &.placeholder
+                padding-top: 16.66666667%
+                background-color: $lightGray-3
+
+            @media screen and (max-width: $collapseThreshold)
+                width: 25%
+
+        img
+            width: 100%
+            vertical-align: bottom
+
+    .form-document-thumbnail
+        i
+            display: inline-block
+            +size(2.5em)
+            text-align: center
+            line-height: 2.5em
+            color: $darkGray-1
+            border-right: 1px solid $lightGray-3
+
+        img
+            vertical-align: bottom
+            +size(2.5em)
+            display: inline-block
+
+        p
+            margin-left: -2.5em
+            padding: 0 0.75em 0 3.25em
+            line-height: 2.5em
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+            width: 100%
+            display: inline-block
+
+    &.empty
+        .empty-notification
+            display: block
+        .form-document-thumbnail, .form-media-gallery
+            display: none
+
+    .buttons
+        margin-top: 0.5em
+    .button-clear
+        background-color: $accent
+    .button-add
+        background-color: $secondaryAccent
+
 .minicolors-no-data-uris .minicolors-sprite
     background-image: url('../img/minicolors.png')
 
@@ -261,6 +340,20 @@ label
     margin-top: 1em
 
 .no-touch
+    .form-media-container
+        .form-media-gallery li
+            i
+                opacity: 0
+                +transition(opacity $animationNav)
+            &:hover i
+                opacity: 1
+
+        .buttons
+            .button-add:hover
+                background-color: $notificationHover
+            .button-clear:hover
+                background-color: $errorHover
+
     .form-select-container:hover
         i
             color: $darkGray-2

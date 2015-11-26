@@ -157,22 +157,40 @@ if ( ! function_exists('submit_button'))
      *
      * @param string $icon
      * @param string $text
-     * @param string $type
+     * @param string $class
      * @return string
      */
-    function submit_button($icon, $text = '', $type = 'submit')
+    function submit_button($icon, $text = '', $class = '')
     {
-        $class = empty($text) ? 'button-icon-primary' : 'button-icon';
+        return button($icon, $text, 'submit', $class);
+    }
 
-        return sprintf('<button class="button button-emphasized %s" type="%s">
+}
+
+if ( ! function_exists('button'))
+{
+    /**
+     * Creates a button
+     *
+     * @param string $icon
+     * @param string $text
+     * @param string $type
+     * @param string $class
+     * @return string
+     */
+    function button($icon, $text = '', $type = 'button', $class = '')
+    {
+        $iconType = empty($text) ? 'button-icon-primary' : 'button-icon';
+
+        return sprintf('<button class="button button-emphasized %s %s" type="%s">
             %s <i class="%s"></i>
         </button>',
+            $iconType,
             $class,
             $type,
             uppercase(trans($text)),
             $icon);
     }
-
 }
 
 if ( ! function_exists('action_button'))
@@ -306,5 +324,117 @@ if ( ! function_exists('ancestor_links'))
         }
 
         return $links;
+    }
+}
+
+if ( ! function_exists('field_help_block'))
+{
+    /**
+     * Creates a field help block
+     *
+     * @param string $name
+     * @param array $options
+     * @return string
+     */
+    function field_help_block($name, array $options)
+    {
+        $html = '<div class="form-group-column form-group-column-help">';
+
+        if ( ! empty($options['help_block']['text']))
+        {
+            $html .= trans($options['help_block']['text']);
+        } else
+        {
+            if (trans()->has('hints.' . $name))
+            {
+                $html .= trans('hints.' . $name);
+            }
+        }
+
+        return $html . '</div>';
+    }
+}
+
+if ( ! function_exists('field_label'))
+{
+    /**
+     * Renders field label
+     *
+     * @param bool $showLabel
+     * @param array $options
+     * @param string $name
+     * @return string
+     */
+    function field_label($showLabel, array $options, $name)
+    {
+        if ($showLabel && $options['label'] !== false)
+        {
+            return Form::label($name,
+                trans()->has('validation.attributes.' . $name) ?
+                    trans('validation.attributes.' . $name) :
+                    trans($options['label']),
+                $options['label_attr']);
+        }
+
+        return '';
+    }
+}
+
+if ( ! function_exists('field_errors'))
+{
+    /**
+     * Renders errors for the field
+     *
+     * @param $errors
+     * @param string $name
+     * @return string
+     */
+    function field_errors($errors, $name)
+    {
+        $html = '<ul class="form-group-errors">';
+
+        foreach ($errors->get($name) as $error)
+        {
+            $html .= '<li>' . $error . '</li>';
+        }
+
+        return $html .= '</ul>';
+    }
+}
+
+if ( ! function_exists('field_wrapper_open'))
+{
+    /**
+     * Renders wrapper opening
+     *
+     * @param array $options
+     * @param string $name
+     * @param $errors
+     * @param string $class
+     * @return string
+     */
+    function field_wrapper_open(array $options, $name, $errors, $class = '')
+    {
+        return sprintf(
+            '<div class="form-group form-group-content %s %s %s" %s>',
+            $errors->has($name) ? 'error' : '',
+            (isset($options['inline']) and $options['inline']) ? 'inline' : '',
+            $class,
+            $options['wrapperAttrs']
+        );
+    }
+}
+
+if ( ! function_exists('field_wrapper_close'))
+{
+    /**
+     * Renders field wrapper closing
+     *
+     * @param array $options
+     * @return string
+     */
+    function field_wrapper_close(array $options)
+    {
+        return ($options['wrapper'] !== false) ? '</div>' : '';
     }
 }

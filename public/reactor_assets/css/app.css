@@ -1572,7 +1572,7 @@ label {
   user-select: none; }
 
 .form-group {
-  margin-bottom: 1em; }
+  margin-bottom: 1.5em; }
   .form-group::after {
     clear: both;
     content: "";
@@ -1764,6 +1764,78 @@ label {
   width: 100%;
   border-top: 1px dashed #d9dcde; }
 
+.form-media-container {
+  padding-top: 0.5em; }
+  .form-media-container .empty-notification {
+    line-height: 1.5em;
+    display: none;
+    color: #5F696A; }
+  .form-media-container .form-media-gallery::after {
+    clear: both;
+    content: "";
+    display: table; }
+  .form-media-container .form-media-gallery i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 2em;
+    width: 2em;
+    color: #FAFAFA;
+    background-color: rgba(64, 70, 71, 0.8);
+    cursor: pointer;
+    line-height: 2em;
+    text-align: center; }
+  .form-media-container .form-media-gallery li {
+    float: left;
+    vertical-align: bottom;
+    width: 16.66666667%;
+    position: relative;
+    cursor: move; }
+    .form-media-container .form-media-gallery li.ui-sortable-helper i {
+      display: none; }
+    .form-media-container .form-media-gallery li.placeholder {
+      padding-top: 16.66666667%;
+      background-color: #ECF0F1; }
+    @media screen and (max-width: 64em) {
+      .form-media-container .form-media-gallery li {
+        width: 25%; } }
+  .form-media-container .form-media-gallery img {
+    width: 100%;
+    vertical-align: bottom; }
+  .form-media-container .form-document-thumbnail i {
+    display: inline-block;
+    height: 2.5em;
+    width: 2.5em;
+    text-align: center;
+    line-height: 2.5em;
+    color: #5F696A;
+    border-right: 1px solid #ECF0F1; }
+  .form-media-container .form-document-thumbnail img {
+    vertical-align: bottom;
+    height: 2.5em;
+    width: 2.5em;
+    display: inline-block; }
+  .form-media-container .form-document-thumbnail p {
+    margin-left: -2.5em;
+    padding: 0 0.75em 0 3.25em;
+    line-height: 2.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    display: inline-block; }
+  .form-media-container.empty .empty-notification {
+    display: block; }
+  .form-media-container.empty .form-document-thumbnail, .form-media-container.empty .form-media-gallery {
+    display: none; }
+  .form-media-container .buttons {
+    margin-top: 0.5em; }
+  .form-media-container .button-clear {
+    background-color: #E74C3C; }
+  .form-media-container .button-add {
+    background-color: #3498DB; }
+
 .minicolors-no-data-uris .minicolors-sprite {
   background-image: url("../img/minicolors.png"); }
 
@@ -1794,6 +1866,19 @@ label {
   padding: 2em;
   border-top: 1px solid #3498DB;
   margin-top: 1em; }
+
+.no-touch .form-media-container .form-media-gallery li i {
+  opacity: 0;
+  transition: opacity 250ms; }
+
+.no-touch .form-media-container .form-media-gallery li:hover i {
+  opacity: 1; }
+
+.no-touch .form-media-container .buttons .button-add:hover {
+  background-color: #217dbb; }
+
+.no-touch .form-media-container .buttons .button-clear:hover {
+  background-color: #e43725; }
 
 .no-touch .form-select-container:hover i {
   color: #404647; }

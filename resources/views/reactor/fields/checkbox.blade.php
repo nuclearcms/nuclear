@@ -1,9 +1,4 @@
-@if($options['wrapper'] !== false)
-    <div class="form-group form-group-content
-        {{ $errors->has($name) ? 'error' : '' }}
-        {{ (isset($options['inline']) and $options['inline']) ? 'inline' : '' }}"
-        {!! $options['wrapperAttrs'] !!} >
-@endif
+{!! field_wrapper_open($options, $name, $errors) !!}
 
 <div class="form-group-column form-group-column-field">
     @if($showLabel && $options['label'] !== false)
@@ -19,18 +14,8 @@
         </span>
     </label>
 
-    @include('fields.errors')
+    {!! field_errors($errors, $name) !!}
 
-</div><div class="form-group-column form-group-column-help">
-    @if( ! empty($options['help_block']['text']))
-        {{ trans($options['help_block']['text']) }}
-    @else
-        @if(trans()->has('hints.' . $name))
-            {{ trans('hints.' . $name) }}
-        @endif
-    @endif
-</div>
+</div>{!! field_help_block($name, $options) !!}
 
-@if($options['wrapper'] !== false)
-    </div>
-@endif
+{!! field_wrapper_close($options) !!}

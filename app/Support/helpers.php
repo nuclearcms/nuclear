@@ -59,3 +59,31 @@ if ( ! function_exists('locale_count'))
         return count(config('translatable.locales'));
     }
 }
+
+if ( ! function_exists('get_field_document'))
+{
+    /**
+     * Returns the document for given id
+     *
+     * @param int $id
+     * @return Model|null
+     */
+    function get_document($id)
+    {
+        return Reactor\Documents\Media::find($id);
+    }
+}
+
+if ( ! function_exists('get_field_gallery'))
+{
+    /**
+     * Returns the gallery for given id
+     *
+     * @param string $gallery
+     * @return Collection
+     */
+    function get_gallery($gallery)
+    {
+        return Reactor\Documents\Image::gallery($gallery);
+    }
+}

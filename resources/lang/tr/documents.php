@@ -15,7 +15,10 @@ return [
     'deleted' => 'Dosya silindi.',
     'embed' => 'Dosya Yerleştir',
     'embedded' => 'Dosya yerleştirildi.',
+    'edit_image' => 'Resmi Düzenle',
+    'edited_image' => 'Resim düzenlendi.',
     'confirm_delete' => 'Bu dosyayı silmek istediğinizden emin misiniz?',
+    'no_media_selected' => 'Seçili medya yok.',
 
     'embed_identifier' => 'Platform Tanımlayıcısı',
     'embed_service' => 'Platform',
