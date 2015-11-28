@@ -25,22 +25,21 @@ $('.form-group-tag').each(function () {
 // Initialize color pickers
 $('input.minicolors').minicolors();
 
-// Temp placeholder
-var library = {
-    run: function(controller)
-    {
-        console.log(controller);
-    }
-};
-
 window.documentsLibrary = new Library($('#library-modal-container'));
 
 // Initialize gallery fields
-$('.form-group-gallery').each(function() {
+$('.form-group-gallery').each(function () {
     var gallery = new Gallery($(this), window.documentsLibrary);
 });
 
 // Initialize document fields
-$('.form-group-document').each(function() {
+$('.form-group-document').each(function () {
     var document = new Document($(this), window.documentsLibrary);
+});
+
+window.editorDialog = new EditorDialog();
+
+// Editors
+$('.form-group-markdown').each(function () {
+    var editor = new Editor($(this), window.documentsLibrary, window.editorDialog);
 });

@@ -5,6 +5,7 @@ return [
     'title' => 'Documents',
     'details' => 'Details',
     'gallery' => 'Gallery',
+    'document' => 'Document',
 
     'manage' => 'Manage Documents',
     'upload' => 'Upload Documents',

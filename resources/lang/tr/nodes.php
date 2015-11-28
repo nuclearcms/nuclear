@@ -73,5 +73,22 @@ return [
     'type_slug' => 'Slug',
     'type_tag' => 'Etiket',
     'type_password' => 'Şifre',
-    'type_datetime' => 'Tarih-zaman'
+    'type_datetime' => 'Tarih-zaman',
+
+    'add_link' => 'Link Ekle',
+    'add_media' => 'Medya Ekle',
+    'choose_media_mode' => 'Lütfen ekleme biçimini seçin',
+    'enter_link_info' => 'Lütfen link bilgilerini girin:',
+    'enter_image_info' => 'Lütfen resim bilgilerini girin:',
+
+    'tool_bold' => 'Kalın',
+    'tool_italic' => 'Eğik',
+    'tool_quote' => 'Alıntı',
+    'tool_list' => 'Liste',
+    'tool_heading' => 'Başlık',
+    'tool_link' => 'Hiperlink',
+    'tool_media' => 'Medya',
+    'tool_code' => 'Kod',
+    'tool_hrule' => 'Yatay Çizgi',
+    'tool_readmore' => 'Devamını Oku Ayracı'
 ];

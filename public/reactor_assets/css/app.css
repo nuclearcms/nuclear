@@ -1584,7 +1584,7 @@ label {
   user-select: none; }
 
 .form-group {
-  margin-bottom: 1.5em; }
+  margin-bottom: 3em; }
   .form-group::after {
     clear: both;
     content: "";
@@ -1630,7 +1630,7 @@ label {
       border-bottom-color: #E74C3C; }
 
 .form-group-content {
-  margin-bottom: 1.5em; }
+  margin-bottom: 3em; }
   .form-group-content input {
     height: 2em; }
 
@@ -1844,6 +1844,63 @@ label {
   .form-media-container .buttons {
     margin-top: 0.5em; }
 
+.form-group-markdown {
+  padding: 1em 0 0; }
+  .form-group-markdown textarea {
+    resize: none;
+    min-height: 14em;
+    width: 100%;
+    max-width: none; }
+
+.markdown-editor-toolbar {
+  border-bottom: 1px solid #BDC3C7;
+  padding: 0.5em 1em 1em;
+  transition: border-bottom-color 200ms;
+  margin: 0.5em 0; }
+  .focus .markdown-editor-toolbar {
+    border-bottom-color: #3498DB; }
+  .markdown-editor-toolbar li {
+    display: inline-block;
+    color: #95A5A6;
+    transition: color 200ms; }
+  .markdown-editor-toolbar .toolset {
+    margin-left: -4px;
+    padding: 0 0.5em;
+    border-right: 1px solid #BDC3C7; }
+    .markdown-editor-toolbar .toolset li {
+      padding: 0.25em;
+      cursor: pointer; }
+    .markdown-editor-toolbar .toolset:last-child {
+      border-right: 0; }
+
+.modal-editor .form-group {
+  margin-bottom: 1.5em; }
+
+.modal-editor .buttons {
+  text-align: center;
+  margin-bottom: 1em; }
+  .modal-editor .buttons .button {
+    min-width: 11em; }
+
+.modal-editor .or {
+  text-align: center;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #BDC3C7;
+  font-size: 1.25em;
+  margin-bottom: 1em; }
+
+.modal-editor .description {
+  margin-bottom: 2em; }
+
+.modal-editor .editor-modal-tab {
+  display: none; }
+
+.modal-editor .library .editor-modal-library {
+  display: block; }
+
+.modal-editor .link .editor-modal-link {
+  display: block; }
+
 .minicolors-no-data-uris .minicolors-sprite {
   background-image: url("../img/minicolors.png"); }
 
@@ -1884,6 +1941,9 @@ label {
 
 .no-touch .form-select-container:hover i {
   color: #404647; }
+
+.no-touch .markdown-editor-toolbar li:hover {
+  color: #5F696A; }
 
 h2 {
   text-align: center;
@@ -2879,7 +2939,7 @@ h2 {
       border-bottom-color: #2ECC71; }
 
 .library-modal-media-list {
-  width: calc(100% - 1.5em); }
+  width: calc(100% - 2.5em); }
   .library-modal-media-list::after {
     clear: both;
     content: "";

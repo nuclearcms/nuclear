@@ -74,4 +74,21 @@ return [
     'type_tag' => 'Tag',
     'type_password' => 'Password',
     'type_datetime' => 'Date-time',
+
+    'add_link' => 'Insert Link',
+    'add_media' => 'Insert Media',
+    'choose_media_mode' => 'Please choose insertion mode',
+    'enter_link_info' => 'Please enter link information:',
+    'enter_image_info' => 'Please enter image information:',
+
+    'tool_bold' => 'Bold',
+    'tool_italic' => 'Italic',
+    'tool_quote' => 'Quote',
+    'tool_list' => 'List',
+    'tool_heading' => 'Heading',
+    'tool_link' => 'Hyperlink',
+    'tool_media' => 'Media',
+    'tool_code' => 'Code',
+    'tool_hrule' => 'Horizontal Rule',
+    'tool_readmore' => 'Read More Separator'
 ];

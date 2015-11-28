@@ -5,6 +5,7 @@ return [
     'title' => 'Dosyalar',
     'details' => 'Detaylar',
     'gallery' => 'Galeri',
+    'document' => 'Dosya',
 
     'manage' => 'Dosyaları Yönet',
     'upload' => 'Dosya Yükle',

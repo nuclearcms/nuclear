@@ -17,7 +17,7 @@ label
 
 .form-group
     +clearfix
-    margin-bottom: 1.5em
+    margin-bottom: 3em
 
     &.inline
         display: inline-block
@@ -71,7 +71,7 @@ label
                 border-bottom-color: $accent
 
 .form-group-content
-    margin-bottom: 1.5em
+    margin-bottom: 3em
 
     input
         height: 2em
@@ -304,6 +304,72 @@ label
     .buttons
         margin-top: 0.5em
 
+.form-group-markdown
+    padding: 1em 0 0
+
+    textarea
+        resize: none
+        min-height: 14em
+        width: 100%
+        max-width: none
+
+.markdown-editor-toolbar
+    border-bottom: 1px solid $midGray-1
+    padding: 0.5em 1em 1em
+    +transition(border-bottom-color $animationFast)
+    margin: 0.5em 0
+
+    .focus &
+        border-bottom-color: $secondaryAccent
+
+    li
+        display: inline-block
+        color: $midGray-2
+        +transition(color $animationFast)
+
+    .toolset
+        margin-left: -4px
+        padding: 0 0.5em
+        border-right: 1px solid $midGray-1
+
+        li
+            padding: 0.25em
+            cursor: pointer
+
+        &:last-child
+            border-right: 0
+
+.modal-editor
+    .form-group
+        margin-bottom: 1.5em
+
+    .buttons
+        text-align: center
+        margin-bottom: 1em
+
+        .button
+            min-width: 11em
+
+    .or
+        text-align: center
+        padding: 0.5em 0
+        border-bottom: 1px solid $midGray-1
+        font-size: 1.25em
+        margin-bottom: 1em
+
+    .description
+        margin-bottom: 2em
+
+    .editor-modal-tab
+        display: none
+
+    .library
+        .editor-modal-library
+            display: block
+    .link
+        .editor-modal-link
+            display: block
+
 .minicolors-no-data-uris .minicolors-sprite
     background-image: url('../img/minicolors.png')
 
@@ -347,3 +413,6 @@ label
     .form-select-container:hover
         i
             color: $darkGray-2
+
+    .markdown-editor-toolbar li:hover
+        color: $darkGray-1
