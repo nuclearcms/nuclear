@@ -33,12 +33,14 @@ var library = {
     }
 };
 
+window.documentsLibrary = new Library($('#library-modal-container'));
+
 // Initialize gallery fields
 $('.form-group-gallery').each(function() {
-    var gallery = new Gallery($(this), library);
+    var gallery = new Gallery($(this), window.documentsLibrary);
 });
 
 // Initialize document fields
 $('.form-group-document').each(function() {
-    var document = new Document($(this), library);
+    var document = new Document($(this), window.documentsLibrary);
 });

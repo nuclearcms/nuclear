@@ -5,16 +5,16 @@
 
     @if($document = get_document($options['value']))
     <div class="form-media-container">
-        <div class="form-document-thumbnail material-light">
-            {!! $document->present()->thumbnail !!}<p>
+        <figure class="form-document-thumbnail material-light">
+            <span>{!! $document->present()->thumbnail !!}</span><figcaption class="form-document-name">
                 {{ $document->name }}
-            </p>
+            </figcaption>
     @else
     <div class="form-media-container empty">
-        <div class="form-document-thumbnail material-light">
-            <img src="">
+        <figure class="form-document-thumbnail material-light">
+            <span></span><figcaption class="form-document-name"></figcaption>
     @endif
-        </div>
+        </figure>
         <div class="empty-notification">
             {{ trans('documents.no_media_selected') }}
         </div>

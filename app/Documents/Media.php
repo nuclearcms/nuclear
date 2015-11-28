@@ -99,19 +99,6 @@ class Media extends TransitFile {
     }
 
     /**
-     * Returns upload response
-     */
-    public function uploadResponse()
-    {
-        return [
-            'thumbnail' => $this->present()->thumbnail,
-            'name'      => $this->name,
-            'mimetype'  => $this->mimetype,
-            'size'      => $this->size
-        ];
-    }
-
-    /**
      * Checks if the media is an image
      *
      * @return bool
@@ -119,6 +106,18 @@ class Media extends TransitFile {
     public function isImage()
     {
         return ($this->type === 'image');
+    }
+
+    /**
+     * Converts model attributes to array
+     *
+     * @return array
+     */
+    public function toArray()
+    {
+        return array_merge(parent::toArray(), [
+            'thumbnail' => $this->present()->thumbnail
+        ]);
     }
 
 }

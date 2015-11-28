@@ -7,7 +7,7 @@
      * @param DOM Object
      */
     function Document(el, library) {
-        this.type = 'file';
+        this.type = 'document';
 
         this.el = el;
         this.library = library;
@@ -19,7 +19,7 @@
         this.addButton = this.el.find('.button-add');
         this.removeButton = this.el.find('.button-clear');
 
-        this.thumbnail = this.el.find('.form-document-thumbnail img');
+        this.thumbnail = this.el.find('.form-document-thumbnail span');
         this.fileName = this.el.find('.form-document-name');
 
         this.filter = this.el.data('filter');
@@ -71,7 +71,7 @@
 
                 this.fileName.text(media.name);
 
-                this.thumbnail.attr('src', media.thumbnail);
+                this.thumbnail.html(media.thumbnail);
             } else {
                 this._removeDocument();
             }

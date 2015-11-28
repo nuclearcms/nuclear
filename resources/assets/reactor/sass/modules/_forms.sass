@@ -285,7 +285,7 @@ label
             +size(2.5em)
             display: inline-block
 
-        p
+        .form-document-name
             margin-left: -2.5em
             padding: 0 0.75em 0 3.25em
             line-height: 2.5em
@@ -303,10 +303,6 @@ label
 
     .buttons
         margin-top: 0.5em
-    .button-clear
-        background-color: $accent
-    .button-add
-        background-color: $secondaryAccent
 
 .minicolors-no-data-uris .minicolors-sprite
     background-image: url('../img/minicolors.png')
@@ -347,12 +343,6 @@ label
                 +transition(opacity $animationNav)
             &:hover i
                 opacity: 1
-
-        .buttons
-            .button-add:hover
-                background-color: $notificationHover
-            .button-clear:hover
-                background-color: $errorHover
 
     .form-select-container:hover
         i

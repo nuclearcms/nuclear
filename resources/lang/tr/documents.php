@@ -3,11 +3,15 @@
 return [
 
     'title' => 'Dosyalar',
+    'details' => 'Detaylar',
+    'gallery' => 'Galeri',
 
     'manage' => 'Dosyaları Yönet',
     'upload' => 'Dosya Yükle',
     'search' => 'Dosya Ara',
     'all' => 'Tüm Dosyalar',
+    'add_document' => 'Dosyayı Düzenle',
+    'add_gallery' => 'Galeriyi Düzenle',
 
     'edit' => 'Dosyayı Düzenle',
     'edited' => 'Dosya düzenlendi.',
@@ -23,11 +27,13 @@ return [
     'embed_identifier' => 'Platform Tanımlayıcısı',
     'embed_service' => 'Platform',
 
+    'selected' => 'seçili',
     'drop' => 'Yüklemek için dosyaları sürükleyip bırakın',
     'select' => 'Dosyaları seçin',
     'allowed_extensions' => 'İzin verilen dosya uzantıları',
     'max_size' => 'İzin verilen en büyük dosya boyu',
     'confirm_delete' => 'Bu dosyayı silmek istediğinizden emin misiniz?',
+    'gallery_dnd' => 'Resimleri sıralamak için sürükleyin.',
 
     'InvalidUploadException' => 'Yüklenen dosya geçersiz.',
     'MaxFileSizeExceededException' => 'Dosya izin verilen büyüklüğü aşmaktadır.',

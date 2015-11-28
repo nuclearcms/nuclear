@@ -1,4 +1,4 @@
-@extends('layout.REACTOR')
+@extends('layout.reactor')
 
 @section('pageTitle', trans('documents.upload'))
 @section('contentSubtitle')
@@ -12,5 +12,8 @@
 @endsection
 
 @section('scripts')
-    {!! Theme::js('js/form.js') !!}
+    {!! Theme::js('js/upload.js') !!}
+    <script>
+        var uploader = new Uploader($('#dropzone'));
+    </script>
 @endsection

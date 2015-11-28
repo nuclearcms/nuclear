@@ -34,13 +34,17 @@ elixir(function (mix) {
         scripts([
             'components/minicolors.js',
             'password.js',
-            'upload.js',
             'slug.js',
             'tag.js',
+            'upload.js',
+            'library.js',
             'gallery.js',
             'document.js',
             'fields.js'
         ], elixir.config.publicPath + '/js/form.js').
+        scripts([
+            'upload.js'
+        ], elixir.config.publicPath + '/js/upload.js').
         scripts([
             'components/cropper.js',
             'image.js'

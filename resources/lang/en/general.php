@@ -17,6 +17,7 @@ return [
     'no' => 'No',
     'clear' => 'Clear',
     'add_or_change' => 'Add/Change',
+    'insert' => 'Insert',
 
     'dashboard' => 'Dashboard',
     'more_features_here_soon' => 'There will be more features here soon.',

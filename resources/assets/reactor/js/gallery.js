@@ -109,7 +109,7 @@
         _createThumbnail : function(media) {
             var thumbnail = $('<li data-id="' + media.id + '"><i class="icon-cancel"></i></li>');
 
-            $('<img src="' + media.thumbnail + '" alt="' + html_entities(media.name) + '">').appendTo(thumbnail);
+            $('<img src="' + media.thumbnail.attr('src') + '" alt="' + html_entities(media.name) + '">').appendTo(thumbnail);
 
             this.mediaGallery.append(thumbnail);
         }

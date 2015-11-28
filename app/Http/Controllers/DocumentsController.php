@@ -25,6 +25,18 @@ class DocumentsController extends ReactorController {
     }
 
     /**
+     * Returns a json list of resources
+     *
+     * @return json
+     */
+    public function jsonIndex()
+    {
+        $documents = Media::sortable('created_at', 'asc')->get()->toArray();
+
+        return response()->json($documents);
+    }
+
+    /**
      * Display results of searching the resource.
      *
      * @param Request $request
@@ -36,6 +48,19 @@ class DocumentsController extends ReactorController {
 
         return view('documents.search')
             ->with(compact('documents'));
+    }
+
+    /**
+     * Returns a json list of search results
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function jsonSearch(Request $request)
+    {
+        $documents = Media::search($request->input('q'))->get(['id']);
+
+        return response()->json($documents->pluck('id'));
     }
 
     /**
@@ -85,7 +110,7 @@ class DocumentsController extends ReactorController {
         $this->notify(null, 'created_media', $media);
 
         return $this->makeUploadResponse('success',
-            $media->uploadResponse());
+            $media->toArray());
     }
 
     /**

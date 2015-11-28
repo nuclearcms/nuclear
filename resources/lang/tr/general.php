@@ -17,6 +17,7 @@ return [
     'no' => 'Hayır',
     'clear' => 'Temizle',
     'add_or_change' => 'Ekle/Değiştir',
+    'insert' => 'Ekle',
 
     'dashboard' => 'Dashboard',
     'more_features_here_soon' => 'Yakında burada daha çok özellik olacak.',

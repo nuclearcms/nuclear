@@ -189,6 +189,12 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::put('documents/image/{id}', [
                 'uses' => 'DocumentsController@imageUpdate',
                 'as'   => 'reactor.documents.image.update']);
+            Route::get('documents/json', [
+                'uses' => 'DocumentsController@jsonIndex',
+                'as'   => 'reactor.documents.json.index']);
+            Route::post('documents/json/search', [
+                'uses' => 'DocumentsController@jsonSearch',
+                'as'   => 'reactor.documents.json.search']);
         });
 
         // Users

@@ -273,3 +273,4 @@
     window.Indicator = Indicator;
 
 })(window);
+//# sourceMappingURL=upload.js.map

@@ -6,4 +6,8 @@
     {!! Theme::js('js/form.js') !!}
 @endsection
 
+@section('modules')
+    @include('documents.modal')
+@endsection
+
 @section('form_end', form_end($form))
