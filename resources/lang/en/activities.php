@@ -16,7 +16,7 @@ return [
     'deleted_user' => '<a href=":actorLink">:actorName</a> deleted a user.',
     'dissociated_user_from_role' => '<a href=":actorLink">:actorName</a> dissociated a user from a <a href=":subjectLink">role</a>.',
     'edited_image' => '<a href=":actorLink">:actorName</a> edited an <a href=":subjectLink">image</a>.',
-    'embedded_media' => '<a href=":actorLink">:actorName</a> embedded an <a href=":subjectLink">external resource</a>.',
+    'embedded_media' => '<a href=":actorLink">:actorName</a> added an <a href=":subjectLink">external resource</a> to documents.',
     'retracted_role_from_user' => '<a href=":actorLink">:actorName</a> retracted a role from a <a href=":subjectLink">user</a>.',
     'revoked_permission' => '<a href=":actorLink">:actorName</a> revoked a permission from a <a href=":subjectLink">resource</a>.',
     'updated_media' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">document</a>.',

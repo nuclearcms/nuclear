@@ -16,7 +16,7 @@ return [
     'deleted_user' => '<a href=":actorLink">:actorName</a> bir kullanıcı sildi.',
     'dissociated_user_from_role' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">rolden</a> bir kullanıcı ayrıştırdı.',
     'edited_image' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">resmi</a> düzenledi.',
-    'embedded_media' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">dışarı kaynağı</a> yerleştirdi.',
+    'embedded_media' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">dışarı kaynağı</a> dosyalara ekledi.',
     'retracted_role_from_user' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kullanıcıdan</a> bir rolü çekti.',
     'revoked_permission' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kaynaktan</a> bir izni çekti.',
     'updated_media' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">dosyayı</a> güncelledi.',

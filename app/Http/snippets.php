@@ -438,3 +438,44 @@ if ( ! function_exists('field_wrapper_close'))
         return ($options['wrapper'] !== false) ? '</div>' : '';
     }
 }
+
+if ( ! function_exists('activity_open'))
+{
+    /**
+     * Renders an activity opening tag
+     *
+     * @param Model $activity
+     * @param bool $minor
+     * @return string
+     */
+    function activity_open($activity, $minor = true)
+    {
+        if ($minor)
+        {
+            $html = '<li class="activity activity-minor">';
+        } else
+        {
+            $html = '<li class="activity">
+                <div class="activity-actor"><span class="user-frame">' .
+                $activity->user->present()->avatar .
+                '</span></div>';
+        }
+
+        return $html .= '<div class="activity-subject">
+            <span class="time">' . $activity->created_at->diffForHumans() . '</span>
+                <p class="subject">';
+    }
+}
+
+if ( ! function_exists('activity_close'))
+{
+    /**
+     * Renders an activity closing tag
+     *
+     * @return string
+     */
+    function activity_close()
+    {
+        return '</p></div></li>';
+    }
+}

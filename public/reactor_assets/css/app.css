@@ -1060,6 +1060,8 @@ a {
   .activity div {
     display: inline-block;
     vertical-align: top; }
+  .activity.activity-minor {
+    font-size: 0.875em; }
 
 .activity-actor {
   padding: 0.5em 1em; }
