@@ -1085,16 +1085,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "1124ff3c6298f0dcf9edf9156623904d7a5c3428"
+                "reference": "40cb418c49f32c5140ef798ab8c273ae9aae9e07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/1124ff3c6298f0dcf9edf9156623904d7a5c3428",
-                "reference": "1124ff3c6298f0dcf9edf9156623904d7a5c3428",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/40cb418c49f32c5140ef798ab8c273ae9aae9e07",
+                "reference": "40cb418c49f32c5140ef798ab8c273ae9aae9e07",
                 "shasum": ""
             },
             "require": {
@@ -1143,7 +1143,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2015-08-16 15:31:59"
+            "time": "2015-11-27 18:22:21"
         },
         {
             "name": "intervention/imagecache",
@@ -2080,16 +2080,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.1.7",
+            "version": "v5.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "5ad8377968ba3b4da91fc60ca98b2eef4df380fc"
+                "reference": "f62269629b2a1093039733517bd7e75b3f98dffb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5ad8377968ba3b4da91fc60ca98b2eef4df380fc",
-                "reference": "5ad8377968ba3b4da91fc60ca98b2eef4df380fc",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/f62269629b2a1093039733517bd7e75b3f98dffb",
+                "reference": "f62269629b2a1093039733517bd7e75b3f98dffb",
                 "shasum": ""
             },
             "require": {
@@ -2126,7 +2126,7 @@
                     "email": "adam@laravelcollective.com"
                 }
             ],
-            "time": "2015-11-06 18:14:38"
+            "time": "2015-11-28 08:27:09"
         },
         {
             "name": "league/flysystem",
@@ -2473,16 +2473,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.1.11",
+            "version": "1.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "c8aecd1ae641d67917e0a34927f42d32244789c9"
+                "reference": "cde32a4b9751d7dfd475bd043faabd831ef7d79b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/c8aecd1ae641d67917e0a34927f42d32244789c9",
-                "reference": "c8aecd1ae641d67917e0a34927f42d32244789c9",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/cde32a4b9751d7dfd475bd043faabd831ef7d79b",
+                "reference": "cde32a4b9751d7dfd475bd043faabd831ef7d79b",
                 "shasum": ""
             },
             "require": {
@@ -2536,7 +2536,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2015-11-25 21:36:38"
+            "time": "2015-11-29 21:52:13"
         },
         {
             "name": "paragonie/random_compat",
@@ -4036,16 +4036,16 @@
         },
         {
             "name": "orchestra/testbench",
-            "version": "v3.1.5",
+            "version": "v3.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "186c2056d79f2cd06bb61e5dbaeffe8a3bfbd065"
+                "reference": "624f93d3d793c2e86907abcb4f756df23dfea8eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/186c2056d79f2cd06bb61e5dbaeffe8a3bfbd065",
-                "reference": "186c2056d79f2cd06bb61e5dbaeffe8a3bfbd065",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/624f93d3d793c2e86907abcb4f756df23dfea8eb",
+                "reference": "624f93d3d793c2e86907abcb4f756df23dfea8eb",
                 "shasum": ""
             },
             "require": {
@@ -4057,7 +4057,7 @@
             "require-dev": {
                 "behat/behat": "~2.5",
                 "mockery/mockery": "0.9.*",
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.0|~5.0"
             },
             "suggest": {
                 "behat/behat": "Allow to use Behat for testing your Laravel Application/Package (~2.5).",
@@ -4095,7 +4095,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2015-10-15 22:59:47"
+            "time": "2015-11-27 03:46:03"
         },
         {
             "name": "phpdocumentor/reflection-docblock",

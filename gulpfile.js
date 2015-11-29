@@ -28,6 +28,8 @@ elixir(function (mix) {
 
 
 // Reactor elixir
+// If you add the "--r" flag this command will set the
+// configuration and run elixir for reactor assets
 if(argv.r)
 {
     /**

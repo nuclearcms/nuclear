@@ -38,6 +38,11 @@ class RouteServiceProvider extends ServiceProvider {
      */
     public function map(Router $router)
     {
+        // Include common routes
+        $router->group(['namespace' => $this->namespace], function ($router) {
+            require app_path('Http/routes.php');
+        });
+
         // Register reactor routes if it's a reactor request
         $routes = is_reactor() ?
             base_path('routes/' . $this->app['config']->get('themes.active_reactor') . '.php') :
