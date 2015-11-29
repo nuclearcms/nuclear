@@ -48,8 +48,8 @@ return [
 
         'default' => [
             'extends'    => null,
-            'views-path' => '',
-            'asset-path' => '',
+            'views-path' => 'default',
+            'asset-path' => 'default_assets',
         ],
 
         'reactor' => [
