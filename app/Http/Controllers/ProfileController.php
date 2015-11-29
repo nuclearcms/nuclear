@@ -45,7 +45,7 @@ class ProfileController extends ReactorController
 
         $profile->update($request->all());
 
-        $this->notify('users.edited');
+        $this->notify('users.edited', 'updated_own_information', $profile);
 
         return redirect()->route('reactor.profile.edit');
     }
@@ -78,7 +78,7 @@ class ProfileController extends ReactorController
 
         $profile->setPassword($request->input('password'))->save();
 
-        $this->notify('users.changed_password');
+        $this->notify('users.changed_password', 'updated_own_password', $profile);
 
         return redirect()->route('reactor.profile.password');
     }

@@ -175,7 +175,7 @@ class NodesController extends ReactorController {
             $locale => $request->all()
         ]);
 
-        $this->notify('nodes.edited');
+        $this->notify('nodes.edited', 'updated_node_content', $node);
 
         return redirect()->back();
     }
@@ -241,7 +241,7 @@ class NodesController extends ReactorController {
             $locale => $request->all()
         ]);
 
-        $this->notify('nodes.edited');
+        $this->notify('nodes.edited', 'updated_node_seo', $node);
 
         return redirect()->back();
     }
@@ -414,7 +414,7 @@ class NodesController extends ReactorController {
             $locale => $request->all()
         ]);
 
-        $this->notify('nodes.added_translation');
+        $this->notify('nodes.added_translation', 'created_node_translation', $node);
 
         return redirect()->route('reactor.contents.edit', [
             'id'     => $node->getKey(),
