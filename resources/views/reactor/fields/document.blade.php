@@ -3,7 +3,7 @@
 <div class="form-group-column form-group-column-field">
     {!! field_label($showLabel, $options, $name) !!}
 
-    @if($document = get_document($options['value']))
+    @if($document = get_reactor_document($options['value']))
     <div class="form-media-container">
         <figure class="form-document-thumbnail material-light">
             <span>{!! $document->present()->thumbnail !!}</span><figcaption class="form-document-name">

@@ -3,7 +3,7 @@
 <div class="form-group-column form-group-column-field">
     {!! field_label($showLabel, $options, $name) !!}
 
-    @if($gallery = get_gallery($options['value']))
+    @if($gallery = get_reactor_gallery($options['value']))
     <div class="form-media-container">
         <ul class="form-media-gallery material-light">
             @foreach($gallery as $media)

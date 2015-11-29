@@ -60,7 +60,7 @@ if ( ! function_exists('locale_count'))
     }
 }
 
-if ( ! function_exists('get_field_document'))
+if ( ! function_exists('get_reactor_document'))
 {
     /**
      * Returns the document for given id
@@ -68,13 +68,13 @@ if ( ! function_exists('get_field_document'))
      * @param int $id
      * @return Model|null
      */
-    function get_document($id)
+    function get_reactor_document($id)
     {
         return Reactor\Documents\Media::find($id);
     }
 }
 
-if ( ! function_exists('get_field_gallery'))
+if ( ! function_exists('get_reactor_gallery'))
 {
     /**
      * Returns the gallery for given id
@@ -82,7 +82,7 @@ if ( ! function_exists('get_field_gallery'))
      * @param string $gallery
      * @return Collection
      */
-    function get_gallery($gallery)
+    function get_reactor_gallery($gallery)
     {
         return Reactor\Documents\Image::gallery($gallery);
     }
