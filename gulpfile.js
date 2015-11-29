@@ -1,10 +1,11 @@
 var elixir = require('laravel-elixir');
+var argv = require('yargs').argv;
 
 /**
  * Config for reactor theme
  */
-elixir.config.assetsPath = 'resources/assets/reactor';
-elixir.config.publicPath = 'public/reactor_assets';
+elixir.config.assetsPath = 'resources/assets/default';
+elixir.config.publicPath = 'public/default_assets';
 
 /*
  |--------------------------------------------------------------------------
@@ -16,21 +17,39 @@ elixir.config.publicPath = 'public/reactor_assets';
  | file for our application, as well as publishing vendor resources.
  |
  */
-
 elixir(function (mix) {
     mix
         .sass('app.sass')
-        .scripts([
-            'components/Modernizr.js',
-            'components/jquery.min.js',
-            'components/jquery-ui.js',
-            'common.js',
-            'option.js',
-            'navigation.js',
-            'tree.js',
-            'helpers.js',
-            'modal.js'
-        ], elixir.config.publicPath + '/js/app.js').
+        .scripts(
+            'app.js',
+            elixir.config.publicPath + '/js/app.js'
+        );
+});
+
+
+// Reactor elixir
+if(argv.r)
+{
+    /**
+     * Config for reactor theme
+     */
+    elixir.config.assetsPath = 'resources/assets/reactor';
+    elixir.config.publicPath = 'public/reactor_assets';
+
+    elixir(function (mix) {
+        mix
+            .sass('app.sass')
+            .scripts([
+                'components/Modernizr.js',
+                'components/jquery.min.js',
+                'components/jquery-ui.js',
+                'common.js',
+                'option.js',
+                'navigation.js',
+                'tree.js',
+                'helpers.js',
+                'modal.js'
+            ], elixir.config.publicPath + '/js/app.js').
         scripts([
             'components/minicolors.js',
             'password.js',
@@ -50,4 +69,5 @@ elixir(function (mix) {
             'components/cropper.js',
             'image.js'
         ], elixir.config.publicPath + '/js/image.js');
-});
+    });
+}
