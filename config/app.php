@@ -172,15 +172,15 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Chumper\Zipper\ZipperServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Simexis\Oembed\OembedServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
         /*
          * Extension Service Providers
          */
-        Extension\Site\Provider\SiteExtensionServiceProvider::class,
+        Extension\Site\Providers\SiteExtensionServiceProvider::class,
 
     ],
 

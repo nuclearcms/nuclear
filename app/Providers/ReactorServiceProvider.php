@@ -21,6 +21,8 @@ class ReactorServiceProvider extends ServiceProvider {
     {
         $this->registerHelpers();
 
+        $this->registerPaths();
+
         $this->setTimeLocale();
     }
 
@@ -48,6 +50,17 @@ class ReactorServiceProvider extends ServiceProvider {
         require __DIR__ . '/../Support/helpers.php';
 
         require __DIR__ . '/../Http/snippets.php';
+    }
+
+    /**
+     * Sets the extension path
+     *
+     * @return void
+     */
+    protected function registerPaths()
+    {
+        $this->app['path.extension'] = base_path('extension');
+        $this->app['path.routes'] = base_path('routes');
     }
 
     /**

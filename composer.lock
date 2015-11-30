@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c45a3f1a6eb9c00349546774311cdcb",
-    "content-hash": "7e75295bfbb74d948058689f8a78c2d5",
+    "hash": "ade418b8c9e85bebb35904969f14382b",
+    "content-hash": "fc60388ce239a8b88b8fa4b5c23e3663",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -66,56 +66,6 @@
                 "markdown-extra"
             ],
             "time": "2015-03-06 05:28:07"
-        },
-        {
-            "name": "chumper/zipper",
-            "version": "0.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Chumper/Zipper.git",
-                "reference": "313e364259398557bdcc2f68e6ff20d71aaea811"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Chumper/Zipper/zipball/313e364259398557bdcc2f68e6ff20d71aaea811",
-                "reference": "313e364259398557bdcc2f68e6ff20d71aaea811",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/filesystem": "5.x",
-                "illuminate/support": "5.x",
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Chumper\\Zipper": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache2"
-            ],
-            "authors": [
-                {
-                    "name": "Nils Plaschke",
-                    "email": "github@nilsplaschke.de",
-                    "homepage": "http://nilsplaschke.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This is a little neat helper for the ZipArchive methods with handy functions",
-            "homepage": "http://github.com/Chumper/zipper",
-            "keywords": [
-                "archive",
-                "laravel",
-                "zip"
-            ],
-            "time": "2015-02-16 11:38:11"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -2840,6 +2790,63 @@
             "time": "2015-10-01 15:07:14"
         },
         {
+            "name": "spatie/laravel-backup",
+            "version": "2.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-backup.git",
+                "reference": "54f974b3c56c7e84eea67db6fdfd2d3f49509c60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/54f974b3c56c7e84eea67db6fdfd2d3f49509c60",
+                "reference": "54f974b3c56c7e84eea67db6fdfd2d3f49509c60",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0",
+                "symfony/finder": "~2.6"
+            },
+            "require-dev": {
+                "laravel/framework": "5.*",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Backup\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://murze.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Backup command for Laravel 5 applications",
+            "homepage": "https://github.com/spatie/laravel-backup",
+            "keywords": [
+                "backup",
+                "database",
+                "laravel 5",
+                "laravel-backup",
+                "mysql",
+                "spatie"
+            ],
+            "time": "2015-11-23 22:59:48"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.1",
             "source": {
@@ -4448,16 +4455,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.18",
+            "version": "4.8.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fa33d4ad96481b91df343d83e8c8aabed6b1dfd3"
+                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fa33d4ad96481b91df343d83e8c8aabed6b1dfd3",
-                "reference": "fa33d4ad96481b91df343d83e8c8aabed6b1dfd3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b2caaf8947aba5e002d42126723e9d69795f32b4",
+                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4",
                 "shasum": ""
             },
             "require": {
@@ -4516,7 +4523,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-11-11 11:32:49"
+            "time": "2015-11-30 08:18:59"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

@@ -38,12 +38,12 @@
         "laracasts/presenter": "0.2.*",
         "intervention/image": "~2.3",
         "intervention/imagecache": "~2.3",
-        "chumper/zipper": "0.6.*",
         "igaster/laravel-theme": "^1.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "nicolaslopezj/searchable": "^1.5",
         "kris/laravel-form-builder": "^1.6",
-        "simexis/oembed": "^1.4"
+        "simexis/oembed": "^1.4",
+        "spatie/laravel-backup": "^2.8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

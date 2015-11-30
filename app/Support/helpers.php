@@ -87,3 +87,31 @@ if ( ! function_exists('get_reactor_gallery'))
         return Reactor\Documents\Image::gallery($gallery);
     }
 }
+
+if ( ! function_exists('extension_path'))
+{
+    /**
+     * Returns the extension path
+     *
+     * @param string $path
+     * @return string
+     */
+    function extension_path($path = '')
+    {
+        return app()->make('path.extension') . ($path ? '/' . $path : $path);
+    }
+}
+
+if ( ! function_exists('routes_path'))
+{
+    /**
+     * Returns the routes path
+     *
+     * @param string $path
+     * @return string
+     */
+    function routes_path($path = '')
+    {
+        return app()->make('path.routes') . ($path ? '/' . $path : $path);
+    }
+}

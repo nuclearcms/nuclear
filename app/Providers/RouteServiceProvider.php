@@ -43,9 +43,9 @@ class RouteServiceProvider extends ServiceProvider {
             // Common routes
             require app_path('Http/routes.php');
             // Reactor routes
-            require base_path('routes/' . $this->app['config']->get('themes.active_reactor') . '.php');
+            require routes_path($this->app['config']->get('themes.active_reactor') . '.php');
             // Front end routes
-            require base_path('routes/' . $this->app['config']->get('themes.active') . '.php');
+            require routes_path($this->app['config']->get('themes.active') . '.php');
         });
     }
 }
