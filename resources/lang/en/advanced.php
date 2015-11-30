@@ -5,6 +5,16 @@ return [
     'manage' => 'Manage Options',
     'update' => 'Update Nuclear',
 
+    'up_to_date' => 'Nuclear is up to date!',
+    'up_to_date_description' => 'The current version is <strong>:version</strong>.',
+    'not_up_to_date' => 'Nuclear is not up to date!',
+    'not_up_to_date_description' => 'The installed version is <strong class="warn">:version</strong>, compared to the current <strong>:current</strong>.',
+    'changelog' => 'Changelog',
+    'auto_update' => 'Automatic Update',
+    'auto_update_description' => 'You should always create a backup before updating Nuclear.',
+    'update_nuclear' => 'Update Nuclear',
+    'no_need_to_update' => 'Nuclear is already up to date! There is no need to update.',
+
     'optimize' => 'Optimize',
     'backup' => 'Backup',
     'cleanup' => 'Clean Up',

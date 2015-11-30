@@ -5,6 +5,16 @@ return [
     'manage' => 'Ayarları Yönet',
     'update' => 'Nuclear\'ı Güncelle',
 
+    'up_to_date' => 'Nuclear güncel!',
+    'up_to_date_description' => 'Güncel versiyon: <strong>:version</strong>.',
+    'not_up_to_date' => 'Nuclear güncel değil!',
+    'not_up_to_date_description' => 'Şu an yüklü versiyon <strong class="warn">:version</strong>, en güncel ise <strong>:current</strong>.',
+    'changelog' => 'Değişenler',
+    'auto_update' => 'Otomatik Güncelleme',
+    'auto_update_description' => 'Nuclear\'ı güncellemeden önce her zaman yedek almalısınız.',
+    'update_nuclear' => 'Nuclear\'ı Güncelle',
+    'no_need_to_update' => 'Nuclear zaten güncel! Güncellemeye gerek yok.',
+
     'optimize' => 'Optimize Etme',
     'backup' => 'Yedekleme',
     'cleanup' => 'Temizlik',

@@ -6,7 +6,7 @@
 @section('content')
     <div class="advanced-options content-form material-light">
         <section class="advanced-options-set">
-            <h3>{{ uppercase(trans('advanced.optimize')) }}</h3>
+            <h3 class="icon-cog">{{ trans('advanced.optimize') }}</h3>
 
             <p class="advanced-option-description">
                 {!! trans('advanced.optimize_description') !!}
@@ -28,7 +28,7 @@
             </div>
         </section>
         <section class="advanced-options-set">
-            <h3>{{ uppercase(trans('advanced.backup')) }}</h3>
+            <h3 class="icon-box">{{ trans('advanced.backup') }}</h3>
 
             <p class="advanced-option-description">
                 {!! trans('advanced.backup_description') !!}
@@ -41,7 +41,7 @@
 
         </section>
         <section class="advanced-options-set">
-            <h3>{{ uppercase(trans('advanced.cleanup')) }}</h3>
+            <h3 class="icon-trash">{{ trans('advanced.cleanup') }}</h3>
 
             <p class="advanced-option-description">
                 {!! trans('advanced.cleanup_description') !!}

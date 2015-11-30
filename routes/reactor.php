@@ -338,9 +338,14 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'AdvancedOptionsController@index'
             ]);
 
+            // Update
             Route::get('advanced/update', [
                 'as' => 'reactor.advanced.update',
                 'uses' => 'UpdateController@index'
+            ]);
+            Route::get('advanced/update/start', [
+                'as' => 'reactor.advanced.update.start',
+                'uses' => 'UpdateController@start'
             ]);
 
             // Optimize

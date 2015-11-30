@@ -6,6 +6,17 @@
         h3
             margin-bottom: 0.5em
             font-size: 1.75em
+            color: $darkGray-2
+
+            &.success
+                color: $successHover
+            &.warning
+                color: $errorHover
+
+        h4
+            margin: 1.5em 0 0.5em
+            font-size: 1.25em
+            font-weight: 700
 
     &:last-child
         border-bottom: 0
@@ -15,6 +26,16 @@
     margin-bottom: 2em
     line-height: 1.5em
     color: $darkGray-1
+
+    &.warn
+        color: #e67e22
+
+    strong
+        font-weight: 700
+        color: $successHover
+
+        &.warn
+            color: $darkGray-2
 
 .advanced-options-set
     .control-label
