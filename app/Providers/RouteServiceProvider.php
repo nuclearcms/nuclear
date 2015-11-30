@@ -40,17 +40,12 @@ class RouteServiceProvider extends ServiceProvider {
     {
         // Include common routes
         $router->group(['namespace' => $this->namespace], function ($router) {
+            // Common routes
             require app_path('Http/routes.php');
-        });
-
-        // Register reactor routes if it's a reactor request
-        $routes = is_reactor() ?
-            base_path('routes/' . $this->app['config']->get('themes.active_reactor') . '.php') :
-            base_path('routes/' . $this->app['config']->get('themes.active') . '.php');
-
-        $router->group(['namespace' => $this->namespace], function ($router) use ($routes)
-        {
-            require $routes;
+            // Reactor routes
+            require base_path('routes/' . $this->app['config']->get('themes.active_reactor') . '.php');
+            // Front end routes
+            require base_path('routes/' . $this->app['config']->get('themes.active') . '.php');
         });
     }
 }

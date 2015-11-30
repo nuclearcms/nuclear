@@ -175,7 +175,12 @@ return [
         Chumper\Zipper\ZipperServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
-        Simexis\Oembed\OembedServiceProvider::class
+        Simexis\Oembed\OembedServiceProvider::class,
+
+        /*
+         * Extension Service Providers
+         */
+        Extension\Site\Provider\SiteExtensionServiceProvider::class,
 
     ],
 
