@@ -81,6 +81,12 @@
                     {!! navigation_module_close() !!}
                     @endcan
 
+                    @can('ACCESS_ADVANCED')
+                    {!! navigation_module_open('icon-wrench', 'advanced.title') !!}
+                        {!! navigation_module_link('reactor.advanced', 'icon-wrench', 'advanced.manage') !!}
+                    {!! navigation_module_close() !!}
+                    @endcan
+
                     <li class="navigation-module navigation-user">
                         <span class="user-frame">
                             {!! $user->present()->avatar !!}
@@ -96,7 +102,7 @@
                     </li>
 
                     <li class="navigation-module navigation-version module-hidden-collapse">
-                        <a href="#">
+                        <a href="https://github.com/NuclearCMS/Nuclear" target="_blank">
                             {!! Theme::img('img/nuclear-logo.svg', 'Nuclear Logo') !!}
                             <span>v{{ nuclear_version() }}</span>
                         </a>

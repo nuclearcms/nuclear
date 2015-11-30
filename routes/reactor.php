@@ -330,6 +330,49 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             ]]);
         });
 
+        // Advanced settings
+        Route::group(['middleware' => 'guard:ACCESS_ADVANCED'], function ()
+        {
+            Route::get('advanced', [
+                'as' => 'reactor.advanced',
+                'uses' => 'AdvancedOptionsController@index'
+            ]);
+
+            // Optimize
+            Route::get('advanced/optimize', [
+                'as' => 'reactor.advanced.optimize',
+                'uses' => 'AdvancedOptionsController@optimizeApp'
+            ]);
+            Route::get('advanced/cache/routes', [
+                'as' => 'reactor.advanced.cache.routes',
+                'uses' => 'AdvancedOptionsController@cacheRoutes'
+            ]);
+
+            // Backup
+            Route::get('advanced/backup', [
+                'as' => 'reactor.advanced.backup.create',
+                'uses' => 'AdvancedOptionsController@createBackup'
+            ]);
+
+            // Clean
+            Route::get('advanced/clear/password', [
+                'as' => 'reactor.advanced.clear.password',
+                'uses' => 'AdvancedOptionsController@clearPasswords'
+            ]);
+            Route::get('advanced/clear/view', [
+                'as' => 'reactor.advanced.clear.views',
+                'uses' => 'AdvancedOptionsController@clearViews'
+            ]);
+            Route::get('advanced/clear/activity', [
+                'as' => 'reactor.advanced.clear.activity',
+                'uses' => 'AdvancedOptionsController@clearActivities'
+            ]);
+            Route::get('advanced/clear/cache', [
+                'as' => 'reactor.advanced.clear.cache',
+                'uses' => 'AdvancedOptionsController@clearCache'
+            ]);
+        });
+
     });
 
 });

@@ -17,15 +17,16 @@ elixir.config.publicPath = 'public/default_assets';
  | file for our application, as well as publishing vendor resources.
  |
  */
-elixir(function (mix) {
-    mix
-        .sass('app.sass')
-        .scripts(
-            'app.js',
-            elixir.config.publicPath + '/js/app.js'
-        );
-});
-
+if(!argv.r) {
+    elixir(function (mix) {
+        mix
+            .sass('app.sass')
+            .scripts(
+                'app.js',
+                elixir.config.publicPath + '/js/app.js'
+            );
+    });
+}
 
 // Reactor elixir
 // If you add the "--r" flag this command will set the
