@@ -84,6 +84,8 @@
                     @can('ACCESS_ADVANCED')
                     {!! navigation_module_open('icon-wrench', 'advanced.title') !!}
                         {!! navigation_module_link('reactor.advanced', 'icon-wrench', 'advanced.manage') !!}
+
+                        {!! navigation_module_link('reactor.advanced.update', 'icon-arrows-cw', 'advanced.update') !!}
                     {!! navigation_module_close() !!}
                     @endcan
 

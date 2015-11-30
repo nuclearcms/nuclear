@@ -3,6 +3,7 @@
 return [
     'title' => 'Advanced Options',
     'manage' => 'Manage Options',
+    'update' => 'Update Nuclear',
 
     'optimize' => 'Optimize',
     'backup' => 'Backup',

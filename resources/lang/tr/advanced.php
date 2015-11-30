@@ -3,6 +3,7 @@
 return [
     'title' => 'Gelişmiş Ayarlar',
     'manage' => 'Ayarları Yönet',
+    'update' => 'Nuclear\'ı Güncelle',
 
     'optimize' => 'Optimize Etme',
     'backup' => 'Yedekleme',
