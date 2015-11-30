@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Gelişmiş Ayarlar',
-    'manage' => 'Gelişmiş Ayarları Yönet',
+    'manage' => 'Ayarları Yönet',
 
     'optimize' => 'Optimize Etme',
     'backup' => 'Yedekleme',

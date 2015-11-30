@@ -2,7 +2,7 @@
 
 return [
     'title' => 'Advanced Options',
-    'manage' => 'Manage Advanced Options',
+    'manage' => 'Manage Options',
 
     'optimize' => 'Optimize',
     'backup' => 'Backup',
