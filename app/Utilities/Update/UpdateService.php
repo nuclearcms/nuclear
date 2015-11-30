@@ -4,7 +4,9 @@ namespace Reactor\Utilities\Update;
 
 
 use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Stream\Stream;
 use Symfony\Component\HttpFoundation\Response;
 
 class UpdateService {
@@ -82,6 +84,79 @@ class UpdateService {
     public function getLatestRelease()
     {
         return current($this->getReleases());
+    }
+
+    /**
+     * Downloads the latest update and stores it in the temporary folder
+     *
+     * @return string
+     */
+    public function downloadLatest()
+    {
+        $downloadURL = $this->getLatestDownloadLink();
+
+        return $this->downloadUpdateFromURL($downloadURL);
+    }
+
+    /**
+     * Validates the latest update and returns the download link
+     *
+     * @return string
+     */
+    protected function getLatestDownloadLink()
+    {
+        $latest = $this->getLatestRelease();
+
+        if ( ! isset($latest->assets[0]) or empty($latest->assets[0]->browser_download_url))
+        {
+            abort(500, trans('advanced.no_archive_to_download'));
+        }
+
+        return $latest->assets[0]->browser_download_url;
+    }
+
+    /**
+     * Downloads and stores the update in temporary folder
+     *
+     * @param string $downloadURL
+     * @return string
+     */
+    protected function downloadUpdateFromURL($downloadURL)
+    {
+        $fileName = tempnam(sys_get_temp_dir(), 'nuclear_update.zip');
+        $resource = fopen($fileName, 'w');
+        $stream = Stream::factory($resource);
+
+        $client = new Client();
+        $client->get($downloadURL, [
+            'save_to' => $stream
+        ]);
+
+        return $fileName;
+    }
+
+    /**
+     * Extracts the update in the supplied path
+     *
+     * @param string $path
+     */
+    public function extractUpdate($path)
+    {
+        \Artisan::call('down');
+
+        // Extract somewhere here
+
+        \Artisan::call('up');
+    }
+
+    /**
+     * Finalizes the update process
+     */
+    public function finalizeUpdate()
+    {
+        \Artisan::call('cache:clear');
+        \Artisan::call('route:cache');
+        \Artisan::call('migrate');
     }
 
 }

@@ -13,7 +13,7 @@
         "laravel",
         "laravel5"
     ],
-    "version": "2.0.0-alpha.2",
+    "version": "2.0.0-alpha.3",
     "authors": [
         {
             "name": "Hyleeh",
@@ -40,6 +40,7 @@
         "intervention/imagecache": "~2.3",
         "igaster/laravel-theme": "^1.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",
+        "guzzlehttp/streams": "^3.0",
         "nicolaslopezj/searchable": "^1.5",
         "kris/laravel-form-builder": "^1.6",
         "simexis/oembed": "^1.4",

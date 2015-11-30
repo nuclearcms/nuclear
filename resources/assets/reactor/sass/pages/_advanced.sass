@@ -18,9 +18,9 @@
             font-size: 1.25em
             font-weight: 700
 
-    &:last-child
-        border-bottom: 0
-        margin-bottom: 0
+        &:last-child
+            border-bottom: 0
+            margin-bottom: 0
 
 .advanced-option-description
     margin-bottom: 2em
@@ -48,3 +48,18 @@
 
         i
             display: none
+
+.updater-progress
+    height: 3em
+    width: 100%
+    background-color: $lightGray-3
+    margin-top: 1em
+
+    .progress-bar
+        background-color: $notification
+        height: 100%
+        width: 10%
+        +transition(width $animationNav, background-color $animationNav)
+
+        &.complete
+            background-color: $success

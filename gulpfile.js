@@ -69,6 +69,9 @@ if(argv.r)
             'upload.js'
         ], elixir.config.publicPath + '/js/upload.js').
         scripts([
+            'update.js'
+        ], elixir.config.publicPath + '/js/update.js').
+        scripts([
             'components/cropper.js',
             'image.js'
         ], elixir.config.publicPath + '/js/image.js');

@@ -15,6 +15,12 @@ return [
     'update_nuclear' => 'Update Nuclear',
     'no_need_to_update' => 'Nuclear is already up to date! There is no need to update.',
 
+    'update_in_progress' => 'Update in Process',
+    'downloading_latest' => 'Downloading the latest package... This might take a while...',
+    'extracting_update' => 'Extracting update...',
+    'finalizing_update' => 'Finalizing update...',
+    'update_complete' => 'Update complete!',
+
     'optimize' => 'Optimize',
     'backup' => 'Backup',
     'cleanup' => 'Clean Up',

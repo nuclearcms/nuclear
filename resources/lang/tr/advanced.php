@@ -15,6 +15,12 @@ return [
     'update_nuclear' => 'Nuclear\'ı Güncelle',
     'no_need_to_update' => 'Nuclear zaten güncel! Güncellemeye gerek yok.',
 
+    'update_in_progress' => 'Güncelleme Sürüyor',
+    'downloading_latest' => 'En son güncelleme indiriliyor... Bu biraz zaman alabilir...',
+    'extracting_update' => 'Güncelleme yükleniyor...',
+    'finalizing_update' => 'Güncelleme tamamlanıyor...',
+    'update_complete' => 'Güncelleme tamamlandı!',
+
     'optimize' => 'Optimize Etme',
     'backup' => 'Yedekleme',
     'cleanup' => 'Temizlik',

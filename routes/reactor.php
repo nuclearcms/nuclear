@@ -347,6 +347,18 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.advanced.update.start',
                 'uses' => 'UpdateController@start'
             ]);
+            Route::post('advanced/update/download', [
+                'as' => 'reactor.advanced.update.download',
+                'uses' => 'UpdateController@download'
+            ]);
+            Route::post('advanced/update/extract', [
+                'as' => 'reactor.advanced.update.extract',
+                'uses' => 'UpdateController@extract'
+            ]);
+            Route::post('advanced/update/finalize', [
+                'as' => 'reactor.advanced.update.finalize',
+                'uses' => 'UpdateController@finalize'
+            ]);
 
             // Optimize
             Route::get('advanced/optimize', [
