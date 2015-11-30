@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \Reactor\Console\Commands\Inspire::class,
+        \Reactor\Console\Commands\MakeDeployPackage::class,
     ];
 
     /**
