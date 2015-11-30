@@ -53,6 +53,16 @@ class AdvancedOptionsController extends ReactorController {
     }
 
     /**
+     * Caches routes
+     *
+     * @return Redirect
+     */
+    public function regenerateKey()
+    {
+        return $this->action('key:generate', 'regenerated_key');
+    }
+
+    /**
      * Creates backup
      *
      * @return Redirect

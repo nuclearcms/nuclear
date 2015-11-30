@@ -13,6 +13,8 @@ return [
     'app_optimized' => 'Optimized Nuclear.',
     'cache_routes' => 'Cache Routes',
     'routes_cached' => 'Routes cached.',
+    'regenerate_key' => 'Regenerate Key',
+    'regenerated_key' => 'Regenerated application key.',
 
     'backup_description' => 'You can backup your content and other necessary files from here.<br>This action might take a while, please wait.',
     'create_backup' => 'Create Backup',

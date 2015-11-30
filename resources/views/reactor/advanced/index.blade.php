@@ -21,6 +21,11 @@
                 {!! Form::label('', trans('advanced.cache_routes'), ['class' => 'control-label']) !!}
                 {!! action_button(route('reactor.advanced.cache.routes'), '', true, trans('advanced.cache_routes')) !!}
             </div>
+
+            <div class="form-group inline">
+                {!! Form::label('', trans('advanced.regenerate_key'), ['class' => 'control-label']) !!}
+                {!! action_button(route('reactor.advanced.key'), '', true, trans('advanced.regenerate_key')) !!}
+            </div>
         </section>
         <section class="advanced-options-set">
             <h3>{{ uppercase(trans('advanced.backup')) }}</h3>

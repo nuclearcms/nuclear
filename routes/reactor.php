@@ -347,6 +347,10 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.advanced.cache.routes',
                 'uses' => 'AdvancedOptionsController@cacheRoutes'
             ]);
+            Route::get('advanced/key', [
+                'as' => 'reactor.advanced.key',
+                'uses' => 'AdvancedOptionsController@regenerateKey'
+            ]);
 
             // Backup
             Route::get('advanced/backup', [

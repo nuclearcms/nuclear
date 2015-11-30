@@ -13,6 +13,8 @@ return [
     'app_optimized' => 'Nuclear optimize edildi.',
     'cache_routes' => 'Rotaları Önbelleğe Al',
     'routes_cached' => 'Rotalar önbelleğe alındı.',
+    'regenerate_key' => 'Yeniden Anahtar Oluştur',
+    'regenerated_key' => 'Anahtar yeniden oluşturuldu.',
 
     'backup_description' => 'İçeriğinizi ve diğer gerekli dosyaları buradan yedekleyebilirsiniz.<br>Bu biraz zaman alabilir, lütfen bekleyin.',
     'create_backup' => 'Yedek Oluştur',
