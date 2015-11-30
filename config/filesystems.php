@@ -48,6 +48,11 @@ return [
             'root'   => storage_path('app'),
         ],
 
+        'reactorbase' => [
+            'driver' => 'local',
+            'root'   => base_path()
+        ],
+
         'ftp' => [
             'driver'   => 'ftp',
             'host'     => 'ftp.example.com',
