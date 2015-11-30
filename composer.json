@@ -43,14 +43,13 @@
         "nicolaslopezj/searchable": "^1.5",
         "kris/laravel-form-builder": "^1.6",
         "simexis/oembed": "^1.4",
-        "spatie/laravel-backup": "^2.8"
+        "spatie/laravel-backup": "^2.8",
+        "barryvdh/laravel-debugbar": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~4.0",
-        "orchestra/testbench": "3.1.*",
-        "barryvdh/laravel-debugbar": "~2.0"
+        "phpunit/phpunit": "~4.0"
     },
     "autoload": {
         "classmap": [
