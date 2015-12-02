@@ -230,6 +230,14 @@ class ExtractorService {
             $fs->deleteDirectory($source);
         } else
         {
+            // Create directory if it doesn't exist
+            $parentDirectory = dirname($destination);
+
+            if ( ! $fs->exists($parentDirectory))
+            {
+                $fs->makeDirectory($parentDirectory, 0777, true);
+            }
+
             $fs->move($source, $destination);
         }
     }
