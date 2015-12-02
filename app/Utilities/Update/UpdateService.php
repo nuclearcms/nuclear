@@ -73,9 +73,9 @@ class UpdateService {
     public function isNuclearCurrent()
     {
         return (version_compare(
-            nuclear_version(),
-            $this->getLatestRelease()->tag_name
-        ) === 0);
+                nuclear_version(),
+                $this->getLatestRelease()->tag_name
+            ) >= 0);
     }
 
     /**
@@ -83,7 +83,15 @@ class UpdateService {
      */
     public function getLatestRelease()
     {
-        return current($this->getReleases());
+        foreach ($this->getReleases() as $release)
+        {
+            if ($release->draft === false)
+            {
+                return $release;
+            }
+        }
+
+        return null;
     }
 
     /**

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug'           => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url'             => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'reactor_prefix'  => env('REACTOR_PREFIX', 'reactor'),
+    'reactor_prefix' => env('REACTOR_PREFIX', 'reactor'),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'timezone'        => 'UTC',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'locale'          => 'en',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,9 +90,9 @@ return [
     |
     */
 
-    'key'             => env('APP_KEY', 'SomeRandomString'),
+    'key' => env('APP_KEY', 'SomeRandomString'),
 
-    'cipher'          => 'AES-256-CBC',
+    'cipher' => 'AES-256-CBC',
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +107,7 @@ return [
     |
     */
 
-    'log'             => 'single',
+    'log' => 'single',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'providers'       => [
+    'providers' => [
 
         /*
          * Laravel Framework Service Providers...
@@ -195,7 +195,7 @@ return [
     |
     */
 
-    'aliases'         => [
+    'aliases' => [
 
         'App'         => Illuminate\Support\Facades\App::class,
         'Artisan'     => Illuminate\Support\Facades\Artisan::class,
@@ -243,7 +243,6 @@ return [
         'Flash'       => Laracasts\Flash\Flash::class,
         'Debugbar'    => Barryvdh\Debugbar\Facade::class,
         'Image'       => Intervention\Image\Facades\Image::class,
-        'Zipper'      => Chumper\Zipper\Zipper::class,
         'Theme'       => igaster\laravelTheme\Facades\Theme::class,
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
         'Oembed'      => Simexis\Oembed\OembedFacade::class
