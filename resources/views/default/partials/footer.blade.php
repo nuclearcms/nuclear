@@ -1,4 +1,4 @@
-<p class="note">{!! trans('site.kk') !!}</p>
+<p class="note">{!! trans('site::site.kk') !!}</p>
 <div class="logo">
     <a href="http://kenarkose.com" target="_blank">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 360 360" enable-background="new 0 0 360 360" xml:space="preserve">

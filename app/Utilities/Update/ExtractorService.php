@@ -10,6 +10,54 @@ use ZipArchive;
 class ExtractorService {
 
     /**
+     * Path for keeping older files
+     * belonging to the previous update
+     *
+     * @var string
+     */
+    const UPDATE_TRASH_DIR = '/trash';
+
+    /**
+     * For testing purposes we may set this
+     * to '/updatetest' so that we won't replace the
+     * actual files
+     *
+     * @var string
+     */
+    const UPDATE_DESTINATION_DIR = '';
+
+    /**
+     * The folder name when archive is extracted.
+     *
+     * nuclear_2.*.*.zip
+     *  |__ /nuclear
+     *       |__ files
+     *
+     * @var string
+     */
+    const UPDATE_ZIP_DIR = "/nuclear";
+
+    /**
+     * List of updateable files
+     *
+     * @var array
+     */
+    protected $updateableFiles = [
+        'app',
+        'bootstrap',
+        'database',
+        'resources/assets/reactor',
+        'resources/lang',
+        'resources/views/reactor',
+        'routes/reactor.php',
+        'vendor',
+        'artisan',
+        'LICENSE',
+        'readme.md',
+        'server.php'
+    ];
+
+    /**
      * Extracts the update in the given path
      *
      * @param string $updatePath
@@ -33,8 +81,15 @@ class ExtractorService {
         }
 
         $extractDir = $this->createExtractionDirectory($fs);
-        $zip->extractTo($extractDir . '/');
+
+        if ( ! $zip->extractTo($extractDir . '/'))
+        {
+            abort(500, trans('advanced.zip_could_not_be_extracted'));
+        };
+
         $zip->close();
+
+        $extractDir .= static::UPDATE_ZIP_DIR;
 
         return $extractDir;
     }
@@ -73,7 +128,93 @@ class ExtractorService {
      */
     public function move($extractedPath)
     {
+        $root = base_path() . static::UPDATE_DESTINATION_DIR;
+        $fs = new Filesystem();
 
+        $this->validateDirectories($fs, $extractedPath, $root);
+
+        $trashPath = $this->emptyTrash($fs, $root);
+
+        $this->replaceFiles($fs, $root, $extractedPath, $trashPath);
+    }
+
+    /**
+     * @param Filesystem $fs
+     * @param string $extractedPath
+     * @param string $root
+     */
+    protected function validateDirectories(Filesystem $fs, $extractedPath, $root)
+    {
+        if ( ! $fs->exists($extractedPath))
+        {
+            throw new RuntimeException(trans('advanced.extracted_files_not_found'));
+        }
+
+        if ( ! is_writable($root))
+        {
+            throw new RuntimeException(trans('advanced.root_not_writable'));
+        }
+    }
+
+    /**
+     * @param Filesystem $fs
+     * @param string $root
+     * @return string
+     */
+    protected function emptyTrash(Filesystem $fs, $root)
+    {
+        $trashDir = $root . static::UPDATE_TRASH_DIR;
+
+        if ($fs->exists($trashDir))
+        {
+            $fs->deleteDirectory($trashDir);
+        }
+
+        $fs->makeDirectory($trashDir, 0777, true);
+
+        return $trashDir;
+    }
+
+    /**
+     * @param Filesystem $fs
+     * @param $root
+     * @param $extractedPath
+     * @param $trashPath
+     */
+    protected function replaceFiles(Filesystem $fs, $root, $extractedPath, $trashPath)
+    {
+        $files = $this->updateableFiles;
+
+        foreach ($files as $file)
+        {
+            $this->replaceFile(
+                $fs,
+                $root . '/' . $file,
+                $extractedPath . '/' . $file,
+                $trashPath . '/' . $file
+            );
+        }
+    }
+
+    /**
+     * @param Filesystem $fs
+     * @param string $destination
+     * @param string $temporary
+     * @param string $trash
+     */
+    protected function replaceFile(Filesystem $fs, $destination, $temporary, $trash)
+    {
+        // Move to trash first if exists
+        if ($fs->exists($destination))
+        {
+            $fs->move($destination, $trash);
+        }
+
+        // Move the file only if exists in the update
+        if ($fs->exists($temporary))
+        {
+            $fs->move($temporary, $destination);
+        }
     }
 
 }

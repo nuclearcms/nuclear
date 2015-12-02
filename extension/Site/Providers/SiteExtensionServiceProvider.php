@@ -16,4 +16,15 @@ class SiteExtensionServiceProvider extends ServiceProvider {
     {
         // TODO: Implement register() method.
     }
+
+    /**
+     * Perform post-registration booting of services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->loadTranslationsFrom(dirname(__DIR__) . '/lang', 'site');
+    }
+
 }

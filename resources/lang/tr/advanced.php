@@ -16,8 +16,10 @@ return [
     'no_need_to_update' => 'Nuclear zaten güncel! Güncellemeye gerek yok.',
     'no_update_found' => 'Geçici klasörde güncelleme paketi bulunamadı.',
     'could_not_open_zip' => 'ZIP dosyası açılamadı.',
+    'zip_could_not_be_extracted' => 'ZIP dosyası açılamadı.',
     'could_not_create_temporary_directory' => 'Geçici güncelleme klasörü oluşturulamadı.',
     'extracted_files_not_found' => 'Güncelleme dosyaları bulunamadı.',
+    'root_not_writable' => 'Kök klasöre yazma izniniz yok.',
 
     'update_in_progress' => 'Güncelleme Sürüyor',
     'downloading_latest' => 'En son güncelleme indiriliyor... Bu biraz zaman alabilir...',

@@ -7,6 +7,8 @@ use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Stream\Stream;
+use GuzzleHttp\Subscriber\Cache\CacheStorage;
+use GuzzleHttp\Subscriber\Cache\CacheSubscriber;
 use Symfony\Component\HttpFoundation\Response;
 
 class UpdateService {
@@ -41,6 +43,8 @@ class UpdateService {
         $this->httpClient = new GuzzleClient([
             'defaults' => ['debug' => false],
         ]);
+
+        CacheSubscriber::attach($this->httpClient);
     }
 
     /**
@@ -159,13 +163,7 @@ class UpdateService {
      */
     public function extractUpdate($path)
     {
-        \Artisan::call('down');
-
-        $extractPath = $this->extractorService->extract($path);
-
-        \Artisan::call('up');
-
-        return $extractPath;
+        return $this->extractorService->extract($path);
     }
 
     /**
