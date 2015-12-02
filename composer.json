@@ -62,6 +62,11 @@
             "gen\\": "gen/"
         }
     },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    },
     "config": {
         "preferred-install": "dist"
     },
