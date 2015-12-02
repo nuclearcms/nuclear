@@ -9,16 +9,18 @@ Installing Nuclear is (sort of) simple.
 1. Download one of the releases or the commit ZIP file.
     1. If you download the ZIP file, don't forget to run composer install.
     
-2. Rename .env.example to .env
+2. Rename `.env.example` to `.env`
 3. Configure Nuclear
     1. Create a new database
     2. Set database parameters in .env
-     Comment out AuthServiceProvider and RouteServiceProvider in config/app.php
-    4. Use php artisan migrate to migrate the database
+     Comment out `AuthServiceProvider` and `RouteServiceProvider` in `config/app.php`
+    4. Use `php artisan migrate` to migrate the database
     5. Uncomment the services
+    6. Use `php artisan clear-compiled` and `php artisan optimize` to generate a fresh class loader.
+    7. Use `php artisan key:generate` to generate the application key
     
-4. Now that everything is set, just seed the database by running php artisan db:seed.
-5. Enjoy (login from /reactor with admin@admin.com, admin)
+4. Now that everything is set, just seed the database by running `php artisan db:seed`.
+5. Enjoy (login from `/reactor` with `admin@admin.com` and `admin`)
 
 *Note: A pretty installer will be implemented in 2.1 version.*
 
