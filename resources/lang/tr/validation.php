@@ -139,10 +139,18 @@ return [
         'home' => 'Anasayfa Düğümü',
         'locked' => 'Kilitli',
         'status' => 'Durum',
+        'position' => 'Pozisyon',
+        'rules' => 'Kurallar',
+        'options' => 'Seçenekler',
+        'content' => 'İçerik',
+        'default_value' => 'Öntanımlı Değer',
         'published_at' => 'Yayınlanma Tarihi',
         'priority' => 'Öncelik',
         'children_order' => 'Çocuk Düğüm Sırası',
         'children_order_direction' => 'Çocuk Düğüm Sırası Yönü',
+        'meta_title' => 'Meta Başlık',
+        'meta_keywords' => 'Meta Anahtar Kelimeler',
+        'meta_description' => 'Meta Açıklama',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',

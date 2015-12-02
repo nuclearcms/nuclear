@@ -6,7 +6,7 @@ return [
     'title_type' => 'Düğüm Tipleri',
 
     'management' => 'Düğüm Yönetimi',
-    'manage' => 'Düğümleri Tiplerini Yönet',
+    'manage' => 'Düğüm Tiplerini Yönet',
     'search' => 'Düğüm Ara',
     'search_type' => 'Düğüm Tiplerinde Ara',
     'all' => 'Tüm Düğüm Tipleri',
