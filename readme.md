@@ -20,7 +20,7 @@ Installing Nuclear is (sort of) simple.
     7. Use `php artisan key:generate` to generate the application key
     
 4. Now that everything is set, just seed the database by running `php artisan db:seed`.
-5. Enjoy (login from `/reactor` with `admin@admin.com` and `admin`)
+5. Enjoy (login from `/reactor` with `john@doe.com` and `secret`)
 
 *Note: A pretty installer will be implemented in 2.1 version.*
 
