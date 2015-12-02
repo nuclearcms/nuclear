@@ -207,13 +207,30 @@ class ExtractorService {
         // Move to trash first if exists
         if ($fs->exists($destination))
         {
-            $fs->move($destination, $trash);
+            $this->moveFileOrDirectory($destination, $trash);
         }
 
         // Move the file only if exists in the update
         if ($fs->exists($temporary))
         {
-            $fs->move($temporary, $destination);
+            $this->moveFileOrDirectory($temporary, $destination);
+        }
+    }
+
+    /**
+     * @param Filesystem $fs
+     * @param string $source
+     * @param string $destination
+     */
+    protected function moveFileOrDirectory(Filesystem $fs, $source, $destination)
+    {
+        if (is_dir($source))
+        {
+            $fs->copyDirectory($source, $destination);
+            $fs->deleteDirectory($source);
+        } else
+        {
+            $fs->move($source, $destination);
         }
     }
 
