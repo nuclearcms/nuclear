@@ -355,6 +355,10 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.advanced.update.extract',
                 'uses' => 'UpdateController@extract'
             ]);
+            Route::post('advanced/update/move', [
+                'as' => 'reactor.advanced.update.move',
+                'uses' => 'UpdateController@move'
+            ]);
             Route::post('advanced/update/finalize', [
                 'as' => 'reactor.advanced.update.finalize',
                 'uses' => 'UpdateController@finalize'

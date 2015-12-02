@@ -26,10 +26,18 @@ class UpdateService {
     protected $releases;
 
     /**
-     * Constructor
+     * @var ExtractorService
      */
-    public function __construct()
+    protected $extractorService;
+
+    /**
+     * Constructor
+     * @param ExtractorService $extractorService
+     */
+    public function __construct(ExtractorService $extractorService)
     {
+        $this->extractorService = $extractorService;
+
         $this->httpClient = new GuzzleClient([
             'defaults' => ['debug' => false],
         ]);
@@ -147,12 +155,29 @@ class UpdateService {
      * Extracts the update in the supplied path
      *
      * @param string $path
+     * @return string
      */
     public function extractUpdate($path)
     {
         \Artisan::call('down');
 
-        // Extract somewhere here
+        $extractPath = $this->extractorService->extract($path);
+
+        \Artisan::call('up');
+
+        return $extractPath;
+    }
+
+    /**
+     * Moves the extracted files in the supplied path
+     *
+     * @param string $path
+     */
+    public function moveUpdate($path)
+    {
+        \Artisan::call('down');
+
+        $this->extractorService->move($path);
 
         \Artisan::call('up');
     }

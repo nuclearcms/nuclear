@@ -59,9 +59,9 @@ class UpdateController extends ReactorController {
         session()->set('_temporary_update_path', $fileName);
 
         return response()->json([
-            'message' => trans('advanced.extracting_update'),
-            'next' => route('reactor.advanced.update.extract'),
-            'progress' => 40
+            'message'  => trans('advanced.extracting_update'),
+            'next'     => route('reactor.advanced.update.extract'),
+            'progress' => 30
         ]);
     }
 
@@ -73,14 +73,47 @@ class UpdateController extends ReactorController {
      */
     public function extract(UpdateService $updateService)
     {
-        $updateService->extractUpdate(
+        $path = session('_temporary_update_path');
+
+        if (empty($path))
+        {
+            abort(500, trans('advanced.no_update_found'));
+        }
+
+        $extractedPath = $updateService->extractUpdate(
             session('_temporary_update_path')
         );
 
+        session()->set('_extracted_update_path', $extractedPath);
+
         return response()->json([
-            'message' => trans('advanced.finalizing_update'),
-            'next' => route('reactor.advanced.update.finalize'),
-            'progress' => 70
+            'message'  => trans('advanced.moving_files'),
+            'next'     => route('reactor.advanced.update.move'),
+            'progress' => 55
+        ]);
+    }
+
+    /**
+     * Moves the extracted update files
+     *
+     * @param UpdateService $updateService
+     * @return Response
+     */
+    public function move(UpdateService $updateService)
+    {
+        $path = session('_extracted_update_path');
+
+        if (empty($path))
+        {
+            abort(500, trans('advanced.extracted_files_not_found'));
+        }
+
+        $updateService->moveUpdate($path);
+
+        return response()->json([
+            'message'  => trans('advanced.finalizing_update'),
+            'next'     => route('reactor.advanced.update.finalize'),
+            'progress' => 80
         ]);
     }
 
@@ -95,8 +128,8 @@ class UpdateController extends ReactorController {
         $updateService->finalizeUpdate();
 
         return response()->json([
-            'message' => trans('advanced.update_complete'),
-            'next' => null,
+            'message'  => trans('advanced.update_complete'),
+            'next'     => null,
             'progress' => 100
         ]);
     }

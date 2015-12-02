@@ -14,10 +14,15 @@ return [
     'auto_update_description' => 'Nuclear\'ı güncellemeden önce her zaman yedek almalısınız.',
     'update_nuclear' => 'Nuclear\'ı Güncelle',
     'no_need_to_update' => 'Nuclear zaten güncel! Güncellemeye gerek yok.',
+    'no_update_found' => 'Geçici klasörde güncelleme paketi bulunamadı.',
+    'could_not_open_zip' => 'ZIP dosyası açılamadı.',
+    'could_not_create_temporary_directory' => 'Geçici güncelleme klasörü oluşturulamadı.',
+    'extracted_files_not_found' => 'Güncelleme dosyaları bulunamadı.',
 
     'update_in_progress' => 'Güncelleme Sürüyor',
     'downloading_latest' => 'En son güncelleme indiriliyor... Bu biraz zaman alabilir...',
     'extracting_update' => 'Güncelleme yükleniyor...',
+    'moving_files' => 'Dosyalar taşınıyor...',
     'finalizing_update' => 'Güncelleme tamamlanıyor...',
     'update_complete' => 'Güncelleme tamamlandı!',
 

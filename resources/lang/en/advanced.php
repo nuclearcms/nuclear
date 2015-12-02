@@ -14,10 +14,15 @@ return [
     'auto_update_description' => 'You should always create a backup before updating Nuclear.',
     'update_nuclear' => 'Update Nuclear',
     'no_need_to_update' => 'Nuclear is already up to date! There is no need to update.',
+    'no_update_found' => 'No update package was found in the temporary directory.',
+    'could_not_open_zip' => 'Could not open the ZIP file.',
+    'could_not_create_temporary_directory' => 'Could not create temporary extraction directory.',
+    'extracted_files_not_found' => 'Extracted files were not found.',
 
     'update_in_progress' => 'Update in Process',
     'downloading_latest' => 'Downloading the latest package... This might take a while...',
     'extracting_update' => 'Extracting update...',
+    'moving_files' => 'Moving files...',
     'finalizing_update' => 'Finalizing update...',
     'update_complete' => 'Update complete!',
 
