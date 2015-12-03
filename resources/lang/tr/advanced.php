@@ -6,9 +6,9 @@ return [
     'update' => 'Nuclear\'ı Güncelle',
 
     'up_to_date' => 'Nuclear güncel!',
-    'up_to_date_description' => 'Güncel versiyon: <strong>:version</strong>.',
+    'up_to_date_description' => 'Güncel versiyon: <strong class="success">:version</strong>.',
     'not_up_to_date' => 'Nuclear güncel değil!',
-    'not_up_to_date_description' => 'Şu an yüklü versiyon <strong class="warn">:version</strong>, en güncel ise <strong>:current</strong>.',
+    'not_up_to_date_description' => 'Şu an yüklü versiyon <strong class="warn">:version</strong>, en güncel ise <strong class="success">:current</strong>.',
     'changelog' => 'Değişenler',
     'auto_update' => 'Otomatik Güncelleme',
     'auto_update_description' => 'Nuclear\'ı güncellemeden önce her zaman yedek almalısınız.',

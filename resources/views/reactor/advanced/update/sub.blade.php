@@ -13,7 +13,7 @@
     <h3 class="icon-newspaper">{{ trans('advanced.changelog') }}</h3>
 
     <h4>{{ $latest->name }}</h4>
-    <div class="advanced-option-description">
+    <div class="advanced-option-description markdown-body">
         {!! Synthesizer::markdownGithub($latest->body) !!}
     </div>
 </section>

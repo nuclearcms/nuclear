@@ -33,14 +33,16 @@
 
     @media screen and (max-width: $collapseThreshold)
         left: -20em
-        +transition(transform $animationNav)
+        +transition(all $animationNav)
         padding-top: 0
         width: 20em
         background-color: $lightGray-3
+        opacity: 0
 
         &.open
             +transform(translateX(20em))
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5)
+            opacity: 1
 
             & + .blackout
                 opacity: 1
