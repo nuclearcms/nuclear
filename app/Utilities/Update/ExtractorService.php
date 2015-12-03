@@ -183,7 +183,7 @@ class ExtractorService {
      */
     protected function replaceFiles(Filesystem $fs, $root, $extractedPath, $trashPath)
     {
-        $files = $this->updateableFiles;
+        $files = $this->getUpdateableFiles();
 
         foreach ($files as $file)
         {
@@ -194,6 +194,22 @@ class ExtractorService {
                 $trashPath . '/' . $file
             );
         }
+    }
+
+    /**
+     * Returns the updateable files
+     *
+     * @return array
+     */
+    protected function getUpdateableFiles()
+    {
+        $updateables = $this->updateableFiles;
+
+        // Add reactor_assets relative to base path
+        $publicDir = str_replace(base_path() . '/', '', public_path());
+        $updateables[] = $publicDir . '/reactor_assets';
+
+        return $updateables;
     }
 
     /**
