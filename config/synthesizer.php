@@ -21,6 +21,7 @@ return [
         'striptags'         => 'Kenarkose\Synthesizer\Processor\StripTagsProcessor',
 
         /* Reactor only */
+        'readAll'           => 'Reactor\Synthesizer\ReadAllProcessor',
         'readBefore'        => 'Reactor\Synthesizer\ReadBeforeProcessor',
         'readRest'          => 'Reactor\Synthesizer\ReadRestProcessor',
     ],
@@ -42,7 +43,7 @@ return [
         'textOnlyMarkdown'   => ['markdownExtra', 'striptags', 'htmlspecialchars'],
 
         /* Reactor only */
-        'HTMLmarkdown'       => ['markdownGithub'],
+        'HTMLmarkdown'       => ['readAll', 'markdownGithub'],
         'HTMLmarkdownBefore' => ['readBefore', 'markdownGithub'],
         'HTMLmarkdownRest'   => ['readRest', 'markdownGithub'],
     ]

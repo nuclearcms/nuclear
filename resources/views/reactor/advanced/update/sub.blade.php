@@ -14,7 +14,7 @@
 
     <h4>{{ $latest->name }}</h4>
     <div class="advanced-option-description markdown-body">
-        {!! Synthesizer::markdownGithub($latest->body) !!}
+        {!! Synthesizer::HTMLmarkdown($latest->body) !!}
     </div>
 </section>
 
