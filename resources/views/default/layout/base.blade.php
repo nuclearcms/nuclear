@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <meta name="description" content="{{ settings('site-description') }}">
+    <meta name="description" content="{!! settings('site-description') !!}">
 
     @yield('opengraph')
 
@@ -43,12 +43,12 @@
 
 @yield('body')
 
-{!! Theme::js('js/app.js') !!}
-
 @yield('modules')
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{!! Theme::url('js/vendor/jquery-1.11.3.min.js') !!}"><\/script>');</script>
+
+{!! Theme::js('js/app.js') !!}
 
 @yield('scripts')
 

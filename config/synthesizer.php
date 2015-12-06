@@ -18,7 +18,11 @@ return [
         'markdownGithub'    => 'Kenarkose\Synthesizer\Processor\GithubMarkdownProcessor',
         'markdownParagraph' => 'Kenarkose\Synthesizer\Processor\MarkdownParagraphProcessor',
         'htmlspecialchars'  => 'Kenarkose\Synthesizer\Processor\HTMLSpecialCharsProcessor',
-        'striptags'         => 'Kenarkose\Synthesizer\Processor\StripTagsProcessor'
+        'striptags'         => 'Kenarkose\Synthesizer\Processor\StripTagsProcessor',
+
+        /* Reactor only */
+        'readBefore'        => 'Reactor\Synthesizer\ReadBeforeProcessor',
+        'readRest'          => 'Reactor\Synthesizer\ReadRestProcessor',
     ],
 
     /*
@@ -31,11 +35,16 @@ return [
     |
     */
     'macros'     => [
-        'markdown'         => ['htmlspecialchars', 'markdown'],
-        'markdownExtra'    => ['htmlspecialchars', 'markdownExtra'],
-        'markdownInline'   => ['htmlspecialchars', 'markdownParagraph'],
-        'markdownGithub'   => ['htmlspecialchars', 'markdownGithub'],
-        'textOnlyMarkdown' => ['markdownExtra', 'striptags', 'htmlspecialchars']
+        'markdown'           => ['htmlspecialchars', 'markdown'],
+        'markdownExtra'      => ['htmlspecialchars', 'markdownExtra'],
+        'markdownInline'     => ['htmlspecialchars', 'markdownParagraph'],
+        'markdownGithub'     => ['htmlspecialchars', 'markdownGithub'],
+        'textOnlyMarkdown'   => ['markdownExtra', 'striptags', 'htmlspecialchars'],
+
+        /* Reactor only */
+        'HTMLmarkdown'       => ['markdownGithub'],
+        'HTMLmarkdownBefore' => ['readBefore', 'markdownGithub'],
+        'HTMLmarkdownRest'   => ['readRest', 'markdownGithub'],
     ]
 
 ];
