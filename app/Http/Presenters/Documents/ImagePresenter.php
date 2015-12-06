@@ -9,7 +9,12 @@ class ImagePresenter extends Presenter {
 
     public function thumbnail()
     {
-        return '<img src="' . url(config('imagecache.route') . '/rthumb/' . $this->path) . '">';
+        return $this->cachedWith('rthumb');
+    }
+
+    public function cachedWith($process)
+    {
+        return '<img src="' . url(config('imagecache.route') . '/' . $process . '/' . $this->path) . '">';
     }
 
     public function tag()
@@ -27,9 +32,14 @@ class ImagePresenter extends Presenter {
 
     public function originalPreview()
     {
-        return '<figure class="document-preview">
-            <img src="' . uploaded_asset($this->path) . '">
-        </figure>';
+        return '<figure class="document-preview">' .
+            $this->original() .
+        '</figure>';
+    }
+
+    public function original()
+    {
+        return '<img src="' . uploaded_asset($this->path) . '">';
     }
 
 }
