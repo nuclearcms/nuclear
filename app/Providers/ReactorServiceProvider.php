@@ -10,7 +10,7 @@ use Reactor\Nodes\Node;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.0.5';
+    const VERSION = '2.0.6';
 
     /**
      * Register any application services.

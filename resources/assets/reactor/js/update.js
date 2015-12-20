@@ -34,9 +34,10 @@
         },
         // Makes an ajax request
         _request: function (requestURL) {
-            var self = this;
-
-            $.post(requestURL, [], function(data)
+            var self = this,
+                xhr = $.post(requestURL, {
+                    _method: "PUT"
+                }, function(data)
             {
                 self._setProgress(data.progress);
 
