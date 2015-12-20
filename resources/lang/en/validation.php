@@ -161,6 +161,7 @@ return [
         'social-twitter-username' => 'Twitter Username',
         'social-twitter-url' => 'Twitter URL',
         'social-instagram-url' => 'Instagram URL',
+        'social-youtube-url' => 'Youtube URL',
     ],
 
 ];

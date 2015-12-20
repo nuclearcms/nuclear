@@ -16,7 +16,7 @@ return [
 
     'edit' => 'Dosyayı Düzenle',
     'edited' => 'Dosya düzenlendi.',
-    'delete' => 'Dosyayı Düzenle',
+    'delete' => 'Dosyayı Sil',
     'deleted' => 'Dosya silindi.',
     'embed' => 'Dosya Yerleştir',
     'embedded' => 'Dosya yerleştirildi.',

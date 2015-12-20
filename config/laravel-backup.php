@@ -15,7 +15,7 @@ return [
                 base_path('bootstrap'),
                 config_path(),
                 database_path(),
-                base_path('bootstrap'),
+                base_path('extension'),
                 base_path('gen'),
                 public_path(),
                 base_path('resources'),
