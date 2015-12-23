@@ -24,6 +24,7 @@ return [
         'readAll'           => 'Reactor\Synthesizer\ReadAllProcessor',
         'readBefore'        => 'Reactor\Synthesizer\ReadBeforeProcessor',
         'readRest'          => 'Reactor\Synthesizer\ReadRestProcessor',
+        'documents'         => 'Reactor\Synthesizer\DocumentsProcessor',
     ],
 
     /*
@@ -43,9 +44,9 @@ return [
         'textOnlyMarkdown'   => ['markdownExtra', 'striptags', 'htmlspecialchars'],
 
         /* Reactor only */
-        'HTMLmarkdown'       => ['readAll', 'markdownGithub'],
-        'HTMLmarkdownBefore' => ['readBefore', 'markdownGithub'],
-        'HTMLmarkdownRest'   => ['readRest', 'markdownGithub'],
+        'HTMLmarkdown'       => ['readAll', 'documents', 'markdownGithub'],
+        'HTMLmarkdownBefore' => ['readBefore', 'documents', 'markdownGithub'],
+        'HTMLmarkdownRest'   => ['readRest', 'documents', 'markdownGithub'],
     ]
 
 ];
