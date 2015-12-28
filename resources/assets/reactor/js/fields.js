@@ -37,6 +37,11 @@ $('.form-group-document').each(function () {
     var document = new Document($(this), window.documentsLibrary);
 });
 
+// Initialize node collection fields
+$('.form-group-node-collection').each(function () {
+    var collection = new NodeCollection($(this));
+});
+
 window.editorDialog = new EditorDialog();
 
 // Editors

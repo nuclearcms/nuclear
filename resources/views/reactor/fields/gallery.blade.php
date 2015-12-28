@@ -17,7 +17,7 @@
         <ul class="form-media-gallery material-light">
     @endif
         </ul>
-        <div class="empty-notification">
+        <div class="form-empty-notification">
             {{ trans('documents.no_media_selected') }}
         </div>
         <div class="buttons">

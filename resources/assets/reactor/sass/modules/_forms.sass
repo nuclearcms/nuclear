@@ -232,11 +232,6 @@ label
 .form-media-container
     padding-top: 0.5em
 
-    .empty-notification
-        line-height: 1.5em
-        display: none
-        color: $darkGray-1
-
     .form-media-gallery
         +clearfix
 
@@ -303,6 +298,64 @@ label
 
     .buttons
         margin-top: 0.5em
+
+.form-nodes-container
+    padding-top: 0.5em
+
+    &.empty
+        padding-top: 0
+
+.form-empty-notification
+    line-height: 1.5em
+    display: none
+    color: $darkGray-1
+
+    .empty &
+        display: block
+
+.form-nodes-search
+    position: relative
+
+.form-nodes-list li
+    line-height: 2.5em
+    font-size: 0.875em
+    padding: 0 2em 0 1.5em
+    position: relative
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
+    border-bottom: 1px solid $lightGray-3
+    cursor: pointer
+
+    .icon-cancel
+        +position(absolute, 0 0 null null)
+        +size(2.5em)
+        display: inline-block
+        text-align: center
+        cursor: pointer
+
+    &.placeholder
+        height: 2.5em
+        background-color: $lightGray-2
+
+    &:last-child
+        border-bottom: 0
+
+.form-nodes-list-results
+    +position(absolute, 2.5em null null 0)
+    width: 18em
+
+    &.hidden
+        display: none
+
+.form-nodes-list-sortable
+    margin-bottom: 0.5em
+
+    .empty &
+        display: none
+
+    li
+        cursor: move
 
 .form-group-markdown
     padding: 1em 0 0
@@ -413,6 +466,12 @@ label
     .form-select-container:hover
         i
             color: $darkGray-2
+
+    .form-nodes-list-results li
+        +transition(background-color $animationFast)
+
+        &:hover
+            background-color: $lightGray-2
 
     .markdown-editor-toolbar li:hover
         color: $darkGray-1

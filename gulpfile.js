@@ -62,6 +62,7 @@ if(argv.r)
             'library.js',
             'gallery.js',
             'document.js',
+            'node_collection.js',
             'editor.js',
             'fields.js'
         ], elixir.config.publicPath + '/js/form.js').

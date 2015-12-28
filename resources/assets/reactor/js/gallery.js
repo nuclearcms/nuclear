@@ -118,13 +118,3 @@
     window.Gallery = Gallery;
 
 })(window);
-
-// Run when document is loaded
-$(document).ready(function() {
-
-    // Run for all
-    $('.nc-form-gallery').each(function() {
-        var gallery = new Gallery($(this), App);
-    });
-
-});

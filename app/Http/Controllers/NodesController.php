@@ -41,6 +41,22 @@ class NodesController extends ReactorController {
     }
 
     /**
+     * Returns the collection of retrieved nodes by json response
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function jsonSearch(Request $request)
+    {
+        $nodes = Node::search($request->input('q'))
+            ->limit(10)->get();
+
+        $nodes = $nodes->lists('title', 'id');
+
+        return response()->json($nodes);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @param int|null $id

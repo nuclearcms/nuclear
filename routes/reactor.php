@@ -114,6 +114,10 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@search',
                 'as'   => 'reactor.contents.search']);
 
+            Route::post('contents/json/search', [
+                'uses' => 'NodesController@jsonSearch',
+                'as'   => 'reactor.contents.json.search']);
+
             Route::post('contents/locale', [
                 'uses' => 'NodesController@changeTreeLocale',
                 'as' => 'reactor.contents.locale'

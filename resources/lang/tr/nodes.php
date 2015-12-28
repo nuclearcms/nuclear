@@ -10,6 +10,7 @@ return [
     'search' => 'Düğüm Ara',
     'search_type' => 'Düğüm Tiplerinde Ara',
     'all' => 'Tüm Düğüm Tipleri',
+    'no_nodes_selected' => 'Seçili düğüm yok.',
 
     'content' => 'İçerik',
     'parameters' => 'Ayarlar',
@@ -74,6 +75,7 @@ return [
     'type_tag' => 'Etiket',
     'type_password' => 'Şifre',
     'type_datetime' => 'Tarih-zaman',
+    'type_node_collection' => 'Düğüm Koleksiyonu',
 
     'add_link' => 'Link Ekle',
     'add_media' => 'Medya Ekle',

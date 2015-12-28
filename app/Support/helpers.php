@@ -115,3 +115,20 @@ if ( ! function_exists('routes_path'))
         return app()->make('path.routes') . ($path ? '/' . $path : $path);
     }
 }
+
+if ( ! function_exists('get_nodes_by_ids'))
+{
+    /**
+     * Returns the nodes by given ids
+     * (alias for NodeRepository::getNodesByIds)
+     *
+     * @param array|string $ids
+     * @param bool $published
+     * @return Collection
+     */
+    function get_nodes_by_ids($ids, $published = true)
+    {
+        return app()->make('Reactor\Nodes\NodeRepository')
+            ->getNodesByIds($ids, $published);
+    }
+}

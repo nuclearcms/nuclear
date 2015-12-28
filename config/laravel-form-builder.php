@@ -22,5 +22,6 @@ return [
         'gallery' => 'Reactor\Http\Forms\Fields\GalleryField',
         'document' => 'Reactor\Http\Forms\Fields\DocumentField',
         'tag' => 'Reactor\Http\Forms\Fields\TagField',
+        'node_collection' => 'Reactor\Http\Forms\Fields\NodeCollectionField',
     ]
 ];

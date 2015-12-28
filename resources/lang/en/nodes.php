@@ -10,6 +10,7 @@ return [
     'search' => 'Search Nodes',
     'search_type' => 'Search Node Types',
     'all' => 'All Node Types',
+    'no_nodes_selected' => 'No nodes selected.',
 
     'content' => 'Content',
     'parameters' => 'Parameters',
@@ -74,6 +75,7 @@ return [
     'type_tag' => 'Tag',
     'type_password' => 'Password',
     'type_datetime' => 'Date-time',
+    'type_node_collection' => 'Node Collection',
 
     'add_link' => 'Insert Link',
     'add_media' => 'Insert Media',

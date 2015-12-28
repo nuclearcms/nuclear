@@ -15,7 +15,7 @@
             <span></span><figcaption class="form-document-name"></figcaption>
     @endif
         </figure>
-        <div class="empty-notification">
+        <div class="form-empty-notification">
             {{ trans('documents.no_media_selected') }}
         </div>
         <div class="buttons">
