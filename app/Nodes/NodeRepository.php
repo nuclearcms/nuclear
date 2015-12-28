@@ -12,8 +12,8 @@ class NodeRepository {
      */
     public function getHome()
     {
-        return Node::published()
-            ->whereHome(1)
+        return Node::whereHome(1)
+            ->published()
             ->firstOrFail();
     }
 
