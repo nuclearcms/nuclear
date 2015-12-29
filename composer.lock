@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7e0800e91a450164da1ad52f7ce4465d",
-    "content-hash": "d8b5432854b302dfa391b6264fcc2c0a",
+    "hash": "dfa1cc8b9a24dbca64a9950a454df88d",
+    "content-hash": "28f84e3d53afe74ee90ad14746b38fcd",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2644,16 +2644,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.1.15",
+            "version": "1.1.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "367066eb22ced5267ef117b0f86fded61d4172db"
+                "reference": "52c65f97f765de4152249d38c12235b5032f91e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/367066eb22ced5267ef117b0f86fded61d4172db",
-                "reference": "367066eb22ced5267ef117b0f86fded61d4172db",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/52c65f97f765de4152249d38c12235b5032f91e9",
+                "reference": "52c65f97f765de4152249d38c12235b5032f91e9",
                 "shasum": ""
             },
             "require": {
@@ -2707,7 +2707,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2015-12-29 18:20:19"
+            "time": "2015-12-29 21:56:49"
         },
         {
             "name": "paragonie/random_compat",
