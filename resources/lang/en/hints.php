@@ -13,7 +13,7 @@ return [
     'settinggroup_name' => 'User-friendly name for the setting group.',
     'nodetype_name' => 'Can only contain lowercase ASCII letters.',
     'nodetype_label' => 'Pretty name for the node type.',
-    'nodefield_name' => 'Can only contain lowercase ASCII letters.',
+    'nodefield_name' => 'Can only contain lowercase ASCII letters and underscores(_).',
     'nodefield_label' => 'Pretty name for the node field.',
     'nodetype_color' => 'Color for identifying the node type.',
     'published_at' => 'Has to be in YYYY-MM-DD HH:MM:SS format.',

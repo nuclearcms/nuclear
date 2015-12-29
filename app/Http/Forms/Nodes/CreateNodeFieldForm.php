@@ -19,7 +19,7 @@ class CreateNodeFieldForm extends Form {
     public function buildForm()
     {
         $this->add('name', 'text', [
-            'rules' => ['required', 'between:3,20', 'regex:/^([a-z])+$/'],
+            'rules' => ['required', 'between:3,20', 'regex:/^([a-z_])+$/'],
             'help_block' => ['text' => trans('hints.nodefield_name')]
         ]);
         $this->add('type', 'select', [
