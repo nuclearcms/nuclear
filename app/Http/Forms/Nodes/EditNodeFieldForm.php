@@ -22,7 +22,6 @@ class EditNodeFieldForm extends Form {
             'rules' => 'required|max:255',
             'help_block' => ['text' => trans('hints.nodefield_label')]
         ]);
-        $this->add('description', 'textarea');
     }
 
 }

@@ -74,7 +74,7 @@ return [
     'type_slug' => 'Slug',
     'type_tag' => 'Tag',
     'type_password' => 'Password',
-    'type_datetime' => 'Date-time',
+    'type_date' => 'Date-time',
     'type_node_collection' => 'Node Collection',
 
     'add_link' => 'Insert Link',

@@ -74,7 +74,7 @@ return [
     'type_slug' => 'Slug',
     'type_tag' => 'Etiket',
     'type_password' => 'Şifre',
-    'type_datetime' => 'Tarih-zaman',
+    'type_date' => 'Tarih-zaman',
     'type_node_collection' => 'Düğüm Koleksiyonu',
 
     'add_link' => 'Link Ekle',
