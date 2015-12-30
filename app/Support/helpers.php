@@ -132,3 +132,43 @@ if ( ! function_exists('get_nodes_by_ids'))
             ->getNodesByIds($ids, $published);
     }
 }
+
+if ( ! function_exists('set_app_locale'))
+{
+    /**
+     * Sets the app locale
+     *
+     * @param string $locale
+     * @return void
+     */
+    function set_app_locale($locale = null)
+    {
+        $locale = $locale ?: session('_locale', null);
+
+        if ($locale)
+        {
+            app()->setLocale($locale);
+
+            set_time_locale($locale);
+        }
+    }
+}
+
+if ( ! function_exists('set_time_locale'))
+{
+    /**
+     * Sets the time locale
+     *
+     * @param string $locale
+     * @return void
+     */
+    function set_time_locale($locale = null)
+    {
+        $locale = $locale ?: session('_locale', app()->getLocale());
+
+        setlocale(LC_TIME, config('app.full_locales.' . $locale, null));
+
+        Carbon\Carbon::setLocale($locale);
+    }
+
+}

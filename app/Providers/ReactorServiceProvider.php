@@ -3,14 +3,13 @@
 namespace Reactor\Providers;
 
 
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Reactor\Nodes\Node;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.0.14';
+    const VERSION = '2.0.15';
 
     /**
      * Register any application services.
@@ -22,8 +21,6 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->registerHelpers();
 
         $this->registerPaths();
-
-        $this->setTimeLocale();
     }
 
     /**
@@ -38,6 +35,10 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->registerViewBindings();
 
         $this->registerCustomValidationRules();
+
+        $this->setAppLocale();
+
+        $this->setTimeLocale();
     }
 
     /**
@@ -64,13 +65,19 @@ class ReactorServiceProvider extends ServiceProvider {
     }
 
     /**
+     * Sets the app locale
+     */
+    protected function setAppLocale()
+    {
+        set_app_locale();
+    }
+
+    /**
      * Sets the time locale for locale based time outputting
      */
     protected function setTimeLocale()
     {
-        setlocale(LC_TIME, $this->app->getLocale());
-
-        Carbon::setLocale($this->app->getLocale());
+        set_time_locale();
     }
 
     /**

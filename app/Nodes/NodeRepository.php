@@ -42,7 +42,7 @@ class NodeRepository {
 
         $locale = $node->getLocaleForNodeName($name);
 
-        app()->setLocale($locale);
+        set_app_locale($locale);
 
         return $node;
     }
