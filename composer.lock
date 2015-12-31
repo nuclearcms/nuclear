@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dfa1cc8b9a24dbca64a9950a454df88d",
-    "content-hash": "28f84e3d53afe74ee90ad14746b38fcd",
+    "hash": "c8c2434850acc8b86db14bd099e1de15",
+    "content-hash": "a70622f08a80135a31955d33624c8f1a",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1913,23 +1913,23 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.6.31",
+            "version": "1.6.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "b02fea98d078515c84dcda451892688e492029fd"
+                "reference": "f341b41bcbd1a91f2328f77f4224d123f352b609"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/b02fea98d078515c84dcda451892688e492029fd",
-                "reference": "b02fea98d078515c84dcda451892688e492029fd",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/f341b41bcbd1a91f2328f77f4224d123f352b609",
+                "reference": "f341b41bcbd1a91f2328f77f4224d123f352b609",
                 "shasum": ""
             },
             "require": {
                 "illuminate/database": "5.*@dev",
                 "illuminate/validation": "5.*@dev",
                 "laravelcollective/html": "5.*",
-                "php": ">=5.4.0"
+                "php": ">=5.5.0"
             },
             "require-dev": {
                 "orchestra/testbench": "~3.0",
@@ -1963,7 +1963,7 @@
                 }
             ],
             "description": "Laravel form builder - symfony like",
-            "time": "2015-11-16 13:40:04"
+            "time": "2015-12-28 14:11:29"
         },
         {
             "name": "laracasts/flash",
@@ -2644,16 +2644,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.1.16",
+            "version": "1.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "52c65f97f765de4152249d38c12235b5032f91e9"
+                "reference": "d6d4b1df8a1ace41e68a093ce7bee4eac36c87be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/52c65f97f765de4152249d38c12235b5032f91e9",
-                "reference": "52c65f97f765de4152249d38c12235b5032f91e9",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/d6d4b1df8a1ace41e68a093ce7bee4eac36c87be",
+                "reference": "d6d4b1df8a1ace41e68a093ce7bee4eac36c87be",
                 "shasum": ""
             },
             "require": {
@@ -2707,7 +2707,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2015-12-29 21:56:49"
+            "time": "2015-12-31 09:34:28"
         },
         {
             "name": "paragonie/random_compat",
