@@ -13,7 +13,7 @@
         "laravel",
         "laravel5"
     ],
-    "version": "2.0.16",
+    "version": "2.0.17",
     "authors": [
         {
             "name": "Hyleeh",
@@ -43,7 +43,7 @@
         "guzzlehttp/streams": "^3.0",
         "guzzlehttp/cache-subscriber": "^0.1.0",
         "nicolaslopezj/searchable": "^1.5",
-        "kris/laravel-form-builder": "^1.6",
+        "kris/laravel-form-builder": "1.6.31",
         "simexis/oembed": "^1.4",
         "spatie/laravel-backup": "^2.8",
         "barryvdh/laravel-debugbar": "~2.0"
