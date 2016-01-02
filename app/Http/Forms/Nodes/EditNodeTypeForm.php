@@ -23,7 +23,8 @@ class EditNodeTypeForm extends Form {
             'help_block' => ['text' => trans('hints.nodetype_label')]
         ]);
         $this->add('description', 'textarea');
-        $this->add('hides_children', 'checkbox');
+        $this->add('hides_children', 'checkbox', ['inline' => true]);
+        $this->add('visible', 'checkbox', ['inline' => true]);
         $this->add('color', 'color', [
             'rules' => 'required',
             'default_value' => '#000000',

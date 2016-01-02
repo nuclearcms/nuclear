@@ -506,7 +506,7 @@ class NodesController extends ReactorController {
             'url' => route('reactor.contents.store', $id)
         ]);
 
-        $nodeTypes = NodeType::all()
+        $nodeTypes = NodeType::whereVisible(1)
             ->lists('label', 'id')
             ->toArray();
 
