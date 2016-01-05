@@ -126,6 +126,8 @@ class UpdateController extends ReactorController {
     public function finalize(UpdateService $updateService)
     {
         $updateService->finalizeUpdate();
+        session()->forget('_temporary_update_path');
+        session()->forget('_extracted_update_path');
 
         return response()->json([
             'message'  => trans('advanced.update_complete'),
