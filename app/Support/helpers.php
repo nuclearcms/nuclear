@@ -149,6 +149,8 @@ if ( ! function_exists('set_app_locale'))
         {
             app()->setLocale($locale);
 
+            session('_locale', $locale);
+
             set_time_locale($locale);
         }
     }

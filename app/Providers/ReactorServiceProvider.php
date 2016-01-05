@@ -9,7 +9,7 @@ use Reactor\Nodes\Node;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.0.18';
+    const VERSION = '2.0.19';
 
     /**
      * Register any application services.
