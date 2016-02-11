@@ -14,7 +14,26 @@ return [
     */
 
     'files' => [
-        //
+        // Reactor Service Providers
+        app_path('Providers/ReactorServiceProvider.php'),
+        app_path('Providers/AuthServiceProvider.php'),
+        app_path('Providers/EventServiceProvider.php'),
+        app_path('Providers/RouteServiceProvider.php'),
+
+        // Kenarkose Service Providers
+        base_path('vendor/kenarkose/chronicle/src/ChronicleServiceProvider.php'),
+        base_path('vendor/kenarkose/files/src/Provider/FilesServiceProvider.php'),
+        base_path('vendor/kenarkose/settlement/src/Provider/Laravel/SettlementServiceProvider.php'),
+        base_path('vendor/kenarkose/sortable/src/SortableServiceProvider.php'),
+        base_path('vendor/kenarkose/synthesizer/src/Provider/Laravel/SynthesizerServiceProvider.php'),
+        base_path('vendor/kenarkose/transit/src/Provider/TransitServiceProvider.php'),
+        base_path('vendor/nuclear/hierarchy/src/Providers/HierarchyServiceProvider.php'),
+
+        // External Service Providers
+        base_path('vendor/laracasts/flash/src/Laracasts/Flash/FlashServiceProvider.php'),
+
+        // Extension Classes
+        //extension_path('Site/Providers/SiteExtensionServiceProvider.php'),
     ],
 
     /*

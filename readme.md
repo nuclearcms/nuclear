@@ -16,13 +16,13 @@ Installing Nuclear is (sort of) simple.
      Comment out `AuthServiceProvider` and `RouteServiceProvider` in `config/app.php`
     4. Use `php artisan migrate` to migrate the database
     5. Uncomment the services
-    6. Use `php artisan clear-compiled` and `php artisan optimize` to generate a fresh class loader.
+    6. Use `php artisan clear-compiled` and `php artisan optimize --force` to generate a fresh class loader.
     7. Use `php artisan key:generate` to generate the application key
     
 4. Now that everything is set, just seed the database by running `php artisan db:seed`.
 5. Enjoy (login from `/reactor` with `john@doe.com` and `secret`)
 
-*Note: A pretty installer will be implemented in 2.1 version.*
+*Note: A pretty installer and integration tests will be implemented in version 3.0.*
 
 ## Documentation
 Nuclear documentation is still being worked on. It will be published as soon as possible.

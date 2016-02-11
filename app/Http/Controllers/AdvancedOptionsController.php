@@ -21,11 +21,12 @@ class AdvancedOptionsController extends ReactorController {
      *
      * @param string $action
      * @param string $message
+     * @param array $options
      * @return Redirect
      */
-    protected function action($action, $message)
+    protected function action($action, $message, array $options)
     {
-        \Artisan::call($action);
+        \Artisan::call($action, $options);
 
         $this->notify('advanced.' . $message);
 
@@ -39,7 +40,7 @@ class AdvancedOptionsController extends ReactorController {
      */
     public function optimizeApp()
     {
-        return $this->action('optimize', 'app_optimized');
+        return $this->action('optimize', 'app_optimized', ['--force' => true]);
     }
 
     /**

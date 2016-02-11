@@ -3,13 +3,15 @@
 namespace Reactor\Providers;
 
 
+use DateTime;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Reactor\Nodes\Node;
+use Theme;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.0.21';
+    const VERSION = '2.1.0';
 
     /**
      * Register any application services.
@@ -90,7 +92,7 @@ class ReactorServiceProvider extends ServiceProvider {
         // We check if the request segment has 'reactor'
         if (is_reactor())
         {
-            \Theme::set($this->app['config']->get('themes.active_reactor'));
+            Theme::set($this->app['config']->get('themes.active_reactor'));
         }
     }
 
@@ -141,7 +143,7 @@ class ReactorServiceProvider extends ServiceProvider {
 
         Validator::extend('date_mysql', function ($attribute, $value, $parameters, $validator)
         {
-            if (\DateTime::createFromFormat('Y-m-d H:i:s', $value))
+            if (DateTime::createFromFormat('Y-m-d H:i:s', $value))
             {
                 return true;
             }

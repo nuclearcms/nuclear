@@ -151,6 +151,7 @@ return [
         'meta_title' => 'Meta Başlık',
         'meta_keywords' => 'Meta Anahtar Kelimeler',
         'meta_description' => 'Meta Açıklama',
+        'locale' => 'Dil',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',
