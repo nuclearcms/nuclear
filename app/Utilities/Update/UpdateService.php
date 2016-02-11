@@ -188,6 +188,7 @@ class UpdateService {
         \Artisan::call('cache:clear');
         \Artisan::call('route:cache');
         \Artisan::call('migrate');
+        \Artisan::call('optimize', ['--force' => true]);
     }
 
 }

@@ -33,7 +33,7 @@ return [
         base_path('vendor/laracasts/flash/src/Laracasts/Flash/FlashServiceProvider.php'),
 
         // Extension Classes
-        //extension_path('Site/Providers/SiteExtensionServiceProvider.php'),
+        //base_path('extension/Site/Providers/SiteExtensionServiceProvider.php'),
     ],
 
     /*

@@ -24,7 +24,7 @@ class AdvancedOptionsController extends ReactorController {
      * @param array $options
      * @return Redirect
      */
-    protected function action($action, $message, array $options)
+    protected function action($action, $message, array $options = [])
     {
         \Artisan::call($action, $options);
 
