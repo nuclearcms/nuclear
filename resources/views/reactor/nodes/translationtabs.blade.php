@@ -1,7 +1,8 @@
 @if(locale_count() > 1)
 <div class="translation-tabs">
     <ul class="content-tabs-bar secondary-tabs-bar">
-        @foreach($node->translations as $translation)
+        @foreach(config('translatable.locales') as $localeTab)
+            @if($translation = $node->translate($localeTab))
             <li>
                 @if($translation->locale === $locale)
                     <span class="content-tab-flap active">{{ uppercase($translation->locale) }}</span>
@@ -9,6 +10,7 @@
                     {!! link_to_route($route, uppercase($translation->locale), ['id' => $node->getKey(), 'source' => $translation->getKey()], ['class' => 'content-tab-flap']) !!}
                 @endif
             </li>
+            @endif
         @endforeach
     </ul>
     @if(count($node->translations) < locale_count())

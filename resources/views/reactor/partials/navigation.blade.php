@@ -44,6 +44,7 @@
 
                         @can('ACCESS_DOCUMENTS_UPLOAD')
                         {!! navigation_module_link('reactor.documents.upload', 'icon-upload-cloud', 'documents.upload') !!}
+                        {!! navigation_module_link('reactor.documents.embed', 'icon-code', 'documents.embed') !!}
                         @endcan
                     {!! navigation_module_close() !!}
                     @endcan

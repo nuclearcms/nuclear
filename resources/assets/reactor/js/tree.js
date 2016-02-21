@@ -89,6 +89,8 @@
             var movement = this._determineMovement(item),
                 self = this;
 
+            if(movement === false) return;
+
             this._disable();
 
             $.post(this.sortURL, movement, function (data) {
@@ -98,13 +100,16 @@
             });
         },
         _determineMovement: function (item) {
-            var next = item.next();
+            var next = item.next(),
+                prev = item.prev();
 
             if (next.length === 1) {
                 return {action: 'before', sibling: next.data('nodeid'), node: item.data('nodeid')}
-            } else {
-                return {action: 'after', sibling: item.prev().data('nodeid'), node: item.data('nodeid')}
+            } else if (prev.length === 1) {
+                return {action: 'after', sibling: prev.data('nodeid'), node: item.data('nodeid')}
             }
+
+            return false;
         },
         _disable: function () {
             this.enabled = false;

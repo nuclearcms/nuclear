@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>@yield('title')</title>
+    <meta charset="UTF-8">
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet" type="text/css">
 

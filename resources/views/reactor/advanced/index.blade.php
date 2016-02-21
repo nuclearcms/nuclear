@@ -14,17 +14,26 @@
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.optimize_app'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.optimize'), '', true, trans('advanced.optimize_app')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.optimize') }}" type="button">
+                    {{ uppercase(trans('advanced.optimize_app')) }}
+                </button>
             </div>
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.cache_routes'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.cache.routes'), '', true, trans('advanced.cache_routes')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.cache.routes') }}" type="button">
+                    {{ uppercase(trans('advanced.cache_routes')) }}
+                </button>
             </div>
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.regenerate_key'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.key'), '', true, trans('advanced.regenerate_key')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.key') }}" type="button">
+                    {{ uppercase(trans('advanced.regenerate_key')) }}
+                </button>
             </div>
         </section>
         <section class="advanced-options-set">
@@ -36,7 +45,10 @@
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.create_backup'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.backup.create'), '', true, trans('advanced.create_backup')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.backup.create') }}" type="button">
+                    {{ uppercase(trans('advanced.create_backup')) }}
+                </button>
             </div>
 
         </section>
@@ -49,24 +61,59 @@
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.clear_password_resets'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.clear.password'), '', true, trans('advanced.clear_password_resets')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.clear.password') }}" type="button">
+                    {{ uppercase(trans('advanced.clear_password_resets')) }}
+                </button>
             </div>
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.clear_views'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.clear.views'), '', true, trans('advanced.clear_views')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.clear.views') }}" type="button">
+                    {{ uppercase(trans('advanced.clear_views')) }}
+                </button>
             </div>
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.clear_activities'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.clear.activity'), '', true, trans('advanced.clear_activities')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.clear.activity') }}" type="button">
+                    {{ uppercase(trans('advanced.clear_activities')) }}
+                </button>
             </div>
 
             <div class="form-group inline">
                 {!! Form::label('', trans('advanced.clear_cache'), ['class' => 'control-label']) !!}
-                {!! action_button(route('reactor.advanced.clear.cache'), '', true, trans('advanced.clear_cache')) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.clear.cache') }}" type="button">
+                    {{ uppercase(trans('advanced.clear_cache')) }}
+                </button>
             </div>
         </section>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            var advancedButtons = $('button.button-advanced-action');
+
+            advancedButtons.click(function(e) {
+                var action = $(this).data('action'),
+                    form = $('<form/>')
+                        .attr('action', action)
+                        .attr('method', 'POST');
+
+                $('<input type="hidden" name="_method" value="PUT">').appendTo(form);
+                $('{{ csrf_field() }}').appendTo(form);
+
+                form.appendTo('body').submit().remove();
+
+                e.preventDefault();
+                e.stopPropagation();
+            });
+        });
+    </script>
 @endsection

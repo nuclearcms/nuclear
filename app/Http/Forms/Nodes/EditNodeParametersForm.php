@@ -44,6 +44,9 @@ class EditNodeParametersForm extends Form {
         $this->add('children_order', 'select', [
             'choices' => [
                 'title' => trans('validation.attributes.title'),
+                'created_at' => trans('validation.attributes.created_at'),
+                'published_at' => trans('validation.attributes.published_at'),
+                'updated_at' => trans('validation.attributes.updated_at'),
                 '_lft' => trans('nodes.position')
             ]
         ]);

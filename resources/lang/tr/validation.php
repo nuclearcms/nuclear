@@ -145,6 +145,8 @@ return [
         'content' => 'İçerik',
         'default_value' => 'Öntanımlı Değer',
         'published_at' => 'Yayınlanma Tarihi',
+        'created_at' => 'Oluşturulma Tarihi',
+        'updated_at' => 'Güncellenme Tarihi',
         'priority' => 'Öncelik',
         'children_order' => 'Çocuk Düğüm Sırası',
         'children_order_direction' => 'Çocuk Düğüm Sırası Yönü',

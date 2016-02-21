@@ -23,5 +23,6 @@ return [
         'document' => 'Reactor\Http\Forms\Fields\DocumentField',
         'tag' => 'Reactor\Http\Forms\Fields\TagField',
         'node_collection' => 'Reactor\Http\Forms\Fields\NodeCollectionField',
+        'date' => 'Reactor\Http\Forms\Fields\DateField'
     ]
 ];

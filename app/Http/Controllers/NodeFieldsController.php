@@ -39,7 +39,7 @@ class NodeFieldsController extends ReactorController
     {
         $this->authorize('ACCESS_NODES_EDIT');
 
-        $this->validateForm('Reactor\Http\Forms\Nodes\CreateNodeFieldForm', $request);
+        $this->validateCreateNodeFieldForm($id, $request);
 
         $nodeField = $nodeFieldRepository->create($id, $request->all());
 
@@ -116,6 +116,17 @@ class NodeFieldsController extends ReactorController
         ]);
 
         return $form;
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     */
+    protected function validateCreateNodeFieldForm($id, Request $request)
+    {
+        $this->validateForm('Reactor\Http\Forms\Nodes\CreateNodeFieldForm', $request, [
+            'name' => ['required', 'between:3,20', 'regex:/^([a-z_])+$/', 'unique:node_fields,name,NULL,id,node_type_id,' . $id]
+        ]);
     }
 
     /**

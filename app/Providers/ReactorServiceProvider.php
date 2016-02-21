@@ -11,7 +11,7 @@ use Theme;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.1.1';
+    const VERSION = '2.2.0';
 
     /**
      * Register any application services.
@@ -21,6 +21,10 @@ class ReactorServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->registerHelpers();
+
+        $this->registerSupporters();
+
+        $this->registerRepositories();
 
         $this->registerPaths();
     }
@@ -53,6 +57,32 @@ class ReactorServiceProvider extends ServiceProvider {
         require __DIR__ . '/../Support/helpers.php';
 
         require __DIR__ . '/../Http/snippets.php';
+    }
+
+    /**
+     * Registers support classes
+     *
+     * @return void
+     */
+    protected function registerSupporters()
+    {
+        $this->app->singleton(
+            'reactor.support.locale',
+            'Reactor\Support\LocaleManager'
+        );
+    }
+
+    /**
+     * Registers the common repositories
+     *
+     * @return void
+     */
+    protected function registerRepositories()
+    {
+        $this->app->bindShared('reactor.documents.repository', function ()
+        {
+            return $this->app->make('Reactor\Documents\DocumentsRepository');
+        });
     }
 
     /**

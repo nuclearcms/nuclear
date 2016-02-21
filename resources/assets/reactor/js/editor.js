@@ -20,6 +20,10 @@
             this.library = library;
             this.dialog = dialog;
 
+            // Temporary cache for cursor start
+            // currently only used for the link modal due to a chrome bug
+            this.cursorStart = null;
+
             this.toolbar = this.el.find('.markdown-editor-toolbar');
 
             this._controls();
@@ -121,7 +125,22 @@
 
             element.value = value.substring(0, start) + str + value.substring(start);
 
-            element.selectionStart = element.selectionEnd = start + str.length;
+            element.selectionEnd = start + str.length;
+        },
+
+        /**
+         * Inserts string at the given start and end
+         *
+         * @param string
+         */
+        insertAt: function (str, start)
+        {
+            var element = this.text[0],
+                value = element.value;
+
+            element.value = value.substring(0, start) + str + value.substring(start);
+
+            element.selectionStart = start, element.selectionEnd = start + str.length;
         },
 
         /**
@@ -147,7 +166,8 @@
 
             element.value = value.substring(0, start) + left + value.substring(start, end) + right + value.substring(end);
 
-            element.selectionStart = end + left.length + right.length;
+            element.selectionStart = start;
+            element.selectionEnd = end + left.length + right.length;
         },
 
         /**
@@ -247,9 +267,12 @@
 
                     var selection = value.substring(start, end);
 
+                    self.cursorStart = start;
+
                     self.dialog.run(self, 'link');
 
-                    self.dialog.urlInput.val(selection);
+                    self.dialog.textInput.val(selection);
+                    self.dialog.urlInput.focus();
                 },
                 list: function () {
                     var element = self.text[0];
@@ -339,7 +362,7 @@
             var self = this;
 
             // Create a new dialog
-            this.dialog = new Modal($('.modal-editor'), {
+            this.dialog = new Modal($('#modalEditor'), {
                 onConfirmEvent: function (dialog) {
                     self._setValue();
                 }
@@ -440,7 +463,7 @@
 
             var str = '[' + text + '](' + url + ')';
 
-            this.controller.insert(str);
+            this.controller.insertAt(str, this.controller.cursorStart);
         },
         // Set value as image
         _setValueLibrary: function () {

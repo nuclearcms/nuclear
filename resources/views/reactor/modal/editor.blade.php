@@ -1,4 +1,4 @@
-<div class="modal-container modal-editor">
+<div id="modalEditor" class="modal-container modal-editor">
     <div class="blackout">
         <div class="modal modal-notice">
 

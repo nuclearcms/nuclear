@@ -7,8 +7,6 @@
 @section('action')
     @can('ACCESS_DOCUMENTS_UPLOAD')
         {!! action_button(route('reactor.documents.upload'), 'icon-upload-cloud') !!}
-    @endcan
-    @can('ACCESS_DOCUMENTS_UPLOAD')
         {!! action_button(route('reactor.documents.embed'), 'icon-code', true) !!}
     @endcan
 @endsection

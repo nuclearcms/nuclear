@@ -9,7 +9,7 @@
      */
     function Modal(el, options, triggers) {
         this.el = el;
-        this.triggers = triggers;
+        this.triggers = (typeof triggers === 'undefined') ? null : triggers;
         this.current = null;
 
         this.options = $.extend(this.options, options);
@@ -36,7 +36,7 @@
             var el = $(this.el),
                 self = this;
 
-            if(typeof this.triggers !== 'undefined') {
+            if(typeof this.triggers !== 'undefined' && this.triggers !== null) {
                 this.triggers.on('click', function(e) {
 
                     self.current = $(this);

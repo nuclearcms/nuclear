@@ -66,11 +66,11 @@ if ( ! function_exists('get_reactor_document'))
      * Returns the document for given id
      *
      * @param int $id
-     * @return Model|null
+     * @return Media
      */
     function get_reactor_document($id)
     {
-        return Reactor\Documents\Media::find($id);
+        return app('reactor.documents.repository')->getDocument($id);
     }
 }
 
@@ -79,12 +79,26 @@ if ( ! function_exists('get_reactor_gallery'))
     /**
      * Returns the gallery for given id
      *
-     * @param string $gallery
+     * @param int|string|array $ids
      * @return Collection
      */
-    function get_reactor_gallery($gallery)
+    function get_reactor_gallery($ids)
     {
-        return Reactor\Documents\Image::gallery($gallery);
+        return app('reactor.documents.repository')->getGallery($ids);
+    }
+}
+
+if ( ! function_exists('get_reactor_cover'))
+{
+    /**
+     * Returns the cover for given ids
+     *
+     * @param int|string|array $ids
+     * @return Media
+     */
+    function get_reactor_cover($ids)
+    {
+        return app('reactor.documents.repository')->getCover($ids);
     }
 }
 
@@ -143,16 +157,7 @@ if ( ! function_exists('set_app_locale'))
      */
     function set_app_locale($locale = null)
     {
-        $locale = $locale ?: session('_locale', null);
-
-        if ($locale)
-        {
-            app()->setLocale($locale);
-
-            session()->put('_locale', $locale);
-
-            set_time_locale($locale);
-        }
+        app('reactor.support.locale')->setAppLocale($locale);
     }
 }
 
@@ -166,11 +171,7 @@ if ( ! function_exists('set_time_locale'))
      */
     function set_time_locale($locale = null)
     {
-        $locale = $locale ?: session('_locale', app()->getLocale());
-
-        setlocale(LC_TIME, config('app.full_locales.' . $locale, null));
-
-        Carbon\Carbon::setLocale($locale);
+        app('reactor.support.locale')->setTimeLocale($locale);
     }
 
 }
