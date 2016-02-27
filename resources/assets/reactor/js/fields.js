@@ -48,3 +48,15 @@ window.editorDialog = new EditorDialog();
 $('.form-group-markdown').each(function () {
     var editor = new Editor($(this), window.documentsLibrary, window.editorDialog);
 });
+
+// Publish and save button
+$('button.publish-save').on('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var form = $(this).closest('form');
+
+    $('<input name="_publish" type="hidden" value="publish">').appendTo(form);
+
+    form.submit();
+});

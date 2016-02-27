@@ -153,6 +153,8 @@ return [
         'meta_title' => 'Meta Title',
         'meta_keywords' => 'Meta Keywords',
         'meta_description' => 'Meta Description',
+        'meta_author' => 'Meta Author',
+        'meta_image' => 'Meta Image',
         'locale' => 'Locale',
 
         // Settings specific

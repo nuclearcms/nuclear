@@ -153,6 +153,8 @@ return [
         'meta_title' => 'Meta Başlık',
         'meta_keywords' => 'Meta Anahtar Kelimeler',
         'meta_description' => 'Meta Açıklama',
+        'meta_author' => 'Meta Yazar',
+        'meta_image' => 'Meta Görüntü',
         'locale' => 'Dil',
 
         // Settings specific

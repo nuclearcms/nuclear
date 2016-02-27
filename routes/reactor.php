@@ -84,6 +84,15 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.contents.update'
             ]);
 
+            Route::put('contents/{id}/publish', [
+                'uses' => 'NodesController@publish',
+                'as' => 'reactor.contents.publish'
+            ]);
+            Route::put('contents/{id}/unpublish', [
+                'uses' => 'NodesController@unpublish',
+                'as' => 'reactor.contents.unpublish'
+            ]);
+
             Route::delete('contents/{id}', [
                 'uses' => 'NodesController@destroy',
                 'as' => 'reactor.contents.destroy'
@@ -102,6 +111,24 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::put('contents/{id}/parameters', [
                 'uses' => 'NodesController@updateParameters',
                 'as'   => 'reactor.contents.parameters.update']);
+
+            Route::put('contents/{id}/lock', [
+                'uses' => 'NodesController@lock',
+                'as' => 'reactor.contents.lock'
+            ]);
+            Route::put('contents/{id}/unlock', [
+                'uses' => 'NodesController@unlock',
+                'as' => 'reactor.contents.unlock'
+            ]);
+
+            Route::put('contents/{id}/show', [
+                'uses' => 'NodesController@show',
+                'as' => 'reactor.contents.show'
+            ]);
+            Route::put('contents/{id}/hide', [
+                'uses' => 'NodesController@hide',
+                'as' => 'reactor.contents.hide'
+            ]);
 
             Route::get('contents/{id}/translate', [
                 'uses' => 'NodesController@createTranslation',
@@ -148,10 +175,10 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as'   => 'reactor.nodes.fields']);
 
             // Node Fields
-            Route::get('nodes/{id}/fields/create', [
+            Route::get('nodes/fields/{id}/create', [
                 'uses' => 'NodeFieldsController@create',
                 'as'   => 'reactor.nodes.field.create']);
-            Route::post('nodes/{id}/fields', [
+            Route::post('nodes/fields/{id}', [
                 'uses' => 'NodeFieldsController@store',
                 'as'   => 'reactor.nodes.field.store']);
             Route::get('nodes/fields/{id}', [

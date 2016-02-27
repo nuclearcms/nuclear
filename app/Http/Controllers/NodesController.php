@@ -183,15 +183,74 @@ class NodesController extends ReactorController {
 
         $node = Node::findOrFail($id);
 
-        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_not_editable', null, null, 'error');
+        } else
+        {
+            list($locale, $source) = $this->determineLocaleAndSource($source, $node);
 
-        $this->validateUpdateNodeForm($request, $node, $source);
+            $this->validateUpdateNodeForm($request, $node, $source);
 
-        $node->update([
-            $locale => $request->all()
-        ]);
+            $this->determinePublish($request, $node);
+            $node->update([
+                $locale => $request->all()
+            ]);
 
-        $this->notify('nodes.edited', 'updated_node_content', $node);
+            $this->notify('nodes.edited', 'updated_node_content', $node);
+        }
+
+        return redirect()->back();
+    }
+
+    /**
+     * Determines the node publishing
+     *
+     * @param Request $request
+     * @param $node
+     */
+    public function determinePublish(Request $request, $node)
+    {
+        if ($request->get('_publish') === 'publish')
+        {
+            $node->publish();
+        }
+    }
+
+    /**
+     * Publishes the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function publish($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $node->publish()->save();
+
+        $this->notify('nodes.published_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Unpublishes the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unpublish($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $node->unpublish()->save();
+
+        $this->notify('nodes.unpublished_node');
 
         return redirect()->back();
     }
@@ -249,15 +308,22 @@ class NodesController extends ReactorController {
 
         $node = Node::findOrFail($id);
 
-        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_not_editable', null, null, 'error');
+        } else
+        {
+            list($locale, $source) = $this->determineLocaleAndSource($source, $node);
 
-        $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeSEOForm', $request);
+            $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeSEOForm', $request);
 
-        $node->update([
-            $locale => $request->all()
-        ]);
+            $this->determinePublish($request, $node);
+            $node->update([
+                $locale => $request->all()
+            ]);
 
-        $this->notify('nodes.edited', 'updated_node_seo', $node);
+            $this->notify('nodes.edited', 'updated_node_seo', $node);
+        }
 
         return redirect()->back();
     }
@@ -321,13 +387,91 @@ class NodesController extends ReactorController {
 
         $this->determineHomeNode($request, $id);
 
-        $node->update(
+        $node->fill(
             $this->filterTimeInput($request)
         );
+        $this->determinePublish($request, $node);
+        $node->save();
 
         $this->notify('nodes.edited');
 
         return redirect()->route('reactor.contents.parameters', $id);
+    }
+
+    /**
+     * Locks the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function lock($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $node->lock()->save();
+
+        $this->notify('nodes.locked_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Unlocks the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unlock($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $node->unlock()->save();
+
+        $this->notify('nodes.unlocked_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Shows the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $node->show()->save();
+
+        $this->notify('nodes.showed_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Hides the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function hide($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $node = Node::findOrFail($id);
+
+        $node->hide()->save();
+
+        $this->notify('nodes.hid_node');
+
+        return redirect()->back();
     }
 
     /**

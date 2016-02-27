@@ -1,5 +1,5 @@
 @foreach($leafs as $leaf)
-    @if($leaf->hasTranslation($locale))
+    @if($leaf->isVisible() && $leaf->hasTranslation($locale))
     <li data-nodeid="{{ $leaf->getKey() }}">
         @if($leaf->hidesChildren())
             <div class="node-label">

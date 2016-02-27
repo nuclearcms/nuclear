@@ -255,7 +255,7 @@
         color: $midGray-2
         text-decoration: line-through
 
-    .option-delete
+    .option-delete, .option-general
         +transition(color $animationFast)
 
 .content-noresults, .content-message
@@ -317,6 +317,9 @@
 
     .content-item-options-list .option-delete:hover
         color: $accent
+
+    .content-item-options-list button:hover
+        color: $secondaryAccent
 
     .content-item:hover
         background-color: $lightGray-2

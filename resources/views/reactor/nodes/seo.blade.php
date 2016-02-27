@@ -6,7 +6,15 @@
 @endsection
 
 @section('action')
-    {!! submit_button('icon-floppy') !!}
+    @unless($node->isLocked())
+        {!! submit_button('icon-floppy') !!}
+
+        @unless($node->isPublished())
+            {!! submit_button('icon-publish', '', 'button-secondary publish-save') !!}
+        @endunless
+    @else
+        {!! button('icon-lock', '', 'button', 'button-disabled') !!}
+    @endunless
 @endsection
 
 @section('content')

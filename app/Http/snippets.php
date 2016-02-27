@@ -298,11 +298,37 @@ if ( ! function_exists('node_options_list'))
             <a href="' . route('reactor.contents.edit', $node->getKey()) . '">
                 <i class="icon-pencil"></i>' . trans('nodes.edit') . '</a>
         </li><li>' . delete_form(
-                route('reactor.contents.destroy', $node->getKey()),
-                trans('nodes.delete')
-            ) . '</li>' . content_options_close(false) . '</div>';
+            route('reactor.contents.destroy', $node->getKey()),
+            trans('nodes.delete')
+        ) . '</li><li>' . node_option_form(
+                $node->isPublished() ? route('reactor.contents.unpublish', $node->getKey()) : route('reactor.contents.publish', $node->getKey()),
+                $node->isPublished()
+        ) . '</li>' . content_options_close(false) . '</div>';
 
         return $list;
+    }
+}
+
+if ( ! function_exists('node_option_form'))
+{
+    /**
+     * Snippet for for outputting html for delete forms
+     *
+     * @param string $action
+     * @param bool $published
+     * @return string
+     */
+    function node_option_form($action, $published)
+    {
+        return sprintf('<form action="%s" method="POST">' .
+            method_field('PUT') . csrf_field() .
+            '<button type="submit" class="option-general">
+                <i class="%s"></i> %s
+            </button></form>',
+            $action,
+            $published ? 'icon-block' : 'icon-publish',
+            $published ? trans('nodes.unpublish') : trans('nodes.publish')
+        );
     }
 }
 

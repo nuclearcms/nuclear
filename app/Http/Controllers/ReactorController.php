@@ -40,12 +40,13 @@ abstract class ReactorController extends Controller {
      * @param string $flash
      * @param null|string $activity
      * @param null|Model $subject
+     * @param string $type
      */
-    public function notify($flash = null, $activity = null, $subject = null)
+    public function notify($flash = null, $activity = null, $subject = null, $type = 'success')
     {
         if ( ! is_null($flash))
         {
-            flash()->success(trans($flash));
+            flash()->{$type}(trans($flash));
         }
 
         if ( ! is_null($activity))

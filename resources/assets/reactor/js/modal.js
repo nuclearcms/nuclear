@@ -8,35 +8,39 @@
      * @param object
      */
     function Modal(el, options, triggers) {
-        this.el = el;
-        this.triggers = (typeof triggers === 'undefined') ? null : triggers;
-        this.current = null;
-
-        this.options = $.extend(this.options, options);
-
-        this.isOpen = false;
-
-        this.options.onCreateEvent(this);
-
-        this._initEvents();
+        this._init(el, options, triggers);
     }
 
     // Modal prototype
     Modal.prototype = {
-        // Default options
-        options : {
-            onCreateEvent : function() { return false; },
-            onOpenEvent : function() { return false; },
-            onCloseEvent : function() { return false; },
-            onConfirmEvent : function() { return false; },
-            onOptionEvent : function() { return false; }
+        // Initialize the object
+        _init : function(el, options, triggers)
+        {
+            this.el = el;
+            this.triggers = triggers;
+            this.current = null;
+
+            this.options = $.extend({
+                onCreateEvent : function() { return false; },
+                onOpenEvent : function() { return false; },
+                onCloseEvent : function() { return false; },
+                onConfirmEvent : function() { return false; },
+                onOptionEvent : function() { return false; }
+            }, options);
+
+            this.isOpen = false;
+
+            this.options.onCreateEvent(this);
+
+            this._initEvents();
         },
+
         // Initialize events
         _initEvents : function() {
-            var el = $(this.el),
+            var el = this.el,
                 self = this;
 
-            if(typeof this.triggers !== 'undefined' && this.triggers !== null) {
+            if(typeof this.triggers != 'undefined' && this.triggers !== null) {
                 this.triggers.on('click', function(e) {
 
                     self.current = $(this);

@@ -364,7 +364,13 @@
             // Create a new dialog
             this.dialog = new Modal($('#modalEditor'), {
                 onConfirmEvent: function (dialog) {
-                    self._setValue();
+                    if (typeof this.controller != 'undefined' && this.controller !== null)
+                    {
+                        self._setValue();
+
+                        this.controller = null;
+                        this.mode = null;
+                    }
                 }
             });
 

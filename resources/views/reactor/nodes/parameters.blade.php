@@ -7,6 +7,10 @@
 
 @section('action')
     {!! submit_button('icon-floppy') !!}
+
+    @unless($node->isPublished())
+        {!! submit_button('icon-publish', '', 'button-secondary publish-save') !!}
+    @endunless
 @endsection
 
 @section('content')

@@ -19,6 +19,7 @@ class EditNodeParametersForm extends Form {
     public function buildForm()
     {
         $this->add('visible', 'checkbox', ['inline' => true]);
+        $this->add('locked', 'checkbox', ['inline' => true]);
         $this->add('sterile', 'checkbox', ['inline' => true]);
         $this->add('home', 'checkbox', ['inline' => true]);
         $this->add('hides_children', 'checkbox', ['inline' => true]);

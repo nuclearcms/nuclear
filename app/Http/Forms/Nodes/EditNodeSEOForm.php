@@ -25,6 +25,8 @@ class EditNodeSEOForm extends Form {
             'rules' => 'max:255'
         ]);
         $this->add('meta_description', 'textarea');
+        $this->add('meta_author', 'text');
+        $this->add('meta_image', 'document');
     }
 
 }
