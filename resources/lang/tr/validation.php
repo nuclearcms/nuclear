@@ -156,6 +156,7 @@ return [
         'meta_author' => 'Meta Yazar',
         'meta_image' => 'Meta Görüntü',
         'locale' => 'Dil',
+        'caption' => 'Manşet',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',

@@ -141,18 +141,21 @@ class DocumentsController extends ReactorController {
     /**
      * Show the form for editing the specified resource.
      *
+     * @param Request $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $this->authorize('ACCESS_DOCUMENTS_EDIT');
 
         $media = Media::findOrFail($id);
 
-        $form = $this->getEditMediaForm($id, $media);
+        $locale = $this->determineMediaLocale($request);
 
-        return view('documents.edit', compact('form', 'media'));
+        $form = $this->getEditMediaForm($id, $media, $locale);
+
+        return view('documents.edit', compact('form', 'media', 'locale'));
     }
 
     /**
@@ -170,11 +173,61 @@ class DocumentsController extends ReactorController {
 
         $this->validateForm('Reactor\Http\Forms\Documents\EditForm', $request);
 
-        $media->update($request->all());
+        $attributes = $this->parseUpdateAttributes($request, $media);
+
+        $media->update($attributes);
 
         $this->notify('documents.edited', 'updated_media', $media);
 
         return redirect()->back();
+    }
+
+    /**
+     * @param Request $request
+     * @param $media
+     * @return array
+     */
+    public function parseUpdateAttributes(Request $request, $media)
+    {
+        $locale = $request->get('locale');
+        $attributes = $media->translatedAttributes;
+
+        return array_merge(
+            $request->except(array_merge($attributes, ['locale'])),
+            [$locale => $request->only($attributes)]
+        );
+    }
+
+    /**
+     * Determines the locale for media request
+     *
+     * @param Request $request
+     * @return mixed|null
+     */
+    public function determineMediaLocale(Request $request)
+    {
+        $locale = $request->get('locale', config('app.locale'));
+
+        if ( ! in_array($locale, config('translatable.locales')))
+        {
+            $locale = config('app.locale');
+
+            return $locale;
+        }
+
+        return $locale;
+    }
+
+    /**
+     * @param $media
+     * @param $locale
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    public function getMediaTranslationsForm($media, $locale)
+    {
+        return $this->form('Reactor\Http\Forms\Documents\EditMediaTranslationsForm', [
+            'model' => $media->translateOrNew($locale)
+        ]);
     }
 
     /**
@@ -271,13 +324,14 @@ class DocumentsController extends ReactorController {
     /**
      * @param $id
      * @param $media
+     * @param $locale
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditMediaForm($id, $media)
+    protected function getEditMediaForm($id, $media, $locale)
     {
         $form = $this->form('Reactor\Http\Forms\Documents\EditForm', [
             'url'   => route('reactor.documents.update', $id),
-            'model' => $media
+            'model' => array_merge($media->toArray(), $media->translateOrNew($locale)->toArray())
         ]);
 
         $form->modify('public_url', 'text',

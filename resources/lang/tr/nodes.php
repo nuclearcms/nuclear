@@ -27,6 +27,9 @@ return [
     'ascending' => 'Artan',
     'descending' => 'Azalan',
 
+    'leaflist_display' => 'Düğüm Ağacı Modu',
+    'leaf_display' => 'Liste Modu',
+
     'add_translation' => 'Çeviri Ekle',
     'added_translation' => 'Çeviri eklendi.',
     'no_available_locale' => 'Uygun çeviri dili kalmadı.',

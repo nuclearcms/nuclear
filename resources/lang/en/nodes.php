@@ -27,6 +27,9 @@ return [
     'ascending' => 'Ascending',
     'descending' => 'Descending',
 
+    'leaflist_display' => 'Node Tree Mode',
+    'leaf_display' => 'List Mode',
+
     'add_translation' => 'Add Translation',
     'added_translation' => 'Translation was added.',
     'no_available_locale' => 'No locales are available for translation.',

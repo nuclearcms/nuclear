@@ -20,8 +20,16 @@
 
     {!! $media->present()->preview !!}
 
-    <div class="content-form material-light">
-        {!! form_rest($form) !!}
+    <div class="material-light">
+        <div class="content-form">
+            {!! form_until($form, 'public_url') !!}
+        </div>
+
+        @include('documents.translationtabs')
+
+        <div class="content-form">
+            {!! form_rest($form) !!}
+        </div>
     </div>
 
 @endsection

@@ -156,6 +156,7 @@ return [
         'meta_author' => 'Meta Author',
         'meta_image' => 'Meta Image',
         'locale' => 'Locale',
+        'caption' => 'Caption',
 
         // Settings specific
         'analytics' => 'Google Analytics Key',

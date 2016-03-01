@@ -49,13 +49,23 @@ class EditNodeParametersForm extends Form {
                 'published_at' => trans('validation.attributes.published_at'),
                 'updated_at' => trans('validation.attributes.updated_at'),
                 '_lft' => trans('nodes.position')
-            ]
+            ],
+            'inline' => true
         ]);
         $this->add('children_order_direction', 'select', [
             'choices' => [
                 'asc' => trans('nodes.ascending'),
                 'desc' => trans('nodes.descending')
-            ]
+            ],
+            'inline' => true
+        ]);
+        $this->add('children_display_mode', 'select', [
+            'choices' => [
+                'leaflist' => trans('nodes.leaflist_display'),
+                'list' => trans('nodes.leaf_display')
+            ],
+            'inline' => true,
+            'rules' => 'in:leaflist,list'
         ]);
     }
 

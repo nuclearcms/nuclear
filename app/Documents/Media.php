@@ -2,6 +2,7 @@
 namespace Reactor\Documents;
 
 
+use Dimsav\Translatable\Translatable;
 use Kenarkose\Files\Determine\AutoDeterminesType;
 use Kenarkose\Ownable\AutoAssociatesOwner;
 use Kenarkose\Ownable\Ownable;
@@ -13,7 +14,7 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 class Media extends TransitFile {
 
     use Ownable, AutoAssociatesOwner, AutoDeterminesType,
-        Sortable, SearchableTrait, PresentableTrait;
+        Sortable, SearchableTrait, PresentableTrait, Translatable;
 
     /**
      * @var string
@@ -25,7 +26,17 @@ class Media extends TransitFile {
      *
      * @var  array
      */
-    protected $fillable = ['extension', 'mimetype', 'size', 'name', 'path'];
+    protected $fillable = [
+        'extension', 'mimetype', 'size', 'name', 'path',
+        'caption', 'description'
+    ];
+
+    /**
+     * Translatable
+     */
+    public $translatedAttributes = ['caption', 'description'];
+    public $translationModel = 'Reactor\Documents\MediaTranslation';
+    public $translationForeignKey = 'media_id';
 
     /**
      * Presenter for the model

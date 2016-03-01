@@ -24,6 +24,15 @@ class EditForm extends Form {
         $this->add('public_url', 'text', [
             'attr' => ['disabled']
         ]);
+
+        // Translated fields
+        $this->add('caption', 'text', [
+            'rules' => 'max:255'
+        ]);
+        $this->add('description', 'textarea');
+        $this->add('locale', 'hidden', [
+            'rules' => 'required|in:' . implode(',', config('translatable.locales'))
+        ]);
     }
 
 }

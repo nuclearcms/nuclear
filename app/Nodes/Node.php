@@ -14,6 +14,16 @@ class Node extends HierarchyNode {
     use SearchableTrait, Ownable, AutoAssociatesOwner, RecordsActivity;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['title', 'node_name',
+        'meta_title', 'meta_keywords', 'meta_description',
+        'visible', 'sterile', 'home', 'locked', 'status', 'hides_children', 'priority',
+        'published_at', 'children_order', 'children_order_direction', 'children_display_mode'];
+
+    /**
      * Searchable columns.
      *
      * @var array
