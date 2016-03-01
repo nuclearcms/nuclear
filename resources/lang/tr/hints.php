@@ -13,9 +13,12 @@ return [
     'settinggroup_name' => 'Ayar grubu için okunaklı isim.',
     'nodetype_name' => 'Sadece küçük ASCII harfler içermelidir.',
     'nodetype_label' => 'Düğüm tipi için okunaklı isim.',
+    'nodetype_color' => 'Düğüm tiplerini ayırt edebilmek için renk.',
     'nodefield_name' => 'Sadece küçük ASCII harfler ve alt tire(_) içermelidir.',
     'nodefield_label' => 'Düğüm alanı için okunaklı isim.',
-    'nodetype_color' => 'Düğüm tiplerini ayırt edebilmek için renk.',
+    'nodefield_rules' => 'Düğüm alanı için onaylama kuralları.',
+    'nodefield_defaultvalue' => 'Düğüm alanının öntanımlı değeri.',
+    'nodefield_options' => 'Düğüm alanı için diğer seçenekler.',
     'published_at' => 'YYYY-AA-GG SS:DD:ss formatında olmalıdır.',
     'tags' => 'Etiketleri tab, boşluk veya enter tuşlarıyla ayırabilirsiniz.',
     'tags_placeholder' => 'Etiketleri buraya yazın...'

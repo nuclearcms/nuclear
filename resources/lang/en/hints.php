@@ -13,9 +13,12 @@ return [
     'settinggroup_name' => 'User-friendly name for the setting group.',
     'nodetype_name' => 'Can only contain lowercase ASCII letters.',
     'nodetype_label' => 'Pretty name for the node type.',
+    'nodetype_color' => 'Color for identifying the node type.',
     'nodefield_name' => 'Can only contain lowercase ASCII letters and underscores(_).',
     'nodefield_label' => 'Pretty name for the node field.',
-    'nodetype_color' => 'Color for identifying the node type.',
+    'nodefield_rules' => 'Validation rules for the node field.',
+    'nodefield_defaultvalue' => 'Default value for the node field.',
+    'nodefield_options' => 'Other options for the node field.',
     'published_at' => 'Has to be in YYYY-MM-DD HH:MM:SS format.',
     'tags' => 'You may separate tag values by using tab, comma or enter.',
     'tags_placeholder' => 'Type tags here...'

@@ -27,19 +27,8 @@ class CreateNodeFieldForm extends Form {
             'choices' => $this->getFieldTypes(),
             'inline' => true
         ]);
-        $this->add('position', 'number', [
-            'default_value' => 0.8,
-            'attr' => [
-                'step' => 'any'
-            ],
-            'inline' => true
-        ]);
 
         $this->compose('Reactor\Http\Forms\Nodes\EditNodeFieldForm');
-
-        $this->add('rules', 'textarea');
-        $this->add('default_value', 'textarea');
-        $this->add('options', 'textarea');
     }
 
     /**

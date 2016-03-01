@@ -3,6 +3,7 @@
 namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Nuclear\Hierarchy\Builders\BuilderService;
 use Nuclear\Hierarchy\Repositories\NodeFieldRepository;
 use Reactor\Http\Requests;
 use Reactor\Nodes\NodeField;
@@ -68,11 +69,12 @@ class NodeFieldsController extends ReactorController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param BuilderService $builderService
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BuilderService $builderService, Request $request, $id)
     {
         $this->authorize('ACCESS_NODES_EDIT');
 
@@ -81,6 +83,8 @@ class NodeFieldsController extends ReactorController
         $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeFieldForm', $request);
 
         $nodeField->update($request->all());
+
+        $builderService->buildForm($nodeField->nodeType);
 
         $this->notify('nodes.edited_field');
 
