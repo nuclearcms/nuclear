@@ -16,6 +16,7 @@ return [
     'created_user' => '<a href=":actorLink">:actorName</a> created a <a href=":subjectLink">user</a>.',
     'deleted_media' => '<a href=":actorLink">:actorName</a> deleted a document.',
     'deleted_node' => '<a href=":actorLink">:actorName</a> deleted a node.',
+    'deleted_node_translation' => '<a href=":actorLink">:actorName</a> deleted a translation from a <a href=":subjectLink">node</a>.',
     'deleted_nodefield' => '<a href=":actorLink">:actorName</a> deleted a node field.',
     'deleted_nodetype' => '<a href=":actorLink">:actorName</a> deleted a node type.',
     'deleted_permission' => '<a href=":actorLink">:actorName</a> deleted a permission.',

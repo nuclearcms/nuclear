@@ -1,4 +1,4 @@
-@extends('layout.form')
+@extends('nodes.form')
 
 @section('pageTitle', trans('nodes.edit'))
 @section('contentSubtitle')
@@ -23,7 +23,7 @@
     ])
 
     @include('partials.content.header', [
-        'headerTitle' => $node->title,
+        'headerTitle' => $source->title,
         'headerHint' => $node->nodeType->label
     ])
 

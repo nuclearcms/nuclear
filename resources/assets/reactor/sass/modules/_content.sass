@@ -67,13 +67,31 @@
     a
         color: $midGray-3
 
+.content-tabs-bar-container
+    background-color: $secondaryAccent
+    padding: 0 3em
+    position: relative
+
+    @media screen and (max-width: $microThreshold)
+        padding-left: 1.5em
+
+    .node-options
+        +position(absolute, 0 0 null null)
+        font-size: 0.875em
+
+    .content-item-options-button
+        color: $lightGray-1
+        padding: 1.125em 1.0625em
 
 .content-tabs-bar
     text-align: center
-    background-color: $secondaryAccent
     white-space: nowrap
     overflow: auto
     padding: 0 1.5em
+    background-color: $secondaryAccent
+
+    .content-tabs-bar-container &
+        padding: 0
 
     li
         display: inline-block
@@ -239,28 +257,36 @@
     li
         text-align: left
 
+    .options-splitter
+        border-top: 1px solid $lightGray-3
+        margin: 0.25em 0
+
     .list-header
         padding: 0.75em 1.5em 0
         font-size: 0.75em
         color: $midGray-3
         font-family: $fontHeading
+        line-height: 2.25em
 
-    a, button, .disabled
+    a, button, span, .disabled
         display: block
         line-height: 2.85714286em
         padding: 0 1em
+        cursor: pointer
+        color: $darkGray-2
+        +transition($animationFast)
 
     button
         background-color: transparent
         font-size: inherit
-        color: $darkGray-2
         cursor: pointer
         width: 100%
         text-align: left
 
-    .disabled
-        color: $midGray-2
+    .disabled, .disabled:hover
+        color: $midGray-2 !important
         text-decoration: line-through
+        cursor: default
 
     .option-delete, .option-general
         +transition(color $animationFast)
@@ -309,9 +335,17 @@
     .content-column-hidden
         display: none
 
+.node-option-message
+    display: none
+    &.active
+        display: block
+
 .no-touch
     .content-item-options-button:hover
         color: $darkGray-2
+
+    .content-tabs-bar-container .content-item-options-button:hover
+        color: lighten($secondaryAccent, 30%)
 
     .content-tabs-bar .content-tab-flap:hover
         color: $lightGray-1
@@ -325,8 +359,9 @@
     .content-item-options-list .option-delete:hover
         color: $accent
 
-    .content-item-options-list button:hover
-        color: $secondaryAccent
+    .content-item-options-list
+        button:hover, a:hover, span:hover
+            color: $secondaryAccent
 
     .content-item:hover
         background-color: $lightGray-2

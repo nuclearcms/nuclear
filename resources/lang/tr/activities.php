@@ -16,6 +16,7 @@ return [
     'created_user' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kullanıcı</a> oluşturdu.',
     'deleted_media' => '<a href=":actorLink">:actorName</a> bir dosya sildi.',
     'deleted_node' => '<a href=":actorLink">:actorName</a> bir düğüm sildi.',
+    'deleted_node_translation' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğümden</a> çeviri sildi.',
     'deleted_nodefield' => '<a href=":actorLink">:actorName</a> bir düğüm alanı sildi.',
     'deleted_nodetype' => '<a href=":actorLink">:actorName</a> bir düğüm tipini sildi.',
     'deleted_permission' => '<a href=":actorLink">:actorName</a> bir izin sildi.',

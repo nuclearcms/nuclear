@@ -93,10 +93,10 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.contents.unpublish'
             ]);
 
-            Route::delete('contents/{id}', [
+            Route::delete('contents/{id}/{self?}', [
                 'uses' => 'NodesController@destroy',
                 'as' => 'reactor.contents.destroy'
-            ]);
+            ])->where('self', 'self');
 
             Route::get('contents/{id}/seo/{source?}', [
                 'uses' => 'NodesController@seo',
@@ -105,10 +105,10 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@updateSEO',
                 'as'   => 'reactor.contents.seo.update']);
 
-            Route::get('contents/{id}/parameters', [
+            Route::get('contents/{id}/parameters/{source?}', [
                 'uses' => 'NodesController@parameters',
                 'as'   => 'reactor.contents.parameters']);
-            Route::put('contents/{id}/parameters', [
+            Route::put('contents/{id}/parameters/{source?}', [
                 'uses' => 'NodesController@updateParameters',
                 'as'   => 'reactor.contents.parameters.update']);
 
@@ -137,6 +137,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@storeTranslation',
                 'as'   => 'reactor.contents.translation.store']);
 
+            Route::delete('contents/translation/{id}', [
+                'uses' => 'NodesController@destroyTranslation',
+                'as'   => 'reactor.contents.translation.destroy'
+            ]);
+
             Route::get('contents/search', [
                 'uses' => 'NodesController@search',
                 'as'   => 'reactor.contents.search']);
@@ -147,12 +152,22 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
 
             Route::post('contents/locale', [
                 'uses' => 'NodesController@changeTreeLocale',
-                'as' => 'reactor.contents.locale'
+                'as'   => 'reactor.contents.locale'
             ]);
 
             Route::post('contents/sort', [
                 'uses' => 'NodesController@sortNode',
-                'as' => 'reactor.contents.sort'
+                'as'   => 'reactor.contents.sort'
+            ]);
+
+            Route::get('contents/{id}/transform', [
+                'uses' => 'NodesController@transform',
+                'as'   => 'reactor.contents.transform'
+            ]);
+
+            Route::put('contents/{id}/transform', [
+                'uses' => 'NodesController@transformPut',
+                'as'   => 'reactor.contents.transform.put'
             ]);
         });
 

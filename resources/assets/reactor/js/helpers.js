@@ -52,3 +52,46 @@ function loaded(e) {
     }
     return percent;
 }
+
+/**
+ * Creates a form from given DOM object
+ *
+ * @param DOMObject
+ * @return DOMObject
+ */
+function create_form_from(item)
+{
+    var form = $('<form>').attr({
+        method: 'post',
+        action: item.data('action')
+    });
+
+    var type = $('<input>').attr({
+        name: '_method',
+        type: 'hidden',
+        value: item.data('method')
+    });
+
+    var token = $('<input>').attr({
+        name: '_token',
+        type: 'hidden',
+        value: $('meta[name="csrf-token"]').attr('content')
+    });
+
+    type.appendTo(form);
+    token.appendTo(form);
+
+    return form;
+}
+
+/**
+ * Appends a given form to body and submits it
+ *
+ * @param DOMObject
+ */
+function append_and_submit_form(form)
+{
+    form.appendTo($('body'));
+
+    form.submit();
+}

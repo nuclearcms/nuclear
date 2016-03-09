@@ -60,3 +60,13 @@ $('button.publish-save').on('click', function (e) {
 
     form.submit();
 });
+
+// Node options menu
+$('.node-option-formable').on('click', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var form = create_form_from($(this));
+
+    append_and_submit_form(form);
+});

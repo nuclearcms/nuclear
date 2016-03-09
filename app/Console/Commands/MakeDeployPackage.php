@@ -42,25 +42,17 @@ class MakeDeployPackage extends Command {
         $this->info('Creating the deploy package...');
         $this->line('');
 
-        $this->warn('You should run "gulp --production --r" before running this command...');
+        $this->warn('Optimizing app...');
+        $this->call('optimize');
 
-        if ($this->confirm('Would you like to continue?', true))
-        {
-            $this->warn('Optimizing app...');
-            $this->call('optimize');
+        $this->warn('Caching routes...');
+        $this->call('route:cache');
 
-            $this->warn('Caching routes...');
-            $this->call('route:cache');
+        $this->warn('Creating ZIP backup...');
+        $this->createPackage();
 
-            $this->warn('Creating ZIP backup...');
-            $this->createPackage();
-
-            $this->info('Completed creating the deploy package.');
-            $this->warn('The package is stored in the backups directory.');
-        } else
-        {
-            $this->error('Aborted');
-        }
+        $this->info('Completed creating the deploy package.');
+        $this->warn('The package is stored in the backups directory.');
     }
 
     protected function createPackage()

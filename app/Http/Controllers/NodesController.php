@@ -5,6 +5,7 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Nuclear\Hierarchy\NodeSource;
 use Reactor\Http\Requests;
 use Reactor\Nodes\Node;
 use Reactor\Nodes\NodeType;
@@ -259,17 +260,29 @@ class NodesController extends ReactorController {
      * Remove the specified resource from storage.
      *
      * @param  int $id
+     * @param bool|string $self
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $self = false)
     {
         $this->authorize('ACCESS_CONTENTS_DELETE');
 
         $node = Node::findOrFail($id);
 
-        $node->delete();
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_not_editable', null, null, 'error');
+        } else
+        {
+            $node->delete();
 
-        $this->notify('nodes.deleted');
+            $this->notify('nodes.deleted');
+        }
+
+        if ($self === 'self')
+        {
+            return redirect()->route('reactor.dashboard');
+        }
 
         return redirect()->back();
     }
@@ -357,17 +370,20 @@ class NodesController extends ReactorController {
      * Show the form for editing the specified resources parameters.
      *
      * @param  int $id
+     * @param int|null $source
      * @return \Illuminate\Http\Response
      */
-    public function parameters($id)
+    public function parameters($id, $source = null)
     {
         $this->authorize('ACCESS_CONTENTS_EDIT');
 
         $node = Node::findOrFail($id);
 
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+
         $form = $this->getEditNodeParametersForm($id, $node);
 
-        return view('nodes.parameters', compact('form', 'node'));
+        return view('nodes.parameters', compact('form', 'node', 'source'));
     }
 
     /**
@@ -375,9 +391,10 @@ class NodesController extends ReactorController {
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
+     * @param int|null $source
      * @return \Illuminate\Http\Response
      */
-    public function updateParameters(Request $request, $id)
+    public function updateParameters(Request $request, $id, $source = null)
     {
         $this->authorize('ACCESS_CONTENTS_EDIT');
 
@@ -580,6 +597,38 @@ class NodesController extends ReactorController {
             'id'     => $node->getKey(),
             'source' => $node->translate($locale)->getKey()
         ]);
+    }
+
+
+    /**
+     * Deletes a translation
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function destroyTranslation($id)
+    {
+        $this->authorize('ACCESS_CONTENTS_EDIT');
+
+        $source = NodeSource::findOrFail($id);
+
+        $node = $source->node;
+
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_not_editable', null, null, 'error');
+        } else
+        {
+            $source->delete();
+
+            $node->load('translations');
+
+            $sourceId = ($source->locale === app()->getLocale()) ? $node->translations->first()->getKey() : null;
+
+            $this->notify('nodes.deleted_translation', 'deleted_node_translation', $node);
+        }
+
+        return redirect()->route('reactor.contents.edit', [$node->getKey(), $sourceId]);
     }
 
     /**

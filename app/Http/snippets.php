@@ -286,21 +286,21 @@ if ( ! function_exists('node_options_list'))
                 '</li>', false
             );
 
-        if ( ! $node->sterile)
+        if ($node->canHaveChildren())
         {
             $list .= '<li>
                 <a href="' . route('reactor.contents.create', $node->getKey()) . '">
-                    <i class="icon-plus"></i>' . trans('nodes.add_child') . '</a>
+                    <i class="icon-plus"></i> ' . trans('nodes.add_child') . '</a>
             </li>';
         }
 
         $list .= '<li>
             <a href="' . route('reactor.contents.edit', $node->getKey()) . '">
-                <i class="icon-pencil"></i>' . trans('nodes.edit') . '</a>
+                <i class="icon-pencil"></i> ' . trans('nodes.edit') . '</a>
         </li><li>' . delete_form(
             route('reactor.contents.destroy', $node->getKey()),
             trans('nodes.delete')
-        ) . '</li><li>' . node_option_form(
+        ) . '</li><li class="options-splitter"></li><li>' . node_option_form(
                 $node->isPublished() ? route('reactor.contents.unpublish', $node->getKey()) : route('reactor.contents.publish', $node->getKey()),
                 $node->isPublished()
         ) . '</li>' . content_options_close(false) . '</div>';
