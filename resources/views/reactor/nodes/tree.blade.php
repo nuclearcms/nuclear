@@ -15,7 +15,7 @@
     ])
 
     @include('partials.content.header', [
-        'headerTitle' => $node->title,
+        'headerTitle' => $source->title,
         'headerHint' => $node->nodeType->label
     ])
 

@@ -16,6 +16,7 @@ return [
     'parameters' => 'Parameters',
     'seo' => 'SEO',
     'tree' => 'Tree',
+    'list' => 'List',
     'ancestors' => 'Ancestors',
 
     'draft' => 'Draft',
@@ -27,8 +28,8 @@ return [
     'ascending' => 'Ascending',
     'descending' => 'Descending',
 
-    'leaflist_display' => 'Node Tree Mode',
-    'leaf_display' => 'List Mode',
+    'tree_display' => 'Node Tree Mode',
+    'list_display' => 'List Mode',
 
     'add_translation' => 'Add Translation',
     'added_translation' => 'Translation was added.',

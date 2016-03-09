@@ -16,15 +16,18 @@ class NodesController extends ReactorController {
      * Shows the children nodes of the resourse
      *
      * @param int $id
+     * @param int|null $source
      * @return Response
      */
-    public function tree($id)
+    public function tree($id, $source = null)
     {
         $this->authorize('ACCESS_CONTENTS_EDIT');
 
         $node = Node::findOrFail($id);
 
-        return view('nodes.tree', compact('node'));
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+
+        return view('nodes.tree', compact('node', 'source'));
     }
 
     /**

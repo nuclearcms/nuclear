@@ -150,6 +150,7 @@ return [
         'priority' => 'Priority',
         'children_order' => 'Children Order',
         'children_order_direction' => 'Children Order Direction',
+        'children_display_mode' => 'Children Display Mode',
         'meta_title' => 'Meta Title',
         'meta_keywords' => 'Meta Keywords',
         'meta_description' => 'Meta Description',

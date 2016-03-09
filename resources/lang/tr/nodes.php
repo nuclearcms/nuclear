@@ -16,6 +16,7 @@ return [
     'parameters' => 'Ayarlar',
     'seo' => 'SEO',
     'tree' => 'Ağaç',
+    'list' => 'Liste',
     'ancestors' => 'Soy Ağacı',
 
     'draft' => 'Taslak',
@@ -27,8 +28,8 @@ return [
     'ascending' => 'Artan',
     'descending' => 'Azalan',
 
-    'leaflist_display' => 'Düğüm Ağacı Modu',
-    'leaf_display' => 'Liste Modu',
+    'tree_display' => 'Düğüm Ağacı Modu',
+    'list_display' => 'Liste Modu',
 
     'add_translation' => 'Çeviri Ekle',
     'added_translation' => 'Çeviri eklendi.',

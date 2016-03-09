@@ -150,6 +150,7 @@ return [
         'priority' => 'Öncelik',
         'children_order' => 'Çocuk Düğüm Sırası',
         'children_order_direction' => 'Çocuk Düğüm Sırası Yönü',
+        'children_display_mode' => 'Çocuk Düğüm Görüntülenme Modu',
         'meta_title' => 'Meta Başlık',
         'meta_keywords' => 'Meta Anahtar Kelimeler',
         'meta_description' => 'Meta Açıklama',

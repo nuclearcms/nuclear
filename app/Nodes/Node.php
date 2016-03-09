@@ -46,4 +46,27 @@ class Node extends HierarchyNode {
      */
     protected $table = 'nodes';
 
+    /**
+     * Determines the default link for node
+     *
+     * @param null|string $locale
+     * @return string
+     */
+    public function getDefaultLink($locale = null)
+    {
+        $parameters = [
+            $this->getKey(),
+            $this->translate($locale)->getKey()
+        ];
+
+        if ($this->hidesChildren())
+        {
+            return route('reactor.contents.' . $this->children_display_mode,
+                $parameters);
+        }
+
+        return route('reactor.contents.edit',
+            $parameters);
+    }
+
 }

@@ -346,7 +346,7 @@ if ( ! function_exists('ancestor_links'))
 
         foreach ($ancestors as $ancestor)
         {
-            $links[] = link_to_route('reactor.contents.edit', $ancestor->title, $ancestor->getKey());
+            $links[] = link_to($ancestor->getDefaultLink(), $ancestor->title);
         }
 
         return $links;

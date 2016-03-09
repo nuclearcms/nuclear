@@ -8,10 +8,18 @@
     <ul class="content-tabs-bar">
         @if($node->hidesChildren())
             <li>
+                @if($currentTab === 'reactor.contents.list')
+                    <span class="content-tab-flap active">{{ uppercase(trans('nodes.list')) }}</span>
+                @else
+                    {!! link_to_route('reactor.contents.list', uppercase(trans('nodes.list')), [$currentKey, $source->getKey()], ['class' => 'content-tab-flap']) !!}
+                @endif
+            </li>
+
+            <li>
                 @if($currentTab === 'reactor.contents.tree')
                     <span class="content-tab-flap active">{{ uppercase(trans('nodes.tree')) }}</span>
                 @else
-                    {!! link_to_route('reactor.contents.tree', uppercase(trans('nodes.tree')), $currentKey, ['class' => 'content-tab-flap']) !!}
+                    {!! link_to_route('reactor.contents.tree', uppercase(trans('nodes.tree')), [$currentKey, $source->getKey()], ['class' => 'content-tab-flap']) !!}
                 @endif
             </li>
         @endif

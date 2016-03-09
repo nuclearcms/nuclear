@@ -61,11 +61,11 @@ class EditNodeParametersForm extends Form {
         ]);
         $this->add('children_display_mode', 'select', [
             'choices' => [
-                'leaflist' => trans('nodes.leaflist_display'),
-                'list' => trans('nodes.leaf_display')
+                'tree' => trans('nodes.tree_display'),
+                'list' => trans('nodes.list_display')
             ],
             'inline' => true,
-            'rules' => 'in:leaflist,list'
+            'rules' => 'in:tree,list'
         ]);
     }
 

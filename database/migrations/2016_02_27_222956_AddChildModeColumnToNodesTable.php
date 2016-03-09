@@ -13,7 +13,7 @@ class AddChildModeColumnToNodesTable extends Migration
     public function up()
     {
         Schema::table('nodes', function (Blueprint $table) {
-            $table->enum('children_display_mode', ['leaflist', 'list'])->default('leaflist');
+            $table->enum('children_display_mode', ['tree', 'list'])->default('tree');
         });
     }
 
