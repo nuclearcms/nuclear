@@ -1,6 +1,7 @@
 <div id="navigation-nodes-whiteout" class="navigation-nodes-whiteout"></div>
 
 <div class="navigation-nodes-container material-light">
+    @can('ACCESS_CONTENTS')
     <div class="scroll-container-nodes">
         <div class="scroller-nodes">
 
@@ -42,4 +43,5 @@
             </div>
         </div>
     </div>
+    @endcan
 </div>

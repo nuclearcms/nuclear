@@ -6,12 +6,21 @@ namespace Reactor\Nodes;
 use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Ownable\AutoAssociatesOwner;
 use Kenarkose\Ownable\Ownable;
+use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Nuclear\Hierarchy\Node as HierarchyNode;
 
 class Node extends HierarchyNode {
 
     use SearchableTrait, Ownable, AutoAssociatesOwner, RecordsActivity;
+
+    /**
+     * Sortable trait requires minor tweaks
+     */
+    use Sortable
+    {
+        scopeSortable as _scopeSortable;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -30,11 +39,11 @@ class Node extends HierarchyNode {
      */
     protected $searchable = [
         'columns' => [
-            'node_sources.title' => 10,
-            'node_sources.meta_keywords'  => 10
+            'node_sources.title'         => 10,
+            'node_sources.meta_keywords' => 10
         ],
-        'joins' => [
-            'node_sources' => ['nodes.id','node_sources.node_id'],
+        'joins'   => [
+            'node_sources' => ['nodes.id', 'node_sources.node_id'],
         ]
     ];
 
@@ -45,6 +54,27 @@ class Node extends HierarchyNode {
      * the child classes in the same table
      */
     protected $table = 'nodes';
+
+    /**
+     * Sortable columns
+     *
+     * @var array
+     */
+    protected $sortableColumns = ['title', 'created_at'];
+
+    /**
+     * Default sortable key
+     *
+     * @var string
+     */
+    protected $sortableKey = 'created_at';
+
+    /**
+     * Default sortable direction
+     *
+     * @var string
+     */
+    protected $sortableDirection = 'desc';
 
     /**
      * Determines the default link for node
@@ -67,6 +97,26 @@ class Node extends HierarchyNode {
 
         return route('reactor.contents.edit',
             $parameters);
+    }
+
+    /**
+     * Sortable by scope
+     *
+     * @param $query
+     * @param string|null $key
+     * @param string|null $direction
+     * @return $query
+     */
+    public function scopeSortable($query, $key = null, $direction = null)
+    {
+        list($key, $direction) = $this->validateSortableParameters($key, $direction);
+
+        if ($this->_isTranslationAttribute($key))
+        {
+            return $this->orderQueryBySourceAttribute($query, $key, $direction);
+        }
+
+        return $query->orderBy($key, $direction);
     }
 
 }

@@ -19,7 +19,7 @@ class CreateNodeForm extends Form {
     public function buildForm()
     {
         $this->compose('Nuclear\Hierarchy\Http\Forms\NodeSourceForm');
-        $this->add('type', 'select');
+        $this->add('type', 'select', ['inline' => true]);
     }
 
 }

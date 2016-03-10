@@ -199,7 +199,7 @@
                 border-top: 0.3em solid $secondaryAccent
 
 .content-list-sub-container
-    padding: 2em
+    padding: 2em 1.5em 1.5em
     margin-top: 0
 
     .content-list
@@ -213,7 +213,10 @@
             border-top: 1px solid $lightGray-3
 
     @media screen and (max-width: $collapseThreshold)
-        padding: 1.5em
+        padding: 1.5em 1em 1em
+
+    @media screen and (max-width: $microThreshold)
+        padding: 1.5em 0.5em 0.5em
 
 .content-item, .content-noresults
     border-bottom: 1px solid $lightGray-3
@@ -330,6 +333,13 @@
 
 .content-footer-table
     +position(absolute, null 0 0 null)
+
+.content-footer-sub
+    margin-top: -1.5em
+    @media screen and (max-width: $collapseThreshold)
+        margin-top: -1em
+    @media screen and (max-width: $microThreshold)
+        margin-top: -0.5em
 
 @media screen and (max-width: $collapseThreshold)
     .content-column-hidden

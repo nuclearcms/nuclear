@@ -13,7 +13,49 @@ use Reactor\Nodes\NodeType;
 class NodesController extends ReactorController {
 
     /**
-     * Shows the children nodes of the resourse
+     * Shows the children nodes of the resource in list view
+     *
+     * @param int $id
+     * @param int|null $source
+     * @return Response
+     */
+    public function index($id, $source = null)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS');
+
+        $children = $node->children()
+            ->sortable()
+            ->translatedIn($locale)
+            ->paginate();
+
+        return view('nodes.index', compact('node', 'source', 'children', 'locale'));
+    }
+
+    /**
+     * @param int $id
+     * @param int|null $source
+     * @param string $permission
+     * @param bool $withSource
+     * @return array
+     */
+    public function authorizeAndFindNode($id, $source, $permission, $withSource = true)
+    {
+        $this->authorize($permission);
+
+        $node = Node::findOrFail($id);
+
+        if ( ! $withSource)
+        {
+            return $node;
+        }
+
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+
+        return [$node, $locale, $source];
+    }
+
+    /**
+     * Shows the children nodes of the resourse in tree view
      *
      * @param int $id
      * @param int|null $source
@@ -21,11 +63,7 @@ class NodesController extends ReactorController {
      */
     public function tree($id, $source = null)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
-
-        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS');
 
         return view('nodes.tree', compact('node', 'source'));
     }
@@ -106,11 +144,14 @@ class NodesController extends ReactorController {
 
         $this->validateForm('Reactor\Http\Forms\Nodes\CreateNodeForm', $request);
 
-        $node = $this->createNode($request, $id);
+        list($node, $locale) = $this->createNode($request, $id);
 
         $this->notify('nodes.created');
 
-        return redirect()->route('reactor.contents.edit', $node->getKey());
+        return redirect()->route('reactor.contents.edit', [
+            $node->getKey(),
+            $node->translate($locale)->getKey()
+        ]);
     }
 
     /**
@@ -124,15 +165,17 @@ class NodesController extends ReactorController {
 
         $node->setNodeTypeByKey($request->input('type'));
 
+        $locale = $this->validateLocale($request, true);
+
         $node->fill([
-            config('app.locale') => $request->all()
+            $locale => $request->all()
         ]);
 
         $node = $this->locateNodeInTree($id, $node);
 
         $node->save();
 
-        return $node;
+        return [$node, $locale];
     }
 
     /**
@@ -162,15 +205,14 @@ class NodesController extends ReactorController {
      */
     public function edit($id, $source = null)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
-
-        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
         $form = $this->getEditNodeForm($id, $node, $source);
 
-        return view('nodes.edit', compact('form', 'node', 'locale', 'source'));
+        // This is for enabling deleting translation
+        $translated = true;
+
+        return view('nodes.edit', compact('form', 'node', 'locale', 'source', 'translated'));
     }
 
     /**
@@ -183,9 +225,7 @@ class NodesController extends ReactorController {
      */
     public function update(Request $request, $id, $source = null)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT', false);
 
         if ($node->isLocked())
         {
@@ -229,9 +269,7 @@ class NodesController extends ReactorController {
      */
     public function publish($id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         $node->publish()->save();
 
@@ -248,9 +286,7 @@ class NodesController extends ReactorController {
      */
     public function unpublish($id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         $node->unpublish()->save();
 
@@ -268,9 +304,7 @@ class NodesController extends ReactorController {
      */
     public function destroy($id, $self = false)
     {
-        $this->authorize('ACCESS_CONTENTS_DELETE');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_DELETE', false);
 
         if ($node->isLocked())
         {
@@ -299,15 +333,14 @@ class NodesController extends ReactorController {
      */
     public function seo($id, $source = null)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
-
-        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
         $form = $this->getEditNodeSEOForm($id, $source);
 
-        return view('nodes.seo', compact('form', 'node', 'locale', 'source'));
+        // This is for enabling deleting translation
+        $translated = true;
+
+        return view('nodes.seo', compact('form', 'node', 'locale', 'source', 'translated'));
     }
 
     /**
@@ -320,9 +353,7 @@ class NodesController extends ReactorController {
      */
     public function updateSEO(Request $request, $id, $source = null)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT', false);
 
         if ($node->isLocked())
         {
@@ -378,11 +409,7 @@ class NodesController extends ReactorController {
      */
     public function parameters($id, $source = null)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
-
-        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
         $form = $this->getEditNodeParametersForm($id, $node);
 
@@ -399,9 +426,7 @@ class NodesController extends ReactorController {
      */
     public function updateParameters(Request $request, $id, $source = null)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT', false);
 
         $this->validateForm('Reactor\Http\Forms\Nodes\EditNodeParametersForm', $request);
 
@@ -426,9 +451,7 @@ class NodesController extends ReactorController {
      */
     public function lock($id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         $node->lock()->save();
 
@@ -445,9 +468,7 @@ class NodesController extends ReactorController {
      */
     public function unlock($id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         $node->unlock()->save();
 
@@ -464,9 +485,7 @@ class NodesController extends ReactorController {
      */
     public function show($id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         $node->show()->save();
 
@@ -483,9 +502,7 @@ class NodesController extends ReactorController {
      */
     public function hide($id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         $node->hide()->save();
 
@@ -532,9 +549,7 @@ class NodesController extends ReactorController {
      */
     public function createTranslation($id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         // Check if there are any available locales
         if (count($node->translations) >= locale_count())
@@ -582,9 +597,7 @@ class NodesController extends ReactorController {
      */
     public function storeTranslation(Request $request, $id)
     {
-        $this->authorize('ACCESS_CONTENTS_EDIT');
-
-        $node = Node::findOrFail($id);
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
         $this->validateCreateNodeTranslationForm($request, $node);
 
@@ -636,14 +649,20 @@ class NodesController extends ReactorController {
 
     /**
      * @param Request $request
+     * @param bool $withFallback
      * @return string
      */
-    protected function validateLocale(Request $request)
+    protected function validateLocale(Request $request, $withFallback = false)
     {
         $locale = $request->input('locale');
 
         if ( ! in_array($locale, config('translatable.locales')))
         {
+            if ($withFallback)
+            {
+                return config('app.locale');
+            }
+
             abort(500);
         }
 
@@ -709,6 +728,22 @@ class NodesController extends ReactorController {
         $form->modify('type', 'select', [
             'choices' => $nodeTypes
         ]);
+
+        if (locale_count() > 1)
+        {
+            $locales = [];
+
+            foreach (config('translatable.locales') as $locale)
+            {
+                $locales[$locale] = trans('general.' . $locale);
+            }
+
+            $form->addAfter('type', 'locale', 'select', [
+                'inline'  => true,
+                'choices' => $locales,
+                'selected' => config('app.locale')
+            ]);
+        }
 
         return $form;
     }

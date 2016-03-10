@@ -70,20 +70,20 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@store',
                 'as'   => 'reactor.contents.store']);
 
-            Route::get('contents/{id}/tree/{source?}', [
+            Route::get('contents/{id}/tree/{source}', [
                 'uses' => 'NodesController@tree',
                 'as' => 'reactor.contents.tree'
             ]);
-            Route::get('contents/{id}/list/{source?}', [
-                'uses' => 'NodesController@list',
+            Route::get('contents/{id}/list/{source}', [
+                'uses' => 'NodesController@index',
                 'as' => 'reactor.contents.list'
             ]);
 
-            Route::get('contents/{id}/edit/{source?}', [
+            Route::get('contents/{id}/edit/{source}', [
                 'uses' => 'NodesController@edit',
                 'as' => 'reactor.contents.edit'
             ]);
-            Route::put('contents/{id}/edit/{source?}', [
+            Route::put('contents/{id}/edit/{source}', [
                 'uses' => 'NodesController@update',
                 'as' => 'reactor.contents.update'
             ]);
@@ -102,17 +102,17 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.contents.destroy'
             ])->where('self', 'self');
 
-            Route::get('contents/{id}/seo/{source?}', [
+            Route::get('contents/{id}/seo/{source}', [
                 'uses' => 'NodesController@seo',
                 'as'   => 'reactor.contents.seo']);
-            Route::put('contents/{id}/seo/{source?}', [
+            Route::put('contents/{id}/seo/{source}', [
                 'uses' => 'NodesController@updateSEO',
                 'as'   => 'reactor.contents.seo.update']);
 
-            Route::get('contents/{id}/parameters/{source?}', [
+            Route::get('contents/{id}/parameters/{source}', [
                 'uses' => 'NodesController@parameters',
                 'as'   => 'reactor.contents.parameters']);
-            Route::put('contents/{id}/parameters/{source?}', [
+            Route::put('contents/{id}/parameters/{source}', [
                 'uses' => 'NodesController@updateParameters',
                 'as'   => 'reactor.contents.parameters.update']);
 

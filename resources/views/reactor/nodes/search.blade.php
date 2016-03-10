@@ -13,8 +13,11 @@
     <th>
         {{ uppercase(trans('validation.attributes.title')) }}
     </th>
-    <th>
+    <th class="content-column-hidden">
         {{ uppercase(trans('validation.attributes.type')) }}
+    </th>
+    <th>
+        {{ uppercase(trans('validation.attributes.created_at')) }}
     </th>
 @endsection
 

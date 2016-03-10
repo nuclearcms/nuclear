@@ -300,7 +300,7 @@ if ( ! function_exists('node_options_list'))
         </li><li>' . delete_form(
             route('reactor.contents.destroy', $node->getKey()),
             trans('nodes.delete')
-        ) . '</li><li class="options-splitter"></li><li>' . node_option_form(
+        ) . '</li><li class="options-splitter"></li><li>' . node_publish_form(
                 $node->isPublished() ? route('reactor.contents.unpublish', $node->getKey()) : route('reactor.contents.publish', $node->getKey()),
                 $node->isPublished()
         ) . '</li>' . content_options_close(false) . '</div>';
@@ -318,7 +318,7 @@ if ( ! function_exists('node_option_form'))
      * @param bool $published
      * @return string
      */
-    function node_option_form($action, $published)
+    function node_publish_form($action, $published)
     {
         return sprintf('<form action="%s" method="POST">' .
             method_field('PUT') . csrf_field() .
@@ -326,7 +326,7 @@ if ( ! function_exists('node_option_form'))
                 <i class="%s"></i> %s
             </button></form>',
             $action,
-            $published ? 'icon-block' : 'icon-publish',
+            $published ? 'icon-cancel-circled' : 'icon-publish',
             $published ? trans('nodes.unpublish') : trans('nodes.publish')
         );
     }

@@ -1,13 +1,23 @@
+<?php
+    $thumbnails = isset($thumbnails) ? $thumbnails : true;
+    $locale = isset($locale) ? $locale : null;
+?>
+
 @foreach($nodes as $node)
     <tr class="content-item">
+        @if ($thumbnails)
         <td class="content-item-thumbnail">
 
         </td>
+        @endif
         <td>
-            {!! link_to_route('reactor.contents.edit', $node->title, $node->getKey()) !!}
+            {!! link_to_route('reactor.contents.edit', $node->translate($locale)->title, [$node->getKey(), $node->translate($locale)->getKey()]) !!}
+        </td>
+        <td class="content-column-hidden">
+            {{ $node->nodeType->label }}
         </td>
         <td>
-            {{ $node->nodeType->label }}
+            {{ $node->created_at->formatLocalized('%b %e, %Y') }}
         </td>
         {!! content_options_open() !!}
         <li>

@@ -32,9 +32,15 @@
                         </div>
                     </li>
 
+                    @can('ACCESS_CONTENTS')
+                    {!! navigation_module_open('icon-flow-tree', 'nodes.title') !!}
+
+                    {!! navigation_module_close() !!}
+                    @endcan
+
                     @can('ACCESS_NODES')
                     {!! navigation_module_open('icon-flow-cascade', 'nodes.management') !!}
-                        {!! navigation_module_link('reactor.nodes.index', 'icon-flow-cascade', 'nodes.manage') !!}
+                        {!! navigation_module_link('reactor.nodes.index', 'icon-flow-parallel', 'nodes.manage') !!}
                     {!! navigation_module_close() !!}
                     @endcan
 
@@ -65,25 +71,24 @@
 
                     @can('ACCESS_SETTINGS')
                     {!! navigation_module_open('icon-cog', 'settings.title') !!}
-                        {!! navigation_module_link('reactor.settings.index', 'icon-cog', 'settings.manage') !!}
-
-                        @can('ACCESS_SETTINGGROUPS')
-                        {!! navigation_module_link('reactor.settinggroups.index', 'icon-list', 'settings.manage_groups') !!}
-                        @endcan
-
                         @can('ACCESS_SETTINGS_MODIFY')
-                        {!! navigation_module_link('reactor.settings.group.edit', 'icon-blank', 'settings.all', []) !!}
+                            {!! navigation_module_link('reactor.settings.group.edit', 'icon-cog-alt', 'settings.all', []) !!}
+                        @endcan
 
                         @foreach(settings()->getGroups() as $key => $group)
                             {!! navigation_module_link('reactor.settings.group.edit', 'icon-blank', $group, $key) !!}
                         @endforeach
 
+                        {!! navigation_module_link('reactor.settings.index', 'icon-tools', 'settings.manage') !!}
+
+                        @can('ACCESS_SETTINGGROUPS')
+                            {!! navigation_module_link('reactor.settinggroups.index', 'icon-list', 'settings.manage_groups') !!}
                         @endcan
                     {!! navigation_module_close() !!}
                     @endcan
 
                     @can('ACCESS_ADVANCED')
-                    {!! navigation_module_open('icon-wrench', 'advanced.title') !!}
+                    {!! navigation_module_open('icon-cog-alt', 'advanced.title') !!}
                         {!! navigation_module_link('reactor.advanced', 'icon-wrench', 'advanced.manage') !!}
 
                         {!! navigation_module_link('reactor.advanced.update', 'icon-arrows-cw', 'advanced.update') !!}

@@ -1737,16 +1737,16 @@
         },
         {
             "name": "kenarkose/sortable",
-            "version": "1.1.3",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Sortable.git",
-                "reference": "ceeb8381f9f63bad29547b44af1af04527d2afd4"
+                "reference": "1d3a6481c2655e0534682c2d873c39a6d0db908d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Sortable/zipball/ceeb8381f9f63bad29547b44af1af04527d2afd4",
-                "reference": "ceeb8381f9f63bad29547b44af1af04527d2afd4",
+                "url": "https://api.github.com/repos/kenarkose/Sortable/zipball/1d3a6481c2655e0534682c2d873c39a6d0db908d",
+                "reference": "1d3a6481c2655e0534682c2d873c39a6d0db908d",
                 "shasum": ""
             },
             "require": {
@@ -1794,7 +1794,7 @@
                 "sortable",
                 "sorting"
             ],
-            "time": "2016-02-11 09:20:09"
+            "time": "2016-03-09 20:58:35"
         },
         {
             "name": "kenarkose/synthesizer",
@@ -2653,16 +2653,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.2.7",
+            "version": "1.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "55abb1f711c7f99ea41e09914d165c4857d7c0e7"
+                "reference": "bd96cec61df947b9b910e3f3bd3627fe224e3256"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/55abb1f711c7f99ea41e09914d165c4857d7c0e7",
-                "reference": "55abb1f711c7f99ea41e09914d165c4857d7c0e7",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/bd96cec61df947b9b910e3f3bd3627fe224e3256",
+                "reference": "bd96cec61df947b9b910e3f3bd3627fe224e3256",
                 "shasum": ""
             },
             "require": {
@@ -2719,7 +2719,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-03-09 17:44:01"
+            "time": "2016-03-09 20:59:40"
         },
         {
             "name": "paragonie/random_compat",

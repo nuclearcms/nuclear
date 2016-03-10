@@ -80,7 +80,7 @@
         </li>
         @endif
 
-        @if (isset($source))
+        @if (isset($translated) && $translated)
             @if ($node->isLocked() || count($node->translations) === 1)
                 <li>
                     <span class="disabled">
@@ -107,7 +107,7 @@
             data-action="{{ route('reactor.contents.unpublish', $node->getKey()) }}"
             data-method="PUT">
             <span>
-                <i class="icon-block"></i> {{ trans('nodes.unpublish') }}</span>
+                <i class="icon-cancel-circled"></i> {{ trans('nodes.unpublish') }}</span>
         </li>
         @else
         <li
