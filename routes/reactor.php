@@ -70,16 +70,7 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@store',
                 'as'   => 'reactor.contents.store']);
 
-            Route::get('contents/{id}/tree/{source}', [
-                'uses' => 'NodesController@tree',
-                'as' => 'reactor.contents.tree'
-            ]);
-            Route::get('contents/{id}/list/{source}', [
-                'uses' => 'NodesController@index',
-                'as' => 'reactor.contents.list'
-            ]);
-
-            Route::get('contents/{id}/edit/{source}', [
+            Route::get('contents/{id}/edit/{source?}', [
                 'uses' => 'NodesController@edit',
                 'as' => 'reactor.contents.edit'
             ]);
@@ -134,7 +125,7 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.contents.hide'
             ]);
 
-            Route::get('contents/{id}/translate', [
+            Route::get('contents/{id}/translate/{source}', [
                 'uses' => 'NodesController@createTranslation',
                 'as'   => 'reactor.contents.translation.create']);
             Route::post('contents/{id}/translate', [
@@ -164,14 +155,26 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as'   => 'reactor.contents.sort'
             ]);
 
-            Route::get('contents/{id}/transform', [
+            Route::get('contents/{id}/transform/{source}', [
                 'uses' => 'NodesController@transform',
                 'as'   => 'reactor.contents.transform'
             ]);
-
-            Route::put('contents/{id}/transform', [
+            Route::put('contents/{id}/transform/{source}', [
                 'uses' => 'NodesController@transformPut',
                 'as'   => 'reactor.contents.transform.put'
+            ]);
+
+            Route::get('contents/{scope}/{locale?}', [
+                'uses' => 'NodesController@index',
+                'as' => 'reactor.contents.index'
+            ]);
+            Route::get('contents/{id}/tree/{source}', [
+                'uses' => 'NodesController@tree',
+                'as' => 'reactor.contents.tree'
+            ]);
+            Route::get('contents/{id}/list/{source}', [
+                'uses' => 'NodesController@childrenList',
+                'as' => 'reactor.contents.list'
             ]);
         });
 

@@ -27,6 +27,7 @@ return [
     'embedded_media' => '<a href=":actorLink">:actorName</a> added an <a href=":subjectLink">external resource</a> to documents.',
     'retracted_role_from_user' => '<a href=":actorLink">:actorName</a> retracted a role from a <a href=":subjectLink">user</a>.',
     'revoked_permission' => '<a href=":actorLink">:actorName</a> revoked a permission from a <a href=":subjectLink">resource</a>.',
+    'transformed_node' => '<a href=":actorLink">:actorName</a> transformed a <a href=":subjectLink">node</a>.',
     'updated_media' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">document</a>.',
     'updated_node' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">node</a>\'s parameters.',
     'updated_node_content' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">node</a>\'s content.',

@@ -14,7 +14,7 @@
         @endforeach
     </ul>
     @if(count($node->translations) < locale_count())
-    <a href="{{ route('reactor.contents.translation.create', $node->getKey()) }}" class="add-translation-button">
+    <a href="{{ route('reactor.contents.translation.create', [$node->getKey(), $source->getKey()]) }}" class="add-translation-button">
         <i class="icon-plus"></i>
     </a>
     @endif

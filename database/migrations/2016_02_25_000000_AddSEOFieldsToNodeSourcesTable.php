@@ -15,7 +15,7 @@ class AddSEOFieldsToNodeSourcesTable extends Migration {
         Schema::table('node_sources', function (Blueprint $table)
         {
             $table->string('meta_author')->nullable();
-            $table->integer('meta_image')->unsigned();
+            $table->integer('meta_image')->unsigned()->nullable();
         });
     }
 

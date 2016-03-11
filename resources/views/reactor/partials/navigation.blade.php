@@ -34,13 +34,14 @@
 
                     @can('ACCESS_CONTENTS')
                     {!! navigation_module_open('icon-flow-tree', 'nodes.title') !!}
-
-                    {!! navigation_module_close() !!}
-                    @endcan
-
-                    @can('ACCESS_NODES')
-                    {!! navigation_module_open('icon-flow-cascade', 'nodes.management') !!}
-                        {!! navigation_module_link('reactor.nodes.index', 'icon-flow-parallel', 'nodes.manage') !!}
+                        {!! navigation_module_link('reactor.contents.index', 'icon-cancel-circled', 'nodes.not-published_nodes', ['not-published']) !!}
+                        {!! navigation_module_link('reactor.contents.index', 'icon-lock', 'nodes.locked_nodes', ['locked']) !!}
+                        {!! navigation_module_link('reactor.contents.index', 'icon-eye-off', 'nodes.invisible_nodes', ['invisible']) !!}
+                        <li class="options-splitter"></li>
+                        {!! navigation_module_link('reactor.contents.index', 'icon-ok-circled', 'nodes.published_nodes', ['published']) !!}
+                        {!! navigation_module_link('reactor.contents.index', 'icon-circle-empty', 'nodes.draft_nodes', ['draft']) !!}
+                        {!! navigation_module_link('reactor.contents.index', 'icon-clock', 'nodes.pending_nodes', ['pending']) !!}
+                        {!! navigation_module_link('reactor.contents.index', 'icon-dot-circled', 'nodes.archived_nodes', ['archived']) !!}
                     {!! navigation_module_close() !!}
                     @endcan
 
@@ -66,6 +67,12 @@
                         @can('ACCESS_PERMISSIONS')
                         {!! navigation_module_link('reactor.permissions.index', 'icon-list', 'users.manage_permissions') !!}
                         @endcan
+                    {!! navigation_module_close() !!}
+                    @endcan
+
+                    @can('ACCESS_NODES')
+                    {!! navigation_module_open('icon-flow-cascade', 'nodes.management') !!}
+                        {!! navigation_module_link('reactor.nodes.index', 'icon-flow-parallel', 'nodes.manage') !!}
                     {!! navigation_module_close() !!}
                     @endcan
 

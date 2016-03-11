@@ -61,6 +61,15 @@ return [
     'unlocked_node' => 'Düğümün kilidi açıldı.',
     'hid_node' => 'Düğüm saklandı.',
     'showed_node' => 'Düğüm gösterildi.',
+    'transformed_node' => 'Düğüm dönüştürüldü.',
+
+    'not-published_nodes' => 'Yayınlanmamış Düğümler',
+    'locked_nodes' => 'Kilitli Düğümler',
+    'invisible_nodes' => 'Görünmeyen Düğümler',
+    'published_nodes' => 'Yayınlanmış Düğümler',
+    'draft_nodes' => 'Taslak Düğümler',
+    'pending_nodes' => 'Bekleyen Düğümler',
+    'archived_nodes' => 'Arşivlenmiş Düğümler',
 
     'create_type' => 'Düğüm Tipi Oluştur',
     'created_type' => 'Düğüm tipi oluşturuldu.',

@@ -27,6 +27,7 @@ return [
     'embedded_media' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">dışarı kaynağı</a> dosyalara ekledi.',
     'retracted_role_from_user' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kullanıcıdan</a> bir rolü çekti.',
     'revoked_permission' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kaynaktan</a> bir izni çekti.',
+    'transformed_node' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğümü</a> dönüştürdü.',
     'updated_media' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">dosyayı</a> güncelledi.',
     'updated_node' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğümün</a> ayarlarını güncelledi.',
     'updated_node_content' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğümün</a> içeriğini güncelledi.',

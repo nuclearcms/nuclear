@@ -141,12 +141,11 @@
         i
             font-size: 1.5em
 
-.translation-tabs-sub
-    border-top: 0.125em solid lighten($secondaryAccent, 20%)
+.content-tabs-bar-sub
     margin-top: -2em
 
     & + .content-form
-        padding: 3em 2em 2em
+        padding: 4em 2em 1em
 
 .content-list-container
     margin-top: 4.25em
@@ -260,10 +259,6 @@
     li
         text-align: left
 
-    .options-splitter
-        border-top: 1px solid $lightGray-3
-        margin: 0.25em 0
-
     .list-header
         padding: 0.75em 1.5em 0
         font-size: 0.75em
@@ -293,6 +288,10 @@
 
     .option-delete, .option-general
         +transition(color $animationFast)
+
+.options-splitter
+    border-top: 1px solid $lightGray-3
+    margin: 0.25em 0
 
 .content-noresults, .content-message
     padding: 3em 1em !important

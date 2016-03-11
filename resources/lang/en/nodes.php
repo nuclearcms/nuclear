@@ -61,6 +61,15 @@ return [
     'unlocked_node' => 'Unlocked node.',
     'hid_node' => 'Hid node.',
     'showed_node' => 'Showed node.',
+    'transformed_node' => 'Transformed node.',
+
+    'not-published_nodes' => 'Not Published Nodes',
+    'locked_nodes' => 'Locked Nodes',
+    'invisible_nodes' => 'Invisible Nodes',
+    'published_nodes' => 'Published Nodes',
+    'draft_nodes' => 'Draft Nodes',
+    'pending_nodes' => 'Pending Nodes',
+    'archived_nodes' => 'Archived Nodes',
 
     'create_type' => 'Create Node Type',
     'created_type' => 'Node type was created',

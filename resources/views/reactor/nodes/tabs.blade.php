@@ -75,7 +75,7 @@
             </li>
         @else
         <li>
-            <a href="{{ route('reactor.contents.transform', $node->getKey()) }}">
+            <a href="{{ route('reactor.contents.transform', [$node->getKey(), $source->getKey()]) }}">
                 <i class="icon-exchange"></i> {{ trans('nodes.transform') }}</a>
         </li>
         @endif
