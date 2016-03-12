@@ -82,6 +82,8 @@ class PermissionsTableSeeder extends Seeder
             'ACCESS_USERS_CREATE',
             'ACCESS_USERS_DELETE',
             'ACCESS_USERS_EDIT',
+            'ACCESS_TAGS',
+            'ACCESS_TAGS_WRITE'
         ];
     }
 
@@ -102,7 +104,10 @@ class PermissionsTableSeeder extends Seeder
             'ACCESS_DOCUMENTS_EDIT',
             'ACCESS_DOCUMENTS_EMBED',
             'ACCESS_DOCUMENTS_UPLOAD',
+            'ACCESS_HISTORY',
             'ACCESS_REACTOR',
+            'ACCESS_TAGS',
+            'ACCESS_TAGS_WRITE'
         ];
     }
 

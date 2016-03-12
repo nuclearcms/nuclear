@@ -16,8 +16,7 @@ class PermissionsController extends ReactorController
     {
         $permissions = Permission::sortable()->paginate();
 
-        return view('permissions.index')
-            ->with(compact('permissions'));
+        return view('permissions.index', compact('permissions'));
     }
 
     /**
@@ -30,8 +29,7 @@ class PermissionsController extends ReactorController
     {
         $permissions = Permission::search($request->input('q'))->get();
 
-        return view('permissions.search')
-            ->with(compact('permissions'));
+        return view('permissions.search', compact('permissions'));
     }
 
     /**
@@ -103,7 +101,7 @@ class PermissionsController extends ReactorController
 
         $this->notify('users.edited_permission');
 
-        return redirect()->route('reactor.permissions.edit', $id);
+        return redirect()->back();
     }
 
     /**
@@ -130,12 +128,10 @@ class PermissionsController extends ReactorController
      */
     protected function getCreatePermissionForm()
     {
-        $form = $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
+        return $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
             'method' => 'POST',
             'url'    => route('reactor.permissions.store')
         ]);
-
-        return $form;
     }
 
     /**
@@ -145,13 +141,11 @@ class PermissionsController extends ReactorController
      */
     protected function getEditPermissionForm($id, $permission)
     {
-        $form = $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
+        return $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
             'method' => 'PUT',
             'url'    => route('reactor.permissions.update', $id),
             'model'  => $permission
         ]);
-
-        return $form;
     }
 
     /**

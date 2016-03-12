@@ -28,11 +28,7 @@
                 @if($currentTab === $route)
                     <span class="content-tab-flap active">{{ uppercase(trans($text)) }}</span>
                 @else
-                    @unless(isset($source))
-                        {!! link_to_route($route, uppercase(trans($text)), $currentKey, ['class' => 'content-tab-flap']) !!}
-                    @else
-                        {!! link_to_route($route, uppercase(trans($text)), ['id' => $currentKey, 'source' => $source->getKey()], ['class' => 'content-tab-flap']) !!}
-                    @endunless
+                    {!! link_to_route($route, uppercase(trans($text)), [$currentKey, $source->getKey()], ['class' => 'content-tab-flap']) !!}
                 @endif
             </li>
         @endforeach

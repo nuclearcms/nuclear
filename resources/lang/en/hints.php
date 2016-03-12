@@ -21,5 +21,6 @@ return [
     'nodefield_options' => 'Other options for the node field.',
     'published_at' => 'Has to be in YYYY-MM-DD HH:MM:SS format.',
     'tags' => 'You may separate tag values by using tab, comma or enter.',
-    'tags_placeholder' => 'Type tags here...'
+    'tags_placeholder' => 'Type tags here...',
+    'tags_name' => 'Name of the tag.',
 ];

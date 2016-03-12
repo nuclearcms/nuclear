@@ -42,7 +42,7 @@ class CreateNodeFieldForm extends Form {
             'text'     => 'string',
             'textarea' => 'text',
             'markdown' => 'longtext',
-            'file'     => 'unsignedInteger',
+            'document' => 'unsignedInteger',
             'gallery'  => 'text',
             'checkbox' => 'boolean',
             'select'   => 'string',
@@ -50,10 +50,12 @@ class CreateNodeFieldForm extends Form {
             'color'    => 'string',
             'slug'     => 'string',
             'tag'      => 'text',
-            'password' => 'string'
+            'password' => 'string',
+            'date'     => 'timestamp',
+            'node_collection' => 'text',
         ]);
 
-        foreach($types as $key => $type)
+        foreach ($types as $key => $type)
         {
             $types[$key] = trans('nodes.type_' . $key);
         }

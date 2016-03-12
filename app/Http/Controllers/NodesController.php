@@ -6,11 +6,14 @@ namespace Reactor\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Nuclear\Hierarchy\NodeSource;
+use Reactor\Http\Controllers\Traits\ModifiesTranslations;
 use Reactor\Http\Requests;
 use Reactor\Nodes\Node;
 use Reactor\Nodes\NodeType;
 
 class NodesController extends ReactorController {
+
+    use ModifiesTranslations;
 
     /**
      * Lists resources with given scope
@@ -594,41 +597,16 @@ class NodesController extends ReactorController {
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
-        // Check if there are any available locales
-        if (count($node->translations) >= locale_count())
+        if (count($locales = $this->getAvailableLocales($node)) === 0)
         {
             flash()->error(trans('nodes.no_available_locale'));
 
             return redirect()->back();
         }
 
-        $locales = $this->getAvailableLocales($node);
-
         $form = $this->getCreateNodeTranslationForm($node, $locales);
 
         return view('nodes.translate', compact('form', 'node', 'source'));
-    }
-
-    /**
-     * @param $node
-     * @return array
-     */
-    protected function getAvailableLocales($node)
-    {
-        $locales = [];
-
-        $nodeTranslations = $node->translations
-            ->lists('locale')->toArray();
-
-        foreach (config('translatable.locales') as $locale)
-        {
-            if ( ! in_array($locale, $nodeTranslations))
-            {
-                $locales[$locale] = trans('general.' . $locale);
-            }
-        }
-
-        return $locales;
     }
 
     /**
@@ -723,28 +701,6 @@ class NodesController extends ReactorController {
         $this->notify('nodes.transformed_node', 'transformed_node', $node);
 
         return redirect()->route('reactor.contents.edit', [$id, $source->getKey()]);
-    }
-
-    /**
-     * @param mixed $locale
-     * @param bool $withFallback
-     * @return string
-     */
-    protected function validateLocale($locale, $withFallback = false)
-    {
-        $locale = is_object($locale) ? $locale->input('locale') : $locale;
-
-        if ( ! in_array($locale, config('translatable.locales')))
-        {
-            if ($withFallback)
-            {
-                return config('app.locale');
-            }
-
-            abort(500);
-        }
-
-        return $locale;
     }
 
     /**
@@ -917,7 +873,6 @@ class NodesController extends ReactorController {
             'method' => 'post',
             'url'    => route('reactor.contents.translation.store', $node->getKey())
         ]);
-
 
         $form->addBefore('title', 'locale', 'select', [
             'choices' => $locales

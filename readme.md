@@ -22,7 +22,7 @@ Installing Nuclear is (sort of) simple.
 4. Now that everything is set, just seed the database by running `php artisan db:seed`.
 5. Enjoy (login from `/reactor` with `john@doe.com` and `secret`)
 
-*Note: A pretty installer and integration tests will be implemented in version 3.0.*
+*Note: A pretty installer and integration tests will be implemented in version 4.0.*
 
 ## Documentation
 Nuclear documentation is still being worked on. It will be published as soon as possible.

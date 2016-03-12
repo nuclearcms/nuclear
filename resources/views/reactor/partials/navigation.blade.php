@@ -45,6 +45,12 @@
                     {!! navigation_module_close() !!}
                     @endcan
 
+                    @can('ACCESS_TAGS')
+                    {!! navigation_module_open('icon-tags', 'tags.title') !!}
+                        {!! navigation_module_link('reactor.tags.index', 'icon-tag', 'tags.manage') !!}
+                    {!! navigation_module_close() !!}
+                    @endcan
+
                     @can('ACCESS_DOCUMENTS')
                     {!! navigation_module_open('icon-docs', 'documents.title') !!}
                         {!! navigation_module_link('reactor.documents.index', 'icon-folder-empty', 'documents.manage') !!}

@@ -38,7 +38,7 @@ return [
     'no_children' => 'No children nodes were found.',
     'add_child' => 'Add Child Node',
     'create' => 'Create Node',
-    'created' => 'Node was created',
+    'created' => 'Node was created.',
     'edit' => 'Edit Node',
     'edited' => 'Node was edited.',
     'delete' => 'Delete Node',
@@ -63,7 +63,7 @@ return [
     'showed_node' => 'Showed node.',
     'transformed_node' => 'Transformed node.',
 
-    'not-published_nodes' => 'Not Published Nodes',
+    'not-published_nodes' => 'Withheld Nodes',
     'locked_nodes' => 'Locked Nodes',
     'invisible_nodes' => 'Invisible Nodes',
     'published_nodes' => 'Published Nodes',

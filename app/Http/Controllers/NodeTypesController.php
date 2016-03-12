@@ -5,6 +5,7 @@ namespace Reactor\Http\Controllers;
 use Illuminate\Http\Request;
 use Nuclear\Hierarchy\Repositories\NodeTypeRepository;
 use Reactor\Http\Requests;
+use Reactor\Nodes\Node;
 use Reactor\Nodes\NodeType;
 
 class NodeTypesController extends ReactorController
@@ -140,6 +141,24 @@ class NodeTypesController extends ReactorController
         $nodeType = NodeType::findOrFail($id);
 
         return view('nodetypes.fields', compact('nodeType'));
+    }
+
+    /**
+     * List the specified resource fields.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function nodes($id)
+    {
+        $this->authorize('ACCESS_CONTENTS');
+
+        $nodeType = NodeType::findOrFail($id);
+
+        $nodes = Node::where('node_type_id', $nodeType->getKey())
+            ->sortable()->paginate();
+
+        return view('nodetypes.nodes', compact('nodeType', 'nodes'));
     }
 
     /**

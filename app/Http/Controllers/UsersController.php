@@ -29,8 +29,7 @@ class UsersController extends ReactorController {
     {
         $users = User::sortable()->paginate();
 
-        return view('users.index')
-            ->with(compact('users'));
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -43,8 +42,7 @@ class UsersController extends ReactorController {
     {
         $users = User::search($request->input('q'))->get();
 
-        return view('users.search')
-            ->with(compact('users'));
+        return view('users.search', compact('users'));
     }
 
 
@@ -186,8 +184,7 @@ class UsersController extends ReactorController {
 
         $form = $this->getAddRoleForm($id, $profile);
 
-        return view('users.roles')
-            ->with(compact('profile', 'form'));
+        return view('users.roles', compact('profile', 'form'));
     }
 
     /**
@@ -265,8 +262,7 @@ class UsersController extends ReactorController {
 
         $activities = chronicle()->getUserActivity($id, 20);
 
-        return view('users.history')
-            ->with(compact('profile', 'activities'));
+        return view('users.history', compact('profile', 'activities'));
     }
 
     /**

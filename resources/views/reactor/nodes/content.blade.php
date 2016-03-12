@@ -11,7 +11,7 @@
         </td>
         @endif
         <td>
-            {!! link_to_route('reactor.contents.edit', $node->translate($locale)->title, [$node->getKey(), $node->translate($locale)->getKey()]) !!}
+            {!! link_to_route('reactor.contents.edit', $node->translateOrFirst($locale)->title, [$node->getKey(), $node->translateOrFirst($locale)->getKey()]) !!}
         </td>
         <td class="content-column-hidden">
             {{ $node->nodeType->label }}
@@ -29,7 +29,7 @@
         @endif
 
         <li>
-            <a href="{{ route('reactor.contents.edit', $node->getKey()) }}">
+            <a href="{{ route('reactor.contents.edit', [$node->getKey(), $node->translateOrFirst($locale)->getKey()]) }}">
                 <i class="icon-pencil"></i> {{ trans('nodes.edit') }}</a>
         </li>
         <li>
