@@ -9,6 +9,7 @@ use Kenarkose\Ownable\Ownable;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Nuclear\Hierarchy\Node as HierarchyNode;
+use Reactor\Tags\Tag;
 
 class Node extends HierarchyNode {
 
@@ -28,7 +29,7 @@ class Node extends HierarchyNode {
      * @var array
      */
     protected $fillable = ['title', 'node_name',
-        'meta_title', 'meta_keywords', 'meta_description',
+        'meta_title', 'meta_keywords', 'meta_description', 'meta_image', 'meta_author',
         'visible', 'sterile', 'home', 'locked', 'status', 'hides_children', 'priority',
         'published_at', 'children_order', 'children_order_direction', 'children_display_mode'];
 
@@ -117,6 +118,27 @@ class Node extends HierarchyNode {
         }
 
         return $query->orderBy($key, $direction);
+    }
+
+    /**
+     * Checks if node is taggable
+     *
+     * @return bool
+     */
+    public function isTaggable()
+    {
+        return (bool)$this->nodeType->taggable;
+    }
+
+
+    /**
+     * Tag relation
+     *
+     * @return BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 
 }

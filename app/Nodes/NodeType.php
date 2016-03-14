@@ -12,6 +12,14 @@ class NodeType extends HierarchyNodeType
     use Sortable, SearchableTrait, RecordsActivity;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'label', 'description',
+        'visible', 'hides_children', 'color', 'taggable'];
+
+    /**
      * Sortable columns
      *
      * @var array

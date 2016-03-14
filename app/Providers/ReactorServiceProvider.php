@@ -180,6 +180,18 @@ class ReactorServiceProvider extends ServiceProvider {
 
             return false;
         });
+
+        Validator::extend('not_reserved_field', function ($attribute, $value, $parameters, $validator)
+        {
+            $reservedFields = ['id', 'node_id', 'locale', 'source_type',
+                'node_type_id', 'user_id', 'parent_id', '_lft', '_rgt', 'title', 'node_name',
+                'meta_title', 'meta_keywords', 'meta_description', 'meta_image', 'meta_author',
+                'visible', 'sterile', 'home', 'locked', 'status', 'hides_children', 'priority',
+                'published_at', 'children_order', 'children_order_direction', 'children_display_mode',
+                'created_at', 'updated_at'];
+
+            return ! in_array($value, $reservedFields);
+        });
     }
 
 }

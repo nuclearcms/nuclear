@@ -176,6 +176,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@childrenList',
                 'as' => 'reactor.contents.list'
             ]);
+
+            Route::get('contents/{id}/tags/{source}', [
+                'uses' => 'NodesController@tags',
+                'as' => 'reactor.contents.tags'
+            ]);
         });
 
         // Nodes Types and Fields

@@ -57,7 +57,7 @@ if(argv.r)
             'components/minicolors.js',
             'password.js',
             'slug.js',
-            'tag.js',
+            'tag_legacy.js',
             'upload.js',
             'library.js',
             'gallery.js',

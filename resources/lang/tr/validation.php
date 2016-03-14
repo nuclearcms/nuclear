@@ -80,6 +80,7 @@ return [
     'unique_setting' => 'Bu ayar anahtarı daha önceden kayıt edilmiş.',
     'unique_setting_group' => 'Bu ayar grubu anahtarı daha önceden kayıt edilmiş.',
     'date_mysql' => 'Geçersiz tarih-zaman formatı.',
+    'not_reserved_field' => 'Bu alan ismi Nuclear için ayrılmıştır.',
 
     /*
     |--------------------------------------------------------------------------
@@ -158,6 +159,8 @@ return [
         'meta_image' => 'Meta Görüntü',
         'locale' => 'Dil',
         'caption' => 'Manşet',
+        'taggable' => 'Etiketlenebilir',
+        'tags' => 'Etiketler',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',

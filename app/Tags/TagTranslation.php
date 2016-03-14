@@ -4,6 +4,7 @@ namespace Reactor\Tags;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class TagTranslation extends Model {
 
@@ -59,4 +60,15 @@ class TagTranslation extends Model {
     {
         return $this->belongsTo('Reactor\Tags\Tag');
     }
+
+    /**
+     * Node relation
+     *
+     * @return BelongsToMany
+     */
+    public function nodes()
+    {
+        return $this->tag->nodes();
+    }
+
 }

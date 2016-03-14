@@ -20,7 +20,7 @@ return [
     'nodefield_defaultvalue' => 'Düğüm alanının öntanımlı değeri.',
     'nodefield_options' => 'Düğüm alanı için diğer seçenekler.',
     'published_at' => 'YYYY-AA-GG SS:DD:ss formatında olmalıdır.',
-    'tags' => 'Etiketleri tab, boşluk veya enter tuşlarıyla ayırabilirsiniz.',
+    'tags' => 'Etiketleri tab veya enter tuşlarıyla ayırabilirsiniz.',
     'tags_placeholder' => 'Etiketleri buraya yazın...',
     'tags_name' => 'Etiketin ismi.',
 ];

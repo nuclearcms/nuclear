@@ -32,6 +32,16 @@
                 @endif
             </li>
         @endforeach
+
+        @if ($node->isTaggable())
+            <li>
+                @if($currentTab === 'reactor.contents.tags')
+                    <span class="content-tab-flap active">{{ uppercase(trans('tags.title')) }}</span>
+                @else
+                    {!! link_to_route('reactor.contents.tags', uppercase(trans('tags.title')), [$currentKey, $source->getKey()], ['class' => 'content-tab-flap']) !!}
+                @endif
+            </li>
+        @endif
     </ul>
 
     <div class="node-options">

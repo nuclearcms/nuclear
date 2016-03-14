@@ -129,7 +129,7 @@ class NodeFieldsController extends ReactorController
     protected function validateCreateNodeFieldForm($id, Request $request)
     {
         $this->validateForm('Reactor\Http\Forms\Nodes\CreateNodeFieldForm', $request, [
-            'name' => ['required', 'between:3,20', 'regex:/^([a-z_])+$/', 'unique:node_fields,name,NULL,id,node_type_id,' . $id]
+            'name' => ['required', 'between:3,20', 'regex:/^([a-z_])+$/', 'not_reserved_field', 'unique:node_fields,name,NULL,id,node_type_id,' . $id]
         ]);
     }
 

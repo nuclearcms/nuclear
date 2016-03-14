@@ -19,7 +19,7 @@ $('.form-group-slug').each(function () {
 
 // Slug fields
 $('.form-group-tag').each(function () {
-    new Tag($(this));
+    new TagLegacy($(this));
 });
 
 // Initialize color pickers

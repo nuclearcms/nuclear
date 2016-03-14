@@ -3,14 +3,14 @@
     'use strict';
 
     // Tag field constructor
-    function Tag(el) {
+    function TagLegacy(el) {
         this.el = el;
 
         this._init();
     }
 
     // Tag prototype
-    Tag.prototype = {
+    TagLegacy.prototype = {
         // Initialize
         _init: function () {
             this.list = this.el.find('ul.taglist');
@@ -40,7 +40,7 @@
                         input.val('');
                     }
 
-                } else if (e.which === 9 || e.which === 13 || e.which === 188) {
+                } else if (e.which === 9 || e.which === 13) {
                     e.preventDefault();
 
                     var val = input.val().trim();
@@ -133,6 +133,6 @@
     };
 
     // Register to window namespace
-    window.Tag = Tag;
+    window.TagLegacy = TagLegacy;
 
 })(window);

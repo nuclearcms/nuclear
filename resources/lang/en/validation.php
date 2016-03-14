@@ -80,6 +80,7 @@ return [
     'unique_setting' => 'This setting key has already been taken.',
     'unique_setting_group' => 'This setting group key has already been taken.',
     'date_mysql' => 'Invalid date-time format.',
+    'not_reserved_field' => 'This field name is reserved for Nuclear.',
 
     /*
     |--------------------------------------------------------------------------
@@ -158,6 +159,8 @@ return [
         'meta_image' => 'Meta Image',
         'locale' => 'Locale',
         'caption' => 'Caption',
+        'taggable' => 'Taggable',
+        'tags' => 'Tags',
 
         // Settings specific
         'analytics' => 'Google Analytics Key',
