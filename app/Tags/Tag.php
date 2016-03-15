@@ -129,10 +129,7 @@ class Tag extends Model {
      */
     public static function firstByNameOrCreate($name)
     {
-        $tag = Tag::whereHas('translations', function ($query) use ($name)
-        {
-            $query->where('name', $name);
-        })->first();
+        $tag = Tag::whereTranslation('name', $name)->first();
 
         if (is_null($tag))
         {
@@ -140,6 +137,25 @@ class Tag extends Model {
         }
 
         return $tag;
+    }
+
+    /**
+     * Returns locale for slug
+     *
+     * @param string $slug
+     * @return string
+     */
+    public function getLocaleForName($slug)
+    {
+        foreach ($this->translations as $translation)
+        {
+            if ($translation->slug === $slug)
+            {
+                return $translation->locale;
+            }
+        }
+
+        return null;
     }
 
 }
