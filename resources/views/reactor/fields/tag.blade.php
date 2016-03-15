@@ -5,10 +5,11 @@
 
     <div class="taglist-container">
         <ul class="taglist">
-            <li class="tag-input">
-                {!! Form::text('_tag', null, ['placeholder' => trans('hints.tags_placeholder')]) !!}
-            </li>
+
         </ul>
+        <div class="tag-input">
+            {!! Form::text('_tag', null, ['placeholder' => trans('hints.tags_placeholder')]) !!}
+        </div>
         {!! Form::hidden($name, $options['value'], $options['attr']) !!}
     </div>
 

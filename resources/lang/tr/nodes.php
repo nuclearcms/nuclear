@@ -54,6 +54,7 @@ return [
     'node_not_editable' => 'Bu düğüm kilitli ve düzenlenemez.',
     'transform' => 'Düğümü Dönüştür',
     'delete_translation' => 'Çeviriyi Sil',
+    'edit_tags' => 'Düğüm Etiketlerini Düzenle',
 
     'published_node' => 'Düğüm yayınlandı.',
     'unpublished_node' => 'Düğüm yayından çekildi.',

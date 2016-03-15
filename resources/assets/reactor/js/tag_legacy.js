@@ -14,7 +14,7 @@
         // Initialize
         _init: function () {
             this.list = this.el.find('ul.taglist');
-            this.inputItem = this.list.find('li.tag-input');
+            this.inputItem = this.el.find('div.tag-input');
             this.input = this.inputItem.find('input[name="_tag"]');
             this.valueInput = this.el.find('input[type="hidden"]');
 
@@ -110,7 +110,7 @@
         },
         // Creates a tag and appends to list
         _createTag: function (id, str) {
-            $('<li class="tag" data-id="' + id + '">' + html_entities(str) + '<i class="icon-cancel"></i></li>').insertBefore(this.inputItem);
+            $('<li class="tag" data-id="' + id + '">' + html_entities(str) + '<i class="icon-cancel"></i></li>').appendTo(this.list);
         },
         // Sets the value input
         _setValue: function () {

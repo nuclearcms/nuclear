@@ -73,6 +73,9 @@ if(argv.r)
             'update.js'
         ], elixir.config.publicPath + '/js/update.js').
         scripts([
+            'tag.js'
+        ], elixir.config.publicPath + '/js/tag.js').
+        scripts([
             'components/cropper.js',
             'image.js'
         ], elixir.config.publicPath + '/js/image.js');

@@ -141,9 +141,9 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@search',
                 'as'   => 'reactor.contents.search']);
 
-            Route::post('contents/json/search', [
+            Route::post('contents/search/json', [
                 'uses' => 'NodesController@jsonSearch',
-                'as'   => 'reactor.contents.json.search']);
+                'as'   => 'reactor.contents.search.json']);
 
             Route::post('contents/locale', [
                 'uses' => 'NodesController@changeTreeLocale',
@@ -180,6 +180,14 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::get('contents/{id}/tags/{source}', [
                 'uses' => 'NodesController@tags',
                 'as' => 'reactor.contents.tags'
+            ]);
+            Route::put('contents/{id}/tag', [
+                'uses' => 'NodesController@addTag',
+                'as' => 'reactor.contents.tags.add'
+            ]);
+            Route::delete('contents/{id}/tag', [
+                'uses' => 'NodesController@unlinkTag',
+                'as' => 'reactor.contents.tags.unlink'
             ]);
         });
 
@@ -234,6 +242,10 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::get('tags/search', [
                 'uses' => 'TagsController@search',
                 'as'   => 'reactor.tags.search']);
+
+            Route::post('tags/search/json', [
+                'uses' => 'TagsController@jsonSearch',
+                'as'   => 'reactor.tags.search.json']);
 
             Route::get('tags/{id}/edit/{translation}', [
                 'uses' => 'TagsController@edit',

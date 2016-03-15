@@ -32,9 +32,25 @@ class TagsController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $tags = Tag::search($request->input('q'))->get();
+        $tags = Tag::search($request->input('q'))->groupBy('id')->get();
 
         return view('tags.search', compact('tags'));
+    }
+
+    /**
+     * Returns the collection of retrieved tags in json format
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function jsonSearch(Request $request)
+    {
+        $tags = Tag::search($request->input('q'))
+            ->groupBy('id')->limit(10)->get();
+
+        $tags = $tags->lists('name', 'id');
+
+        return response()->json($tags);
     }
 
     /**

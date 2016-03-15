@@ -17,7 +17,7 @@ $('.form-group-slug').each(function () {
     new Slug($(this));
 });
 
-// Slug fields
+// Tag(Legacy) fields
 $('.form-group-tag').each(function () {
     new TagLegacy($(this));
 });

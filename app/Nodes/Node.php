@@ -141,4 +141,28 @@ class Node extends HierarchyNode {
         return $this->belongsToMany(Tag::class);
     }
 
+    /**
+     * Links a tag to the node
+     *
+     * @param int $id
+     */
+    public function attachTag($id)
+    {
+        if ( ! $this->tags->contains($id))
+        {
+            return $this->tags()->attach($id);
+        }
+    }
+
+    /**
+     * Unlinks a tag from the node
+     *
+     * @param int $id
+     */
+    public function unlinkTag($id)
+    {
+        return $this->tags()->detach($id);
+    }
+
+
 }

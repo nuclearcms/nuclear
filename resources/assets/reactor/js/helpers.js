@@ -1,4 +1,22 @@
 /**
+ * Counts the items in an array
+ *
+ * @param array
+ * @return int
+ */
+function count(array) {
+    var i = 0;
+
+    $.each(array, function (index, value) {
+        if (value != null) {
+            i++;
+        }
+    });
+
+    return i;
+}
+
+/**
  * Escapes html characters
  *
  * @param string
@@ -30,7 +48,7 @@ function add_http(url) {
     // Set pattern
     var pattern = /^(f|ht)tps?:\/\//;
     // Add http if the url does not have any protocol prefix
-    if(!pattern.test(url)) {
+    if (!pattern.test(url)) {
         url = "http://" + url;
     }
     // Return
@@ -47,7 +65,7 @@ function loaded(e) {
     var percent = 0,
         position = e.loaded || e.position,
         total = e.total;
-    if(e.lengthComputable) {
+    if (e.lengthComputable) {
         percent = Math.ceil(position / total * 100);
     }
     return percent;
@@ -59,8 +77,7 @@ function loaded(e) {
  * @param DOMObject
  * @return DOMObject
  */
-function create_form_from(item)
-{
+function create_form_from(item) {
     var form = $('<form>').attr({
         method: 'post',
         action: item.data('action')
@@ -89,8 +106,7 @@ function create_form_from(item)
  *
  * @param DOMObject
  */
-function append_and_submit_form(form)
-{
+function append_and_submit_form(form) {
     form.appendTo($('body'));
 
     form.submit();

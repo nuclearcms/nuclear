@@ -194,12 +194,12 @@ label
     .taglist
         position: relative
         padding-top: 0.25em
-        padding-bottom: 2.5em
-        overflow-y: hidden
+        padding-bottom: .25em
+        border-bottom: 1px dashed lighten($midGray-1, 10%)
+        +clearfix
 
         &.empty
-            padding-top: 0
-            padding-bottom: 2em
+            display: none
 
     .tag
         float: left
@@ -216,6 +216,9 @@ label
             background-color: $accent
             +transition(background-color 0ms)
 
+        &.disabled
+            background-color: $midGray-2
+
         i
             +position(absolute, 0 0 null null)
             display: block
@@ -223,11 +226,6 @@ label
             opacity: 0.7
             cursor: pointer
             text-align: center
-
-    .tag-input
-        +position(absolute, null null 0 0)
-        width: 100%
-        border-top: 1px dashed lighten($midGray-1, 10%)
 
 .form-media-container
     padding-top: 0.5em
@@ -313,10 +311,10 @@ label
     .empty &
         display: block
 
-.form-nodes-search
+.form-items-search
     position: relative
 
-.form-nodes-list li
+.form-items-list li
     line-height: 2.5em
     font-size: 0.875em
     padding: 0 2em 0 1.5em
@@ -342,7 +340,7 @@ label
     &:last-child
         border-bottom: 0
 
-.form-nodes-list-results
+.form-items-list-results
     +position(absolute, 2.5em null null 0)
     width: 18em
     z-index: 75
@@ -350,7 +348,7 @@ label
     &.hidden
         display: none
 
-.form-nodes-list-sortable
+.form-items-list-sortable
     margin-bottom: 0.5em
 
     .empty &
@@ -451,6 +449,13 @@ label
     @media screen and (max-width: $microThreshold)
         padding: 4em 1em 1em
 
+.content-form-narrow
+    padding-top: 4em
+    @media screen and (max-width: $collapseThreshold)
+        padding-top: 3.5em
+    @media screen and (max-width: $collapseThreshold)
+        padding-top: 3em
+
 .content-form-sub
     padding: 2em
     border-top: 1px solid $secondaryAccent
@@ -469,7 +474,7 @@ label
         i
             color: $darkGray-2
 
-    .form-nodes-list-results li
+    .form-items-list-results li
         +transition(background-color $animationFast)
 
         &:hover

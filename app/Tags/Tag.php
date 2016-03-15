@@ -121,4 +121,25 @@ class Tag extends Model {
             ->orderBy('t.' . $attribute, $direction);
     }
 
+    /**
+     * Finds a tag by name or creates it
+     *
+     * @param string $name
+     * @return Tag
+     */
+    public static function firstByNameOrCreate($name)
+    {
+        $tag = Tag::whereHas('translations', function ($query) use ($name)
+        {
+            $query->where('name', $name);
+        })->first();
+
+        if (is_null($tag))
+        {
+            $tag = Tag::create(compact('name'));
+        }
+
+        return $tag;
+    }
+
 }

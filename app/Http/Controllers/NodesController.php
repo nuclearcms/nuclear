@@ -10,6 +10,7 @@ use Reactor\Http\Controllers\Traits\ModifiesTranslations;
 use Reactor\Http\Requests;
 use Reactor\Nodes\Node;
 use Reactor\Nodes\NodeType;
+use Reactor\Tags\Tag;
 
 class NodesController extends ReactorController {
 
@@ -131,7 +132,7 @@ class NodesController extends ReactorController {
     public function jsonSearch(Request $request)
     {
         $nodes = Node::search($request->input('q'))
-            ->limit(10)->get();
+            ->groupBy('id')->limit(10)->get();
 
         $nodes = $nodes->lists('title', 'id');
 
@@ -666,6 +667,59 @@ class NodesController extends ReactorController {
         }
 
         return redirect()->route('reactor.contents.edit', [$node->getKey(), $sourceId]);
+    }
+
+    /**
+     * Shows the children nodes of the resourse in tree view
+     *
+     * @param int $id
+     * @param int|null $source
+     * @return Response
+     */
+    public function tags($id, $source)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
+
+        return view('nodes.tags', compact('node', 'source'));
+    }
+
+    /**
+     * Adds a tag to the node
+     *
+     * @param int $id
+     * @param Request $request
+     * @return Response
+     */
+    public function addTag(Request $request, $id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
+
+        $this->validate($request, ['name' => 'required|max:255']);
+
+        $tag = Tag::firstByNameOrCreate($request->input('name'));
+
+        $node->attachTag($tag->getKey());
+
+        return response()->json([
+            'id' => $tag->getKey(),
+            'name' => $tag->name
+        ]);
+    }
+
+    /**
+     * Unlinks a tag from the node
+     *
+     * @param int $id
+     * @param Request $request
+     * @return Response
+     */
+    public function unlinkTag(Request $request, $id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
+
+        $node->unlinkTag($request->input('tag'));
+
+        return response()->json(['id' => $request->input('tag')]);
     }
 
     /**

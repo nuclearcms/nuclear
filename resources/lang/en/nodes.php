@@ -54,6 +54,7 @@ return [
     'node_not_editable' => 'This node is locked and not editable.',
     'transform' => 'Transform Node',
     'delete_translation' => 'Delete Translation',
+    'edit_tags' => 'Edit Node Tags',
 
     'published_node' => 'Published node.',
     'unpublished_node' => 'Unpublished node.',

@@ -16,12 +16,13 @@
     NodeCollection.prototype = {
         _init: function () {
             this.container = this.el.find('.form-nodes-container');
-            this.sortable = this.container.find('ul.form-nodes-list-sortable');
-            this.results = this.container.find('ul.form-nodes-list-results');
+            this.sortable = this.container.find('ul.form-items-list-sortable');
+            this.results = this.container.find('ul.form-items-list-results');
             this.search = this.container.find('input[name="_nodesearch"]');
             this.valueInput = this.container.find('input[type="hidden"]');
+            this.parent = this.el.closest('.form-group');
 
-            this.searchurl = this.el.find('.form-nodes-search').data('searchurl');
+            this.searchurl = this.el.find('.form-items-search').data('searchurl');
 
             this.searchCountdown = null;
 
@@ -52,10 +53,8 @@
                     e.preventDefault();
                 }
 
-                if (self.searchCountdown === null) {
-                    if (q !== '') {
-                        self._search(q);
-                    }
+                if (self.searchCountdown === null && q.length > 0) {
+                    self._search(q, true);
                 }
             });
 
@@ -73,6 +72,15 @@
                 self._removeNode($(this).parent());
             });
 
+            // Hiding search
+            $('body').click(function () {
+                self._hideResults();
+            });
+
+            this.parent.click(function (e) {
+                e.stopPropagation();
+            });
+
             $(this.sortable).sortable({
                 tolerance : 'pointer',
                 placeholder : 'placeholder',
@@ -81,26 +89,25 @@
                 stop : function() { self._regenerateValue(); }
             }).disableSelection();
         },
-        _setSearchCountdown: function (keywords) {
-            var self = this;
-
-            this.searchCountdown = setTimeout(function () {
-                self.searchCountdown = null;
-
-                self._search(keywords, true);
-            }, 1000);
-        },
-        _search: function (keywords, withoutCountdown) {
+        _search: function (keywords, countdown) {
             var self = this;
 
             $.post(this.searchurl, {q: keywords}, function (data) {
                 self._populateResults(data);
             });
 
-            if(typeof withoutCountdown !== 'undefined' && withoutCountdown !== true)
-            {
+            if (countdown) {
                 this._setSearchCountdown(keywords);
             }
+        },
+        _setSearchCountdown: function (keywords) {
+            var self = this;
+
+            this.searchCountdown = setTimeout(function () {
+                self.searchCountdown = null;
+
+                self._search(keywords, false);
+            }, 1000);
         },
         _populateResults: function (nodes) {
             this.results.empty();

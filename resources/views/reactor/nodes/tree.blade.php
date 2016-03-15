@@ -1,9 +1,7 @@
 @extends('layout.reactor')
 
 @section('pageTitle', trans('nodes.tree'))
-@section('contentSubtitle')
-    {{ uppercase(trans('nodes.title')) }}
-@endsection
+@section('contentSubtitle', uppercase(trans('nodes.title')))
 
 @section('action')
     {!! action_button(route('reactor.contents.create', $node->getKey()), 'icon-plus') !!}
