@@ -186,8 +186,8 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.contents.tags.add'
             ]);
             Route::delete('contents/{id}/tag', [
-                'uses' => 'NodesController@unlinkTag',
-                'as' => 'reactor.contents.tags.unlink'
+                'uses' => 'NodesController@detachTag',
+                'as' => 'reactor.contents.tags.detach'
             ]);
         });
 

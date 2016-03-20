@@ -19,7 +19,7 @@
             this.results = this.el.find('ul.form-items-list-results');
             this.parent = this.el.closest('.form-group');
 
-            this.urlunlink = this.el.data('urlunlink');
+            this.urldetach = this.el.data('urldetach');
             this.urladd = this.el.data('urladd');
             this.urlsearch = this.el.data('urlsearch');
 
@@ -81,7 +81,7 @@
 
             // Remove buttons
             this.list.on('click', '.icon-cancel', function () {
-                self._unlinkTag($(this));
+                self._detachTag($(this));
             });
 
             this.results.on('click', 'li', function () {
@@ -103,7 +103,7 @@
                 e.stopPropagation();
             });
         },
-        _unlinkTag: function (tag) {
+        _detachTag: function (tag) {
             var parent = tag.closest('.tag'),
                 id = parent.data('id');
             // Quit if an action is already going on
@@ -117,7 +117,7 @@
 
             $.ajax({
                 type: "POST",
-                url: self.urlunlink,
+                url: self.urldetach,
                 data: {
                     _method: "DELETE",
                     tag: id

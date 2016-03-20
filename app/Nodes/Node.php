@@ -159,7 +159,7 @@ class Node extends HierarchyNode {
      *
      * @param int $id
      */
-    public function unlinkTag($id)
+    public function detachTag($id)
     {
         return $this->tags()->detach($id);
     }

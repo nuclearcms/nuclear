@@ -713,11 +713,11 @@ class NodesController extends ReactorController {
      * @param Request $request
      * @return Response
      */
-    public function unlinkTag(Request $request, $id)
+    public function detachTag(Request $request, $id)
     {
         $node = $this->authorizeAndFindNode($id, null, 'ACCESS_CONTENTS_EDIT', false);
 
-        $node->unlinkTag($request->input('tag'));
+        $node->detachTag($request->input('tag'));
 
         return response()->json(['id' => $request->input('tag')]);
     }

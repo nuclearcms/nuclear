@@ -23,7 +23,7 @@
             <h3>{{ trans('nodes.edit_tags') }}</h3>
 
             <div class="form-group form-group-content form-group-tag"
-                 data-urlunlink="{{ route('reactor.contents.tags.unlink', $node->getKey()) }}"
+                 data-urldetach="{{ route('reactor.contents.tags.detach', $node->getKey()) }}"
                  data-urladd="{{ route('reactor.contents.tags.add', $node->getKey()) }}"
                  data-urlsearch="{{ route('reactor.tags.search.json') }}">
                 <div class="form-group-column form-group-column-field">
