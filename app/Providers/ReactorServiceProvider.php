@@ -11,7 +11,7 @@ use Theme;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.3.0';
+    const VERSION = '2.4.0';
 
     /**
      * Register any application services.
@@ -138,7 +138,8 @@ class ReactorServiceProvider extends ServiceProvider {
             $view->with('user', auth()->user());
         });
 
-        view()->composer('partials.nodes', function ($view)
+        // Added 'reactor' before nodes in the view name to prevent possible conflicts
+        view()->composer('partials.reactor_nodes', function ($view)
         {
             $view->with('leafs', Node::whereIsRoot()->get());
         });

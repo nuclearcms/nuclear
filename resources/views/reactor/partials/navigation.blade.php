@@ -133,7 +133,7 @@
             </div>
         </div>
     </nav><nav id="nav_nodes" class="navigation-tab navigation-nodes">
-        @include('partials.nodes')
+        @include('partials.reactor_nodes')
     </nav>
 </div>
 <div id="blackout" class="blackout"></div>

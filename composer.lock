@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8b2d51676bdec88c53321cac962f0ad6",
-    "content-hash": "7fc45671ebacbc05cf76908cd2f37f58",
+    "hash": "16bc5853a17bc75476c4ab387bc1ace1",
+    "content-hash": "38c828365335f3cce985266171c6874c",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1496,16 +1496,16 @@
         },
         {
             "name": "kenarkose/chronicle",
-            "version": "1.0.6",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Chronicle.git",
-                "reference": "bf75dafa805c1b2213a142b646c4d42cfc9683cc"
+                "reference": "106e02e399beae58250a732debc4494c5240029a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/bf75dafa805c1b2213a142b646c4d42cfc9683cc",
-                "reference": "bf75dafa805c1b2213a142b646c4d42cfc9683cc",
+                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/106e02e399beae58250a732debc4494c5240029a",
+                "reference": "106e02e399beae58250a732debc4494c5240029a",
                 "shasum": ""
             },
             "require": {
@@ -1519,11 +1519,6 @@
                 "laravel/framework": "This package requires Laravel 5."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Kenarkose\\Chronicle\\": "src/"
@@ -1553,20 +1548,20 @@
                 "laravel5",
                 "log"
             ],
-            "time": "2016-02-11 09:02:16"
+            "time": "2016-03-18 13:01:23"
         },
         {
             "name": "kenarkose/files",
-            "version": "1.0.4",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Files.git",
-                "reference": "d81e50e08198f3abcbf101e62f4359c434f6d672"
+                "reference": "bdb93fdeb83cf2239fd1875b8934b26375256b99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Files/zipball/d81e50e08198f3abcbf101e62f4359c434f6d672",
-                "reference": "d81e50e08198f3abcbf101e62f4359c434f6d672",
+                "url": "https://api.github.com/repos/kenarkose/Files/zipball/bdb93fdeb83cf2239fd1875b8934b26375256b99",
+                "reference": "bdb93fdeb83cf2239fd1875b8934b26375256b99",
                 "shasum": ""
             },
             "require": {
@@ -1583,11 +1578,6 @@
                 "laravel/framework": "This package requires Laravel 5."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Kenarkose\\Files\\": "src/"
@@ -1614,20 +1604,20 @@
                 "management",
                 "media"
             ],
-            "time": "2016-02-11 09:09:35"
+            "time": "2016-03-18 13:01:19"
         },
         {
             "name": "kenarkose/ownable",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Ownable.git",
-                "reference": "529e17dd2dc71154d9f893080fbebe1247eb311c"
+                "reference": "e5c225f9e2d99cd12e97c7e3a21c2d2f2bea56b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Ownable/zipball/529e17dd2dc71154d9f893080fbebe1247eb311c",
-                "reference": "529e17dd2dc71154d9f893080fbebe1247eb311c",
+                "url": "https://api.github.com/repos/kenarkose/Ownable/zipball/e5c225f9e2d99cd12e97c7e3a21c2d2f2bea56b0",
+                "reference": "e5c225f9e2d99cd12e97c7e3a21c2d2f2bea56b0",
                 "shasum": ""
             },
             "require": {
@@ -1641,11 +1631,6 @@
                 "laravel/framework": "This package requires Laravel 5."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Kenarkose\\Ownable\\": "src/"
@@ -1672,20 +1657,20 @@
                 "ownable",
                 "ownership"
             ],
-            "time": "2015-09-01 15:06:55"
+            "time": "2016-03-18 13:01:10"
         },
         {
             "name": "kenarkose/settlement",
-            "version": "1.0.3",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Settlement.git",
-                "reference": "6896781cd47a4a901a6a7946574fd36378376ccb"
+                "reference": "62d6ceeb9474660baff77b1a4c4c24d9ce2325c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Settlement/zipball/6896781cd47a4a901a6a7946574fd36378376ccb",
-                "reference": "6896781cd47a4a901a6a7946574fd36378376ccb",
+                "url": "https://api.github.com/repos/kenarkose/Settlement/zipball/62d6ceeb9474660baff77b1a4c4c24d9ce2325c3",
+                "reference": "62d6ceeb9474660baff77b1a4c4c24d9ce2325c3",
                 "shasum": ""
             },
             "require": {
@@ -1697,11 +1682,6 @@
                 "phpunit/phpunit": "~4.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Kenarkose\\Settlement\\": "src/"
@@ -1733,20 +1713,20 @@
                 "settlement",
                 "typed"
             ],
-            "time": "2016-02-11 09:16:43"
+            "time": "2016-03-18 13:01:07"
         },
         {
             "name": "kenarkose/sortable",
-            "version": "1.1.5",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Sortable.git",
-                "reference": "1d3a6481c2655e0534682c2d873c39a6d0db908d"
+                "reference": "9db264d992349cb603b8990f729e9366834d37e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Sortable/zipball/1d3a6481c2655e0534682c2d873c39a6d0db908d",
-                "reference": "1d3a6481c2655e0534682c2d873c39a6d0db908d",
+                "url": "https://api.github.com/repos/kenarkose/Sortable/zipball/9db264d992349cb603b8990f729e9366834d37e1",
+                "reference": "9db264d992349cb603b8990f729e9366834d37e1",
                 "shasum": ""
             },
             "require": {
@@ -1760,11 +1740,6 @@
                 "laravel/framework": "This package requires Laravel 5."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.2-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Kenarkose\\Sortable\\": "src/"
@@ -1794,20 +1769,20 @@
                 "sortable",
                 "sorting"
             ],
-            "time": "2016-03-09 20:58:35"
+            "time": "2016-03-18 13:01:04"
         },
         {
             "name": "kenarkose/synthesizer",
-            "version": "1.0.0",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Synthesizer.git",
-                "reference": "65ddff4c642542def71088af6e4909c69594689f"
+                "reference": "375c64b46a04280859b32388559674701486117e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Synthesizer/zipball/65ddff4c642542def71088af6e4909c69594689f",
-                "reference": "65ddff4c642542def71088af6e4909c69594689f",
+                "url": "https://api.github.com/repos/kenarkose/Synthesizer/zipball/375c64b46a04280859b32388559674701486117e",
+                "reference": "375c64b46a04280859b32388559674701486117e",
                 "shasum": ""
             },
             "require": {
@@ -1816,15 +1791,9 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "illuminate/support": "~5.0",
                 "phpspec/phpspec": "~2.1"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Kenarkose\\Synthesizer\\": "src/"
@@ -1854,20 +1823,20 @@
                 "string",
                 "synthesizer"
             ],
-            "time": "2015-05-02 10:48:33"
+            "time": "2016-03-18 14:29:23"
         },
         {
             "name": "kenarkose/transit",
-            "version": "1.3.5",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Transit.git",
-                "reference": "de1ce8c500ed20aea545f05fbd08506e88644b2d"
+                "reference": "c44853415374e72bb9fbd1afe171996c2dfa0fb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/de1ce8c500ed20aea545f05fbd08506e88644b2d",
-                "reference": "de1ce8c500ed20aea545f05fbd08506e88644b2d",
+                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/c44853415374e72bb9fbd1afe171996c2dfa0fb7",
+                "reference": "c44853415374e72bb9fbd1afe171996c2dfa0fb7",
                 "shasum": ""
             },
             "require": {
@@ -1884,11 +1853,6 @@
                 "laravel/framework": "This package requires Laravel 5."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Kenarkose\\Transit\\": "src/"
@@ -1918,7 +1882,7 @@
                 "transit",
                 "upload"
             ],
-            "time": "2016-02-11 09:24:24"
+            "time": "2016-03-18 14:00:37"
         },
         {
             "name": "kris/laravel-form-builder",
@@ -2243,16 +2207,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "635ee279a522233a567984756bf9da1db243d9bf"
+                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/635ee279a522233a567984756bf9da1db243d9bf",
-                "reference": "635ee279a522233a567984756bf9da1db243d9bf",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
+                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
                 "shasum": ""
             },
             "require": {
@@ -2322,7 +2286,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-03-12 19:04:33"
+            "time": "2016-03-14 21:54:11"
         },
         {
             "name": "maximebf/debugbar",
@@ -2387,16 +2351,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.18.0",
+            "version": "1.18.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc"
+                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
-                "reference": "e19b764b5c855580e8ffa7e615f72c10fd2f99cc",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
+                "reference": "a5f2734e8c16f3aa21b3da09715d10e15b4d2d45",
                 "shasum": ""
             },
             "require": {
@@ -2461,7 +2425,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-03-01 18:00:40"
+            "time": "2016-03-13 16:08:35"
         },
         {
             "name": "mtdowling/cron-expression",
@@ -2653,16 +2617,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.2.12",
+            "version": "1.2.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "70cbd443898057477e89b2ac0a8ed3f367fc4d85"
+                "reference": "6798ad62fc9222d98f33e804f2467f818130695c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/70cbd443898057477e89b2ac0a8ed3f367fc4d85",
-                "reference": "70cbd443898057477e89b2ac0a8ed3f367fc4d85",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/6798ad62fc9222d98f33e804f2467f818130695c",
+                "reference": "6798ad62fc9222d98f33e804f2467f818130695c",
                 "shasum": ""
             },
             "require": {
@@ -2682,11 +2646,6 @@
                 "laravel/framework": "This package requires Laravel 5."
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Nuclear\\Hierarchy\\": "src/"
@@ -2719,20 +2678,20 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-03-12 19:37:33"
+            "time": "2016-03-18 12:57:05"
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v1.2.2",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430"
+                "reference": "ff76e1a660669bb56ba74ba0583fd8d41417bf39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/b3313b618f4edd76523572531d5d7e22fe747430",
-                "reference": "b3313b618f4edd76523572531d5d7e22fe747430",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/ff76e1a660669bb56ba74ba0583fd8d41417bf39",
+                "reference": "ff76e1a660669bb56ba74ba0583fd8d41417bf39",
                 "shasum": ""
             },
             "require": {
@@ -2767,7 +2726,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-11 19:54:08"
+            "time": "2016-03-17 16:11:57"
         },
         {
             "name": "psr/http-message",
@@ -4616,16 +4575,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.23",
+            "version": "4.8.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483"
+                "reference": "a1066c562c52900a142a0e2bbf0582994671385e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6e351261f9cd33daf205a131a1ba61c6d33bd483",
-                "reference": "6e351261f9cd33daf205a131a1ba61c6d33bd483",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a1066c562c52900a142a0e2bbf0582994671385e",
+                "reference": "a1066c562c52900a142a0e2bbf0582994671385e",
                 "shasum": ""
             },
             "require": {
@@ -4684,7 +4643,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-02-11 14:56:33"
+            "time": "2016-03-14 06:16:08"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
