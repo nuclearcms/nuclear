@@ -16,14 +16,13 @@ class DetermineLocale {
      */
     public function handle($request, Closure $next)
     {
-        if (session()->has('_locale'))
-        {
-            $locale = session('_locale');
+        $locale = session()->has('_locale') ?
+            session('_locale') :
+            $request->getPreferredLanguage();
 
-            if (in_array($locale, config('translatable.locales')))
-            {
-                \App::setLocale($locale);
-            }
+        if (in_array($locale, config('translatable.locales')))
+        {
+            app()->setLocale($locale);
         }
 
         return $next($request);

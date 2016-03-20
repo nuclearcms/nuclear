@@ -4,6 +4,8 @@ namespace Reactor\Http\Controllers;
 
 
 
+use Carbon\Carbon;
+
 class AdvancedOptionsController extends ReactorController {
 
     /**
@@ -115,6 +117,48 @@ class AdvancedOptionsController extends ReactorController {
     public function clearCache()
     {
         return $this->action('cache:clear', 'cleared_cache');
+    }
+
+    /**
+     * Flushes all site views
+     *
+     * @return Redirect
+     */
+    public function clearAllTrackerViews()
+    {
+        tracker()->flushAll();
+
+        $this->notify('advanced.cleared_tracker');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Flushes site views older than a year
+     *
+     * @return Redirect
+     */
+    public function clearTrackerViewsOlderYear()
+    {
+        tracker()->flushOlderThan(Carbon::now()->subYear());
+
+        $this->notify('advanced.cleared_tracker');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Flushes site views older than a month
+     *
+     * @return Redirect
+     */
+    public function clearTrackerViewsOlderMonth()
+    {
+        tracker()->flushOlderThan(Carbon::now()->subMonth());
+
+        $this->notify('advanced.cleared_tracker');
+
+        return redirect()->back();
     }
 
 }

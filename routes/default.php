@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'locale'], function ()
+Route::group(['middleware' => ['locale', 'track']], function ()
 {
 
     Route::get('/', [

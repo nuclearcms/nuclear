@@ -26,6 +26,7 @@ return [
         base_path('vendor/kenarkose/settlement/src/Provider/Laravel/SettlementServiceProvider.php'),
         base_path('vendor/kenarkose/sortable/src/SortableServiceProvider.php'),
         base_path('vendor/kenarkose/synthesizer/src/Provider/Laravel/SynthesizerServiceProvider.php'),
+        base_path('vendor/kenarkose/tracker/src/TrackerServiceProvider.php'),
         base_path('vendor/kenarkose/transit/src/Provider/TransitServiceProvider.php'),
         base_path('vendor/nuclear/hierarchy/src/Providers/HierarchyServiceProvider.php'),
 

@@ -53,4 +53,8 @@ return [
     'cleared_activities' => 'Cleared activity feed.',
     'clear_cache' => 'Clear Nuclear Cache',
     'cleared_cache' => 'Cleared Nuclear cache.',
+    'clear_tracker_all' => 'Clear All Statistics',
+    'clear_tracker_year_older' => 'Clear Statistics Older Than a Year',
+    'cleared_tracker' => 'Cleared Tracker statistics.',
+    'clear_tracker_month_older' => 'Clear Statistics Older Than a Month',
 ];

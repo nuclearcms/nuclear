@@ -184,6 +184,7 @@ return [
         Kenarkose\Settlement\Provider\Laravel\SettlementServiceProvider::class,
         Kenarkose\Sortable\SortableServiceProvider::class,
         Kenarkose\Synthesizer\Provider\Laravel\SynthesizerServiceProvider::class,
+        Kenarkose\Tracker\TrackerServiceProvider::class,
         Kenarkose\Transit\Provider\TransitServiceProvider::class,
         Nuclear\Hierarchy\Providers\HierarchyServiceProvider::class,
         
@@ -257,6 +258,7 @@ return [
         'Synthesizer' => Kenarkose\Synthesizer\Provider\Laravel\SynthesizerFacade::class,
         'Downloader'  => Kenarkose\Transit\Facade\Downloader::class,
         'Uploader'    => Kenarkose\Transit\Facade\Uploader::class,
+        'Tracker'     => Kenarkose\Tracker\TrackerFacade::class,
 
         'Flash'       => Laracasts\Flash\Flash::class,
         'Debugbar'    => Barryvdh\Debugbar\Facade::class,

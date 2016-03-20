@@ -8,37 +8,48 @@ class NodeRepository {
     /**
      * Returns the home node
      *
+     * @param bool $track
      * @return Node
      */
-    public function getHome()
+    public function getHome($track = true)
     {
-        return Node::whereHome(1)
+        $home = Node::whereHome(1)
             ->published()
             ->firstOrFail();
+
+        $this->track($track, $home);
+
+        return $home;
     }
 
     /**
      * Returns a node by name
      *
      * @param string $name
+     * @param bool $track
      * @return Node
      */
-    public function getNode($name)
+    public function getNode($name, $track = true)
     {
-        return Node::whereTranslation('node_name', $name)
+        $node = Node::whereTranslation('node_name', $name)
             ->published()
             ->firstOrFail();
+
+        $this->track($track, $node);
+
+        return $node;
     }
 
     /**
      * Returns a node by name and sets the locale
      *
-     * @param $name
+     * @param string $name
+     * @param bool $track
      * @return Node
      */
-    public function getNodeAndSetLocale($name)
+    public function getNodeAndSetLocale($name, $track = true)
     {
-        $node = $this->getNode($name);
+        $node = $this->getNode($name, $track);
 
         $locale = $node->getLocaleForNodeName($name);
 
@@ -66,7 +77,7 @@ class NodeRepository {
             $ids = json_decode($ids, true);
         }
 
-        if (is_array($ids) && !empty($ids))
+        if (is_array($ids) && ! empty($ids))
         {
             $placeholders = implode(',', array_fill(0, count($ids), '?'));
 
@@ -84,6 +95,20 @@ class NodeRepository {
         }
 
         return null;
+    }
+
+    /**
+     * Tracks the node
+     *
+     * @param $track
+     * @param $node
+     */
+    protected function track($track, $node)
+    {
+        if ($track)
+        {
+            tracker()->addTrackable($node);
+        }
     }
 
 }

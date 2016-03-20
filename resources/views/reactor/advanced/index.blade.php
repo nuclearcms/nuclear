@@ -90,6 +90,30 @@
                     {{ uppercase(trans('advanced.clear_cache')) }}
                 </button>
             </div>
+
+            <div class="form-group inline">
+                {!! Form::label('', trans('advanced.clear_tracker_all'), ['class' => 'control-label']) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.clear.tracker') }}" type="button">
+                    {{ uppercase(trans('advanced.clear_tracker_all')) }}
+                </button>
+            </div>
+
+            <div class="form-group inline">
+                {!! Form::label('', trans('advanced.clear_tracker_year_older'), ['class' => 'control-label']) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.clear.tracker.year') }}" type="button">
+                    {{ uppercase(trans('advanced.clear_tracker_year_older')) }}
+                </button>
+            </div>
+
+            <div class="form-group inline">
+                {!! Form::label('', trans('advanced.clear_tracker_month_older'), ['class' => 'control-label']) !!}
+                <button class="button button-emphasized button-secondary button-advanced-action"
+                        data-action="{{ route('reactor.advanced.clear.tracker.month') }}" type="button">
+                    {{ uppercase(trans('advanced.clear_tracker_month_older')) }}
+                </button>
+            </div>
         </section>
     </div>
 

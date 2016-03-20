@@ -509,6 +509,18 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'as' => 'reactor.advanced.clear.cache',
                 'uses' => 'AdvancedOptionsController@clearCache'
             ]);
+            Route::put('advanced/clear/tracker', [
+                'as' => 'reactor.advanced.clear.tracker',
+                'uses' => 'AdvancedOptionsController@clearAllTrackerViews'
+            ]);
+            Route::put('advanced/clear/tracker/year', [
+                'as' => 'reactor.advanced.clear.tracker.year',
+                'uses' => 'AdvancedOptionsController@clearTrackerViewsOlderYear'
+            ]);
+            Route::put('advanced/clear/tracker/month', [
+                'as' => 'reactor.advanced.clear.tracker.month',
+                'uses' => 'AdvancedOptionsController@clearTrackerViewsOlderMonth'
+            ]);
         });
 
     });

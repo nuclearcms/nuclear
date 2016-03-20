@@ -30,7 +30,7 @@ class SiteController extends Controller {
      */
     public function getPage(NodeRepository $nodeRepository, $name)
     {
-        $home = $nodeRepository->getHome();
+        $home = $nodeRepository->getHome(false);
         $node = $nodeRepository->getNodeAndSetLocale($name);
 
         return view('page', compact('home', 'node'));

@@ -32,6 +32,7 @@
         "kenarkose/settlement": "~1.0",
         "kenarkose/sortable": "~1.0",
         "kenarkose/synthesizer": "~1.0",
+        "kenarkose/tracker": "~1.0",
         "kenarkose/transit": "~1.2",
         "nuclear/hierarchy": "~1.0",
         "dimsav/laravel-translatable": "~5.4",

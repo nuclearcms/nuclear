@@ -7,13 +7,15 @@ use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Ownable\AutoAssociatesOwner;
 use Kenarkose\Ownable\Ownable;
 use Kenarkose\Sortable\Sortable;
+use Kenarkose\Tracker\Trackable;
+use Kenarkose\Tracker\TrackableInterface;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Nuclear\Hierarchy\Node as HierarchyNode;
 use Reactor\Tags\Tag;
 
-class Node extends HierarchyNode {
+class Node extends HierarchyNode implements TrackableInterface {
 
-    use SearchableTrait, Ownable, AutoAssociatesOwner, RecordsActivity;
+    use SearchableTrait, Ownable, AutoAssociatesOwner, RecordsActivity, Trackable;
 
     /**
      * Sortable trait requires minor tweaks

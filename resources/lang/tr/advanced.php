@@ -53,4 +53,8 @@ return [
     'cleared_activities' => 'Etkinlik geçmişi temizlendi.',
     'clear_cache' => 'Nuclear Önbelleğini Temizle',
     'cleared_cache' => 'Nuclear önbelleği temizlendi.',
+    'clear_tracker_all' => 'Tüm İstatistikleri Temizle',
+    'clear_tracker_year_older' => 'Bir Yıldan Eski İstatistikleri Temizle',
+    'cleared_tracker' => 'Tracker istatistikleri temizlendi.',
+    'clear_tracker_month_older' => 'Bir Aydan Eski İstatistikleri Temizle',
 ];
