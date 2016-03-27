@@ -19,6 +19,8 @@ return [
         app_path('Providers/AuthServiceProvider.php'),
         app_path('Providers/EventServiceProvider.php'),
         app_path('Providers/RouteServiceProvider.php'),
+        app_path('Providers/ValidationRulesServiceProvider.php'),
+        app_path('Providers/ViewBindingsServiceProvider.php'),
 
         // Kenarkose Service Providers
         base_path('vendor/kenarkose/chronicle/src/ChronicleServiceProvider.php'),
@@ -29,9 +31,11 @@ return [
         base_path('vendor/kenarkose/tracker/src/TrackerServiceProvider.php'),
         base_path('vendor/kenarkose/transit/src/Provider/TransitServiceProvider.php'),
         base_path('vendor/nuclear/hierarchy/src/Providers/HierarchyServiceProvider.php'),
+        base_path('vendor/nuclear/hierarchy/src/Providers/BuilderServiceProvider.php'),
 
         // External Service Providers
         base_path('vendor/laracasts/flash/src/Laracasts/Flash/FlashServiceProvider.php'),
+        base_path('vendor/dimsav/laravel-translatable/src/Translatable/TranslatableServiceProvider.php'),
 
         // Extension Classes
         //base_path('extension/Site/Providers/SiteExtensionServiceProvider.php'),

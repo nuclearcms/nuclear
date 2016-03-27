@@ -175,6 +175,8 @@ return [
         Reactor\Providers\AuthServiceProvider::class,
         Reactor\Providers\EventServiceProvider::class,
         Reactor\Providers\RouteServiceProvider::class,
+        Reactor\Providers\ValidationRulesServiceProvider::class,
+        Reactor\Providers\ViewBindingsServiceProvider::class,
 
         /**
          * Other Service Providers for Reactor
@@ -187,7 +189,8 @@ return [
         Kenarkose\Tracker\TrackerServiceProvider::class,
         Kenarkose\Transit\Provider\TransitServiceProvider::class,
         Nuclear\Hierarchy\Providers\HierarchyServiceProvider::class,
-        
+        Nuclear\Hierarchy\Providers\BuilderServiceProvider::class,
+
         Laracasts\Flash\FlashServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
@@ -195,6 +198,7 @@ return [
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Simexis\Oembed\OembedServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        Dimsav\Translatable\TranslatableServiceProvider::class,
 
         /*
          * Extension Service Providers

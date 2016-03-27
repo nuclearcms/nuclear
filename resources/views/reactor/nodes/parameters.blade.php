@@ -20,7 +20,7 @@
 
     @include('partials.content.header', [
         'headerTitle' => $source->title,
-        'headerHint' => $node->nodeType->label
+        'headerHint' => $node->getNodeType()->label
     ])
 
     <div class="material-light">

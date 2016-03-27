@@ -281,8 +281,8 @@ if ( ! function_exists('node_options_list'))
     function node_options_list($node)
     {
         $list = '<div class="node-options">' . content_options_open(
-                '<li class="options-header" style="background-color:' . $node->nodeType->color . ';">'
-                . uppercase($node->nodeType->label) .
+                '<li class="options-header" style="background-color:' . $node->getNodeType()->color . ';">'
+                . uppercase($node->getNodeType()->label) .
                 '</li>', false
             );
 

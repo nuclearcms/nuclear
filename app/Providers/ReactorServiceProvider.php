@@ -3,15 +3,12 @@
 namespace Reactor\Providers;
 
 
-use DateTime;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
-use Reactor\Nodes\Node;
 use Theme;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.5.0';
+    const VERSION = '2.6.0';
 
     /**
      * Register any application services.
@@ -37,10 +34,6 @@ class ReactorServiceProvider extends ServiceProvider {
     public function boot()
     {
         $this->setTheme();
-
-        $this->registerViewBindings();
-
-        $this->registerCustomValidationRules();
 
         $this->setAppLocale();
 
@@ -124,75 +117,6 @@ class ReactorServiceProvider extends ServiceProvider {
         {
             Theme::set($this->app['config']->get('themes.active_reactor'));
         }
-    }
-
-    /**
-     * Shares information with views
-     *
-     * @return void
-     */
-    protected function registerViewBindings()
-    {
-        view()->composer('*', function ($view)
-        {
-            $view->with('user', auth()->user());
-        });
-
-        // Added 'reactor' before nodes in the view name to prevent possible conflicts
-        view()->composer('partials.reactor_nodes', function ($view)
-        {
-            $view->with('leafs', Node::whereIsRoot()->get());
-        });
-    }
-
-    /**
-     * Registers custom validation rules
-     *
-     * @return void
-     */
-    protected function registerCustomValidationRules()
-    {
-        Validator::extend('unique_setting', function ($attribute, $value, $parameters, $validator)
-        {
-            if (isset($parameters[0]) && $value === $parameters[0])
-            {
-                return true;
-            }
-
-            return ! settings()->has($value);
-        });
-
-        Validator::extend('unique_setting_group', function ($attribute, $value, $parameters, $validator)
-        {
-            if (isset($parameters[0]) && $value === $parameters[0])
-            {
-                return true;
-            }
-
-            return ! settings()->hasGroup($value);
-        });
-
-        Validator::extend('date_mysql', function ($attribute, $value, $parameters, $validator)
-        {
-            if (DateTime::createFromFormat('Y-m-d H:i:s', $value))
-            {
-                return true;
-            }
-
-            return false;
-        });
-
-        Validator::extend('not_reserved_field', function ($attribute, $value, $parameters, $validator)
-        {
-            $reservedFields = ['id', 'node_id', 'locale', 'source_type',
-                'node_type_id', 'user_id', 'parent_id', '_lft', '_rgt', 'title', 'node_name',
-                'meta_title', 'meta_keywords', 'meta_description', 'meta_image', 'meta_author',
-                'visible', 'sterile', 'home', 'locked', 'status', 'hides_children', 'priority',
-                'published_at', 'children_order', 'children_order_direction', 'children_display_mode',
-                'created_at', 'updated_at'];
-
-            return ! in_array($value, $reservedFields);
-        });
     }
 
 }

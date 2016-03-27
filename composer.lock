@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "13df3300ebaef1d9b44bcac761c885f4",
-    "content-hash": "07428ea0fdf2197cedc0fddee1ba5d90",
+    "hash": "1e994a14302dbda5c040ea52d980c4ed",
+    "content-hash": "cc4627a36c6c2e11caa31dde0fb6092d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2674,16 +2674,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "1.2.13",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "6798ad62fc9222d98f33e804f2467f818130695c"
+                "reference": "4587a046a7c885e0dad125f6704de69c6dab1d09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/6798ad62fc9222d98f33e804f2467f818130695c",
-                "reference": "6798ad62fc9222d98f33e804f2467f818130695c",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/4587a046a7c885e0dad125f6704de69c6dab1d09",
+                "reference": "4587a046a7c885e0dad125f6704de69c6dab1d09",
                 "shasum": ""
             },
             "require": {
@@ -2735,7 +2735,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-03-18 12:57:05"
+            "time": "2016-03-27 18:11:12"
         },
         {
             "name": "paragonie/random_compat",
@@ -3418,16 +3418,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.3",
+            "version": "v2.8.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "78c468665c9568c3faaa9c416a7134308f2d85c3"
+                "reference": "47d2d8cade9b1c3987573d2943bb9352536cdb87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/78c468665c9568c3faaa9c416a7134308f2d85c3",
-                "reference": "78c468665c9568c3faaa9c416a7134308f2d85c3",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/47d2d8cade9b1c3987573d2943bb9352536cdb87",
+                "reference": "47d2d8cade9b1c3987573d2943bb9352536cdb87",
                 "shasum": ""
             },
             "require": {
@@ -3474,7 +3474,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-01-27 05:14:19"
+            "time": "2016-03-07 14:04:32"
         },
         {
             "name": "symfony/finder",

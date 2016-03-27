@@ -14,7 +14,7 @@
             {!! link_to_route('reactor.contents.edit', $node->translateOrFirst($locale)->title, [$node->getKey(), $node->translateOrFirst($locale)->getKey()]) !!}
         </td>
         <td class="content-column-hidden">
-            {{ $node->nodeType->label }}
+            {{ $node->getNodeType()->label }}
         </td>
         <td>
             {{ $node->created_at->formatLocalized('%b %e, %Y') }}

@@ -12,7 +12,7 @@
 @section('content')
     @include('partials.content.header', [
         'headerTitle' => $source->title,
-        'headerHint' => $node->nodeType->label
+        'headerHint' => $node->getNodeTypes()->label
     ])
 
     <div class="material-light content-form">
