@@ -78,6 +78,10 @@ if(argv.r)
         scripts([
             'components/cropper.js',
             'image.js'
-        ], elixir.config.publicPath + '/js/image.js');
+        ], elixir.config.publicPath + '/js/image.js').
+        scripts([
+            'components/Chart.min.js',
+            'chart.js'
+        ], elixir.config.publicPath + '/js/chart.js');
     });
 }

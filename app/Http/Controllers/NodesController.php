@@ -4,12 +4,12 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-
 use Nuclear\Hierarchy\NodeSource;
 use Reactor\Http\Controllers\Traits\ModifiesTranslations;
 use Reactor\Http\Requests;
 use Reactor\Nodes\Node;
 use Reactor\Nodes\NodeType;
+use Reactor\Statistics\NodeStatisticsCompiler;
 use Reactor\Tags\Tag;
 
 class NodesController extends ReactorController {
@@ -57,10 +57,10 @@ class NodesController extends ReactorController {
      * Shows the children nodes of the resource in list view
      *
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @return Response
      */
-    public function childrenList($id, $source = null)
+    public function childrenList($id, $source)
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS');
 
@@ -74,12 +74,12 @@ class NodesController extends ReactorController {
 
     /**
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @param string $permission
      * @param bool $withSource
      * @return array
      */
-    public function authorizeAndFindNode($id, $source, $permission, $withSource = true)
+    protected function authorizeAndFindNode($id, $source, $permission, $withSource = true)
     {
         $this->authorize($permission);
 
@@ -99,10 +99,10 @@ class NodesController extends ReactorController {
      * Shows the children nodes of the resourse in tree view
      *
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @return Response
      */
-    public function tree($id, $source = null)
+    public function tree($id, $source)
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS');
 
@@ -241,7 +241,7 @@ class NodesController extends ReactorController {
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @param int $source
+     * @param int|null $source
      * @return \Illuminate\Http\Response
      */
     public function edit($id, $source = null)
@@ -264,7 +264,7 @@ class NodesController extends ReactorController {
      * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $source = null)
+    public function update(Request $request, $id, $source)
     {
         $node = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT', false);
 
@@ -278,9 +278,14 @@ class NodesController extends ReactorController {
             $this->validateUpdateNodeForm($request, $node, $source);
 
             $this->determinePublish($request, $node);
+
+            // Recording paused for this, otherwise two records are registered
+            chronicle()->pauseRecording();
             $node->update([
                 $locale => $request->all()
             ]);
+            // and resume
+            chronicle()->resumeRecording();
 
             $this->notify('nodes.edited', 'updated_node_content', $node);
         }
@@ -294,7 +299,7 @@ class NodesController extends ReactorController {
      * @param Request $request
      * @param $node
      */
-    public function determinePublish(Request $request, $node)
+    protected function determinePublish(Request $request, $node)
     {
         if ($request->get('_publish') === 'publish')
         {
@@ -369,10 +374,10 @@ class NodesController extends ReactorController {
      * Show the form for editing the specified resources seo params.
      *
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function seo($id, $source = null)
+    public function seo($id, $source)
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
@@ -389,10 +394,10 @@ class NodesController extends ReactorController {
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function updateSEO(Request $request, $id, $source = null)
+    public function updateSEO(Request $request, $id, $source)
     {
         $node = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT', false);
 
@@ -450,10 +455,10 @@ class NodesController extends ReactorController {
      * Show the form for editing the specified resources parameters.
      *
      * @param  int $id
-     * @param int|null $source
+     * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function parameters($id, $source = null)
+    public function parameters($id, $source)
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
@@ -467,10 +472,10 @@ class NodesController extends ReactorController {
      *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
-     * @param int|null $source
+     * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function updateParameters(Request $request, $id, $source = null)
+    public function updateParameters(Request $request, $id, $source)
     {
         $node = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT', false);
 
@@ -591,10 +596,10 @@ class NodesController extends ReactorController {
      * Adds a translation to the resource
      *
      * @param  int $id
-     * @param int|null $source
+     * @param int $source
      * @return \Illuminate\Http\Response
      */
-    public function createTranslation($id, $source = null)
+    public function createTranslation($id, $source)
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
@@ -673,7 +678,7 @@ class NodesController extends ReactorController {
      * Shows the children nodes of the resourse in tree view
      *
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @return Response
      */
     public function tags($id, $source)
@@ -701,7 +706,7 @@ class NodesController extends ReactorController {
         $node->attachTag($tag->getKey());
 
         return response()->json([
-            'id' => $tag->getKey(),
+            'id'   => $tag->getKey(),
             'name' => $tag->name
         ]);
     }
@@ -726,10 +731,10 @@ class NodesController extends ReactorController {
      * Show the page for resource transformation options
      *
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @return Response
      */
-    public function transform($id, $source = null)
+    public function transform($id, $source)
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
@@ -743,10 +748,10 @@ class NodesController extends ReactorController {
      *
      * @param Request $request
      * @param int $id
-     * @param int|null $source
+     * @param int $source
      * @return Response
      */
-    public function transformPut(Request $request, $id, $source = null)
+    public function transformPut(Request $request, $id, $source)
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
 
@@ -755,6 +760,26 @@ class NodesController extends ReactorController {
         $this->notify('nodes.transformed_node', 'transformed_node', $node);
 
         return redirect()->route('reactor.contents.edit', [$id, $source->getKey()]);
+    }
+
+    /**
+     * Displays statistics about the node
+     *
+     * @param NodeStatisticsCompiler $compiler
+     * @param int $id
+     * @param int $source
+     * @return Response
+     */
+    public function statistics(NodeStatisticsCompiler $compiler, $id, $source)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'ACCESS_CONTENTS_EDIT');
+
+        // This is for enabling deleting translation
+        $translated = true;
+
+        $statistics = $compiler->collectNodeStatistics($node, $locale);
+
+        return view('nodes.statistics', compact('node', 'locale', 'source', 'translated', 'statistics'));
     }
 
     /**

@@ -18,10 +18,10 @@ return [
     'clear' => 'Temizle',
     'add_or_change' => 'Ekle/Değiştir',
     'insert' => 'Ekle',
+    'never' => 'Asla',
+    'no_data' => 'Bilgi yok.',
 
     'dashboard' => 'Dashboard',
-    'more_features_here_soon' => 'Yakında burada daha çok özellik olacak.',
-    'metrics' => 'İstatistikler',
     'recent_activity' => 'Son Etkinlikler',
     'dashboard_hint' => 'Burada sitenizin yakın zamandaki hareketlerini görebilirsiniz.',
     'content' => 'İçerik',

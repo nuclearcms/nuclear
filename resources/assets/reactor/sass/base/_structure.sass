@@ -57,10 +57,28 @@
     +position(absolute, 0 null null 0)
     +size(100%)
 
-
 .content-main
     padding: 0 2em 2em
 
 .dialog-static
     +position(absolute, 0 0 0 0)
     margin: auto
+
+.columns-container
+    +clearfix
+    padding-bottom: 3em
+
+    @media screen and (max-width: $microThreshold)
+        padding-bottom: 0
+
+.column-2
+    width: 50%
+    float: left
+    padding: 0 2em
+
+    @media screen and (max-width: $microThreshold)
+        width: 100%
+        padding: 0 1.5em
+
+    @media screen and (max-width: $microThreshold)
+        padding: 0 1em

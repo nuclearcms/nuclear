@@ -189,6 +189,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'NodesController@detachTag',
                 'as' => 'reactor.contents.tags.detach'
             ]);
+
+            Route::get('contents/{id}/statistics/{source}', [
+                'uses' => 'NodesController@statistics',
+                'as' => 'reactor.contents.statistics'
+            ]);
         });
 
         // Nodes Types and Fields

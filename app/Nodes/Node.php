@@ -89,7 +89,7 @@ class Node extends HierarchyNode implements TrackableInterface {
     {
         $parameters = [
             $this->getKey(),
-            $this->translate($locale)->getKey()
+            $this->translateOrFirst($locale)->getKey()
         ];
 
         if ($this->hidesChildren())
@@ -166,5 +166,87 @@ class Node extends HierarchyNode implements TrackableInterface {
         return $this->tags()->detach($id);
     }
 
+    /**
+     * Most visited scope
+     *
+     * @param Builder $query
+     * @param int|null $limit
+     * @return Builder
+     */
+    public function scopeMostVisited($query, $limit = null)
+    {
+        $query->select(\DB::raw('nodes.*, count(*) as `aggregate`'))
+            ->join('node_site_view', 'nodes.id', '=', 'node_site_view.node_id')
+            ->groupBy('nodes.id')
+            ->orderBy('aggregate', 'desc');
+
+        if ($limit)
+        {
+            $query->limit($limit);
+        }
+
+        return $query;
+    }
+
+    /**
+     * Recently visited scope
+     *
+     * @param Builder $query
+     * @param int|null $limit
+     * @return Builder
+     */
+    public function scopeRecentlyVisited($query, $limit = null)
+    {
+        $query
+            ->select(\DB::raw('nodes.*, MAX(node_site_view.site_view_id) as `aggregate`'))
+            ->join('node_site_view', 'nodes.id', '=', 'node_site_view.node_id')
+            ->orderBy('aggregate', 'desc')
+            ->groupBy('node_site_view.node_id');
+
+        if ($limit)
+        {
+            $query->limit($limit);
+        }
+
+        return $query;
+    }
+
+    /**
+     * Recently edited scope
+     *
+     * @param Builder $query
+     * @param int|null $limit
+     * @return Builder
+     */
+    public function scopeRecentlyEdited($query, $limit = null)
+    {
+        $query->orderBy('updated_at', 'desc');
+
+        if ($limit)
+        {
+            $query->limit($limit);
+        }
+
+        return $query;
+    }
+
+    /**
+     * Recently created scope
+     *
+     * @param Builder $query
+     * @param int|null $limit
+     * @return Builder
+     */
+    public function scopeRecentlyCreated($query, $limit = null)
+    {
+        $query->orderBy('created_at', 'desc');
+
+        if ($limit)
+        {
+            $query->limit($limit);
+        }
+
+        return $query;
+    }
 
 }

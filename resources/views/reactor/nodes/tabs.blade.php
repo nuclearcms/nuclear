@@ -1,7 +1,7 @@
 <?php $flaps = [
     'reactor.contents.edit'       => 'nodes.content',
     'reactor.contents.parameters' => 'nodes.parameters',
-    'reactor.contents.seo'        => 'nodes.seo',
+    'reactor.contents.seo'        => 'nodes.seo'
 ]; ?>
 
 <div class="content-tabs-bar-container">
@@ -42,6 +42,14 @@
                 @endif
             </li>
         @endif
+
+        <li>
+            @if($currentTab === 'reactor.contents.statistics')
+                <span class="content-tab-flap active">{{ uppercase(trans('nodes.statistics')) }}</span>
+            @else
+                {!! link_to_route('reactor.contents.statistics', uppercase(trans('nodes.statistics')), [$currentKey, $source->getKey()], ['class' => 'content-tab-flap']) !!}
+            @endif
+        </li>
     </ul>
 
     <div class="node-options">
