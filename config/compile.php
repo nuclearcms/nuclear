@@ -21,6 +21,7 @@ return [
         app_path('Providers/RouteServiceProvider.php'),
         app_path('Providers/ValidationRulesServiceProvider.php'),
         app_path('Providers/ViewBindingsServiceProvider.php'),
+        app_path('Providers/HtmlBuildersServiceProvider.php'),
 
         // Kenarkose Service Providers
         base_path('vendor/kenarkose/chronicle/src/ChronicleServiceProvider.php'),

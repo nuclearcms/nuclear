@@ -12,7 +12,7 @@
     @if($nodes->count())
         @include('nodes.content', ['nodes' => $nodes, 'thumbnails' => false])
     @else
-        {!! no_results_row('nodes.no_children') !!}
+        {!! no_results_row('nodes.no_nodes') !!}
     @endif
 
 {!! content_table_close(true) !!}

@@ -11,6 +11,7 @@ return [
     'search_type' => 'Search Node Types',
     'all' => 'All Node Types',
     'no_nodes_selected' => 'No nodes selected.',
+    'no_nodes' => 'No nodes were found.',
 
     'content' => 'Content',
     'parameters' => 'Parameters',

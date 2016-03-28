@@ -11,6 +11,7 @@ return [
     'search_type' => 'Düğüm Tiplerinde Ara',
     'all' => 'Tüm Düğüm Tipleri',
     'no_nodes_selected' => 'Seçili düğüm yok.',
+    'no_nodes' => 'Düğüm bulunamadı.',
 
     'content' => 'İçerik',
     'parameters' => 'Ayarlar',

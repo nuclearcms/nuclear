@@ -177,6 +177,7 @@ return [
         Reactor\Providers\RouteServiceProvider::class,
         Reactor\Providers\ValidationRulesServiceProvider::class,
         Reactor\Providers\ViewBindingsServiceProvider::class,
+        Reactor\Providers\HtmlBuildersServiceProvider::class,
 
         /**
          * Other Service Providers for Reactor
