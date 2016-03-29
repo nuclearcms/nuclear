@@ -4,11 +4,6 @@ namespace Reactor\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
-use Reactor\Http\Builders\ActivitiesHtmlBuilder;
-use Reactor\Http\Builders\ContentsHtmlBuilder;
-use Reactor\Http\Builders\FormsHtmlBuilder;
-use Reactor\Http\Builders\NavigationHtmlBuilder;
-use Reactor\Http\Builders\NodesHtmlBuilder;
 
 class HtmlBuildersServiceProvider extends ServiceProvider {
 
@@ -55,7 +50,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerActivitiesHtmlBuilder()
     {
         $this->app['reactor.builders.activities'] = $this->app->share(function () {
-            return new ActivitiesHtmlBuilder;
+            return $this->app->make('Reactor\Http\Builders\ActivitiesHtmlBuilder');
         });
     }
 
@@ -65,7 +60,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerContentsHtmlBuilder()
     {
         $this->app['reactor.builders.contents'] = $this->app->share(function () {
-            return new ContentsHtmlBuilder;
+            return $this->app->make('Reactor\Http\Builders\ContentsHtmlBuilder');
         });
     }
 
@@ -75,7 +70,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerFormsHtmlBuilder()
     {
         $this->app['reactor.builders.forms'] = $this->app->share(function () {
-            return new FormsHtmlBuilder;
+            return $this->app->make('Reactor\Http\Builders\FormsHtmlBuilder');
         });
     }
 
@@ -85,7 +80,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerNavigationHtmlBuilder()
     {
         $this->app['reactor.builders.navigation'] = $this->app->share(function () {
-            return new NavigationHtmlBuilder;
+            return $this->app->make('Reactor\Http\Builders\NavigationHtmlBuilder');
         });
     }
 
@@ -95,7 +90,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerNodesHtmlBuilder()
     {
         $this->app['reactor.builders.nodes'] = $this->app->share(function () {
-            return new NodesHtmlBuilder;
+            return $this->app->make('Reactor\Http\Builders\NodesHtmlBuilder');
         });
     }
 

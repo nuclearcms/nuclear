@@ -13,8 +13,7 @@ class NodeRepository {
      */
     public function getHome($track = true)
     {
-        $home = Node::whereHome(1)
-            ->published()
+        $home = PublishedNode::whereHome(1)
             ->firstOrFail();
 
         $this->track($track, $home);
@@ -31,8 +30,7 @@ class NodeRepository {
      */
     public function getNode($name, $track = true)
     {
-        $node = Node::whereTranslation('node_name', $name)
-            ->published()
+        $node = PublishedNode::byName($name)
             ->firstOrFail();
 
         $this->track($track, $node);
@@ -56,6 +54,28 @@ class NodeRepository {
         set_app_locale($locale);
 
         return $node;
+    }
+
+    /**
+     * Searches for nodes
+     *
+     * @param string $keywords
+     * @param int $limit
+     * @param string $locale
+     * @return Collection
+     */
+    public function searchNodes($keywords, $limit = null, $locale = null)
+    {
+        $results = PublishedNode::translatedIn($locale)
+            ->search($keywords)
+            ->distinct();
+
+        if ( ! is_null($limit))
+        {
+            $results->limit($limit);
+        }
+
+        return $results->get();
     }
 
     /**

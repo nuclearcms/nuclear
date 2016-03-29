@@ -80,6 +80,15 @@ class Node extends HierarchyNode implements TrackableInterface {
     protected $sortableDirection = 'desc';
 
     /**
+     * Tracker relation configuration
+     *
+     * We are being explicit here to be able to extend
+     * with different models
+     */
+    protected $trackerPivotTable = 'node_site_view';
+    protected $trackerRelationKey = 'node_id';
+
+    /**
      * Determines the default link for node
      *
      * @param null|string $locale
