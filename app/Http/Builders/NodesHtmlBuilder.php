@@ -81,7 +81,7 @@ class NodesHtmlBuilder {
 
         return $list;
     }
-    
+
     /**
      * Snippet for for outputting html for delete forms
      *

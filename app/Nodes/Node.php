@@ -59,6 +59,14 @@ class Node extends HierarchyNode implements TrackableInterface {
     protected $table = 'nodes';
 
     /**
+     * The translation model is the NodeSource for use
+     * and the table name
+     *
+     * @var string
+     */
+    protected $translationModel = 'Reactor\Nodes\NodeSource';
+
+    /**
      * Sortable columns
      *
      * @var array

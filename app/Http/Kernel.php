@@ -2,10 +2,11 @@
 
 namespace Reactor\Http;
 
+
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends HttpKernel
-{
+class Kernel extends HttpKernel {
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -26,11 +27,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Reactor\Http\Middleware\Authenticate::class,
+        'auth'       => \Reactor\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \Reactor\Http\Middleware\RedirectIfAuthenticated::class,
-        'guard' => \Reactor\Http\Middleware\Guard::class,
-        'locale' => \Reactor\Http\Middleware\DetermineLocale::class,
-        'track' => \Kenarkose\Tracker\TrackerMiddleware::class
+        'guest'      => \Reactor\Http\Middleware\RedirectIfAuthenticated::class,
+        'guard'      => \Reactor\Http\Middleware\Guard::class,
+        'locale'     => \Reactor\Http\Middleware\DetermineLocale::class,
+        'track'      => \Kenarkose\Tracker\TrackerMiddleware::class
     ];
 }

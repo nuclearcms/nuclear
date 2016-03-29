@@ -113,9 +113,10 @@
             this.results.empty();
 
             for (var key in nodes) {
-                if (this.nodes.indexOf(key) == -1) {
+                // For some reason there are null results coming from PHP
+                if (this.nodes.indexOf(key) == -1 && nodes[key] !== null) {
                     var item = this._createListItem(key, nodes[key]);
-
+                    
                     this.results.append(item);
                 }
             }

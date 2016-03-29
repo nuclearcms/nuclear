@@ -111,5 +111,5 @@ class ContentsHtmlBuilder {
         return sprintf('<a class="button back-link" href="%s">
             <i class="icon-left-thin"></i>%s</a>', $link, trans($text));
     }
-    
+
 }

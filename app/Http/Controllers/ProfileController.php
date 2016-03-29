@@ -2,11 +2,16 @@
 
 namespace Reactor\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Reactor\Http\Controllers\Traits\UsesProfileForms;
+use Reactor\Http\Controllers\Traits\UsesProfileHelpers;
 use Reactor\Http\Requests;
 
-class ProfileController extends ReactorController
-{
+class ProfileController extends ReactorController {
+
+    use UsesProfileForms, UsesProfileHelpers;
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -22,19 +27,9 @@ class ProfileController extends ReactorController
     }
 
     /**
-     * Returns the currently logged in user
-     *
-     * @return User
-     */
-    protected function getProfile()
-    {
-        return auth()->user();
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -95,43 +90,6 @@ class ProfileController extends ReactorController
 
         return view('profile.history')
             ->with(compact('profile', 'activities'));
-    }
-
-    /**
-     * @param $profile
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditProfileForm($profile)
-    {
-        $form = $this->form('Reactor\Http\Forms\Users\EditForm', [
-            'url'   => route('reactor.profile.update'),
-            'model' => $profile
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param Request $request
-     * @param $profile
-     */
-    protected function validateUpdateProfile(Request $request, $profile)
-    {
-        $this->validateForm('Reactor\Http\Forms\Users\EditForm', $request, [
-            'email' => 'required|email|unique:users,email,' . $profile->getKey()
-        ]);
-    }
-
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getPasswordForm()
-    {
-        $form = $this->form('Reactor\Http\Forms\Users\PasswordForm', [
-            'url' => route('reactor.profile.password.post'),
-        ]);
-
-        return $form;
     }
 
 }

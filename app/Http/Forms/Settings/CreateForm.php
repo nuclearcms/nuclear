@@ -19,7 +19,7 @@ class CreateForm extends Form {
     public function buildForm()
     {
         $this->add('key', 'text', [
-            'rules' => 'required|max:25|alpha_dash|unique_setting',
+            'rules'      => 'required|max:25|alpha_dash|unique_setting',
             'help_block' => ['text' => trans('hints.settings_key')]
         ]);
         $this->compose('Reactor\Http\Forms\Settings\EditForm');

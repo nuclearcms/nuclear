@@ -10,11 +10,11 @@ class CreateEditForm extends Form {
     public function buildForm()
     {
         $this->add('label', 'text', [
-            'rules' => 'required|max:255',
+            'rules'      => 'required|max:255',
             'help_block' => ['text' => trans('hints.role_label')]
         ]);
         $this->add('name', 'text', [
-            'rules' => ['required', 'max:255', 'unique:roles,name', 'regex:/^([A-Z]+)$/'],
+            'rules'      => ['required', 'max:255', 'unique:roles,name', 'regex:/^([A-Z]+)$/'],
             'help_block' => ['text' => trans('hints.role_name')]
         ]);
     }

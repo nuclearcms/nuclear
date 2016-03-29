@@ -3,7 +3,6 @@
 namespace Reactor\Http\Controllers;
 
 
-
 use Carbon\Carbon;
 
 class AdvancedOptionsController extends ReactorController {

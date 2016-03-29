@@ -4,13 +4,13 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Reactor\ACL\Role;
 use Reactor\Http\Controllers\Traits\ModifiesPermissions;
+use Reactor\Http\Controllers\Traits\UsesUserForms;
 use Reactor\User;
 
 class UsersController extends ReactorController {
 
-    use ModifiesPermissions;
+    use ModifiesPermissions, UsesUserForms;
 
     /**
      * Self model path required for ModifiesPermissions
@@ -188,31 +188,6 @@ class UsersController extends ReactorController {
     }
 
     /**
-     * Creates a form for adding permissions
-     *
-     * @param int $id
-     * @param User $user
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getAddRoleForm($id, User $user)
-    {
-        $form = $this->form('Reactor\Http\Forms\Roles\AddRoleForm', [
-            'url'    => route('reactor.users.role.add', $id)
-        ]);
-
-        $choices = Role::all()
-            ->diff($user->roles)
-            ->lists('label', 'id')
-            ->toArray();
-
-        $form->modify('role', 'select', [
-            'choices' => $choices
-        ]);
-
-        return $form;
-    }
-
-    /**
      * Add a role to the specified resource.
      *
      * @param Request $request
@@ -263,57 +238,6 @@ class UsersController extends ReactorController {
         $activities = chronicle()->getUserActivity($id, 20);
 
         return view('users.history', compact('profile', 'activities'));
-    }
-
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateUserForm()
-    {
-        $form = $this->form('Reactor\Http\Forms\Users\CreateForm', [
-            'url' => route('reactor.users.store')
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param $id
-     * @param $profile
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditUserForm($id, $profile)
-    {
-        $form = $this->form('Reactor\Http\Forms\Users\EditForm', [
-            'url'   => route('reactor.users.update', $id),
-            'model' => $profile
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param Request $request
-     * @param $profile
-     */
-    protected function validateEditUserForm(Request $request, $profile)
-    {
-        $this->validateForm('Reactor\Http\Forms\Users\EditForm', $request, [
-            'email' => 'required|email|unique:users,email,' . $profile->getKey()
-        ]);
-    }
-
-    /**
-     * @param $id
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getPasswordForm($id)
-    {
-        $form = $this->form('Reactor\Http\Forms\Users\PasswordForm', [
-            'url' => route('reactor.users.password.post', $id),
-        ]);
-
-        return $form;
     }
 
 }

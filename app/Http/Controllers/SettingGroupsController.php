@@ -4,9 +4,13 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Reactor\Http\Controllers\Traits\UsesSettingGroupForms;
+use Reactor\Http\Controllers\Traits\UsesSettingGroupHelpers;
 use Reactor\Http\Requests;
 
 class SettingGroupsController extends ReactorController {
+
+    use UsesSettingGroupForms, UsesSettingGroupHelpers;
 
     /**
      * Display a listing of the resource.
@@ -110,82 +114,4 @@ class SettingGroupsController extends ReactorController {
         return redirect()->route('reactor.settinggroups.index');
     }
 
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateSettingGroupForm()
-    {
-        $form = $this->form('Reactor\Http\Forms\SettingGroups\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.settinggroups.store')
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param Request $request
-     * @return array|string
-     */
-    protected function setGroup(Request $request)
-    {
-        settings()->setGroup(
-            $key = $request->input('key'),
-            $request->input('name')
-        );
-
-        return $key;
-    }
-
-    /**
-     * @param $key
-     * @return mixed
-     */
-    protected function findSettingGroupOrFail($key)
-    {
-        if ( ! settings()->hasGroup($key))
-        {
-            abort(404);
-        }
-
-        $name = settings()->getGroup($key);
-
-        return $name;
-    }
-
-    /**
-     * @param $key
-     * @param $name
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditSettingGroupForm($key, $name)
-    {
-        $form = $this->form('Reactor\Http\Forms\SettingGroups\CreateEditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.settinggroups.update', $key),
-            'model'  => compact('key', 'name')
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param Request $request
-     * @param $key
-     */
-    protected function updateGroup(Request $request, $key)
-    {
-        settings()->setGroup($key, $request->input('name'));
-    }
-
-    /**
-     * @param Request $request
-     * @param $key
-     */
-    protected function validateUpdateGroup(Request $request, $key)
-    {
-        $this->validateForm('Reactor\Http\Forms\SettingGroups\CreateEditForm', $request, [
-            'key' => 'required|max:25|alpha_dash|unique_setting_group:' . $key
-        ]);
-    }
 }

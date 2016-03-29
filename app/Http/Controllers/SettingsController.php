@@ -4,9 +4,13 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Reactor\Http\Controllers\Traits\UsesSettingForms;
+use Reactor\Http\Controllers\Traits\UsesSettingHelpers;
 use Reactor\Http\Requests;
 
 class SettingsController extends ReactorController {
+
+    use UsesSettingForms, UsesSettingHelpers;
 
     /**
      * Display a listing of the resource.
@@ -128,20 +132,6 @@ class SettingsController extends ReactorController {
     }
 
     /**
-     * Prepares settings as model
-     *
-     * @param array $settings
-     * @return array
-     */
-    protected function makeSettingsModel($settings)
-    {
-        return array_map(function ($setting)
-        {
-            return $setting['value'];
-        }, $settings);
-    }
-
-    /**
      * Update settings in a group
      *
      * @param Request $request
@@ -159,124 +149,6 @@ class SettingsController extends ReactorController {
         $this->notify('settings.modified');
 
         return redirect()->back();
-    }
-
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateSettingForm()
-    {
-        $form = $this->form('Reactor\Http\Forms\Settings\CreateForm', [
-            'url' => route('reactor.settings.store')
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param Request $request
-     * @return array|string
-     */
-    protected function setSetting(Request $request)
-    {
-        settings()->set(
-            $key = $request->input('key'),
-            $request->input('value'),
-            $request->input('type'),
-            $request->input('group')
-        );
-
-        return $key;
-    }
-
-    /**
-     * @param $key
-     * @param $setting
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditSettingsForm($key, $setting)
-    {
-        $form = $this->form('Reactor\Http\Forms\Settings\EditForm', [
-            'url'   => route('reactor.settings.update', $key),
-            'model' => $setting
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param $key
-     * @return mixed
-     */
-    protected function findSettingOrFail($key)
-    {
-        if ( ! settings()->has($key))
-        {
-            abort(404);
-        }
-
-        $setting = settings()->getComplete($key);
-        $setting['key'] = $key;
-
-        return $setting;
-    }
-
-    /**
-     * @param Request $request
-     * @param $key
-     * @param $setting
-     */
-    protected function updateSetting(Request $request, $key, $setting)
-    {
-        settings()->set(
-            $key,
-            $setting['value'],
-            $request->input('type'),
-            $request->input('group')
-        );
-    }
-
-    /**
-     * @param $group
-     * @return mixed
-     */
-    protected function findSettingGroupOrFail($group)
-    {
-        if ( $group !== 'all' && ! settings()->hasGroup($group))
-        {
-            abort(404);
-        }
-
-        $settings = ($group !== 'all') ? settings()->getGroupSettings($group) : settings()->settings();
-
-        return $settings;
-    }
-
-    /**
-     * @param $group
-     * @param $settings
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getModifySettingsForm($group, $settings)
-    {
-        $form = $this->form('Reactor\Http\Forms\Settings\ModifyForm', [
-            'url'   => route('reactor.settings.group.update', is_null($group) ? 'all' : $group),
-            'model' => $this->makeSettingsModel($settings)
-        ], $settings);
-
-        return $form;
-    }
-
-    /**
-     * @param Request $request
-     * @param $settings
-     */
-    protected function modifySettings(Request $request, $settings)
-    {
-        foreach ($settings as $key => $setting)
-        {
-            settings()->set($key, $request->input($key));
-        }
     }
 
 }

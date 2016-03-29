@@ -19,7 +19,7 @@ class EditNodeTypeForm extends Form {
     public function buildForm()
     {
         $this->add('label', 'text', [
-            'rules' => 'required|max:255',
+            'rules'      => 'required|max:255',
             'help_block' => ['text' => trans('hints.nodetype_label')]
         ]);
         $this->add('description', 'textarea');
@@ -27,9 +27,9 @@ class EditNodeTypeForm extends Form {
         $this->add('visible', 'checkbox', ['inline' => true]);
         $this->add('taggable', 'checkbox', ['inline' => true]);
         $this->add('color', 'color', [
-            'rules' => 'required',
+            'rules'         => 'required',
             'default_value' => '#000000',
-            'help_block' => ['text' => trans('hints.nodetype_color')]
+            'help_block'    => ['text' => trans('hints.nodetype_color')]
         ]);
     }
 

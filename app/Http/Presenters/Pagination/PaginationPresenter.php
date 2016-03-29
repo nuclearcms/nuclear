@@ -5,7 +5,7 @@ namespace Reactor\Http\Presenters\Pagination;
 
 use Illuminate\Pagination\SimpleBootstrapThreePresenter;
 
-class PaginationPresenter extends SimpleBootstrapThreePresenter{
+class PaginationPresenter extends SimpleBootstrapThreePresenter {
 
     /**
      * Convert the URL window into Bootstrap HTML.

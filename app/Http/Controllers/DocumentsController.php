@@ -3,14 +3,15 @@
 namespace Reactor\Http\Controllers;
 
 
-use Exception;
 use Illuminate\Http\Request;
-use Kenarkose\Transit\Facade\Uploader;
 use Reactor\Documents\Media;
+use Reactor\Http\Controllers\Traits\UsesDocumentForms;
+use Reactor\Http\Controllers\Traits\UsesDocumentHelpers;
 use Reactor\Http\Requests;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class DocumentsController extends ReactorController {
+
+    use UsesDocumentForms, UsesDocumentHelpers;
 
     /**
      * Display a listing of the resource.
@@ -89,53 +90,36 @@ class DocumentsController extends ReactorController {
     }
 
     /**
-     * Tries to upload a document
+     * Show the form for embedding external resource
      *
-     * @param UploadedFile $file
-     * @return Document
-     * @throws Exception
+     * @return Response
      */
-    protected function uploadDocument(UploadedFile $file)
+    public function embed()
     {
-        try
-        {
-            $media = Uploader::upload($file);
-        } catch (Exception $e)
-        {
-            $response = $this->determineErrorMessage($e);
+        $this->authorize('ACCESS_DOCUMENTS_EMBED');
 
-            return $this->makeUploadResponse('error', $response);
-        }
+        $form = $this->getEmbedMediaForm();
 
-        $this->notify(null, 'created_media', $media);
-
-        return $this->makeUploadResponse('success',
-            $media->toArray());
+        return view('documents.embed', compact('form'));
     }
 
     /**
-     * Determines the validation error type
+     * Store the embedded external resource
      *
-     * @param Exception $e
-     * @return string
+     * @param Request $request
+     * @return Response
      */
-    protected function determineErrorMessage(Exception $e)
+    public function storeEmbedded(Request $request)
     {
-        $exceptionType = class_basename($e);
+        $this->authorize('ACCESS_DOCUMENTS_EMBED');
 
-        return trans('documents.' . $exceptionType);
-    }
+        $this->validateForm('Reactor\Http\Forms\Documents\EmbedForm', $request);
 
-    /**
-     * Prepares the uploaded file response
-     *
-     * @param string $type
-     * @param mixed $response
-     * @return array
-     */
-    protected function makeUploadResponse($type, $response)
-    {
-        return compact('type', 'response');
+        $media = Media::create($request->all());
+
+        $this->notify('documents.embedded', 'embedded_media', $media);
+
+        return redirect()->route('reactor.documents.edit', $media->getKey());
     }
 
     /**
@@ -173,113 +157,13 @@ class DocumentsController extends ReactorController {
 
         $this->validateForm('Reactor\Http\Forms\Documents\EditForm', $request);
 
-        $attributes = $this->parseUpdateAttributes($request, $media);
+        $attributes = $this->compileUpdateAttributes($request, $media);
 
         $media->update($attributes);
 
         $this->notify('documents.edited', 'updated_media', $media);
 
         return redirect()->back();
-    }
-
-    /**
-     * @param Request $request
-     * @param $media
-     * @return array
-     */
-    public function parseUpdateAttributes(Request $request, $media)
-    {
-        $locale = $request->get('locale');
-        $attributes = $media->translatedAttributes;
-
-        return array_merge(
-            $request->except(array_merge($attributes, ['locale'])),
-            [$locale => $request->only($attributes)]
-        );
-    }
-
-    /**
-     * Determines the locale for media request
-     *
-     * @param Request $request
-     * @return mixed|null
-     */
-    public function determineMediaLocale(Request $request)
-    {
-        $locale = $request->get('locale', config('app.locale'));
-
-        if ( ! in_array($locale, config('translatable.locales')))
-        {
-            $locale = config('app.locale');
-
-            return $locale;
-        }
-
-        return $locale;
-    }
-
-    /**
-     * @param $media
-     * @param $locale
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    public function getMediaTranslationsForm($media, $locale)
-    {
-        return $this->form('Reactor\Http\Forms\Documents\EditMediaTranslationsForm', [
-            'model' => $media->translateOrNew($locale)
-        ]);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $this->authorize('ACCESS_DOCUMENTS_DELETE');
-
-        $media = Media::findOrFail($id);
-
-        $media->delete();
-
-        $this->notify('documents.deleted', 'deleted_media', $media);
-
-        return redirect()->route('reactor.documents.index');
-    }
-
-    /**
-     * Show the form for embedding external resource
-     *
-     * @return Response
-     */
-    public function embed()
-    {
-        $this->authorize('ACCESS_DOCUMENTS_EMBED');
-
-        $form = $this->getEmbedMediaForm();
-
-        return view('documents.embed', compact('form'));
-    }
-
-    /**
-     * Store the embedded external resource
-     *
-     * @param Request $request
-     * @return Response
-     */
-    public function storeEmbedded(Request $request)
-    {
-        $this->authorize('ACCESS_DOCUMENTS_EMBED');
-
-        $this->validateForm('Reactor\Http\Forms\Documents\EmbedForm', $request);
-
-        $media = Media::create($request->all());
-
-        $this->notify('documents.embedded', 'embedded_media', $media);
-
-        return redirect()->route('reactor.documents.edit', $media->getKey());
     }
 
     /**
@@ -322,46 +206,22 @@ class DocumentsController extends ReactorController {
     }
 
     /**
-     * @param $id
-     * @param $media
-     * @param $locale
-     * @return \Kris\LaravelFormBuilder\Form
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
      */
-    protected function getEditMediaForm($id, $media, $locale)
+    public function destroy($id)
     {
-        $form = $this->form('Reactor\Http\Forms\Documents\EditForm', [
-            'url'   => route('reactor.documents.update', $id),
-            'model' => array_merge($media->toArray(), $media->translateOrNew($locale)->toArray())
-        ]);
+        $this->authorize('ACCESS_DOCUMENTS_DELETE');
 
-        $form->modify('public_url', 'text',
-            ['default_value' => $media->getPublicURL()]);
+        $media = Media::findOrFail($id);
 
-        return $form;
+        $media->delete();
+
+        $this->notify('documents.deleted', 'deleted_media', $media);
+
+        return redirect()->route('reactor.documents.index');
     }
 
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEmbedMediaForm()
-    {
-        $form = $this->form('Reactor\Http\Forms\Documents\EmbedForm', [
-            'url' => route('reactor.documents.embed.store')
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param $id
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditImageForm($id)
-    {
-        $form = $this->form('Reactor\Http\Forms\Documents\ImageForm', [
-            'url' => route('reactor.documents.image.update', $id),
-        ]);
-
-        return $form;
-    }
 }

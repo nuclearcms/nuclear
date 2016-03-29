@@ -35,7 +35,7 @@ trait ModifiesPermissions {
     protected function getResourceNames()
     {
         return [
-            'modelPath' => $this->modelPath,
+            'modelPath'   => $this->modelPath,
             'modelPrefix' => $this->routeViewPrefix
         ];
     }
@@ -51,7 +51,7 @@ trait ModifiesPermissions {
     protected function getAddPermissionForm($id, Model $model, $modelPrefix)
     {
         $form = $this->form('Reactor\Http\Forms\Permissions\AddPermissionForm', [
-            'url'    => route('reactor.' . $modelPrefix . '.permission.add', $id)
+            'url' => route('reactor.' . $modelPrefix . '.permission.add', $id)
         ]);
 
         $choices = Permission::all()

@@ -2,11 +2,15 @@
 
 namespace Reactor\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Reactor\ACL\Permission;
+use Reactor\Http\Controllers\Traits\UsesPermissionForms;
 
-class PermissionsController extends ReactorController
-{
+class PermissionsController extends ReactorController {
+
+    use UsesPermissionForms;
+
     /**
      * Display a listing of the resource.
      *
@@ -49,7 +53,7 @@ class PermissionsController extends ReactorController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -68,7 +72,7 @@ class PermissionsController extends ReactorController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -85,8 +89,8 @@ class PermissionsController extends ReactorController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -107,7 +111,7 @@ class PermissionsController extends ReactorController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -123,41 +127,4 @@ class PermissionsController extends ReactorController
         return redirect()->route('reactor.permissions.index');
     }
 
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreatePermissionForm()
-    {
-        return $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.permissions.store')
-        ]);
-    }
-
-    /**
-     * @param $id
-     * @param $permission
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditPermissionForm($id, $permission)
-    {
-        return $this->form('Reactor\Http\Forms\Permissions\CreateEditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.permissions.update', $id),
-            'model'  => $permission
-        ]);
-    }
-
-    /**
-     * @param Request $request
-     * @param $permission
-     */
-    protected function validateUpdatePermission(Request $request, $permission)
-    {
-        $this->validateForm('Reactor\Http\Forms\Permissions\CreateEditForm', $request, [
-            'name' => ['required', 'max:255',
-                'unique:permissions,name,' . $permission->getKey(),
-                'regex:/^(ACCESS|WRITE|SITE|REACTOR)(_([A-Z]+))+$/']
-        ]);
-    }
 }

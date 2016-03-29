@@ -179,5 +179,5 @@ class FormsHtmlBuilder {
             </button></form>',
             $action, $input, $icon, $text);
     }
-    
+
 }

@@ -2,11 +2,11 @@
 
 namespace Reactor\Http\Controllers\Auth;
 
+
 use Reactor\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
-class PasswordController extends Controller
-{
+class PasswordController extends Controller {
 
     protected $redirectPath;
 

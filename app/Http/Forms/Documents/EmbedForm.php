@@ -23,11 +23,11 @@ class EmbedForm extends Form {
         ]);
         $this->add('mimetype', 'select', [
             'choices' => [
-                'video/youtube' => 'Youtube',
-                'video/vimeo' => 'Vimeo',
+                'video/youtube'    => 'Youtube',
+                'video/vimeo'      => 'Vimeo',
                 'audio/soundcloud' => 'Soundcloud'
             ],
-            'label' => 'documents.embed_service'
+            'label'   => 'documents.embed_service'
         ]);
         $this->add('path', 'text', [
             'rules' => ['required', 'url', 'regex:#((https?|ftp)://(\S*?\.\S*?))([\s)\[\]{},;"\':<]|\.\s|$)#i'],

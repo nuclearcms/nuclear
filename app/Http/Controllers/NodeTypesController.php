@@ -2,14 +2,18 @@
 
 namespace Reactor\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Nuclear\Hierarchy\Repositories\NodeTypeRepository;
+use Reactor\Http\Controllers\Traits\UsesNodeTypeForms;
 use Reactor\Http\Requests;
 use Reactor\Nodes\Node;
 use Reactor\Nodes\NodeType;
 
-class NodeTypesController extends ReactorController
-{
+class NodeTypesController extends ReactorController {
+
+    use UsesNodeTypeForms;
+
     /**
      * Display a listing of the resource.
      *
@@ -74,7 +78,7 @@ class NodeTypesController extends ReactorController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -91,8 +95,8 @@ class NodeTypesController extends ReactorController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -159,33 +163,6 @@ class NodeTypesController extends ReactorController
             ->sortable()->paginate();
 
         return view('nodetypes.nodes', compact('nodeType', 'nodes'));
-    }
-
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateNodeTypeForm()
-    {
-        $form = $this->form('Reactor\Http\Forms\Nodes\CreateNodeTypeForm', [
-            'url' => route('reactor.nodes.store')
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param $id
-     * @param $nodeType
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditNodeTypeForm($id, $nodeType)
-    {
-        $form = $this->form('Reactor\Http\Forms\Nodes\EditNodeTypeForm', [
-            'url'    => route('reactor.nodes.update', $id),
-            'model'  => $nodeType
-        ]);
-
-        return $form;
     }
 
 }

@@ -41,5 +41,5 @@ class ActivitiesHtmlBuilder {
     {
         return '</p></div></li>';
     }
-    
+
 }

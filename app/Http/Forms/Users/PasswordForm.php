@@ -1,9 +1,9 @@
 <?php namespace Reactor\Http\Forms\Users;
 
+
 use Kris\LaravelFormBuilder\Form;
 
-class PasswordForm extends Form
-{
+class PasswordForm extends Form {
 
     /**
      * Form options

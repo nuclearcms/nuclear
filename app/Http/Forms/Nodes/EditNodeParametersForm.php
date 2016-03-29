@@ -25,10 +25,10 @@ class EditNodeParametersForm extends Form {
         $this->add('hides_children', 'checkbox', ['inline' => true]);
         $this->add('priority', 'number', [
             'default_value' => 1,
-            'attr' => [
+            'attr'          => [
                 'step' => 'any'
             ],
-            'inline' => true
+            'inline'        => true
         ]);
         $this->add('status', 'select', [
             'choices' => [
@@ -37,35 +37,35 @@ class EditNodeParametersForm extends Form {
                 50 => trans('nodes.published'),
                 60 => trans('nodes.archived')
             ],
-            'inline' => true
+            'inline'  => true
         ]);
         $this->add('published_at', 'date', [
             'rules' => 'date_mysql'
         ]);
         $this->add('children_order', 'select', [
             'choices' => [
-                'title' => trans('validation.attributes.title'),
-                'created_at' => trans('validation.attributes.created_at'),
+                'title'        => trans('validation.attributes.title'),
+                'created_at'   => trans('validation.attributes.created_at'),
                 'published_at' => trans('validation.attributes.published_at'),
-                'updated_at' => trans('validation.attributes.updated_at'),
-                '_lft' => trans('nodes.position')
+                'updated_at'   => trans('validation.attributes.updated_at'),
+                '_lft'         => trans('nodes.position')
             ],
-            'inline' => true
+            'inline'  => true
         ]);
         $this->add('children_order_direction', 'select', [
             'choices' => [
-                'asc' => trans('nodes.ascending'),
+                'asc'  => trans('nodes.ascending'),
                 'desc' => trans('nodes.descending')
             ],
-            'inline' => true
+            'inline'  => true
         ]);
         $this->add('children_display_mode', 'select', [
             'choices' => [
                 'tree' => trans('nodes.tree_display'),
                 'list' => trans('nodes.list_display')
             ],
-            'inline' => true,
-            'rules' => 'in:tree,list'
+            'inline'  => true,
+            'rules'   => 'in:tree,list'
         ]);
     }
 

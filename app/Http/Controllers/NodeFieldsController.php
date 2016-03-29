@@ -2,15 +2,19 @@
 
 namespace Reactor\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Nuclear\Hierarchy\Builders\BuilderService;
 use Nuclear\Hierarchy\Repositories\NodeFieldRepository;
+use Reactor\Http\Controllers\Traits\UsesNodeFieldForms;
 use Reactor\Http\Requests;
 use Reactor\Nodes\NodeField;
 use Reactor\Nodes\NodeType;
 
-class NodeFieldsController extends ReactorController
-{
+class NodeFieldsController extends ReactorController {
+
+    use UsesNodeFieldForms;
+
     /**
      * Show the form for creating a new resource.
      *
@@ -52,7 +56,7 @@ class NodeFieldsController extends ReactorController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -107,44 +111,5 @@ class NodeFieldsController extends ReactorController
         $this->notify('nodes.deleted_field');
 
         return redirect()->back();
-    }
-
-    /**
-     * @param $id
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateNodeFieldForm($id)
-    {
-        $form = $this->form('Reactor\Http\Forms\Nodes\CreateNodeFieldForm', [
-            'url' => route('reactor.nodes.field.store', $id)
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param $id
-     * @param Request $request
-     */
-    protected function validateCreateNodeFieldForm($id, Request $request)
-    {
-        $this->validateForm('Reactor\Http\Forms\Nodes\CreateNodeFieldForm', $request, [
-            'name' => ['required', 'between:3,20', 'regex:/^([a-z_])+$/', 'not_reserved_field', 'unique:node_fields,name,NULL,id,node_type_id,' . $id]
-        ]);
-    }
-
-    /**
-     * @param $id
-     * @param NodeField $nodeField
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditNodeFieldForm($id, NodeField $nodeField)
-    {
-        $form = $this->form('Reactor\Http\Forms\Nodes\EditNodeFieldForm', [
-            'url'    => route('reactor.nodes.field.update', $id),
-            'model'  => $nodeField
-        ]);
-
-        return $form;
     }
 }

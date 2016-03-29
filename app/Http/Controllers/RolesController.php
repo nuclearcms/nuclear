@@ -2,15 +2,15 @@
 
 namespace Reactor\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Reactor\ACL\Role;
 use Reactor\Http\Controllers\Traits\ModifiesPermissions;
-use Reactor\User;
+use Reactor\Http\Controllers\Traits\UsesRoleForms;
 
-class RolesController extends ReactorController
-{
+class RolesController extends ReactorController {
 
-    use ModifiesPermissions;
+    use ModifiesPermissions, UsesRoleForms;
 
     /**
      * Self model path required for ModifiesPermissions
@@ -64,7 +64,7 @@ class RolesController extends ReactorController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -83,7 +83,7 @@ class RolesController extends ReactorController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -100,8 +100,8 @@ class RolesController extends ReactorController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -122,7 +122,7 @@ class RolesController extends ReactorController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -152,31 +152,6 @@ class RolesController extends ReactorController
 
         return view('roles.users')
             ->with(compact('role', 'form'));
-    }
-
-    /**
-     * Creates a form for adding permissions
-     *
-     * @param int $id
-     * @param Role $role
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getAddUserForm($id, Role $role)
-    {
-        $form = $this->form('Reactor\Http\Forms\Users\AddUserForm', [
-            'url'    => route('reactor.roles.user.add', $id)
-        ]);
-
-        $choices = User::all()
-            ->diff($role->users)
-            ->lists('first_name', 'id')
-            ->toArray();
-
-        $form->modify('user', 'select', [
-            'choices' => $choices
-        ]);
-
-        return $form;
     }
 
     /**
@@ -215,48 +190,6 @@ class RolesController extends ReactorController
         $this->notify('users.unlinked_user', 'dissociated_user_from_role', $role);
 
         return redirect()->route('reactor.roles.users', $id);
-    }
-
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateRoleForm()
-    {
-        $form = $this->form('Reactor\Http\Forms\Roles\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.roles.store')
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param $id
-     * @param $role
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditRoleForm($id, $role)
-    {
-        $form = $this->form('Reactor\Http\Forms\Roles\CreateEditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.roles.update', $id),
-            'model'  => $role
-        ]);
-
-        return $form;
-    }
-
-    /**
-     * @param Request $request
-     * @param $role
-     */
-    protected function validateUpdateRole(Request $request, $role)
-    {
-        $this->validateForm('Reactor\Http\Forms\Roles\CreateEditForm', $request, [
-            'name' => ['required', 'max:255',
-                'unique:roles,name,' . $role->getKey(),
-                'regex:/^([A-Z]+)$/']
-        ]);
     }
 
 }

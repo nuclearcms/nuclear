@@ -19,13 +19,13 @@ class CreateNodeFieldForm extends Form {
     public function buildForm()
     {
         $this->add('name', 'text', [
-            'rules' => ['required', 'between:3,20', 'regex:/^([a-z_])+$/', 'not_reserved_field'],
+            'rules'      => ['required', 'between:3,20', 'regex:/^([a-z_])+$/', 'not_reserved_field'],
             'help_block' => ['text' => trans('hints.nodefield_name')]
         ]);
         $this->add('type', 'select', [
-            'rules' => 'required',
+            'rules'   => 'required',
             'choices' => $this->getFieldTypes(),
-            'inline' => true
+            'inline'  => true
         ]);
 
         $this->compose('Reactor\Http\Forms\Nodes\EditNodeFieldForm');
@@ -39,19 +39,19 @@ class CreateNodeFieldForm extends Form {
     protected function getFieldTypes()
     {
         $types = config('hierarchy.type_map', [
-            'text'     => 'string',
-            'textarea' => 'text',
-            'markdown' => 'longtext',
-            'document' => 'unsignedInteger',
-            'gallery'  => 'text',
-            'checkbox' => 'boolean',
-            'select'   => 'string',
-            'number'   => 'double',
-            'color'    => 'string',
-            'slug'     => 'string',
-            'tag'      => 'text',
-            'password' => 'string',
-            'date'     => 'timestamp',
+            'text'            => 'string',
+            'textarea'        => 'text',
+            'markdown'        => 'longtext',
+            'document'        => 'unsignedInteger',
+            'gallery'         => 'text',
+            'checkbox'        => 'boolean',
+            'select'          => 'string',
+            'number'          => 'double',
+            'color'           => 'string',
+            'slug'            => 'string',
+            'tag'             => 'text',
+            'password'        => 'string',
+            'date'            => 'timestamp',
             'node_collection' => 'text',
         ]);
 

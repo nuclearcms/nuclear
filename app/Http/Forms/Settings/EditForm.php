@@ -22,7 +22,7 @@ class EditForm extends Form {
             'choices' => settings()->getAvailableTypes()
         ]);
         $this->add('group', 'select', [
-            'choices' => settings()->getGroups(),
+            'choices'     => settings()->getGroups(),
             'empty_value' => '------------'
         ]);
     }

@@ -19,17 +19,17 @@ class EditNodeFieldForm extends Form {
     public function buildForm()
     {
         $this->add('label', 'text', [
-            'rules' => 'required|max:255',
+            'rules'      => 'required|max:255',
             'help_block' => ['text' => trans('hints.nodefield_label')]
         ]);
         $this->add('description', 'textarea');
 
         $this->add('position', 'number', [
             'default_value' => 0.8,
-            'attr' => [
+            'attr'          => [
                 'step' => 'any'
             ],
-            'inline' => true
+            'inline'        => true
         ]);
         $this->add('visible', 'checkbox', ['inline' => true]);
 

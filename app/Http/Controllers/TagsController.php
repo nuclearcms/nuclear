@@ -5,12 +5,14 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Reactor\Http\Controllers\Traits\ModifiesTranslations;
+use Reactor\Http\Controllers\Traits\UsesTagForms;
+use Reactor\Http\Controllers\Traits\UsesTagHelpers;
 use Reactor\Http\Requests;
 use Reactor\Tags\Tag;
 
 class TagsController extends ReactorController {
 
-    use ModifiesTranslations;
+    use ModifiesTranslations, UsesTagForms, UsesTagHelpers;
 
     /**
      * Display a listing of the resource.
@@ -224,81 +226,6 @@ class TagsController extends ReactorController {
         $nodes = $tag->nodes()->sortable()->paginate();
 
         return view('tags.nodes', compact('tag', 'translation', 'nodes'));
-    }
-
-    /**
-     * Determines the current editing locale
-     *
-     * @param $translation
-     * @param $node
-     * @return string
-     */
-    protected function determineLocaleAndTranslation($translation, $node)
-    {
-        $translation = $node->translations->find($translation);
-
-        if (is_null($translation))
-        {
-            abort(404);
-        }
-
-        return [$translation->locale, $translation];
-    }
-
-    /**
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateTagForm()
-    {
-        return $this->form('Reactor\Http\Forms\Tags\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.tags.store')
-        ]);
-    }
-
-    /**
-     * @param $id
-     * @param $translation
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getEditTagForm($id, $translation)
-    {
-        return $this->form('Reactor\Http\Forms\Tags\CreateEditForm', [
-            'method' => 'PUT',
-            'url'    => route('reactor.tags.update', [$id, $translation->getKey()]),
-            'model'  => $translation
-        ]);
-    }
-
-    /**
-     * @param Request $request
-     * @param $translation
-     */
-    protected function validateUpdateTag($request, $translation)
-    {
-        $this->validateForm('Reactor\Http\Forms\Tags\CreateEditForm', $request, [
-            'name' => ['required', 'max:255',
-                'unique:tag_translations,name,' . $translation->getKey()]
-        ]);
-    }
-
-    /**
-     * @param $tag
-     * @param array $locales
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getCreateTagTranslationForm($tag, array $locales)
-    {
-        $form = $this->form('Reactor\Http\Forms\Tags\CreateEditForm', [
-            'method' => 'POST',
-            'url'    => route('reactor.tags.translation.store', [$tag->getKey()])
-        ]);
-
-        $form->addBefore('name', 'locale', 'select', [
-            'choices' => $locales
-        ]);
-
-        return $form;
     }
 
 }

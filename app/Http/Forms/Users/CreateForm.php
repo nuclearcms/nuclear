@@ -1,9 +1,9 @@
 <?php namespace Reactor\Http\Forms\Users;
 
+
 use Kris\LaravelFormBuilder\Form;
 
-class CreateForm extends Form
-{
+class CreateForm extends Form {
 
     /**
      * Form options

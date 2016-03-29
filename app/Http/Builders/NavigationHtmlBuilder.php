@@ -16,11 +16,11 @@ class NavigationHtmlBuilder {
      * @var array
      */
     protected $items = [
-        'contents' => [
-            'title' => 'nodes.title',
+        'contents'  => [
+            'title'      => 'nodes.title',
             'permission' => 'ACCESS_CONTENTS',
-            'icon' => 'icon-flow-tree',
-            'items' => [
+            'icon'       => 'icon-flow-tree',
+            'items'      => [
                 ['title' => 'nodes.not-published_nodes', 'route' => 'reactor.contents.index', 'icon' => 'icon-cancel-circled', 'options' => ['not-published']],
                 ['title' => 'nodes.locked_nodes', 'route' => 'reactor.contents.index', 'icon' => 'icon-lock', 'options' => ['locked']],
                 ['title' => 'nodes.invisible_nodes', 'route' => 'reactor.contents.index', 'icon' => 'icon-eye-off', 'options' => ['invisible']],
@@ -31,39 +31,39 @@ class NavigationHtmlBuilder {
                 ['title' => 'nodes.archived_nodes', 'route' => 'reactor.contents.index', 'icon' => 'icon-dot-circled', 'options' => ['archived']]
             ]
         ],
-        'tags' => [
-            'title' => 'tags.title',
+        'tags'      => [
+            'title'      => 'tags.title',
             'permission' => 'ACCESS_TAGS',
-            'icon' => 'icon-tags',
-            'items' => [
-                 ['title' => 'tags.manage', 'route' => 'reactor.tags.index', 'icon' => 'icon-tag']
+            'icon'       => 'icon-tags',
+            'items'      => [
+                ['title' => 'tags.manage', 'route' => 'reactor.tags.index', 'icon' => 'icon-tag']
             ]
         ],
         'documents' => [
-            'title' => 'documents.title',
+            'title'      => 'documents.title',
             'permission' => 'ACCESS_DOCUMENTS',
-            'icon' => 'icon-docs',
-            'items' => [
+            'icon'       => 'icon-docs',
+            'items'      => [
                 ['title' => 'documents.manage', 'route' => 'reactor.documents.index', 'icon' => 'icon-folder-empty'],
                 ['title' => 'documents.upload', 'route' => 'reactor.documents.upload', 'icon' => 'icon-upload-cloud', 'permission' => 'ACCESS_DOCUMENTS_UPLOAD'],
                 ['title' => 'documents.embed', 'route' => 'reactor.documents.embed', 'icon' => 'icon-code', 'permission' => 'ACCESS_DOCUMENTS_UPLOAD']
             ]
         ],
-        'users' => [
-            'title' => 'users.title',
+        'users'     => [
+            'title'      => 'users.title',
             'permission' => 'ACCESS_USERS',
-            'icon' => 'icon-user',
-            'items' => [
+            'icon'       => 'icon-user',
+            'items'      => [
                 ['title' => 'users.manage', 'route' => 'reactor.users.index', 'icon' => 'icon-user'],
                 ['title' => 'users.manage_roles', 'route' => 'reactor.roles.index', 'icon' => 'icon-users', 'permission' => 'ACCESS_ROLES'],
                 ['title' => 'users.manage_permissions', 'route' => 'reactor.permissions.index', 'icon' => 'icon-list', 'permission' => 'ACCESS_PERMISSIONS']
             ]
         ],
-        'nodes' => [
-            'title' => 'nodes.management',
+        'nodes'     => [
+            'title'      => 'nodes.management',
             'permission' => 'ACCESS_NODES',
-            'icon' => 'icon-flow-cascade',
-            'items' => [
+            'icon'       => 'icon-flow-cascade',
+            'items'      => [
                 ['title' => 'nodes.manage', 'route' => 'reactor.nodes.index', 'icon' => 'icon-flow-parallel']
             ]
         ]
@@ -125,16 +125,16 @@ class NavigationHtmlBuilder {
 
         return [
             'settings' => [
-                'title' => 'settings.title',
+                'title'      => 'settings.title',
                 'permission' => 'ACCESS_SETTINGS',
-                'icon' => 'icon-cog',
-                'items' => $items
+                'icon'       => 'icon-cog',
+                'items'      => $items
             ],
             'advanced' => [
-                'title' => 'advanced.title',
+                'title'      => 'advanced.title',
                 'permission' => 'ACCESS_ADVANCED',
-                'icon' => 'icon-wrench',
-                'items' => [
+                'icon'       => 'icon-wrench',
+                'items'      => [
                     ['title' => 'advanced.manage', 'route' => 'reactor.advanced', 'icon' => 'icon-wrench'],
                     ['title' => 'advanced.update', 'route' => 'reactor.advanced.update', 'icon' => 'icon-arrows-cw']
                 ]
@@ -174,8 +174,8 @@ class NavigationHtmlBuilder {
         }
 
         return $this->navigationModuleOpen($navigation['icon'], $navigation['title'])
-            . $this->makeNavigationLinks($navigation['items'])
-            . $this->navigationModuleClose();
+        . $this->makeNavigationLinks($navigation['items'])
+        . $this->navigationModuleClose();
     }
 
     /**
@@ -241,7 +241,7 @@ class NavigationHtmlBuilder {
     {
         $groups = [];
 
-        foreach(settings()->getGroups() as $key => $group)
+        foreach (settings()->getGroups() as $key => $group)
         {
             $groups[] = ['title' => $group, 'route' => 'reactor.settings.group.edit', 'icon' => 'icon-blank', 'options' => $key];
         }
