@@ -4,6 +4,6 @@
 
 @section('content')
     <div class="content">
-        {!! Synthesizer::markdown($home->content) !!}
+        {!! Synthesizer::HTMLmarkdownBefore($home->content) !!}
     </div>
 @endsection

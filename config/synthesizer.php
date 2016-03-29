@@ -24,7 +24,8 @@ return [
         'readAll'           => 'Reactor\Synthesizer\ReadAllProcessor',
         'readBefore'        => 'Reactor\Synthesizer\ReadBeforeProcessor',
         'readRest'          => 'Reactor\Synthesizer\ReadRestProcessor',
-        'documents'         => 'Reactor\Synthesizer\DocumentsProcessor',
+        'document'          => 'Reactor\Synthesizer\DocumentTagsProcessor',
+        'gallery'           => 'Reactor\Synthesizer\GalleryTagsProcessor',
     ],
 
     /*
@@ -44,9 +45,12 @@ return [
         'textOnlyMarkdown'   => ['markdownExtra', 'striptags', 'htmlspecialchars'],
 
         /* Reactor only */
-        'HTMLmarkdown'       => ['readAll', 'documents', 'markdownGithub'],
-        'HTMLmarkdownBefore' => ['readBefore', 'documents', 'markdownGithub'],
-        'HTMLmarkdownRest'   => ['readRest', 'documents', 'markdownGithub'],
+        'HTMLmarkdown'       => ['readAll', 'document', 'gallery', 'markdownGithub'],
+        'HTMLmarkdownBefore' => ['readBefore', 'document', 'gallery', 'markdownGithub'],
+        'HTMLmarkdownRest'   => ['readRest', 'document', 'gallery', 'markdownGithub'],
+        'HTMLtextOnly'       => ['readAll', 'document', 'gallery', 'markdownGithub', 'striptags', 'htmlspecialchars'],
+        'HTMLtextOnlyBefore' => ['readBefore', 'document', 'gallery', 'markdownGithub', 'striptags', 'htmlspecialchars'],
+        'HTMLtextOnlyRest'   => ['readRest', 'document', 'gallery', 'markdownGithub', 'striptags', 'htmlspecialchars'],
     ]
 
 ];

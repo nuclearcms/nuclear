@@ -6,7 +6,7 @@ namespace Reactor\Synthesizer;
 use Kenarkose\Synthesizer\Processor\ProcessorInterface;
 use Reactor\Documents\Media;
 
-class DocumentsProcessor implements ProcessorInterface {
+class DocumentTagsProcessor implements ProcessorInterface {
 
     /**
      * @param string $value
@@ -19,7 +19,7 @@ class DocumentsProcessor implements ProcessorInterface {
 
         $documents = $this->getDocuments($ids);
 
-        return $this->parseDocuments($matches, $ids, $documents, $value);
+        return $this->makeDocuments($matches, $ids, $documents, $value);
     }
 
     /**
@@ -55,7 +55,7 @@ class DocumentsProcessor implements ProcessorInterface {
      * @param string $text
      * @return string
      */
-    protected function parseDocuments(array $matches, array $ids, $documents, $text)
+    protected function makeDocuments(array $matches, array $ids, $documents, $text)
     {
         foreach ($ids as $key => $id)
         {
