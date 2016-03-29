@@ -48,6 +48,7 @@ if(argv.r)
                 'components/jquery-ui.js',
                 'common.js',
                 'option.js',
+                'navigation_module.js',
                 'navigation.js',
                 'tree.js',
                 'helpers.js',

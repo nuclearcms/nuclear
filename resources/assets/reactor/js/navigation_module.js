@@ -3,47 +3,53 @@
     'use strict';
 
     /**
-     * OptionListsHelper constructor
+     * NavigationModulesHelper constructor
      *
      * @param DOM Object
      * @param object
      */
-    function OptionListsHelper(buttons, lists) {
-        this.buttons = buttons;
-        this.lists = lists;
+    function NavigationModulesHelper(modules) {
+        this.modules = modules;
 
         this._initEvents();
     }
 
-    // OptionListsHelper prototype
-    OptionListsHelper.prototype = {
+    // NavigationModulesHelper prototype
+    NavigationModulesHelper.prototype = {
         // Initialize events
         _initEvents: function () {
             var self = this;
 
-            this.buttons.on('click.opt_h touchstart.opt_h', function (e) {
-                self._openListFor($(this));
+            this.modules.on('click.nav_h touchstart.nav_h mouseenter.nav_h', function (e) {
+                self._openModuleFor($(this));
 
                 e.preventDefault();
                 e.stopPropagation();
             });
 
-            this.lists.on('click.opt_h touchstart.opt_h', function (e) {
+            this.modules.on('mouseleave.nav_h', function (e) {
+                self.closeModules();
+            });
+
+            this.modules.find('a').on('click', function(e)
+            {
                 e.stopPropagation();
+
+                return true;
             });
         },
         // Opens a list
-        _openListFor: function (button) {
-            this.closeLists();
+        _openModuleFor: function (module) {
+            this.closeModules();
 
-            button.next().addClass('open');
+            module.addClass('active');
 
             this._bindEscape();
             this._bindClick();
         },
         // Closes all lists
-        closeLists: function () {
-            this.lists.removeClass('open');
+        closeModules: function () {
+            this.modules.removeClass('active');
 
             this._unbindEscape();
             this._unbindClick();
@@ -52,37 +58,36 @@
         _bindEscape: function () {
             var self = this;
 
-            $(document).bind('keydown.opt_h', function (e) {
+            $(document).bind('keydown.nav_h', function (e) {
                 var keyCode = e.keyCode || e.which;
                 if (keyCode === 27) {
-                    self.closeLists();
+                    self.closeModules();
                 }
             });
         },
         // Dynamically unbinds escape key for closing lists
         _unbindEscape: function () {
-            $(document).unbind('keydown.opt_h');
+            $(document).unbind('keydown.nav_h');
         },
         // Dynamically binds click event for closing lists
         _bindClick: function () {
             var self = this;
 
-            $(document).unbind('click.opt_h touchstart.opt_h').bind('click.opt_h touchstart.opt_h', function () {
-                self.closeLists();
+            $(document).bind('click.nav_h touchstart.nav_h', function () {
+                self.closeModules();
             });
         },
         // Dynamically unbinds click event for closing lists
         _unbindClick: function () {
-            $(document).unbind('click.opt_h touchstart.opt_h');
+            $(document).unbind('click.nav_h touchstart.nav_h');
         }
     };
 
     // Register to window namespace
-    window.OptionListsHelper = OptionListsHelper;
+    window.NavigationModulesHelper = NavigationModulesHelper;
 
 })(window);
 
-var optionListsHelper = new OptionListsHelper(
-    $('.content-item-options-button'),
-    $('.content-item-options-list')
+var navigationModulesHelper = new NavigationModulesHelper(
+    $('.navigation-module')
 );

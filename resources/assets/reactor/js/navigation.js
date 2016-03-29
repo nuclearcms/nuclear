@@ -5,7 +5,8 @@ var nav = $('#navigation'),
     tabs = $('.navigation-tab'),
     flaps = $('.navigation-tabs > li'),
     body = $('body'),
-    modules = $('.navigation-module');
+    modules = $('.navigation-module')
+    optionListButtons = $('.content-item-options-button');
 
 
 function toggleNav() {
@@ -36,9 +37,12 @@ close.on('click', function () {
 });
 
 // Close open option lists
-modules.on('mouseenter', function()
-{
+modules.on('click touchstart mouseenter', function () {
     optionListsHelper.closeLists()
+});
+// Close navigation modules
+optionListButtons.on('click touchstart', function () {
+    navigationModulesHelper.closeModules()
 });
 
 function changeTab(flap) {

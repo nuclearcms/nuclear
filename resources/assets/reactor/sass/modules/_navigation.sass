@@ -71,6 +71,15 @@
         display: inline-block
         cursor: pointer
 
+    &.active
+        & > i, & > a > i
+            color: $accent
+
+        .module-dropdown
+            z-index: 100
+            opacity: 1
+            +transition(opacity $animationNav)
+
     @media screen and (max-width: $collapseThreshold)
         border-bottom: 0
         padding: 0 !important
@@ -237,15 +246,6 @@
 
         .module-sub a:hover
             color: $accent
-
-        &:hover
-            & > i, & > a > i
-                color: $accent
-
-            .module-dropdown
-                z-index: 100
-                opacity: 1
-                +transition(opacity $animationNav)
 
     .hamburger:hover
         opacity: 0.5
