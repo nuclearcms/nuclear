@@ -62,7 +62,7 @@ return [
     'confirm_delete' => 'Bu düğümü silmek istediğinizden emin misiniz?',
     'confirm_delete_translation' => 'Bu çeviriyi silmek istediğinizden emin misiniz?',
     'publish' => 'Düğümü Yayınla',
-    'unpublish' => 'Düğümü Yayından Çek',
+    'unpublish' => 'Yayından Çek',
     'lock' => 'Düğümü Kilitle',
     'unlock' => 'Kilidi Aç',
     'hide' => 'Düğümü Göster',
