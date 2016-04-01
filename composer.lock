@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1e994a14302dbda5c040ea52d980c4ed",
-    "content-hash": "cc4627a36c6c2e11caa31dde0fb6092d",
+    "hash": "c219e21e0ce8f7ccbc548b8fd56ce3c2",
+    "content-hash": "afdf306ae7ded55e0a9eba870e3da06a",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1827,16 +1827,16 @@
         },
         {
             "name": "kenarkose/tracker",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Tracker.git",
-                "reference": "45675b8ed8eea89b2b97e2a7ccbf5445dd42d66a"
+                "reference": "1ee9aafe44ea6335d5cd5e2680ddc3b86f6adab4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/45675b8ed8eea89b2b97e2a7ccbf5445dd42d66a",
-                "reference": "45675b8ed8eea89b2b97e2a7ccbf5445dd42d66a",
+                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/1ee9aafe44ea6335d5cd5e2680ddc3b86f6adab4",
+                "reference": "1ee9aafe44ea6335d5cd5e2680ddc3b86f6adab4",
                 "shasum": ""
             },
             "require": {
@@ -1880,7 +1880,7 @@
                 "tracker",
                 "visitor"
             ],
-            "time": "2016-03-29 09:37:26"
+            "time": "2016-04-01 09:43:16"
         },
         {
             "name": "kenarkose/transit",
@@ -2946,16 +2946,16 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.3.0",
+            "version": "v2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "8ffacee1171e33a1c129f424bf1ec36e062eba82"
+                "reference": "f942da7b505d1a294284ab343d05df42d02ad6d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/8ffacee1171e33a1c129f424bf1ec36e062eba82",
-                "reference": "8ffacee1171e33a1c129f424bf1ec36e062eba82",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/f942da7b505d1a294284ab343d05df42d02ad6d9",
+                "reference": "f942da7b505d1a294284ab343d05df42d02ad6d9",
                 "shasum": ""
             },
             "require": {
@@ -2986,7 +2986,7 @@
                 }
             ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
-            "time": "2016-03-24 21:20:22"
+            "time": "2016-03-31 13:10:33"
         },
         {
             "name": "simexis/embed",
@@ -5191,16 +5191,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.0.3",
+            "version": "v3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "b5ba64cd67ecd6887f63868fa781ca094bd1377c"
+                "reference": "0047c8366744a16de7516622c5b7355336afae96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/b5ba64cd67ecd6887f63868fa781ca094bd1377c",
-                "reference": "b5ba64cd67ecd6887f63868fa781ca094bd1377c",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/0047c8366744a16de7516622c5b7355336afae96",
+                "reference": "0047c8366744a16de7516622c5b7355336afae96",
                 "shasum": ""
             },
             "require": {
@@ -5236,7 +5236,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-02-23 15:16:06"
+            "time": "2016-03-04 07:55:57"
         }
     ],
     "aliases": [],
