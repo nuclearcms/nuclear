@@ -94,7 +94,7 @@ class Node extends HierarchyNode implements TrackableInterface {
      * with different models
      */
     protected $trackerPivotTable = 'node_site_view';
-    protected $trackerRelationKey = 'node_id';
+    protected $trackerForeignKey = 'node_id';
 
     /**
      * Determines the default link for node
