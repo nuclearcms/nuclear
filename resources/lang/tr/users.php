@@ -62,7 +62,7 @@ return [
     'delete_role' => 'Rolü Sil',
     'deleted_role' => 'Rol silindi.',
     'confirm_delete_role' => 'Bu rolü silmek istediğinizden emin misiniz?',
-    'confirm_delete_role' => 'Bu rolü ayrıştırmak istediğinizden emin misiniz?',
+    'confirm_unlink_role' => 'Bu rolü ayrıştırmak istediğinizden emin misiniz?',
 
     'add_a_role' => 'Bir Rol Ekle',
     'add_role' => 'Rol Ekle',

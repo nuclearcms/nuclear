@@ -134,7 +134,7 @@ return [
         'absolute_path' => 'Tam Dosya Yolu',
         'description' => 'Açıklama',
         'visible' => 'Görünür',
-        'hides_children' => 'Altındaki Düğümleri Saklar',
+        'hides_children' => 'Çocuk Düğümleri Saklar',
         'color' => 'Renk',
         'sterile' => 'Çocuk Düğümleri Engelle',
         'home' => 'Anasayfa Düğümü',
