@@ -161,6 +161,9 @@ return [
         'caption' => 'Manşet',
         'taggable' => 'Etiketlenebilir',
         'tags' => 'Etiketler',
+        'image' => 'Görsel',
+        'link' => 'Link',
+        'cover' => 'Kapak',
 
         // Settings specific
         'analytics' => 'Google Analytics Anahtarı',

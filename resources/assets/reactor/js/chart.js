@@ -9,7 +9,7 @@ Chart.defaults.global.scaleFontColor = "#404647";
 
 window.chartDisplayDefaults = {
     fillColor: "rgba(231,76,60,0.2)", strokeColor: "rgba(231,76,60,1)",
-    pointColor: "rgba(231,76,60,1)", pointStrokeColor: "#fff",
-    pointHighlightFill: "#fff", pointHighlightStroke: "rgba(231,76,60,1)",
+    pointColor: "rgba(231,76,60,1)", pointStrokeColor: "#fafafa",
+    pointHighlightFill: "#fafafa", pointHighlightStroke: "rgba(231,76,60,1)",
     bezierCurve: false
 };

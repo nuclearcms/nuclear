@@ -14,7 +14,12 @@ class ImagePresenter extends Presenter {
 
     public function cachedWith($process)
     {
-        return '<img src="' . url(config('imagecache.route') . '/' . $process . '/' . $this->path) . '">';
+        return '<img src="' . $this->cachedRoute($process) . '">';
+    }
+
+    public function cachedRoute($process)
+    {
+        return url(config('imagecache.route') . '/' . $process . '/' . $this->path);
     }
 
     public function tag()

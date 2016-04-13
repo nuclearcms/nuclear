@@ -161,6 +161,9 @@ return [
         'caption' => 'Caption',
         'taggable' => 'Taggable',
         'tags' => 'Tags',
+        'image' => 'Image',
+        'link' => 'Link',
+        'cover' => 'Cover',
 
         // Settings specific
         'analytics' => 'Google Analytics Key',
