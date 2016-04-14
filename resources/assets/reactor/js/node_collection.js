@@ -6,8 +6,10 @@
      *
      * @param DOM Object
      */
-    function NodeCollection(el) {
+    function NodeCollection(el, single) {
         this.el = el;
+
+        this.single = (typeof single == 'undefined') ? false : single;
 
         this._init();
     }
@@ -33,23 +35,39 @@
         _extractValue: function () {
             var nodes = this.valueInput.val().trim();
 
-            if (nodes !== '') {
-                this.nodes = JSON.parse(nodes);
+            this.nodes = [];
+
+            if (nodes.trim() == '') {
+                return;
+            }
+
+            if (this.single) {
+                this.nodes.push(parseInt(nodes));
             } else {
-                this.nodes = [];
+                this.nodes = JSON.parse(nodes);
             }
         },
         initEvents: function () {
             var self = this;
 
             this.search.bind('keydown', function (e) {
-                var q = $(this).val().trim();
+                var q = $(this).val().trim(),
+                    input = $(this);
 
-                if (e.keyCode == 27) {
-                    self._escapeInput();
-                }
+                if (e.which == 27) {
+                    e.stopPropagation();
 
-                if (e.keyCode == 13) {
+                    if (q === '') {
+                        input.blur();
+                    } else {
+                        input.val('');
+                    }
+
+                    self._clearSearch();
+
+                    // This blurs field, no need to go further
+                    return;
+                } else if (e.which == 13) {
                     e.preventDefault();
                 }
 
@@ -66,7 +84,7 @@
                 self._addToSortable($(this));
             });
 
-            this.sortable.on('click', 'i.icon-cancel', function(e) {
+            this.sortable.on('click', 'i.icon-cancel', function (e) {
                 e.stopPropagation();
 
                 self._removeNode($(this).parent());
@@ -81,18 +99,23 @@
                 e.stopPropagation();
             });
 
-            $(this.sortable).sortable({
-                tolerance : 'pointer',
-                placeholder : 'placeholder',
-                opacity : 0.7,
-                delay: 50,
-                stop : function() { self._regenerateValue(); }
-            }).disableSelection();
+            // Not sortable if single
+            if (!this.single) {
+                $(this.sortable).sortable({
+                    tolerance: 'pointer',
+                    placeholder: 'placeholder',
+                    opacity: 0.7,
+                    delay: 50,
+                    stop: function () {
+                        self._regenerateValue();
+                    }
+                }).disableSelection();
+            }
         },
         _search: function (keywords) {
             var self = this;
 
-            if(!self.searching) {
+            if (!self.searching) {
                 $.post(this.searchurl, {q: keywords}, function (data) {
                     self._populateResults(data);
                 });
@@ -105,7 +128,7 @@
                 // For some reason there are null results coming from PHP
                 if (this.nodes.indexOf(key) == -1 && nodes[key] !== null) {
                     var item = this._createListItem(key, nodes[key]);
-                    
+
                     this.results.append(item);
                 }
             }
@@ -116,17 +139,23 @@
         _addToSortable: function (item) {
             item.append('<i class="icon-cancel"></i>');
 
+            // Clear for single item
+            if (this.single) {
+                this.sortable.empty();
+                this.nodes = [];
+            }
+
             this.sortable.append(item);
 
-            this.nodes[item.data('id')] = item.data('id');
+            this.nodes.push(item.data('id'));
 
             this._regenerateValue();
 
             this._clearSearch();
         },
-        _removeNode: function(item)
-        {
-            delete this.nodes[item.data('id')];
+        _removeNode: function (item) {
+            var i = this.nodes.indexOf(item.data('id'));
+            delete this.nodes[i];
 
             item.remove();
 
@@ -135,37 +164,40 @@
         _regenerateValue: function () {
             this.container.removeClass('empty');
 
-            if (this._getNodesCount() == 0) {
+            if (count(this.nodes) == 0) {
                 this.container.addClass('empty');
             }
 
-            var array = $(this.sortable).sortable('toArray', {attribute: 'data-id'});
+            var val = '';
 
-            this.valueInput.val(JSON.stringify(array));
+            if (this.single) {
+                var node = this.sortable.find('li:first-child');
+
+                if (node.length == 1) {
+                    val = node.data('id');
+                }
+            } else {
+                var array = [],
+                    nodes = this.sortable.find('li');
+
+                for(var i = 0; i < nodes.length; i++) {
+                    array.push($(nodes[i]).data('id'));
+                }
+
+                val = JSON.stringify(array);
+            }
+
+            this.valueInput.val(val);
         },
-        _clearSearch: function()
-        {
+        _clearSearch: function () {
             this.results.empty();
             this.search.val('');
-        },
-        _escapeInput: function () {
-            this.search.blur();
-
-            this._hideResults();
         },
         _showResults: function () {
             this.results.removeClass('hidden');
         },
         _hideResults: function () {
             this.results.addClass('hidden');
-        },
-        _getNodesCount: function()
-        {
-            var i = 0;
-
-            for(var j in this.nodes) {i++;}
-
-            return i;
         }
     };
 

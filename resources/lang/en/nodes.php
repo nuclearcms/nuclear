@@ -124,6 +124,7 @@ return [
     'type_password' => 'Password',
     'type_date' => 'Date-time',
     'type_node_collection' => 'Node Collection',
+    'type_node' => 'Single Node',
 
     'add_link' => 'Insert Link',
     'add_media' => 'Insert Media',

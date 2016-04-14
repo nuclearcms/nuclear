@@ -124,6 +124,7 @@ return [
     'type_password' => 'Şifre',
     'type_date' => 'Tarih-zaman',
     'type_node_collection' => 'Düğüm Koleksiyonu',
+    'type_node' => 'Tek Düğüm',
 
     'add_link' => 'Link Ekle',
     'add_media' => 'Medya Ekle',

@@ -24,6 +24,7 @@ return [
         'tag' => 'Reactor\Http\Forms\Fields\TagField',
         'node_collection' => 'Reactor\Http\Forms\Fields\NodeCollectionField',
         'date' => 'Reactor\Http\Forms\Fields\DateField',
-        'hidden' => 'Reactor\Http\Forms\Fields\HiddenField'
+        'hidden' => 'Reactor\Http\Forms\Fields\HiddenField',
+        'node' => 'Reactor\Http\Forms\Fields\NodeField',
     ]
 ];

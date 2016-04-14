@@ -39,6 +39,7 @@ return [
 		'password' => 'string',
 		'date'     => 'timestamp',
 		'node_collection' => 'text',
+		'node' => 'integer',
     ],
     'default_type' => 'string',
 

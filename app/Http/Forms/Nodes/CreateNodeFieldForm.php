@@ -53,6 +53,7 @@ class CreateNodeFieldForm extends Form {
             'password'        => 'string',
             'date'            => 'timestamp',
             'node_collection' => 'text',
+            'node'            => 'integer'
         ]);
 
         foreach ($types as $key => $type)

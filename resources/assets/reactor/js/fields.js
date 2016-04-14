@@ -42,6 +42,11 @@ $('.form-group-node-collection').each(function () {
     var collection = new NodeCollection($(this));
 });
 
+// Initialize single node fields
+$('.form-group-node').each(function () {
+    var collection = new NodeCollection($(this), true);
+});
+
 window.editorDialog = new EditorDialog();
 
 // Editors
