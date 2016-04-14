@@ -40,7 +40,7 @@ class UsersController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $users = User::search($request->input('q'))->get();
+        $users = User::search($request->input('q'), 20, true)->get();
 
         return view('users.search', compact('users'));
     }

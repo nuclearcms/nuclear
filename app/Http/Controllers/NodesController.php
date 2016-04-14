@@ -78,7 +78,7 @@ class NodesController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $nodes = Node::search($request->input('q'))
+        $nodes = Node::search($request->input('q'), 20, true)
             ->distinct()->get();
 
         return view('nodes.search')
@@ -93,7 +93,7 @@ class NodesController extends ReactorController {
      */
     public function jsonSearch(Request $request)
     {
-        $nodes = Node::search($request->input('q'))
+        $nodes = Node::search($request->input('q'), 20, true)
             ->distinct()->limit(10)->get();
 
         $nodes = $nodes->lists('title', 'id');

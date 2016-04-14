@@ -45,7 +45,7 @@ class DocumentsController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $documents = Media::search($request->input('q'))->get();
+        $documents = Media::search($request->input('q'), 20, true)->get();
 
         return view('documents.search')
             ->with(compact('documents'));
@@ -59,7 +59,7 @@ class DocumentsController extends ReactorController {
      */
     public function jsonSearch(Request $request)
     {
-        $documents = Media::search($request->input('q'))->get(['id']);
+        $documents = Media::search($request->input('q'), 20, true)->get(['id']);
 
         return response()->json($documents->pluck('id'));
     }

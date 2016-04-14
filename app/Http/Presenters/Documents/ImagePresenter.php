@@ -21,7 +21,7 @@ class ImagePresenter extends Presenter {
     {
         return url(config('imagecache.route') . '/' . $process . '/' . $this->path);
     }
-
+    
     public function tag()
     {
         return sprintf('%s | %s',

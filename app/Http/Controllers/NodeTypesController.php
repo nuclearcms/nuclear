@@ -35,7 +35,7 @@ class NodeTypesController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $nodeTypes = NodeType::search($request->input('q'))->get();
+        $nodeTypes = NodeType::search($request->input('q'), 20, true)->get();
 
         return view('nodetypes.search')
             ->with(compact('nodeTypes'));

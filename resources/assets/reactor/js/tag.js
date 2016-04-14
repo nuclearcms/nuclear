@@ -26,7 +26,7 @@
             this.tags = [];
             this.tempTags = [];
 
-            this.searchCountdown = null;
+            this.searching = false;
 
             this._parseExistingTags();
 
@@ -65,6 +65,10 @@
                         input.val('');
                     }
 
+                    self._clearSearch();
+
+                    // This blurs field, no need to go further
+                    return;
                 } else if (e.which === 9 || e.which === 13) {
                     e.preventDefault();
 
@@ -72,10 +76,13 @@
                         self._addTag(val);
                         input.val('');
                     }
+
+                    // This adds an item, no need to go further
+                    return;
                 }
 
-                if (self.searchCountdown === null && val.length > 0) {
-                    self._search(val, true);
+                if (!self.searching && val.length > 0) {
+                    self._search(val);
                 }
             });
 
@@ -167,6 +174,8 @@
                 this._linkTag(i, str);
 
                 this._setListClass();
+
+                this._clearSearch();
             }
         },
         _linkTag: function (i, str) {
@@ -188,6 +197,8 @@
                         self._removeTempTag(i);
                         self._flashTag(data.id);
                     }
+
+                    self._clearSearch();
 
                     self._setListClass();
                 },
@@ -224,29 +235,24 @@
             }
         },
         // Search for tags
-        _search: function (keywords, countdown) {
+        _search: function (keywords) {
             var self = this;
 
-            $.post(this.urlsearch, {q: keywords}, function (data) {
-                self._populateResults(data);
-            });
-
-            if (countdown) {
-                this._setSearchCountdown(keywords);
+            if(!self.searching) {
+                $.post(this.urlsearch, {q: keywords}, function (data) {
+                    self._populateResults(data);
+                });
             }
-        },
-        // Set search countdown
-        _setSearchCountdown: function (keywords) {
-            var self = this;
-
-            this.searchCountdown = setTimeout(function () {
-                self.searchCountdown = null;
-
-                self._search(keywords, false);
-            }, 1000);
         },
         // Populate the results list
         _populateResults: function (tags) {
+            // Do not populate if empty
+            // This is to prevent the results table reappearing after enter is pressed
+            if(this.input.val().trim() == '')
+            {
+                return;
+            }
+
             this.results.empty();
 
             for (var key in tags) {

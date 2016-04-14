@@ -30,7 +30,7 @@ class NodeRepository {
      */
     public function getNode($name, $track = true)
     {
-        $node = PublishedNode::byName($name)
+        $node = PublishedNode::withName($name)
             ->firstOrFail();
 
         $this->track($track, $node);

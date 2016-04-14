@@ -34,7 +34,7 @@ class TagsController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $tags = Tag::search($request->input('q'))->groupBy('id')->get();
+        $tags = Tag::search($request->input('q'), 20, true)->groupBy('id')->get();
 
         return view('tags.search', compact('tags'));
     }
@@ -47,7 +47,7 @@ class TagsController extends ReactorController {
      */
     public function jsonSearch(Request $request)
     {
-        $tags = Tag::search($request->input('q'))
+        $tags = Tag::search($request->input('q'), 20, true)
             ->groupBy('id')->limit(10)->get();
 
         $tags = $tags->lists('name', 'id');

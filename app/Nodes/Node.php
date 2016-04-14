@@ -42,7 +42,7 @@ class Node extends HierarchyNode implements TrackableInterface {
      */
     protected $searchable = [
         'columns' => [
-            'node_sources.title'         => 10,
+            'node_sources.title'         => 50,
             'node_sources.meta_keywords' => 10
         ],
         'joins'   => [

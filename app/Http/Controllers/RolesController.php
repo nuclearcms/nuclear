@@ -41,7 +41,7 @@ class RolesController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $roles = Role::search($request->input('q'))->get();
+        $roles = Role::search($request->input('q'), 20, true)->get();
 
         return view('roles.search')
             ->with(compact('roles'));

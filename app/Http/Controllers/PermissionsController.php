@@ -31,7 +31,7 @@ class PermissionsController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $permissions = Permission::search($request->input('q'))->get();
+        $permissions = Permission::search($request->input('q'), 20, true)->get();
 
         return view('permissions.search', compact('permissions'));
     }

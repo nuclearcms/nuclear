@@ -24,7 +24,7 @@
 
             this.searchurl = this.el.find('.form-items-search').data('searchurl');
 
-            this.searchCountdown = null;
+            this.searching = false;
 
             this._extractValue();
 
@@ -53,8 +53,8 @@
                     e.preventDefault();
                 }
 
-                if (self.searchCountdown === null && q.length > 0) {
-                    self._search(q, true);
+                if (!self.searching && q.length > 0) {
+                    self._search(q);
                 }
             });
 
@@ -89,25 +89,14 @@
                 stop : function() { self._regenerateValue(); }
             }).disableSelection();
         },
-        _search: function (keywords, countdown) {
+        _search: function (keywords) {
             var self = this;
 
-            $.post(this.searchurl, {q: keywords}, function (data) {
-                self._populateResults(data);
-            });
-
-            if (countdown) {
-                this._setSearchCountdown(keywords);
+            if(!self.searching) {
+                $.post(this.searchurl, {q: keywords}, function (data) {
+                    self._populateResults(data);
+                });
             }
-        },
-        _setSearchCountdown: function (keywords) {
-            var self = this;
-
-            this.searchCountdown = setTimeout(function () {
-                self.searchCountdown = null;
-
-                self._search(keywords, false);
-            }, 1000);
         },
         _populateResults: function (nodes) {
             this.results.empty();
