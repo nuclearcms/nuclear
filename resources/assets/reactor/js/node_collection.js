@@ -25,6 +25,7 @@
             this.parent = this.el.closest('.form-group');
 
             this.searchurl = this.el.find('.form-items-search').data('searchurl');
+            this.filter = this.el.find('.form-items-search').data('nodetype');
 
             this.searching = false;
 
@@ -74,6 +75,10 @@
                 if (!self.searching && q.length > 0) {
                     self._search(q);
                 }
+
+                if (q == '') {
+                    self._clearSearch();
+                }
             });
 
             this.search.on('focus', function () {
@@ -116,7 +121,7 @@
             var self = this;
 
             if (!self.searching) {
-                $.post(this.searchurl, {q: keywords}, function (data) {
+                $.post(this.searchurl, {q: keywords, filter: self.filter}, function (data) {
                     self._populateResults(data);
                 });
             }
@@ -125,8 +130,7 @@
             this.results.empty();
 
             for (var key in nodes) {
-                // For some reason there are null results coming from PHP
-                if (this.nodes.indexOf(key) == -1 && nodes[key] !== null) {
+                if (this.nodes.indexOf(parseInt(key)) == -1) {
                     var item = this._createListItem(key, nodes[key]);
 
                     this.results.append(item);
@@ -180,7 +184,7 @@
                 var array = [],
                     nodes = this.sortable.find('li');
 
-                for(var i = 0; i < nodes.length; i++) {
+                for (var i = 0; i < nodes.length; i++) {
                     array.push($(nodes[i]).data('id'));
                 }
 

@@ -17,7 +17,9 @@
         <ul class="form-items-list form-items-list-sortable material-light">
     @endif
         </ul>
-        <div class="form-items-search" data-searchurl="{{ route('reactor.contents.search.json') }}">
+        <div class="form-items-search"
+             data-searchurl="{{ route('reactor.contents.search.json') }}"
+             data-nodetype="{!! isset($options['node_type']) ? $options['node_type'] : 'all' !!}">
             <input type="text" name="_nodesearch" placeholder="{{ trans('nodes.search') }}" autocomplete="off">
             <ul class="form-items-list form-items-list-results material-middle">
 

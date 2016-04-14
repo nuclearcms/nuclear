@@ -94,11 +94,25 @@ class NodesController extends ReactorController {
     public function jsonSearch(Request $request)
     {
         $nodes = Node::search($request->input('q'), 20, true)
-            ->distinct()->limit(10)->get();
+            ->distinct()->limit(10);
 
-        $nodes = $nodes->lists('title', 'id');
+        $filter = $request->input('filter', 'all');
 
-        return response()->json($nodes);
+        if ($filter !== 'all')
+        {
+            $nodes->withType($filter);
+        }
+
+        $nodes = $nodes->get();
+
+        $results = [];
+
+        foreach($nodes as $node)
+        {
+            $results[$node->getKey()] = $node->translateOrFirst()->title;
+        }
+
+        return response()->json($results);
     }
 
     /**

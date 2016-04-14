@@ -84,6 +84,10 @@
                 if (!self.searching && val.length > 0) {
                     self._search(val);
                 }
+
+                if (val == '') {
+                    self._clearSearch();
+                }
             });
 
             // Remove buttons
