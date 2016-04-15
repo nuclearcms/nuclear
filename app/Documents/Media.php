@@ -126,8 +126,12 @@ class Media extends TransitFile {
      */
     public function toArray()
     {
+        $thumbnail = ($this->type === 'image') ?
+            $this->present()->cachedRoute('rthumb') :
+            $this->present()->thumbnail;
+
         return array_merge(parent::toArray(), [
-            'thumbnail' => $this->present()->thumbnail
+            'thumbnail' => $thumbnail
         ]);
     }
 

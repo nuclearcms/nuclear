@@ -17,6 +17,7 @@
         // Initialize
         _init: function () {
             this.retrieveURL = this.container.data('retrieveurl');
+            this.placeholderURL = this.container.data('placeholderurl');
 
             this.modal = this.container.find('#library-modal');
             this.scroller = this.modal.find('#library-modal-columns');
@@ -34,6 +35,7 @@
             this.removeButton = this.modal.find('#library-modal-remove');
             this.insertButton = this.modal.find('#library-modal-insert');
             this.closeButton = this.modal.find('#library-modal-close');
+            this.scroller = this.modal.find('.column-media-list .scroller-library');
 
             this.dropzone = this.container.find('#library-modal-dropzone');
 
@@ -43,7 +45,6 @@
             this.mode = null;
             this.masterFilter = null;
             this.lastValue = null;
-            this.uploadIndicators = [];
             this.controllerDirty = false;
 
             // Create dialog
@@ -169,6 +170,11 @@
             // Close button
             this.closeButton.on("click", function () {
                 self.close();
+            });
+
+            // Unveil
+            this.scroller.on('scroll.unveil resize.unveil lookup.unveil', function() {
+                $(window).trigger('scroll.unveil');
             });
         },
         // Initialize
@@ -479,6 +485,10 @@
                 self._enableUploader();
 
                 self.run(controller);
+
+                self.mediaList.find('.unveil').unveil(200, function() {
+                    $(this).addClass('unveiled');
+                });
             });
         },
         // Populates the media list
@@ -494,6 +504,10 @@
                 'id="md_' + media.id + '" data-name="' + html_entities(media.name) + '" ' +
                 'data-flag="' + media.type + '" data-size="' + media.size + '" ' +
                 'data-mimetype="' + media.mimetype + '">');
+
+            if (media.type == 'image') {
+                media.thumbnail = '<img class="unveil" src="' + this.placeholderURL + '" data-src="' + media.thumbnail + '">'
+            }
 
             $('<div class="document-thumbnail">' + media.thumbnail + '</div>').appendTo(thumbnail);
 

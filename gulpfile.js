@@ -56,6 +56,7 @@ if(argv.r)
             ], elixir.config.publicPath + '/js/app.js').
         scripts([
             'components/minicolors.js',
+            'components/unveil.js',
             'password.js',
             'slug.js',
             'tag_legacy.js',

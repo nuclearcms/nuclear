@@ -1,5 +1,6 @@
 <div id="library-modal-container" class="modal-container library-modal-container"
-     data-retrieveurl="{{ route('reactor.documents.json.index') }}">
+     data-retrieveurl="{{ route('reactor.documents.json.index') }}"
+     data-placeholderurl="{{ url(Theme::url('img/load-placeholder.png')) }}">
 
     <form id="library-modal-dropzone" class="library-modal-dropzone"
           enctype="multipart/form-data"

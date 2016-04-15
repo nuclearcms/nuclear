@@ -25,6 +25,7 @@ $('.form-group-tag').each(function () {
 // Initialize color pickers
 $('input.minicolors').minicolors();
 
+// Library
 window.documentsLibrary = new Library($('#library-modal-container'));
 
 // Initialize gallery fields
