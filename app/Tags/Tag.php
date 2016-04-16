@@ -158,4 +158,16 @@ class Tag extends Model {
         return null;
     }
 
+    /**
+     * Scope for selecting with slug
+     *
+     * @param Builder $query
+     * @param string $slug
+     * @return Builder
+     */
+    public function scopeWithSlug(Builder $query, $slug)
+    {
+        return $this->scopeWhereTranslation($query, 'slug', $slug);
+    }
+
 }
