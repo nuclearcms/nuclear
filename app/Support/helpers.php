@@ -137,12 +137,13 @@ if ( ! function_exists('get_node_by_id'))
      * (alias for NodeRepository::getNodeById)
      *
      * @param int $id
+     * @param bool $published
      * @return Node
      */
-    function get_node_by_id($id)
+    function get_node_by_id($id, $published = true)
     {
         return app()->make('Reactor\Nodes\NodeRepository')
-            ->getNodeById($id);
+            ->getNodeById($id, $published);
     }
 }
 

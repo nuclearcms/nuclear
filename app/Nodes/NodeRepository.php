@@ -82,11 +82,12 @@ class NodeRepository {
      * Returns a node by id
      *
      * @param int $id
+     * @param bool $published
      * @return Node
      */
-    public function getNodeById($id)
+    public function getNodeById($id, $published)
     {
-        return PublishedNode::find($id);
+        return $published ? PublishedNode::find($id) : Node::find($id);
     }
 
     /**
