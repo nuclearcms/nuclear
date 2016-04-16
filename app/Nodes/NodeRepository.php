@@ -79,6 +79,17 @@ class NodeRepository {
     }
 
     /**
+     * Returns a node by id
+     *
+     * @param int $id
+     * @return Node
+     */
+    public function getNodeById($id)
+    {
+        return PublishedNode::find($id);
+    }
+
+    /**
      * Returns nodes by ids
      *
      * @param array|string $ids

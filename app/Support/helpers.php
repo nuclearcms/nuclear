@@ -130,6 +130,22 @@ if ( ! function_exists('routes_path'))
     }
 }
 
+if ( ! function_exists('get_node_by_id'))
+{
+    /**
+     * Returns the node by given id
+     * (alias for NodeRepository::getNodeById)
+     *
+     * @param int $id
+     * @return Node
+     */
+    function get_node_by_id($id)
+    {
+        return app()->make('Reactor\Nodes\NodeRepository')
+            ->getNodeById($id);
+    }
+}
+
 if ( ! function_exists('get_nodes_by_ids'))
 {
     /**
