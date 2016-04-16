@@ -157,7 +157,7 @@ class Node extends HierarchyNode implements TrackableInterface {
      */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'node_tag', 'node_id', 'tag_id');
     }
 
     /**
