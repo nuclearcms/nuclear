@@ -122,16 +122,13 @@ class Media extends TransitFile {
     /**
      * Converts model attributes to array
      *
+     * @param bool $withImageHTML
      * @return array
      */
-    public function toArray()
+    public function toArray($withImageHTML = true)
     {
-        $thumbnail = ($this->type === 'image') ?
-            $this->present()->cachedRoute('rthumb') :
-            $this->present()->thumbnail;
-
         return array_merge(parent::toArray(), [
-            'thumbnail' => $thumbnail
+            'thumbnail' => $this->present()->thumbnail
         ]);
     }
 

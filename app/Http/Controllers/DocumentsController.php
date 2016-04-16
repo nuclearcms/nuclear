@@ -28,11 +28,36 @@ class DocumentsController extends ReactorController {
     /**
      * Returns a json list of resources
      *
+     * @param Request $request
      * @return json
      */
-    public function jsonIndex()
+    public function jsonIndex(Request $request)
     {
-        $documents = Media::sortable('created_at', 'asc')->get()->toArray();
+        $offset = $request->input('offset', 0);
+
+        $documents = Media::sortable('created_at', 'desc')
+            ->take(30)->skip($offset)->get()->toArray();
+
+        $remaining = Media::count() - ($offset + 30);
+
+        return response()->json([
+            'remaining' => $remaining,
+            'media' => $documents
+        ]);
+    }
+
+    /**
+     * Retrieves json list of resources with given ids
+     *
+     * @param Request $request
+     * @return $json
+     */
+    public function jsonRetrieve(Request $request)
+    {
+        $ids = $request->input('ids');
+
+        $documents = empty($ids) ? [] :
+            Media::find(json_decode($ids))->toArray();
 
         return response()->json($documents);
     }
@@ -59,9 +84,13 @@ class DocumentsController extends ReactorController {
      */
     public function jsonSearch(Request $request)
     {
-        $documents = Media::search($request->input('q'), 20, true)->get(['id']);
+        $documents = Media::search($request->input('q'), 20, true)
+            ->limit(30)->get();
 
-        return response()->json($documents->pluck('id'));
+        return response()->json([
+            'ids' => $documents->pluck('id'),
+            'items' => $documents
+        ]);
     }
 
     /**

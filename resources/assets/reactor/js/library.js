@@ -17,6 +17,7 @@
         // Initialize
         _init: function () {
             this.retrieveURL = this.container.data('retrieveurl');
+            this.loadURL = this.container.data('loadurl');
             this.placeholderURL = this.container.data('placeholderurl');
 
             this.modal = this.container.find('#library-modal');
@@ -35,17 +36,23 @@
             this.removeButton = this.modal.find('#library-modal-remove');
             this.insertButton = this.modal.find('#library-modal-insert');
             this.closeButton = this.modal.find('#library-modal-close');
-            this.scroller = this.modal.find('.column-media-list .scroller-library');
+            this.mediaScroller = this.modal.find('.column-media-list .scroller-library');
 
             this.dropzone = this.container.find('#library-modal-dropzone');
 
             this.controller = null;
             this.isOpen = false;
-            this.isRetrieved = false;
+            this.isBooted = false;
             this.mode = null;
             this.masterFilter = null;
             this.lastValue = null;
             this.controllerDirty = false;
+            this.loaded = [];
+
+            this.offset = 0;
+            this.take = 30;
+            this.isLoading = false;
+            this.canLoadMode = true;
 
             // Create dialog
             this.dialog = new Modal($('#library-modal-container'));
@@ -173,35 +180,70 @@
             });
 
             // Unveil
-            this.scroller.on('scroll.unveil resize.unveil lookup.unveil', function() {
+            this.mediaScroller.on('scroll.unveil resize.unveil lookup.unveil', function () {
                 $(window).trigger('scroll.unveil');
+
+                if (self.mediaList.height() - self.mediaScroller.height() - self.mediaScroller.scrollTop() - 200 <= 0) {
+                    self._load();
+                }
             });
         },
         // Initialize
         run: function (controller) {
-            if (!this.isRetrieved) {
-                // We do not store controller here since we don't want
-                // conflicts when this mode runs again after retrieval
-                this._setMode(controller.type);
-
-                this._reset();
+            // First retrieve the selected items in the controller if new controller
+            if (this.controller !== controller) {
+                this.controller = controller;
 
                 this._retrieve(controller);
+
+                this._setMode(controller.type);
+
+                this.controllerDirty = true;
+
+                this._reset();
             } else {
-                if (this.controller !== controller) {
-                    this.controller = controller;
-
-                    this._setMode(controller.type);
-
-                    this.controllerDirty = true;
-
-                    this._reset();
-                }
-
                 this._initByMode();
             }
 
             this.open();
+        },
+        // Boot the library
+        _boot: function () {
+            if (!this.isBooted) {
+                this.isBooted = true;
+
+                this._enableList();
+
+                this._enableUploader();
+
+                this._load();
+            }
+        },
+        // Retrieves items with given ids
+        _retrieve: function (controller) {
+            var self = this,
+                ids = controller.getValue();
+
+            if (ids.trim() === '') {
+                this._boot();
+                this._initByMode();
+
+                // Terminate the others
+                return;
+            }
+
+            if (controller.type !== 'gallery') {
+                ids = JSON.stringify([ids]);
+            }
+
+            $.getJSON(this.retrieveURL, {ids: ids}, function (data) {
+                self._populateList(data);
+
+                // Boot modal if not booted
+                self._boot();
+
+                self._initByMode();
+            });
         },
         // Displays by controller value/options
         _initByMode: function () {
@@ -235,7 +277,7 @@
             var mediaIds = this.controller.getValue();
 
             // If the last value has changed reinit
-            if (this.isRetrieved && this.lastValue !== mediaIds) {
+            if (this.isBooted && this.lastValue !== mediaIds) {
                 this.lastValue = mediaIds;
 
                 this._clearGallery();
@@ -282,7 +324,7 @@
             var mediaId = this.controller.getValue();
 
             // If the last value has changed reinit
-            if (this.isRetrieved && this.lastValue !== mediaId) {
+            if (this.isBooted && this.lastValue !== mediaId) {
                 this.lastValue = mediaId;
 
                 var media = $('#md_' + mediaId);
@@ -472,32 +514,38 @@
             this.mediaList.children('li').removeClass();
         },
         // Retrieves the media
-        _retrieve: function (controller) {
+        _load: function () {
             var self = this;
 
-            $.getJSON(this.retrieveURL, function (data) {
-                self._populateList(data);
+            if (!self.isLoading && this.canLoadMode) {
+                self.isLoading = true;
 
-                self.isRetrieved = true;
+                $.getJSON(this.loadURL, {offset: self.offset}, function (data) {
+                    if (data.remaining <= 0) {
+                        self.canLoadMode = false;
+                    }
 
-                self._enableList();
+                    self._populateList(data.media);
 
-                self._enableUploader();
-
-                self.run(controller);
-
-                self.mediaList.find('.unveil').unveil(200, function() {
-                    $(this).addClass('unveiled');
+                    self.isLoading = false;
+                    self.offset += self.take;
                 });
-            });
+            }
         },
         // Populates the media list
         _populateList: function (data) {
             for (var i = 0; i < data.length; i++) {
                 var media = data[i];
 
-                this.mediaList.prepend(this.createMediaThumbnail(media));
+                if (this.loaded.indexOf(parseInt(media.id)) == -1) {
+                    this.loaded.push(parseInt(media.id));
+                    this.mediaList.append(this.createMediaThumbnail(media));
+                }
             }
+
+            this._sortItems();
+            this.refilter();
+            this._unveil();
         },
         createMediaThumbnail: function (media) {
             var thumbnail = $('<li data-id="' + media.id + '" ' +
@@ -506,7 +554,7 @@
                 'data-mimetype="' + media.mimetype + '">');
 
             if (media.type == 'image') {
-                media.thumbnail = '<img class="unveil" src="' + this.placeholderURL + '" data-src="' + media.thumbnail + '">'
+                media.thumbnail = '<img class="unveil" src="' + this.placeholderURL + '" data-src="' + $(media.thumbnail).attr('src') + '">'
             }
 
             $('<div class="document-thumbnail">' + media.thumbnail + '</div>').appendTo(thumbnail);
@@ -516,6 +564,13 @@
             $('<i class="icon-check"></i>').appendTo(thumbnail);
 
             return thumbnail;
+        },
+        // Sorts items
+        _sortItems: function () {
+            this.mediaList.find('li').sort(function (a, b) {
+                    return +b.getAttribute('data-id') - +a.getAttribute('data-id');
+                })
+                .appendTo(this.mediaList);
         },
         // Enables list
         _enableList: function () {
@@ -542,7 +597,7 @@
         },
         // Makes a search
         _search: function (keywords) {
-            if (keywords.trim() === "") {
+            if (keywords.trim() === '') {
                 this.mediaList.children('li').removeClass('searched');
 
                 this._anyResults();
@@ -566,9 +621,10 @@
                     cache: false,
                     data: formData,
                     success: function (data) {
-                        if (data !== '') {
-                            var selector = '#md_' + data.join(',#md_');
-
+                        if (data.items.length > 0) {
+                            self._populateList(data.items);
+                            
+                            var selector = '#md_' + data.ids.join(',#md_');
                             $(selector).removeClass('searched');
                         }
 
@@ -581,7 +637,7 @@
         },
         // Displays no results notification if there are no results
         _anyResults: function () {
-            if (this.isRetrieved) {
+            if (this.isBooted) {
                 if (this.mediaList.find('li').length === this.mediaList.find('.searched,.filtered').length) {
                     this.noResults.addClass('active');
                 } else {
@@ -596,6 +652,17 @@
         // Enables uploader
         _enableUploader: function () {
             this.uploader.options.enabled = true;
+        },
+        // (Re)binds unveil
+        _unveil: function () {
+            $(window).off('unveil');
+
+            this._getUnveilable().unveil(200, function () {
+                $(this).addClass('unveiled');
+            });
+        },
+        _getUnveilable: function () {
+            return this.mediaList.find('.unveil');
         }
     };
 

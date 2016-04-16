@@ -308,6 +308,9 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             Route::post('documents/json/search', [
                 'uses' => 'DocumentsController@jsonSearch',
                 'as'   => 'reactor.documents.json.search']);
+            Route::get('documents/json/retrieve', [
+                'uses' => 'DocumentsController@jsonRetrieve',
+                'as'   => 'reactor.documents.json.retrieve']);
         });
 
         // Users
