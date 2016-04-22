@@ -38,18 +38,15 @@
             var self = this;
 
             // Resize the textarea
-            this.text.height('auto');
-            this.text.height(this.text.prop('scrollHeight') + 'px');
+            this.text.height(0).height(this.text.prop('scrollHeight') + 'px');
 
             // Bind resize events
-            this.text.on('change', function (e) {
-                self.resize(e);
-            });
-            this.text.on('cut paste drop keydown', function (e) {
-                self.delayedResize(e);
-            });
-            $(window).resize(function (e) {
-                self.delayedResize(e);
+            this.text.on('change keyup keydown paste cut', function () {
+                self.delayedResize();
+            }).change();
+
+            $(window).resize(function () {
+                self.delayedResize();
             });
 
             // Bind tabbing
@@ -67,14 +64,12 @@
             });
 
             // Set tool clicks
-            this.toolbar.on('click', '.toolset li', function (e) {
+            this.toolbar.on('click', '.toolset li', function () {
                 var method = $(this).data('method');
 
                 if (self.controls[method]) {
                     self.controls[method]();
                 }
-
-                self.delayedResize(e);
 
                 return false;
             });
@@ -97,18 +92,17 @@
         /**
          * Resizes the textarea for each line
          */
-        resize: function (e) {
-            var bodyScrollPos = $('body').prop('scrollTop');
-            this.text.height('auto');
-            this.text.height(this.text.prop('scrollHeight') + 'px');
-            $('body').prop('scrollTop', bodyScrollPos);
+        resize: function () {
+            var bodyScrollPos = Math.max($('body').prop('scrollTop'), $('html').prop('scrollTop'));
+            this.text.height(0).height(this.text.prop('scrollHeight') + 'px');
+            $('html,body').prop('scrollTop', bodyScrollPos);
         },
 
         /* 0-timeout to get the already changed text */
-        delayedResize: function (e) {
+        delayedResize: function () {
             var self = this;
             var timeout = setTimeout(function () {
-                self.resize(e);
+                self.resize();
             }, 0);
         },
 

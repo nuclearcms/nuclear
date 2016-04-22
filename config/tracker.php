@@ -25,4 +25,31 @@ return [
 	*/
     'model' => 'Kenarkose\Tracker\SiteView',
 
+    /*
+	|--------------------------------------------------------------------------
+	| Bot Filters
+	|--------------------------------------------------------------------------
+	|
+	| Keywords for filtering bots from actual human requests.
+    | This filter is used with the http_user_agent param.
+    |
+    | @link http://www.user-agents.org/
+	|
+	*/
+    'bot_filter' => [
+        'bot',
+        'spider',
+        'pingbot',
+        'googlebot',
+        'yandexbot',
+        'bingbot',
+        'slurp',
+        'wow64',
+        'msie 6.0',
+        'dotbot',
+        'windows nt',
+        'feedfetcher',
+        'metauri'
+    ],
+
 ];

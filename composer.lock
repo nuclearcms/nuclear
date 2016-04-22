@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "64ade59b305b94e809f219e6f3646dc0",
-    "content-hash": "96859035d22f16e04621da012b140ce3",
+    "hash": "c367e2b48157d7eb83cc7676abcaad17",
+    "content-hash": "3c02d76b69f4ba5d592ee2c259c4bf45",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -233,16 +233,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v5.5.1",
+            "version": "v5.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "f4c4c096998d5cc68d5bac90af6d11a636e8b3af"
+                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/f4c4c096998d5cc68d5bac90af6d11a636e8b3af",
-                "reference": "f4c4c096998d5cc68d5bac90af6d11a636e8b3af",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/4534a17da5494ac27cf5ce743e228533c66b7275",
+                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275",
                 "shasum": ""
             },
             "require": {
@@ -280,7 +280,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2016-04-10 18:27:27"
+            "time": "2016-04-21 22:12:50"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1827,16 +1827,16 @@
         },
         {
             "name": "kenarkose/tracker",
-            "version": "1.2.3",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Tracker.git",
-                "reference": "1ee9aafe44ea6335d5cd5e2680ddc3b86f6adab4"
+                "reference": "5e362f8041cd43b4820ea68b3a02dc8a044f9311"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/1ee9aafe44ea6335d5cd5e2680ddc3b86f6adab4",
-                "reference": "1ee9aafe44ea6335d5cd5e2680ddc3b86f6adab4",
+                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/5e362f8041cd43b4820ea68b3a02dc8a044f9311",
+                "reference": "5e362f8041cd43b4820ea68b3a02dc8a044f9311",
                 "shasum": ""
             },
             "require": {
@@ -1880,7 +1880,7 @@
                 "tracker",
                 "visitor"
             ],
-            "time": "2016-04-01 09:43:16"
+            "time": "2016-04-22 18:54:28"
         },
         {
             "name": "kenarkose/transit",
@@ -2264,16 +2264,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a"
+                "reference": "35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
-                "reference": "e87a786e3ae12a25cf78a71bb07b4b384bfaa83a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb",
+                "reference": "35a83cf67d80d7040f306c77b0a84b9fbcc4fbfb",
                 "shasum": ""
             },
             "require": {
@@ -2343,7 +2343,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-03-14 21:54:11"
+            "time": "2016-04-22 10:56:25"
         },
         {
             "name": "maximebf/debugbar",
@@ -2623,16 +2623,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ce5be709d59b32dd8a88c80259028759991a4206"
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ce5be709d59b32dd8a88c80259028759991a4206",
-                "reference": "ce5be709d59b32dd8a88c80259028759991a4206",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
                 "shasum": ""
             },
             "require": {
@@ -2648,7 +2648,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -2670,7 +2670,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-02-28 19:48:28"
+            "time": "2016-04-19 13:41:41"
         },
         {
             "name": "nuclear/hierarchy",

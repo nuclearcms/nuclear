@@ -155,7 +155,7 @@
             });
 
             // Dragenter, dragover
-            this.container.on("dragenter, dragover", function (e) {
+            this.container.on("dragenter dragover", function (e) {
                 e.preventDefault();
                 e.stopPropagation();
 
@@ -194,13 +194,13 @@
             if (this.controller !== controller) {
                 this.controller = controller;
 
-                this._retrieve(controller);
-
-                this._setMode(controller.type);
+                this._reset();
 
                 this.controllerDirty = true;
 
-                this._reset();
+                this._setMode(controller.type);
+
+                this._retrieve(controller);
             } else {
                 this._initByMode();
             }
@@ -225,8 +225,9 @@
                 ids = controller.getValue();
 
             if (ids.trim() === '') {
-                this._boot();
                 this._initByMode();
+
+                this._boot();
 
                 // Terminate the others
                 return;
