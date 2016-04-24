@@ -203,6 +203,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'PreviewController@getMarkdownPreview',
                 'as' => 'reactor.preview.markdown'
             ]);
+
+            Route::get('preview/node/{node}/{source}', [
+                'uses' => 'PreviewController@getNodePreview',
+                'as' => 'reactor.preview.node'
+            ]);
         });
 
         // Nodes Types and Fields

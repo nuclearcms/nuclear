@@ -14,6 +14,7 @@ return [
     'nodetype_name' => 'Sadece küçük ASCII harfler içermelidir.',
     'nodetype_label' => 'Düğüm tipi için okunaklı isim.',
     'nodetype_color' => 'Düğüm tiplerini ayırt edebilmek için renk.',
+    'preview_template' => 'Düğümü tipini önizlemek için kullanılacak şablon.',
     'nodefield_name' => 'Sadece küçük ASCII harfler ve alt tire(_) içermelidir.',
     'nodefield_label' => 'Düğüm alanı için okunaklı isim.',
     'nodefield_rules' => 'Düğüm alanı için onaylama kuralları.',

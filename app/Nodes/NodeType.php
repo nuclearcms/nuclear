@@ -17,7 +17,8 @@ class NodeType extends HierarchyNodeType
      * @var array
      */
     protected $fillable = ['name', 'label', 'description',
-        'visible', 'hides_children', 'color', 'taggable'];
+        'visible', 'hides_children', 'color',
+        'taggable', 'preview_template'];
 
     /**
      * Sortable columns

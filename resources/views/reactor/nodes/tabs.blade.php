@@ -55,6 +55,13 @@
     <div class="node-options">
         {!! content_options_open() !!}
 
+        @if ($node->nodeType->preview_template)
+        <li>
+            <a href="{{ route('reactor.preview.node', [$node->getKey(), $source->getKey()]) }}" target="_blank">
+                <i class="icon-eye"></i> {{ trans('nodes.preview_node') }}</a>
+        </li>
+        @endif
+
         @if ($node->canHaveChildren())
         <li>
             <a href="{{ route('reactor.contents.create', $node->getKey()) }}">

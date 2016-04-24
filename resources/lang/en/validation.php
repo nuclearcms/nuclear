@@ -160,6 +160,7 @@ return [
         'locale' => 'Locale',
         'caption' => 'Caption',
         'taggable' => 'Taggable',
+        'preview_template' => 'Preview Template',
         'tags' => 'Tags',
         'image' => 'Image',
         'link' => 'Link',

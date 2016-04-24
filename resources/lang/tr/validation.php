@@ -160,6 +160,7 @@ return [
         'locale' => 'Dil',
         'caption' => 'Manşet',
         'taggable' => 'Etiketlenebilir',
+        'preview_template' => 'Önizleme Şablonu',
         'tags' => 'Etiketler',
         'image' => 'Görsel',
         'link' => 'Link',

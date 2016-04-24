@@ -52,6 +52,7 @@ return [
     'deleted_translation' => 'Translation was deleted.',
     'no_available_locale' => 'No locales are available for translation.',
     'no_children' => 'No children nodes were found.',
+    'preview_node' => 'Preview Node',
     'add_child' => 'Add Child Node',
     'create' => 'Create Node',
     'created' => 'Node was created.',

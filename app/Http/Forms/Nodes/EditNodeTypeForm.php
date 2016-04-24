@@ -31,6 +31,7 @@ class EditNodeTypeForm extends Form {
             'default_value' => '#000000',
             'help_block'    => ['text' => trans('hints.nodetype_color')]
         ]);
+        $this->add('preview_template', 'text');
     }
 
 }
