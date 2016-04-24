@@ -28,6 +28,7 @@ return [
 
     'active' => 'default',
     'active_reactor' => 'reactor',
+    'active_preview' => 'preview',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,6 +59,11 @@ return [
             'asset-path' => 'reactor_assets',
         ],
 
+        'preview' => [
+            'extends' => null,
+            'views-path' => 'preview',
+            'asset_path' => 'preview_assets'
+        ]
     ],
 
 ];
