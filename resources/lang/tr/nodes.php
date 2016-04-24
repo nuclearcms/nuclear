@@ -141,5 +141,6 @@ return [
     'tool_media' => 'Medya',
     'tool_code' => 'Kod',
     'tool_hrule' => 'Yatay Çizgi',
-    'tool_readmore' => 'Devamını Oku Ayracı'
+    'tool_readmore' => 'Devamını Oku Ayracı',
+    'back_to_editing' => 'Düzenlemeye Geri Dön'
 ];

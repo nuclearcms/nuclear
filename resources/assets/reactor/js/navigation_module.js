@@ -20,7 +20,7 @@
         _initEvents: function () {
             var self = this;
 
-            this.modules.on('click.nav_h touchstart.nav_h mouseenter.nav_h', function (e) {
+            this.modules.on('click.nav_h mouseenter.nav_h', function (e) {
                 self._openModuleFor($(this));
 
                 e.preventDefault();
@@ -73,13 +73,13 @@
         _bindClick: function () {
             var self = this;
 
-            $(document).bind('click.nav_h touchstart.nav_h', function () {
+            $(document).bind('click.nav_h', function () {
                 self.closeModules();
             });
         },
         // Dynamically unbinds click event for closing lists
         _unbindClick: function () {
-            $(document).unbind('click.nav_h touchstart.nav_h');
+            $(document).unbind('click.nav_h');
         }
     };
 

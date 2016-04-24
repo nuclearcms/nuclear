@@ -47,18 +47,20 @@ class NodeStatisticsCompiler extends Compiler {
      */
     protected function mergeNodeTableStatistics($cruncher, $node, $locale, $compilation)
     {
+        $cacheKey = 'node_' . $node->getKey();
+
         list($last_year_stats, $last_year_labels) = $cruncher
-            ->getCountPerMonth(Carbon::today()->subYear(), null, $locale, $node->trackerViews());
+            ->getCountPerMonth(Carbon::today()->subYear(), null, $locale, $node->trackerViews(), $cacheKey);
         $compilation = $this->compileYearStatistics($last_year_stats, $last_year_labels, $compilation);
 
         list($last_month_stats, $last_month_labels) = $cruncher
-            ->getCountPerWeek(Carbon::today()->subMonth(), null, $locale, $node->trackerViews());
+            ->getCountPerWeek(Carbon::today()->subMonth(), null, $locale, $node->trackerViews(), $cacheKey);
         $compilation = $this->compileMonthStatistics($last_month_stats, $last_month_labels, $compilation);
 
         list($last_week_stats, $last_week_labels) = $cruncher
-            ->getCountPerDay(Carbon::today()->subWeek(), null, $locale, $node->trackerViews());
+            ->getCountPerDay(Carbon::today()->subWeek(), null, $locale, $node->trackerViews(), $cacheKey);
         $compilation = $this->compileWeekStatistics($last_week_stats, $last_week_labels, $compilation);
-
+        
         return $compilation;
     }
 

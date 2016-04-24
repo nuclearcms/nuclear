@@ -21,17 +21,17 @@ return [
     'statistics' => 'Statistics',
     'ancestors' => 'Ancestors',
 
-    'total_visits' => 'Total Visits',
-    'last_visited' => 'Last Visited',
-    'visits_today' => 'Visits Today',
+    'total_visits' => 'Total Views',
+    'last_visited' => 'Last Viewed',
+    'visits_today' => 'Views Today',
     'last_week_stats' => 'Week Statistics',
     'last_month_stats' => 'Month Statistics',
     'last_year_stats' => 'Year Statistics',
-    'last_week_total' => 'Total Visits Last Week',
-    'last_month_total' => 'Total Visits Last Month',
-    'last_year_total' => 'Total Visits Last Year',
-    'most_visited' => 'Most Visited',
-    'recently_visited' => 'Recently Visited',
+    'last_week_total' => 'Total Views Last Week',
+    'last_month_total' => 'Total Views Last Month',
+    'last_year_total' => 'Total Views Last Year',
+    'most_visited' => 'Most Viewed',
+    'recently_visited' => 'Recently Viewed',
     'recently_edited' => 'Recently Edited',
     'recently_created' => 'Recently Created',
 
@@ -141,5 +141,6 @@ return [
     'tool_media' => 'Media',
     'tool_code' => 'Code',
     'tool_hrule' => 'Horizontal Rule',
-    'tool_readmore' => 'Read More Separator'
+    'tool_readmore' => 'Read More Separator',
+    'back_to_editing' => 'Back to Editing'
 ];

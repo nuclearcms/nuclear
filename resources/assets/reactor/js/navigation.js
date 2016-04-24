@@ -37,11 +37,11 @@ close.on('click', function () {
 });
 
 // Close open option lists
-modules.on('click touchstart mouseenter', function () {
+modules.on('click mouseenter', function () {
     optionListsHelper.closeLists()
 });
 // Close navigation modules
-optionListButtons.on('click touchstart', function () {
+optionListButtons.on('click', function () {
     navigationModulesHelper.closeModules()
 });
 

@@ -64,6 +64,7 @@ class PermissionsTableSeeder extends Seeder
             'ACCESS_PERMISSIONS_CREATE',
             'ACCESS_PERMISSIONS_DELETE',
             'ACCESS_PERMISSIONS_EDIT',
+            'ACCESS_PREVIEW',
             'ACCESS_REACTOR',
             'ACCESS_ROLES',
             'ACCESS_ROLES_CREATE',
@@ -105,6 +106,7 @@ class PermissionsTableSeeder extends Seeder
             'ACCESS_DOCUMENTS_EMBED',
             'ACCESS_DOCUMENTS_UPLOAD',
             'ACCESS_HISTORY',
+            'ACCESS_PREVIEW',
             'ACCESS_REACTOR',
             'ACCESS_TAGS',
             'ACCESS_TAGS_WRITE'

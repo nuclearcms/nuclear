@@ -368,12 +368,42 @@ label
         min-height: 14em
         width: 100%
         max-width: none
+        +transition(opacity $animationNav)
+
+        &.disabled
+            opacity: 0.5
+
+.markdown-preview-container
+    .markdown-hide-preview
+        display: inline-block
+        padding: 0.75em 0
+        cursor: pointer
+        color: $midGray-2
+        +transition(color $animationFast)
+
+    .markdown-body
+        padding: 0.5em 0 1em
+        border-top: 1px solid $midGray-1
+        border-bottom: 1px solid $midGray-1
+
+.markdown-editor-container
+    .markdown-preview-container
+        display: none
+
+    &.preview
+        .markdown-editor
+            display: none
+        .markdown-preview-container
+            display: block
 
 .markdown-editor-toolbar
     border-bottom: 1px solid $midGray-1
     padding: 0.5em 1em 1em
-    +transition(border-bottom-color $animationFast)
+    +transition(opacity $animationNav, border-bottom-color $animationFast)
     margin: 0.5em 0
+
+    &.disabled
+        opacity: 0.5
 
     .focus &
         border-bottom-color: $secondaryAccent
@@ -487,4 +517,7 @@ label
             background-color: $lightGray-2
 
     .markdown-editor-toolbar li:hover
+        color: $darkGray-1
+
+    .markdown-preview-container .markdown-hide-preview:hover
         color: $darkGray-1

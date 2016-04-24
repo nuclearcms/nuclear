@@ -45,12 +45,12 @@ return [
         'textOnlyMarkdown'   => ['markdownExtra', 'striptags', 'htmlspecialchars'],
 
         /* Reactor only */
-        'HTMLmarkdown'       => ['readAll', 'document', 'gallery', 'markdownGithub'],
-        'HTMLmarkdownBefore' => ['readBefore', 'document', 'gallery', 'markdownGithub'],
-        'HTMLmarkdownRest'   => ['readRest', 'document', 'gallery', 'markdownGithub'],
-        'HTMLtextOnly'       => ['readAll', 'document', 'gallery', 'markdownGithub', 'striptags', 'htmlspecialchars'],
-        'HTMLtextOnlyBefore' => ['readBefore', 'document', 'gallery', 'markdownGithub', 'striptags', 'htmlspecialchars'],
-        'HTMLtextOnlyRest'   => ['readRest', 'document', 'gallery', 'markdownGithub', 'striptags', 'htmlspecialchars'],
+        'HTMLmarkdown'       => ['readAll', 'document', 'gallery', 'markdownExtra'],
+        'HTMLmarkdownBefore' => ['readBefore', 'document', 'gallery', 'markdownExtra'],
+        'HTMLmarkdownRest'   => ['readRest', 'document', 'gallery', 'markdownExtra'],
+        'HTMLtextOnly'       => ['readAll', 'document', 'gallery', 'markdownExtra', 'striptags', 'htmlspecialchars'],
+        'HTMLtextOnlyBefore' => ['readBefore', 'document', 'gallery', 'markdownExtra', 'striptags', 'htmlspecialchars'],
+        'HTMLtextOnlyRest'   => ['readRest', 'document', 'gallery', 'markdownExtra', 'striptags', 'htmlspecialchars'],
     ]
 
 ];

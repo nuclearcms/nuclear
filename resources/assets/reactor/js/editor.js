@@ -16,9 +16,18 @@
          */
         _init: function (el, library, dialog) {
             this.el = el;
+            this.editorContainer = el.find('.markdown-editor-container');
             this.text = this.el.find('textarea');
             this.library = library;
             this.dialog = dialog;
+
+            this.enabled = true;
+
+            this.previewurl = this.editorContainer.data('previewurl');
+            this.requestingPreview = false;
+
+            this.markdownPreviewContainer = el.find('.markdown-preview-container');
+            this.markdownPreview = this.markdownPreviewContainer.find('.markdown-body');
 
             // Temporary cache for cursor start
             // currently only used for the link modal due to a chrome bug
@@ -41,8 +50,8 @@
             this.text.height(0).height(this.text.prop('scrollHeight') + 'px');
 
             // Bind resize events
-            this.text.on('change keyup keydown paste cut', function () {
-                self.delayedResize();
+            this.text.on('propertychange input change keyup keydown paste cut', function () {
+                self.resize();
             }).change();
 
             $(window).resize(function () {
@@ -65,6 +74,10 @@
 
             // Set tool clicks
             this.toolbar.on('click', '.toolset li', function () {
+                if (!self.enabled) {
+                    return false;
+                }
+
                 var method = $(this).data('method');
 
                 if (self.controls[method]) {
@@ -72,6 +85,10 @@
                 }
 
                 return false;
+            });
+
+            this.markdownPreviewContainer.find('.markdown-hide-preview').click(function () {
+                self._hidePreview();
             });
         },
 
@@ -120,6 +137,8 @@
             element.value = value.substring(0, start) + str + value.substring(start);
 
             element.selectionEnd = start + str.length;
+
+            this.resize();
         },
 
         /**
@@ -127,14 +146,15 @@
          *
          * @param string
          */
-        insertAt: function (str, start)
-        {
+        insertAt: function (str, start) {
             var element = this.text[0],
                 value = element.value;
 
             element.value = value.substring(0, start) + str + value.substring(start);
 
             element.selectionStart = start, element.selectionEnd = start + str.length;
+
+            this.resize();
         },
 
         /**
@@ -147,6 +167,8 @@
             var value = element.value;
 
             element.value = value.substring(0, start) + value.substring(end);
+
+            this.resize();
         },
 
         /**
@@ -162,6 +184,8 @@
 
             element.selectionStart = start;
             element.selectionEnd = end + left.length + right.length;
+
+            this.resize();
         },
 
         /**
@@ -187,6 +211,8 @@
             } else {
                 element.selectionStart = element.selectionEnd = start + 1;
             }
+
+            this.resize();
         },
         /**
          * Untabs all lines in the selection
@@ -235,6 +261,48 @@
                 element.selectionStart = start;
                 element.selectionEnd = end - edits;
             }
+
+            this.resize();
+        },
+
+        /**
+         * Shows a preview
+         */
+        _showPreview: function (data) {
+            this.editorContainer.addClass('preview');
+            this.markdownPreview.html(data);
+        },
+
+        /**
+         * Shows a preview
+         */
+        _hidePreview: function () {
+            this.editorContainer.removeClass('preview');
+            this.markdownPreview.html('');
+
+            this.requestingPreview = false;
+
+            this._enable();
+        },
+
+        /**
+         * Disables the editor
+         */
+        _enable: function () {
+            this.enabled = true;
+            this.text.removeAttr('disabled');
+            this.text.removeClass('disabled');
+            this.toolbar.removeClass('disabled');
+        },
+
+        /**
+         * Disables the editor
+         */
+        _disable: function () {
+            this.enabled = false;
+            this.text.attr('disabled', 'disabled');
+            this.text.addClass('disabled');
+            this.toolbar.addClass('disabled');
         },
 
         /**
@@ -281,6 +349,8 @@
                     }
 
                     element.value = value.substring(0, start) + "\n" + selections.join("\n") + "\n" + value.substring(end);
+
+                    self.resize();
                 },
                 quote: function () {
                     var element = self.text[0];
@@ -295,6 +365,8 @@
                     }
 
                     element.value = value.substring(0, start) + selections.join("\n") + value.substring(end);
+
+                    self.resize();
                 },
                 heading: function () {
                     self.wrap('###', '');
@@ -310,6 +382,8 @@
                     element.value = value.substring(0, start) + ruler + value.substring(end);
 
                     element.selectionStart = element.selectionEnd = end + ruler.length;
+
+                    self.resize();
                 },
                 readmore: function () {
                     var element = self.text[0];
@@ -322,6 +396,8 @@
                     element.value = value.substring(0, start) + readmore + value.substring(end);
 
                     element.selectionStart = element.selectionEnd = end + readmore.length;
+
+                    self.resize();
                 },
                 media: function () {
                     var element = self.text[0];
@@ -334,6 +410,19 @@
                     self.dialog.run(self, 'library');
 
                     self.dialog.sourceInput.val(selection);
+
+                    self.resize();
+                },
+                preview: function () {
+                    if (!self.requestingPreview) {
+                        self.requestingPreview = true;
+
+                        self._disable();
+
+                        $.post(self.previewurl, {text: self.text[0].value}, function (data) {
+                            self._showPreview(data);
+                        });
+                    }
                 }
             };
         }
@@ -358,8 +447,7 @@
             // Create a new dialog
             this.dialog = new Modal($('#modalEditor'), {
                 onConfirmEvent: function (dialog) {
-                    if (typeof this.controller != 'undefined' && this.controller !== null)
-                    {
+                    if (typeof self.controller != 'undefined' && self.controller !== null) {
                         self._setValue();
 
                         this.controller = null;

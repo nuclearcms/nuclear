@@ -21,14 +21,14 @@
         _initEvents: function () {
             var self = this;
 
-            this.buttons.on('click.opt_h touchstart.opt_h', function (e) {
+            this.buttons.on('click.opt_h', function (e) {
                 self._openListFor($(this));
 
                 e.preventDefault();
                 e.stopPropagation();
             });
 
-            this.lists.on('click.opt_h touchstart.opt_h', function (e) {
+            this.lists.on('click.opt_h', function (e) {
                 e.stopPropagation();
             });
         },
@@ -67,13 +67,13 @@
         _bindClick: function () {
             var self = this;
 
-            $(document).unbind('click.opt_h touchstart.opt_h').bind('click.opt_h touchstart.opt_h', function () {
+            $(document).unbind('click.opt_h').bind('click.opt_h', function () {
                 self.closeLists();
             });
         },
         // Dynamically unbinds click event for closing lists
         _unbindClick: function () {
-            $(document).unbind('click.opt_h touchstart.opt_h');
+            $(document).unbind('click.opt_h');
         }
     };
 

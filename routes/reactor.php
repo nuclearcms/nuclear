@@ -196,6 +196,15 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
             ]);
         });
 
+        // Preview
+        Route::group(['middleware' => 'guard:ACCESS_PREVIEW'], function ()
+        {
+            Route::post('preview/markdown', [
+                'uses' => 'PreviewController@getMarkdownPreview',
+                'as' => 'reactor.preview.markdown'
+            ]);
+        });
+
         // Nodes Types and Fields
         Route::group(['middleware' => 'guard:ACCESS_NODES'], function ()
         {
