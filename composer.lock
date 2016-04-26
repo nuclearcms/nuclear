@@ -1187,16 +1187,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.3.6",
+            "version": "2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "e368d262887dbb2fdfaf710880571ede51e9c0e6"
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/e368d262887dbb2fdfaf710880571ede51e9c0e6",
-                "reference": "e368d262887dbb2fdfaf710880571ede51e9c0e6",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/22088b04728a039bd1fc32f7e79a89a118b78698",
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698",
                 "shasum": ""
             },
             "require": {
@@ -1245,7 +1245,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-02-26 18:18:19"
+            "time": "2016-04-26 14:08:40"
         },
         {
             "name": "intervention/imagecache",
@@ -1827,16 +1827,16 @@
         },
         {
             "name": "kenarkose/tracker",
-            "version": "1.5.1",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Tracker.git",
-                "reference": "6355f87154c9719194ff54423785116f0902bd36"
+                "reference": "67f91f8f63932eadf24fcf4f7f26de5b4371fe4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/6355f87154c9719194ff54423785116f0902bd36",
-                "reference": "6355f87154c9719194ff54423785116f0902bd36",
+                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/67f91f8f63932eadf24fcf4f7f26de5b4371fe4a",
+                "reference": "67f91f8f63932eadf24fcf4f7f26de5b4371fe4a",
                 "shasum": ""
             },
             "require": {
@@ -1880,7 +1880,7 @@
                 "tracker",
                 "visitor"
             ],
-            "time": "2016-04-23 20:07:44"
+            "time": "2016-04-26 21:23:48"
         },
         {
             "name": "kenarkose/transit",
