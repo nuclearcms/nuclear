@@ -32,7 +32,7 @@ class ViewBindingsServiceProvider extends ServiceProvider {
         // Added 'reactor' before nodes in the view name to prevent possible conflicts
         view()->composer('partials.reactor_nodes', function ($view)
         {
-            $view->with('leafs', Node::whereIsRoot()->get());
+            $view->with('leafs', Node::whereIsRoot()->defaultOrder()->get());
         });
     }
 
