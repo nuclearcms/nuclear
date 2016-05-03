@@ -18,7 +18,7 @@ class NodeType extends HierarchyNodeType
      */
     protected $fillable = ['name', 'label', 'description',
         'visible', 'hides_children', 'color',
-        'taggable', 'preview_template'];
+        'taggable', 'route_template', 'preview_template'];
 
     /**
      * Sortable columns
@@ -52,5 +52,25 @@ class NodeType extends HierarchyNodeType
             'label' => 10
         ]
     ];
+
+    /**
+     * Checks if the NodeType has a preview template
+     *
+     * @return bool
+     */
+    public function hasPreviewTemplate()
+    {
+        return ! empty($this->preview_template);
+    }
+
+    /**
+     * Checks if the NodeType has a route template
+     *
+     * @return bool
+     */
+    public function hasRouteTemplate()
+    {
+        return ! empty($this->route_template);
+    }
 
 }

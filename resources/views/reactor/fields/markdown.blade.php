@@ -4,6 +4,7 @@
     ['bold' => 'bold', 'italic' => 'italic'],
     ['quote-left' => 'quote', 'list-bullet' => 'list', 'header' => 'heading'],
     ['link' => 'link', 'picture' => 'media'],
+    ['superscript' => 'sup', 'subscript' => 'sub'],
     ['code' => 'code', 'minus' => 'hrule', 'ellipsis' => 'readmore'],
     ['eye' => 'preview']
 ]; ?>

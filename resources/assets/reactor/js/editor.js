@@ -318,6 +318,12 @@
                 italic: function () {
                     self.wrap('*', '*');
                 },
+                sup: function () {
+                    self.wrap('<sup>', '</sup>');
+                },
+                sub: function () {
+                    self.wrap('<sub>', '</sub>');
+                },
                 code: function () {
                     self.wrap('`', '`');
                 },

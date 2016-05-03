@@ -15,6 +15,7 @@ return [
     'nodetype_label' => 'Pretty name for the node type.',
     'nodetype_color' => 'Color for identifying the node type.',
     'preview_template' => 'The template for previewing the node type.',
+    'route_template' => 'The route template for previewing the node type on site. Example: post:parent.node_name/node_name',
     'nodefield_name' => 'Can only contain lowercase ASCII letters and underscores(_).',
     'nodefield_label' => 'Pretty name for the node field.',
     'nodefield_rules' => 'Validation rules for the node field.',

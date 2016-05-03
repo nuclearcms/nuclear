@@ -208,6 +208,11 @@ Route::group(['prefix' => config('app.reactor_prefix')], function ()
                 'uses' => 'PreviewController@getNodePreview',
                 'as' => 'reactor.preview.node'
             ]);
+
+            Route::get('preview/site/{node}/{source}', [
+                'uses' => 'PreviewController@getNodeSitePreview',
+                'as' => 'reactor.preview.node.site'
+            ]);
         });
 
         // Nodes Types and Fields

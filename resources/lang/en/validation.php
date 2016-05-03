@@ -161,6 +161,7 @@ return [
         'caption' => 'Caption',
         'taggable' => 'Taggable',
         'preview_template' => 'Preview Template',
+        'route_template' => 'Route Template',
         'tags' => 'Tags',
         'image' => 'Image',
         'link' => 'Link',

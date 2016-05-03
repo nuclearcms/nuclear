@@ -3,7 +3,22 @@
 namespace Reactor\Nodes;
 
 
+use Reactor\Support\TokenManager;
+
 class NodeRepository {
+
+    /** @var TokenManager */
+    protected $tokenManager;
+
+    /**
+     * Constructor
+     *
+     * @param TokenManager $tokenManager
+     */
+    public function __construct(TokenManager $tokenManager)
+    {
+        $this->tokenManager = $tokenManager;
+    }
 
     /**
      * Returns the home node
@@ -26,12 +41,20 @@ class NodeRepository {
      *
      * @param string $name
      * @param bool $track
+     * @param bool $published
      * @return Node
      */
-    public function getNode($name, $track = true)
+    public function getNode($name, $track = true, $published = true)
     {
-        $node = PublishedNode::withName($name)
-            ->firstOrFail();
+        if ($this->withPublishedOnly($published))
+        {
+            $node = PublishedNode::withName($name);
+        } else
+        {
+            $node = Node::withName($name);
+        }
+
+        $node = $node->firstOrFail();
 
         $this->track($track, $node);
 
@@ -39,15 +62,37 @@ class NodeRepository {
     }
 
     /**
+     * Checks if the request includes unpublished nodes as well
+     *
+     * @param bool $published
+     * @return bool
+     */
+    protected function withPublishedOnly($published)
+    {
+        if ($published === false)
+        {
+            return false;
+        }
+
+        if ($this->tokenManager->requestHasToken('preview_nodes'))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * Returns a node by name and sets the locale
      *
      * @param string $name
      * @param bool $track
+     * @param bool $published
      * @return Node
      */
-    public function getNodeAndSetLocale($name, $track = true)
+    public function getNodeAndSetLocale($name, $track = true, $published = true)
     {
-        $node = $this->getNode($name, $track);
+        $node = $this->getNode($name, $track, $published);
 
         $locale = $node->getLocaleForNodeName($name);
 

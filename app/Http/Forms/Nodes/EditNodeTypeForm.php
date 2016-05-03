@@ -31,6 +31,9 @@ class EditNodeTypeForm extends Form {
             'default_value' => '#000000',
             'help_block'    => ['text' => trans('hints.nodetype_color')]
         ]);
+        $this->add('route_template', 'text', ['rules' => [
+            'regex:/^(([A-Za-z\-])+:([A-Za-z\_])+(\.([A-Za-z\_])+)*(\/([A-Za-z\_])+(\.([A-Za-z\_])+)*)*)+$/'
+        ]]);
         $this->add('preview_template', 'text');
     }
 

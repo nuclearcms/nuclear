@@ -5,6 +5,8 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Reactor\Http\Controllers\Traits\UsesNodeHelpers;
+use Reactor\Nodes\RouteMaker;
+use Reactor\Support\TokenManager;
 
 class PreviewController extends ReactorController {
 
@@ -36,14 +38,43 @@ class PreviewController extends ReactorController {
     {
         list($node, $locale, $source) = $this->authorizeAndFindNode($node, $source, 'ACCESS_CONTENTS');
 
-        if (empty($node->nodeType->preview_template))
+        if ( ! $node->getNodeType()->hasPreviewTemplate())
         {
             abort(500, 'Preview template for this node type is not defined.');
         }
 
+        set_app_locale($locale);
+
         \Theme::set(config('themes.active_preview'));
 
-        return view($node->nodeType->preview_template, compact('node', 'locale', 'source'));
+        return view($node->getNodeType()->preview_template, compact('node', 'locale', 'source'));
+    }
+
+    /**
+     * Redirects to preview on site
+     *
+     * @param TokenManager $tokenManager
+     * @param int $node
+     * @param int $source
+     * @return Redirect
+     */
+    public function getNodeSitePreview(TokenManager $tokenManager, $node, $source)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($node, $source, 'ACCESS_CONTENTS');
+
+        if ( ! $node->getNodeType()->hasRouteTemplate())
+        {
+            abort(500, 'Route template for this node type is not defined.');
+        }
+
+        set_app_locale($locale);
+
+        $token = $tokenManager->makeNewToken('preview_nodes');
+
+        $url = (new RouteMaker($node->getNodeType()->route_template, $node))
+            ->makeRouteURL(['preview_nodes' => $token]);
+
+        return redirect($url);
     }
 
 }

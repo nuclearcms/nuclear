@@ -161,6 +161,7 @@ return [
         'caption' => 'Manşet',
         'taggable' => 'Etiketlenebilir',
         'preview_template' => 'Önizleme Şablonu',
+        'route_template' => 'Rota Şablonu',
         'tags' => 'Etiketler',
         'image' => 'Görsel',
         'link' => 'Link',

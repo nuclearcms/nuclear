@@ -53,6 +53,7 @@ return [
     'no_available_locale' => 'Uygun çeviri dili kalmadı.',
     'no_children' => 'Çocuk düğüm bulunamadı.',
     'preview_node' => 'Düğümü Önizle',
+    'preview_node_site' => 'Düğümü Sitede Önizle',
     'add_child' => 'Çocuk Düğüm Ekle',
     'create' => 'Düğüm Oluştur',
     'created' => 'Düğüm oluşturuldu.',
