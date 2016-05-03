@@ -478,6 +478,7 @@
 
             this.urlInput = this.linkDialog.find('input[name="_link"]');
             this.textInput = this.linkDialog.find('input[name="_text"]');
+            this.newpageInput = this.linkDialog.find('input[name="_newpage"]');
 
             this._initEvents();
         },
@@ -534,6 +535,7 @@
 
             this.urlInput.val('');
             this.textInput.val('');
+            this.newpageInput.attr('checked', false);
         },
         // Inserts a value depending on mode
         _setValue: function () {
@@ -555,7 +557,11 @@
 
             var text = (this.textInput.val().length > 0) ? this.textInput.val() : this.urlInput.val();
 
-            var str = '[' + text + '](' + url + ')';
+            if (this.newpageInput.is(':checked')) {
+                var str = '<a href="' + url + '" target="_blank">' + text + '</a>';
+            } else {
+                var str = '[' + text + '](' + url + ')';
+            }
 
             this.controller.insertAt(str, this.controller.cursorStart);
         },

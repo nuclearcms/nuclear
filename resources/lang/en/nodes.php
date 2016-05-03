@@ -144,5 +144,6 @@ return [
     'tool_code' => 'Code',
     'tool_hrule' => 'Horizontal Rule',
     'tool_readmore' => 'Read More Separator',
-    'back_to_editing' => 'Back to Editing'
+    'back_to_editing' => 'Back to Editing',
+    'open_in_newpage' => 'Open in new page?',
 ];

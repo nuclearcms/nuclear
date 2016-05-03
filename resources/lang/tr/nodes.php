@@ -144,5 +144,6 @@ return [
     'tool_code' => 'Kod',
     'tool_hrule' => 'Yatay Çizgi',
     'tool_readmore' => 'Devamını Oku Ayracı',
-    'back_to_editing' => 'Düzenlemeye Geri Dön'
+    'back_to_editing' => 'Düzenlemeye Geri Dön',
+    'open_in_newpage' => 'Yeni pencerede açılsın?',
 ];

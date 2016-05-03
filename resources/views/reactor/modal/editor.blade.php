@@ -50,6 +50,15 @@
                         </label>
                         <input type="text" name="_text" id="_text">
                     </div>
+                    <div class="form-group">
+                        <div class="control-label">{{ trans('nodes.open_in_newpage') }}</div>
+                        <label class="button form-checkbox">
+                            <input type="checkbox" name="_newpage" id="_newpage">
+                            <span>
+                                <i class="icon-cancel">{{ trans('general.no') }}</i><i class="icon-check">{{ trans('general.yes') }}</i>
+                            </span>
+                        </label>
+                    </div>
                 </div>
             </div>
 
