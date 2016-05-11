@@ -8,7 +8,7 @@ use Theme;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '2.9.1';
+    const VERSION = '2.9.2';
 
     /**
      * Register any application services.
