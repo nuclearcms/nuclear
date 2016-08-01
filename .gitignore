@@ -1,9 +1,0 @@
-*.DS_Store
-.idea/
-/vendor
-/node_modules
-Homestead.yaml
-Homestead.json
-.env
-config.codekit
-/updatetest
