@@ -3,6 +3,8 @@ Polymorphic content management system.
 
 ---
 
+**IMPORTANT:** Nuclear is being rewritten for version 3.
+
 ## Installation
 Installing Nuclear is (sort of) simple.
 
