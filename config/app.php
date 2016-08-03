@@ -43,6 +43,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Reactor Path Prefix
+    |--------------------------------------------------------------------------
+    |
+    | This prefix is used to register reactor routes prefix so that the admin
+    | panel address can be made changeable.
+    |
+    */
+    'reactor_prefix' => env('REACTOR_PREFIX', 'reactor'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |
@@ -153,7 +164,7 @@ return [
         /*
          * Application Service Providers...
          */
-        Reactor\Providers\AppServiceProvider::class,
+        Reactor\Providers\ReactorServiceProvider::class,
         Reactor\Providers\AuthServiceProvider::class,
         Reactor\Providers\EventServiceProvider::class,
         Reactor\Providers\RouteServiceProvider::class,

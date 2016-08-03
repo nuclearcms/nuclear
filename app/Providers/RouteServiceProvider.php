@@ -24,9 +24,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        //
+        $this->registerPatternFilters($router);
 
         parent::boot($router);
+    }
+
+    /**
+     * Registers pattern filters
+     *
+     * @param Router $router
+     */
+    protected function registerPatternFilters(Router $router)
+    {
+        $router->pattern('id', '[0-9]+');
     }
 
     /**
@@ -55,7 +65,12 @@ class RouteServiceProvider extends ServiceProvider
         $router->group([
             'namespace' => $this->namespace, 'middleware' => 'web',
         ], function ($router) {
-            require app_path('Http/routes.php');
+            // Common routes
+            require routes_path('common.php');
+            // Reactor routes
+            require routes_path($this->app['config']->get('themes.active_reactor') . '.php');
+            // Front end routes
+            require routes_path($this->app['config']->get('themes.active') . '.php');
         });
     }
 }

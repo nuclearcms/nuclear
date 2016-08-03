@@ -1,11 +1,13 @@
 <?php
 
+
 namespace Reactor\Providers;
+
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
-{
+class InstallerServiceProvider extends ServiceProvider {
+
     /**
      * Bootstrap any application services.
      *
@@ -13,11 +15,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->registerRoutes();
     }
 
     /**
-     * Register any application services.
+     * Registers install routes
+     */
+    protected function registerRoutes()
+    {
+        require routes_path('install.php');
+    }
+
+    /**
+     * Register the service provider.
      *
      * @return void
      */
@@ -25,4 +35,5 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+
 }

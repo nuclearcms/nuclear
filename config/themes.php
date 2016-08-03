@@ -37,7 +37,9 @@ return [
 	|--------------------------------------------------------------------------
 	*/
 
-	'active' => 'default',
+	'active' => 'site',
+    'active_reactor' => 'reactor',
+    'active_install' => 'install',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -59,9 +61,19 @@ return [
 
 		'default' => [
 			'extends'	 	=> null,
-			'views-path' 	=> '',
-			'asset-path' 	=> '',
+			'views-path' 	=> 'default',
+			'asset-path' 	=> 'default',
 		],
+        'reactor' => [
+            'extends'    => null,
+            'views-path' => 'reactor',
+            'asset-path' => 'reactor',
+        ],
+        'install' => [
+            'extends' => null,
+            'views-path' => 'install',
+            'asset-path' => 'reactor'
+        ]
 
 		// Add your themes here...
 
