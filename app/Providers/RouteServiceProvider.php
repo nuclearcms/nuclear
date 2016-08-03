@@ -2,11 +2,12 @@
 
 namespace Reactor\Providers;
 
+
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
-class RouteServiceProvider extends ServiceProvider
-{
+class RouteServiceProvider extends ServiceProvider {
+
     /**
      * This namespace is applied to your controller routes.
      *
@@ -19,7 +20,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define your route model bindings, pattern filters, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function boot(Router $router)
@@ -42,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define the routes for the application.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     public function map(Router $router)
@@ -57,20 +58,28 @@ class RouteServiceProvider extends ServiceProvider
      *
      * These routes all receive session state, CSRF protection, etc.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  \Illuminate\Routing\Router $router
      * @return void
      */
     protected function mapWebRoutes(Router $router)
     {
         $router->group([
             'namespace' => $this->namespace, 'middleware' => 'web',
-        ], function ($router) {
+        ], function ($router)
+        {
             // Common routes
             require routes_path('common.php');
             // Reactor routes
             require routes_path($this->app['config']->get('themes.active_reactor') . '.php');
-            // Front end routes
+            // Site routes
             require routes_path($this->app['config']->get('themes.active') . '.php');
+
+            // Install routes
+            if ( ! is_installed())
+            {
+                require routes_path('install.php');
+            }
         });
     }
+
 }

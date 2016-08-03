@@ -21,7 +21,7 @@ class ReactorServiceProvider extends ServiceProvider {
             dd('register installed specific stuff like registering permissions and other db related stuff');
         }
 
-        if (is_reactor())
+        if (is_request_reactor())
         {
             dd('do reactor specific stuff like setting app locale');
         }
@@ -37,8 +37,6 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->registerHelpers();
 
         $this->registerPaths();
-
-        $this->registerInstaller();
     }
 
     /**
@@ -57,14 +55,4 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->app['path.routes'] = base_path('routes');
     }
 
-    /**
-     * Registers the installer service provider
-     */
-    protected function registerInstaller()
-    {
-        if ( ! is_installed())
-        {
-            $this->app->register(\Reactor\Providers\InstallerServiceProvider::class);
-        }
-    }
 }

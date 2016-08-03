@@ -6,7 +6,7 @@ namespace Reactor\Http\Middleware;
 
 use Closure;
 
-class DetermineInstallation {
+class RedirectIfNotInstalled {
 
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class DetermineInstallation {
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if ( ! is_installed())
+        if ( ! is_installed() && ! is_request_install())
         {
             return redirect()->route('install-welcome');
         }

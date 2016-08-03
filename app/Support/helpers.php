@@ -14,16 +14,29 @@ if ( ! function_exists('is_installed'))
     }
 }
 
-if ( ! function_exists('is_reactor'))
+if ( ! function_exists('is_request_reactor'))
 {
     /**
      * Checks if the request is a reactor request
      *
      * @return bool
      */
-    function is_reactor()
+    function is_request_reactor()
     {
         return (request()->segment(1) === config('app.reactor_prefix'));
+    }
+}
+
+if ( ! function_exists('is_request_install'))
+{
+    /**
+     * Checks if the request is a reactor request
+     *
+     * @return bool
+     */
+    function is_request_install()
+    {
+        return (request()->segment(1) === 'install');
     }
 }
 

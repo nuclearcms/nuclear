@@ -29,7 +29,7 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Reactor\Http\Middleware\VerifyCsrfToken::class,
-            \Reactor\Http\Middleware\DetermineInstallation::class,
+            \Reactor\Http\Middleware\RedirectIfNotInstalled::class,
         ],
 
         'api' => [
@@ -50,5 +50,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \Reactor\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'set-theme' => \igaster\laravelTheme\Middleware\setTheme::class,
     ];
 }
