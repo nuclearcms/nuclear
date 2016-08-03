@@ -34,7 +34,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => App\User::class,
+        'model' => Reactor\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

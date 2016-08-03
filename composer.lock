@@ -4,9 +4,63 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1cc762efd9f1238ca53d768c7ae9c995",
-    "content-hash": "8b1485987e7c5949da82435d403e52e8",
+    "hash": "34527ed94aac2e8ba80bc0a7ad293cc9",
+    "content-hash": "044b94c5fc4ce4e4ce560297efa8aa95",
     "packages": [
+        {
+            "name": "barryvdh/laravel-debugbar",
+            "version": "v2.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "c291e58d0a13953e0f68d99182ee77ebc693edc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c291e58d0a13953e0f68d99182ee77ebc693edc0",
+                "reference": "c291e58d0a13953e0f68d99182ee77ebc693edc0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.1.*|5.2.*",
+                "maximebf/debugbar": "~1.11.0",
+                "php": ">=5.5.9",
+                "symfony/finder": "~2.7|~3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Debugbar\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "PHP Debugbar integration for Laravel",
+            "keywords": [
+                "debug",
+                "debugbar",
+                "laravel",
+                "profiler",
+                "webprofiler"
+            ],
+            "time": "2016-05-11 13:54:43"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "3.0.0",
@@ -62,6 +116,57 @@
             "time": "2015-11-09 22:51:51"
         },
         {
+            "name": "dimsav/laravel-translatable",
+            "version": "v5.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dimsav/laravel-translatable.git",
+                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/4534a17da5494ac27cf5ce743e228533c66b7275",
+                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dimsav\\Translatable\\": "src/Translatable/"
+                },
+                "classmap": [
+                    "tests"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dimitrios Savvopoulos",
+                    "email": "ds@dimsav.com",
+                    "homepage": "http://dimsav.com"
+                }
+            ],
+            "description": "A Laravel package for multilingual models",
+            "keywords": [
+                "database",
+                "language",
+                "laravel",
+                "translation"
+            ],
+            "time": "2016-04-21 22:12:50"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -93,6 +198,354 @@
             ],
             "description": "implementation of xdg base directory specification for php",
             "time": "2014-10-24 07:27:01"
+        },
+        {
+            "name": "doctrine/annotations",
+            "version": "v1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/annotations.git",
+                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "reference": "f25c8aab83e0c3e976fd7d19875f198ccf2f7535",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/cache": "1.*",
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Annotations\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Docblock Annotations Parser",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "docblock",
+                "parser"
+            ],
+            "time": "2015-08-31 12:32:49"
+        },
+        {
+            "name": "doctrine/cache",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/cache.git",
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.5|~7.0"
+            },
+            "conflict": {
+                "doctrine/common": ">2.2,<2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|~5.0",
+                "predis/predis": "~1.0",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Caching library offering an object-oriented API for many cache backends",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "cache",
+                "caching"
+            ],
+            "time": "2015-12-31 16:37:02"
+        },
+        {
+            "name": "doctrine/collections",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/collections.git",
+                "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
+                "reference": "6c1e4eef75f310ea1b3e30945e9f06e652128b8a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Collections\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Collections Abstraction library",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "array",
+                "collections",
+                "iterator"
+            ],
+            "time": "2015-04-14 22:21:58"
+        },
+        {
+            "name": "doctrine/common",
+            "version": "v2.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/common.git",
+                "reference": "a579557bc689580c19fee4e27487a67fe60defc0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/a579557bc689580c19fee4e27487a67fe60defc0",
+                "reference": "a579557bc689580c19fee4e27487a67fe60defc0",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/annotations": "1.*",
+                "doctrine/cache": "1.*",
+                "doctrine/collections": "1.*",
+                "doctrine/inflector": "1.*",
+                "doctrine/lexer": "1.*",
+                "php": "~5.5|~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\": "lib/Doctrine/Common"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Common Library for Doctrine projects",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "annotations",
+                "collections",
+                "eventmanager",
+                "persistence",
+                "spl"
+            ],
+            "time": "2015-12-25 13:18:31"
+        },
+        {
+            "name": "doctrine/dbal",
+            "version": "v2.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/dbal.git",
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.4,<2.7-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "symfony/console": "2.*"
+            },
+            "suggest": {
+                "symfony/console": "For helpful console commands such as SQL execution and import of files."
+            },
+            "bin": [
+                "bin/doctrine-dbal"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\DBAL\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Database Abstraction Layer",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "dbal",
+                "persistence",
+                "queryobject"
+            ],
+            "time": "2016-01-05 22:11:12"
         },
         {
             "name": "doctrine/inflector",
@@ -160,6 +613,485 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\Lexer\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Borschel",
+                    "email": "roman@code-factory.org"
+                },
+                {
+                    "name": "Guilherme Blanco",
+                    "email": "guilhermeblanco@gmail.com"
+                },
+                {
+                    "name": "Johannes Schmitt",
+                    "email": "schmittjoh@gmail.com"
+                }
+            ],
+            "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "lexer",
+                "parser"
+            ],
+            "time": "2014-09-09 13:34:57"
+        },
+        {
+            "name": "erusev/parsedown",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown.git",
+                "reference": "3ebbd730b5c2cf5ce78bc1bf64071407fc6674b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown/zipball/3ebbd730b5c2cf5ce78bc1bf64071407fc6674b7",
+                "reference": "3ebbd730b5c2cf5ce78bc1bf64071407fc6674b7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Parsedown": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "Parser for Markdown.",
+            "homepage": "http://parsedown.org",
+            "keywords": [
+                "markdown",
+                "parser"
+            ],
+            "time": "2015-10-04 16:44:32"
+        },
+        {
+            "name": "erusev/parsedown-extra",
+            "version": "0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erusev/parsedown-extra.git",
+                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erusev/parsedown-extra/zipball/0db5cce7354e4b76f155d092ab5eb3981c21258c",
+                "reference": "0db5cce7354e4b76f155d092ab5eb3981c21258c",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "~1.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ParsedownExtra": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuil Rusev",
+                    "email": "hello@erusev.com",
+                    "homepage": "http://erusev.com"
+                }
+            ],
+            "description": "An extension of Parsedown that adds support for Markdown Extra.",
+            "homepage": "https://github.com/erusev/parsedown-extra",
+            "keywords": [
+                "markdown",
+                "markdown extra",
+                "parsedown",
+                "parser"
+            ],
+            "time": "2015-11-01 10:19:22"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f808fba627f2c5b69e2501217bf31af349c1427",
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.3.1",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.0",
+                "psr/log": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2016-07-15 17:22:37"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/c10d860e2a9595f8883527fa0021c7da9e65f579",
+                "reference": "c10d860e2a9595f8883527fa0021c7da9e65f579",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-05-18 16:56:05"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "reference": "5c6447c9df362e8f8093bda8f5d8873fe5c7f65b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "PSR-7 message implementation",
+            "keywords": [
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2016-06-24 23:00:38"
+        },
+        {
+            "name": "igaster/laravel-theme",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/igaster/laravel-theme.git",
+                "reference": "d1b504b80e45a9fb40dffa1ae3d34ea364691da1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/igaster/laravel-theme/zipball/d1b504b80e45a9fb40dffa1ae3d34ea364691da1",
+                "reference": "d1b504b80e45a9fb40dffa1ae3d34ea364691da1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.2.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.2",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0",
+                "vlucas/phpdotenv": "~2.0"
+            },
+            "suggest": {
+                "orchestra/asset": "Use '@css' and '@js' in Blade files"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "igaster\\laravelTheme\\": "src/",
+                    "igaster\\laravelTheme\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Giannis Gasteratos",
+                    "email": "igasteratos@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 Themes: Asset & Views folder per theme. Theme inheritance. Blade integration and more...",
+            "homepage": "https://github.com/igaster/laravel-theme",
+            "keywords": [
+                "assets",
+                "blade",
+                "laravel-5",
+                "package",
+                "themes",
+                "views"
+            ],
+            "time": "2016-06-04 07:19:01"
+        },
+        {
+            "name": "intervention/image",
+            "version": "2.3.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/22088b04728a039bd1fc32f7e79a89a118b78698",
+                "reference": "22088b04728a039bd1fc32f7e79a89a118b78698",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "3.*"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "time": "2016-04-26 14:08:40"
+        },
+        {
+            "name": "intervention/imagecache",
+            "version": "2.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/imagecache.git",
+                "reference": "7936b90e695daee1aafbd25221815352ef97bcbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/imagecache/zipball/7936b90e695daee1aafbd25221815352ef97bcbc",
+                "reference": "7936b90e695daee1aafbd25221815352ef97bcbc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~4|~5",
+                "illuminate/filesystem": "~4|~5",
+                "intervention/image": "dev-master|~2,>=2.2.0",
+                "jeremeamia/superclosure": "~1|~2",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Caching extension for the Intervention Image Class",
+            "homepage": "http://image.intervention.io",
+            "keywords": [
+                "cache",
+                "gd",
+                "image",
+                "imagick",
+                "laravel"
+            ],
+            "time": "2015-09-22 15:22:47"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -307,6 +1239,554 @@
             "time": "2015-12-05 17:17:57"
         },
         {
+            "name": "kalnoy/nestedset",
+            "version": "v4.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lazychaser/laravel-nestedset.git",
+                "reference": "520cf95ade020c322710c77887b98a309b489985"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/520cf95ade020c322710c77887b98a309b489985",
+                "reference": "520cf95ade020c322710c77887b98a309b489985",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.2.*",
+                "illuminate/events": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "v4.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kalnoy\\Nestedset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kalnoy",
+                    "email": "lazychaser@gmail.com"
+                }
+            ],
+            "description": "Nested Set Model for Laravel 4-5",
+            "keywords": [
+                "database",
+                "hierarchy",
+                "laravel",
+                "nested sets",
+                "nsm"
+            ],
+            "time": "2016-04-15 05:29:44"
+        },
+        {
+            "name": "kenarkose/chronicle",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenarkose/Chronicle.git",
+                "reference": "1622902b01c3f5d1a597f7bb43f11811998c0340"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/1622902b01c3f5d1a597f7bb43f11811998c0340",
+                "reference": "1622902b01c3f5d1a597f7bb43f11811998c0340",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kenarkose\\Chronicle\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "User activity logging for Laravel 5",
+            "keywords": [
+                "activity",
+                "chronicle",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "log"
+            ],
+            "time": "2016-07-31 15:25:13"
+        },
+        {
+            "name": "kenarkose/files",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenarkose/Files.git",
+                "reference": "310d27d71123c9780dfe4e1da21a07ab48ea33f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenarkose/Files/zipball/310d27d71123c9780dfe4e1da21a07ab48ea33f6",
+                "reference": "310d27d71123c9780dfe4e1da21a07ab48ea33f6",
+                "shasum": ""
+            },
+            "require": {
+                "laracasts/presenter": "0.2.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "kenarkose/ownable": "Allows ownership for Eloquent models on Laravel 5.",
+                "kenarkose/transit": "Easy file upload and download for Laravel 5.",
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kenarkose\\Files\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Easy media management for Laravel 5",
+            "keywords": [
+                "files",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "management",
+                "media"
+            ],
+            "time": "2016-07-25 18:45:32"
+        },
+        {
+            "name": "kenarkose/ownable",
+            "version": "1.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenarkose/Ownable.git",
+                "reference": "2971bdbebe742d4bb9503c79c8183e57cf6ff032"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenarkose/Ownable/zipball/2971bdbebe742d4bb9503c79c8183e57cf6ff032",
+                "reference": "2971bdbebe742d4bb9503c79c8183e57cf6ff032",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kenarkose\\Ownable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Easy ownership for Eloquent Models on Laravel 5",
+            "keywords": [
+                "eloquent",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "ownable",
+                "ownership"
+            ],
+            "time": "2016-07-26 08:22:32"
+        },
+        {
+            "name": "kenarkose/settlement",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenarkose/Settlement.git",
+                "reference": "b7d90809bca78355ed9ae93a43937408af484b24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenarkose/Settlement/zipball/b7d90809bca78355ed9ae93a43937408af484b24",
+                "reference": "b7d90809bca78355ed9ae93a43937408af484b24",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1.5",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kenarkose\\Settlement\\": "src/"
+                },
+                "files": [
+                    "src/Provider/Laravel/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Framework Agnostic Persistent Typed and Group-able Settings with JSON Driver",
+            "keywords": [
+                "Settings",
+                "group",
+                "json",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "settlement",
+                "typed"
+            ],
+            "time": "2016-07-26 08:22:41"
+        },
+        {
+            "name": "kenarkose/sortable",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenarkose/Sortable.git",
+                "reference": "d4dfe680958d33df548637e8cd15a85f962953d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenarkose/Sortable/zipball/d4dfe680958d33df548637e8cd15a85f962953d7",
+                "reference": "d4dfe680958d33df548637e8cd15a85f962953d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kenarkose\\Sortable\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Easy sorting for Eloquent models.",
+            "keywords": [
+                "eloquent",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "sortable",
+                "sorting"
+            ],
+            "time": "2016-03-23 21:05:03"
+        },
+        {
+            "name": "kenarkose/tracker",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenarkose/Tracker.git",
+                "reference": "88913183428ee2e7e986720c49a370f2fcdd23c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/88913183428ee2e7e986720c49a370f2fcdd23c0",
+                "reference": "88913183428ee2e7e986720c49a370f2fcdd23c0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kenarkose\\Tracker\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Simple site visit/statistics tracker for Laravel 5",
+            "keywords": [
+                "analytics",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "statistics",
+                "tracker",
+                "visitor"
+            ],
+            "time": "2016-07-29 19:17:08"
+        },
+        {
+            "name": "kenarkose/transit",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kenarkose/Transit.git",
+                "reference": "bcd3d7af70854ee99792b6998f19f0873c854e8e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/bcd3d7af70854ee99792b6998f19f0873c854e8e",
+                "reference": "bcd3d7af70854ee99792b6998f19f0873c854e8e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1.5",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "kenarkose/ownable": "Allows ownership for Eloquent models on Laravel 5.",
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kenarkose\\Transit\\": "src/"
+                },
+                "files": [
+                    "src/Support/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Easy file uploading and downloading for Laravel 5",
+            "keywords": [
+                "download",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "transit",
+                "upload"
+            ],
+            "time": "2016-07-26 17:21:00"
+        },
+        {
+            "name": "kris/laravel-form-builder",
+            "version": "1.7.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
+                "reference": "a4be69caa651b84f675f06a69dcfc750ac98204c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/a4be69caa651b84f675f06a69dcfc750ac98204c",
+                "reference": "a4be69caa651b84f675f06a69dcfc750ac98204c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.*@dev",
+                "illuminate/validation": "5.*@dev",
+                "laravelcollective/html": "5.*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Kris\\LaravelFormBuilder": "src/"
+                },
+                "classmap": [
+                    "tests/FormBuilderTestCase.php"
+                ],
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kristijan Husak",
+                    "email": "husakkristijan@gmail.com"
+                }
+            ],
+            "description": "Laravel form builder - symfony like",
+            "time": "2016-06-03 19:23:17"
+        },
+        {
+            "name": "laracasts/presenter",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/Presenter.git",
+                "reference": "b284f3137f990efd6e95df49d254f1ccc4541e92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/Presenter/zipball/b284f3137f990efd6e95df49d254f1ccc4541e92",
+                "reference": "b284f3137f990efd6e95df49d254f1ccc4541e92",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Presenter": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Simple view presenters",
+            "keywords": [
+                "laravel",
+                "presenter",
+                "view"
+            ],
+            "time": "2014-09-13 13:18:07"
+        },
+        {
             "name": "laravel/framework",
             "version": "5.2.41",
             "source": {
@@ -437,6 +1917,60 @@
             "time": "2016-07-20 13:13:06"
         },
         {
+            "name": "laravelcollective/html",
+            "version": "v5.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "3a312d39ffe37da0f57b602618b61fd07c1fcec5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/3a312d39ffe37da0f57b602618b61fd07c1fcec5",
+                "reference": "3a312d39ffe37da0f57b602618b61fd07c1fcec5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.2.*",
+                "illuminate/routing": "5.2.*",
+                "illuminate/session": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "illuminate/view": "5.2.*",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "illuminate/database": "5.2.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2016-01-27 22:29:54"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.25",
             "source": {
@@ -518,6 +2052,67 @@
                 "storage"
             ],
             "time": "2016-07-18 12:22:57"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "v1.11.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "d9302891c1f0a0ac5a4f66725163a00537c6359f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/d9302891c1f0a0ac5a4f66725163a00537c6359f",
+                "reference": "d9302891c1f0a0ac5a4f66725163a00537c6359f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "^1.0",
+                "symfony/var-dumper": "^2.6|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DebugBar\\": "src/DebugBar/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                },
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug",
+                "debugbar"
+            ],
+            "time": "2016-01-22 12:22:23"
         },
         {
             "name": "monolog/monolog",
@@ -689,6 +2284,52 @@
             "time": "2015-11-04 20:07:17"
         },
         {
+            "name": "nicolaslopezj/searchable",
+            "version": "1.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicolaslopezj/searchable.git",
+                "reference": "eee7c3ae94d8d0e98b397f0cf2dcb127bfddc555"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/eee7c3ae94d8d0e98b397f0cf2dcb127bfddc555",
+                "reference": "eee7c3ae94d8d0e98b397f0cf2dcb127bfddc555",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "illuminate/database": "4.2.x|~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nicolaslopezj\\Searchable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lopez",
+                    "email": "nicolaslopezj@me.com"
+                }
+            ],
+            "description": "Eloquent model search trait.",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "search",
+                "searchable"
+            ],
+            "time": "2016-06-28 21:40:28"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v2.1.0",
             "source": {
@@ -740,6 +2381,262 @@
             "time": "2016-04-19 13:41:41"
         },
         {
+            "name": "nuclear/documents",
+            "version": "0.9.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NuclearCMS/Documents.git",
+                "reference": "b54c4588a2d35e0d930c0e45c84ed2c43d7faa3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/b54c4588a2d35e0d930c0e45c84ed2c43d7faa3e",
+                "reference": "b54c4588a2d35e0d930c0e45c84ed2c43d7faa3e",
+                "shasum": ""
+            },
+            "require": {
+                "dimsav/laravel-translatable": "~5.5",
+                "intervention/image": "~2.3",
+                "intervention/imagecache": "~2.3",
+                "kenarkose/files": "~2.0",
+                "kenarkose/ownable": "~1.3",
+                "kenarkose/sortable": "~1.2",
+                "kenarkose/transit": "~2.1",
+                "laracasts/presenter": "0.2.*",
+                "nicolaslopezj/searchable": "^1.9",
+                "php": ">=5.5.9",
+                "simexis/oembed": "^1.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nuclear\\Documents\\": "src/"
+                },
+                "files": [
+                    "src/Support/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Document management system with embedding, uploading, downloading for different media types.",
+            "keywords": [
+                "documents",
+                "download",
+                "embed",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "media",
+                "nuclear",
+                "nuclearcms",
+                "upload"
+            ],
+            "time": "2016-08-01 10:39:59"
+        },
+        {
+            "name": "nuclear/hierarchy",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NuclearCMS/Hierarchy.git",
+                "reference": "da76558b8615333853eb6e06f40479929f9d3c4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/da76558b8615333853eb6e06f40479929f9d3c4c",
+                "reference": "da76558b8615333853eb6e06f40479929f9d3c4c",
+                "shasum": ""
+            },
+            "require": {
+                "dimsav/laravel-translatable": "~5.5",
+                "doctrine/dbal": "~2.5",
+                "kalnoy/nestedset": "~4.0",
+                "kenarkose/chronicle": "~1.2",
+                "kenarkose/ownable": "~1.3",
+                "kenarkose/sortable": "~1.2",
+                "kenarkose/tracker": "~1.6",
+                "kris/laravel-form-builder": "^1.7",
+                "nicolaslopezj/searchable": "^1.9",
+                "nuclear/documents": "~0.9",
+                "nuclear/synthesizer": "~0.9",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1.5",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testbench": "~3.2",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nuclear\\Hierarchy\\": "src/"
+                },
+                "files": [
+                    "src/Support/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "Polymorphic content management with node structure.",
+            "keywords": [
+                "hierarchy",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "management",
+                "node",
+                "nuclear",
+                "nuclearcms",
+                "polymorphic"
+            ],
+            "time": "2016-08-01 12:21:56"
+        },
+        {
+            "name": "nuclear/synthesizer",
+            "version": "0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NuclearCMS/Synthesizer.git",
+                "reference": "14644743739be3588c9f48a8b84bd1da86af5956"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NuclearCMS/Synthesizer/zipball/14644743739be3588c9f48a8b84bd1da86af5956",
+                "reference": "14644743739be3588c9f48a8b84bd1da86af5956",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown-extra": "~0.7",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "nuclear/documents": "~0.9",
+                "orchestra/testbench": "~3.2",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "laravel/framework": "This package requires Laravel 5."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nuclear\\Synthesizer\\": "src/"
+                },
+                "files": [
+                    "src/Support/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "The markdown and text processor that Nuclear CMS needs.",
+            "keywords": [
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "markdown",
+                "nuclear",
+                "nuclearcms",
+                "synthesizer"
+            ],
+            "time": "2016-07-30 12:37:30"
+        },
+        {
+            "name": "nuclear/users",
+            "version": "0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NuclearCMS/Users.git",
+                "reference": "361d203d178950945752b5d81e839d7067999e27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/361d203d178950945752b5d81e839d7067999e27",
+                "reference": "361d203d178950945752b5d81e839d7067999e27",
+                "shasum": ""
+            },
+            "require": {
+                "kenarkose/chronicle": "~1.2",
+                "kenarkose/sortable": "~1.2",
+                "laracasts/presenter": "0.2.*",
+                "nicolaslopezj/searchable": "^1.9",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.2",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nuclear\\Users\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hyleeh",
+                    "email": "egemen@kenarkose.com",
+                    "homepage": "http://egemenkizilcan.com",
+                    "role": "Developer / Designer"
+                }
+            ],
+            "description": "User and permission system scaffolds for the Nuclear CMS.",
+            "keywords": [
+                "Authentication",
+                "Users",
+                "authorization",
+                "kenarkose",
+                "laravel",
+                "laravel5",
+                "nuclear",
+                "nuclearcms",
+                "permissions",
+                "roles"
+            ],
+            "time": "2016-08-01 20:49:39"
+        },
+        {
             "name": "paragonie/random_compat",
             "version": "v1.4.1",
             "source": {
@@ -786,6 +2683,55 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2015-05-04 20:22:00"
         },
         {
             "name": "psr/log",
@@ -896,6 +2842,100 @@
                 "shell"
             ],
             "time": "2016-03-09 05:03:14"
+        },
+        {
+            "name": "simexis/embed",
+            "version": "1.4.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jooorooo/embed.git",
+                "reference": "078e70a093f246dc8e10b92f909f9166932c4106"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jooorooo/embed/zipball/078e70a093f246dc8e10b92f909f9166932c4106",
+                "reference": "078e70a093f246dc8e10b92f909f9166932c4106",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "guzzlehttp/guzzle": "~5.3|~6.0.1|~6.1",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Embed\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Georgi Nachev",
+                    "email": "jooorooo@gmail.com",
+                    "homepage": "http://simexis.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to retrieve page info using oembed, opengraph, etc",
+            "homepage": "https://github.com/oscarotero/Embed",
+            "keywords": [
+                "embed",
+                "embedly",
+                "oembed",
+                "opengraph",
+                "simexis",
+                "twitter cards"
+            ],
+            "time": "2015-10-05 08:44:23"
+        },
+        {
+            "name": "simexis/oembed",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jooorooo/oembed.git",
+                "reference": "e3d5cfcdb8065b085fc2e31b1f6ad21a93c4b4fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jooorooo/oembed/zipball/e3d5cfcdb8065b085fc2e31b1f6ad21a93c4b4fa",
+                "reference": "e3d5cfcdb8065b085fc2e31b1f6ad21a93c4b4fa",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "5.2.*",
+                "illuminate/support": "5.2.*",
+                "php": ">=5.4.0",
+                "simexis/embed": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Simexis\\Oembed\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Georgi Nachev",
+                    "email": "jooorooo@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 - Retrieve page info using oembed, opengraph, etc.",
+            "keywords": [
+                "laravel",
+                "laravel-oembed",
+                "oembed",
+                "simexis"
+            ],
+            "time": "2016-02-25 08:52:29"
         },
         {
             "name": "swiftmailer/swiftmailer",

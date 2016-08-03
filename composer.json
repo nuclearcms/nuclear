@@ -1,12 +1,36 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "nuclear/nuclear",
+    "description": "Polymorphic CMS powered by Laravel 5.",
+    "keywords": [
+        "kenarkose",
+        "nuclear",
+        "nuclearcms",
+        "hierarchy",
+        "polymorphic",
+        "reactor",
+        "cms",
+        "laravel",
+        "laravel5"
+    ],
+    "version": "3.0-alpha.1",
+    "authors": [
+        {
+            "name": "Hyleeh",
+            "email": "egemen@kenarkose.com",
+            "homepage": "http://egemenkizilcan.com",
+            "role": "Developer / Designer"
+        }
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "nuclear/hierarchy": "~2.0",
+        "nuclear/users": "~0.9",
+        "kenarkose/settlement": "~1.1",
+        "igaster/laravel-theme": "^1.0",
+        "barryvdh/laravel-debugbar": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -20,7 +44,8 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "Reactor\\": "app/",
+            "gen\\": "gen/"
         }
     },
     "autoload-dev": {

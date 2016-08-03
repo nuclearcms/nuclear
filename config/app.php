@@ -153,10 +153,42 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Reactor\Providers\AppServiceProvider::class,
+        Reactor\Providers\AuthServiceProvider::class,
+        Reactor\Providers\EventServiceProvider::class,
+        Reactor\Providers\RouteServiceProvider::class,
+
+        /*
+         * Hierarchy Service Providers...
+         */
+        Nuclear\Hierarchy\Providers\HierarchyServiceProvider::class,
+        Nuclear\Hierarchy\Providers\BuilderServiceProvider::class,
+        Nuclear\Synthesizer\SynthesizerServiceProvider::class,
+        Kenarkose\Chronicle\ChronicleServiceProvider::class,
+        Kenarkose\Sortable\SortableServiceProvider::class,
+        Kenarkose\Tracker\TrackerServiceProvider::class,
+        Dimsav\Translatable\TranslatableServiceProvider::class,
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+
+        /*
+         * Documents Service Providers...
+         */
+        Nuclear\Documents\Providers\DocumentsServiceProvider::class,
+        Kenarkose\Files\Provider\FilesServiceProvider::class,
+        Kenarkose\Transit\Provider\TransitServiceProvider::class,
+        Simexis\Oembed\OembedServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+
+        /*
+         * Other Vendor Service Providers...
+         */
+        Kenarkose\Settlement\Provider\Laravel\SettlementServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        igaster\laravelTheme\themeServiceProvider::class,
+
+        /*
+         * Site Service Providers...
+         */
 
     ],
 
@@ -203,6 +235,21 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /**
+         * Other Facades
+         */
+        'Chronicle'   => Kenarkose\Chronicle\ChronicleFacade::class,
+        'Settings'    => Kenarkose\Settlement\Provider\Laravel\Settings::class,
+        'Downloader'  => Kenarkose\Transit\Facade\Downloader::class,
+        'Uploader'    => Kenarkose\Transit\Facade\Uploader::class,
+        'Tracker'     => Kenarkose\Tracker\TrackerFacade::class,
+
+        'Debugbar'    => Barryvdh\Debugbar\Facade::class,
+        'Image'       => Intervention\Image\Facades\Image::class,
+        'Theme'       => igaster\laravelTheme\Facades\Theme::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
+        'Oembed'      => Simexis\Oembed\OembedFacade::class
 
     ],
 
