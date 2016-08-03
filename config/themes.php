@@ -2,13 +2,13 @@
 
 return [
 
-	/*
-	|--------------------------------------------------------------------------
-	| Switch this package on/off. Usefull for testing...
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Switch this package on/off. Usefull for testing...
+    |--------------------------------------------------------------------------
+    */
 
-	'enabled' => true,
+    'enabled' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -21,83 +21,48 @@ return [
 
     'themes_path' => null, // eg: realpath(base_path('resources/themes'))
 
-	/*
-	|--------------------------------------------------------------------------
-	| Set behavior if an asset is not found in a Theme hierarcy.
-	| Available options: THROW_EXCEPTION | LOG_ERROR | ASSUME_EXISTS | IGNORE
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Set behavior if an asset is not found in a Theme hierarcy.
+    | Available options: THROW_EXCEPTION | LOG_ERROR | ASSUME_EXISTS | IGNORE
+    |--------------------------------------------------------------------------
+    */
 
-	'asset_not_found' => 'LOG_ERROR',
+    'asset_not_found' => 'LOG_ERROR',
 
-	/*
-	|--------------------------------------------------------------------------
-	| Set the Active Theme. Can be set at runtime with:
-	|  Themes::set('theme-name');
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Set the Active Theme. Can be set at runtime with:
+    |  Themes::set('theme-name');
+    |--------------------------------------------------------------------------
+    */
 
-	'active' => 'site',
+    'active'         => 'site',
     'active_reactor' => 'reactor',
     'active_install' => 'install',
 
-	/*
-	|--------------------------------------------------------------------------
-	| Define available themes. Format:
-	|
-	| 	'theme-name' => [
-	| 		'extends'	 	=> 'theme-to-extend',  // optional
-	| 		'views-path' 	=> 'path-to-views',    // defaults to: resources/views/theme-name
-	| 		'asset-path' 	=> 'path-to-assets',   // defaults to: public/theme-name
-	|
-	|		// you can add your own custom keys and retrieve them with Theme::config('key');
-	| 		'key' 			=> 'value', 
-	| 	],
-	|
-	|--------------------------------------------------------------------------
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Define available themes. Format:
+    |--------------------------------------------------------------------------
+    */
 
-	'themes' => [
-
-		'default' => [
-			'extends'	 	=> null,
-			'views-path' 	=> 'default',
-			'asset-path' 	=> 'default',
-		],
+    'themes' => [
+        'site'    => [
+            'extends'    => null,
+            'views-path' => 'default',
+            'asset-path' => 'default',
+        ],
         'reactor' => [
             'extends'    => null,
             'views-path' => 'reactor',
             'asset-path' => 'reactor',
         ],
         'install' => [
-            'extends' => null,
+            'extends'    => null,
             'views-path' => 'install',
             'asset-path' => 'reactor'
         ]
-
-		// Add your themes here...
-
-		/*--------------[ Example Structre ]-------------
-
-			// Recomended (all defaults) : Assets -> \public\BasicTheme , Views -> \resources\views\BasicTheme
-
-			'BasicTheme',
-
-
-			// This theme shares the views with BasicTheme but defines its own assets in \public\SomeTheme
-
-			'SomeTheme' => [
-				'views-path'	=> 'BasicTheme',
-			],
-
-
-			// This theme extends BasicTheme and ovverides SOME views\assets in its folders
-
-			'AnotherTheme' => [
-				'extends'	=> 'BasicTheme',
-			],
-
-		------------------------------------------------*/
-	],
+    ],
 
 ];

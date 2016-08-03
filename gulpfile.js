@@ -1,16 +1,33 @@
 var elixir = require('laravel-elixir');
+var argv = require('yargs').argv;
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
+/**
+ * Config for the site theme
  */
+elixir.config.assetsPath = 'resources/assets/site';
+elixir.config.publicPath = 'public_html/site';
 
-elixir(function(mix) {
-    mix.sass('app.scss');
-});
+if( ! argv.r) {
+    // Site elixir
+    elixir(function (mix) {
+        mix
+            .sass('app.sass', elixir.config.publicPath + '/css/app.css')
+            .scripts('app.js', elixir.config.publicPath + '/js/app.js');
+    });
+
+} else {
+    // Reactor elixir
+    elixir.config.assetsPath = 'resources/assets/reactor';
+    elixir.config.publicPath = 'public_html/reactor';
+
+    elixir(function (mix) {
+        mix
+            .sass('app.sass', elixir.config.publicPath + '/css/app.css')
+            .scripts([
+                'components/Modernizr.min.js',
+                'components/jquery.min.js',
+                'common.js'
+            ], elixir.config.publicPath + '/js/app.js');
+    });
+
+}
