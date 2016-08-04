@@ -148,4 +148,62 @@ class InstallHelper {
         }
     }
 
+    /**
+     * Checks if all server requirements are matched
+     * returns a list of missing requirements
+     *
+     * @return array
+     */
+    public function checkRequirements()
+    {
+        $missing = [];
+
+        if ( ! (version_compare(PHP_VERSION, '5.5.9') >= 0))
+        {
+            $missing['php'] = trans('install.php_version_incompatible');
+        }
+
+        if ( ! ini_get('allow_url_fopen'))
+        {
+            $missing['allow_url_fopen'] = trans('install.allow_url_fopen_not_enabled');
+        }
+
+        if ( ! (extension_loaded('gd') || extension_loaded('imagick')))
+        {
+            $missing['gd-image'] = trans('install.gd_or_image_extensions_not_loaded');
+        }
+
+        if ( ! extension_loaded('pdo'))
+        {
+            $missing['pdo'] = trans('install.extension_not_loaded', ['extension' => 'pdo']);
+        }
+
+        if ( ! extension_loaded('pdo_mysql'))
+        {
+            $missing['pdo'] = trans('install.extension_not_loaded', ['extension' => 'pdo_mysql']);
+        }
+
+        if ( ! extension_loaded('mbstring'))
+        {
+            $missing['mbstring'] = trans('install.extension_not_loaded', ['extension' => 'mbstring']);
+        }
+
+        if ( ! extension_loaded('tokenizer'))
+        {
+            $missing['tokenizer'] = trans('install.extension_not_loaded', ['extension' => 'tokenizer']);
+        }
+
+        if ( ! extension_loaded('fileinfo'))
+        {
+            $missing['fileinfo'] = trans('install.extension_not_loaded', ['extension' => 'fileinfo']);
+        }
+
+        if ( ! extension_loaded('openssl'))
+        {
+            $missing['openssl'] = trans('install.extension_not_loaded', ['extension' => 'openssl']);
+        }
+
+        return $missing;
+    }
+
 }

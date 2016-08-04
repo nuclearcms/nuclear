@@ -16,9 +16,9 @@ Route::group([
         'uses' => 'InstallerController@postWelcome'
     ]);
 
-    Route::get('requirements', [
-        'as' => 'install-requirements',
-        'uses' => 'InstallerController@getRequirements'
+    Route::get('database', [
+        'as' => 'install-database',
+        'uses' => 'InstallerController@getDatabase'
     ]);
 
 });

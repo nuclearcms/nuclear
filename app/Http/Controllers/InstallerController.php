@@ -11,11 +11,14 @@ class InstallerController extends Controller {
     /**
      * Shows the "Welcome to Nuclear" page
      *
+     * @param InstallHelper $helper
      * @return view
      */
-    public function getWelcome()
+    public function getWelcome(InstallHelper $helper)
     {
-        return view('welcome');
+        $missing = $helper->checkRequirements();
+
+        return view('welcome', compact('missing'));
     }
 
     /**
@@ -30,7 +33,17 @@ class InstallerController extends Controller {
         $helper->setEnvVariable('REACTOR_LOCALE', $request->get('language'));
         $helper->setEnvVariable('APP_TIMEZONE', $request->get('timezone'));
 
-        return redirect()->route('install-requirements');
+        return redirect()->route('install-database');
+    }
+
+    /**
+     * Shows the database setup screen
+     *
+     * @return view
+     */
+    public function getDatabase()
+    {
+
     }
 
 }
