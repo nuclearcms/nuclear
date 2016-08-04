@@ -3,6 +3,7 @@
 namespace Reactor\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Reactor\Http\Middleware\DetermineLocale;
 
 class Kernel extends HttpKernel
 {
@@ -15,6 +16,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        DetermineLocale::class
     ];
 
     /**

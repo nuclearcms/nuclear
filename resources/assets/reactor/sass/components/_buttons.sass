@@ -1,0 +1,25 @@
+.button
+    display: inline-block
+    line-height: 3.33333333em
+    height: 3.33333333em
+    font-size: 0.75em
+    font-weight: $fontWeightBold
+    font-family: $fontHeading
+    color: $colorEmphasis
+    padding: 0 3em
+    background-color: transparent
+    cursor: pointer
+    +transition(opacity $durationShort)
+    padding-top: 0.125em
+
+    &--emphasis
+        color: $colorLightText
+        background-color: $colorEmphasis
+
+    &__icon
+        position: relative
+        top: 0.0625em
+
+.no-touch
+    .button:hover
+        opacity: 0.7

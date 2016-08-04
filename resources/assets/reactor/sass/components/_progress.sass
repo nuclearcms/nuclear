@@ -1,0 +1,18 @@
+.progress
+    padding: 0.75em 1em
+    text-align: center
+
+    &__item
+        display: inline-block
+        +size(0.625em)
+        border-radius: 50%
+        border: 1px solid $colorOutline
+        margin: 0 0.5em
+        vertical-align: top
+
+        &--complete
+            border: 0
+            background-color: $colorDarkBG3
+        &--active
+            border: 0
+            background-color: $colorEmphasis

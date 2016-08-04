@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ trim(config('translatable.full_locales')[App::getLocale()], '.UTF-8') }}" class="no-js">
+<html lang="{{ get_full_locale_for(App::getLocale(), true) }}" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,22 +10,18 @@
     <title>@yield('pageTitle') &mdash; Nuclear</title>
 
     {!! Theme::css('css/app.css') !!}
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Oxygen:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-    @yield('styles')
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300|Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
 
-    @yield('body')
+    <main class="dialog-container dialog-container--large">
+        <div class="dialog dialog--large">
+            @yield('body')
+        </div>
+    </main>
 
     {!! Theme::js('js/app.js') !!}
-
-    @yield('modal')
-
-    @yield('modules')
-
-    @yield('scripts')
 
 </body>
 </html>

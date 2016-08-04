@@ -87,3 +87,33 @@ if ( ! function_exists('uppercase'))
         return mb_strtoupper($string, 'UTF-8');
     }
 }
+
+if ( ! function_exists('locale_count'))
+{
+    /**
+     * Returns the locale count of the app
+     *
+     * @return int
+     */
+    function locale_count()
+    {
+        return count(config('translatable.locales'));
+    }
+}
+
+if ( ! function_exists('get_full_locale_for'))
+{
+    /**
+     * Returns the locale count of the app
+     *
+     * @param string $locale
+     * @param bool $trim
+     * @return string
+     */
+    function get_full_locale_for($locale, $trim = false)
+    {
+        $locale = config('translatable.full_locales.' . $locale);
+
+        return $trim ? rtrim($locale, '.UTF-8') : $locale;
+    }
+}

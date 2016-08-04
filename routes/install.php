@@ -11,5 +11,15 @@ Route::group([
         'uses' => 'InstallerController@getWelcome'
     ]);
 
+    Route::post('welcome', [
+        'as' => 'install-welcome-post',
+        'uses' => 'InstallerController@postWelcome'
+    ]);
+
+    Route::get('requirements', [
+        'as' => 'install-requirements',
+        'uses' => 'InstallerController@getRequirements'
+    ]);
+
 });
 
