@@ -1,14 +1,17 @@
 {
     "name": "nuclear/nuclear",
-    "description": "Polymorphic CMS powered by Laravel 5.",
+    "description": "Polymorphic and multilingual CMS powered by Laravel 5.",
     "keywords": [
         "kenarkose",
         "nuclear",
         "nuclearcms",
         "hierarchy",
         "polymorphic",
+        "multilingual",
         "reactor",
         "cms",
+        "content",
+        "management",
         "laravel",
         "laravel5"
     ],

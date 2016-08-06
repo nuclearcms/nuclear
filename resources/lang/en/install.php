@@ -5,7 +5,18 @@ return [
     'welcome_to_nuclear' => 'Welcome to Nuclear!',
     'nuclear_will_be_configured' => 'Nuclear will be configured through some easy steps for your needs.',
     'choose_language_and_timezone' => 'Please select your language and timezone.',
+
     'database' => 'Database',
+    'set_database_configuration' => 'Enter database information to continue.',
+    'db_host' => 'Host',
+    'db_port' => 'Port',
+    'db_name' => 'Database',
+    'db_username' => 'Username',
+    'db_password' => 'Password',
+
+    'user_information' => 'User Information',
+
+    'site_information' => 'Site Information',
 
     'requirements_not_matched' => 'Server requirements are not matched.<br>Here is a list of missing requirements:',
     'php_version_incompatible' => 'The PHP version has to be <strong>= 5.5.9</strong>.',

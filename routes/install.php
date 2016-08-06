@@ -21,5 +21,15 @@ Route::group([
         'uses' => 'InstallerController@getDatabase'
     ]);
 
+    Route::post('database', [
+        'as' => 'install-database-post',
+        'uses' => 'InstallerController@postDatabase'
+    ]);
+
+    Route::get('user', [
+        'as' => 'install-user',
+        'uses' => 'InstallerController@getUser'
+    ]);
+
 });
 

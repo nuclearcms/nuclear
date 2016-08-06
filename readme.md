@@ -1,5 +1,5 @@
 # Nuclear
-Polymorphic content management system.
+Polymorphic and multilingual content management system.
 
 ---
 

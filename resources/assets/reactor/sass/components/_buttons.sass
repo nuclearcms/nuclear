@@ -11,6 +11,7 @@
     cursor: pointer
     +transition(opacity $durationShort)
     padding-top: 0.125em
+    text-decoration: none
 
     &--emphasis
         color: $colorLightText
@@ -19,6 +20,12 @@
     &__icon
         position: relative
         top: 0.0625em
+        display: inline-block
+
+        &--left
+            +transform(translateX(-0.75em))
+        &--right
+            +transform(translateX(0.75em))
 
 .no-touch
     .button:hover

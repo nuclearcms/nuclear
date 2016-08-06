@@ -1,3 +1,9 @@
+$dialog-width-xxl: 48em
+$dialog-height-xxl: 44em
+
+$dialog-width-xl: 48em
+$dialog-height-xl: 40em
+
 $dialog-width-large: 48em
 $dialog-height-large: 32em
 
@@ -9,6 +15,14 @@ $dialog-height-small: 26em
     height: 100vh
     background: url("../img/line-diagonal.png") repeat center center
     position: relative
+
+    &--xxl
+        min-width: $dialog-width-xxl
+        min-height: $dialog-height-xxl
+
+    &--xl
+        min-width: $dialog-width-xl
+        min-height: $dialog-height-xl
 
     &--large
         min-width: $dialog-width-large
@@ -25,6 +39,10 @@ $dialog-height-small: 26em
     +position(absolute, 50% null null 50%)
     +transform(translate(-50%, -50%))
     padding: 1em 2em 2.5em
+
+    &--xl
+        width: $dialog-width-xl
+        height: $dialog-height-xl
 
     &--large
         width: $dialog-width-large

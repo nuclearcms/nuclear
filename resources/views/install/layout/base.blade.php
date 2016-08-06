@@ -15,13 +15,10 @@
 </head>
 <body>
 
-    <main class="dialog-container dialog-container--large">
-        <div class="dialog dialog--large">
-            @yield('body')
-        </div>
-    </main>
+    @yield('body')
 
     {!! Theme::js('js/app.js') !!}
+    {!! Theme::js('js/forms.js') !!}
 
 </body>
 </html>

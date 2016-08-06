@@ -27,7 +27,10 @@ if( ! argv.r) {
                 'components/Modernizr.min.js',
                 'components/jquery.min.js',
                 'common.js'
-            ], elixir.config.publicPath + '/js/app.js');
+            ], elixir.config.publicPath + '/js/app.js')
+            .scripts([
+                'forms.js'
+            ], elixir.config.publicPath + '/js/forms.js');
     });
 
 }
