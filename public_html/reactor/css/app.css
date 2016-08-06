@@ -194,9 +194,9 @@ label {
       color: #F1C40F; }
       .form-group__label--focus:before {
         border-bottom-color: #F1C40F; }
-    .form-group__label--danger {
+    .form-group__label--error {
       color: #E74C3C; }
-      .form-group__label--danger:before {
+      .form-group__label--error:before {
         border-bottom-color: #E74C3C; }
   .form-group input, .form-group textarea {
     border-bottom: 1px solid #95A5A6;
@@ -573,6 +573,9 @@ h1 {
 
 .text--right {
   text-align: right; }
+
+.text--danger {
+  color: #E74C3C; }
 
 .install {
   padding: 1em 0; }

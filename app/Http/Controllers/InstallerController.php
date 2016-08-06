@@ -5,6 +5,8 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
+use Nuclear\Users\User;
 use Reactor\Support\Install\InstallHelper;
 
 class InstallerController extends Controller {
@@ -62,18 +64,56 @@ class InstallerController extends Controller {
     public function postDatabase(Request $request, InstallHelper $helper)
     {
         foreach ([
-             'db_host'     => 'DB_HOST',
-             'db_port'     => 'DB_PORT',
-             'db_name'     => 'DB_DATABASE',
-             'db_username' => 'DB_USERNAME',
-             'db_password' => 'DB_PASSWORD'
+             'host'     => 'DB_HOST',
+             'port'     => 'DB_PORT',
+             'database' => 'DB_DATABASE',
+             'username' => 'DB_USERNAME',
+             'password' => 'DB_PASSWORD'
          ] as $key => $envKey)
         {
             $helper->setEnvVariable($envKey, $request->input($key));
+            config()->set('database.connections.' . env('DB_CONNECTION') . '.' . $key, $request->input($key));
         }
+
+        DB::reconnect(env('DB_CONNECTION'));
 
         Artisan::call('migrate');
         Artisan::call('db:seed');
+
+        return redirect()->route('install-user');
+    }
+
+    /**
+     * Shows the user setup screen
+     *
+     * @return view
+     */
+    public function getUser()
+    {
+        return view('user');
+    }
+
+    /**
+     * Creates the initial user after validating information
+     *
+     * @param Request $request
+     * @return redirect
+     */
+    public function postUser(Request $request)
+    {
+        $this->validate($request, [
+            'first_name' => 'required|max:50',
+            'last_name' => 'required|max:50',
+            'email' => 'required|email',
+            'password' => 'required|min:8|same:password_confirmation',
+            'password_confirmation' => 'required|min:8'
+        ]);
+
+        chronicle()->pauseRecording();
+        $user = User::create($request->all());
+        $user->assignRole('SUPERADMIN');
+
+        return redirect()->route('install-site');
     }
 
 }

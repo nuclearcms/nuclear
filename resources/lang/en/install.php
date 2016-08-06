@@ -8,13 +8,15 @@ return [
 
     'database' => 'Database',
     'set_database_configuration' => 'Enter database information to continue.',
-    'db_host' => 'Host',
-    'db_port' => 'Port',
-    'db_name' => 'Database',
-    'db_username' => 'Username',
-    'db_password' => 'Password',
+    'host' => 'Host',
+    'port' => 'Port',
+    'database' => 'Database',
+    'username' => 'Username',
+    'password' => 'Password',
 
     'user_information' => 'User Information',
+    'enter_user_information' => 'Enter your user information.',
+    'check_user_information' => 'You have entered missing or invalid information.',
 
     'site_information' => 'Site Information',
 

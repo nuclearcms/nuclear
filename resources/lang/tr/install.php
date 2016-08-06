@@ -4,17 +4,19 @@ return [
     'install_nuclear' => 'Nuclear Yükle',
     'welcome_to_nuclear' => 'Nuclear\'a hoş geldiniz!',
     'nuclear_will_be_configured' => 'Nuclear birkaç kolay adımda ihtiyaçlarınıza uyacak şekilde ayarlanacaktır.',
-    'choose_language_and_timezone' => 'Lütfen dil ve zaman dilimi seçiniz.',
+    'choose_language_and_timezone' => 'Lütfen dil ve zaman dilimi seçin.',
 
     'database' => 'Veritabanı',
     'set_database_configuration' => 'Devam etmek için veritabanı bilgilerini girin.',
-    'db_host' => 'Sunucu',
-    'db_port' => 'Port',
-    'db_name' => 'Veritabanı',
-    'db_username' => 'Kullanıcı adı',
-    'db_password' => 'Şifre',
+    'host' => 'Sunucu',
+    'port' => 'Port',
+    'database' => 'Veritabanı',
+    'username' => 'Kullanıcı adı',
+    'password' => 'Şifre',
 
     'user_information' => 'Kullanıcı Bilgileri',
+    'enter_user_information' => 'Kullanıcı bilgilerinizi girin.',
+    'check_user_information' => 'Eksik veya geçersiz bilgi girdiniz.',
 
     'site_information' => 'Site Bilgileri',
 

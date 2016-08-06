@@ -2449,16 +2449,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "2.0.2",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "5992caccc0d81db4a8bd576f2075473d7eea53b4"
+                "reference": "fac40302ed810e7f0c78eab35276fff5f3a8f977"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/5992caccc0d81db4a8bd576f2075473d7eea53b4",
-                "reference": "5992caccc0d81db4a8bd576f2075473d7eea53b4",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/fac40302ed810e7f0c78eab35276fff5f3a8f977",
+                "reference": "fac40302ed810e7f0c78eab35276fff5f3a8f977",
                 "shasum": ""
             },
             "require": {
@@ -2517,7 +2517,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-08-04 14:16:47"
+            "time": "2016-08-06 10:12:03"
         },
         {
             "name": "nuclear/synthesizer",
@@ -2580,16 +2580,16 @@
         },
         {
             "name": "nuclear/users",
-            "version": "0.9.1",
+            "version": "0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Users.git",
-                "reference": "4e0fd30ce6706412efe0337ee1de44d8d8acf53d"
+                "reference": "482f5c2f9f76e58335b34175ab03cc4e6d6835c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/4e0fd30ce6706412efe0337ee1de44d8d8acf53d",
-                "reference": "4e0fd30ce6706412efe0337ee1de44d8d8acf53d",
+                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/482f5c2f9f76e58335b34175ab03cc4e6d6835c1",
+                "reference": "482f5c2f9f76e58335b34175ab03cc4e6d6835c1",
                 "shasum": ""
             },
             "require": {
@@ -2634,7 +2634,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-06 09:54:06"
+            "time": "2016-08-06 10:47:44"
         },
         {
             "name": "paragonie/random_compat",

@@ -31,5 +31,15 @@ Route::group([
         'uses' => 'InstallerController@getUser'
     ]);
 
+    Route::post('user', [
+        'as' => 'install-user-post',
+        'uses' => 'InstallerController@postUser'
+    ]);
+
+    Route::get('site', [
+        'as' => 'install-site',
+        'uses' => 'InstallerController@getSite'
+    ]);
+
 });
 

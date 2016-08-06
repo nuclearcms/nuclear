@@ -16,11 +16,11 @@
                 <p class="text--sm">{{ trans('install.set_database_configuration') }}</p>
 
                 @foreach([
-                    'db_host' => '127.0.0.1',
-                    'db_port' => '3306',
-                    'db_name' => 'nuclear',
-                    'db_username' => 'homestead',
-                    'db_password' => 'secret'
+                    'host' => '127.0.0.1',
+                    'port' => '3306',
+                    'database' => 'nuclear',
+                    'username' => 'homestead',
+                    'password' => 'secret'
                 ] as $field => $default)
 
                 <div class="form-group form-group--inverted">
