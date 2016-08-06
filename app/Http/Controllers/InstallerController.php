@@ -18,6 +18,11 @@ class InstallerController extends Controller {
     {
         $missing = $helper->checkRequirements();
 
+        if ( ! file_exists(base_path('.env')))
+        {
+            copy(base_path('.env.example'), base_path('.env'));
+        }
+
         return view('welcome', compact('missing'));
     }
 
@@ -30,11 +35,6 @@ class InstallerController extends Controller {
      */
     public function postWelcome(Request $request, InstallHelper $helper)
     {
-        if ( ! file_exists(base_path('.env')))
-        {
-            copy(base_path('.env.example', '.env'));
-        }
-
         $helper->setEnvVariable('REACTOR_LOCALE', $request->get('language'));
         $helper->setEnvVariable('APP_TIMEZONE', $request->get('timezone'));
 
@@ -61,12 +61,12 @@ class InstallerController extends Controller {
     public function postDatabase(Request $request, InstallHelper $helper)
     {
         foreach ([
-                     'db_host'     => 'DB_HOST',
-                     'db_port'     => 'DB_PORT',
-                     'db_name'     => 'DB_DATABASE',
-                     'db_username' => 'DB_USERNAME',
-                     'db_password' => 'DB_PASSWORD'
-                 ] as $key => $envKey)
+             'db_host'     => 'DB_HOST',
+             'db_port'     => 'DB_PORT',
+             'db_name'     => 'DB_DATABASE',
+             'db_username' => 'DB_USERNAME',
+             'db_password' => 'DB_PASSWORD'
+         ] as $key => $envKey)
         {
             $helper->setEnvVariable($envKey, $request->input($key));
         }
