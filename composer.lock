@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "22a03d00f01217c49d5d5b544e3047dd",
+    "hash": "3a15d47d97b8caaf05a383e63f35eac9",
     "content-hash": "abfae50c6de8b26345fd58479baae232",
     "packages": [
         {
@@ -2382,16 +2382,16 @@
         },
         {
             "name": "nuclear/documents",
-            "version": "0.9.5",
+            "version": "0.9.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Documents.git",
-                "reference": "b54c4588a2d35e0d930c0e45c84ed2c43d7faa3e"
+                "reference": "60595684ecf2c252a8bd9b8013279a12d7166cd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/b54c4588a2d35e0d930c0e45c84ed2c43d7faa3e",
-                "reference": "b54c4588a2d35e0d930c0e45c84ed2c43d7faa3e",
+                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/60595684ecf2c252a8bd9b8013279a12d7166cd0",
+                "reference": "60595684ecf2c252a8bd9b8013279a12d7166cd0",
                 "shasum": ""
             },
             "require": {
@@ -2445,7 +2445,7 @@
                 "nuclearcms",
                 "upload"
             ],
-            "time": "2016-08-01 10:39:59"
+            "time": "2016-08-06 09:45:35"
         },
         {
             "name": "nuclear/hierarchy",
@@ -2580,16 +2580,16 @@
         },
         {
             "name": "nuclear/users",
-            "version": "0.9.0",
+            "version": "0.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Users.git",
-                "reference": "361d203d178950945752b5d81e839d7067999e27"
+                "reference": "4e0fd30ce6706412efe0337ee1de44d8d8acf53d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/361d203d178950945752b5d81e839d7067999e27",
-                "reference": "361d203d178950945752b5d81e839d7067999e27",
+                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/4e0fd30ce6706412efe0337ee1de44d8d8acf53d",
+                "reference": "4e0fd30ce6706412efe0337ee1de44d8d8acf53d",
                 "shasum": ""
             },
             "require": {
@@ -2634,7 +2634,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-01 20:49:39"
+            "time": "2016-08-06 09:54:06"
         },
         {
             "name": "paragonie/random_compat",

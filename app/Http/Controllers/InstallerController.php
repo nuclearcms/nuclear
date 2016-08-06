@@ -73,6 +73,7 @@ class InstallerController extends Controller {
         }
 
         Artisan::call('migrate');
+        Artisan::call('db:seed');
     }
 
 }

@@ -21,7 +21,6 @@ class HierarchyCreateTagTranslationsTable extends Migration {
             $table->string('title');
             $table->string('tag_name')->unique();
 
-            $table->unique('tag_name');
             $table->unique(['tag_id', 'locale']);
             $table->foreign('tag_id')
                 ->references('id')

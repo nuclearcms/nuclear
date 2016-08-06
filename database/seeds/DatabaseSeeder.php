@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,13 +14,10 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        chronicle()->pauseRecording();
 
         $this->call(RolesTableSeeder::class);
         $this->call(PermissionsTableSeeder::class);
-
-        // We truncate the activities table so that
-        // there won't be any irrelevant activity feed
-        DB::table('activities')->truncate();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         Model::reguard();
