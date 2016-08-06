@@ -25,7 +25,7 @@
                         <label for="language" class="form-group__label">{{ trans('validation.attributes.language') }}</label>
 
                         <div class="form-group__select">
-                            {!! Form::select('language', Reactor\Install\InstallHelper::$locales, env('REACTOR_LOCALE', 'en')) !!}
+                            {!! Form::select('language', Reactor\Support\Install\InstallHelper::$locales, env('REACTOR_LOCALE', 'en')) !!}
                             <i class="icon-arrow-down"></i>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <label for="timezone" class="form-group__label">{{ trans('validation.attributes.timezone') }}</label>
 
                         <div class="form-group__select">
-                            {!! Form::select('timezone', Reactor\Install\InstallHelper::$timezones, env('APP_TIMEZONE', 'Europe/Istanbul')) !!}
+                            {!! Form::select('timezone', Reactor\Support\Install\InstallHelper::$timezones, env('APP_TIMEZONE', 'Europe/Istanbul')) !!}
                             <i class="icon-arrow-down"></i>
                         </div>
                     </div>

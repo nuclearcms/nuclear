@@ -4,7 +4,8 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Reactor\Install\InstallHelper;
+use Illuminate\Support\Facades\Artisan;
+use Reactor\Support\Install\InstallHelper;
 
 class InstallerController extends Controller {
 
@@ -70,6 +71,8 @@ class InstallerController extends Controller {
         {
             $helper->setEnvVariable($envKey, $request->input($key));
         }
+
+        Artisan::call('migrate');
     }
 
 }

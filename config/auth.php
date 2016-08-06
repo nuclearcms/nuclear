@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Reactor\User::class,
+            'model' => Nuclear\Users\User::class,
         ],
 
         // 'users' => [

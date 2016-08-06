@@ -11,6 +11,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        Model::unguard();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        $this->call(RolesTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
+
+        // We truncate the activities table so that
+        // there won't be any irrelevant activity feed
+        DB::table('activities')->truncate();
+
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Model::reguard();
     }
 }

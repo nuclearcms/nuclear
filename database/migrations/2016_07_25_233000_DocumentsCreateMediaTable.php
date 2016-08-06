@@ -20,7 +20,7 @@ class DocumentsCreateMediaTable extends Migration {
             $table->string('extension');
             $table->string('mimetype');
             $table->bigInteger('size')->unsigned();
-            $table->text('metadata')->default('{}');
+            $table->text('metadata');
 
             $table->string('type')->index()->nullable();
             $table->integer('user_id')->unsigned();

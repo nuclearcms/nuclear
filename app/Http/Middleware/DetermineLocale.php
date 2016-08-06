@@ -4,7 +4,7 @@ namespace Reactor\Http\Middleware;
 
 
 use Closure;
-use Reactor\Install\InstallHelper;
+use Reactor\Support\Install\InstallHelper;
 
 class DetermineLocale {
 

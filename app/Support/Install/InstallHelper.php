@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Reactor\Install;
+namespace Reactor\Support\Install;
 
 
 class InstallHelper {
