@@ -6,6 +6,12 @@ Route::group([
 ], function ()
 {
 
-    require 'reactor/auth.php';
+    require_once 'reactor/auth.php';
+
+    // General reactor group
+    Route::group(['middleware' => ['auth', 'guard:ACCESS_REACTOR']], function ()
+    {
+        require_once 'reactor/dashboard.php';
+    });
 
 });

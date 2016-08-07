@@ -53,5 +53,6 @@ class Kernel extends HttpKernel
         'guest' => \Reactor\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'set-theme' => \igaster\laravelTheme\Middleware\setTheme::class,
+        'secure' => \Reactor\Http\Middleware\ForceSecure::class,
     ];
 }
