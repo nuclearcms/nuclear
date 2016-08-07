@@ -1,5 +1,5 @@
 <?php
 
-Route::get('/', [
+Route::get('dashboard', [
     'uses' => 'DashboardController@index',
     'as'   => 'reactor.dashboard']);

@@ -105,9 +105,8 @@ class InstallerController extends Controller {
         $this->validate($request, [
             'first_name' => 'required|max:50',
             'last_name' => 'required|max:50',
-            'email' => 'required|email',
-            'password' => 'required|min:8|same:password_confirmation',
-            'password_confirmation' => 'required|min:8'
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:8|confirmed',
         ]);
 
         chronicle()->pauseRecording();
