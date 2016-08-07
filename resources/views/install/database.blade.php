@@ -23,16 +23,16 @@
                     'password' => 'secret'
                 ] as $field => $default)
 
-                <div class="form-group form-group--inverted">
-                    <label for="{{ $field }}" class="form-group__label">{{ trans('install.' . $field) }}</label>
+                {!! field_wrapper_open([], $field, $errors, 'form-group--inverted') !!}
+                    {!! field_label(true, ['label' => trans('install.' . $field)], $field, $errors) !!}
                     {!! Form::text($field, $default) !!}
                 </div>
 
                 @endforeach
 
                 <div class="modal-buttons">
-                    <a href="{{ route('install-welcome') }}" class="button"><i class="button__icon button__icon--left icon-arrow-left"></i> {{ uppercase(trans('back')) }}</a>
-                    <button type="submit" class="button button--emphasis">{{ uppercase(trans('install.user_information')) }} <i class="button__icon button__icon--right icon-arrow-right"></i></button>
+                    {!! action_button(route('install-welcome'), 'icon-arrow-left', trans('back'), '', 'l') !!}
+                    {!! submit_button('icon-arrow-right', trans('install.user_information')) !!}
                 </div>
             </form>
 

@@ -94,6 +94,10 @@ strong {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 1em 2em 2.5em; }
+  .dialog__logo {
+    height: 2em;
+    width: 2em;
+    margin-bottom: 1em; }
   .dialog--xl {
     width: 48em;
     height: 40em; }
@@ -102,7 +106,8 @@ strong {
     height: 32em; }
   .dialog--small {
     width: 20em;
-    height: 26em; }
+    height: 26em;
+    padding: 1em 0 2.5em; }
 
 .button {
   display: inline-block;
@@ -116,7 +121,6 @@ strong {
   background-color: transparent;
   cursor: pointer;
   transition: opacity 250ms;
-  padding-top: 0.125em;
   text-decoration: none; }
   .button--emphasis {
     color: #FFFFFF;
@@ -522,6 +526,8 @@ label {
   left: 0;
   height: 2.5em;
   width: 100%; }
+  .modal-buttons--separated {
+    border-top: 1px solid #333941; }
 
 .progress {
   padding: 0.75em 1em;
@@ -575,12 +581,38 @@ h1 {
 .text--danger {
   color: #E74C3C; }
 
+.text--emphasis {
+  color: #F1C40F; }
+
+.auth {
+  padding: 1em 0; }
+
+.auth-message {
+  min-height: 3em; }
+
+.form-group-auth {
+  margin: 0 0 0.25em;
+  background-color: #333941;
+  position: relative; }
+  .form-group-auth i {
+    color: #95A5A6;
+    position: absolute;
+    top: 1em;
+    right: 1.75em;
+    display: inline-block;
+    height: 1em;
+    width: 1em; }
+  .form-group-auth input {
+    padding: 0 3em 0 1.75em;
+    line-height: 3em;
+    height: 3em;
+    color: #FFFFFF; }
+
+.auth-buttons {
+  padding: 1.375em 0; }
+
 .install {
   padding: 1em 0; }
-  .install__logo {
-    height: 2em;
-    width: 2em;
-    margin-bottom: 1em; }
 
 .install-form {
   width: 20em;

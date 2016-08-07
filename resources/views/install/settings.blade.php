@@ -19,19 +19,19 @@
                 <form action="{{ route('install-settings-post') }}" method="post" class="install-form">
                     {!! csrf_field() !!}
 
-                    <div class="form-group form-group--inverted{{ $errors->has('base_url') ? ' form-group--error' : '' }}">
-                        <label for="base_url" class="form-group__label{{ $errors->has('base_url') ? ' form-group__label--error' : '' }}">{{ trans('install.site_base_url') }}</label>
+                    {!! field_wrapper_open([], 'base_url', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, ['label' => trans('install.site_base_url')], 'base_url', $errors) !!}
                         {!! Form::text('base_url', 'http://nuclear.app') !!}
                     </div>
 
-                    <div class="form-group form-group--inverted{{ $errors->has('reactor_prefix') ? ' form-group--error' : '' }}">
-                        <label for="reactor_prefix" class="form-group__label{{ $errors->has('reactor_prefix') ? ' form-group__label--error' : '' }}">{{ trans('install.reactor_prefix') }}</label>
+                    {!! field_wrapper_open([], 'reactor_prefix', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, ['label' => trans('install.reactor_prefix')], 'reactor_prefix', $errors) !!}
                         {!! Form::text('reactor_prefix', 'reactor') !!}
                     </div>
 
                     <div class="modal-buttons">
-                        <a href="{{ route('install-user') }}" class="button"><i class="button__icon button__icon--left icon-arrow-left"></i> {{ uppercase(trans('back')) }}</a>
-                        <button type="submit" class="button button--emphasis">{{ uppercase(trans('install.site_information')) }} <i class="button__icon button__icon--right icon-arrow-right"></i></button>
+                        {!! action_button(route('install-user'), 'icon-arrow-left', trans('back'), '', 'l') !!}
+                        {!! submit_button('icon-arrow-right', trans('install.site_information')) !!}
                     </div>
                 </form>
 

@@ -10,7 +10,7 @@
         <div class="install text--center">
             <h1>@yield('pageTitle')</h1>
 
-            {!! Theme::img('img/nuclear-logo.svg', 'Nuclear Logo', 'install__logo') !!}
+            {!! Theme::img('img/nuclear-logo.svg', 'Nuclear Logo', 'dialog__logo') !!}
 
             @if(empty($missing))
                 <p>{{ trans('install.welcome_to_nuclear') }}</p>
@@ -21,8 +21,8 @@
 
                     <p class="text--sm">{{ trans('install.choose_language_and_timezone') }}</p>
 
-                    <div class="form-group form-group--inverted">
-                        <label for="language" class="form-group__label">{{ trans('validation.attributes.language') }}</label>
+                    {!! field_wrapper_open([], 'language', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, [], 'language', $errors) !!}
 
                         <div class="form-group__select">
                             {!! Form::select('language', Reactor\Support\Install\InstallHelper::$locales, env('REACTOR_LOCALE', 'en')) !!}
@@ -30,8 +30,8 @@
                         </div>
                     </div>
 
-                    <div class="form-group form-group--inverted">
-                        <label for="timezone" class="form-group__label">{{ trans('validation.attributes.timezone') }}</label>
+                    {!! field_wrapper_open([], 'language', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, [], 'timezone', $errors) !!}
 
                         <div class="form-group__select">
                             {!! Form::select('timezone', Reactor\Support\Install\InstallHelper::$timezones, env('APP_TIMEZONE', 'Europe/Istanbul')) !!}
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="modal-buttons">
-                        <button type="submit" class="button button--emphasis">{{ uppercase(trans('install.database')) }} <i class="button__icon button__icon--right icon-arrow-right"></i></button>
+                        {!! submit_button('icon-arrow-right', trans('install.database')) !!}
                     </div>
                 </form>
             @else

@@ -10,13 +10,12 @@
         <div class="install text--center">
             <h1>@yield('pageTitle')</h1>
 
-            {!! Theme::img('img/nuclear-logo.svg', 'Nuclear Logo', 'install__logo') !!}
+            {!! Theme::img('img/nuclear-logo.svg', 'Nuclear Logo', 'dialog__logo') !!}
 
             <p>{{ trans('install.install_success') }}</p>
             <p class="text--sm">{{ trans('install.enjoy_nuclear') }}</p>
             <br><br><br><br><br>
-            <a href="{{ route('reactor.auth.login') }}" class="button button--emphasis">{{ uppercase(trans('install.go_to_login')) }} <i class="button__icon button__icon--right icon-login"></i></a>
-
+            {!! action_button(route('reactor.auth.login'), 'icon-login', trans('install.go_to_login')) !!}
         </div>
     </div>
 </main>

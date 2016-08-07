@@ -19,29 +19,29 @@
                 <form action="{{ route('install-site-post') }}" method="post" class="install-form">
                     {!! csrf_field() !!}
 
-                    <div class="form-group form-group--inverted{{ $errors->has('meta_title') ? ' form-group--error' : '' }}">
-                        <label for="meta_title" class="form-group__label{{ $errors->has('meta_title') ? ' form-group__label--error' : '' }}">{{ trans('install.site_title') }}</label>
+                    {!! field_wrapper_open([], 'meta_title', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, ['label' => trans('install.site_title')], 'meta_title', $errors) !!}
                         {!! Form::text('meta_title') !!}
                     </div>
 
-                    <div class="form-group form-group--inverted{{ $errors->has('meta_keywords') ? ' form-group--error' : '' }}">
-                        <label for="meta_keywords" class="form-group__label{{ $errors->has('meta_keywords') ? ' form-group__label--error' : '' }}">{{ trans('install.site_keywords') }}</label>
+                    {!! field_wrapper_open([], 'meta_keywords', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, ['label' => trans('install.site_keywords')], 'meta_keywords', $errors) !!}
                         {!! Form::text('meta_keywords') !!}
                     </div>
 
-                    <div class="form-group form-group--inverted{{ $errors->has('meta_description') ? ' form-group--error' : '' }}">
-                        <label for="meta_description" class="form-group__label{{ $errors->has('meta_description') ? ' form-group__label--error' : '' }}">{{ trans('install.site_description') }}</label>
+                    {!! field_wrapper_open([], 'meta_description', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, ['label' => trans('install.site_description')], 'meta_description', $errors) !!}
                         {!! Form::textarea('meta_description') !!}
                     </div>
 
-                    <div class="form-group form-group--inverted{{ $errors->has('meta_author') ? ' form-group--error' : '' }}">
-                        <label for="meta_author" class="form-group__label{{ $errors->has('meta_author') ? ' form-group__label--error' : '' }}">{{ trans('install.site_author') }}</label>
+                    {!! field_wrapper_open([], 'meta_author', $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, ['label' => trans('install.site_author')], 'meta_author', $errors) !!}
                         {!! Form::text('meta_author') !!}
                     </div>
 
                     <div class="modal-buttons">
-                        <a href="{{ route('install-user') }}" class="button"><i class="button__icon button__icon--left icon-arrow-left"></i> {{ uppercase(trans('back')) }}</a>
-                        <button type="submit" class="button button--emphasis">{{ uppercase(trans('install.complete')) }} <i class="button__icon button__icon--right icon-arrow-right"></i></button>
+                        {!! action_button(route('install-settings'), 'icon-arrow-left', trans('back'), '', 'l') !!}
+                        {!! submit_button('icon-arrow-right', trans('install.complete')) !!}
                     </div>
                 </form>
 

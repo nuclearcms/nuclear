@@ -168,6 +168,7 @@ return [
         Reactor\Providers\AuthServiceProvider::class,
         Reactor\Providers\EventServiceProvider::class,
         Reactor\Providers\RouteServiceProvider::class,
+        Reactor\Providers\HtmlBuildersServiceProvider::class,
 
         /*
          * Hierarchy Service Providers...

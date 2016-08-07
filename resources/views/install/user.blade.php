@@ -25,26 +25,26 @@
                     'email'
                 ] as $field)
 
-                    <div class="form-group form-group--inverted{{ $errors->has($field) ? ' form-group--error' : '' }}">
-                        <label for="{{ $field }}" class="form-group__label{{ $errors->has($field) ? ' form-group__label--error' : '' }}">{{ trans('validation.attributes.' . $field) }}</label>
+                    {!! field_wrapper_open([], $field, $errors, 'form-group--inverted') !!}
+                        {!! field_label(true, [], $field, $errors) !!}
                         {!! Form::text($field) !!}
                     </div>
 
                 @endforeach
 
-                <div class="form-group form-group--inverted{{ $errors->has('password') ? ' form-group--error' : '' }}">
-                    <label for="password" class="form-group__label{{ $errors->has('password') ? ' form-group__label--error' : '' }}">{{ trans('validation.attributes.password') }}</label>
+                {!! field_wrapper_open([], 'password', $errors, 'form-group--inverted') !!}
+                    {!! field_label(true, [], 'password', $errors) !!}
                     {!! Form::password('password') !!}
                 </div>
 
-                <div class="form-group form-group--inverted{{ $errors->has('password_confirmation') ? ' form-group--error' : '' }}">
-                    <label for="password_confirmation" class="form-group__label{{ $errors->has('password_confirmation') ? ' form-group__label--error' : '' }}">{{ trans('validation.attributes.password_confirmation') }}</label>
+                {!! field_wrapper_open([], 'password_confirmation', $errors, 'form-group--inverted') !!}
+                    {!! field_label(true, [], 'password_confirmation', $errors) !!}
                     {!! Form::password('password_confirmation') !!}
                 </div>
 
                 <div class="modal-buttons">
-                    <a href="{{ route('install-database') }}" class="button"><i class="button__icon button__icon--left icon-arrow-left"></i> {{ uppercase(trans('back')) }}</a>
-                    <button type="submit" class="button button--emphasis">{{ uppercase(trans('install.site_settings')) }} <i class="button__icon button__icon--right icon-arrow-right"></i></button>
+                    {!! action_button(route('install-database'), 'icon-arrow-left', trans('back'), '', 'l') !!}
+                    {!! submit_button('icon-arrow-right', trans('install.site_settings')) !!}
                 </div>
             </form>
 
