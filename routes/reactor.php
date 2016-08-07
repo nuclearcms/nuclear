@@ -6,6 +6,6 @@ Route::group([
 ], function ()
 {
 
-    // INCLUDE ALL ROUTES IN THE REACTOR FOLDER
+    require 'reactor/auth.php';
 
 });

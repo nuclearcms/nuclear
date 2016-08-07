@@ -75,9 +75,6 @@ strong {
   height: 100vh;
   background: url("../img/line-diagonal.png") repeat center center;
   position: relative; }
-  .dialog-container--xxl {
-    min-width: 48em;
-    min-height: 44em; }
   .dialog-container--xl {
     min-width: 48em;
     min-height: 40em; }
@@ -205,7 +202,8 @@ label {
       border-bottom: 1px solid #F1C40F; }
   .form-group textarea {
     max-width: 28em;
-    min-height: 8em; }
+    min-height: 6em;
+    resize: vertical; }
   .form-group__select {
     position: relative;
     border-bottom: 1px solid #95A5A6; }

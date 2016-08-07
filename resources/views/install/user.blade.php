@@ -44,7 +44,7 @@
 
                 <div class="modal-buttons">
                     <a href="{{ route('install-database') }}" class="button"><i class="button__icon button__icon--left icon-arrow-left"></i> {{ uppercase(trans('back')) }}</a>
-                    <button type="submit" class="button button--emphasis">{{ uppercase(trans('install.site_information')) }} <i class="button__icon button__icon--right icon-arrow-right"></i></button>
+                    <button type="submit" class="button button--emphasis">{{ uppercase(trans('install.site_settings')) }} <i class="button__icon button__icon--right icon-arrow-right"></i></button>
                 </div>
             </form>
 

@@ -149,6 +149,25 @@ class InstallHelper {
     }
 
     /**
+     * Removes an env variable
+     *
+     * @param string $key
+     */
+    public function removeEnvVariable($key)
+    {
+        $path = base_path('.env');
+
+        if (file_exists($path))
+        {
+            file_put_contents($path, str_replace(
+                $key . '=' . env($key),
+                '',
+                file_get_contents($path)
+            ));
+        }
+    }
+
+    /**
      * Checks if all server requirements are matched
      * returns a list of missing requirements
      *

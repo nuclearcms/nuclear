@@ -26,6 +26,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        // HERE WE SHOULD ONLY REGISTER NUCLEAR POLICIES IF INSTALLED
     }
 }

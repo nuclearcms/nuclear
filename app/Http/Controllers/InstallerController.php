@@ -6,6 +6,7 @@ namespace Reactor\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Nuclear\Hierarchy\Node;
 use Nuclear\Users\User;
 use Reactor\Support\Install\InstallHelper;
 
@@ -45,7 +46,7 @@ class InstallerController extends Controller {
     }
 
     /**
-     * Shows the database setup screen
+     * Shows the database setup view
      *
      * @return view
      */
@@ -84,7 +85,7 @@ class InstallerController extends Controller {
     }
 
     /**
-     * Shows the user setup screen
+     * Shows the user setup view
      *
      * @return view
      */
@@ -113,7 +114,89 @@ class InstallerController extends Controller {
         $user = User::create($request->all());
         $user->assignRole('SUPERADMIN');
 
+        return redirect()->route('install-settings');
+    }
+
+    /**
+     * Shows the site setup view
+     *
+     * @return view
+     */
+    public function getSettings()
+    {
+        return view('settings');
+    }
+
+    /**
+     * Processes site settings
+     *
+     * @param Request $request
+     * @param InstallHelper $helper
+     * @return redirect
+     */
+    public function postSettings(Request $request, InstallHelper $helper)
+    {
+        $this->validate($request, [
+            'base_url' => 'required|url',
+            'reactor_prefix' => 'required|alpha_dash',
+        ]);
+
+        $helper->setEnvVariable('REACTOR_PREFIX', $request->get('reactor_prefix'));
+        $helper->setEnvVariable('APP_URL', $request->get('base_url'));
+
         return redirect()->route('install-site');
+    }
+
+    /**
+     * Shows the site information setup view
+     *
+     * @return view
+     */
+    public function getSite()
+    {
+        return view('site');
+    }
+
+    /**
+     * Populates site information
+     *
+     * @param Request $request
+     * @param InstallHelper $helper
+     * @return redirect
+     */
+    public function postSite(Request $request, InstallHelper $helper)
+    {
+        $this->validate($request, [
+            'meta_title' => 'required'
+        ]);
+
+        chronicle()->pauseRecording();
+
+        $user = User::first();
+
+        $home = Node::published()
+            ->whereHome(1)
+            ->firstOrFail();
+
+        $home->associateOwner($user);
+
+        $home->fill($request->only(['meta_title', 'meta_keywords', 'meta_description', 'meta_author']));
+        $home->save();
+
+        Artisan::call('key:generate');
+        $helper->removeEnvVariable('APP_INSTALLED');
+
+        return redirect()->route('install-complete');
+    }
+
+    /**
+     * Shows the completed view
+     *
+     * @return view
+     */
+    public function getComplete()
+    {
+        return view('complete');
     }
 
 }

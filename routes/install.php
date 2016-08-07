@@ -36,9 +36,24 @@ Route::group([
         'uses' => 'InstallerController@postUser'
     ]);
 
+    Route::get('settings', [
+        'as' => 'install-settings',
+        'uses' => 'InstallerController@getSettings'
+    ]);
+
+    Route::post('settings', [
+        'as' => 'install-settings-post',
+        'uses' => 'InstallerController@postSettings'
+    ]);
+
     Route::get('site', [
         'as' => 'install-site',
         'uses' => 'InstallerController@getSite'
+    ]);
+
+    Route::post('site', [
+        'as' => 'install-site-post',
+        'uses' => 'InstallerController@postSite'
     ]);
 
 });
