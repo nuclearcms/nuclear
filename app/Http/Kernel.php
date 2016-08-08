@@ -51,8 +51,8 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \Reactor\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'set-theme' => \igaster\laravelTheme\Middleware\setTheme::class,
         'secure' => \Reactor\Http\Middleware\ForceSecure::class,
+        'set-theme' => \igaster\laravelTheme\Middleware\setTheme::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

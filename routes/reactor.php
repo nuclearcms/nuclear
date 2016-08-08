@@ -6,10 +6,11 @@ Route::group([
 ], function ()
 {
 
+    // Authentication and password resets
     require_once 'reactor/auth.php';
 
-    // General reactor group
-    Route::group(['middleware' => ['auth', 'guard:ACCESS_REACTOR']], function ()
+    // Authenticated reactor
+    Route::group(['middleware' => ['auth', 'can:ACCESS_REACTOR']], function ()
     {
         require_once 'reactor/dashboard.php';
     });

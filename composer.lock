@@ -1350,16 +1350,16 @@
         },
         {
             "name": "kenarkose/files",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Files.git",
-                "reference": "310d27d71123c9780dfe4e1da21a07ab48ea33f6"
+                "reference": "3a4ed7565e3221fb6f56611d142dda45a65e6dff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Files/zipball/310d27d71123c9780dfe4e1da21a07ab48ea33f6",
-                "reference": "310d27d71123c9780dfe4e1da21a07ab48ea33f6",
+                "url": "https://api.github.com/repos/kenarkose/Files/zipball/3a4ed7565e3221fb6f56611d142dda45a65e6dff",
+                "reference": "3a4ed7565e3221fb6f56611d142dda45a65e6dff",
                 "shasum": ""
             },
             "require": {
@@ -1403,7 +1403,7 @@
                 "management",
                 "media"
             ],
-            "time": "2016-07-25 18:45:32"
+            "time": "2016-08-08 07:19:36"
         },
         {
             "name": "kenarkose/ownable",
@@ -2580,16 +2580,16 @@
         },
         {
             "name": "nuclear/users",
-            "version": "0.9.2",
+            "version": "0.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Users.git",
-                "reference": "482f5c2f9f76e58335b34175ab03cc4e6d6835c1"
+                "reference": "ca8edb721b2f31e29cc2d452351d4ac031639cd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/482f5c2f9f76e58335b34175ab03cc4e6d6835c1",
-                "reference": "482f5c2f9f76e58335b34175ab03cc4e6d6835c1",
+                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/ca8edb721b2f31e29cc2d452351d4ac031639cd3",
+                "reference": "ca8edb721b2f31e29cc2d452351d4ac031639cd3",
                 "shasum": ""
             },
             "require": {
@@ -2634,7 +2634,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-06 10:47:44"
+            "time": "2016-08-08 09:52:28"
         },
         {
             "name": "paragonie/random_compat",
