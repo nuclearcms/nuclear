@@ -5,7 +5,7 @@ var argv = require('yargs').argv;
  * Config for the site theme
  */
 elixir.config.assetsPath = 'resources/assets/site';
-elixir.config.publicPath = 'public_html/site';
+elixir.config.publicPath = 'public_html/assets/site';
 
 if( ! argv.r) {
     // Site elixir
@@ -18,7 +18,7 @@ if( ! argv.r) {
 } else {
     // Reactor elixir
     elixir.config.assetsPath = 'resources/assets/reactor';
-    elixir.config.publicPath = 'public_html/reactor';
+    elixir.config.publicPath = 'public_html/assets/reactor';
 
     elixir(function (mix) {
         mix

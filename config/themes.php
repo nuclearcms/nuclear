@@ -50,18 +50,18 @@ return [
     'themes' => [
         'site'    => [
             'extends'    => null,
-            'views-path' => 'default',
-            'asset-path' => 'default',
+            'views-path' => 'site',
+            'asset-path' => 'assets/site',
         ],
         'reactor' => [
             'extends'    => null,
             'views-path' => 'reactor',
-            'asset-path' => 'reactor',
+            'asset-path' => 'assets/reactor',
         ],
         'install' => [
             'extends'    => null,
             'views-path' => 'install',
-            'asset-path' => 'reactor'
+            'asset-path' => 'assets/reactor'
         ]
     ],
 

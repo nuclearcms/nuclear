@@ -13,7 +13,7 @@ Route::get('auth/logout', [
 
 // Password Reset
 Route::get('password/email', [
-    'uses' => 'Auth\PasswordController@showEmailForm',
+    'uses' => 'Auth\PasswordController@showLinkRequestForm',
     'as'   => 'reactor.password.email']);
 Route::post('password/email', [
     'uses' => 'Auth\PasswordController@sendResetLinkEmail',

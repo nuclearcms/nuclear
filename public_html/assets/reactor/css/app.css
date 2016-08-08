@@ -83,7 +83,7 @@ strong {
     min-height: 32em; }
   .dialog-container--small {
     min-width: 20em;
-    min-height: 26em; }
+    min-height: 29em; }
 
 .dialog {
   background-color: #272E36;
@@ -106,7 +106,7 @@ strong {
     height: 32em; }
   .dialog--small {
     width: 20em;
-    height: 26em;
+    height: 29em;
     padding: 1em 0 2.5em; }
 
 .button {
@@ -625,6 +625,8 @@ h1 {
   padding: 1.375em 0; }
   .auth-buttons__button {
     width: 50%; }
+    .auth-buttons__button--full {
+      width: 100%; }
 
 .install {
   padding: 1em 0; }
