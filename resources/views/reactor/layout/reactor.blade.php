@@ -1,0 +1,1 @@
+@extends('layout.base_' . (request()->ajax() ? 'content' : 'reactor'))

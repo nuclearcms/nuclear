@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="modal-buttons">
-                        {!! action_button(route('install-user'), 'icon-arrow-left', trans('back'), '', 'l') !!}
+                        {!! action_button(route('install-user'), 'icon-arrow-left', trans('general.back'), '', 'l') !!}
                         {!! submit_button('icon-arrow-right', trans('install.site_information')) !!}
                     </div>
                 </form>

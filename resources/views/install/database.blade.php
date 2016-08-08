@@ -31,7 +31,7 @@
                 @endforeach
 
                 <div class="modal-buttons">
-                    {!! action_button(route('install-welcome'), 'icon-arrow-left', trans('back'), '', 'l') !!}
+                    {!! action_button(route('install-welcome'), 'icon-arrow-left', trans('general.back'), '', 'l') !!}
                     {!! submit_button('icon-arrow-right', trans('install.user_information')) !!}
                 </div>
             </form>

@@ -5,4 +5,7 @@ return [
     'thank_you' => 'Teşekkürler',
 
     'back' => 'Geri',
+
+    'dashboard' => 'Dashboard',
+    'home' => 'Anasayfa',
 ];
