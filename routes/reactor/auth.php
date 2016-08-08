@@ -2,26 +2,26 @@
 
 // Authentication
 Route::get('auth/login', [
-    'uses' => 'Auth\AuthController@getLogin',
+    'uses' => 'Auth\AuthController@showLoginForm',
     'as'   => 'reactor.auth.login']);
 Route::post('auth/login', [
-    'uses' => 'Auth\AuthController@postLogin',
+    'uses' => 'Auth\AuthController@login',
     'as'   => 'reactor.auth.login.post']);
 Route::get('auth/logout', [
-    'uses' => 'Auth\AuthController@getLogout',
+    'uses' => 'Auth\AuthController@logout',
     'as'   => 'reactor.auth.logout']);
 
 // Password Reset
 Route::get('password/email', [
-    'uses' => 'Auth\PasswordController@getEmail',
+    'uses' => 'Auth\PasswordController@showEmailForm',
     'as'   => 'reactor.password.email']);
 Route::post('password/email', [
-    'uses' => 'Auth\PasswordController@postEmail',
+    'uses' => 'Auth\PasswordController@sendResetLinkEmail',
     'as'   => 'reactor.password.email.post']);
 
 Route::get('password/reset/{token}', [
-    'uses' => 'Auth\PasswordController@getReset',
+    'uses' => 'Auth\PasswordController@showResetForm',
     'as'   => 'reactor.password.reset']);
 Route::post('password/reset', [
-    'uses' => 'Auth\PasswordController@postReset',
+    'uses' => 'Auth\PasswordController@reset',
     'as'   => 'reactor.password.reset.post']);

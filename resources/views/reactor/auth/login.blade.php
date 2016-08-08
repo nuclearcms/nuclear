@@ -17,7 +17,13 @@
         </div>
 
         <div class="auth-buttons">
-            {!! submit_button('icon-login', trans('auth.login')) !!}
+            <label class="auth-buttons__button button form-group__checkbox">
+                <input type="checkbox" name="remember">
+                <span>
+                    {{ uppercase(trans('auth.remember')) }}
+                    <i class="icon-cancel button__icon button__icon--right"></i><i class="icon-confirm button__icon button__icon--right"></i>
+                </span>
+            </label>{!! submit_button('icon-login', trans('auth.login'), 'button--emphasis auth-buttons__button') !!}
         </div>
 
         <div class="modal-buttons modal-buttons--separated text--center">

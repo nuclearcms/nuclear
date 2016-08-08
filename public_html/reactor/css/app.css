@@ -232,6 +232,19 @@ label {
       padding-right: 1.5em;
       font-size: 1em;
       color: #5F696A; }
+  .form-group__checkbox span {
+    color: #E74C3C;
+    transition: color 250ms; }
+    .form-group__checkbox span .icon-confirm {
+      display: none; }
+  .form-group__checkbox input {
+    display: none; }
+    .form-group__checkbox input:checked + span {
+      color: #F1C40F; }
+      .form-group__checkbox input:checked + span .icon-confirm {
+        display: inline-block; }
+      .form-group__checkbox input:checked + span .icon-cancel {
+        display: none; }
   .form-group--error input, .form-group--error textarea {
     border-bottom-color: #E74C3C; }
   .form-group--inverted input:not([type="checkbox"]), .form-group--inverted textarea, .form-group--inverted select {
@@ -610,6 +623,8 @@ h1 {
 
 .auth-buttons {
   padding: 1.375em 0; }
+  .auth-buttons__button {
+    width: 50%; }
 
 .install {
   padding: 1em 0; }

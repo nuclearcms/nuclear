@@ -92,6 +92,23 @@ label
             font-size: 1em
             color: $colorText
 
+    &__checkbox
+        span
+            color: $colorDanger
+            +transition(color $durationShort)
+            .icon-confirm
+                display: none
+
+        input
+            display: none
+
+            &:checked + span
+                color: $colorEmphasis
+                .icon-confirm
+                    display: inline-block
+                .icon-cancel
+                    display: none
+
     &--error
         input, textarea
             border-bottom-color: $colorDanger
