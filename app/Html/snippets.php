@@ -103,3 +103,49 @@ if ( ! function_exists('field_label'))
         return app('reactor.builders.forms')->fieldLabel($showLabel, $options, $name, $errors);
     }
 }
+
+
+if ( ! function_exists('navigation_module_open'))
+{
+    /**
+     * Snippet for generating navigation menu openings
+     *
+     * @param string $icon
+     * @param string $title
+     * @return string
+     */
+    function navigation_module_open($icon, $title)
+    {
+        return app('reactor.builders.navigation')->navigationModuleOpen($icon, $title);
+    }
+}
+
+if ( ! function_exists('navigation_module_close'))
+{
+    /**
+     * Snippet for generating navigation menu closings
+     *
+     * @return string
+     */
+    function navigation_module_close()
+    {
+        return app('reactor.builders.navigation')->navigationModuleClose();
+    }
+}
+
+if ( ! function_exists('navigation_module_link'))
+{
+    /**
+     * Snippet for generating module links
+     *
+     * @param string $route
+     * @param string $icon
+     * @param string $title
+     * @param mixed $parameters
+     * @return string
+     */
+    function navigation_module_link($route, $icon, $title, $parameters = [])
+    {
+        return app('reactor.builders.navigation')->navigationModuleLink($route, $icon, $title, $parameters);
+    }
+}

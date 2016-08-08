@@ -80,6 +80,7 @@ class PermissionsTableSeeder extends Seeder
             'EDIT_SETTINGS',
             'ACCESS_SETTINGSMODIFY',
             'EDIT_SETTINGSMODIFY',
+            'ACCESS_UPDATE',
             'ACCESS_USERS',
             'EDIT_USERS'
         ];
@@ -99,6 +100,8 @@ class PermissionsTableSeeder extends Seeder
             'ACCESS_DOCUMENTS',
             'EDIT_DOCUMENTS',
             'ACCESS_HISTORY',
+            'ACCESS_MAILINGS',
+            'EDIT_MAILINGS',
             'ACCESS_TAGS',
             'EDIT_TAGS'
         ];

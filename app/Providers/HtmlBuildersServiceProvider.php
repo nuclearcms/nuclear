@@ -22,7 +22,8 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     public function provides()
     {
         return [
-            'reactor.builders.forms'
+            'reactor.builders.forms',
+            'reactor.builders.navigation'
         ];
     }
 
@@ -34,6 +35,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->registerFormsHtmlBuilder();
+        $this->registerNavigationHtmlBuilder();
     }
 
     /**
@@ -43,6 +45,16 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     {
         $this->app['reactor.builders.forms'] = $this->app->share(function () {
             return $this->app->make('Reactor\Html\FormsHtmlBuilder');
+        });
+    }
+
+    /**
+     * Registers navigation html builder
+     */
+    protected function registerNavigationHtmlBuilder()
+    {
+        $this->app['reactor.builders.navigation'] = $this->app->share(function () {
+            return $this->app->make('Reactor\Html\NavigationHtmlBuilder');
         });
     }
 

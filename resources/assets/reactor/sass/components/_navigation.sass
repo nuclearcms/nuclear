@@ -1,0 +1,167 @@
+$navigationWidth: 22em
+$moduleNavigationWidth: 5em
+
+$navigationModulesTop: 3.75em
+$navigationModulesBottom: 6.5em
+
+.container-main
+    padding-left: $navigationWidth
+
+.container-navigation
+    width: $navigationWidth
+    background-color: $colorDarkBG1
+    +position(fixed, 0 null null 0)
+    height: 100%
+    z-index: 100
+    color: $colorLightText
+
+.navigation-column
+    position: absolute
+    height: 100%
+    top: 0
+
+    &--modules
+        width: $navigationWidth
+        left: 0
+        padding-top: $navigationModulesTop
+        padding-bottom: $navigationModulesBottom
+
+    &--nodes
+        width: $navigationWidth - $moduleNavigationWidth
+        left: $moduleNavigationWidth
+        background-color: $colorDarkBG2
+        box-shadow: $shadowLeft
+
+.scroller--navigation-modules > .ps-scrollbar-y-rail
+    left: 0 !important
+    right: auto !important
+
+.navigation-modules
+    width: $moduleNavigationWidth
+
+.navigation-module
+    text-align: center
+    position: relative
+    margin-bottom: 0.5em
+
+    &__icon
+        color: $colorOutline
+        font-size: 1.25em
+        line-height: 2.4em
+        width: 2.4em
+        display: inline-block
+        cursor: pointer
+        +transition(color $durationShort)
+
+    &__dropdown
+        +position(absolute, 0.25em null null 4em)
+        text-align: left
+        opacity: 0
+        z-index: -1
+        +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
+        background-color: $colorDarkBG4
+        box-shadow: $shadowDown
+
+    &__info
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+        font-size: 0.875em
+        padding: 1em 1.14285714em 0.125em
+        background-color: $colorDarkBG3
+        white-space: nowrap
+
+    &--active
+        .navigation-module
+            &__icon
+                color: $colorEmphasis
+            &__dropdown
+                z-index: 100
+                opacity: 1
+                +transition(opacity $durationShort)
+
+.navigation-module-sub
+    border-bottom: 0.25em solid $colorDarkBG3
+
+    &__splitter
+        border-top: 1px solid $colorDarkBG3
+        margin: 0.125em 0
+
+    &__item
+        height: 2.5em
+
+        i
+            font-size: 1.14285714em
+            margin: 0 1em
+            color: $colorOutline
+            vertical-align: text-bottom
+
+        a
+            color: $colorLightText
+            display: block
+            white-space: nowrap
+            font-size: 0.875em
+            line-height: 2.85714286em
+            padding-right: 1.5em
+            +transition(color $durationShort)
+
+.navigation-user
+    margin-top: 0.5em
+
+    &__avatar
+        display: inline-block
+        +size(2.28571429em)
+        border-radius: 50%
+        background-color: $colorDarkBG2
+        color: $colorEmphasis
+        overflow: hidden
+        line-height: 2.28571429em
+        cursor: pointer
+        font-size: 0.875em
+        font-family: $fontHeading
+        text-align: center
+        position: relative
+
+        img
+            +position(absolute, 0 null null 0)
+            z-index: 2
+            width: 100%
+
+.navigation-brand
+    +position(absolute, null null 0 0)
+    width: $moduleNavigationWidth
+    height: $navigationModulesBottom
+    text-align: center
+    padding-top: 0.25em
+
+    &__nuclear
+        color: $colorDarkBG4
+        display: block
+        position: relative
+        margin-bottom: 1.5em
+
+        &:after
+            content: ''
+            display: inline-block
+            width: 1em
+            height: 1px
+            +position(absolute, null null -1em 50%)
+            margin-left: -0.5em
+            background-color: $colorDarkBG2
+
+        img
+            width: 1.5em
+        span
+            display: block
+            font-size: 0.625em
+            line-height: 1em
+            font-family: $fontHeading
+            font-weight: $fontWeightBold
+
+    &__kk
+        display: block
+        color: $colorDarkBG4
+        font-size: 0.875em
+
+.no-touch
+    .navigation-module-sub__item a:hover
+        color: $colorEmphasis

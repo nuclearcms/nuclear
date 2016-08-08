@@ -1788,16 +1788,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "5.2.41",
+            "version": "v5.2.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2"
+                "reference": "d1bf46f359d2ede2d4ef847fb79d3758d868f2b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
-                "reference": "29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d1bf46f359d2ede2d4ef847fb79d3758d868f2b7",
+                "reference": "d1bf46f359d2ede2d4ef847fb79d3758d868f2b7",
                 "shasum": ""
             },
             "require": {
@@ -1914,7 +1914,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-07-20 13:13:06"
+            "time": "2016-08-08 13:39:44"
         },
         {
             "name": "laravelcollective/html",
@@ -2580,16 +2580,16 @@
         },
         {
             "name": "nuclear/users",
-            "version": "0.9.3",
+            "version": "0.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Users.git",
-                "reference": "ca8edb721b2f31e29cc2d452351d4ac031639cd3"
+                "reference": "2ad03bda9b7f5f6d197d7a9aaeb46afc67e6a532"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/ca8edb721b2f31e29cc2d452351d4ac031639cd3",
-                "reference": "ca8edb721b2f31e29cc2d452351d4ac031639cd3",
+                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/2ad03bda9b7f5f6d197d7a9aaeb46afc67e6a532",
+                "reference": "2ad03bda9b7f5f6d197d7a9aaeb46afc67e6a532",
                 "shasum": ""
             },
             "require": {
@@ -2634,7 +2634,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-08-08 09:52:28"
+            "time": "2016-08-08 18:45:35"
         },
         {
             "name": "paragonie/random_compat",
