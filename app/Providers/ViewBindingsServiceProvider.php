@@ -5,6 +5,7 @@ namespace Reactor\Providers;
 
 
 use Illuminate\Support\ServiceProvider;
+use Nuclear\Hierarchy\Node;
 
 class ViewBindingsServiceProvider extends ServiceProvider {
 
@@ -28,6 +29,11 @@ class ViewBindingsServiceProvider extends ServiceProvider {
         view()->composer('*', function ($view)
         {
             $view->with('user', auth()->user());
+        });
+
+        view()->composer('partials.navigation.nodes', function ($view)
+        {
+            $view->with('leafs', Node::whereIsRoot()->defaultOrder()->get());
         });
     }
 }

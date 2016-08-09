@@ -1,5 +1,5 @@
 $scrollBarWidth: 0.375em;
-$scrollBarWidthHover: 0.75em;
+$scrollBarWidthHover: 0.5625em;
 
 .ps-container {
     -ms-touch-action: none;
@@ -32,18 +32,12 @@ $scrollBarWidthHover: 0.75em;
 
 .ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
     opacity: 1;
-}
-
-.ps-container.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
-    background-color: $colorDarkBG3;
+    height: $scrollBarWidthHover;
 }
 
 .ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
     opacity: 1;
-}
-
-.ps-container.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
-    background-color: $colorDarkBG3;
+    width: $scrollBarWidthHover;
 }
 
 .ps-container > .ps-scrollbar-x-rail {
@@ -51,7 +45,7 @@ $scrollBarWidthHover: 0.75em;
     position: absolute;
     /* please don't change 'position' */
     opacity: 0;
-    @include transition(background-color $durationShort, opacity $durationShort, height $durationShort, width $durationShort)
+    @include transition(background-color $durationShort, opacity $durationShort, height $durationShort, width $durationShort);
     bottom: 0px;
     /* there must be 'bottom' for ps-scrollbar-x-rail */
     height: $scrollBarWidth;
@@ -60,7 +54,7 @@ $scrollBarWidthHover: 0.75em;
 .ps-container > .ps-scrollbar-x-rail > .ps-scrollbar-x {
     position: absolute;
     /* please don't change 'position' */
-    background-color: $colorDarkBG3;
+    background-color: $colorDarkBG4;
     @include transition(background-color $durationShort, height $durationShort, width $durationShort);
     bottom: 0;
     /* there must be 'bottom' for ps-scrollbar-x */
@@ -72,7 +66,7 @@ $scrollBarWidthHover: 0.75em;
     position: absolute;
     /* please don't change 'position' */
     opacity: 0;
-    @include transition(background-color $durationShort, opacity $durationShort, height $durationShort, width $durationShort)
+    @include transition(background-color $durationShort, opacity $durationShort, height $durationShort, width $durationShort);
     right: 0;
     /* there must be 'right' for ps-scrollbar-y-rail */
     width: $scrollBarWidth;
@@ -81,7 +75,7 @@ $scrollBarWidthHover: 0.75em;
 .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y {
     position: absolute;
     /* please don't change 'position' */
-    background-color: $colorDarkBG3;
+    background-color: $colorDarkBG4;
     @include transition(background-color $durationShort, height $durationShort, width $durationShort);
     right: 0;
     /* there must be 'right' for ps-scrollbar-y */
@@ -92,25 +86,9 @@ $scrollBarWidthHover: 0.75em;
     pointer-events: none;
 }
 
-.ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail {
-    opacity: 1;
-}
-
-.ps-container:hover.ps-in-scrolling.ps-x > .ps-scrollbar-x-rail > .ps-scrollbar-x {
-    background-color: $colorDarkBG4;
-}
-
-.ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail {
-    opacity: 1;
-}
-
-.ps-container:hover.ps-in-scrolling.ps-y > .ps-scrollbar-y-rail > .ps-scrollbar-y {
-    background-color: $colorDarkBG4;
-}
-
 .ps-container:hover > .ps-scrollbar-x-rail,
 .ps-container:hover > .ps-scrollbar-y-rail {
-    opacity: 0.6;
+    opacity: 1;
 }
 
 .ps-container:hover > .ps-scrollbar-x-rail:hover {
@@ -118,15 +96,7 @@ $scrollBarWidthHover: 0.75em;
     height: $scrollBarWidthHover;
 }
 
-.ps-container:hover > .ps-scrollbar-x-rail:hover > .ps-scrollbar-x {
-    background-color: $colorDarkBG3;
-}
-
 .ps-container:hover > .ps-scrollbar-y-rail:hover {
     opacity: 1;
     width: $scrollBarWidthHover;
-}
-
-.ps-container:hover > .ps-scrollbar-y-rail:hover > .ps-scrollbar-y {
-    background-color: $colorDarkBG3;
 }

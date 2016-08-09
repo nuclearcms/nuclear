@@ -8,4 +8,6 @@ return [
 
     'dashboard' => 'Dashboard',
     'home' => 'Anasayfa',
+    'content' => 'İçerik',
+
 ];

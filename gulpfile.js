@@ -29,7 +29,8 @@ if( ! argv.r) {
                 'common.js',
                 'dropdowns.js',
                 'components/perfect-scrollbar.min.js',
-                'navigation.js'
+                'navigation.js',
+                'nodetrees.js'
             ], elixir.config.publicPath + '/js/app.js')
             .scripts([
                 'forms.js'
