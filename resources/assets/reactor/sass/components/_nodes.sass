@@ -34,6 +34,9 @@
     position: relative
     padding: 0 1.5em
 
+    @media screen and (max-width: $thresholdMicro)
+        margin: 1em 0 0.5em
+
     &__title
         color: $colorEmphasis
         font-size: 0.875em
@@ -52,7 +55,7 @@
 
     &__tab
         display: inline-block
-        color: $colorOutline
+        color: $colorMuted
         font-size: 0.75em
         padding-top: 0.5em
         height: 3.33333333em
@@ -66,7 +69,10 @@
             border-bottom: 0.25em solid $colorEmphasis
 
 .scroller--nodes-lists
-    padding: 0.75em 1em 10em
+    padding: 0.75em 1em 7.5em
+
+    @media screen and (max-width: $thresholdMicro)
+        padding: 0 0.5em 7.5em
 
 .nodes-list-container
     display: none
@@ -83,9 +89,6 @@
         background: transparent !important
         padding-bottom: 1em !important
         margin-top: 0.5em
-
-        @media screen and (max-width: $thresholdCollapse)
-            font-size: 0.875em
 
         &:last-child
             border-bottom: 0

@@ -1,3 +1,95 @@
 .scroller
     position: relative
     height: 100%
+
+.container-main
+    padding-left: $navigationWidth
+    overflow-x: hidden
+    height: 100%
+
+    @media screen and (max-width: $thresholdCollapse)
+        padding-left: 0
+
+.container-navigation
+    width: $navigationWidth
+    background-color: $colorDarkBG1
+    +position(fixed, 0 null null 0)
+    height: 100%
+    z-index: 100
+    color: $colorLightText
+    +transition(all $durationMedium)
+
+    @media screen and (max-width: $thresholdCollapse)
+        left: -$navigationOffset
+        &--slide
+            +transform(translateX($navigationOffset))
+
+    @media screen and (max-width: $thresholdMicro)
+        width: $navigationWidthNarrow
+
+.hamburger
+    display: inline-block
+    +position(fixed, 0.5em null null 0.5em)
+    font-size: 1.5em
+    +size(2em)
+    text-align: center
+    color: $colorText
+    line-height: 2em
+    z-index: -1
+    opacity: 0
+
+    @media screen and (max-width: $thresholdCollapse)
+        z-index: 130
+        opacity: 1
+        +transition(color $durationShort, z-index 0ms ease $durationMedium, opacity $durationMediumUp ease $durationMedium)
+
+        &--open
+            +transition(color $durationShort)
+            z-index: -1
+            opacity: 0
+
+.container-content
+    position: relative
+    z-index: 110
+    background-color: $colorLightBG3
+    min-height: 100%
+
+    @media screen and (max-width: $thresholdCollapse)
+        +transition(all $durationMedium)
+        box-shadow: $shadowLeft
+
+        &--slide
+            +transform(translateX($navigationWidth))
+
+    @media screen and (max-width: $thresholdMicro)
+        &--slide
+            +transform(translateX($navigationWidthNarrow))
+
+.content-whiteout
+    +position(absolute, 0 null null 0)
+    +size(100%)
+    opacity: 0
+    z-index: -1
+    background-color: rgba(255, 255, 255, 0.7)
+    cursor: pointer
+    +transition(opacity $durationMedium, z-index 0 ease $durationMediumUp)
+
+    &--active
+        z-index: 120
+        opacity: 1
+        +transition(opacity $durationMedium)
+
+    @media screen and (max-width: $thresholdCollapse)
+        &--active-nav
+            z-index: 120
+            opacity: 1
+            +transition(opacity $durationMedium)
+
+.content
+    height: 100%
+    overflow-y: auto
+    overflow-x: hidden
+
+.no-touch
+    .hamburger:hover
+        color: $colorEmphasis

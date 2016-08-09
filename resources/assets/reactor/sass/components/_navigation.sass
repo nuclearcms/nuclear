@@ -1,19 +1,12 @@
 $navigationWidth: 22em
+$navigationWidthNarrow: 17em
 $moduleNavigationWidth: 5em
+$moduleNavigationWidthNarrow: 4em
+$navigationOffset: 12em
 
 $navigationModulesTop: 3.75em
+$navigationModulesTopNarrow: 1em
 $navigationModulesBottom: 6.5em
-
-.container-main
-    padding-left: $navigationWidth
-
-.container-navigation
-    width: $navigationWidth
-    background-color: $colorDarkBG1
-    +position(fixed, 0 null null 0)
-    height: 100%
-    z-index: 100
-    color: $colorLightText
 
 .navigation-column
     position: absolute
@@ -26,11 +19,19 @@ $navigationModulesBottom: 6.5em
         padding-top: $navigationModulesTop
         padding-bottom: $navigationModulesBottom
 
+        @media screen and (max-width: $thresholdMicro)
+            width: $navigationWidthNarrow
+            padding-top: $navigationModulesTopNarrow
+
     &--nodes
         width: $navigationWidth - $moduleNavigationWidth
         left: $moduleNavigationWidth
         background-color: $colorDarkBG2
         box-shadow: $shadowLeft
+
+        @media screen and (max-width: $thresholdMicro)
+            left: $moduleNavigationWidthNarrow
+            width: $navigationWidthNarrow - $moduleNavigationWidthNarrow
 
 .scroller--navigation-modules > .ps-scrollbar-y-rail
     left: 0 !important
@@ -38,6 +39,9 @@ $navigationModulesBottom: 6.5em
 
 .navigation-modules
     width: $moduleNavigationWidth
+
+    @media screen and (max-width: $thresholdMicro)
+        width: $moduleNavigationWidthNarrow
 
 .navigation-module
     text-align: center
@@ -132,6 +136,9 @@ $navigationModulesBottom: 6.5em
     height: $navigationModulesBottom
     text-align: center
     padding-top: 0.25em
+
+    @media screen and (max-width: $thresholdMicro)
+        width: $moduleNavigationWidthNarrow
 
     &__nuclear
         color: $colorDarkBG4
