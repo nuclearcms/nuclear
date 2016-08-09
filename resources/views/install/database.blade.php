@@ -16,7 +16,7 @@
                 <p class="text--sm">{{ trans('install.set_database_configuration') }}</p>
 
                 @foreach([
-                    'host' => '127.0.0.1',
+                    'host' => 'localhost',
                     'port' => '3306',
                     'database' => 'nuclear',
                     'username' => 'homestead',
