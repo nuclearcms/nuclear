@@ -4,7 +4,7 @@ return [
 
     'title' => 'Users',
 
-    'manage' => 'Manage Users',
+    'index' => 'Manage Users',
     'create' => 'Create User',
 
     'update_profile' => 'Update Profile',

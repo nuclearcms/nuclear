@@ -52,7 +52,7 @@
     position: relative
     z-index: 110
     background-color: $colorLightBG3
-    min-height: 100%
+    min-height: 100vh
 
     @media screen and (max-width: $thresholdCollapse)
         +transition(all $durationMedium)
@@ -74,13 +74,8 @@
     cursor: pointer
     +transition(opacity $durationMedium, z-index 0 ease $durationMediumUp)
 
-    &--active
-        z-index: 120
-        opacity: 1
-        +transition(opacity $durationMedium)
-
     @media screen and (max-width: $thresholdCollapse)
-        &--active-nav
+        &--active
             z-index: 120
             opacity: 1
             +transition(opacity $durationMedium)

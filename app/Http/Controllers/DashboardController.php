@@ -11,7 +11,7 @@ class DashboardController extends ReactorController {
      */
     public function index()
     {
-        return view('dashboard.index');
+        return $this->compileView('dashboard.index', [], trans('general.dashboard'));
     }
 
 }

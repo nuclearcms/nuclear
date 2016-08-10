@@ -129,7 +129,6 @@ var hamburger = $('#hamburger'),
     navigationContainer = $('#navigationContainer'),
     contentContainer = $('#contentContainer'),
     contentWhiteout = $('#contentWhiteout'),
-    content = $('#content'),
     body = $('body');
 
 hamburger.on('click', function (e) {
@@ -143,17 +142,21 @@ hamburger.on('click', function (e) {
 });
 
 contentWhiteout.on('click', function () {
+    closeNavigation();
+});
+
+function closeNavigation() {
     contentContainer.removeClass('container-content--slide');
     navigationContainer.removeClass('container-navigation--slide');
-    contentWhiteout.removeClass('content-whiteout--active-nav');
+    contentWhiteout.removeClass('content-whiteout--active');
     hamburger.removeClass('hamburger--open');
     body.removeClass('scroll-disabled');
-});
+}
 
 function toggleNavigation() {
     contentContainer.toggleClass('container-content--slide');
     navigationContainer.toggleClass('container-navigation--slide');
-    contentWhiteout.toggleClass('content-whiteout--active-nav');
+    contentWhiteout.toggleClass('content-whiteout--active');
     body.toggleClass('scroll-disabled');
 }
 ;

@@ -25,7 +25,7 @@ class NavigationHtmlBuilder {
                 ['title' => 'nodes.withheld_nodes', 'route' => 'reactor.nodes.index', 'icon' => 'icon-status-withheld'],
                 ['title' => 'nodes.invisible_nodes', 'route' => 'reactor.nodes.index', 'icon' => 'icon-status-invisible'],
                 'splitter',
-                ['title' => 'nodetypes.title', 'route' => 'reactor.nodetypes.index', 'icon' => 'icon-list-types', 'permission' => 'ACCESS_NODETYPES'],
+                ['title' => 'nodetypes.index', 'route' => 'reactor.nodetypes.index', 'icon' => 'icon-list-types', 'permission' => 'ACCESS_NODETYPES'],
             ]
         ],
         'documents' => [
@@ -33,9 +33,9 @@ class NavigationHtmlBuilder {
             'permission' => 'ACCESS_DOCUMENTS',
             'icon' => 'icon-documents',
             'items' => [
-                ['title' => 'documents.manage', 'route' => 'reactor.documents.index', 'icon' => 'icon-folder'],
-                ['title' => 'documents.upload_documents', 'route' => 'reactor.documents.upload', 'icon' => 'icon-document-upload', 'permission' => 'EDIT_DOCUMENTS'],
-                ['title' => 'documents.embed_document', 'route' => 'reactor.documents.embed', 'icon' => 'icon-document-embed', 'permission' => 'EDIT_DOCUMENTS'],
+                ['title' => 'documents.index', 'route' => 'reactor.documents.index', 'icon' => 'icon-folder'],
+                ['title' => 'documents.upload', 'route' => 'reactor.documents.upload', 'icon' => 'icon-document-upload', 'permission' => 'EDIT_DOCUMENTS'],
+                ['title' => 'documents.embed', 'route' => 'reactor.documents.embed', 'icon' => 'icon-document-embed', 'permission' => 'EDIT_DOCUMENTS'],
             ]
         ],
         'tags' => [
@@ -43,7 +43,7 @@ class NavigationHtmlBuilder {
             'permission' => 'ACCESS_TAGS',
             'icon' => 'icon-tags',
             'items' => [
-                ['title' => 'tags.manage', 'route' => 'reactor.tags.index', 'icon' => 'icon-tags'],
+                ['title' => 'tags.index', 'route' => 'reactor.tags.index', 'icon' => 'icon-tags'],
                 ['title' => 'tags.create', 'route' => 'reactor.tags.create', 'icon' => 'icon-tag-create'],
             ]
         ],
@@ -61,11 +61,11 @@ class NavigationHtmlBuilder {
             'permission' => 'ACCESS_USERS',
             'icon' => 'icon-user',
             'items' => [
-                ['title' => 'users.manage', 'route' => 'reactor.users.index', 'icon' => 'icon-users'],
+                ['title' => 'users.index', 'route' => 'reactor.users.index', 'icon' => 'icon-users'],
                 ['title' => 'users.create', 'route' => 'reactor.users.create', 'icon' => 'icon-blank', 'permission' => 'ACCESS_'],
                 'splitter',
-                ['title' => 'roles.manage', 'route' => 'reactor.roles.index', 'icon' => 'icon-user-role', 'permission' => 'ACCESS_ROLES'],
-                ['title' => 'permissions.manage', 'route' => 'reactor.permissions.index', 'icon' => 'icon-user-permission', 'permission' => 'ACCESS_PERMISSIONS'],
+                ['title' => 'roles.index', 'route' => 'reactor.roles.index', 'icon' => 'icon-user-role', 'permission' => 'ACCESS_ROLES'],
+                ['title' => 'permissions.index', 'route' => 'reactor.permissions.index', 'icon' => 'icon-user-permission', 'permission' => 'ACCESS_PERMISSIONS'],
             ]
         ]
     ];
@@ -125,8 +125,8 @@ class NavigationHtmlBuilder {
                 'permission' => 'ACCESS_MAINTENANCE',
                 'icon' => 'icon-wrench',
                 'items' => [
-                    ['title' => 'maintenance.maintain_nuclear', 'route' => 'reactor.maintenance.index', 'icon' => 'icon-wrench'],
-                    ['title' => 'update.update_nuclear', 'route' => 'reactor.update.index', 'icon' => 'icon-sync'],
+                    ['title' => 'maintenance.index', 'route' => 'reactor.maintenance.index', 'icon' => 'icon-wrench'],
+                    ['title' => 'update.index', 'route' => 'reactor.update.index', 'icon' => 'icon-sync'],
                 ]
             ]
         ];

@@ -3,7 +3,7 @@
     <div class="scroller scroller--navigation-modules">
         <ul class="navigation-modules">
 
-            <li class="navigation-module">
+            <li class="navigation-module has-dropdown" data-hover="true">
                 <a href="{{ route('reactor.dashboard') }}">
                     <i class="navigation-module__icon icon-dashboard"></i>
                 </a>
@@ -31,11 +31,11 @@
     </div>
 
     <div class="navigation-brand">
-        <a href="https://github.com/NuclearCMS/nuclear" target="_blank" class="navigation-brand__nuclear">
+        <a href="https://github.com/NuclearCMS/nuclear" target="_blank" class="exclude-ui-events navigation-brand__nuclear">
             {!! Theme::img('img/nuclear-logo.svg') !!}
             <span>v{{ nuclear_version() }}</span>
         </a>
-        <a href="http://kenarkose.com" target="_blank" class="navigation-brand__kk">
+        <a href="http://kenarkose.com" target="_blank" class="exclude-ui-events navigation-brand__kk">
             <i class="icon-kk"></i>
         </a>
     </div>

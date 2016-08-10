@@ -1008,7 +1008,7 @@ h1 {
   position: relative;
   z-index: 110;
   background-color: #F5F5F5;
-  min-height: 100%; }
+  min-height: 100vh; }
   @media screen and (max-width: 47.9375em) {
     .container-content {
       transition: all 400ms;
@@ -1030,12 +1030,8 @@ h1 {
   background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: opacity 400ms, z-index 0 ease 450ms; }
-  .content-whiteout--active {
-    z-index: 120;
-    opacity: 1;
-    transition: opacity 400ms; }
   @media screen and (max-width: 47.9375em) {
-    .content-whiteout--active-nav {
+    .content-whiteout--active {
       z-index: 120;
       opacity: 1;
       transition: opacity 400ms; } }

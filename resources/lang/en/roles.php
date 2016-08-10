@@ -4,6 +4,6 @@ return [
 
     'title' => 'Roles',
 
-    'manage' => 'Manage Roles',
+    'index' => 'Manage Roles',
 
 ];

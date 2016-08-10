@@ -4,7 +4,7 @@ return [
 
     'title' => 'Etiketler',
 
-    'manage' => 'Etiketleri Yönet',
+    'index' => 'Etiketleri Yönet',
     'create' => 'Etiket Oluştur'
     
 ];

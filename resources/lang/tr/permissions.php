@@ -4,6 +4,6 @@ return [
 
     'title' => 'İzinler',
 
-    'manage' => 'İzinleri Yönet',
+    'index' => 'İzinleri Yönet',
 
 ];

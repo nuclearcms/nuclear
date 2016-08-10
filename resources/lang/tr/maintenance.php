@@ -4,6 +4,6 @@ return [
 
     'title' => 'Bakım',
 
-    'maintain_nuclear' => 'Nuclear\'a Bakım Yap',
+    'index' => 'Nuclear\'a Bakım Yap',
 
 ];

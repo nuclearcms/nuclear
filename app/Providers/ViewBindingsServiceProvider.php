@@ -6,6 +6,7 @@ namespace Reactor\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Nuclear\Hierarchy\Node;
+use Nuclear\Hierarchy\NodeRepository;
 
 class ViewBindingsServiceProvider extends ServiceProvider {
 
@@ -22,13 +23,15 @@ class ViewBindingsServiceProvider extends ServiceProvider {
     /**
      * Bootstrap any application services.
      *
+     * @param NodeRepository $nodeRepository
      * @return void
      */
-    public function boot()
+    public function boot(NodeRepository $nodeRepository)
     {
-        view()->composer('*', function ($view)
+        view()->composer('*', function ($view) use ($nodeRepository)
         {
             $view->with('user', auth()->user());
+            $view->with('home', $nodeRepository->getHome());
         });
 
         view()->composer('partials.navigation.nodes', function ($view)

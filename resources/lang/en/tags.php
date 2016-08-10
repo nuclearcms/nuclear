@@ -4,7 +4,7 @@ return [
 
     'title' => 'Tags',
 
-    'manage' => 'Manage Tags',
+    'index' => 'Manage Tags',
     'create' => 'Create Tag'
 
 ];

@@ -4,6 +4,6 @@ return [
 
     'title' => 'Roller',
 
-    'manage' => 'Rolleri Yönet',
+    'index' => 'Rolleri Yönet',
 
 ];
