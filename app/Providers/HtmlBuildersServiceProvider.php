@@ -22,6 +22,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     public function provides()
     {
         return [
+            'reactor.builders.contents',
             'reactor.builders.forms',
             'reactor.builders.navigation'
         ];
@@ -34,8 +35,19 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
      */
     public function register()
     {
+        $this->registerContentsHtmlBuilder();
         $this->registerFormsHtmlBuilder();
         $this->registerNavigationHtmlBuilder();
+    }
+
+    /**
+     * Registers contents html builder
+     */
+    protected function registerContentsHtmlBuilder()
+    {
+        $this->app['reactor.builders.contents'] = $this->app->share(function () {
+            return $this->app->make('Reactor\Html\ContentsHtmlBuilder');
+        });
     }
 
     /**

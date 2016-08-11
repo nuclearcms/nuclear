@@ -1,0 +1,70 @@
+.header
+    padding: 2.5em 2em 0
+
+    @media screen and (max-width: $thresholdCollapse)
+        padding: 0.75em 0 0
+
+        &__headings
+            padding-left: 4.25em
+            padding-right: 1em
+
+    &__heading
+        margin-bottom: 1.5em
+
+        @media screen and (max-width: $thresholdMicro)
+            font-size: 1.75em
+
+    &__subheading
+        font-size: 0.75em
+        color: $colorOutline
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+
+    &__actions
+        margin-bottom: 1.5em
+        +clearfix
+
+    &__action
+        margin-bottom: 1em
+        &--left
+            float: left
+            margin-right: 1em
+        &--right
+            float: right
+            margin-left: 1em
+
+        @media screen and (max-width: $thresholdCollapse)
+            &--secondary
+                display: none
+
+    &__action-header
+        text-align: center
+        font-size: 0.5em
+        font-weight: $fontWeightBold
+        font-family: $fontHeading
+        height: 2.5em
+        color: $colorMutedLess
+
+    &__action-options
+        background-color: $colorLightText
+        box-shadow: $shadowDownLight
+        height: 2.5em
+
+    &__search
+        width: 16em
+        position: relative
+
+        @media screen and (max-width: $thresholdMicro)
+            width: 15em
+
+        i
+            +position(absolute, 0.75em 0.75em null null)
+
+        input
+            font-size: 0.75em
+            height: 3.33333333em
+            padding: 0 3.33333333em 0 2em
+
+.no-touch
+    .header__action--secondary
+        display: none

@@ -1,0 +1,134 @@
+.content-list-container
+    position: relative
+    background-color: $colorLightBG1
+    box-shadow: $shadowDownLight
+    width: calc(100% - 4em)
+    margin: 4.25em auto 0
+
+    @media screen and (max-width: $thresholdCollapse)
+        padding: 0 0 4em
+        width: 100%
+
+.content-list
+    width: 100%
+    position: relative
+    top: -2.75em
+
+    a
+        display: inline-block
+        color: $colorText
+        +transition(color $durationShort)
+
+    &__row
+        line-height: 1.5em
+        &--body
+            border-bottom: 1px solid $colorLightBG4
+            +transition(border-bottom-color $durationShort, background-color $durationShort)
+
+    &__cell
+        font-size: 0.875em
+        padding: 0.75em 1em 0.75em 0
+        color: $colorMutedLess
+        vertical-align: top
+        +clearfix
+
+        &--options
+            width: 3em
+            padding: 0
+
+            .dropdown
+                font-size: 1.14285714em
+
+            .dropdown-icon
+                line-height: 3.25em
+                width: 3.5em
+
+        &--head
+            padding: 1.2em 1.2em 0.5em 0
+            vertical-align: bottom
+            font-weight: $fontWeightBold
+            font-family: $fontHeading
+            text-align: left
+            font-size: 0.75em
+
+.sortable-link
+    &--active
+        color: $colorEmphasis !important
+
+        &:after
+            display: inline-block
+            content: ''
+            margin-left: 0.5em
+            margin-bottom: 0.25em
+            height: 0.3em
+            width: 0.6em
+            border-left: 0.3em solid transparent
+            border-right: 0.3em solid transparent
+
+    &--asc:after
+        border-bottom: 0.3em solid $colorEmphasis
+
+    &--desc:after
+        border-top: 0.3em solid $colorEmphasis
+
+.content-footer
+    width: 100%
+    text-align: center
+
+    &--table
+        +position(absolute, null 0 0 null)
+
+.pagination-container
+    background-color: $colorEmphasis
+    height: 2.75em
+    padding: 0.625em 1em
+
+.pagination
+    &__sibling, &__current-container
+        display: inline-block
+        vertical-align: top
+        +transition(opacity $durationShort)
+
+    &__sibling
+        padding: 0.0625em 0.5em 0
+        color: $colorEmphasisDarker
+        &--disabled
+            color: transparent
+
+    &__current-container
+        border-radius: 0.5em
+        height: 1.5em
+        line-height: 1.5em
+        color: $colorLightText
+        background-color: $colorEmphasisDark
+        padding: 0 2em
+        position: relative
+
+    &__current
+        display: inline-block
+        font-size: 0.625em
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+        line-height: 2em
+        vertical-align: text-top
+
+    &__selector
+        +position(absolute, 0 null null 0)
+        +size(100%)
+        opacity: 0
+        cursor: pointer
+        z-index: 10
+
+.no-touch
+    .content-list__row--body:hover
+        border-bottom-color: $colorEmphasis
+        background-color: $colorEmphasisMuted
+        .dropdown-icon
+            color: $colorEmphasis
+
+    .content-list a:hover
+        color: $colorEmphasis
+
+    .pagination
+        &__sibling:hover, &__current-container:hover
+            opacity: 0.75

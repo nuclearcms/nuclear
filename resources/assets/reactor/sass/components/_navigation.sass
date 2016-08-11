@@ -44,69 +44,31 @@ $navigationModulesBottom: 6.5em
         width: $moduleNavigationWidthNarrow
 
 .navigation-module
-    text-align: center
-    position: relative
     margin-bottom: 0.5em
 
     &__icon
-        color: $colorOutline
         font-size: 1.25em
         line-height: 2.4em
         width: 2.4em
-        display: inline-block
-        cursor: pointer
-        +transition(color $durationShort)
 
     &__dropdown
-        +position(absolute, 0.25em null null 4em)
-        text-align: left
-        opacity: 0
-        z-index: -1
-        +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
+        right: auto
+        top: 0.25em
+        left: 4em
         background-color: $colorDarkBG4
-        box-shadow: $shadowDown
 
     &__info
-        font-family: $fontHeading
-        font-weight: $fontWeightBold
-        font-size: 0.875em
-        padding: 1em 1.14285714em 0.125em
         background-color: $colorDarkBG3
-        white-space: nowrap
-
-    &--active
-        .navigation-module
-            &__icon
-                color: $colorEmphasis
-            &__dropdown
-                z-index: 100
-                opacity: 1
-                +transition(opacity $durationShort)
+        color: $colorLightText
 
 .navigation-module-sub
     border-bottom: 0.25em solid $colorDarkBG3
 
     &__splitter
         border-top: 1px solid $colorDarkBG3
-        margin: 0.125em 0
 
-    &__item
-        height: 2.5em
-
-        i
-            font-size: 1.14285714em
-            margin: 0 1em
-            color: $colorOutline
-            vertical-align: text-bottom
-
-        a
-            color: $colorLightText
-            display: block
-            white-space: nowrap
-            font-size: 0.875em
-            line-height: 2.85714286em
-            padding-right: 1.5em
-            +transition(color $durationShort)
+    &__item a
+        color: $colorLightText
 
 .navigation-user
     margin-top: 0.5em
@@ -168,7 +130,3 @@ $navigationModulesBottom: 6.5em
         display: block
         color: $colorDarkBG4
         font-size: 0.875em
-
-.no-touch
-    .navigation-module-sub__item a:hover
-        color: $colorEmphasis

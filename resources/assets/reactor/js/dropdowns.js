@@ -10,7 +10,7 @@
      */
     function Dropdown(dropdowns) {
         this.dropdowns = dropdowns;
-        this.activeClass = 'navigation-module--active';
+        this.activeClass = 'has-dropdown--active';
 
         this._initEvents();
     }

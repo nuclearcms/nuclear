@@ -13,4 +13,9 @@ Route::group([
         'update'  => 'reactor.permissions.update',
         'destroy' => 'reactor.permissions.destroy',
     ]]);
+
+    Route::get('search', [
+        'uses' => 'PermissionsController@search',
+        'as'   => 'reactor.permissions.search']);
+
 });

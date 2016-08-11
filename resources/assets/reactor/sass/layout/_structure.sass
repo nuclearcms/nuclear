@@ -41,7 +41,7 @@
     @media screen and (max-width: $thresholdCollapse)
         z-index: 130
         opacity: 1
-        +transition(color $durationShort, z-index 0ms ease $durationMedium, opacity $durationMediumUp ease $durationMedium)
+        +transition(color $durationShort, z-index 0ms ease $durationMedium, opacity $durationShort ease $durationMedium)
 
         &--open
             +transition(color $durationShort)
@@ -70,7 +70,7 @@
     +size(100%)
     opacity: 0
     z-index: -1
-    background-color: rgba(255, 255, 255, 0.7)
+    background-color: $colorWhiteout
     cursor: pointer
     +transition(opacity $durationMedium, z-index 0 ease $durationMediumUp)
 
@@ -84,6 +84,7 @@
     height: 100%
     overflow-y: auto
     overflow-x: hidden
+    padding-bottom: 4em
 
 .no-touch
     .hamburger:hover

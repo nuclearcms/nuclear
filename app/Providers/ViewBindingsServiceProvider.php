@@ -28,10 +28,11 @@ class ViewBindingsServiceProvider extends ServiceProvider {
      */
     public function boot(NodeRepository $nodeRepository)
     {
+        view()->share('home', $nodeRepository->getHome());
+
         view()->composer('*', function ($view) use ($nodeRepository)
         {
             $view->with('user', auth()->user());
-            $view->with('home', $nodeRepository->getHome());
         });
 
         view()->composer('partials.navigation.nodes', function ($view)

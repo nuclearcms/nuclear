@@ -21,8 +21,8 @@
                 <header class="header">
 
                     <hgroup class="header__headings">
-                        <h3>@yield('pageSubtitle')</h3>
-                        <h1>@yield('pageTitle')</h1>
+                        <h3 class="header__subheading">@yield('pageSubtitle')</h3>
+                        <h1 class="header__heading">@yield('pageTitle')</h1>
                     </hgroup>
 
                     <div class="header__actions">

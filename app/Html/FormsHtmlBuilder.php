@@ -19,16 +19,15 @@ class FormsHtmlBuilder {
      */
     public function button($icon, $text = '', $type = 'button', $class = 'button--emphasis', $iconSide = 'r')
     {
-        $iconType = empty($text) ? '<i class="%s button__icon"></i>' :
+        $iconType = empty($text) ? '<i class="' . $icon . ' button__icon"></i>' :
             ($iconSide === 'r' ?
-                '%s <i class="' . $icon . ' button__icon button__icon--right"></i>' :
-                '<i class="' . $icon . ' button__icon button__icon--left"> %s</i>'
+                uppercase($text) . ' <i class="' . $icon . ' button__icon button__icon--right"></i>' :
+                '<i class="' . $icon . ' button__icon button__icon--left"></i> ' . uppercase($text)
             );
 
         return sprintf('<button class="button %s" type="%s">' . $iconType . '</button>',
             $class,
-            $type,
-            uppercase(trans($text)));
+            $type);
     }
 
     /**
@@ -57,16 +56,15 @@ class FormsHtmlBuilder {
      */
     public function actionButton($link, $icon, $text = '', $class = 'button--emphasis', $iconSide = 'r')
     {
-        $iconType = empty($text) ? '<i class="%s button__icon"></i>' :
+        $iconType = empty($text) ? '<i class="' . $icon . ' button__icon"></i>' :
             ($iconSide === 'r' ?
-                '%s <i class="' . $icon . ' button__icon button__icon--right"></i>' :
-                '<i class="' . $icon . ' button__icon button__icon--left"> %s</i>'
+                uppercase($text) . ' <i class="' . $icon . ' button__icon button__icon--right"></i>' :
+                '<i class="' . $icon . ' button__icon button__icon--left"></i> ' . uppercase($text)
             );
 
         return sprintf('<a href="%s" class="button %s">' . $iconType . '</a>',
             $link,
-            $class,
-            uppercase(trans($text)));
+            $class);
     }
 
     /**
@@ -126,6 +124,25 @@ class FormsHtmlBuilder {
         }
 
         return '';
+    }
+
+    /**
+     * Snippet for for outputting html for delete forms
+     *
+     * @param string $action
+     * @param string $text
+     * @param string $input
+     * @param string $icon
+     * @return string
+     */
+    public function deleteForm($action, $text, $input = '', $icon = 'icon-trash')
+    {
+        return sprintf('<form action="%s" method="POST">' .
+            method_field('DELETE') . csrf_field() .
+            '%s<button class="option-delete" type="submit">
+                <i class="%s"></i>%s
+            </button></form>',
+            $action, $input, $icon, $text);
     }
 
 }

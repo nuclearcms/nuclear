@@ -17,7 +17,6 @@ class UsersCreateRolesTable extends Migration {
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('label');
-            $table->timestamps();
         });
 
         Schema::create('permission_role', function (Blueprint $table)

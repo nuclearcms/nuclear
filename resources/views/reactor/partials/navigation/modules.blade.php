@@ -5,7 +5,7 @@
 
             <li class="navigation-module has-dropdown" data-hover="true">
                 <a href="{{ route('reactor.dashboard') }}">
-                    <i class="navigation-module__icon icon-dashboard"></i>
+                    <i class="navigation-module__icon dropdown-icon icon-dashboard"></i>
                 </a>
             </li>
 
@@ -13,13 +13,13 @@
             {!! app('reactor.builders.navigation')->makeFinalNavigation() !!}
 
             <li class="navigation-module navigation-user has-dropdown" data-hover="true">
-            <span class="navigation-user__avatar">
-                {!! $user->present()->avatar !!}
-            </span>
+                <span class="navigation-user__avatar">
+                    {!! $user->present()->avatar !!}
+                </span>
 
-                <div class="navigation-module__dropdown">
-                    <div class="navigation-module__info">{{ uppercase($user->present()->fullName) }}</div>
-                    <ul class="navigation-module-sub">
+                <div class="dropdown navigation-module__dropdown">
+                    <div class="dropdown__info navigation-module__info">{{ uppercase($user->present()->fullName) }}</div>
+                    <ul class="dropdown-sub navigation-module-sub">
                         {!! navigation_module_link('reactor.profile.edit', 'icon-profile', 'users.update_profile') !!}
                         {!! navigation_module_link('reactor.profile.password', 'icon-lock', 'users.change_password') !!}
                         {!! navigation_module_link('reactor.auth.logout', 'icon-logout', 'auth.logout') !!}

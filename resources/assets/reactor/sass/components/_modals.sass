@@ -1,3 +1,44 @@
+.modal
+    +position(fixed, 0 null null 0)
+    +size(100%)
+    z-index: -1
+    opacity: 0
+    +transition(opacity $durationMedium, z-index 0ms ease $durationMediumUp)
+
+    &--open
+        z-index: 500
+        opacity: 1
+        +transition(opacity $durationMedium)
+
+    &__whiteout
+        +position(absolute, 0 null null 0)
+        +size(100%)
+        background-color: $colorWhiteout
+        cursor: pointer
+
+    &__inner
+        +position(absolute, 50% null null 50%)
+        +transform(translate(-50%, -50%) scale(4, 4))
+        width: 32em
+        max-width: 100%
+        box-shadow: $shadowDown
+        background-color: $colorDarkBG2
+        padding: 2em 2em 6em
+        color: $colorLightText
+        +transition(all $durationMedium)
+        opacity: 0
+        cursor: default
+
+        &--open
+            opacity: 1
+            +transform(translate(-50%, -50%) scale(1, 1))
+
+    &__heading
+        font-size: 2em
+        font-weight: $fontWeightLight
+        color: $colorEmphasis
+        margin-bottom: 1.5em
+
 .modal-buttons
     text-align: right
     padding: 0 2em

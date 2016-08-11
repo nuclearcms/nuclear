@@ -182,7 +182,7 @@ class NavigationHtmlBuilder {
         {
             if ($item === 'splitter')
             {
-                $html .= '<li class="navigation-module-sub__splitter"></li>';
+                $html .= '<li class="dropdown-sub__splitter navigation-module-sub__splitter"></li>';
                 continue;
             }
 
@@ -232,10 +232,10 @@ class NavigationHtmlBuilder {
     public function navigationModuleOpen($icon, $title)
     {
         return sprintf('<li class="navigation-module has-dropdown" data-hover="true">
-            <i class="navigation-module__icon %s"></i>
-            <div class="navigation-module__dropdown">
-                <div class="navigation-module__info">%s</div>
-                <ul class="navigation-module-sub">', $icon, uppercase(trans($title)));
+            <i class="navigation-module__icon dropdown-icon %s"></i>
+            <div class="dropdown navigation-module__dropdown">
+                <div class="dropdown__info navigation-module__info">%s</div>
+                <ul class="dropdown-sub navigation-module-sub">', $icon, uppercase(trans($title)));
     }
 
     /**
@@ -259,7 +259,7 @@ class NavigationHtmlBuilder {
      */
     public function navigationModuleLink($route, $icon, $title, $parameters = [])
     {
-        return sprintf('<li class="navigation-module-sub__item"><a href="%s"><i class="%s"></i>%s</a>',
+        return sprintf('<li class="dropdown-sub__item navigation-module-sub__item"><a href="%s"><i class="%s"></i>%s</a>',
             route($route, $parameters),
             $icon,
             trans($title)

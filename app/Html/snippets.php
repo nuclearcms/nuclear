@@ -2,6 +2,136 @@
 
 use Illuminate\Support\ViewErrorBag;
 
+if ( ! function_exists('content_table_open'))
+{
+    /**
+     * Snippet for outputting opening of content tables
+     *
+     * @param bool $sub
+     * @param string|null $wrapper
+     * @return string
+     */
+    function content_table_open($sub = false, $wrapper = null)
+    {
+        return app('reactor.builders.contents')->contentTableOpen($sub, $wrapper);
+    }
+}
+
+if ( ! function_exists('content_table_middle'))
+{
+    /**
+     * Snippet for outputting middle parts of content tables
+     *
+     * @return string
+     */
+    function content_table_middle()
+    {
+        return app('reactor.builders.contents')->contentTableMiddle();
+    }
+}
+
+if ( ! function_exists('content_table_close'))
+{
+    /**
+     * Snippet for outputting closing of content tables
+     *
+     * @param bool $sub
+     * @param string|null $wrapper
+     * @return string
+     */
+    function content_table_close($sub = false, $wrapper = null)
+    {
+        return app('reactor.builders.contents')->contentTableClose($sub, $wrapper);
+    }
+}
+
+if ( ! function_exists('content_options_open'))
+{
+    /**
+     * Snippet for displaying content options opening
+     *
+     * @param $header
+     * @param bool $table
+     * @return string
+     */
+    function content_options_open($header = null, $table = true)
+    {
+        return app('reactor.builders.contents')->contentOptionsOpen($header, $table);
+    }
+}
+
+if ( ! function_exists('content_options_close'))
+{
+    /**
+     * Snippet for displaying content options closing
+     *
+     * @param bool $table
+     * @return string
+     */
+    function content_options_close($table = true)
+    {
+        return app('reactor.builders.contents')->contentOptionsClose($table);
+    }
+}
+
+if ( ! function_exists('header_action_open'))
+{
+    /**
+     * Snippet for displaying header action opening
+     *
+     * @param string $text
+     * @param string $class
+     * @param bool $secondary
+     * @return string
+     */
+    function header_action_open($text, $class = "header__action--left", $secondary = false)
+    {
+        return app('reactor.builders.contents')->headerActionOpen($text, $class, $secondary);
+    }
+}
+
+if ( ! function_exists('header_action_close'))
+{
+    /**
+     * Snippet for displaying header action closing
+     *
+     * @return string
+     */
+    function header_action_close()
+    {
+        return app('reactor.builders.contents')->headerActionClose();
+    }
+}
+
+if ( ! function_exists('no_results_row'))
+{
+    /**
+     * Snippet for displaying no results row on tables
+     *
+     * @param string $message
+     * @return string
+     */
+    function no_results_row($message = 'general.search_no_results')
+    {
+        return app('reactor.builders.contents')->noResultsRow($message);
+    }
+}
+
+if ( ! function_exists('back_to_all_link'))
+{
+    /**
+     * Snippet for generating back links (mainly for search pages)
+     *
+     * @param string $link
+     * @param string $text
+     * @return string
+     */
+    function back_to_all_link($link, $text)
+    {
+        return app('reactor.builders.contents')->backToAllLink($link, $text);
+    }
+}
+
 if ( ! function_exists('button'))
 {
     /**
@@ -104,6 +234,22 @@ if ( ! function_exists('field_label'))
     }
 }
 
+if ( ! function_exists('delete_form'))
+{
+    /**
+     * Snippet for for outputting html for delete forms
+     *
+     * @param string $action
+     * @param string $text
+     * @param string $input
+     * @param string $icon
+     * @return string
+     */
+    function delete_form($action, $text, $input = '', $icon = 'icon-trash')
+    {
+        return app('reactor.builders.forms')->deleteForm($action, $text, $input, $icon);
+    }
+}
 
 if ( ! function_exists('navigation_module_open'))
 {

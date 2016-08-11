@@ -1,0 +1,71 @@
+.has-dropdown
+    position: relative
+    text-align: center
+
+    &--active
+        .dropdown
+            z-index: 100
+            opacity: 1
+            +transition(opacity $durationShort)
+
+        .dropdown-icon
+            color: $colorEmphasis
+
+.dropdown-icon
+    color: $colorOutline
+    display: inline-block
+    cursor: pointer
+    +transition(color $durationShort)
+    background-color: transparent
+
+.dropdown
+    +position(absolute, 0.5em 3em null null)
+    text-align: left
+    opacity: 0
+    z-index: -1
+    +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
+    box-shadow: $shadowDown
+    background-color: $colorLightBG1
+
+    &__info
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+        font-size: 0.75em
+        padding: 1.25em 1.14285714em 0.125em
+        white-space: nowrap
+        background-color: $colorLightBG4
+        color: $colorMuted
+
+.dropdown-sub
+    border-bottom: 0.25em solid $colorLightBG4
+
+    &__splitter
+        margin: 0.125em 0
+        border-top: 1px solid $colorLightBG4
+
+    &__item
+        height: 2.5em
+
+        i
+            font-size: 1.14285714em
+            margin: 0 1em
+            color: $colorOutline
+            vertical-align: text-bottom
+
+        a, button
+            color: $colorText
+            font-size: 0.875em
+            display: block
+            white-space: nowrap
+            line-height: 2.85714286em
+            padding-right: 1.5em
+            +transition(color $durationShort)
+            background-color: transparent
+            cursor: pointer
+
+.no-touch
+    .dropdown-sub__item
+        a:hover, button:hover
+            color: $colorEmphasis
+        &--delete:hover button
+            color: $colorDanger

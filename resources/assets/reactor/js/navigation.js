@@ -1,9 +1,4 @@
-$('.scroller').perfectScrollbar();
-
-$(window).on('resize.scroller', function () {
-    $('.scroller').perfectScrollbar('update');
-});
-
+// MOBILE NAVIGATION BUTTON
 var hamburger = $('#hamburger'),
     navigationContainer = $('#navigationContainer'),
     contentContainer = $('#contentContainer'),
@@ -20,10 +15,12 @@ hamburger.on('click', function (e) {
     return false;
 });
 
+// CONTENT AREA DISABLER
 contentWhiteout.on('click', function () {
     closeNavigation();
 });
 
+// NAVIGATION METHODS
 function closeNavigation() {
     contentContainer.removeClass('container-content--slide');
     navigationContainer.removeClass('container-navigation--slide');

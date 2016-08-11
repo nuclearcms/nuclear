@@ -26,9 +26,10 @@ if( ! argv.r) {
             .scripts([
                 'components/Modernizr.min.js',
                 'components/jquery.min.js',
+                'components/perfect-scrollbar.min.js',
                 'common.js',
                 'dropdowns.js',
-                'components/perfect-scrollbar.min.js',
+                'modals.js',
                 'navigation.js',
                 'nodetrees.js'
             ], elixir.config.publicPath + '/js/app.js')
