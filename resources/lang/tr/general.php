@@ -15,6 +15,8 @@ return [
     'home' => 'Anasayfa',
     'content' => 'İçerik',
     'search' => 'Arama',
-    'options' => 'Seçenekler'
+    'options' => 'Seçenekler',
+    'bulk_actions' => 'Toplu Eylemler',
+    'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
 
 ];

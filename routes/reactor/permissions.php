@@ -18,4 +18,8 @@ Route::group([
         'uses' => 'PermissionsController@search',
         'as'   => 'reactor.permissions.search']);
 
+    Route::delete('destroy/bulk', [
+        'uses' => 'PermissionsController@bulkDestroy',
+        'as'   => 'reactor.permissions.destroy.bulk']);
+
 });

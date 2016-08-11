@@ -19,6 +19,14 @@
         color: $colorText
         +transition(color $durationShort)
 
+    &__checkbox
+        opacity: 0
+        +transition(opacity $durationShort)
+        cursor: pointer
+
+        &:checked
+            opacity: 1
+
     &__row
         line-height: 1.5em
         &--body
@@ -31,6 +39,11 @@
         color: $colorMutedLess
         vertical-align: top
         +clearfix
+
+        &--thumbnail
+            width: 4em
+            text-align: center
+            padding-left: 1em
 
         &--options
             width: 3em
@@ -123,6 +136,10 @@
     .content-list__row--body:hover
         border-bottom-color: $colorEmphasis
         background-color: $colorEmphasisMuted
+
+        .content-list__checkbox
+            opacity: 1
+
         .dropdown-icon
             color: $colorEmphasis
 

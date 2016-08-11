@@ -26,6 +26,17 @@
 
     &__action
         margin-bottom: 1em
+        +transition(opacity $durationShort)
+
+        &--hidden
+            +size(0)
+            opacity: 0
+            overflow: hidden
+            margin: 0
+
+        &--bulk form
+            display: inline-block
+
         &--left
             float: left
             margin-right: 1em

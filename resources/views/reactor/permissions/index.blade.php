@@ -4,6 +4,7 @@
 
 @section('actions')
     @include('partials.contents.search', ['key' => 'permissions'])
+    @include('partials.contents.bulk', ['key' => 'permissions'])
 
     @can('EDIT_PERMISSIONS')
     {!! header_action_open('permissions.new', 'header__action--right') !!}
@@ -26,4 +27,4 @@
     @include('partials.contents.pagination', ['paginator' => $permissions])
 @endsection
 
-@include('partials.modals.delete', ['key' => 'permissions'])
+@include('partials.modals.delete')

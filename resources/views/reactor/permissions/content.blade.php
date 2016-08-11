@@ -1,7 +1,7 @@
 @foreach($permissions as $permission)
     <tr class="content-list__row--body">
         <td class="content-list__cell content-list__cell--thumbnail">
-
+            {!! Form::checkbox('selected[]', $permission->getKey(), false, ['class' => 'content-list__checkbox']) !!}
         </td>
         <td class="content-list__cell">
             {!! link_to_route('reactor.permissions.edit', $permission->name, $permission->getKey()) !!}

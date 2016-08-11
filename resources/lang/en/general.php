@@ -15,6 +15,8 @@ return [
     'home' => 'Home',
     'content' => 'Content',
     'search' => 'Search',
-    'options' => 'Options'
+    'options' => 'Options',
+    'bulk_actions' => 'Bulk Actions',
+    'confirm_delete' => 'Are you sure you want to delete?',
 
 ];

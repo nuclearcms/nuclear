@@ -1,7 +1,7 @@
 @section('modules')
     @include('partials.modals.confirm', [
         'modalTitle' => trans('general.warning'),
-        'modalContent' => trans($key . '.confirm_delete')
+        'modalContent' => trans('general.confirm_delete')
     ])
 @endsection
 
@@ -13,6 +13,6 @@
                     dialog.current.closest('form').submit();
                 }
             },
-            $('.content-list__cell--options form > .option-delete'));
+            $('.content-list__cell--options form > .option-delete, .header__action--bulk .button--bulk-delete'));
     </script>
 @endsection

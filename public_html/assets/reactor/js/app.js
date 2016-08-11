@@ -26,6 +26,46 @@ $(window).on('resize.scroller', function () {
 $('.pagination__selector').on('change', function () {
     window.location = $(this).val();
 });
+
+// CONTENT CHECKBOXES
+var headerBulkActions = $('.header__action--bulk'),
+    bulkSelectedInput = headerBulkActions.find('input[name="_bulkSelected"]');
+
+$('.content-list__checkbox').on('change', function () {
+    if ($('.content-list__checkbox:checked').length > 0) {
+        headerBulkActions.removeClass('header__action--hidden');
+    } else {
+        headerBulkActions.addClass('header__action--hidden');
+    }
+
+    compileSelectedForBulkAction();
+});
+
+headerBulkActions.find('.button--select-none').click(function () {
+    $('.content-list__checkbox:checked').prop('checked', false);
+    headerBulkActions.addClass('header__action--hidden');
+
+    compileSelectedForBulkAction();
+});
+
+headerBulkActions.find('.button--select-all').click(function () {
+    $('.content-list__checkbox').prop('checked', true);
+
+    compileSelectedForBulkAction();
+});
+
+function compileSelectedForBulkAction() {
+    var compiled = [],
+        checked = $('.content-list__checkbox:checked');
+
+    for (var i = 0; i < checked.length; i++) {
+        compiled.push(checked.eq(i).val());
+    }
+
+    console.log(compiled);
+
+    bulkSelectedInput.val(JSON.stringify(compiled));
+}
 ;
 (function (window) {
     'use strict';

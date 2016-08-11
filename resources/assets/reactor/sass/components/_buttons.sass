@@ -16,10 +16,25 @@
         color: $colorLightText
         background-color: $colorEmphasis
 
+    &--danger
+        color: $colorLightText
+        background-color: $colorDanger
+
+    &--separated
+        border-left: 1px solid $colorLightBG4
+
+    &--action
+        padding: 0 1.5em
+        color: $colorOutline
+
     &__icon
         position: relative
         top: 0.0625em
         display: inline-block
+
+        &--action
+            top: 0.125em
+            font-size: 1.33333333em
 
         &--left
             +transform(translateX(-0.75em))

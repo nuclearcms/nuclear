@@ -102,10 +102,21 @@ body {
   .button--emphasis {
     color: #FFFFFF;
     background-color: #F1C40F; }
+  .button--danger {
+    color: #FFFFFF;
+    background-color: #E74C3C; }
+  .button--separated {
+    border-left: 1px solid #E5E7E9; }
+  .button--action {
+    padding: 0 1.5em;
+    color: #95A5A6; }
   .button__icon {
     position: relative;
     top: 0.0625em;
     display: inline-block; }
+    .button__icon--action {
+      top: 0.125em;
+      font-size: 1.33333333em; }
     .button__icon--left {
       transform: translateX(-0.75em); }
     .button__icon--right {
@@ -133,6 +144,12 @@ body {
     display: inline-block;
     color: #5F696A;
     transition: color 250ms; }
+  .content-list__checkbox {
+    opacity: 0;
+    transition: opacity 250ms;
+    cursor: pointer; }
+    .content-list__checkbox:checked {
+      opacity: 1; }
   .content-list__row {
     line-height: 1.5em; }
     .content-list__row--body {
@@ -147,6 +164,10 @@ body {
       clear: both;
       content: "";
       display: table; }
+    .content-list__cell--thumbnail {
+      width: 4em;
+      text-align: center;
+      padding-left: 1em; }
     .content-list__cell--options {
       width: 3em;
       padding: 0; }
@@ -235,6 +256,8 @@ body {
 .no-touch .content-list__row--body:hover {
   border-bottom-color: #F1C40F;
   background-color: #FDF8E2; }
+  .no-touch .content-list__row--body:hover .content-list__checkbox {
+    opacity: 1; }
   .no-touch .content-list__row--body:hover .dropdown-icon {
     color: #F1C40F; }
 
@@ -447,7 +470,16 @@ label {
       content: "";
       display: table; }
   .header__action {
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    transition: opacity 250ms; }
+    .header__action--hidden {
+      height: 0;
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+      margin: 0; }
+    .header__action--bulk form {
+      display: inline-block; }
     .header__action--left {
       float: left;
       margin-right: 1em; }
@@ -792,7 +824,7 @@ label {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(4, 4);
+    transform: translate(-50%, -50%) scale(2, 2);
     width: 32em;
     max-width: 100%;
     box-shadow: 0 0.125em 0.5em 0 rgba(0, 0, 0, 0.4);

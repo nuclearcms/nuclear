@@ -19,7 +19,7 @@ class FormsHtmlBuilder {
      */
     public function button($icon, $text = '', $type = 'button', $class = 'button--emphasis', $iconSide = 'r')
     {
-        $iconType = empty($text) ? '<i class="' . $icon . ' button__icon"></i>' :
+        $iconType = empty($text) ? '<i class="' . $icon . ' button__icon button__icon--action"></i>' :
             ($iconSide === 'r' ?
                 uppercase($text) . ' <i class="' . $icon . ' button__icon button__icon--right"></i>' :
                 '<i class="' . $icon . ' button__icon button__icon--left"></i> ' . uppercase($text)
@@ -56,7 +56,7 @@ class FormsHtmlBuilder {
      */
     public function actionButton($link, $icon, $text = '', $class = 'button--emphasis', $iconSide = 'r')
     {
-        $iconType = empty($text) ? '<i class="' . $icon . ' button__icon"></i>' :
+        $iconType = empty($text) ? '<i class="' . $icon . ' button__icon button__icon--action"></i>' :
             ($iconSide === 'r' ?
                 uppercase($text) . ' <i class="' . $icon . ' button__icon button__icon--right"></i>' :
                 '<i class="' . $icon . ' button__icon button__icon--left"></i> ' . uppercase($text)
