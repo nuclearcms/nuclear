@@ -58,6 +58,43 @@ class PermissionsController extends ReactorController {
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $permission = Permission::findOrFail($id);
+
+        $form = $this->getEditPermissionForm($id, $permission);
+
+        return $this->compileView('permissions.edit', compact('form', 'permission'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->authorize('EDIT_PERMISSIONS');
+
+        $permission = Permission::findOrFail($id);
+
+        $this->validateUpdatePermission($request, $permission);
+
+        $permission->update($request->all());
+
+        $this->notify('permissions.edited');
+
+        return redirect()->back();
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int $id

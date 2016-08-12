@@ -1,0 +1,39 @@
+.tabs-outer
+    text-align: center
+
+    &--children
+        background-color: $colorEmphasis
+        padding: 0.5em 0
+        box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.2)
+
+.tabs
+    padding: 0 2em
+    display: inline-block
+    vertical-align: bottom
+    +clearfix
+
+    @media screen and (max-width: $thresholdMicro)
+        padding: 0 1em
+
+    &__flap
+        display: inline-block
+        float: left
+
+    &__link
+        font-size: 0.75em
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+        color: $colorMuted
+        +transition(color $durationShort, border-bottom-color $durationShort)
+        border: 0.5em solid transparent
+        display: inline-block
+        padding: 0.5em 1.5em 0.5em
+
+        &--active
+            border-bottom-color: $colorEmphasis !important
+            color: $colorEmphasis !important
+
+.no-touch
+    .tabs__link:hover
+        color: $colorMutedLess
+        border-bottom-color: $colorLightBG4

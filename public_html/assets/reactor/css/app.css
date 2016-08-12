@@ -447,7 +447,8 @@ label {
   position: fixed;
   right: 2em;
   bottom: 1em;
-  box-shadow: 0 0.0625em 0.1875em 0 rgba(0, 0, 0, 0.25); }
+  box-shadow: 0 0.0625em 0.1875em 0 rgba(0, 0, 0, 0.25);
+  background-color: #FFFFFF; }
   @media screen and (max-width: 31.9375em) {
     .form-buttons {
       right: 1em; } }
@@ -1276,6 +1277,44 @@ label {
       border: 0;
       background-color: #F1C40F; }
 
+.tabs-outer {
+  text-align: center; }
+  .tabs-outer--children {
+    background-color: #F1C40F;
+    padding: 0.5em 0;
+    box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.2); }
+
+.tabs {
+  padding: 0 2em;
+  display: inline-block;
+  vertical-align: bottom; }
+  .tabs::after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media screen and (max-width: 31.9375em) {
+    .tabs {
+      padding: 0 1em; } }
+  .tabs__flap {
+    display: inline-block;
+    float: left; }
+  .tabs__link {
+    font-size: 0.75em;
+    font-family: "Lato", Helvetica, sans-serif;
+    font-weight: 700;
+    color: #95A5A6;
+    transition: color 250ms, border-bottom-color 250ms;
+    border: 0.5em solid transparent;
+    display: inline-block;
+    padding: 0.5em 1.5em 0.5em; }
+    .tabs__link--active {
+      border-bottom-color: #F1C40F !important;
+      color: #F1C40F !important; }
+
+.no-touch .tabs__link:hover {
+  color: #7F8C8D;
+  border-bottom-color: #E5E7E9; }
+
 body {
   font-family: "Oxygen", Helvetica, sans-serif;
   font-size: 1em;
@@ -1443,7 +1482,7 @@ h1 {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 4em; }
+  padding-bottom: 2.25em; }
 
 .no-touch .hamburger:hover {
   color: #F1C40F; }

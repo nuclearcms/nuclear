@@ -8,7 +8,6 @@ Route::group([
 
     Route::get('/', [
         'uses' => 'UpdateController@index',
-        'as' => 'reactor.update.index'
-    ]);
+        'as' => 'reactor.update.index']);
 
 });

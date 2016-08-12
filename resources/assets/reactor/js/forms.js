@@ -16,7 +16,7 @@ function locateFormButtons() {
         fcH = formContainer.outerHeight();
 
     if ((wH - 16) > fcH) {
-        formButtons.css('bottom', (wH - fcH) + 'px');
+        formButtons.css('bottom', (wH - fcH + 16) + 'px');
     } else {
         formButtons.css('bottom', '');
     }
