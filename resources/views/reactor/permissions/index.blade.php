@@ -9,7 +9,7 @@
 @endsection
 
 @section('content_list')
-    @include('permissions.content')
+    @include('permissions.list')
 @endsection
 
 @section('content_footer')

@@ -1479,10 +1479,7 @@ h1 {
       transition: opacity 350ms; } }
 
 .content {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 2.25em; }
+  padding-bottom: 3em; }
 
 .no-touch .hamburger:hover {
   color: #F1C40F; }

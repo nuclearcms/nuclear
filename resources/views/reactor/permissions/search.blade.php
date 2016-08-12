@@ -12,7 +12,7 @@
 
 @section('content_list')
     @if($permissions->count())
-        @include('permissions.content')
+        @include('permissions.list')
     @else
         {!! no_results_row() !!}
     @endif

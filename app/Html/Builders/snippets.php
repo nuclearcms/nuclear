@@ -45,6 +45,20 @@ if ( ! function_exists('content_table_close'))
     }
 }
 
+if ( ! function_exists('content_list_thumbnail'))
+{
+    /**
+     * Snippet for displaying the selection/thumbnail column
+     *
+     * @param int $id
+     * @return string
+     */
+    function content_list_thumbnail($id)
+    {
+        return app('reactor.builders.contents')->contentListThumbnail($id);
+    }
+}
+
 if ( ! function_exists('content_options_open'))
 {
     /**
@@ -71,6 +85,21 @@ if ( ! function_exists('content_options_close'))
     function content_options_close($table = true)
     {
         return app('reactor.builders.contents')->contentOptionsClose($table);
+    }
+}
+
+if ( ! function_exists('content_options'))
+{
+    /**
+     * Snippet for displaying standard content options
+     *
+     * @param string $key
+     * @param int $id
+     * @return string
+     */
+    function content_options($key, $id)
+    {
+        return app('reactor.builders.contents')->contentOptions($key, $id);
     }
 }
 

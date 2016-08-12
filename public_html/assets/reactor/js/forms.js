@@ -15,8 +15,10 @@ function locateFormButtons() {
     var wH = $(window).height(),
         fcH = formContainer.outerHeight();
 
-    if ((wH - 16) > fcH) {
-        formButtons.css('bottom', (wH - fcH + 16) + 'px');
+    // This 12px thing is because of the content container needs to have an
+    // extra of 12px bottom padding in order to ensure scrollbar not showing
+    if ((wH + 12) > fcH) {
+        formButtons.css('bottom', (wH - fcH + 28) + 'px');
     } else {
         formButtons.css('bottom', '');
     }
