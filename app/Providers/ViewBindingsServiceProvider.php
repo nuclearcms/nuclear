@@ -28,6 +28,11 @@ class ViewBindingsServiceProvider extends ServiceProvider {
      */
     public function boot(NodeRepository $nodeRepository)
     {
+        if ( ! is_installed())
+        {
+            return;
+        }
+
         view()->share('home', $nodeRepository->getHome());
 
         view()->composer('*', function ($view) use ($nodeRepository)

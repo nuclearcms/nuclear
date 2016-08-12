@@ -9,7 +9,7 @@ if ( ! function_exists('is_installed'))
      */
     function is_installed()
     {
-        return (env('APP_INSTALLED', true) && !empty(env('DB_DATABASE')));
+        return ((env('APP_STATUS', 'INSTALLED') === 'INSTALLED') && ! empty(env('DB_DATABASE')));
     }
 }
 

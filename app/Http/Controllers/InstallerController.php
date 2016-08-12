@@ -183,7 +183,7 @@ class InstallerController extends Controller {
         $home->save();
 
         Artisan::call('key:generate');
-        $helper->removeEnvVariable('APP_INSTALLED');
+        $helper->setEnvVariable('APP_STATUS', 'INSTALLED');
 
         return redirect()->route('install-complete');
     }
