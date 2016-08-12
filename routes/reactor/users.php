@@ -1,11 +1,9 @@
 <?php
 
-Route::group([
-    'prefix' => 'users',
-    'middleware' => 'can:ACCESS_USERS'
-], function ()
+Route::group(['middleware' => 'can:ACCESS_USERS'], function ()
 {
-    Route::resource('/', 'UsersController', ['except' => ['show'], 'names' => [
+
+    Route::resource('users', 'UsersController', ['except' => ['show'], 'names' => [
         'index'   => 'reactor.users.index',
         'create'   => 'reactor.users.create',
         'store'   => 'reactor.users.store',
@@ -13,4 +11,5 @@ Route::group([
         'update'  => 'reactor.users.update',
         'destroy' => 'reactor.users.destroy',
     ]]);
+
 });

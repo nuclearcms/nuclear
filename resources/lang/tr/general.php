@@ -17,6 +17,9 @@ return [
     'search' => 'Arama',
     'options' => 'Seçenekler',
     'bulk_actions' => 'Toplu Eylemler',
+    'search_no_results' => 'Aramanız herhangi bir sonuç getirmedi.',
+
     'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
+    'error_saving' => 'Kaydederken hata(lar) oluştu!',
 
 ];

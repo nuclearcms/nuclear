@@ -1,6 +1,6 @@
 <?php
 
-namespace Reactor\Html;
+namespace Reactor\Html\Builders;
 
 
 use Illuminate\Support\ViewErrorBag;
@@ -112,7 +112,7 @@ class FormsHtmlBuilder {
         if ($showLabel && !(isset($options['label']) && $options['label'] === false))
         {
             $class = isset($options['label_attr']['class']) ? $options['label_attr']['class'] : '';
-            $options['label_attr']['class'] = 'form-group__label ' . ($errors->has($name) ? ' form-group__label--error' : '') . $class;
+            $options['label_attr']['class'] = 'form-group__label ' . ($errors->has($name) ? ' form-group__label--error ' : '') . $class;
 
             return \Form::label($name,
                 (isset($options['label']) && !empty($options['label'])) ?
@@ -124,6 +124,50 @@ class FormsHtmlBuilder {
         }
 
         return '';
+    }
+
+    /**
+     * Returns errors for the field
+     *
+     * @param ViewErrorBag $errors
+     * @param string $name
+     * @return string
+     */
+    public function fieldErrors(ViewErrorBag $errors, $name)
+    {
+        $html = '<ul class="form-group__errors">';
+
+        foreach ($errors->get($name) as $error)
+        {
+            $html .= '<li>' . $error . '</li>';
+        }
+
+        return $html .= '</ul>';
+    }
+
+    /**
+     * Creates a field help block
+     *
+     * @param string $name
+     * @param array $options
+     * @return string
+     */
+    public function fieldHelpBlock($name, array $options)
+    {
+        $html = '<div class="form-group-column form-group-column--help">';
+
+        if ( ! empty($options['help_block']['text']))
+        {
+            $html .= trans($options['help_block']['text']);
+        } else
+        {
+            if (trans()->has('hints.' . $name))
+            {
+                $html .= trans('hints.' . $name);
+            }
+        }
+
+        return $html . '</div>';
     }
 
     /**

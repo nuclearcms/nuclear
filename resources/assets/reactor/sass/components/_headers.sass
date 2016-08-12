@@ -20,6 +20,10 @@
         font-family: $fontHeading
         font-weight: $fontWeightBold
 
+        a
+            color: $colorEmphasis
+            +transition(opacity $durationShort)
+
     &__actions
         margin-bottom: 1.5em
         +clearfix
@@ -77,5 +81,7 @@
             padding: 0 3.33333333em 0 2em
 
 .no-touch
+    .header__subheading a:hover
+        opacity: 0.75
     .header__action--secondary
         display: none

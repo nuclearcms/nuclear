@@ -122,13 +122,12 @@ if ( ! function_exists('back_to_all_link'))
     /**
      * Snippet for generating back links (mainly for search pages)
      *
-     * @param string $link
-     * @param string $text
+     * @param string $key
      * @return string
      */
-    function back_to_all_link($link, $text)
+    function back_to_all_link($key)
     {
-        return app('reactor.builders.contents')->backToAllLink($link, $text);
+        return app('reactor.builders.contents')->backToAllLink($key);
     }
 }
 
@@ -231,6 +230,36 @@ if ( ! function_exists('field_label'))
     function field_label($showLabel, array $options, $name, ViewErrorBag $errors)
     {
         return app('reactor.builders.forms')->fieldLabel($showLabel, $options, $name, $errors);
+    }
+}
+
+if ( ! function_exists('field_errors'))
+{
+    /**
+     * Returns errors for the field
+     *
+     * @param ViewErrorBag $errors
+     * @param string $name
+     * @return string
+     */
+    function field_errors($errors, $name)
+    {
+        return app('reactor.builders.forms')->fieldErrors($errors, $name);
+    }
+}
+
+if ( ! function_exists('field_help_block'))
+{
+    /**
+     * Creates a field help block
+     *
+     * @param string $name
+     * @param array $options
+     * @return string
+     */
+    function field_help_block($name, array $options)
+    {
+        return app('reactor.builders.forms')->fieldHelpBlock($name, $options);
     }
 }
 

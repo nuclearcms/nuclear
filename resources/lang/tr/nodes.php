@@ -3,7 +3,7 @@
 return [
 
     'title' => 'Düğümler',
-    'search' => 'Düğüm ara',
+    'search' => 'Düğüm Ara',
 
     'all_nodes' => 'Tüm Düğümler',
     'withheld_nodes' => 'Yayınlanmamış Düğümler',

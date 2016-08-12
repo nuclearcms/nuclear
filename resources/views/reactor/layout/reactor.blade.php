@@ -16,7 +16,8 @@
             <div id="contentWhiteout" class="content-whiteout"></div>
 
             <div class="content" id="content">
-                @yield('form_start')
+
+                @include('partials.flash')
 
                 <header class="header">
 
@@ -30,6 +31,8 @@
                     </div>
 
                 </header>
+
+                @yield('form_start')
 
                 @yield('content')
 

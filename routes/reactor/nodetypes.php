@@ -1,11 +1,9 @@
 <?php
 
-Route::group([
-    'prefix' => 'nodetypes',
-    'middleware' => 'can:ACCESS_NODETYPES'
-], function ()
+Route::group(['middleware' => 'can:ACCESS_NODETYPES'], function ()
 {
-    Route::resource('/', 'NodeTypesController', ['except' => ['show'], 'names' => [
+
+    Route::resource('nodetypes', 'NodeTypesController', ['except' => ['show'], 'names' => [
         'index'   => 'reactor.nodetypes.index',
         'create'   => 'reactor.nodetypes.create',
         'store'   => 'reactor.nodetypes.store',
@@ -13,4 +11,5 @@ Route::group([
         'update'  => 'reactor.nodetypes.update',
         'destroy' => 'reactor.nodetypes.destroy',
     ]]);
+
 });

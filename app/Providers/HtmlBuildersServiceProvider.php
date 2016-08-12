@@ -46,7 +46,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerContentsHtmlBuilder()
     {
         $this->app['reactor.builders.contents'] = $this->app->share(function () {
-            return $this->app->make('Reactor\Html\ContentsHtmlBuilder');
+            return $this->app->make('Reactor\Html\Builders\ContentsHtmlBuilder');
         });
     }
 
@@ -56,7 +56,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerFormsHtmlBuilder()
     {
         $this->app['reactor.builders.forms'] = $this->app->share(function () {
-            return $this->app->make('Reactor\Html\FormsHtmlBuilder');
+            return $this->app->make('Reactor\Html\Builders\FormsHtmlBuilder');
         });
     }
 
@@ -66,7 +66,7 @@ class HtmlBuildersServiceProvider extends ServiceProvider {
     protected function registerNavigationHtmlBuilder()
     {
         $this->app['reactor.builders.navigation'] = $this->app->share(function () {
-            return $this->app->make('Reactor\Html\NavigationHtmlBuilder');
+            return $this->app->make('Reactor\Html\Builders\NavigationHtmlBuilder');
         });
     }
 

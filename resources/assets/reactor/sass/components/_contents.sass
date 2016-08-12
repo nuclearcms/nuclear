@@ -27,6 +27,10 @@
         &:checked
             opacity: 1
 
+    &__no-results
+        text-align: center
+        padding: 3em 1em
+
     &__row
         line-height: 1.5em
         &--body
@@ -87,14 +91,15 @@
 .content-footer
     width: 100%
     text-align: center
+    background-color: $colorEmphasis
 
     &--table
         +position(absolute, null 0 0 null)
+        height: 2.75em
+        padding: 0.125em 1em
 
 .pagination-container
-    background-color: $colorEmphasis
-    height: 2.75em
-    padding: 0.625em 1em
+    padding: 0.5em 0
 
 .pagination
     &__sibling, &__current-container

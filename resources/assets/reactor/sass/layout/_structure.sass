@@ -17,9 +17,9 @@
     height: 100%
     z-index: 100
     color: $colorLightText
-    +transition(all $durationMedium)
 
     @media screen and (max-width: $thresholdCollapse)
+        +transition(all $durationMedium)
         left: -$navigationOffset
         &--slide
             +transform(translateX($navigationOffset))

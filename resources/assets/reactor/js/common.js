@@ -51,7 +51,8 @@ function compileSelectedForBulkAction() {
         compiled.push(checked.eq(i).val());
     }
 
-    console.log(compiled);
-
     bulkSelectedInput.val(JSON.stringify(compiled));
 }
+
+// FLASH MESSAGE HIDING
+$('.flash-message').addClass('flash-message--hidden');

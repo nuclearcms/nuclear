@@ -1,6 +1,6 @@
 <?php
 
-namespace Reactor\Html;
+namespace Reactor\Html\Builders;
 
 
 use Illuminate\Contracts\Auth\Access\Gate;

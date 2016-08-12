@@ -1,6 +1,6 @@
 <?php
 
-namespace Reactor\Html;
+namespace Reactor\Html\Builders;
 
 
 class ContentsHtmlBuilder {
@@ -124,21 +124,19 @@ class ContentsHtmlBuilder {
     public function noResultsRow($message = 'general.search_no_results')
     {
         return '<tr>
-            <td colspan="42" class="content-noresults">' . trans($message) . '</td>
+            <td colspan="42" class="content-list__no-results">' . trans($message) . '</td>
         </tr>';
     }
 
     /**
      * Snippet for generating back links (mainly for search pages)
      *
-     * @param string $link
-     * @param string $text
+     * @param string $key
      * @return string
      */
-    public function backToAllLink($link, $text)
+    public function backToAllLink($key)
     {
-        return sprintf('<a class="button back-link" href="%s">
-            <i class="icon-left-thin"></i>%s</a>', $link, trans($text));
+        return action_button(route('reactor.' . $key . '.index'), 'icon-arrow-left' , trans($key . '.all'), 'button--emphasis', 'l');
     }
 
 }

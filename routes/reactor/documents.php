@@ -1,12 +1,9 @@
 <?php
 
-Route::group([
-    'prefix' => 'documents',
-    'middleware' => 'can:ACCESS_DOCUMENTS'
-], function ()
+Route::group(['middleware' => 'can:ACCESS_DOCUMENTS'], function ()
 {
 
-    Route::resource('/', 'DocumentsController', ['except' => ['show', 'create'], 'names' => [
+    Route::resource('documents', 'DocumentsController', ['except' => ['show', 'create'], 'names' => [
         'index'   => 'reactor.documents.index',
         'store'   => 'reactor.documents.store',
         'edit'    => 'reactor.documents.edit',

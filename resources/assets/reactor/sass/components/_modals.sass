@@ -1,14 +1,17 @@
+$durationModal: 300ms
+$durationModalUp: 350ms
+
 .modal
     +position(fixed, 0 null null 0)
     +size(100%)
     z-index: -1
     opacity: 0
-    +transition(opacity $durationMedium, z-index 0ms ease $durationMediumUp)
+    +transition(opacity $durationModal, z-index 0ms ease $durationModalUp)
 
     &--open
         z-index: 500
         opacity: 1
-        +transition(opacity $durationMedium)
+        +transition(opacity $durationModal)
 
     &__whiteout
         +position(absolute, 0 null null 0)
@@ -25,7 +28,7 @@
         background-color: $colorDarkBG2
         padding: 2em 2em 6em
         color: $colorLightText
-        +transition(all $durationMedium)
+        +transition(all $durationModal)
         opacity: 0
         cursor: default
 
