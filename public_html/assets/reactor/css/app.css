@@ -406,6 +406,14 @@ label {
     clear: both;
     content: "";
     display: table; }
+  .content-inner__heading {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 1em; }
+  .content-inner__row {
+    margin-top: 3em;
+    padding-top: 1.5em;
+    border-top: 1px solid #E5E7E9; }
   .content-inner--compact {
     padding-top: 1.5em; }
   @media screen and (max-width: 31.9375em) {

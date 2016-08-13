@@ -12,7 +12,7 @@
             'route' => route('reactor.roles.permission.revoke', $model->getKey())
         ])
 
-        ADD THE SUB FORM HERE
+        @include('permissions.add')
     </div>
 @endsection
 

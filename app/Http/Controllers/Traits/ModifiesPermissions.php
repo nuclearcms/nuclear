@@ -75,7 +75,7 @@ trait ModifiesPermissions {
      */
     public function addPermission(Request $request, $id)
     {
-        $this->validateForm('Reactor\Http\Forms\Permissions\AddPermissionForm', $request);
+        $this->validateForm('Reactor\Html\Forms\Permissions\AddPermissionForm', $request);
 
         extract($this->getResourceNames());
 
