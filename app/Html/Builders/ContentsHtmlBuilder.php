@@ -97,7 +97,7 @@ class ContentsHtmlBuilder {
      */
     public function contentOptionsClose($table = true)
     {
-        return '</ul></div></div>' . ($table) ? '</td>' : '';
+        return '</ul></div></div>' . (($table) ? '</td>' : '');
     }
 
     /**

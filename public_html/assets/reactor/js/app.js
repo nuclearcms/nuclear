@@ -27,7 +27,7 @@ $('.pagination__selector').on('change', function () {
     window.location = $(this).val();
 });
 
-// CONTENT CHECKBOXES
+// CONTENT CHECKBOXES & BULK ACTIONS
 var headerBulkActions = $('.header__action--bulk'),
     bulkSelectedInput = headerBulkActions.find('input[name="_bulkSelected"]');
 

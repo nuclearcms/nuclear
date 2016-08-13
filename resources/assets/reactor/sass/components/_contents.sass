@@ -5,6 +5,10 @@
     width: calc(100% - 4em)
     margin: 4.25em auto 0
 
+    &--sub
+        margin-top: 0
+        box-shadow: none
+
     @media screen and (max-width: $thresholdCollapse)
         padding: 0 0 4em
         width: 100%
@@ -67,6 +71,9 @@
             font-family: $fontHeading
             text-align: left
             font-size: 0.75em
+
+.content-list-container--sub .content-list
+    top: 0
 
 .sortable-link
     &--active

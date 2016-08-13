@@ -5,6 +5,7 @@ return [
     'title' => 'Permissions',
     'search' => 'Search Permissions',
     'all' => 'All Permissions',
+    'self' => 'Permission',
 
     'index' => 'Manage Permissions',
     'create' => 'Create Permission',
@@ -14,6 +15,12 @@ return [
     'destroy' => 'Delete Permission',
     'destroyed' => 'Deleted permission(s).',
 
-    'new' => 'New Permission'
+    'new' => 'New Permission',
+    'add' => 'Add Permission',
+    'added' => 'Added permission.',
+    'revoke' => 'Revoke Permission',
+    'revoked' => 'Revoked permission.',
+    'no_permissions' => 'No permissions found.',
+    'confirm_revoke' => 'Are you sure you want to revoke this permission?'
 
 ];

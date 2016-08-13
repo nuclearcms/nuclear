@@ -113,11 +113,12 @@ return [
     'attributes' => [
         'title'                    => 'Başlık',
         'node_name'                => 'Düğüm İsmi',
+        'tag_name'                 => 'Etiket İsmi',
         'email'                    => 'E-posta',
         'url'                      => 'URL',
         'text'                     => 'Metin',
         'source'                   => 'Kaynak',
-        'alttext'                      => 'Alternatif Metin',
+        'alttext'                  => 'Alternatif Metin',
         'password'                 => 'Şifre',
         'password_confirmation'    => 'Şifre Onayı',
         'keywords'                 => 'Anahtar Kelimeler',

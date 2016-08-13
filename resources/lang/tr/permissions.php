@@ -5,6 +5,7 @@ return [
     'title' => 'İzinler',
     'search' => 'İzin Ara',
     'all' => 'Tüm İzinler',
+    'self' => 'İzin',
 
     'index' => 'İzinleri Yönet',
     'create' => 'İzin Oluştur',
@@ -14,6 +15,12 @@ return [
     'destroy' => 'İzini Sil',
     'destroyed' => 'İzin(ler) silindi.',
 
-    'new' => 'Yeni İzin'
+    'new' => 'Yeni İzin',
+    'add' => 'İzin Ekle',
+    'added' => 'İzin eklendi.',
+    'revoke' => 'İzni İptal Et',
+    'revoked' => 'İzin iptal edildi.',
+    'no_permissions' => 'İzin bulunamadı.',
+    'confirm_revoke' => 'Bu izni iptal etmek istediğinizden emin misiniz?'
 
 ];

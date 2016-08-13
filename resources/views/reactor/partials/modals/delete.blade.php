@@ -1,7 +1,7 @@
 @section('modules')
     @include('partials.modals.confirm', [
         'modalTitle' => trans('general.warning'),
-        'modalContent' => trans('general.confirm_delete')
+        'modalContent' => isset($message) ? $message : trans('general.confirm_delete')
     ])
 @endsection
 

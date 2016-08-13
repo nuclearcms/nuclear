@@ -80,8 +80,24 @@
             height: 3.33333333em
             padding: 0 3.33333333em 0 2em
 
+.header-content
+    text-align: center
+
+    &__heading
+        font-size: 1.5em
+    &__hint
+        font-size: 0.75em
+        color: $colorMuted
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+
+        a
+            color: $colorEmphasis
+            +transition(opacity $durationShort)
+
+
 .no-touch
-    .header__subheading a:hover
+    .header__subheading a:hover, .header-content__hint a:hover
         opacity: 0.75
     .header__action--secondary
         display: none

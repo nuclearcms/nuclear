@@ -1,3 +1,5 @@
+$durationFlashDelay: 2000ms
+
 .flash-messages
     +position(fixed, 3.5em 0 null null)
     z-index: 115
@@ -15,7 +17,7 @@
     background-color: $colorEmphasis
     margin-bottom: 1.33333333em
     box-shadow: $shadowDown
-    +transition(opacity $durationMedium ease $durationDelay, left $durationMedium ease $durationDelay)
+    +transition(opacity $durationMedium ease $durationFlashDelay, left $durationMedium ease $durationFlashDelay)
 
     &--hidden
         opacity: 0

@@ -26,6 +26,8 @@
                         <h1 class="header__heading">@yield('pageTitle')</h1>
                     </hgroup>
 
+                    @yield('header_content')
+
                     <div class="header__actions">
                         @yield('actions')
                     </div>

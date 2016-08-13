@@ -15,11 +15,14 @@ input:not([type="checkbox"]), textarea
 label
     user-select: none
 
-.content-form
+.content-inner
     box-shadow: $shadowDownLight
     background-color: $colorLightBG1
     padding: 3em 2em 3em
     +clearfix
+
+    &--compact
+        padding-top: 1.5em
 
     @media screen and (max-width: $thresholdMicro)
         padding: 3em 1em 3em
@@ -114,7 +117,7 @@ label
                 border-bottom-color: $colorDanger
 
     input, textarea
-        border-bottom: 1px solid $colorOutline
+        border-bottom: 1px solid $colorLightBG4
         +transition(border-bottom $durationShort)
 
         &:focus
@@ -127,7 +130,7 @@ label
 
     &__select
         position: relative
-        border-bottom: 1px solid $colorOutline
+        border-bottom: 1px solid $colorLightBG4
 
         i
             +position(absolute, 0.625em 0.375em null null)
@@ -172,5 +175,8 @@ label
             border-bottom-color: $colorDanger
 
     &--inverted
+        input, textarea, .form-group__select
+            border-bottom-color: $colorOutline
+
         input:not([type="checkbox"]), textarea, select
             color: $colorLightText
