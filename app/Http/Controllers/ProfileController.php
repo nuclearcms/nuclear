@@ -86,7 +86,7 @@ class ProfileController extends ReactorController {
         $profile = $this->getProfile();
         $activities = chronicle()->getUserActivity($profile->getKey(), 30);
 
-        return $this->compileView('profile.history', compact('profile', 'activities'));
+        return $this->compileView('profile.history', compact('profile', 'activities'), trans('general.history'));
     }
 
     /**

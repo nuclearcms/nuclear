@@ -2,6 +2,34 @@
 
 use Illuminate\Support\ViewErrorBag;
 
+if ( ! function_exists('activity_open'))
+{
+    /**
+     * Returns an activity opening tag
+     *
+     * @param Activity $activity
+     * @param bool $minor
+     * @return string
+     */
+    function activity_open($activity, $minor = true)
+    {
+        return app('reactor.builders.activities')->activityOpen($activity, $minor);
+    }
+}
+
+if ( ! function_exists('activity_close'))
+{
+    /**
+     * Returns an activity closing tag
+     *
+     * @return string
+     */
+    function activity_close()
+    {
+        return app('reactor.builders.activities')->activityClose();
+    }
+}
+
 if ( ! function_exists('content_table_open'))
 {
     /**

@@ -1,4 +1,4 @@
-@extends('layout.form')
+@extends('layout.content')
 
 @section('pageSubtitle', uppercase(trans('users.profile')))
 
@@ -9,9 +9,12 @@
 @endsection
 
 @section('content')
-    <div class="content-inner">
-        <div class="form-column form-column--full">
-            {!! form_rest($form) !!}
-        </div>
+    @include('profile.tabs', [
+        'currentRoute' => 'reactor.profile.history',
+        'currentKey' => []
+    ])
+
+    <div class="content-inner content-inner--compact">
+    @include('activities.list')
     </div>
 @endsection

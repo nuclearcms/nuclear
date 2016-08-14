@@ -1294,16 +1294,16 @@
         },
         {
             "name": "kenarkose/chronicle",
-            "version": "1.3.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Chronicle.git",
-                "reference": "1622902b01c3f5d1a597f7bb43f11811998c0340"
+                "reference": "7b1d929cc6ccdd8467c7c87ac8a479112715603b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/1622902b01c3f5d1a597f7bb43f11811998c0340",
-                "reference": "1622902b01c3f5d1a597f7bb43f11811998c0340",
+                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/7b1d929cc6ccdd8467c7c87ac8a479112715603b",
+                "reference": "7b1d929cc6ccdd8467c7c87ac8a479112715603b",
                 "shasum": ""
             },
             "require": {
@@ -1346,7 +1346,7 @@
                 "laravel5",
                 "log"
             ],
-            "time": "2016-07-31 15:25:13"
+            "time": "2016-08-14 12:42:07"
         },
         {
             "name": "kenarkose/files",
@@ -1688,16 +1688,16 @@
         },
         {
             "name": "kris/laravel-form-builder",
-            "version": "1.7.10",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "a4be69caa651b84f675f06a69dcfc750ac98204c"
+                "reference": "518d848bd4e27511008e332b73c8ddf884cc44b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/a4be69caa651b84f675f06a69dcfc750ac98204c",
-                "reference": "a4be69caa651b84f675f06a69dcfc750ac98204c",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/518d848bd4e27511008e332b73c8ddf884cc44b1",
+                "reference": "518d848bd4e27511008e332b73c8ddf884cc44b1",
                 "shasum": ""
             },
             "require": {
@@ -1738,7 +1738,7 @@
                 }
             ],
             "description": "Laravel form builder - symfony like",
-            "time": "2016-06-03 19:23:17"
+            "time": "2016-08-12 12:54:12"
         },
         {
             "name": "laracasts/flash",

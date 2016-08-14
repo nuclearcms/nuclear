@@ -1,0 +1,44 @@
+.activity-feed
+    padding: 0 2em
+    line-height: 1.125em
+
+    a
+        color: $colorEmphasis
+        +transition(opacity $durationShort)
+
+    @media screen and (max-width: $thresholdCollapse)
+        padding: 0 1em
+
+.activity
+    border-bottom: 1px solid $colorLightBG4
+    padding: 0.5em 0
+
+    &__actor, &__subject
+        display: inline-block
+        vertical-align: top
+
+    &__subject
+        width: calc(100% - 4em)
+        padding-right: 1em
+        padding-bottom: 0.25em
+
+    &__time
+        color: $colorMuted
+        font-size: 0.75em
+
+    &__actor
+        padding: 0.25em 1em 0.25em 0
+
+        @media screen and (max-width: $thresholdMicro)
+            padding: 0.25em 0.75em 0.25em 0
+
+    &--minor
+        font-size: 0.875em
+
+    &--empty
+        padding: 4em 2em
+        text-align: center
+
+.no-touch
+    .activity-feed a:hover
+        opacity: 0.7
