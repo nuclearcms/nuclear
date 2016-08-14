@@ -180,6 +180,25 @@ label
                 .icon-cancel
                     display: none
 
+    &__password
+        background-color: $colorLightBG3
+        height: 0.25em
+        opacity: 0.7
+
+        .password-strength
+            height: 0.25em
+            width: 0%
+            +transition(all 150ms)
+
+            &--veryweak
+                background-color: $colorDanger
+            &--weak
+                background-color: #e67e22
+            &--medium
+                background-color: $colorEmphasis
+            &--strong
+                background-color: #2ecc71
+
     &--error
         input, textarea
             border-bottom-color: $colorDanger

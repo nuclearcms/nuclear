@@ -115,10 +115,9 @@ class FormsHtmlBuilder {
             $options['label_attr']['class'] = 'form-group__label ' . ($errors->has($name) ? ' form-group__label--error ' : '') . $class;
 
             return \Form::label($name,
-                (isset($options['label']) && !empty($options['label'])) ?
-                    trans($options['label']) :
-                    (trans()->has('validation.attributes.' . $name) ?
-                        trans('validation.attributes.' . $name) : $name),
+                trans()->has('validation.attributes.' . $name) ?
+                    trans('validation.attributes.' . $name) :
+                    trans($options['label']),
                 $options['label_attr']);
         }
 

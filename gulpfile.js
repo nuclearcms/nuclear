@@ -34,6 +34,7 @@ if( ! argv.r) {
                 'nodetrees.js'
             ], elixir.config.publicPath + '/js/app.js')
             .scripts([
+                'passwords.js',
                 'forms.js'
             ], elixir.config.publicPath + '/js/forms.js');
     });

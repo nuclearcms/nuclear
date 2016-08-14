@@ -10,15 +10,15 @@ return [
     'select'        => 'fields.select',
 
     'custom_fields' => [
-        'password' => 'Reactor\Http\Fields\PasswordField',
-        'color' => 'Reactor\Http\Fields\ColorField',
-        'slug' => 'Reactor\Http\Fields\SlugField',
-        'markdown' => 'Reactor\Http\Fields\MarkdownField',
-        'gallery' => 'Reactor\Http\Fields\GalleryField',
-        'document' => 'Reactor\Http\Fields\DocumentField',
-        'node_collection' => 'Reactor\Http\Fields\NodeCollectionField',
-        'date' => 'Reactor\Http\Fields\DateField',
-        'hidden' => 'Reactor\Http\Fields\HiddenField',
-        'node' => 'Reactor\Http\Fields\NodeField',
+        'password' => 'Reactor\Html\Fields\PasswordField',
+        'color' => 'Reactor\Html\Fields\ColorField',
+        'slug' => 'Reactor\Html\Fields\SlugField',
+        'markdown' => 'Reactor\Html\Fields\MarkdownField',
+        'gallery' => 'Reactor\Html\Fields\GalleryField',
+        'document' => 'Reactor\Html\Fields\DocumentField',
+        'node_collection' => 'Reactor\Html\Fields\NodeCollectionField',
+        'date' => 'Reactor\Html\Fields\DateField',
+        'hidden' => 'Reactor\Html\Fields\HiddenField',
+        'node' => 'Reactor\Html\Fields\NodeField',
     ]
 ];

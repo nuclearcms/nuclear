@@ -13,6 +13,7 @@ return [
 
     'dashboard' => 'Dashboard',
     'home' => 'Anasayfa',
+    'history' => 'Geçmiş',
     'content' => 'İçerik',
     'search' => 'Arama',
     'options' => 'Seçenekler',

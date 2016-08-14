@@ -13,6 +13,7 @@ return [
 
     'dashboard' => 'Dashboard',
     'home' => 'Home',
+    'history' => 'History',
     'content' => 'Content',
     'search' => 'Search',
     'options' => 'Options',

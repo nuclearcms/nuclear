@@ -4,12 +4,15 @@ return [
 
     'title' => 'Users',
     'self' => 'User',
+    'profile' => 'Profile',
 
     'index' => 'Manage Users',
     'create' => 'Create User',
 
     'update_profile' => 'Update Profile',
+    'updated_profile' => 'Updated profile.',
     'change_password' => 'Change Password',
+    'changed_password' => 'Changed password.',
 
     'new' => 'New User',
     'associate' => 'Associate User',

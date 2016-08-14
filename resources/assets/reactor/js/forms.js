@@ -28,3 +28,8 @@ locateFormButtons();
 $(window).on('resize.formbuttons', function () {
     locateFormButtons();
 });
+
+// PASSWORD FIELDS
+$('.form-group--password').each(function () {
+    new PasswordMeter($(this));
+});
