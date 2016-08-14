@@ -20,8 +20,7 @@ return [
     'added' => 'Added permission.',
     'revoke' => 'Revoke Permission',
     'revoked' => 'Revoked permission.',
-    'no_permissions' => 'No permissions found.',
-    'confirm_revoke' => 'Are you sure you want to revoke this permission?',
-    'add_permission' => 'Add Permission'
+    'no_permissions' => 'No permissions were found.',
+    'confirm_revoke' => 'Are you sure you want to revoke this permission?'
 
 ];

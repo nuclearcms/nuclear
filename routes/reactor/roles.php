@@ -25,19 +25,19 @@ Route::group(['middleware' => 'can:ACCESS_ROLES'], function ()
         'as'   => 'reactor.roles.permissions']);
     Route::put('roles/{id}/permissions', [
         'uses' => 'RolesController@addPermission',
-        'as'   => 'reactor.roles.permission.add']);
+        'as'   => 'reactor.roles.permissions.add']);
     Route::delete('roles/{id}/permissions', [
         'uses' => 'RolesController@revokePermission',
-        'as'   => 'reactor.roles.permission.revoke']);
+        'as'   => 'reactor.roles.permissions.revoke']);
 
     Route::get('roles/{id}/users', [
         'uses' => 'RolesController@users',
         'as'   => 'reactor.roles.users']);
     Route::put('roles/{id}/users', [
-        'uses' => 'RolesController@addUser',
-        'as'   => 'reactor.roles.user.add']);
+        'uses' => 'RolesController@associateUser',
+        'as'   => 'reactor.roles.users.associate']);
     Route::delete('roles/{id}/users', [
-        'uses' => 'RolesController@revokeUser',
-        'as'   => 'reactor.roles.user.revoke']);
+        'uses' => 'RolesController@dissociateUser',
+        'as'   => 'reactor.roles.users.dissociate']);
 
 });

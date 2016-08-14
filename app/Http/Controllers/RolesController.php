@@ -20,6 +20,7 @@ class RolesController extends ReactorController {
      */
     protected $modelPath = Role::class;
     protected $routeViewPrefix = 'roles';
+    protected $permissionKey = 'ROLES';
 
     /**
      * Display a listing of the resource.
@@ -152,6 +153,63 @@ class RolesController extends ReactorController {
         $this->notify('roles.destroyed');
 
         return redirect()->route('reactor.roles.index');
+    }
+
+    /**
+     * List the specified resource users.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function users($id)
+    {
+        $role = Role::with('users')->findOrFail($id);
+
+        list($form, $count) = $this->getAddUserForm($id, $role);
+
+        return $this->compileView('roles.users', compact('role', 'form', 'count'), trans('users.title'));
+    }
+
+    /**
+     * Add an user to the specified resource.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function associateUser(Request $request, $id)
+    {
+        $this->authorize('EDIT_USERS');
+
+        $this->validateForm('Reactor\Html\Forms\Users\AddUserForm', $request);
+
+        $role = Role::findOrFail($id);
+
+        $role->associateUser($request->input('user'));
+
+        $this->notify('users.associated', 'associated_user_to_role', $role);
+
+        return redirect()->back();
+    }
+
+    /**
+     * Remove an user from the specified resource.
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function dissociateUser(Request $request, $id)
+    {
+        $this->authorize('EDIT_USERS');
+
+        $role = Role::findOrFail($id);
+
+        $role->dissociateUser($request->input('user'));
+
+        $this->notify('users.dissociated', 'dissociated_user_from_role', $role);
+
+        return redirect()->route('reactor.roles.users', $id);
     }
 
 }

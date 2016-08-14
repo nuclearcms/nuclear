@@ -57,7 +57,7 @@ trait UsesRoleForms {
     protected function getAddUserForm($id, Role $role)
     {
         $form = $this->form('Reactor\Html\Forms\Users\AddUserForm', [
-            'url' => route('reactor.roles.user.add', $id)
+            'url' => route('reactor.roles.users.associate', $id)
         ]);
 
         $choices = User::all()
@@ -69,7 +69,7 @@ trait UsesRoleForms {
             'choices' => $choices
         ]);
 
-        return $form;
+        return [$form, count($choices)];
     }
 
 }

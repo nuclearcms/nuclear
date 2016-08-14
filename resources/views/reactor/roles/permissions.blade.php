@@ -9,10 +9,12 @@
 
     <div class="content-inner content-inner--compact">
         @include('permissions.sublist', [
-            'route' => route('reactor.roles.permission.revoke', $model->getKey())
+            'route' => route('reactor.roles.permissions.revoke', $model->getKey())
         ])
 
+        @if($count > 0)
         @include('permissions.add')
+        @endif
     </div>
 @endsection
 

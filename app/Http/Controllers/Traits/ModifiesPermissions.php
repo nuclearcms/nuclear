@@ -22,9 +22,9 @@ trait ModifiesPermissions {
         $model = $modelPath::findOrFail($id);
         $permissions = $model->permissions()->orderBy('name')->get();
 
-        $form = $this->getAddPermissionForm($id, $model, $modelPrefix);
+        list($form, $count) = $this->getAddPermissionForm($id, $model, $modelPrefix);
 
-        return $this->compileView($modelPrefix . '.permissions', compact('model', 'form', 'permissions'), trans('permissions.title'));
+        return $this->compileView($modelPrefix . '.permissions', compact('model', 'form', 'count', 'permissions'), trans('permissions.title'));
     }
 
     /**
@@ -36,7 +36,8 @@ trait ModifiesPermissions {
     {
         return [
             'modelPath'   => $this->modelPath,
-            'modelPrefix' => $this->routeViewPrefix
+            'modelPrefix' => $this->routeViewPrefix,
+            'permissionKey' => $this->permissionKey
         ];
     }
 
@@ -51,7 +52,7 @@ trait ModifiesPermissions {
     protected function getAddPermissionForm($id, Model $model, $modelPrefix)
     {
         $form = $this->form('Reactor\Html\Forms\Permissions\AddPermissionForm', [
-            'url' => route('reactor.' . $modelPrefix . '.permission.add', $id)
+            'url' => route('reactor.' . $modelPrefix . '.permissions.add', $id)
         ]);
 
         $choices = Permission::all()
@@ -63,7 +64,7 @@ trait ModifiesPermissions {
             'choices' => $choices
         ]);
 
-        return $form;
+        return [$form, count($choices)];
     }
 
     /**
@@ -75,9 +76,11 @@ trait ModifiesPermissions {
      */
     public function addPermission(Request $request, $id)
     {
-        $this->validateForm('Reactor\Html\Forms\Permissions\AddPermissionForm', $request);
-
         extract($this->getResourceNames());
+
+        $this->authorize('EDIT_' . $permissionKey);
+
+        $this->validateForm('Reactor\Html\Forms\Permissions\AddPermissionForm', $request);
 
         $model = $modelPath::findOrFail($id);
 
@@ -98,6 +101,8 @@ trait ModifiesPermissions {
     public function revokePermission(Request $request, $id)
     {
         extract($this->getResourceNames());
+
+        $this->authorize('EDIT_' . $permissionKey);
 
         $model = $modelPath::findOrFail($id);
 
