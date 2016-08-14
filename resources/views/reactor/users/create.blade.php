@@ -1,7 +1,7 @@
 @extends('layout.form')
 
 @section('pageSubtitle')
-    {!! link_to_route('reactor.roles.index', uppercase(trans('roles.title'))) !!}
+    {!! link_to_route('reactor.users.index', uppercase(trans('users.title'))) !!}
 @endsection
 
 @section('content')
@@ -13,5 +13,5 @@
 @endsection
 
 @section('form_buttons')
-    {!! submit_button('icon-plus') !!}
+    {!! submit_button('icon-blank') !!}
 @endsection

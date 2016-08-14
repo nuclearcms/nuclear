@@ -20,4 +20,35 @@ Route::group(['middleware' => 'can:ACCESS_USERS'], function ()
         'uses' => 'UsersController@bulkDestroy',
         'as'   => 'reactor.users.destroy.bulk']);
 
+    Route::get('users/{id}/password', [
+        'uses' => 'UsersController@password',
+        'as'   => 'reactor.users.password']);
+    Route::put('users/{id}/password', [
+        'uses' => 'UsersController@updatePassword',
+        'as'   => 'reactor.users.password.post']);
+
+    Route::get('users/{id}/roles', [
+        'uses' => 'UsersController@roles',
+        'as'   => 'reactor.users.roles']);
+    Route::put('users/{id}/roles', [
+        'uses' => 'UsersController@associateRole',
+        'as'   => 'reactor.users.roles.associate']);
+    Route::delete('users/{id}/roles', [
+        'uses' => 'UsersController@dissociateRole',
+        'as'   => 'reactor.users.roles.dissociate']);
+
+    Route::get('users/{id}/permissions', [
+        'uses' => 'UsersController@permissions',
+        'as'   => 'reactor.users.permissions']);
+    Route::put('users/{id}/permissions', [
+        'uses' => 'UsersController@addPermission',
+        'as'   => 'reactor.users.permissions.add']);
+    Route::delete('users/{id}/permissions', [
+        'uses' => 'UsersController@revokePermission',
+        'as'   => 'reactor.users.permissions.revoke']);
+
+    Route::get('users/{id}/history', [
+        'uses' => 'UsersController@history',
+        'as'   => 'reactor.users.history']);
+
 });

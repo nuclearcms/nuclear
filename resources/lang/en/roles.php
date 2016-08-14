@@ -15,6 +15,12 @@ return [
     'destroy' => 'Delete Role',
     'destroyed' => 'Deleted role(s).',
 
-    'new' => 'New Role'
+    'new' => 'New Role',
+    'associate' => 'Associate Role',
+    'associated' => 'Associated role.',
+    'dissociate' => 'Dissociate Role',
+    'dissociated' => 'Dissociated role.',
+    'no_roles' => 'No roles were found.',
+    'confirm_dissociate' => 'Are you sure you want to dissociate this role?'
 
 ];

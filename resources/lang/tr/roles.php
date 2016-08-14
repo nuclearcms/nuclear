@@ -15,6 +15,12 @@ return [
     'destroy' => 'Rolü Sil',
     'destroyed' => 'Rol(ler) silindi.',
 
-    'new' => 'Yeni Rol'
+    'new' => 'Yeni Rol',
+    'associate' => 'Rol Ver',
+    'associated' => 'Rol verildi.',
+    'dissociate' => 'Rolü Çek',
+    'dissociated' => 'Rol çekildi.',
+    'no_roles' => 'Rol bulunamadı.',
+    'confirm_dissociate' => 'Bu rolü çekmek istediğinizden emin misiniz?'
 
 ];

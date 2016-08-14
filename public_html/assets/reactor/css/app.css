@@ -414,7 +414,7 @@ body {
   color: #FFFFFF;
   background-color: #F1C40F;
   margin-bottom: 1.33333333em;
-  box-shadow: 0 0.125em 0.5em 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.0625em 0.1875em 0 rgba(0, 0, 0, 0.25);
   transition: opacity 350ms ease 2000ms, left 350ms ease 2000ms; }
   .flash-message--hidden {
     opacity: 0;
