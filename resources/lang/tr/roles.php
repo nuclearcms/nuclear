@@ -9,7 +9,7 @@ return [
 
     'index' => 'Rolleri Yönet',
     'create' => 'Rol Oluştur',
-    'created' => 'Rol eklendi.',
+    'created' => 'Rol oluşturuldu.',
     'edit' => 'Rolü Düzenle',
     'edited' => 'Rol düzenlendi.',
     'destroy' => 'Rolü Sil',

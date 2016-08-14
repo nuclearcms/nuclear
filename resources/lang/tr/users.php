@@ -3,11 +3,20 @@
 return [
 
     'title' => 'Kullanıcılar',
+    'search' => 'Kullanıcı Ara',
+    'all' => 'Tüm Kullanıcılar',
     'self' => 'Kullanıcı',
     'profile' => 'Profil',
 
     'index' => 'Kullanıcıları Yönet',
     'create' => 'Kullanıcı Oluştur',
+    'created' => 'Kullanıcı oluşturuldu.',
+    'edit' => 'Kullanıcıyı Düzenle',
+    'edited' => 'Kullanıcı düzenlendi.',
+    'destroy' => 'Kullanıcıyı Sil',
+    'destroyed' => 'Kullanıcı(lar) silindi.',
+
+    'joined_at' => 'Katılma',
 
     'update_profile' => 'Profili Güncelle',
     'updated_profile' => 'Profil güncellendi.',

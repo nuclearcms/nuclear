@@ -92,7 +92,7 @@ body {
   .activity-feed a {
     color: #F1C40F;
     transition: opacity 250ms; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .activity-feed {
       padding: 0 1em; } }
 
@@ -171,9 +171,8 @@ body {
   .content-list-container--sub {
     margin-top: 0;
     box-shadow: none; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .content-list-container {
-      padding: 0 0 4em;
       width: 100%; } }
 
 .content-list {
@@ -184,12 +183,24 @@ body {
     display: inline-block;
     color: #5F696A;
     transition: color 250ms; }
+  .content-list__thumbnail {
+    position: absolute;
+    top: 0.625em;
+    left: 1em;
+    z-index: 49;
+    height: 2em;
+    width: 2em;
+    transition: opacity 250ms; }
   .content-list__checkbox {
     opacity: 0;
     transition: opacity 250ms;
-    cursor: pointer; }
+    cursor: pointer;
+    position: relative;
+    z-index: 50; }
     .content-list__checkbox:checked {
       opacity: 1; }
+      .content-list__checkbox:checked + .content-list__thumbnail {
+        opacity: 0.25; }
   .content-list__no-results {
     text-align: center;
     padding: 3em 1em; }
@@ -210,7 +221,8 @@ body {
     .content-list__cell--thumbnail {
       width: 4em;
       text-align: center;
-      padding-left: 1em; }
+      padding-left: 1em;
+      position: relative; }
     .content-list__cell--options {
       width: 3em;
       padding: 0; }
@@ -226,6 +238,9 @@ body {
       font-family: "Lato", Helvetica, sans-serif;
       text-align: left;
       font-size: 0.75em; }
+    @media screen and (max-width: 55.9375em) {
+      .content-list__cell--secondary {
+        display: none; } }
 
 .content-list-container--sub .content-list {
   top: 0; }
@@ -305,6 +320,8 @@ body {
   background-color: #FDF8E2; }
   .no-touch .content-list__row--body:hover .content-list__checkbox {
     opacity: 1; }
+  .no-touch .content-list__row--body:hover .content-list__thumbnail {
+    opacity: 0.25; }
   .no-touch .content-list__row--body:hover .dropdown-icon {
     color: #F1C40F; }
 
@@ -384,7 +401,7 @@ body {
   top: 3.5em;
   right: 0;
   z-index: 115; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .flash-messages {
       top: 1.75em; } }
 
@@ -467,7 +484,7 @@ label {
 
 .form-column--primary {
   width: 65%; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .form-column--primary {
       width: 100%; } }
 
@@ -475,7 +492,7 @@ label {
   width: 35%;
   border-left: 1px solid #E5E7E9;
   background-color: #FAFAFA; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .form-column--secondary {
       width: 100%;
       border-left: 0;
@@ -619,7 +636,7 @@ label {
 
 .header {
   padding: 2.5em 2em 0; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .header {
       padding: 0.75em 0 0; }
       .header__headings {
@@ -661,7 +678,7 @@ label {
     .header__action--right {
       float: right;
       margin-left: 1em; }
-    @media screen and (max-width: 47.9375em) {
+    @media screen and (max-width: 55.9375em) {
       .header__action--secondary {
         display: none; } }
   .header__action-header {
@@ -1484,7 +1501,7 @@ h1 {
   padding-left: 22em;
   overflow-x: hidden;
   height: 100%; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .container-main {
       padding-left: 0; } }
 
@@ -1497,7 +1514,7 @@ h1 {
   height: 100%;
   z-index: 100;
   color: #FFFFFF; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .container-navigation {
       transition: all 350ms;
       left: -12em; }
@@ -1520,7 +1537,7 @@ h1 {
   line-height: 2em;
   z-index: -1;
   opacity: 0; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .hamburger {
       z-index: 130;
       opacity: 1;
@@ -1535,7 +1552,7 @@ h1 {
   z-index: 110;
   background-color: #F5F5F5;
   min-height: 100vh; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .container-content {
       transition: all 350ms;
       box-shadow: -0.125em 0 0.5em 0 rgba(0, 0, 0, 0.4); }
@@ -1556,7 +1573,7 @@ h1 {
   background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: opacity 350ms, z-index 0 ease 400ms; }
-  @media screen and (max-width: 47.9375em) {
+  @media screen and (max-width: 55.9375em) {
     .content-whiteout--active {
       z-index: 120;
       opacity: 1;

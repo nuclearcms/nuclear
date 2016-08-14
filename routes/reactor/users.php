@@ -12,4 +12,12 @@ Route::group(['middleware' => 'can:ACCESS_USERS'], function ()
         'destroy' => 'reactor.users.destroy',
     ]]);
 
+    Route::get('users/search', [
+        'uses' => 'UsersController@search',
+        'as'   => 'reactor.users.search']);
+
+    Route::delete('users/destroy/bulk', [
+        'uses' => 'UsersController@bulkDestroy',
+        'as'   => 'reactor.users.destroy.bulk']);
+
 });

@@ -79,11 +79,12 @@ if ( ! function_exists('content_list_thumbnail'))
      * Snippet for displaying the selection/thumbnail column
      *
      * @param int $id
+     * @param string $thumbnail
      * @return string
      */
-    function content_list_thumbnail($id)
+    function content_list_thumbnail($id, $thumbnail = '')
     {
-        return app('reactor.builders.contents')->contentListThumbnail($id);
+        return app('reactor.builders.contents')->contentListThumbnail($id, $thumbnail);
     }
 }
 

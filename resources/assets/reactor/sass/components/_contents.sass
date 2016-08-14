@@ -10,7 +10,6 @@
         box-shadow: none
 
     @media screen and (max-width: $thresholdCollapse)
-        padding: 0 0 4em
         width: 100%
 
 .content-list
@@ -23,13 +22,24 @@
         color: $colorText
         +transition(color $durationShort)
 
+    &__thumbnail
+        +position(absolute, 0.625em null null 1em)
+        z-index: 49
+        +size(2em)
+        +transition(opacity $durationShort)
+
     &__checkbox
         opacity: 0
         +transition(opacity $durationShort)
         cursor: pointer
+        position: relative
+        z-index: 50
 
         &:checked
             opacity: 1
+
+            & + .content-list__thumbnail
+                opacity: 0.25
 
     &__no-results
         text-align: center
@@ -52,6 +62,7 @@
             width: 4em
             text-align: center
             padding-left: 1em
+            position: relative
 
         &--options
             width: 3em
@@ -71,6 +82,10 @@
             font-family: $fontHeading
             text-align: left
             font-size: 0.75em
+
+        @media screen and (max-width: $thresholdCollapse)
+            &--secondary
+                display: none
 
 .content-list-container--sub .content-list
     top: 0
@@ -151,6 +166,9 @@
 
         .content-list__checkbox
             opacity: 1
+
+        .content-list__thumbnail
+            opacity: 0.25
 
         .dropdown-icon
             color: $colorEmphasis

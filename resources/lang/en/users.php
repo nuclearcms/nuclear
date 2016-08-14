@@ -3,11 +3,20 @@
 return [
 
     'title' => 'Users',
+    'search' => 'Search Users',
+    'all' => 'All Users',
     'self' => 'User',
     'profile' => 'Profile',
 
     'index' => 'Manage Users',
     'create' => 'Create User',
+    'created' => 'User was created.',
+    'edit' => 'Edit User',
+    'edited' => 'User was edited.',
+    'destroy' => 'Delete User',
+    'destroyed' => 'Deleted user(s).',
+
+    'joined_at' => 'Joined At',
 
     'update_profile' => 'Update Profile',
     'updated_profile' => 'Updated profile.',

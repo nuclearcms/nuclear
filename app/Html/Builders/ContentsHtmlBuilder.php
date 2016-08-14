@@ -61,13 +61,19 @@ class ContentsHtmlBuilder {
      * Snippet for displaying the selection/thumbnail column
      *
      * @param int $id
+     * @param string $thumbnail
      * @return string
      */
-    public function contentListThumbnail($id)
+    public function contentListThumbnail($id, $thumbnail = '')
     {
+        if ( ! empty($thumbnail))
+        {
+            $thumbnail = '<div class="content-list__thumbnail">' . $thumbnail . '</div>';
+        }
+
         return '<td class="content-list__cell content-list__cell--thumbnail">' .
             \Form::checkbox('selected[]', $id, false, ['class' => 'content-list__checkbox']) .
-        '</td>';
+            $thumbnail . '</td>';
     }
 
     /**
@@ -117,7 +123,7 @@ class ContentsHtmlBuilder {
             delete_form(
                 route('reactor.' . $key . '.destroy', $id),
                 trans($key . '.destroy')) .
-        '</li>';
+            '</li>';
 
         return $this->contentOptionsOpen() . $html . $this->contentOptionsClose();
     }
@@ -171,7 +177,7 @@ class ContentsHtmlBuilder {
      */
     public function backToAllLink($key)
     {
-        return action_button(route('reactor.' . $key . '.index'), 'icon-arrow-left' , trans($key . '.all'), 'button--emphasis', 'l');
+        return action_button(route('reactor.' . $key . '.index'), 'icon-arrow-left', trans($key . '.all'), 'button--emphasis', 'l');
     }
 
 }
