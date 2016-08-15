@@ -38,5 +38,5 @@ return [
     'updated_own_password' => '<a href=":actorLink">:actorName</a> updated their password.',
     'updated_permission' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">permission</a>.',
     'updated_role' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">role</a>.',
-    'updated_user_information' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">user</a>\'s information.',
+    'updated_user' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">user</a>\'s information.',
 ];

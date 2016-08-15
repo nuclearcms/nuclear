@@ -38,5 +38,5 @@ return [
     'updated_own_password' => '<a href=":actorLink">:actorName</a> şifresini güncelledi.',
     'updated_permission' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">izni</a> güncelledi.',
     'updated_role' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">rolü</a> güncelledi.',
-    'updated_user_information' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kullanıcının</a> bilgilerini güncelledi.',
+    'updated_user' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kullanıcının</a> bilgilerini güncelledi.',
 ];

@@ -6,7 +6,7 @@
 
 @section('header_content')
     @include('partials.contents.header', [
-        'headerTitle' => isset($profile) ? $profile->present()->fullName : $model->present()->fullName
+        'headerTitle' => $profile->present()->fullName
     ])
 @endsection
 

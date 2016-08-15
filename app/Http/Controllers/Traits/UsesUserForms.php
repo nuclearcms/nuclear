@@ -12,7 +12,7 @@ trait UsesUserForms {
     /**
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getCreateUserForm()
+    protected function getCreateForm()
     {
         return $this->form('Reactor\Html\Forms\Users\CreateForm', [
             'url' => route('reactor.users.store')
@@ -20,11 +20,19 @@ trait UsesUserForms {
     }
 
     /**
+     * @param Request $request
+     */
+    protected function validateCreateForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Users\CreateForm', $request);
+    }
+
+    /**
      * @param int $id
      * @param User $profile
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditUserForm($id, User $profile)
+    protected function getEditForm($id, User $profile)
     {
         return $this->form('Reactor\Html\Forms\Users\EditForm', [
             'url'   => route('reactor.users.update', $id),
@@ -36,7 +44,7 @@ trait UsesUserForms {
      * @param Request $request
      * @param User $profile
      */
-    protected function validateEditUserForm(Request $request, User $profile)
+    protected function validateEditForm(Request $request, User $profile)
     {
         $this->validateForm('Reactor\Html\Forms\Users\EditForm', $request, [
             'email' => 'required|email|max:255|unique:users,email,' . $profile->getKey()

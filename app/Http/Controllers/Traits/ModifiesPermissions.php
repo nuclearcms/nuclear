@@ -22,23 +22,12 @@ trait ModifiesPermissions {
         $model = $modelPath::findOrFail($id);
         $permissions = $model->permissions()->orderBy('name')->get();
 
-        list($form, $count) = $this->getAddPermissionForm($id, $model, $modelPrefix);
+        list($form, $count) = $this->getAddPermissionForm($id, $model, $resourceMultiple);
 
-        return $this->compileView($modelPrefix . '.permissions', compact('model', 'form', 'count', 'permissions'), trans('permissions.title'));
-    }
+        $parameters = compact('form', 'count', 'permissions');
+        $parameters[$resourceSingular] = $model;
 
-    /**
-     * Returns necessary resource names
-     *
-     * @return array
-     */
-    protected function getResourceNames()
-    {
-        return [
-            'modelPath'   => $this->modelPath,
-            'modelPrefix' => $this->routeViewPrefix,
-            'permissionKey' => $this->permissionKey
-        ];
+        return $this->compileView($resourceMultiple . '.permissions', $parameters, trans('permissions.title'));
     }
 
     /**
@@ -46,13 +35,13 @@ trait ModifiesPermissions {
      *
      * @param int $id
      * @param Model $model
-     * @param string $modelPrefix
+     * @param string $resourceMultiple
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getAddPermissionForm($id, Model $model, $modelPrefix)
+    protected function getAddPermissionForm($id, Model $model, $resourceMultiple)
     {
         $form = $this->form('Reactor\Html\Forms\Permissions\AddPermissionForm', [
-            'url' => route('reactor.' . $modelPrefix . '.permissions.add', $id)
+            'url' => route('reactor.' . $resourceMultiple . '.permissions.add', $id)
         ]);
 
         $choices = Permission::all()

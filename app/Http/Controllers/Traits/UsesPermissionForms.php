@@ -11,7 +11,7 @@ trait UsesPermissionForms {
     /**
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getCreatePermissionForm()
+    protected function getCreateForm()
     {
         return $this->form('Reactor\Html\Forms\Permissions\CreateEditForm', [
             'method' => 'POST',
@@ -20,11 +20,19 @@ trait UsesPermissionForms {
     }
 
     /**
+     * @param Request $request
+     */
+    protected function validateCreateForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Permissions\CreateEditForm', $request);
+    }
+
+    /**
      * @param $id
      * @param Permission $permission
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditPermissionForm($id, Permission $permission)
+    protected function getEditForm($id, Permission $permission)
     {
         return $this->form('Reactor\Html\Forms\Permissions\CreateEditForm', [
             'method' => 'PUT',
@@ -37,7 +45,7 @@ trait UsesPermissionForms {
      * @param Request $request
      * @param Permission $permission
      */
-    protected function validateUpdatePermission(Request $request, Permission $permission)
+    protected function validateEditForm(Request $request, Permission $permission)
     {
         $this->validateForm('Reactor\Html\Forms\Permissions\CreateEditForm', $request, [
             'name' => ['required', 'max:255',

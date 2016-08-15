@@ -12,7 +12,7 @@ trait UsesRoleForms {
     /**
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getCreateRoleForm()
+    protected function getCreateForm()
     {
         return $this->form('Reactor\Html\Forms\Roles\CreateEditForm', [
             'method' => 'POST',
@@ -21,11 +21,19 @@ trait UsesRoleForms {
     }
 
     /**
+     * @param Request $request
+     */
+    protected function validateCreateForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Roles\CreateEditForm', $request);
+    }
+
+    /**
      * @param int $id
      * @param Role $role
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditRoleForm($id, Role $role)
+    protected function getEditForm($id, Role $role)
     {
         return $this->form('Reactor\Html\Forms\Roles\CreateEditForm', [
             'method' => 'PUT',
@@ -38,7 +46,7 @@ trait UsesRoleForms {
      * @param Request $request
      * @param Role $role
      */
-    protected function validateUpdateRole(Request $request, Role $role)
+    protected function validateEditForm(Request $request, Role $role)
     {
         $this->validateForm('Reactor\Html\Forms\Roles\CreateEditForm', $request, [
             'name' => ['required', 'max:255',

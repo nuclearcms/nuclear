@@ -1,5 +1,4 @@
 @extends('roles.base_edit')
-<?php $_withForm = false; ?>
 
 @section('content')
     @include('roles.tabs', [
