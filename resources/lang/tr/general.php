@@ -23,4 +23,16 @@ return [
     'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
     'error_saving' => 'Kaydederken hata(lar) oluştu!',
 
+    'add_translation' => 'Çeviri ekle',
+    'added_translation' => 'Çeviri eklendi.',
+    'no_available_locales' => 'Kullanılabilir çeviri dili kalmadı.',
+
+    'en' => 'İngilizce',
+    'tr' => 'Türkçe',
+    'fr' => 'Fransızca',
+    'de' => 'Almanca',
+    'ru' => 'Rusça',
+    'es' => 'İspanyolca',
+    'zh' => 'Çince',
+    'ja' => 'Japonca',
 ];

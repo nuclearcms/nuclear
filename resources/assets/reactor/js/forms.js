@@ -33,3 +33,8 @@ $(window).on('resize.formbuttons', function () {
 $('.form-group--password').each(function () {
     new PasswordMeter($(this));
 });
+
+// SLUG FIELDS
+$('.form-group--slug').each(function () {
+    new Slug($(this));
+});

@@ -3,6 +3,7 @@
 
     &--children
         background-color: $colorEmphasis
+        position: relative
     &--separated
         box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.2)
 
@@ -19,21 +20,55 @@
         display: inline-block
         float: left
 
-    &__link
+    &__link, &__child-link
         font-size: 0.75em
         font-family: $fontHeading
         font-weight: $fontWeightBold
+        display: inline-block
+        vertical-align: top
+
+    &__link
         color: $colorMuted
         +transition(color $durationShort, border-bottom-color $durationShort)
         border: 0.5em solid transparent
-        display: inline-block
         padding: 0.5em 1.5em 0.5em
 
         &--active
             border-bottom-color: $colorEmphasis !important
             color: $colorEmphasis !important
 
+    &__child-link
+        font-size: 0.625em
+        width: 7em
+        text-align: center
+        border-radius: 0.75em
+        color: $colorEmphasisDarker
+        margin: 2em 0
+        +transition(opacity $durationShort)
+        line-height: 2.4em
+
+        &--active
+            background-color: $colorEmphasisDark
+            color: $colorLightText
+            opacity: 1 !important
+
+    &__options
+        +position(absolute, 0 0 null null)
+        +size(4em)
+        background-color: $colorEmphasis
+        padding: 0.5em
+
+    &__option-button
+        color: $colorLightText
+        display: block
+        +size(3em)
+        line-height: 3em
+        text-align: center
+        +transition(opacity $durationShort)
+
 .no-touch
     .tabs__link:hover
         color: $colorMutedLess
         border-bottom-color: $colorLightBG4
+    .tabs__child-link:hover, .tabs__option-button
+        opacity: 0.7

@@ -4,12 +4,12 @@
 @section('content')
     @include('users.tabs', [
         'currentRoute' => 'reactor.users.permissions',
-        'currentKey' => $model->getKey()
+        'currentKey' => $profile->getKey()
     ])
 
     <div class="content-inner content-inner--compact">
         @include('permissions.sublist', [
-            'route' => route('reactor.users.permissions.revoke', $model->getKey())
+            'route' => route('reactor.users.permissions.revoke', $profile->getKey())
         ])
 
         @if($count > 0)

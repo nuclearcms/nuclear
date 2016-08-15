@@ -13,8 +13,6 @@
         </ul>
     </div>
     <div class="tabs-outer tabs-outer--children scroller">
-        <ul class="tabs">
-            {{-- HERE NEED CHILD TABS, ALSO NEED OPTIONS MENU YIELD --}}
-        </ul>
+        @yield('children_tabs')
     </div>
 </div>

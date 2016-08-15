@@ -56,7 +56,8 @@ trait BasicResource {
 
         $this->notify($resourceMultiple . '.created');
 
-        return redirect()->route('reactor.' . $resourceMultiple . '.edit', $item->getKey());
+        return redirect()->route('reactor.' . $resourceMultiple . '.edit',
+            ($this->isResourceTranslatable() ? [$item->getKey(), $item->translate()->getKey()] : $item->getKey()));
     }
 
     /**
@@ -101,6 +102,58 @@ trait BasicResource {
     }
 
     /**
+     * Show the form for editing the specified resources translation.
+     *
+     * @param  int $id
+     * @param  int $translation
+     * @return \Illuminate\Http\Response
+     */
+    public function editTranslated($id, $translation)
+    {
+        extract($this->getResourceNames());
+
+        $item = $modelPath::findOrFail($id);
+
+        list($locale, $translation) = $this->determineLocaleAndTranslation($translation, $item);
+
+        $form = $this->getEditForm($id, $translation);
+
+        $parameters = compact('form', 'translation', 'locale');
+        $parameters[$resourceSingular] = $item;
+
+        return $this->compileView($resourceMultiple . '.edit', $parameters);
+    }
+
+    /**
+     * Update the specified resources translation in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @param  int $translation
+     * @return \Illuminate\Http\Response
+     */
+    public function updateTranslated(Request $request, $id, $translation)
+    {
+        extract($this->getResourceNames());
+
+        $this->authorize('EDIT_' . $permissionKey);
+
+        $item = $modelPath::findOrFail($id);
+
+        list($locale, $translation) = $this->determineLocaleAndTranslation($translation, $item);
+
+        $this->validateEditForm($request, $item);
+
+        $item->update([
+            $locale => $request->all()
+        ]);
+
+        $this->notify($resourceMultiple . '.edited');
+
+        return redirect()->back();
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int $id
@@ -131,7 +184,8 @@ trait BasicResource {
     {
         extract($this->getResourceNames());
 
-        $results = $modelPath::search($request->input('q'), 20, true)->get();
+        $results = $modelPath::search($request->input('q'), 20, true)
+            ->groupBy('id')->get();
 
         return $this->compileView($resourceMultiple . '.search', [$resourceMultiple => $results]);
     }
@@ -165,11 +219,21 @@ trait BasicResource {
     protected function getResourceNames()
     {
         return [
-            'modelPath'   => $this->modelPath,
+            'modelPath'        => $this->modelPath,
             'resourceMultiple' => $this->resourceMultiple,
             'resourceSingular' => $this->resourceSingular,
-            'permissionKey' => $this->permissionKey
+            'permissionKey'    => $this->permissionKey
         ];
+    }
+
+    /**
+     * Checks if the resource is a translated resource
+     *
+     * @return bool
+     */
+    protected function isResourceTranslatable()
+    {
+        return isset($this->translatable) ? $this->translatable : false;
     }
 
 }

@@ -23,4 +23,16 @@ return [
     'confirm_delete' => 'Are you sure you want to delete?',
     'error_saving' => 'There were error(s) while saving!',
 
+    'add_translation' => 'Add Translation',
+    'added_translation' => 'Translation was added.',
+    'no_available_locales' => 'No available locales for translation.',
+
+    'en' => 'English',
+    'tr' => 'Turkish',
+    'fr' => 'French',
+    'de' => 'German',
+    'ru' => 'Russian',
+    'es' => 'Spanish',
+    'zh' => 'Chinese',
+    'ja' => 'Japanese',
 ];

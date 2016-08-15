@@ -1381,7 +1381,8 @@ label {
 .tabs-outer {
   text-align: center; }
   .tabs-outer--children {
-    background-color: #F1C40F; }
+    background-color: #F1C40F;
+    position: relative; }
   .tabs-outer--separated {
     box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.2); }
 
@@ -1399,22 +1400,56 @@ label {
   .tabs__flap {
     display: inline-block;
     float: left; }
-  .tabs__link {
+  .tabs__link, .tabs__child-link {
     font-size: 0.75em;
     font-family: "Lato", Helvetica, sans-serif;
     font-weight: 700;
+    display: inline-block;
+    vertical-align: top; }
+  .tabs__link {
     color: #95A5A6;
     transition: color 250ms, border-bottom-color 250ms;
     border: 0.5em solid transparent;
-    display: inline-block;
     padding: 0.5em 1.5em 0.5em; }
     .tabs__link--active {
       border-bottom-color: #F1C40F !important;
       color: #F1C40F !important; }
+  .tabs__child-link {
+    font-size: 0.625em;
+    width: 7em;
+    text-align: center;
+    border-radius: 0.75em;
+    color: #BE9100;
+    margin: 2em 0;
+    transition: opacity 250ms;
+    line-height: 2.4em; }
+    .tabs__child-link--active {
+      background-color: #D8AB00;
+      color: #FFFFFF;
+      opacity: 1 !important; }
+  .tabs__options {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 4em;
+    width: 4em;
+    background-color: #F1C40F;
+    padding: 0.5em; }
+  .tabs__option-button {
+    color: #FFFFFF;
+    display: block;
+    height: 3em;
+    width: 3em;
+    line-height: 3em;
+    text-align: center;
+    transition: opacity 250ms; }
 
 .no-touch .tabs__link:hover {
   color: #7F8C8D;
   border-bottom-color: #E5E7E9; }
+
+.no-touch .tabs__child-link:hover, .no-touch .tabs__option-button {
+  opacity: 0.7; }
 
 body {
   font-family: "Oxygen", Helvetica, sans-serif;

@@ -35,6 +35,7 @@ if( ! argv.r) {
             ], elixir.config.publicPath + '/js/app.js')
             .scripts([
                 'passwords.js',
+                'slugs.js',
                 'forms.js'
             ], elixir.config.publicPath + '/js/forms.js');
     });
