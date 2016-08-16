@@ -16,5 +16,6 @@ return [
     'destroyed' => 'Etiket(ler) silindi.',
 
     'new' => 'Yeni Etiket',
+    'no_tags' => 'Etiket bulunamadı.',
     
 ];

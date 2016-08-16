@@ -1,9 +1,13 @@
 .tabs-outer
     text-align: center
+    position: relative
+    width: 100%
+    height: 3em
 
     &--children
         background-color: $colorEmphasis
         position: relative
+        height: 4em
     &--separated
         box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.2)
 
@@ -11,6 +15,8 @@
     padding: 0 2em
     display: inline-block
     vertical-align: bottom
+    white-space: nowrap
+    height: 100%
     +clearfix
 
     @media screen and (max-width: $thresholdMicro)
@@ -18,7 +24,6 @@
 
     &__flap
         display: inline-block
-        float: left
 
     &__link, &__child-link
         font-size: 0.75em

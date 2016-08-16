@@ -78,8 +78,6 @@
         &--head
             padding: 1.2em 1.2em 0.5em 0
             vertical-align: bottom
-            font-weight: $fontWeightBold
-            font-family: $fontHeading
             text-align: left
             font-size: 0.75em
 
@@ -87,10 +85,26 @@
             &--secondary
                 display: none
 
+.content-message
+    text-align: center
+    font-size: 1.25em
+    padding: 3em 0
+
 .content-list-container--sub .content-list
     top: 0
 
+.sortable-links
+    font-size: 0.75em
+
+    .sortable-link
+        margin-right: 2em
+
 .sortable-link
+    color: $colorText
+    +transition(color $durationShort)
+    font-weight: $fontWeightBold
+    font-family: $fontHeading
+
     &--active
         color: $colorEmphasis !important
 
@@ -113,12 +127,13 @@
 .content-footer
     width: 100%
     text-align: center
-    background-color: $colorEmphasis
+    padding: 1em
 
     &--table
         +position(absolute, null 0 0 null)
         height: 2.75em
         padding: 0.125em 1em
+        background-color: $colorEmphasis
 
 .pagination-container
     padding: 0.5em 0
@@ -133,7 +148,7 @@
         padding: 0.0625em 0.5em 0
         color: $colorEmphasisDarker
         &--disabled
-            color: transparent
+            color: transparent !important
 
     &__current-container
         border-radius: 0.5em
@@ -159,6 +174,13 @@
         cursor: pointer
         z-index: 10
 
+    &--inpage
+        .pagination
+            &__sibling
+                color: $colorMutedLess
+            &__current-container
+                background-color: $colorMuted
+
 .no-touch
     .content-list__row--body:hover
         border-bottom-color: $colorEmphasis
@@ -173,9 +195,9 @@
         .dropdown-icon
             color: $colorEmphasis
 
-    .content-list a:hover
+    .content-list a:hover, .sortable-link:hover
         color: $colorEmphasis
 
     .pagination
         &__sibling:hover, &__current-container:hover
-            opacity: 0.75
+            opacity: 0.7

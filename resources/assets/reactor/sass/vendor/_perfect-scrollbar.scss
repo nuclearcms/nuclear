@@ -100,3 +100,9 @@ $scrollBarWidthHover: 0.5625em;
     opacity: 1;
     width: $scrollBarWidthHover;
 }
+
+.ps-container.scroller--muted {
+    .ps-scrollbar-x, .ps-scrollbar-y {
+        opacity: 0.125;
+    }
+}

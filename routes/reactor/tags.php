@@ -35,8 +35,4 @@ Route::group(['middleware' => 'can:ACCESS_TAGS'], function ()
         'uses' => 'TagsController@search',
         'as'   => 'reactor.tags.search']);
 
-    Route::delete('tags/destroy/bulk', [
-        'uses' => 'TagsController@bulkDestroy',
-        'as'   => 'reactor.tags.destroy.bulk']);
-
 });

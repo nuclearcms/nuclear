@@ -1,0 +1,48 @@
+.tags-list-container
+    padding: 0 2em
+
+    @media screen and (max-width: $thresholdCollapse)
+        padding: 0 1em
+
+.tags-list
+    font-size: 0.75em
+    padding: 1.5em 0
+
+    &--compact
+        padding: 1em 0
+        font-size: 0.625em
+
+.tag
+    display: inline-block
+    background-color: $colorEmphasis
+    color: $colorLightText
+    font-family: $fontHeading
+    font-weight: $fontWeightBold
+    height: 2.4em
+    border-radius: 0.8em
+    margin-right: 0.8em
+    box-shadow: $shadowDownLight
+    vertical-align: top
+    line-height: 2em
+
+    a, button
+        color: $colorLightText
+        background-color: transparent
+        cursor: pointer
+
+    &__option
+        border-left: 1px solid $colorEmphasisDark
+        display: inline-block
+        height: 100%
+        float: right
+        padding: 0.3em 0
+
+    &__text
+        padding: 0.2em 0.8em 0.2em 1.2em
+        display: inline-block
+
+    &__icon
+        color: $colorEmphasisDarker
+        font-size: 1.2em
+        padding: 0 0.6em
+        display: inline-block

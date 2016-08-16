@@ -179,7 +179,7 @@ class FormsHtmlBuilder {
      */
     public function deleteForm($action, $text, $input = '', $icon = 'icon-trash')
     {
-        return sprintf('<form action="%s" method="POST">' .
+        return sprintf('<form action="%s" method="POST" class="delete-form">' .
             method_field('DELETE') . csrf_field() .
             '%s<button class="option-delete" type="submit">
                 <i class="%s"></i>%s

@@ -1,13 +1,13 @@
 <div class="pagination-container">
     @if ($paginator->lastPage() > 1)
-    <div class="pagination">
+    <div class="pagination {{ $paginationModifier or '' }}">
 
         @if($paginator->currentPage() === 1)
         <span class="pagination__sibling pagination__sibling--disabled">
             <i class="icon-arrow-left"></i>
         </span>
         @else
-        <a class="pagination__sibling" href="{{ $paginator->url(1) }}">
+        <a class="pagination__sibling" href="{{ $paginator->url($paginator->currentPage() - 1) }}">
             <i class="icon-arrow-left"></i>
         </a>
         @endif

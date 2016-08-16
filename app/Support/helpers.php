@@ -87,32 +87,6 @@ if ( ! function_exists('uppercase'))
     }
 }
 
-if ( ! function_exists('locales'))
-{
-    /**
-     * Returns app locales
-     *
-     * @return array
-     */
-    function locales()
-    {
-        return config('translatable.locales');
-    }
-}
-
-if ( ! function_exists('locale_count'))
-{
-    /**
-     * Returns the locale count of the app
-     *
-     * @return int
-     */
-    function locale_count()
-    {
-        return count(config('translatable.locales'));
-    }
-}
-
 if ( ! function_exists('get_full_locale_for'))
 {
     /**

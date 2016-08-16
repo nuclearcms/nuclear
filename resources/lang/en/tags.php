@@ -16,5 +16,6 @@ return [
     'destroyed' => 'Deleted tags(s).',
 
     'new' => 'New Tag',
+    'no_tags' => 'No tags were found.',
 
 ];

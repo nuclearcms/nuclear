@@ -13,6 +13,6 @@
                     dialog.current.closest('form').submit();
                 }
             },
-            $('.content-list__cell--options form > .option-delete, .header__action--bulk .button--bulk-delete'));
+            $('.delete-form > .option-delete, .header__action--bulk .button--bulk-delete'));
     </script>
 @endsection

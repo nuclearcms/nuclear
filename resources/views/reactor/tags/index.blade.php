@@ -3,8 +3,15 @@
 @section('pageSubtitle', uppercase(trans('tags.title')))
 
 @section('content')
-    SORTING OPTION NEEDED AS A SMALL SUB MENU<br>
-    HERE WE CAN ADD TRANSLATIONS WITH THE TRANSLATE BUTTON (LINKS TO FORM) (WHICH APPEARS WHEN THERE CAN BE TRANSLATIONS)<br>
-    TAGS ARE BY DEFAULT LANGUAGELESS SO THE TAG REPOSITORY SHOULD ACT TO IT (IF SOMETHING IS TRANSLATED ONLY ON THE DEFAULT LANGUAGE THAT MEANS IT IS TRANSLATED IN EVERYTHING (BUT WE SHOULD SET THE LOCALE ACCORDING TO TAGS PARENT NAME SO WE PASS AN OPTIONAL LOCALE TO THE GETTAGANDSETLOCALE METHOD)<br>
-    DEFAULT TAG ROUTE IN COMMON WITH CONFIGURABLE VIEW?
+    <div class="tags-list-container">
+        <div class="sortable-links">
+            {!! sortable_link('title', uppercase(trans('validation.attributes.title'))) !!} {!! sortable_link('created_at', uppercase(trans('validation.attributes.created_at'))) !!}
+        </div>
+
+        @include('tags.list')
+    </div>
+
+    <div class="content-footer">
+        @include('partials.contents.pagination', ['paginator' => $tags, 'paginationModifier' => 'pagination--inpage'])
+    </div>
 @endsection

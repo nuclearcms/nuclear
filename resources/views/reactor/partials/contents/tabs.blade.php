@@ -1,5 +1,5 @@
 <div class="tabs-container">
-    <div class="tabs-outer scroller">
+    <div class="tabs-outer scroller scroller--muted">
         <ul class="tabs">
             @foreach($flaps as $route => $text)
                 <li class="tabs__flap">
@@ -12,7 +12,7 @@
             @endforeach
         </ul>
     </div>
-    <div class="tabs-outer tabs-outer--children scroller">
+    <div class="tabs-outer tabs-outer--children scroller scroller--muted">
         @yield('children_tabs')
     </div>
 </div>
