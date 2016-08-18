@@ -71,7 +71,6 @@
     opacity: 0
     z-index: -1
     background-color: $colorWhiteout
-    cursor: pointer
     +transition(opacity $durationMedium, z-index 0 ease $durationMediumUp)
 
     @media screen and (max-width: $thresholdCollapse)
@@ -79,6 +78,7 @@
             z-index: 120
             opacity: 1
             +transition(opacity $durationMedium)
+            cursor: pointer
 
 .content
     padding-bottom: 3em

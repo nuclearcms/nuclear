@@ -27,6 +27,11 @@ $('.pagination__selector').on('change', function () {
     window.location = $(this).val();
 });
 
+// CONTENT FILTERS
+$('#contentFilter').on('change', function () {
+    window.location = $(this).find('option:selected').data('filterurl');
+});
+
 // CONTENT CHECKBOXES & BULK ACTIONS
 var headerBulkActions = $('.header__action--bulk'),
     bulkSelectedInput = headerBulkActions.find('input[name="_bulkSelected"]');
@@ -67,6 +72,21 @@ function compileSelectedForBulkAction() {
 
 // FLASH MESSAGE HIDING
 $('.flash-message').addClass('flash-message--hidden');
+
+// DOCUMENTS HOVER BIND
+if (Modernizr.touch) {
+    $('.document').click(function () {
+        $(this).find('.document__options').toggleClass('document__options--focus');
+    });
+} else {
+    $('.document').on('mouseenter', function () {
+        $(this).find('.document__options').addClass('document__options--focus');
+    });
+
+    $('.document').on('mouseleave', function () {
+        $(this).find('.document__options').removeClass('document__options--focus');
+    });
+}
 ;
 (function (window) {
     'use strict';

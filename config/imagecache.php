@@ -31,7 +31,7 @@ return array(
     */
 
     'paths' => array(
-        public_path('upload')
+        public_path('uploads')
     ),
 
     /*

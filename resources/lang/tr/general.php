@@ -19,6 +19,7 @@ return [
     'options' => 'Seçenekler',
     'bulk_actions' => 'Toplu Eylemler',
     'search_no_results' => 'Aramanız herhangi bir sonuç getirmedi.',
+    'filter' => 'Filtre',
 
     'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
     'error_saving' => 'Kaydederken hata(lar) oluştu!',

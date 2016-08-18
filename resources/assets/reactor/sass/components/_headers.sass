@@ -65,20 +65,28 @@
         box-shadow: $shadowDownLight
         height: 2.5em
 
-    &__search
-        width: 16em
+    &__search, &__select
         position: relative
-
-        @media screen and (max-width: $thresholdMicro)
-            width: 15em
 
         i
             +position(absolute, 0.75em 0.75em null null)
+            font-size: 1em
+            color: $colorText
 
-        input
+        input, select
             font-size: 0.75em
             height: 3.33333333em
             padding: 0 3.33333333em 0 2em
+
+    &__search
+        width: 14em
+
+    &__select
+        margin-bottom: 0
+        border-bottom: 0
+
+        select
+            color: $colorMuted
 
 .header-content
     text-align: center

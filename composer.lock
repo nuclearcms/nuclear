@@ -117,16 +117,16 @@
         },
         {
             "name": "dimsav/laravel-translatable",
-            "version": "v5.6",
+            "version": "v5.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dimsav/laravel-translatable.git",
-                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275"
+                "reference": "3e73600e4e66aaa69291c569ba3c5e4fd3f5f856"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/4534a17da5494ac27cf5ce743e228533c66b7275",
-                "reference": "4534a17da5494ac27cf5ce743e228533c66b7275",
+                "url": "https://api.github.com/repos/dimsav/laravel-translatable/zipball/3e73600e4e66aaa69291c569ba3c5e4fd3f5f856",
+                "reference": "3e73600e4e66aaa69291c569ba3c5e4fd3f5f856",
                 "shasum": ""
             },
             "require": {
@@ -164,7 +164,7 @@
                 "laravel",
                 "translation"
             ],
-            "time": "2016-04-21 22:12:50"
+            "time": "2016-08-17 07:40:38"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1629,16 +1629,16 @@
         },
         {
             "name": "kenarkose/transit",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Transit.git",
-                "reference": "bcd3d7af70854ee99792b6998f19f0873c854e8e"
+                "reference": "92cb2a0de3e8e7b21fb868474eda17f7858a8f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/bcd3d7af70854ee99792b6998f19f0873c854e8e",
-                "reference": "bcd3d7af70854ee99792b6998f19f0873c854e8e",
+                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/92cb2a0de3e8e7b21fb868474eda17f7858a8f3b",
+                "reference": "92cb2a0de3e8e7b21fb868474eda17f7858a8f3b",
                 "shasum": ""
             },
             "require": {
@@ -1684,7 +1684,7 @@
                 "transit",
                 "upload"
             ],
-            "time": "2016-07-26 17:21:00"
+            "time": "2016-08-18 10:44:37"
         },
         {
             "name": "kris/laravel-form-builder",
@@ -2425,16 +2425,16 @@
         },
         {
             "name": "nuclear/documents",
-            "version": "0.9.6",
+            "version": "0.9.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Documents.git",
-                "reference": "60595684ecf2c252a8bd9b8013279a12d7166cd0"
+                "reference": "8727b6ba77777c55a5d5b3896954c744b0b5265c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/60595684ecf2c252a8bd9b8013279a12d7166cd0",
-                "reference": "60595684ecf2c252a8bd9b8013279a12d7166cd0",
+                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/8727b6ba77777c55a5d5b3896954c744b0b5265c",
+                "reference": "8727b6ba77777c55a5d5b3896954c744b0b5265c",
                 "shasum": ""
             },
             "require": {
@@ -2488,7 +2488,7 @@
                 "nuclearcms",
                 "upload"
             ],
-            "time": "2016-08-06 09:45:35"
+            "time": "2016-08-18 19:51:52"
         },
         {
             "name": "nuclear/hierarchy",
@@ -4774,23 +4774,23 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "1.3.7",
+            "version": "1.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716"
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/4e8f0da10ac5802913afc151413bc8c53b6c2716",
-                "reference": "4e8f0da10ac5802913afc151413bc8c53b6c2716",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/be2c607e43ce4c89ecd60e75c6a85c126e754aea",
+                "reference": "be2c607e43ce4c89ecd60e75c6a85c126e754aea",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.4"
+                "phpunit/phpunit": "^4.8 || ^5.0"
             },
             "type": "library",
             "extra": {
@@ -4820,7 +4820,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-05-17 03:18:57"
+            "time": "2016-08-18 05:49:44"
         },
         {
             "name": "sebastian/exporter",
