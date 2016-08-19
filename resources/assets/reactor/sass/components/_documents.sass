@@ -109,9 +109,16 @@ $thresholdDoc3: 40em - 0.625em
     padding-top: 100%
     position: relative
 
+    &__icon
+        font-size: 5em
+        +position(absolute, calc(50% - 0.375em) null null calc(50% - 0.5em))
+        color: $colorLightBG4
+
+
     &__image
         +position(absolute, 1px null null 1px)
         +size(calc(100% - 2px))
+        vertical-align: bottom
 
 .no-touch
     .document:hover

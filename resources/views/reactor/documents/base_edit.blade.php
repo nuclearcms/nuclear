@@ -1,7 +1,7 @@
 @extends('layout.' . ((isset($_withForm) && $_withForm === false) ? 'content' : 'form'))
 
 @section('pageSubtitle')
-    {!! link_to_route('reactor.roles.index', uppercase(trans('documents.title'))) !!}
+    {!! link_to_route('reactor.documents.index', uppercase(trans('documents.title'))) !!}
 @endsection
 
 @section('header_content')

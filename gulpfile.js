@@ -28,6 +28,7 @@ if( ! argv.r) {
                 'components/jquery.min.js',
                 'components/perfect-scrollbar.min.js',
                 'common.js',
+                'helpers.js',
                 'dropdowns.js',
                 'modals.js',
                 'navigation.js',
@@ -37,7 +38,10 @@ if( ! argv.r) {
                 'passwords.js',
                 'slugs.js',
                 'forms.js'
-            ], elixir.config.publicPath + '/js/forms.js');
+            ], elixir.config.publicPath + '/js/forms.js').
+            scripts([
+                'uploader.js'
+            ], elixir.config.publicPath + '/js/uploader.js');
     });
 
 }

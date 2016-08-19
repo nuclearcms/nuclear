@@ -16,6 +16,11 @@ return [
     'destroy' => 'Delete Document',
     'destroyed' => 'Deleted documents(s).',
 
+    'drop_to_upload' => 'Drag and drop documents to upload or',
+    'select_to_upload' => 'Select Files to Upload',
+    'allowed_extensions' => 'Allowed extensions',
+    'max_size' => 'Maximum file size',
+
     'new' => 'New Document',
     'no_documents' => 'No documents were found.',
 
@@ -26,6 +31,11 @@ return [
     'filter_document' => 'Documents',
     'filter_embedded' => 'Embedded',
     'filter_image' => 'Images',
-    'filter_video' => 'Videos'
+    'filter_video' => 'Videos',
+
+    'InvalidUploadException' => 'Uploaded file is invalid.',
+    'MaxFileSizeExceededException' => 'File exceeds maximum allowed size.',
+    'InvalidExtensionException' => 'Invalid extension.',
+    'InvalidMimeTypeException' => 'Invalid mime type.',
 
 ];

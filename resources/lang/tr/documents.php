@@ -15,6 +15,11 @@ return [
     'destroy' => 'Dosyayı Sil',
     'destroyed' => 'Dosya(lar) silindi.',
 
+    'drop_to_upload' => 'Dosyaları yüklemek için sürükleyip bırakın ya da',
+    'select_to_upload' => 'Yüklenecek Dosyaları Seçin',
+    'allowed_extensions' => 'İzin verilen uzantılar',
+    'max_size' => 'En büyük dosya boyu',
+
     'new' => 'Yeni Dosya',
     'no_documents' => 'Dosya bulunamadı.',
 
@@ -25,5 +30,10 @@ return [
     'filter_document' => 'Dosyalar',
     'filter_embedded' => 'Yerleştirilmiş',
     'filter_image' => 'Resimler',
-    'filter_video' => 'Vidyolar'
+    'filter_video' => 'Vidyolar',
+
+    'InvalidUploadException' => 'Yüklenen dosya geçersiz.',
+    'MaxFileSizeExceededException' => 'Dosya izin verilen büyüklüğü aşmaktadır.',
+    'InvalidExtensionException' => 'Geçersiz uzantı.',
+    'InvalidMimeTypeException' => 'Geçersiz mime tipi.',
 ];

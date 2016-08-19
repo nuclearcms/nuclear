@@ -9,10 +9,11 @@ use Nuclear\Documents\Media\EmbeddedMedia;
 use Nuclear\Documents\Media\Media;
 use Reactor\Http\Controllers\Traits\BasicResource;
 use Reactor\Http\Controllers\Traits\UsesDocumentForms;
+use Reactor\Http\Controllers\Traits\UsesDocumentsHelpers;
 
 class DocumentsController extends ReactorController {
 
-    use BasicResource, UsesDocumentForms;
+    use BasicResource, UsesDocumentForms, UsesDocumentsHelpers;
 
     /**
      * Names for the BasicResource trait
@@ -49,6 +50,31 @@ class DocumentsController extends ReactorController {
             ->filteredByType()->groupBy('id')->get();
 
         return $this->compileView('documents.search', compact('documents'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function upload()
+    {
+        $this->authorize('EDIT_DOCUMENTS');
+
+        return $this->compileView('documents.upload');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->authorize('EDIT_DOCUMENTS');
+
+        return $this->uploadDocument($request->file('file'));
     }
 
     /**
