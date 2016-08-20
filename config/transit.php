@@ -66,7 +66,7 @@ return [
     'extensions' => [
         'jpg', 'jpeg', 'png', 'gif', 'bmp', 'svg',
         'txt', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx',
-        'aac', 'mp4', 'mpeg', 'mpg', 'ogg', 'wav', 'webm'
+        'aac', 'mp3', 'mp4', 'mpeg', 'mpg', 'ogg', 'wav', 'webm',
     ],
 
 

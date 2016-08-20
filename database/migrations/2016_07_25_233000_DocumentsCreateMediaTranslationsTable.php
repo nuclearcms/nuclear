@@ -20,6 +20,7 @@ class DocumentsCreateMediaTranslationsTable extends Migration {
 
             $table->string('caption');
             $table->text('description');
+            $table->string('alttext');
 
             $table->unique(['media_id', 'locale']);
             $table->foreign('media_id')

@@ -87,6 +87,17 @@ if (Modernizr.touch) {
         $(this).find('.document__options').removeClass('document__options--focus');
     });
 }
+
+// CONTENT/FORM SUB TABS
+$('.sub-tab-flaps .tabs__link').on('click', function() {
+    var locale = $(this).data('locale');
+
+    $('.sub-tab-flaps .tabs__link').removeClass('tabs__link--active');
+    $('.sub-tab-flaps .tabs__link[data-locale="' + locale + '"]').addClass('tabs__link--active');
+
+    $('.sub-tab').removeClass('sub-tab--active');
+    $('.sub-tab[data-locale="' + locale + '"]').addClass('sub-tab--active');
+});
 /**
  * Calculates ajax event load percentage
  *

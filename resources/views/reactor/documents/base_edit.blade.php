@@ -6,7 +6,7 @@
 
 @section('header_content')
     @include('partials.contents.header', [
-        'headerTitle' => $role->label,
-        'headerHint' => $role->name
+        'headerTitle' => $document->name,
+        'headerHint' => $document->present()->metaDescription
     ])
 @endsection

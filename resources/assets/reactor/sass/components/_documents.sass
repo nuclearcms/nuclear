@@ -138,3 +138,25 @@ $thresholdDoc3: 40em - 0.625em
             display: none
         .icon-checkbox-checked
             display: inline-block
+
+.preview
+    text-align: center
+    margin-bottom: 1em
+
+    &--document
+        display: none
+
+    &--image img
+        max-width: 100%
+        max-height: 30em
+
+    &__meta-description
+        span
+            &:after
+                padding: 0 0.5em
+                content: '.'
+            &:last-child:after
+                display: none
+
+    iframe
+        margin: 0 auto

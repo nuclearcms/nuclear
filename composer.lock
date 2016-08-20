@@ -2425,16 +2425,16 @@
         },
         {
             "name": "nuclear/documents",
-            "version": "0.9.15",
+            "version": "0.9.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Documents.git",
-                "reference": "16c8f598803d7047212d3d26b002f140e1e3204a"
+                "reference": "ea23ddfd4bf27e260d71f4bdf6af5fb4817da2d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/16c8f598803d7047212d3d26b002f140e1e3204a",
-                "reference": "16c8f598803d7047212d3d26b002f140e1e3204a",
+                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/ea23ddfd4bf27e260d71f4bdf6af5fb4817da2d4",
+                "reference": "ea23ddfd4bf27e260d71f4bdf6af5fb4817da2d4",
                 "shasum": ""
             },
             "require": {
@@ -2488,7 +2488,7 @@
                 "nuclearcms",
                 "upload"
             ],
-            "time": "2016-08-19 14:00:12"
+            "time": "2016-08-20 08:50:19"
         },
         {
             "name": "nuclear/hierarchy",

@@ -7,8 +7,13 @@ return [
     'password' => 'Choose a strong password!',
     'password_confirmation' => 'Confirm your password.',
 
+    'public_url' => 'The public address from which the document can be reached.',
+    'documents_alttext' => 'Alternative text for the document.',
+    'documents_caption' => 'Caption for the document.',
     'documents_embed' => 'The URL of the embeddable media. Allowed platforms: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
+
     'permissions_name' => 'Should be in this pattern: (ACCESS|EDIT|SITE|REACTOR)(_([A-Z]+))+',
+
     'roles_label' => 'Readable name for the role.',
     'roles_name' => 'Should only contain uppercase ASCII letters.',
     'tags_title' => 'Name of the tag.',

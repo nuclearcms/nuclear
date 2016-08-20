@@ -8,8 +8,13 @@
         background-color: $colorEmphasis
         position: relative
         height: 4em
+
     &--separated
         box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.2)
+
+    &--sub
+        margin-top: 4em
+        border-bottom: 1px solid $colorLightBG4
 
 .tabs
     padding: 0 2em
@@ -37,10 +42,12 @@
         +transition(color $durationShort, border-bottom-color $durationShort)
         border: 0.5em solid transparent
         padding: 0.5em 1.5em 0.5em
+        cursor: pointer
 
         &--active
             border-bottom-color: $colorEmphasis !important
             color: $colorEmphasis !important
+            cursor: default
 
     &__child-link
         font-size: 0.625em
@@ -70,6 +77,14 @@
         line-height: 3em
         text-align: center
         +transition(opacity $durationShort)
+
+.sub-tabs
+    padding-top: 1em
+
+.sub-tab
+    display: none
+    &--active
+        display: block
 
 .no-touch
     .tabs__link:hover
