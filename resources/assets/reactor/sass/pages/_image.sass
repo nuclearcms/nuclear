@@ -1,0 +1,25 @@
+.image-editor
+    +background-image(linear-gradient(-45deg, rgba($colorLightBG4, .5) 25%, transparent 25%, transparent 50%, rgba($colorLightBG4, .5) 50%, rgba($colorLightBG4, .5) 75%, transparent 75%, transparent))
+    background-size: 1.75em 1.75em
+    text-align: center
+
+    &__toolbar
+        background-color: $colorLightBG3
+        text-align: center
+        padding: 1em 0
+
+        li
+            display: inline-block
+
+    &__frame
+        display: inline-block
+        vertical-align: bottom
+
+        .cropper-container
+            background-image: none
+
+        .cropper-wrap-box
+            vertical-align: bottom
+
+    &__image
+        max-width: 100%

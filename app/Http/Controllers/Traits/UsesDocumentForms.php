@@ -6,7 +6,6 @@ namespace Reactor\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
 use Nuclear\Documents\Media\Media;
-use Symfony\Component\DomCrawler\Form;
 
 trait UsesDocumentForms {
 
@@ -26,6 +25,25 @@ trait UsesDocumentForms {
     protected function validateEmbedForm(Request $request)
     {
         $this->validateForm('Reactor\Html\Forms\Documents\EmbedForm', $request);
+    }
+
+    /**
+     * @param int $id
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditImageForm($id)
+    {
+        return $this->form('Reactor\Html\Forms\Documents\ImageForm', [
+            'url' => route('reactor.documents.image.update', $id)
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function validateEditImageForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Documents\ImageForm', $request);
     }
 
     /**

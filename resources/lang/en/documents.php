@@ -15,6 +15,8 @@ return [
     'edited' => 'Document was edited.',
     'destroy' => 'Delete Document',
     'destroyed' => 'Deleted documents(s).',
+    'edit_image' => 'Edit Image',
+    'edited_image' => 'Image was edited.',
 
     'drop_to_upload' => 'Drag and drop documents to upload or',
     'select_to_upload' => 'Select Files to Upload',
@@ -37,5 +39,14 @@ return [
     'MaxFileSizeExceededException' => 'File exceeds maximum allowed size.',
     'InvalidExtensionException' => 'Invalid extension.',
     'InvalidMimeTypeException' => 'Invalid mime type.',
+
+    'tool_crop' => 'Crop',
+    'tool_rotate_ccw' => 'Rotate Counter Clockwise',
+    'tool_rotate_cw' => 'Rotate Clockwise',
+    'tool_flip_horizontal' => 'Flip Horizontal',
+    'tool_flip_vertical' => 'Flip Vertical',
+    'tool_grayscale' => 'Convert to Grayscale',
+    'tool_sharpen' => 'Sharpen',
+    'tool_blur' => 'Blur'
 
 ];

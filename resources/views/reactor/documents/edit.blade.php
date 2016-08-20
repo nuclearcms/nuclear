@@ -38,6 +38,8 @@
 
 @section('form_buttons')
     @can('EDIT_DOCUMENTS')
-    {!! submit_button('icon-floppy') !!}
+        @if($document->isImage()){!!
+        action_button(route('reactor.documents.image.edit', $document->getKey()), 'icon-image', '', 'button--action')
+        !!}@endif{!! submit_button('icon-floppy') !!}
     @endcan
 @endsection

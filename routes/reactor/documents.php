@@ -22,6 +22,13 @@ Route::group(['middleware' => 'can:ACCESS_DOCUMENTS'], function ()
         'uses' => 'DocumentsController@storeEmbedded',
         'as'   => 'reactor.documents.embed.store']);
 
+    Route::get('documents/image/{id}', [
+        'uses' => 'DocumentsController@image',
+        'as'   => 'reactor.documents.image.edit']);
+    Route::put('documents/image/{id}', [
+        'uses' => 'DocumentsController@imageUpdate',
+        'as'   => 'reactor.documents.image.update']);
+
     Route::get('documents/search', [
         'uses' => 'DocumentsController@search',
         'as'   => 'reactor.documents.search']);

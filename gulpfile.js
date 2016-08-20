@@ -24,9 +24,9 @@ if( ! argv.r) {
         mix
             .sass('app.sass', elixir.config.publicPath + '/css/app.css')
             .scripts([
-                'components/Modernizr.min.js',
-                'components/jquery.min.js',
-                'components/perfect-scrollbar.min.js',
+                'vendor/Modernizr.min.js',
+                'vendor/jquery.min.js',
+                'vendor/perfect-scrollbar.min.js',
                 'common.js',
                 'helpers.js',
                 'dropdowns.js',
@@ -38,10 +38,15 @@ if( ! argv.r) {
                 'passwords.js',
                 'slugs.js',
                 'forms.js'
-            ], elixir.config.publicPath + '/js/forms.js').
-            scripts([
+            ], elixir.config.publicPath + '/js/forms.js')
+            .scripts([
                 'uploader.js'
-            ], elixir.config.publicPath + '/js/uploader.js');
+            ], elixir.config.publicPath + '/js/uploader.js')
+            .scripts([
+                'vendor/cropper.min.js',
+                'image.js'
+            ], elixir.config.publicPath + '/js/image.js')
+        ;
     });
 
 }

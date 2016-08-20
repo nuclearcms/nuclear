@@ -14,6 +14,8 @@ return [
     'edited' => 'Dosya düzenlendi.',
     'destroy' => 'Dosyayı Sil',
     'destroyed' => 'Dosya(lar) silindi.',
+    'edit_image' => 'Resmi Düzenle',
+    'edited_image' => 'Resim düzenlendi.',
 
     'drop_to_upload' => 'Dosyaları yüklemek için sürükleyip bırakın ya da',
     'select_to_upload' => 'Yüklenecek Dosyaları Seçin',
@@ -36,4 +38,13 @@ return [
     'MaxFileSizeExceededException' => 'Dosya izin verilen büyüklüğü aşmaktadır.',
     'InvalidExtensionException' => 'Geçersiz uzantı.',
     'InvalidMimeTypeException' => 'Geçersiz mime tipi.',
+
+    'tool_crop' => 'Kırp',
+    'tool_rotate_ccw' => 'Saat Yönünün Tersine Döndür',
+    'tool_rotate_cw' => 'Saat Yönünde Döndür',
+    'tool_flip_horizontal' => 'Yatak Takla Attır',
+    'tool_flip_vertical' => 'Dikey Takla Attır',
+    'tool_grayscale' => 'Siyah-beyaza Çevir',
+    'tool_sharpen' => 'Keskinleştir',
+    'tool_blur' => 'Bulanıklaştır'
 ];

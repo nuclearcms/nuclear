@@ -1,0 +1,1 @@
+{!! Form::hidden($name, $options['value'], $options['attr']) !!}

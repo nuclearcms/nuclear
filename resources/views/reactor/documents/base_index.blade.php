@@ -14,7 +14,7 @@
 
     @can('EDIT_DOCUMENTS')
         {!! header_action_open('documents.new', 'header__action--right') !!}
-        {!! action_button(route('reactor.documents.embed'), 'icon-document-embed', '', 'button--action button--separated') !!}{!!
+        {!! action_button(route('reactor.documents.embed'), 'icon-document-embed', '', 'button--action') !!}{!!
         action_button(route('reactor.documents.upload'), 'icon-document-upload') !!}
         {!! header_action_close() !!}
     @endcan

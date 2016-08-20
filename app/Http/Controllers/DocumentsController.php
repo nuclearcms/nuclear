@@ -110,4 +110,43 @@ class DocumentsController extends ReactorController {
         return redirect()->route('reactor.documents.edit', $media->getKey());
     }
 
+    /**
+     * Show the form for editing images
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function image($id)
+    {
+        $this->authorize('EDIT_DOCUMENTS');
+
+        $document = Media::whereType('image')->findOrFail($id);
+
+        $form = $this->getEditImageForm($id);
+
+        return $this->compileView('documents.edit_image', compact('document', 'form'));
+    }
+
+    /**
+     * Update the specified image
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function imageUpdate(Request $request, $id)
+    {
+        $this->authorize('EDIT_DOCUMENTS');
+
+        $image = Media::findOrFail($id);
+
+        $this->validateEditImageForm($request);
+
+        $image->editImage($request->input('action'));
+
+        $this->notify('documents.edited_image', 'edited_image', $image);
+
+        return redirect()->back();
+    }
+
 }
