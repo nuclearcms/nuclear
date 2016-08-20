@@ -39,7 +39,9 @@
 @section('form_buttons')
     @can('EDIT_DOCUMENTS')
         @if($document->isImage()){!!
-        action_button(route('reactor.documents.image.edit', $document->getKey()), 'icon-image', '', 'button--action')
+        action_button(route('reactor.documents.image.edit', $document->getKey()), 'icon-image', '', 'button--action button--separated')
+        !!}@endif{{ '' }}@if($document->type !== 'embedded'){!!
+        action_button(route('reactor.documents.download', $document->getKey()), 'icon-download', '', 'button--action button--separated')
         !!}@endif{!! submit_button('icon-floppy') !!}
     @endcan
 @endsection

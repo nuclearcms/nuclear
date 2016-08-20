@@ -5,7 +5,6 @@ return [
     'title' => 'Documents',
     'search' => 'Search Documents',
     'all' => 'All Documents',
-    'self' => 'Document',
 
     'index' => 'Manage Documents',
     'upload' => 'Upload Documents',

@@ -1629,16 +1629,16 @@
         },
         {
             "name": "kenarkose/transit",
-            "version": "2.1.1",
+            "version": "2.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Transit.git",
-                "reference": "92cb2a0de3e8e7b21fb868474eda17f7858a8f3b"
+                "reference": "85ef2dad8f8657018ed3a5b39effcdb1e711d77c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/92cb2a0de3e8e7b21fb868474eda17f7858a8f3b",
-                "reference": "92cb2a0de3e8e7b21fb868474eda17f7858a8f3b",
+                "url": "https://api.github.com/repos/kenarkose/Transit/zipball/85ef2dad8f8657018ed3a5b39effcdb1e711d77c",
+                "reference": "85ef2dad8f8657018ed3a5b39effcdb1e711d77c",
                 "shasum": ""
             },
             "require": {
@@ -1684,7 +1684,7 @@
                 "transit",
                 "upload"
             ],
-            "time": "2016-08-18 10:44:37"
+            "time": "2016-08-20 18:43:59"
         },
         {
             "name": "kris/laravel-form-builder",

@@ -29,6 +29,10 @@ Route::group(['middleware' => 'can:ACCESS_DOCUMENTS'], function ()
         'uses' => 'DocumentsController@imageUpdate',
         'as'   => 'reactor.documents.image.update']);
 
+    Route::get('documents/download/{id}', [
+        'uses' => 'DocumentsController@download',
+        'as'   => 'reactor.documents.download']);
+
     Route::get('documents/search', [
         'uses' => 'DocumentsController@search',
         'as'   => 'reactor.documents.search']);

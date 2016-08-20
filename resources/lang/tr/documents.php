@@ -47,4 +47,5 @@ return [
     'tool_grayscale' => 'Siyah-beyaza Çevir',
     'tool_sharpen' => 'Keskinleştir',
     'tool_blur' => 'Bulanıklaştır'
+
 ];

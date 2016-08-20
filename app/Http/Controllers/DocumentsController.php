@@ -5,6 +5,7 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Kenarkose\Transit\Facade\Downloader;
 use Nuclear\Documents\Media\EmbeddedMedia;
 use Nuclear\Documents\Media\Media;
 use Reactor\Http\Controllers\Traits\BasicResource;
@@ -147,6 +148,19 @@ class DocumentsController extends ReactorController {
         $this->notify('documents.edited_image', 'edited_image', $image);
 
         return redirect()->back();
+    }
+
+    /**
+     * Show the form for editing images
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function download($id)
+    {
+        $document = Media::findOrFail($id);
+
+        return Downloader::download($document);
     }
 
 }
