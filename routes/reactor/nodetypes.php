@@ -12,4 +12,12 @@ Route::group(['middleware' => 'can:ACCESS_NODETYPES'], function ()
         'destroy' => 'reactor.nodetypes.destroy',
     ]]);
 
+    Route::get('nodetypes/search', [
+        'uses' => 'NodeTypesController@search',
+        'as'   => 'reactor.nodetypes.search']);
+
+    Route::delete('nodetypes/destroy/bulk', [
+        'uses' => 'NodeTypesController@bulkDestroy',
+        'as'   => 'reactor.nodetypes.destroy.bulk']);
+
 });
