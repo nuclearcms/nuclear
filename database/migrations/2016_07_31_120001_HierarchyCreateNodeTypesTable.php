@@ -24,6 +24,7 @@ class HierarchyCreateNodeTypesTable extends Migration {
             $table->boolean('taggable')->default(0);
             $table->boolean('newsletter')->default(0);
             $table->string('allowed_children')->default('[]');
+            $table->string('custom_form')->nullable();
 
             $table->timestamps();
         });

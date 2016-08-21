@@ -147,6 +147,7 @@
                     placeholder: 'placeholder',
                     opacity: 0.7,
                     delay: 50,
+                    axis: 'y',
                     stop: function () {
                         self._regenerateValue();
                     }

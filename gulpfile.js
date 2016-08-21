@@ -26,6 +26,7 @@ if( ! argv.r) {
             .scripts([
                 'vendor/Modernizr.min.js',
                 'vendor/jquery.min.js',
+                'vendor/jquery-ui.min.js',
                 'vendor/perfect-scrollbar.min.js',
                 'common.js',
                 'helpers.js',
@@ -35,7 +36,6 @@ if( ! argv.r) {
                 'nodetrees.js'
             ], elixir.config.publicPath + '/js/app.js')
             .scripts([
-                'vendor/jquery-ui.min.js',
                 'vendor/minicolors.min.js',
                 'passwords.js',
                 'relations.js',

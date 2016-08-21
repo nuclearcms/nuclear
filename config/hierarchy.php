@@ -39,6 +39,7 @@ return [
         'date'     => 'timestamp',
         'node_collection' => 'text',
         'node'     => 'integer',
+        'relation' => 'text'
     ],
     'default_type' => 'string',
 

@@ -32,4 +32,21 @@ Route::group(['middleware' => 'can:ACCESS_NODETYPES'], function ()
         'uses' => 'NodeTypesController@nodes',
         'as'   => 'reactor.nodetypes.nodes']);
 
+    Route::resource('nodefields', 'NodeFieldsController', ['except' => ['index', 'show', 'create', 'store'], 'names' => [
+        'store'   => 'reactor.nodefields.store',
+        'edit'    => 'reactor.nodefields.edit',
+        'update'  => 'reactor.nodefields.update',
+        'destroy' => 'reactor.nodefields.destroy',
+    ]]);
+
+    Route::get('nodefields/create/{id}', [
+        'uses' => 'NodeFieldsController@create',
+        'as' => 'reactor.nodefields.create'
+    ]);
+
+    Route::post('nodefields/create/{id}', [
+        'uses' => 'NodeFieldsController@store',
+        'as' => 'reactor.nodefields.store'
+    ]);
+
 });

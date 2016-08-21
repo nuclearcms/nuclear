@@ -16,6 +16,28 @@ $('.pagination__selector').on('change', function () {
     window.location = $(this).val();
 });
 
+// LOCATE FORM BUTTONS
+var formContainer = $('#content'),
+    formButtons = $('#formButtons');
+
+function locateFormButtons() {
+    var wH = $(window).height(),
+        fcH = formContainer.outerHeight();
+
+    // This 12px thing is because of the content container needs to have an
+    // extra of 12px bottom padding in order to ensure scrollbar not showing
+    if ((wH + 12) > fcH) {
+        formButtons.css('bottom', (wH - fcH + 28) + 'px');
+    } else {
+        formButtons.css('bottom', '');
+    }
+}
+
+locateFormButtons();
+$(window).on('resize.formbuttons', function () {
+    locateFormButtons();
+});
+
 // CONTENT FILTERS
 $('#contentFilter').on('change', function () {
     window.location = $(this).find('option:selected').data('filterurl');

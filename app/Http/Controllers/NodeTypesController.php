@@ -40,4 +40,19 @@ class NodeTypesController extends ReactorController {
         );
     }
 
+    /**
+     * List the specified resource fields.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function fields($id)
+    {
+        $this->authorize('EDIT_NODETYPES');
+
+        $nodetype = NodeType::findOrFail($id);
+
+        return $this->compileView('nodetypes.fields', compact('nodetype'));
+    }
+
 }

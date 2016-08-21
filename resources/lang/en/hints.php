@@ -12,6 +12,12 @@ return [
     'documents_caption' => 'Caption for the document.',
     'documents_embed' => 'The URL of the embeddable media. Allowed platforms: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
 
+    'nodefields_name' => 'Can only contain lowercase ASCII letters and underscores(_).',
+    'nodefields_label' => 'Pretty name for the node field.',
+    'nodefields_rules' => 'Validation rules for the node field. Should be rules separated with | or an array definition.',
+    'nodefields_default_value' => 'Default value for the node field. Can be a static value as well as a function definition.',
+    'nodefields_options' => 'Other options for the node field. Should be a series of array key to value definitions.',
+
     'nodetype_name' => 'Can only contain lowercase ASCII letters.',
     'nodetype_label' => 'Pretty name for the node type.',
 

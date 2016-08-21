@@ -754,7 +754,8 @@ label {
   .form-group textarea {
     max-width: 28em;
     min-height: 6em;
-    resize: vertical; }
+    resize: vertical;
+    margin-top: 0.5em; }
   .form-group__select {
     position: relative;
     border-bottom: 1px solid #E5E7E9; }
