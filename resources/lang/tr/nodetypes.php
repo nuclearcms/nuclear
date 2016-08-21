@@ -17,4 +17,8 @@ return [
 
     'new' => 'Yeni Düğüm Tipi',
 
+    'newsletter_type' => 'Bülten Tipi',
+
+    'fields' => 'Alanlar',
+
 ];

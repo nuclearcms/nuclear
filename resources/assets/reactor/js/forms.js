@@ -38,3 +38,13 @@ $('.form-group--password').each(function () {
 $('.form-group--slug').each(function () {
     new Slug($(this));
 });
+
+// COLOR FIELDS
+$('input.minicolors').minicolors({
+    position: 'top left'
+});
+
+// RELATION FIELDS
+$('.form-group__relation').each(function () {
+    new RelationField($(this));
+});

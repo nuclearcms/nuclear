@@ -35,7 +35,10 @@ if( ! argv.r) {
                 'nodetrees.js'
             ], elixir.config.publicPath + '/js/app.js')
             .scripts([
+                'vendor/jquery-ui.min.js',
+                'vendor/minicolors.min.js',
                 'passwords.js',
+                'relations.js',
                 'slugs.js',
                 'forms.js'
             ], elixir.config.publicPath + '/js/forms.js')

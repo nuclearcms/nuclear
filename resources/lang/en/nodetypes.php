@@ -17,4 +17,8 @@ return [
 
     'new' => 'New Node Type',
 
+    'newsletter_type' => 'Newsletter Type',
+
+    'fields' => 'Fields',
+
 ];

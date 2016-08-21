@@ -35,24 +35,28 @@ class NodeTypesTableSeeder extends Seeder {
         DB::table('node_types')->truncate();
         DB::table('node_fields')->truncate();
 
-        $homePage = $this->nodeTypeRepository->create([
-            'name' => 'homepage',
-            'label' => trans('install.type_homepage_label')
+        $basicPage = $this->nodeTypeRepository->create([
+            'name' => 'basicpage',
+            'label' => trans('install.type_basicpage_label'),
+            'color' => '#F1C40F'
         ]);
 
-        $pageContent = $this->nodeFieldRepository->create($homePage->getKey(), [
+        $pageContent = $this->nodeFieldRepository->create($basicPage->getKey(), [
             'name' => 'content',
             'label' => trans('validation.attributes.content'),
             'position' => 1,
             'type' => 'markdown'
         ]);
 
-        $basicPage = $this->nodeTypeRepository->create([
-            'name' => 'basicpage',
-            'label' => trans('install.type_basicpage_label')
+        $homePage = $this->nodeTypeRepository->create([
+            'name' => 'homepage',
+            'label' => trans('install.type_homepage_label'),
+            'color' => '#F1C40F',
+            'visible' => 0,
+            'allowed_children' => json_encode([$basicPage->getKey()])
         ]);
 
-        $pageContent = $this->nodeFieldRepository->create($basicPage->getKey(), [
+        $pageContent = $this->nodeFieldRepository->create($homePage->getKey(), [
             'name' => 'content',
             'label' => trans('validation.attributes.content'),
             'position' => 1,

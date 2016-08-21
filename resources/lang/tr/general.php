@@ -3,6 +3,8 @@
 return [
     'hello' => 'Merhaba',
     'thank_you' => 'Teşekkürler',
+    'yes' => 'Evet',
+    'no' => 'Hayır',
 
     'back' => 'Geri',
     'page' => 'Sayfa',

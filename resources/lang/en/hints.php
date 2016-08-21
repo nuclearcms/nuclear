@@ -12,6 +12,9 @@ return [
     'documents_caption' => 'Caption for the document.',
     'documents_embed' => 'The URL of the embeddable media. Allowed platforms: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
 
+    'nodetype_name' => 'Can only contain lowercase ASCII letters.',
+    'nodetype_label' => 'Pretty name for the node type.',
+
     'permissions_name' => 'Should be in this pattern: (ACCESS|EDIT|SITE|REACTOR)(_([A-Z]+))+',
 
     'roles_label' => 'Readable name for the role.',

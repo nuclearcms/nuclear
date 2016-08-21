@@ -16,8 +16,20 @@ Route::group(['middleware' => 'can:ACCESS_NODETYPES'], function ()
         'uses' => 'NodeTypesController@search',
         'as'   => 'reactor.nodetypes.search']);
 
+    Route::post('nodetypes/search/type/nodes', [
+        'uses' => 'NodeTypesController@searchTypeNodes',
+        'as'   => 'reactor.nodetypes.search.type.nodes']);
+
     Route::delete('nodetypes/destroy/bulk', [
         'uses' => 'NodeTypesController@bulkDestroy',
         'as'   => 'reactor.nodetypes.destroy.bulk']);
+
+    Route::get('nodetypes/{id}/fields', [
+        'uses' => 'NodeTypesController@fields',
+        'as'   => 'reactor.nodetypes.fields']);
+
+    Route::get('nodetypes/{id}/nodes', [
+        'uses' => 'NodeTypesController@nodes',
+        'as'   => 'reactor.nodetypes.nodes']);
 
 });

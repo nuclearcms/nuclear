@@ -3,6 +3,8 @@
 return [
     'hello' => 'Hello',
     'thank_you' => 'Thank you',
+    'yes' => 'Yes',
+    'no' => 'No',
 
     'back' => 'Back',
     'page' => 'Page',

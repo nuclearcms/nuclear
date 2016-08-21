@@ -164,7 +164,10 @@ label
             color: $colorText
 
     &__checkbox
-        span
+        cursor: pointer
+        & > span
+            display: inline-block
+            margin-top: 0.375em
             color: $colorDanger
             +transition(color $durationShort)
             .icon-confirm
@@ -179,6 +182,13 @@ label
                     display: inline-block
                 .icon-cancel
                     display: none
+
+    &__checkbox-icon
+        span
+            font-family: $fontHeading
+            font-size: 0.875em
+        &:before
+            font-size: 0.75em
 
     &__password
         background-color: $colorLightBG3
@@ -199,6 +209,13 @@ label
             &--strong
                 background-color: #2ecc71
 
+    &__color
+        .minicolors-swatch
+            top: 0.625em !important
+        input
+            height: 2.5em !important
+            min-width: 6em
+
     &--error
         input, textarea
             border-bottom-color: $colorDanger
@@ -209,3 +226,73 @@ label
 
         input:not([type="checkbox"]), textarea, select
             color: $colorLightText
+
+.related-items
+    background-color: $colorLightBG1
+    box-shadow: $shadowDownLight
+    margin-top: 0.5em
+
+    &.ui-sortable
+        li
+            cursor: move
+
+    .placeholder
+        content: ' '
+        height: 2.5em
+        background-color: $colorLightBG2
+        font-size: 0.875em
+
+.related-item
+    border-bottom: 1px solid $colorLightBG4
+    line-height: 2.5em
+    font-size: 0.875em
+    padding: 0 3em 0 1em
+    position: relative
+    width: 100%
+    +ellipsis
+
+    &__close
+        +position(absolute, 0 0 null null)
+        +size(2.5em)
+        cursor: pointer
+        text-align: center
+        line-height: 2.5em !important
+        color: $colorMuted
+
+    &:last-child
+        border-bottom: 0
+
+.related-search
+    position: relative
+    height: 2.5em
+
+    &__results
+        +position(absolute, 2.5em null null 0)
+        width: 100%
+        background-color: $colorLightBG1
+        box-shadow: $shadowDownLight
+
+        &--hidden
+            display: none
+
+    &__result
+        border-bottom: 1px solid $colorLightBG4
+        line-height: 2.5em
+        cursor: pointer
+        font-size: 0.875em
+        padding: 0 1em
+        position: relative
+        width: 100%
+        +ellipsis
+
+        &:last-child
+            border-bottom: 0
+
+        &--selected
+            background-color: $colorEmphasis
+            color: $colorLightText
+
+    &__input
+        +position(absolute, 0 null null 0)
+        +size(100%)
+        z-index: -1

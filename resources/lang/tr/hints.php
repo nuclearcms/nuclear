@@ -12,6 +12,9 @@ return [
     'documents_caption' => 'Dosya manşeti.',
     'documents_embed' => 'Yerleştirilebilir medyanın adresi. İzin verilen platformlar: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
 
+    'nodetype_name' => 'Sadece küçük ASCII harfler içermelidir.',
+    'nodetype_label' => 'Düğüm tipi için okunaklı isim.',
+
     'permissions_name' => 'Şu formatta olmalıdır: (ACCESS|EDIT|SITE|REACTOR)(_([A-Z]+))+',
 
     'roles_label' => 'Rol için okunaklı isim',
