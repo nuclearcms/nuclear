@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\ViewErrorBag;
+use Nuclear\Hierarchy\Node;
 
 if ( ! function_exists('activity_open'))
 {
@@ -380,5 +381,35 @@ if ( ! function_exists('navigation_module_link'))
     function navigation_module_link($route, $icon, $title, $parameters = [])
     {
         return app('reactor.builders.navigation')->navigationModuleLink($route, $icon, $title, $parameters);
+    }
+}
+
+if ( ! function_exists('node_options'))
+{
+    /**
+     * Snippet for displaying node default content options
+     *
+     * @param Node $node
+     * @return string
+     */
+    function node_options(Node $node)
+    {
+        return app('reactor.builders.nodes')->nodeOptions($node);
+    }
+}
+
+if ( ! function_exists('node_option_form'))
+{
+    /**
+     * Snippet for displaying node option forms
+     *
+     * @param string $action
+     * @param string $icon
+     * @param string $text
+     * @return string
+     */
+    function node_option_form($action, $icon, $text)
+    {
+        return app('reactor.builders.nodes')->nodeOptionForm($action, $icon, $text);
     }
 }

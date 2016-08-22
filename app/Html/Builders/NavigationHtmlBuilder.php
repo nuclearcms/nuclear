@@ -22,8 +22,8 @@ class NavigationHtmlBuilder {
             'icon' => 'icon-node-tree',
             'items' => [
                 ['title' => 'nodes.all_nodes', 'route' => 'reactor.nodes.index', 'icon' => 'icon-list-bullet'],
-                ['title' => 'nodes.withheld_nodes', 'route' => 'reactor.nodes.index', 'icon' => 'icon-status-withheld'],
-                ['title' => 'nodes.invisible_nodes', 'route' => 'reactor.nodes.index', 'icon' => 'icon-status-invisible'],
+                ['title' => 'nodes.withheld_nodes', 'route' => 'reactor.nodes.index', 'icon' => 'icon-status-withheld', 'options' => ['f' => 'withheld']],
+                ['title' => 'nodes.invisible_nodes', 'route' => 'reactor.nodes.index', 'icon' => 'icon-status-invisible', 'options' => ['f' => 'invisible']],
                 'splitter',
                 ['title' => 'nodetypes.index', 'route' => 'reactor.nodetypes.index', 'icon' => 'icon-list-types', 'permission' => 'ACCESS_NODETYPES'],
             ]
