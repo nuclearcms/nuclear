@@ -20,5 +20,6 @@ return [
     'newsletter_type' => 'Bülten Tipi',
 
     'fields' => 'Alanlar',
+    'no_fields' => 'Alan bulunamadı.'
 
 ];

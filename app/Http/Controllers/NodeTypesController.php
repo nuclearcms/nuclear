@@ -6,6 +6,7 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Nuclear\Hierarchy\NodeType;
+use Nuclear\Hierarchy\Repositories\NodeTypeRepository;
 use Reactor\Http\Controllers\Traits\UsesNodeTypeForms;
 use Reactor\Http\Controllers\Traits\BasicResource;
 
@@ -22,6 +23,67 @@ class NodeTypesController extends ReactorController {
     protected $resourceMultiple = 'nodetypes';
     protected $resourceSingular = 'nodetype';
     protected $permissionKey = 'NODETYPES';
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param NodeTypeRepository $nodeTypeRepository
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(NodeTypeRepository $nodeTypeRepository, Request $request)
+    {
+        $this->authorize('EDIT_NODETYPES');
+
+        $this->validateCreateForm($request);
+
+        $nodeType = $nodeTypeRepository->create($request->all());
+
+        $this->notify('nodetypes.created');
+
+        return redirect()->route('reactor.nodetypes.edit', $nodeType->getKey());
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param NodeTypeRepository $nodeTypeRepository
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(NodeTypeRepository $nodeTypeRepository, $id)
+    {
+        $this->authorize('EDIT_NODETYPES');
+
+        $nodeTypeRepository->destroy($id);
+
+        $this->notify('nodetypes.destroyed');
+
+        return redirect()->route('reactor.nodetypes.index');
+    }
+
+    /**
+     * Remove the specified resources from storage.
+     *
+     * @param NodeTypeRepository $nodeTypeRepository
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function bulkDestroy(NodeTypeRepository $nodeTypeRepository, Request $request)
+    {
+        $this->authorize('EDIT_NODETYPES');
+
+        $ids = json_decode($request->input('_bulkSelected', '[]'));
+
+        foreach($ids as $id)
+        {
+            $nodeTypeRepository->destroy($id);
+        }
+
+        $this->notify('nodetypes.destroyed');
+
+        return redirect()->route('reactor.nodetypes.index');
+    }
 
     /**
      * Searches nodetypes intended for nodes

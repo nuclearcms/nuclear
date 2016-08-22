@@ -20,5 +20,6 @@ return [
     'newsletter_type' => 'Newsletter Type',
 
     'fields' => 'Fields',
+    'no_fields' => 'No fields were found.'
 
 ];
