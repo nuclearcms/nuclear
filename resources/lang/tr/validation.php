@@ -167,5 +167,6 @@ return [
         'image'                    => 'Görsel',
         'link'                     => 'Link',
         'cover'                    => 'Kapak',
+        'indexed'                  => 'Endeksli',
     ]
 ];

@@ -167,5 +167,6 @@ return [
         'image'                    => 'Image',
         'link'                     => 'Link',
         'cover'                    => 'Cover',
+        'indexed'                  => 'Indexed',
     ]
 ];

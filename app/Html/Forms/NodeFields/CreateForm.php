@@ -29,6 +29,8 @@ class CreateForm extends Form {
         ]);
 
         $this->compose('Reactor\Html\Forms\NodeFields\EditForm');
+
+        $this->addAfter('search_priority', 'indexed', 'checkbox', ['inline' => true]);
     }
 
     /**

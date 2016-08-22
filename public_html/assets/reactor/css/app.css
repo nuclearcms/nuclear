@@ -238,7 +238,9 @@ body {
       padding: 1.2em 1.2em 0.5em 0;
       vertical-align: bottom;
       text-align: left;
-      font-size: 0.75em; }
+      font-size: 0.75em;
+      font-weight: "Lato", Helvetica, sans-serif;
+      font-weight: 700; }
     @media screen and (max-width: 55.9375em) {
       .content-list__cell--secondary {
         display: none; } }
