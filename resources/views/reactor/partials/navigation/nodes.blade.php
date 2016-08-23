@@ -31,15 +31,11 @@
         @endif
     </div>
 
-    <div class="scroller scroller--nodes-lists" id="navigationNodesTree" data-localeurl="{{ route('reactor.nodes.locale') }}">
-        @foreach(config('translatable.locales') as $locale)
-        <div class="nodes-list-container nodes-list-container--{{ $locale }}
-            {{ (session('reactor.tree_locale', app()->getLocale()) === $locale) ? 'nodes-list-container--active' : '' }}">
-            <ul class="nodes-list">
-                @include('partials.nodes.leaflist', ['locale' => $locale])
-            </ul>
-        </div>
-        @endforeach
+    <div class="scroller scroller--nodes-lists node-trees-container"
+         id="navigationNodesTree"
+         data-localeurl="{{ route('reactor.nodes.tree.locale') }}"
+         data-sorturl="{{ route('reactor.nodes.tree.sort') }}">
+        @include('partials.navigation.node_trees')
     </div>
 
     @endcan

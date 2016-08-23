@@ -5,11 +5,10 @@
     /**
      * Dropdown constructor
      *
-     * @param DOM Object
      * @param object
      */
-    function Dropdown(dropdowns) {
-        this.dropdowns = dropdowns;
+    function Dropdown() {
+        this.dropdowns = $('.has-dropdown');
         this.activeClass = 'has-dropdown--active';
 
         this._initEvents();
@@ -38,14 +37,14 @@
 
             this.dropdowns.on('mouseleave.dropdowns', function (e) {
                 if ($(this).data('hover') === true) {
-                    self._closeDropdowns($(this));
+                    self.closeDropdowns($(this));
 
                     e.preventDefault();
                     e.stopPropagation();
                 }
             });
 
-            this.dropdowns.find('a, button').on('click', function (e) {
+            this.dropdowns.find('a, button').on('click.dropdowns', function (e) {
                 e.stopPropagation();
 
                 return true;
@@ -53,7 +52,7 @@
         },
         // Opens a dropdown
         _openDropdown: function (dropdown) {
-            this._closeDropdowns();
+            this.closeDropdowns();
 
             dropdown.addClass(this.activeClass);
 
@@ -61,7 +60,7 @@
             this._bindCloseClick();
         },
         // Closes all dropdowns
-        _closeDropdowns: function()
+        closeDropdowns: function()
         {
             this.dropdowns.removeClass(this.activeClass);
 
@@ -75,7 +74,7 @@
             $(document).bind('keydown.dropdowns', function (e) {
                 var keyCode = e.keyCode || e.which;
                 if (keyCode === 27) {
-                    self._closeDropdowns();
+                    self.closeDropdowns();
                 }
             });
         },
@@ -88,12 +87,20 @@
             var self = this;
 
             $(document).bind('click.dropdowns', function () {
-                self._closeDropdowns();
+                self.closeDropdowns();
             });
         },
         // Dynamically unbinds click event for closing dropdowns
         _unbindCloseClick: function () {
             $(document).unbind('click.dropdowns');
+        },
+        refreshEvents: function () {
+            this.dropdowns.unbind('click.dropdowns, mouseenter.dropdowns, mouseleave.dropdowns');
+            this.dropdowns.find('a, button').unbind('click.dropdowns');
+
+            this.dropdowns = $('.has-dropdown');
+
+            this._initEvents();
         }
     };
 
@@ -102,4 +109,4 @@
 
 })(window);
 
-new Dropdown($('.has-dropdown'));
+window.dropdowns = new Dropdown();

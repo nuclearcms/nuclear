@@ -188,11 +188,10 @@ function html_entities(str) {
     /**
      * Dropdown constructor
      *
-     * @param DOM Object
      * @param object
      */
-    function Dropdown(dropdowns) {
-        this.dropdowns = dropdowns;
+    function Dropdown() {
+        this.dropdowns = $('.has-dropdown');
         this.activeClass = 'has-dropdown--active';
 
         this._initEvents();
@@ -221,14 +220,14 @@ function html_entities(str) {
 
             this.dropdowns.on('mouseleave.dropdowns', function (e) {
                 if ($(this).data('hover') === true) {
-                    self._closeDropdowns($(this));
+                    self.closeDropdowns($(this));
 
                     e.preventDefault();
                     e.stopPropagation();
                 }
             });
 
-            this.dropdowns.find('a, button').on('click', function (e) {
+            this.dropdowns.find('a, button').on('click.dropdowns', function (e) {
                 e.stopPropagation();
 
                 return true;
@@ -236,7 +235,7 @@ function html_entities(str) {
         },
         // Opens a dropdown
         _openDropdown: function (dropdown) {
-            this._closeDropdowns();
+            this.closeDropdowns();
 
             dropdown.addClass(this.activeClass);
 
@@ -244,7 +243,7 @@ function html_entities(str) {
             this._bindCloseClick();
         },
         // Closes all dropdowns
-        _closeDropdowns: function()
+        closeDropdowns: function()
         {
             this.dropdowns.removeClass(this.activeClass);
 
@@ -258,7 +257,7 @@ function html_entities(str) {
             $(document).bind('keydown.dropdowns', function (e) {
                 var keyCode = e.keyCode || e.which;
                 if (keyCode === 27) {
-                    self._closeDropdowns();
+                    self.closeDropdowns();
                 }
             });
         },
@@ -271,12 +270,20 @@ function html_entities(str) {
             var self = this;
 
             $(document).bind('click.dropdowns', function () {
-                self._closeDropdowns();
+                self.closeDropdowns();
             });
         },
         // Dynamically unbinds click event for closing dropdowns
         _unbindCloseClick: function () {
             $(document).unbind('click.dropdowns');
+        },
+        refreshEvents: function () {
+            this.dropdowns.unbind('click.dropdowns, mouseenter.dropdowns, mouseleave.dropdowns');
+            this.dropdowns.find('a, button').unbind('click.dropdowns');
+
+            this.dropdowns = $('.has-dropdown');
+
+            this._initEvents();
         }
     };
 
@@ -285,8 +292,8 @@ function html_entities(str) {
 
 })(window);
 
-new Dropdown($('.has-dropdown'));
-;( function(window) {
+window.dropdowns = new Dropdown();
+;(function (window) {
     'use strict';
 
     /**
@@ -302,18 +309,27 @@ new Dropdown($('.has-dropdown'));
     // Modal prototype
     Modal.prototype = {
         // Initialize the object
-        _init : function(el, options, triggers)
-        {
+        _init: function (el, options, triggers) {
             this.el = el;
             this.triggers = triggers;
             this.current = null;
 
             this.options = $.extend({
-                onCreateEvent : function() { return false; },
-                onOpenEvent : function() { return false; },
-                onCloseEvent : function() { return false; },
-                onConfirmEvent : function() { return false; },
-                onOptionEvent : function() { return false; }
+                onCreateEvent: function () {
+                    return false;
+                },
+                onOpenEvent: function () {
+                    return false;
+                },
+                onCloseEvent: function () {
+                    return false;
+                },
+                onConfirmEvent: function () {
+                    return false;
+                },
+                onOptionEvent: function () {
+                    return false;
+                }
             }, options);
 
             this.isOpen = false;
@@ -324,12 +340,59 @@ new Dropdown($('.has-dropdown'));
         },
 
         // Initialize events
-        _initEvents : function() {
+        _initEvents: function () {
             var el = this.el,
                 self = this;
 
-            if(typeof this.triggers != 'undefined' && this.triggers !== null) {
-                this.triggers.on('click', function(e) {
+            this._bindTriggers();
+
+            // Confirm button bind
+            el.find('.button--confirm').click(function (e) {
+                self.options.onConfirmEvent(self);
+
+                self.closeModal();
+
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            // Option button bind
+            el.find('.button--option').click(function (e) {
+                self.options.onOptionEvent(self);
+
+                self.closeModal();
+
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            // Close button bind
+            el.find('.button--close').click(function (e) {
+                self.options.onCloseEvent(self);
+
+                self.closeModal();
+
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            // Blackout bind
+            el.find('.modal__whiteout').click(function (e) {
+
+                self.options.onCloseEvent(self);
+
+                self.closeModal();
+
+                e.stopPropagation();
+                e.preventDefault();
+            });
+
+            el.find('.modal__inner').click(function (e) {
+                e.stopPropagation();
+            });
+        },
+        _bindTriggers: function () {
+            var self = this;
+
+            if (typeof this.triggers != 'undefined' && this.triggers !== null) {
+                this.triggers.on('click.modals', function (e) {
 
                     self.current = $(this);
 
@@ -339,63 +402,23 @@ new Dropdown($('.has-dropdown'));
                     e.preventDefault();
                 });
             }
-
-            // Confirm button bind
-            el.find('.button--confirm').click(function(e) {
-                self.options.onConfirmEvent(self);
-
-                self.closeModal();
-
-                e.stopPropagation();
-                e.preventDefault();
-            });
-            // Option button bind
-            el.find('.button--option').click(function(e) {
-                self.options.onOptionEvent(self);
-
-                self.closeModal();
-
-                e.stopPropagation();
-                e.preventDefault();
-            });
-            // Close button bind
-            el.find('.button--close').click(function(e) {
-                self.options.onCloseEvent(self);
-
-                self.closeModal();
-
-                e.stopPropagation();
-                e.preventDefault();
-            });
-            // Blackout bind
-            el.find('.modal__whiteout').click(function(e) {
-
-                self.options.onCloseEvent(self);
-
-                self.closeModal();
-
-                e.stopPropagation();
-                e.preventDefault();
-            });
-
-            el.find('.modal__inner').click(function(e) {
-                e.stopPropagation();
-            });
         },
         // Open modal
-        openModal : function() {
+        openModal: function () {
             var el = $(this.el),
                 self = this;
 
-            if(!this.isOpen) {
+            if (!this.isOpen) {
                 el.addClass('modal--open');
                 el.find('.modal__inner').addClass('modal__inner--open');
                 $('body').addClass('scroll-disabled');
 
                 // Bind dynamically to avoid interference with other similar elements
-                $(document).bind('keydown.modal', function(e) {
+                $(document).bind('keydown.modal', function (e) {
                     var keyCode = e.keyCode || e.which;
-                    if(keyCode === 27) { self.closeModal(); }
+                    if (keyCode === 27) {
+                        self.closeModal();
+                    }
                 });
 
                 this.options.onOpenEvent(this);
@@ -404,10 +427,10 @@ new Dropdown($('.has-dropdown'));
             }
         },
         // Close modal
-        closeModal : function() {
+        closeModal: function () {
             var el = $(this.el);
 
-            if(this.isOpen) {
+            if (this.isOpen) {
                 el.removeClass('modal--open');
                 el.find('.modal__inner').removeClass('modal__inner--open');
                 $('body').removeClass('scroll-disabled');
@@ -419,13 +442,20 @@ new Dropdown($('.has-dropdown'));
 
                 this.isOpen = false;
             }
+        },
+        refreshTriggers: function (triggers) {
+            this.triggers.unbind('click.modals');
+
+            this.triggers = triggers;
+
+            this._bindTriggers();
         }
     };
 
     // Register to window namespace
     window.Modal = Modal;
 
-}) (window);
+})(window);
 // MOBILE NAVIGATION BUTTON
 var hamburger = $('#hamburger'),
     navigationContainer = $('#navigationContainer'),
@@ -479,28 +509,54 @@ function toggleNavigation() {
 
     // NodeTree prototype
     NodeTree.prototype = {
-        _init: function()
-        {
+        _init: function () {
             this.flaps = $('.nodes-tabs__tab');
             this.tabs = $('.nodes-list-container');
 
+            this.trees = $('ul.nodes-list');
+
             this.localeurl = $('#navigationNodesTree').data('localeurl');
+            this.sorturl = $('#navigationNodesTree').data('sorturl');
 
             this.blackout = $('#navigationNodesBlackout');
             this.enabled = true;
 
             this._initEvents();
         },
-        _initEvents:function()
-        {
+        _initEvents: function () {
             var self = this;
 
             this.flaps.on('click', function () {
                 self._changeTab($(this));
             });
+
+            this._initSortables(this.trees);
         },
-        _changeTab: function(flap)
-        {
+        _initSortables: function (items) {
+            var self = this;
+
+            items.each(function () {
+                var sortable = $(this).sortable({
+                    connectWith: '#' + $(this).attr('id') + ' ul:not(.dropdown-sub)',
+                    items: '> li, .node-children > li',
+                    handle: '.node-icon',
+                    placeholder: 'placeholder',
+                    toleranceElement: '> .nodes-list__label',
+                    tolerance: 'pointer',
+                    opacity: 0.7,
+                    delay: 50,
+                    start: function (e, ui) {
+                        ui.placeholder.height(ui.item.outerHeight());
+
+                        dropdowns.closeDropdowns();
+                    },
+                    stop: function (e, ui) {
+                        self._moveNode(ui.item, sortable);
+                    }
+                });
+            });
+        },
+        _changeTab: function (flap) {
             if (this.enabled) {
                 var locale = flap.data('locale');
 
@@ -521,6 +577,56 @@ function toggleNavigation() {
             $.post(this.localeurl, {'locale': locale}, function (data) {
                 self._enable();
             });
+        },
+        _moveNode: function (node, sortable) {
+            var movement = this._determineMovement(node),
+                self = this;
+
+            if (movement === false) return;
+
+            this._disable();
+
+            $.post(this.sorturl, movement, function (response) {
+                if (response.type === 'danger') {
+                    sortable.sortable('cancel');
+
+                    var message = $('<div class="flash-message flash-message--' + response.type + '">' +
+                        response.message + '<i class="flash-message__icon icon-status-' + (response.type === 'danger' ? 'withheld' : 'published') + '"></i></div>')
+                        .appendTo($('#flashContainer'));
+
+                    setTimeout(function () {
+                        message.addClass('flash-message--hidden');
+                    }, 1000);
+                } else {
+                    var parent = sortable.closest('.node-trees-container');
+
+                    self._refreshTrees(parent, response.html);
+                }
+
+                self._enable();
+            });
+        },
+        _determineMovement: function (node) {
+            var next = node.next(),
+                prev = node.prev();
+
+            if (next.length === 1) {
+                return {action: 'before', sibling: next.data('nodeid'), node: node.data('nodeid')}
+            } else if (prev.length === 1) {
+                return {action: 'after', sibling: prev.data('nodeid'), node: node.data('nodeid')}
+            }
+
+            return false;
+        },
+        _refreshTrees: function (parent, html) {
+            parent.html(html);
+
+            this.tabs = $('.nodes-list-container');
+
+            window.dropdowns.refreshEvents();
+            this._initSortables(parent.find('ul.nodes-list'));
+
+            window.deleteModal.refreshTriggers($('.delete-form > .option-delete, .header__action--bulk .button--bulk-delete'));
         },
         _disable: function () {
             this.enabled = false;

@@ -3,7 +3,7 @@
     <li class="nodes-list__node" data-nodeid="{{ $leaf->getKey() }}">
         <div class="nodes-list__label">
             @if($leaf->home)
-                <div class="node-icon nodeicon--home"><i class="icon-home"></i></div>
+                <div class="node-icon node-icon--home"><i class="icon-home"></i></div>
             @else
                 <div class="node-icon {{ ($leaf->hidesChildren()) ? 'node-icon--hides-children' : 'node-icon--intersection' }}"></div>
             @endif

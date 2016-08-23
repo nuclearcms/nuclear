@@ -22,6 +22,9 @@ return [
 
     'new' => 'Yeni Düğüm',
     'no_nodes' => 'Düğüm bulunamadı.',
+    'sort_invalid' => 'Düğüm sıralaması geçersiz.',
+    'node_is_locked' => 'Düğüm kilitli.',
+    'invalid_parent' => 'Ebeveyn düğüm bu tipteki çocuk düğümlere izin vermiyor.',
 
     'publish' => 'Düğümü Yayınla',
     'unpublish' => 'Yayından Çek',

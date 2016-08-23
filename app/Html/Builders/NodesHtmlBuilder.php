@@ -55,6 +55,11 @@ class NodesHtmlBuilder {
             $node->isPublished() ? route('reactor.nodes.unpublish', $id) : route('reactor.nodes.publish', $id),
             $node->isPublished() ? 'icon-status-withheld' : 'icon-status-published',
             $node->isPublished() ? 'nodes.unpublish' : 'nodes.publish'
+        ) . '</li>
+        <li class="dropdown-sub__item">' . $this->nodeOptionForm(
+            $node->isLocked() ? route('reactor.nodes.unlock', $id) : route('reactor.nodes.lock', $id),
+            $node->isLocked() ? 'icon-status-unlocked' : 'icon-status-locked',
+            $node->isLocked() ? 'nodes.unlock' : 'nodes.lock'
         ) . '</li>';
         return content_options_open($header, $table) . $html . content_options_close($table);
     }

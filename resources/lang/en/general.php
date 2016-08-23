@@ -25,6 +25,7 @@ return [
 
     'confirm_delete' => 'Are you sure you want to delete?',
     'error_saving' => 'There were error(s) while saving!',
+    'not_authorized' => 'You are not authorized to take this action.',
 
     'add_translation' => 'Add Translation',
     'added_translation' => 'Translation was added.',

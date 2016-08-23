@@ -65,8 +65,12 @@ Route::group([
         'uses' => 'NodesController@destroyTranslation',
         'as'   => 'reactor.nodes.translation.destroy']);
 
-    Route::post('locale', [
+    Route::post('tree/locale', [
         'uses' => 'NodesController@changeTreeLocale',
-        'as'   => 'reactor.nodes.locale']);
+        'as'   => 'reactor.nodes.tree.locale']);
+
+    Route::post('tree/sort', [
+        'uses' => 'NodesController@sortTree',
+        'as'   => 'reactor.nodes.tree.sort']);
 
 });

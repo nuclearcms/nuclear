@@ -1,4 +1,4 @@
-<div class="flash-messages">
+<div class="flash-messages" id="flashContainer">
     @if (session()->has('flash_notification.message'))
         <div class="flash-message flash-message--{{ session('flash_notification.level') }}">
             {{ session('flash_notification.message') }}

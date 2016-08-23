@@ -40,7 +40,7 @@ class ViewBindingsServiceProvider extends ServiceProvider {
             $view->with('user', auth()->user());
         });
 
-        view()->composer('partials.navigation.nodes', function ($view)
+        view()->composer('partials.navigation.node_trees', function ($view)
         {
             $view->with('leafs', Node::whereIsRoot()->defaultOrder()->get());
         });

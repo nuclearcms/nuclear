@@ -7,7 +7,7 @@
 
 @section('scripts')
     <script>
-        var deleteModal = new Modal($('.modal--content'),
+        window.deleteModal = new Modal($('.modal--content'),
             {
                 onConfirmEvent : function(dialog) {
                     dialog.current.closest('form').submit();

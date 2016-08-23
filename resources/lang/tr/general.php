@@ -25,6 +25,7 @@ return [
 
     'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
     'error_saving' => 'Kaydederken hata(lar) oluştu!',
+    'not_authorized' => 'Bu işlemi yapmak için yetkiniz yok.',
 
     'add_translation' => 'Çeviri ekle',
     'added_translation' => 'Çeviri eklendi.',

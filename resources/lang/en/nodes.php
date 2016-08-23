@@ -22,6 +22,9 @@ return [
 
     'new' => 'New Node',
     'no_nodes' => 'No nodes were found.',
+    'sort_invalid' => 'Node sorting is invalid.',
+    'node_is_locked' => 'Node is locked.',
+    'invalid_parent' => 'The parent node does not allow children of this type.',
 
     'publish' => 'Publish Node',
     'unpublish' => 'Unpublish Node',
