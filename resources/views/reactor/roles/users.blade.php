@@ -15,4 +15,4 @@
     </div>
 @endsection
 
-@include('partials.modals.delete', ['message' => trans('users.confirm_dissociate')])
+@include('partials.modals.delete_specific', ['message' => trans('users.confirm_dissociate')])

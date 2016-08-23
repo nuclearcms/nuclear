@@ -17,7 +17,8 @@
                 {!! delete_form(
                     $route,
                     trans('permissions.revoke'),
-                    '<input type="hidden" name="permission" value="' . $permission->name . '">'
+                    '<input type="hidden" name="permission" value="' . $permission->name . '">',
+                    true
                 ) !!}
             </li>
             {!! content_options_close() !!}

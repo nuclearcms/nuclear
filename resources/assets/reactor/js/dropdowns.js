@@ -45,7 +45,7 @@
                 }
             });
 
-            this.dropdowns.find('a').on('click', function (e) {
+            this.dropdowns.find('a, button').on('click', function (e) {
                 e.stopPropagation();
 
                 return true;

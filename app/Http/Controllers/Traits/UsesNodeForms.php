@@ -46,15 +46,16 @@ trait UsesNodeForms {
         {
             $allowed = json_decode($parent->getNodeType()->allowed_children);
 
-            foreach ($nodeTypes as $key => $value)
+            if(count($allowed))
             {
-                if ( ! in_array($key, $allowed))
+                foreach ($nodeTypes as $key => $value)
                 {
-                    unset($nodeTypes[$key]);
+                    if ( ! in_array($key, $allowed))
+                    {
+                        unset($nodeTypes[$key]);
+                    }
                 }
             }
-
-            return $nodeTypes;
         }
 
         return $nodeTypes;

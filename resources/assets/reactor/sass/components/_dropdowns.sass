@@ -10,6 +10,7 @@
 
         .dropdown-icon
             color: $colorEmphasis
+            opacity: 1 !important
 
 .dropdown-icon
     color: $colorOutline
@@ -26,6 +27,7 @@
     +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
     box-shadow: $shadowDown
     background-color: $colorLightBG1
+    border-bottom: 0.25em solid $colorLightBG4
 
     &__info
         font-family: $fontHeading
@@ -37,8 +39,6 @@
         color: $colorMuted
 
 .dropdown-sub
-    border-bottom: 0.25em solid $colorLightBG4
-
     &__splitter
         margin: 0.125em 0
         border-top: 1px solid $colorLightBG4

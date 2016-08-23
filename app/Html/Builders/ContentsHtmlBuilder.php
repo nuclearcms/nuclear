@@ -89,10 +89,10 @@ class ContentsHtmlBuilder {
             <div class="has-dropdown">
                 <i class="dropdown-icon icon-ellipsis-vertical"></i>
                 <div class="dropdown">
-                    <div class="dropdown__info">%s</div>
+                    %s
                     <ul class="dropdown-sub">',
             $table ? '<td class="content-list__cell content-list__cell--options">' : '',
-            $header ?: uppercase(trans('general.options')));
+            $header ?: '<div class="dropdown__info">' . uppercase(trans('general.options')) . '</div>');
     }
 
     /**

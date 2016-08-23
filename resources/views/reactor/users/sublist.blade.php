@@ -17,7 +17,8 @@
                 {!! delete_form(
                     route('reactor.roles.users.dissociate', $role->getKey()),
                     trans('users.dissociate'),
-                    '<input type="hidden" name="user" value="' . $profile->getKey() . '">'
+                    '<input type="hidden" name="user" value="' . $profile->getKey() . '">',
+                    true
                 ) !!}
             </li>
             {!! content_options_close() !!}

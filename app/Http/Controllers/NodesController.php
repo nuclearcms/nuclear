@@ -71,7 +71,8 @@ class NodesController extends ReactorController {
 
         $form = $this->getCreateForm($id, $parent);
 
-        return $this->compileView('nodes.create', compact('form', 'parent'));
+        return $this->compileView('nodes.create', compact('form', 'parent'),
+            ($parent) ? trans('nodes.add_child') : trans('nodes.create'));
     }
 
     /**

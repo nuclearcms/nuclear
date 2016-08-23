@@ -12,9 +12,11 @@ class NodesHtmlBuilder {
      * Snippet for displaying node default content options
      *
      * @param Node $node
+     * @param string $header
+     * @param bool $table
      * @return string
      */
-    public function nodeOptions(Node $node)
+    public function nodeOptions(Node $node, $header = null, $table = true)
     {
         $id = $node->getKey();
         $sourceId = $node->translateOrFirst()->getKey();
@@ -54,7 +56,21 @@ class NodesHtmlBuilder {
             $node->isPublished() ? 'icon-status-withheld' : 'icon-status-published',
             $node->isPublished() ? 'nodes.unpublish' : 'nodes.publish'
         ) . '</li>';
-        return content_options_open() . $html . content_options_close();
+        return content_options_open($header, $table) . $html . content_options_close($table);
+    }
+
+    /**
+     * Snippet for displaying node default content options
+     *
+     * @param Node $node
+     * @return string
+     */
+    public function treeNodeOptions(Node $node)
+    {
+        return $this->nodeOptions($node,
+        '<div class="dropdown__info navigation-module__info" style="background-color:' . $node->getNodeType()->color . ';">'
+            . uppercase($node->getNodeType()->label) .
+        '</div>', false);
     }
 
     /**

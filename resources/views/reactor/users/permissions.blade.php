@@ -18,4 +18,4 @@
     </div>
 @endsection
 
-@include('partials.modals.delete', ['message' => trans('permissions.confirm_revoke')])
+@include('partials.modals.delete_specific', ['message' => trans('permissions.confirm_revoke')])

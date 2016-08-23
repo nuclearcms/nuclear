@@ -11,6 +11,10 @@
             <a class="nodes-list__label-link" href="{{ $leaf->getDefaultEditUrl($locale) }}">
                 {{ $leaf->translate($locale)->title }}
             </a>
+
+            <div class="nodes-list__options">
+                {!! tree_node_options($leaf) !!}
+            </div>
         </div>
 
         @unless($leaf->hidesChildren())

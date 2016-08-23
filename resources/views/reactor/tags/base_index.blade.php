@@ -9,5 +9,3 @@
         {!! header_action_close() !!}
     @endcan
 @endsection
-
-@include('partials.modals.delete')

@@ -111,18 +111,46 @@
     &__label
         position: relative
 
+    &__options
+        font-size: 1.33333333em
+        +position(absolute, 0 0 null null)
+
+        .dropdown
+            background-color: $colorDarkBG4
+            border-bottom-color: $colorDarkBG3
+            right: 2em
+            top: -0.75em
+            &__info
+                line-height: 2em
+
+        .dropdown-icon
+            font-size: 0.875em
+            width: 1.14285714em
+            line-height: 1.14285714em
+            text-align: center
+            display: inline-block
+            opacity: 0.5
+            +transition(opacity $durationShort)
+
+        .dropdown-sub
+            &__item
+                a, button
+                    color: $colorLightText
+            &__splitter
+                border-top-color: $colorDarkBG3
+
     &__label-link
         color: $colorLightText
         vertical-align: top
         width: calc(100% - 4em)
-        line-height: 1.25
+        line-height: 1.25em
         padding-top: 0.0625em
         +ellipsis
 
 .node-children
     padding-left: 1.25em
 
-    li:first-child
+    & > li:first-child
         padding-top: 1em !important
         background-position: 0 0, 0 1.625em !important
 
@@ -178,3 +206,10 @@
 .no-touch
     .nodes-header__create:hover
         opacity: 0.7
+
+    .nodes-list__label
+        .dropdown-icon
+            opacity: 0
+        &:hover
+            .dropdown-icon
+                opacity: 0.5

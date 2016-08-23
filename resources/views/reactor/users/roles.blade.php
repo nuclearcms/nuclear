@@ -16,4 +16,4 @@
     </div>
 @endsection
 
-@include('partials.modals.delete', ['message' => trans('roles.confirm_dissociate')])
+@include('partials.modals.delete_specific', ['message' => trans('roles.confirm_dissociate')])

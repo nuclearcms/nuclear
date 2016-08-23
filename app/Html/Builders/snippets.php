@@ -330,12 +330,13 @@ if ( ! function_exists('delete_form'))
      * @param string $action
      * @param string $text
      * @param string $input
+     * @param bool $specific
      * @param string $icon
      * @return string
      */
-    function delete_form($action, $text, $input = '', $icon = 'icon-trash')
+    function delete_form($action, $text, $input = '', $specific = false, $icon = 'icon-trash')
     {
-        return app('reactor.builders.forms')->deleteForm($action, $text, $input, $icon);
+        return app('reactor.builders.forms')->deleteForm($action, $text, $input, $specific, $icon);
     }
 }
 
@@ -390,11 +391,27 @@ if ( ! function_exists('node_options'))
      * Snippet for displaying node default content options
      *
      * @param Node $node
+     * @param string $header
+     * @param bool $table
      * @return string
      */
-    function node_options(Node $node)
+    function node_options(Node $node, $header = null, $table = true)
     {
-        return app('reactor.builders.nodes')->nodeOptions($node);
+        return app('reactor.builders.nodes')->nodeOptions($node, $header, $table);
+    }
+}
+
+if ( ! function_exists('tree_node_options'))
+{
+    /**
+     * Snippet for displaying node default content options
+     *
+     * @param Node $node
+     * @return string
+     */
+    function tree_node_options(Node $node)
+    {
+        return app('reactor.builders.nodes')->treeNodeOptions($node);
     }
 }
 

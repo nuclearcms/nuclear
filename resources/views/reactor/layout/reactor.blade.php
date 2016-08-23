@@ -44,3 +44,5 @@
         </div>
     </main>
 @endsection
+
+@include('partials.modals.delete')
