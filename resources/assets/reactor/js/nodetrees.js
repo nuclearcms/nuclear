@@ -101,7 +101,7 @@
 
                     setTimeout(function () {
                         message.addClass('flash-message--hidden');
-                    }, 1000);
+                    }, 1);
                 } else {
                     var parent = sortable.closest('.node-trees-container');
 
