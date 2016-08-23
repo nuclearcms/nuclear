@@ -70,9 +70,9 @@ class RouteServiceProvider extends ServiceProvider {
             // Common routes
             require routes_path('common.php');
             // Reactor routes
-            require routes_path($this->app['config']->get('themes.active_reactor') . '.php');
+            require routes_path(config('themes.active_reactor') . '.php');
             // Site routes
-            require routes_path($this->app['config']->get('themes.active') . '.php');
+            require routes_path(config('themes.active') . '.php');
 
             // Install routes
             if ( ! is_installed())
