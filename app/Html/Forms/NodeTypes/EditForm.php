@@ -25,9 +25,9 @@ class EditForm extends Form {
         $this->add('hides_children', 'checkbox', ['inline' => true]);
         $this->add('visible', 'checkbox', ['inline' => true, 'default_value' => true]);
         $this->add('taggable', 'checkbox', ['inline' => true]);
-        $this->add('newsletter', 'checkbox', [
+        $this->add('mailing', 'checkbox', [
             'inline' => true,
-            'label'  => 'nodetypes.newsletter_type'
+            'label'  => 'nodetypes.mailing_type'
         ]);
         $this->add('color', 'color', [
             'rules'  => 'required',

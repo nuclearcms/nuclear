@@ -4,7 +4,9 @@ return [
 
     'title' => 'Mailing',
 
-    'mailings' => 'Mailings',
-    'lists' => 'Subscription Lists'
+    'index' => 'Manage Mailings',
+    'create' => 'Create Mailing',
+
+    'lists' => 'Mailing Lists'
 
 ];

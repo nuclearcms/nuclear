@@ -4,7 +4,9 @@ return [
 
     'title' => 'Posta',
     
-    'mailings' => 'Postalar',
-    'lists' => 'Abonelik Listeleri'
+    'index' => 'Postaları Yönet',
+    'create' => 'Posta Oluştur',
+
+    'lists' => 'Posta Listeleri'
 
 ];

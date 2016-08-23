@@ -17,7 +17,7 @@ return [
 
     'new' => 'Yeni Düğüm Tipi',
 
-    'newsletter_type' => 'Bülten Tipi',
+    'mailing_type' => 'Bülten Tipi',
 
     'fields' => 'Alanlar',
     'no_fields' => 'Alan bulunamadı.'

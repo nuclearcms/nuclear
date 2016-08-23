@@ -52,7 +52,8 @@ class NavigationHtmlBuilder {
             'permission' => 'ACCESS_MAILINGS',
             'icon' => 'icon-envelope',
             'items' => [
-                ['title' => 'mailings.mailings', 'route' => 'reactor.mailings.index', 'icon' => 'icon-envelopes'],
+                ['title' => 'mailings.index', 'route' => 'reactor.mailings.index', 'icon' => 'icon-envelopes'],
+                ['title' => 'mailings.create', 'route' => 'reactor.mailings.create', 'icon' => 'icon-envelope'],
                 ['title' => 'mailings.lists', 'route' => 'reactor.mailings.lists', 'icon' => 'icon-list-linear'],
             ]
         ],

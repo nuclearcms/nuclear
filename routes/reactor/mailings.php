@@ -3,11 +3,16 @@
 Route::group(['middleware' => 'can:ACCESS_MAILINGS'], function ()
 {
 
-    Route::get('mailings', [
-        'uses' => 'MailingsController@index',
-        'as' => 'reactor.mailings.index']);
+    Route::resource('mailings', 'MailingsController', ['except' => 'show', 'names' => [
+        'index'   => 'reactor.mailings.index',
+        'create'  => 'reactor.mailings.create',
+        'store'   => 'reactor.mailings.store',
+        'edit'    => 'reactor.mailings.edit',
+        'update'  => 'reactor.mailings.update',
+        'destroy' => 'reactor.mailings.destroy',
+    ]]);
 
-    Route::get('lists', [
+    Route::get('mailings/lists', [
         'uses' => 'MailingsController@lists',
         'as' => 'reactor.mailings.lists']);
 

@@ -17,7 +17,7 @@ return [
 
     'new' => 'New Node Type',
 
-    'newsletter_type' => 'Newsletter Type',
+    'mailing_type' => 'Mailing Type',
 
     'fields' => 'Fields',
     'no_fields' => 'No fields were found.'

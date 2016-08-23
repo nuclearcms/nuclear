@@ -22,7 +22,7 @@ class HierarchyCreateNodeTypesTable extends Migration {
             $table->boolean('hides_children')->default(0);
             $table->string('color', 32)->default('#000000');
             $table->boolean('taggable')->default(0);
-            $table->boolean('newsletter')->default(0);
+            $table->boolean('mailing')->default(0);
             $table->string('allowed_children')->default('[]');
             $table->string('custom_form')->nullable();
 
