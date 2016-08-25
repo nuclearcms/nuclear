@@ -2,7 +2,7 @@
 
 @section('pageSubtitle')
     {!! ($parent)
-    ? link_to_route('reactor.nodes.edit', uppercase($parent->getTitle()), [$parent->getKey(), $parent->translateOrFirst()->getKey()])
+    ? link_to($parent->getDefaultEditUrl(), uppercase($parent->getTitle()))
     : uppercase(trans('nodes.title')) !!}
 @endsection
 

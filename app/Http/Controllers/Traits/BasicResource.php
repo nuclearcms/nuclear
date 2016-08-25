@@ -165,9 +165,9 @@ trait BasicResource {
 
         $this->authorize('EDIT_' . $permissionKey);
 
-        $items = $modelPath::findOrFail($id);
+        $item = $modelPath::findOrFail($id);
 
-        $items->delete();
+        $item->delete();
 
         $this->notify($resourceMultiple . '.destroyed');
 

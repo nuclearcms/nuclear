@@ -37,6 +37,7 @@ if( ! argv.r) {
             ], elixir.config.publicPath + '/js/app.js')
             .scripts([
                 'vendor/minicolors.min.js',
+                'vendor/datetimepicker.min.js',
                 'passwords.js',
                 'relations.js',
                 'slugs.js',

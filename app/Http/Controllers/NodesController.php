@@ -7,24 +7,13 @@ namespace Reactor\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Nuclear\Hierarchy\Node;
-use Reactor\Http\Controllers\Traits\BasicResource;
 use Reactor\Http\Controllers\Traits\UsesNodeForms;
 use Reactor\Http\Controllers\Traits\UsesNodeHelpers;
 use Reactor\Http\Controllers\Traits\UsesTranslations;
 
 class NodesController extends ReactorController {
 
-    use UsesTranslations, UsesNodeHelpers, UsesNodeForms, BasicResource;
-
-    /**
-     * Names for the BasicResource trait
-     *
-     * @var string
-     */
-    protected $modelPath = Node::class;
-    protected $resourceMultiple = 'nodes';
-    protected $resourceSingular = 'node';
-    protected $permissionKey = 'NODES';
+    use UsesTranslations, UsesNodeHelpers, UsesNodeForms;
 
     /**
      * Display a listing of the resource.
@@ -100,6 +89,176 @@ class NodesController extends ReactorController {
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     * @param int|null $source
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id, $source = null)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'EDIT_NODES');
+
+        $form = $this->getEditForm($id, $node, $source);
+
+        return $this->compileView('nodes.edit', compact('form', 'node', 'locale', 'source'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
+     * @param int $source
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id, $source)
+    {
+        $node = $this->authorizeAndFindNode($id, $source, 'EDIT_NODES', false);
+
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_is_locked', null, null, 'error');
+        } else
+        {
+            list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+
+            $this->validateEditForm($request, $node, $source);
+
+            $this->determinePublish($request, $node);
+
+            // Recording paused for this, otherwise two records are registered
+            chronicle()->pauseRecording();
+            $node->update([
+                $locale => $request->all()
+            ]);
+            // and resume
+            chronicle()->resumeRecording();
+
+            $this->notify('nodes.edited', 'updated_node_content', $node);
+        }
+
+        return redirect()->back();
+    }
+
+    /**
+     * Show the form for editing the specified resources parameters.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editParameters($id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null, 'EDIT_NODES');
+
+        $form = $this->getEditParametersForm($id, $node);
+
+        return $this->compileView('nodes.parameters', compact('form', 'node', 'source'));
+    }
+
+    /**
+     * Update the specified resources paramaters in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateParameters(Request $request, $id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $this->validateEditParametersForm($request);
+
+        $this->determineHomeNode($request, $id);
+
+        $node->fill($request->all());
+
+        $this->determinePublish($request, $node);
+        $node->save();
+
+        $this->notify('nodes.edited_parameters');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $this->authorize('EDIT_NODES');
+
+        $node = Node::findOrFail($id);
+
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_is_locked', null, null, 'error');
+        } else
+        {
+            $node->delete();
+
+            $this->notify('nodes.destroyed');
+        }
+
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resources from storage.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function bulkDestroy(Request $request)
+    {
+        $this->authorize('EDIT_NODES');
+
+        $ids = json_decode($request->input('_bulkSelected', '[]'));
+
+        Node::whereIn('id', $ids)
+            ->whereLocked(0)->delete();
+
+        $this->notify('nodes.destroyed');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Shows the children nodes of the resource in list view
+     *
+     * @param int $id
+     * @param int $source
+     * @return Response
+     */
+    public function childrenList($id, $source)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source);
+
+        $children = $node->children()
+            ->sortable()
+            ->translatedIn($locale)
+            ->paginate();
+
+        return $this->compileView('nodes.children_list', compact('node', 'source', 'children', 'locale'), trans('nodes.children'));
+    }
+
+    /**
+     * Shows the children nodes of the resourse in tree view
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function childrenTree($id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null);
+
+        return $this->compileView('nodes.children_tree', compact('node', 'source'), trans('nodes.children'));
+    }
+
+    /**
      * Changes the displayed tree locale
      *
      * @param Request $request
@@ -128,6 +287,7 @@ class NodesController extends ReactorController {
         if (Gate::denies('EDIT_NODES'))
         {
             $response['message'] = trans('general.not_authorized');
+
             return response()->json($response);
         }
 
@@ -137,12 +297,14 @@ class NodesController extends ReactorController {
         if (is_null($node) || is_null($sibling))
         {
             $response['message'] = trans('nodes.sort_invalid');
+
             return response()->json($response);
         }
 
         if ($node->isLocked())
         {
             $response['message'] = trans('nodes.node_is_locked');
+
             return response()->json($response);
         }
 
@@ -177,9 +339,15 @@ class NodesController extends ReactorController {
             return response()->json($response);
         }
 
+        $parentNode = request()->input('parent');
+
+        $leafs = ($parentNode !== '0') ?
+            Node::findOrFail($parentNode)->getPositionOrderedChildren() :
+            Node::whereIsRoot()->defaultOrder()->get();
+
         return response()->json([
             'type' => 'success',
-            'html' => view('partials.navigation.node_trees')->render()
+            'html' => view('partials.navigation.node_trees', ['leafs' => $leafs])->render()
         ]);
     }
 

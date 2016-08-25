@@ -385,6 +385,20 @@ if ( ! function_exists('navigation_module_link'))
     }
 }
 
+if ( ! function_exists('ancestor_links'))
+{
+    /**
+     * Makes an array of ancestor links
+     *
+     * @param Collection $ancestors
+     * @return array
+     */
+    function ancestor_links($ancestors)
+    {
+        return app('reactor.builders.nodes')->ancestorLinks($ancestors);
+    }
+}
+
 if ( ! function_exists('node_options'))
 {
     /**

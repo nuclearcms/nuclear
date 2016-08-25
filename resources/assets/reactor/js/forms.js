@@ -19,7 +19,15 @@ $('.form-group--slug').each(function () {
 
 // COLOR FIELDS
 $('input.minicolors').minicolors({
-    position: 'top left'
+    position: 'bottom left'
+});
+
+// DATE FIELDS
+$.datetimepicker.setLocale(window.locale);
+$('.form-group--datetime').each(function() {
+    $(this).find('input[type="text"]').datetimepicker({
+        format:'Y-m-d H:i:s',
+    });
 });
 
 // RELATION FIELDS

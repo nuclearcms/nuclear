@@ -20,6 +20,6 @@ return [
         'document' => 'Reactor\Html\Fields\DocumentField',
         'node_collection' => 'Reactor\Html\Fields\NodeCollectionField',
         'node' => 'Reactor\Html\Fields\NodeField',
-        'date' => 'Reactor\Html\Fields\DateField',
+        'date' => 'Reactor\Html\Fields\DatetimeField',
     ]
 ];

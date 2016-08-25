@@ -31,7 +31,6 @@ return [
     'updated_media' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">document</a>.',
     'updated_node' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">node</a>\'s parameters.',
     'updated_node_content' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">node</a>\'s content.',
-    'updated_node_seo' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">node</a>\'s SEO parameters.',
     'updated_nodefield' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">node field</a>.',
     'updated_nodetype' => '<a href=":actorLink">:actorName</a> updated a <a href=":subjectLink">node type</a>.',
     'updated_own_information' => '<a href=":actorLink">:actorName</a> updated their profile information.',

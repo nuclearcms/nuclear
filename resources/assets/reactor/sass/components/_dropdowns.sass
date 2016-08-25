@@ -63,9 +63,14 @@
             background-color: transparent
             cursor: pointer
 
+.content-inner
+    .dropdown
+        top: auto !important
+        bottom: -2.5em
+
 .no-touch
     .dropdown-sub__item
         a:hover, button:hover
-            color: $colorEmphasis
+            color: $colorEmphasis !important
         &--delete:hover button
-            color: $colorDanger
+            color: $colorDanger !important

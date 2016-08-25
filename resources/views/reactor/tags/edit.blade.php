@@ -1,14 +1,14 @@
 @extends('tags.base_edit')
 
-@section('content')
-    @section('children_tabs')
-        @include('partials.contents.tabs_translations', [
-            'translatable' => $tag,
-            'translationRoute' => 'reactor.tags.edit',
-            'translateRoute' => 'reactor.tags.translations.create'
-        ])
-    @endsection
+@section('children_tabs')
+    @include('partials.contents.tabs_translations', [
+        'translatable' => $tag,
+        'translationRoute' => 'reactor.tags.edit',
+        'translateRoute' => 'reactor.tags.translations.create'
+    ])
+@endsection
 
+@section('content')
     @include('tags.tabs', [
         'currentRoute' => 'reactor.tags.edit',
         'currentKey' => [$tag->getKey(), $translation->getKey()]

@@ -3,6 +3,7 @@
 @section('form_start', form_start($form))
 
 @section('scripts')
+    <script>window.locale = '{{ app()->getLocale() }}';</script>
     {!! Theme::js('js/forms.js') !!}
     {{-- EXTEND THESE WITH TAGS SCRIPT ON NODES FORM EXTENSION WITH @parent --}}
 @endsection

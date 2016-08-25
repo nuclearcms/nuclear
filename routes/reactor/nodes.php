@@ -20,12 +20,30 @@ Route::group([
         'uses' => 'NodesController@store',
         'as'   => 'reactor.nodes.store']);
 
-    Route::get('{id}/edit/{source}', [
+    Route::get('{id}/edit/{source?}', [
         'uses' => 'NodesController@edit',
         'as' => 'reactor.nodes.edit']);
     Route::put('{id}/edit/{source}', [
         'uses' => 'NodesController@update',
         'as' => 'reactor.nodes.update']);
+
+    Route::get('{id}/parameters', [
+        'uses' => 'NodesController@editParameters',
+        'as' => 'reactor.nodes.parameters.edit']);
+    Route::put('{id}/parameters', [
+        'uses' => 'NodesController@updateParameters',
+        'as' => 'reactor.nodes.parameters.update']);
+
+    Route::get('{id}/statistics', [
+        'uses' => 'NodesController@statistics',
+        'as' => 'reactor.nodes.statistics']);
+
+    Route::get('{id}/list/{source}', [
+        'uses' => 'NodesController@childrenList',
+        'as' => 'reactor.nodes.children.list']);
+    Route::get('{id}/tree', [
+        'uses' => 'NodesController@childrenTree',
+        'as' => 'reactor.nodes.children.tree']);
 
     Route::delete('{id}', [
         'uses' => 'NodesController@destroy',
@@ -68,7 +86,6 @@ Route::group([
     Route::post('tree/locale', [
         'uses' => 'NodesController@changeTreeLocale',
         'as'   => 'reactor.nodes.tree.locale']);
-
     Route::post('tree/sort', [
         'uses' => 'NodesController@sortTree',
         'as'   => 'reactor.nodes.tree.sort']);

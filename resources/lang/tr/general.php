@@ -9,6 +9,9 @@ return [
     'back' => 'Geri',
     'page' => 'Sayfa',
 
+    'ascending' => 'Artan',
+    'descending' => 'Azalan',
+
     'warning' => 'Uyarı',
     'confirm' => 'Tamam',
     'dismiss' => 'Kapat',
@@ -22,6 +25,7 @@ return [
     'bulk_actions' => 'Toplu Eylemler',
     'search_no_results' => 'Aramanız herhangi bir sonuç getirmedi.',
     'filter' => 'Filtre',
+    'statistics' => 'İstatistikler',
 
     'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
     'error_saving' => 'Kaydederken hata(lar) oluştu!',

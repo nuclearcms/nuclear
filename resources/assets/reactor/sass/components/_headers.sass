@@ -104,9 +104,41 @@
             color: $colorEmphasis
             +transition(opacity $durationShort)
 
+.breadcrumbs
+    margin-bottom: 2.5em
+    text-align: center
+    margin-top: -1em
+
+    &__heading
+        font-size: 0.5em
+        position: relative
+        font-weight: $fontWeightBold
+        font-family: $fontHeading
+        margin-bottom: 0.5em
+
+        &:after
+            +position(absolute, null null 0.25em 50%)
+            content: ''
+            width: 2em
+            border-bottom: 1px solid $colorMutedMore
+            display: inline-block
+            margin-left: -1em
+
+    &__links
+        font-size: 0.875em
+        vertical-align: top
+        a
+            color: $colorEmphasis
+            +transition(opacity $durationShort)
+
+    &__icon
+        color: $colorMutedMore
+        margin: 0 0.375em
 
 .no-touch
     .header__subheading a:hover, .header-content__hint a:hover
         opacity: 0.7
     .header__action--secondary
         display: none
+    .breadcrumbs__links a:hover
+        opacity: 0.7

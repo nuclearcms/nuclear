@@ -16,9 +16,13 @@ return [
     'created' => 'Node was created.',
     'edit' => 'Edit Node',
     'edited' => 'Node was edited.',
+    'edited_parameters' => 'Node parameters were edited.',
     'destroy' => 'Delete Node',
     'destroyed' => 'Deleted node(s).',
     'add_child' => 'Add Child Node',
+    'parameters' => 'Parameters',
+    'ancestors' => 'Ancestors',
+    'children' => 'Children',
 
     'new' => 'New Node',
     'no_nodes' => 'No nodes were found.',
@@ -41,5 +45,14 @@ return [
     'filter_draft' => 'Draft',
     'filter_pending' => 'Pending',
     'filter_archived' => 'Archived',
+
+    'draft' => 'Draft',
+    'pending' => 'Pending',
+    'published' => 'Published',
+    'archived' => 'Archived',
+    'position' => 'Position',
+
+    'tree_display' => 'Node Tree Mode',
+    'list_display' => 'List Mode',
 
 ];

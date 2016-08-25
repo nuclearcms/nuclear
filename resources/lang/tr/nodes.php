@@ -16,9 +16,13 @@ return [
     'created' => 'Düğüm oluşturuldu.',
     'edit' => 'Düğümü Düzenle',
     'edited' => 'Düğüm düzenlendi.',
+    'edited_parameters' => 'Düğüm ayarları düzenlendi.',
     'destroy' => 'Düğümü Sil',
     'destroyed' => 'Düğüm(ler) silindi.',
     'add_child' => 'Çocuk Düğüm Ekle',
+    'parameters' => 'Ayarlar',
+    'ancestors' => 'Soy Ağacı',
+    'children' => 'Çocuk Düğümler',
 
     'new' => 'Yeni Düğüm',
     'no_nodes' => 'Düğüm bulunamadı.',
@@ -41,5 +45,14 @@ return [
     'filter_draft' => 'Taslak',
     'filter_pending' => 'Bekleyen',
     'filter_archived' => 'Arşivlenmiş',
+
+    'draft' => 'Taslak',
+    'pending' => 'Beklemede',
+    'published' => 'Yayınlandı',
+    'archived' => 'Arşivlendi',
+    'position' => 'Sıra',
+
+    'tree_display' => 'Düğüm Ağacı Modu',
+    'list_display' => 'Liste Modu',
 
 ];

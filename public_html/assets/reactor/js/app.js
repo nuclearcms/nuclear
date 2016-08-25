@@ -510,7 +510,7 @@ function toggleNavigation() {
     // NodeTree prototype
     NodeTree.prototype = {
         _init: function () {
-            this.flaps = $('.nodes-tabs__tab');
+            this.flaps = $('.nodes-tabs__tab, .tabs__nodes-tab');
             this.tabs = $('.nodes-list-container');
 
             this.trees = $('ul.nodes-list');
@@ -518,7 +518,7 @@ function toggleNavigation() {
             this.localeurl = $('#navigationNodesTree').data('localeurl');
             this.sorturl = $('#navigationNodesTree').data('sorturl');
 
-            this.blackout = $('#navigationNodesBlackout');
+            this.blackouts = $('#navigationNodesBlackout, #childTreeWhiteout');
             this.enabled = true;
 
             this._initEvents();
@@ -560,10 +560,11 @@ function toggleNavigation() {
             if (this.enabled) {
                 var locale = flap.data('locale');
 
-                this.flaps.removeClass('nodes-tabs__tab--active');
+                this.flaps.removeClass('nodes-tabs__tab--active tabs__child-link--active');
                 this.tabs.removeClass('nodes-list-container--active');
 
-                this.flaps.siblings('.nodes-tabs__tab--' + locale).addClass('nodes-tabs__tab--active');
+                $('.nodes-tabs__tab--' + locale).addClass('nodes-tabs__tab--active');
+                $('.tabs__nodes-tab--' + locale).addClass('tabs__child-link--active');
                 this.tabs.siblings('.nodes-list-container--' + locale).addClass('nodes-list-container--active');
 
                 this._changeTreeLocales(locale);
@@ -584,6 +585,9 @@ function toggleNavigation() {
 
             if (movement === false) return;
 
+            var parent = sortable.closest('.node-trees-container');
+            movement['parent'] = parent.data('parentid');
+
             this._disable();
 
             $.post(this.sorturl, movement, function (response) {
@@ -598,8 +602,6 @@ function toggleNavigation() {
                         message.addClass('flash-message--hidden');
                     }, 1);
                 } else {
-                    var parent = sortable.closest('.node-trees-container');
-
                     self._refreshTrees(parent, response.html);
                 }
 
@@ -631,12 +633,12 @@ function toggleNavigation() {
         _disable: function () {
             this.enabled = false;
 
-            this.blackout.addClass('navigation-nodes-blackout--active');
+            this.blackouts.addClass('navigation-nodes-blackout--active');
         },
         _enable: function () {
             this.enabled = true;
 
-            this.blackout.removeClass('navigation-nodes-blackout--active');
+            this.blackouts.removeClass('navigation-nodes-blackout--active');
         },
     };
 

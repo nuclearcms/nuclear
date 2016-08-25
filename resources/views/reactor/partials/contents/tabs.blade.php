@@ -1,6 +1,7 @@
 <div class="tabs-container">
     <div class="tabs-outer scroller scroller--muted">
         <ul class="tabs">
+            @yield('tabs_prepended')
             @foreach($flaps as $route => $text)
                 <li class="tabs__flap">
                     @if($currentRoute === $route)

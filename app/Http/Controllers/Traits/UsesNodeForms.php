@@ -7,6 +7,7 @@ namespace Reactor\Http\Controllers\Traits;
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
 use Nuclear\Hierarchy\Node;
+use Nuclear\Hierarchy\NodeSource;
 use Nuclear\Hierarchy\NodeType;
 
 trait UsesNodeForms {
@@ -16,7 +17,7 @@ trait UsesNodeForms {
      * @param Node $parent
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getCreateForm($id, $parent)
+    protected function getCreateForm($id, Node $parent = null)
     {
         $form = $this->form('Reactor\Html\Forms\Nodes\CreateForm', [
             'url' => route('reactor.nodes.store', $id)
@@ -89,6 +90,56 @@ trait UsesNodeForms {
     protected function validateCreateForm(Request $request)
     {
         $this->validateForm('Reactor\Html\Forms\Nodes\CreateForm', $request);
+    }
+
+    /**
+     * @param int|null $id
+     * @param Node $node
+     * @param NodeSource $source
+     * @return Form
+     */
+    protected function getEditForm($id, Node $node, NodeSource $source)
+    {
+        return $this->form(
+            source_form_name($node->getNodeTypeName(), true), [
+            'url'   => route('reactor.nodes.update', [$id, $source->getKey()]),
+            'model' => $source->toArray()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param Node $node
+     * @param NodeSource $source
+     */
+    protected function validateEditForm(Request $request, Node $node, NodeSource $source)
+    {
+        $this->validateForm(
+            source_form_name($node->getNodeTypeName(), true),
+            $request, [
+            'node_name' => 'max:255|alpha_dash|unique:node_sources,node_name,' . $source->getKey()
+        ]);
+    }
+
+    /**
+     * @param int $id
+     * @param Node $node
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getEditParametersForm($id, Node $node)
+    {
+        return $this->form('Reactor\Html\Forms\Nodes\EditParametersForm', [
+            'url'   => route('reactor.nodes.parameters.update', $id),
+            'model' => $node
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function validateEditParametersForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Nodes\EditParametersForm', $request);
     }
 
 }

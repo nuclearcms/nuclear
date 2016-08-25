@@ -12,33 +12,34 @@
         </a>
 
         <div class="container-content" id="contentContainer">
+            <div class="container-content__inner">
+                <div id="contentWhiteout" class="content-whiteout"></div>
 
-            <div id="contentWhiteout" class="content-whiteout"></div>
+                <div class="content" id="content">
 
-            <div class="content" id="content">
+                    @include('partials.flash')
 
-                @include('partials.flash')
+                    <header class="header">
 
-                <header class="header">
+                        <hgroup class="header__headings">
+                            <h3 class="header__subheading">@yield('pageSubtitle')</h3>
+                            <h1 class="header__heading">@yield('pageTitle')</h1>
+                        </hgroup>
 
-                    <hgroup class="header__headings">
-                        <h3 class="header__subheading">@yield('pageSubtitle')</h3>
-                        <h1 class="header__heading">@yield('pageTitle')</h1>
-                    </hgroup>
+                        @yield('header_content')
 
-                    @yield('header_content')
+                        <div class="header__actions">
+                            @yield('actions')
+                        </div>
 
-                    <div class="header__actions">
-                        @yield('actions')
-                    </div>
+                    </header>
 
-                </header>
+                    @yield('form_start')
 
-                @yield('form_start')
+                    @yield('content')
 
-                @yield('content')
-
-                @yield('form_end')
+                    @yield('form_end')
+                </div>
             </div>
 
         </div>

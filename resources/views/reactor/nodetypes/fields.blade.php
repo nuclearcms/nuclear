@@ -16,5 +16,3 @@
         {!! action_button(route('reactor.nodefields.create', $nodetype->getKey()), 'icon-plus') !!}
     </div>
 @endsection
-
-@include('partials.modals.delete')

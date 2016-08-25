@@ -65,4 +65,92 @@ trait UsesNodeHelpers {
         return $node;
     }
 
+    /**
+     * @param int $id
+     * @param int $source
+     * @param string $permission
+     * @param bool $withSource
+     * @return array
+     */
+    protected function authorizeAndFindNode($id, $source, $permission = null, $withSource = true)
+    {
+        if ( ! is_null($permission))
+        {
+            $this->authorize($permission);
+        }
+
+
+        $node = Node::findOrFail($id);
+
+        if ( ! $withSource)
+        {
+            return $node;
+        }
+
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+
+        return [$node, $locale, $source];
+    }
+
+    /**
+     * Determines the current editing locale
+     *
+     * @param int|null $source
+     * @param Node $node
+     * @return string
+     */
+    protected function determineLocaleAndSource($source, Node $node)
+    {
+        if ($source)
+        {
+            $source = $node->translations->find($source);
+
+            if (is_null($source))
+            {
+                abort(404);
+            }
+        } else
+        {
+            $source = $node->translate();
+
+            if (is_null($source))
+            {
+                $source = $node->translations->first();
+            }
+        }
+
+        return [$source->locale, $source];
+    }
+
+    /**
+     * Determines the node publishing
+     *
+     * @param Request $request
+     * @param Node $node
+     */
+    protected function determinePublish(Request $request, Node $node)
+    {
+        if ($request->get('_publish') === 'publish')
+        {
+            $node->publish();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param int $id
+     */
+    protected function determineHomeNode(Request $request, $id)
+    {
+        if ($request->input('home') === '1')
+        {
+            $home = Node::whereHome(1)->where('id', '<>', $id)->first();
+
+            if ($home)
+            {
+                $home->update(['home' => 0]);
+            }
+        }
+    }
+
 }

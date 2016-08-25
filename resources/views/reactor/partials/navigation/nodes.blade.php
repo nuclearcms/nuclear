@@ -21,7 +21,7 @@
 
         @if(locale_count() > 1)
         <ul class="nodes-tabs">
-            @foreach(config('translatable.locales') as $locale)
+            @foreach(locales() as $locale)
             <li class="nodes-tabs__tab nodes-tabs__tab--{{ $locale }}
                 {{ (session('reactor.tree_locale', app()->getLocale()) === $locale) ? ' nodes-tabs__tab--active' : '' }}"
                 data-locale="{{ $locale }}"
@@ -31,10 +31,11 @@
         @endif
     </div>
 
-    <div class="scroller scroller--nodes-lists node-trees-container"
+    <div class="scroller scroller--nodes-lists node-trees-container node-trees-container--nav"
          id="navigationNodesTree"
          data-localeurl="{{ route('reactor.nodes.tree.locale') }}"
-         data-sorturl="{{ route('reactor.nodes.tree.sort') }}">
+         data-sorturl="{{ route('reactor.nodes.tree.sort') }}"
+         data-parentid="0">
         @include('partials.navigation.node_trees')
     </div>
 

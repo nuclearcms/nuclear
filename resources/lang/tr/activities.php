@@ -31,7 +31,6 @@ return [
     'updated_media' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">dosyayı</a> güncelledi.',
     'updated_node' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğümün</a> ayarlarını güncelledi.',
     'updated_node_content' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğümün</a> içeriğini güncelledi.',
-    'updated_node_seo' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğümün</a> SEO ayarlarını güncelledi.',
     'updated_nodefield' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğüm alanını</a> güncelledi.',
     'updated_nodetype' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">düğüm tipini</a> güncelledi.',
     'updated_own_information' => '<a href=":actorLink">:actorName</a> profil bilgisini güncelledi.',

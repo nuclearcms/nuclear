@@ -6,6 +6,7 @@ return [
     'slug' => 'Sadece ASCII karakterler, tire(-) ve alttire(_) içerebilir.',
     'password' => 'Kuvvetli bir şifre seçin!',
     'password_confirmation' => 'Şifrenizi onaylayın.',
+    'published_at' => 'YYYY-AA-GG SS:DD:ss formatında olmalıdır.',
 
     'public_url' => 'Dosyanın erişilebileceği herkese görünür adres.',
     'documents_alttext' => 'Dosya için alternatif metin.',

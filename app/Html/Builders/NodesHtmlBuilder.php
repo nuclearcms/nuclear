@@ -4,9 +4,28 @@
 namespace Reactor\Html\Builders;
 
 
+use Illuminate\Database\Eloquent\Collection;
 use Nuclear\Hierarchy\Node;
 
 class NodesHtmlBuilder {
+
+    /**
+     * Makes an array of ancestor links
+     *
+     * @param Collection $ancestors
+     * @return array
+     */
+    public function ancestorLinks(Collection $ancestors)
+    {
+        $links = [];
+
+        foreach ($ancestors as $ancestor)
+        {
+            $links[] = link_to($ancestor->getDefaultEditUrl(), $ancestor->getTitle());
+        }
+
+        return $links;
+    }
 
     /**
      * Snippet for displaying node default content options
@@ -61,6 +80,7 @@ class NodesHtmlBuilder {
             $node->isLocked() ? 'icon-status-unlocked' : 'icon-status-locked',
             $node->isLocked() ? 'nodes.unlock' : 'nodes.lock'
         ) . '</li>';
+
         return content_options_open($header, $table) . $html . content_options_close($table);
     }
 

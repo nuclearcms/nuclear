@@ -133,10 +133,12 @@
     text-align: center
     padding: 1em
 
-    &--table
-        +position(absolute, null 0 0 null)
+    &--sub, &--table
         height: 2.75em
         padding: 0.125em 1em
+
+    &--table
+        +position(absolute, null 0 0 null)
         background-color: $colorEmphasis
 
 .pagination-container

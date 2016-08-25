@@ -169,8 +169,6 @@ return [
         Reactor\Providers\EventServiceProvider::class,
         Reactor\Providers\HtmlBuildersServiceProvider::class,
         Reactor\Providers\RouteServiceProvider::class,
-        Reactor\Providers\ValidationRulesServiceProvider::class,
-        Reactor\Providers\ViewBindingsServiceProvider::class,
 
         /*
          * Hierarchy Service Providers...

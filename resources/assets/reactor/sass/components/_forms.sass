@@ -19,6 +19,7 @@ label
     box-shadow: $shadowDownLight
     background-color: $colorLightBG1
     padding: 3em 2em 3em
+    position: relative
     +clearfix
 
     &__heading
@@ -32,7 +33,10 @@ label
         border-top: 1px solid $colorLightBG4
 
     &--compact
-        padding-top: 1.5em
+        padding-top: 1.5em !important
+    &--xcompact
+        padding-top: 1.5em !important
+        padding-bottom: 1.5em !important
 
     @media screen and (max-width: $thresholdMicro)
         padding: 3em 1em 3em
@@ -216,6 +220,7 @@ label
         input
             height: 2.5em !important
             min-width: 6em
+            padding-left: 2em !important
 
     &--error
         input, textarea

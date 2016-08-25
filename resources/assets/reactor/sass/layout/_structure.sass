@@ -4,7 +4,6 @@
 
 .container-main
     padding-left: $navigationWidth
-    overflow-x: hidden
     height: 100%
 
     @media screen and (max-width: $thresholdCollapse)
@@ -51,8 +50,6 @@
 .container-content
     position: relative
     z-index: 110
-    background-color: $colorLightBG3
-    min-height: 100vh
 
     @media screen and (max-width: $thresholdCollapse)
         +transition(all $durationMedium)
@@ -64,6 +61,10 @@
     @media screen and (max-width: $thresholdMicro)
         &--slide
             +transform(translateX($navigationWidthNarrow))
+
+    &__inner
+        background-color: $colorLightBG3
+        min-height: 100vh
 
 .content-whiteout
     +position(absolute, 0 null null 0)

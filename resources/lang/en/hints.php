@@ -6,6 +6,7 @@ return [
     'slug' => 'Can only contain ASCII characters, dashes(-) and underscores(_).',
     'password' => 'Choose a strong password!',
     'password_confirmation' => 'Confirm your password.',
+    'published_at' => 'Has to be in YYYY-MM-DD HH:MM:SS format.',
 
     'public_url' => 'The public address from which the document can be reached.',
     'documents_alttext' => 'Alternative text for the document.',
