@@ -8,6 +8,12 @@
     ])
 @endsection
 
+@section('form_buttons')
+    @can('EDIT_USERS')
+    {!! submit_button('icon-floppy') !!}
+    @endcan
+@endsection
+
 @section('content')
     @include('tags.tabs', [
         'currentRoute' => 'reactor.tags.edit',
@@ -15,10 +21,4 @@
     ])
 
     @parent
-@endsection
-
-@section('form_buttons')
-    @can('EDIT_USERS')
-    {!! submit_button('icon-floppy') !!}
-    @endcan
 @endsection

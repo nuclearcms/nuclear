@@ -34,11 +34,7 @@
 
                     </header>
 
-                    @yield('form_start')
-
                     @yield('content')
-
-                    @yield('form_end')
                 </div>
             </div>
 

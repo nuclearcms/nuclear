@@ -142,7 +142,7 @@ trait BasicResource {
 
         list($locale, $translation) = $this->determineLocaleAndTranslation($translation, $item);
 
-        $this->validateEditForm($request, $item);
+        $this->validateEditForm($request, $translation);
 
         $item->update([
             $locale => $request->all()

@@ -46,9 +46,7 @@
         @endforeach
         </div>
     </div>
-@endsection
 
-@section('form_end')
     <div class="form-buttons" id="formButtons">
         {!! action_button(route('reactor.nodes.create', $node->getKey()), 'icon-plus') !!}
     </div>

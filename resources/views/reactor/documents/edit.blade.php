@@ -1,8 +1,19 @@
 @extends('documents.base_edit')
 
+@section('form_buttons')
+    @can('EDIT_DOCUMENTS')
+        @if($document->isImage()){!!
+        action_button(route('reactor.documents.image.edit', $document->getKey()), 'icon-image', '', 'button--action button--separated')
+        !!}@endif{{ '' }}@if($document->type !== 'embedded'){!!
+        action_button(route('reactor.documents.download', $document->getKey()), 'icon-download', '', 'button--action button--separated')
+        !!}@endif{!! submit_button('icon-floppy') !!}
+    @endcan
+@endsection
+
 @section('content')
     {!! $document->present()->preview !!}
 
+    {!! form_start($form) !!}
     <div class="content-inner">
         <div class="form-column form-column--full">
             {!! form_until($form, 'public_url') !!}
@@ -34,14 +45,9 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('form_buttons')
-    @can('EDIT_DOCUMENTS')
-        @if($document->isImage()){!!
-        action_button(route('reactor.documents.image.edit', $document->getKey()), 'icon-image', '', 'button--action button--separated')
-        !!}@endif{{ '' }}@if($document->type !== 'embedded'){!!
-        action_button(route('reactor.documents.download', $document->getKey()), 'icon-download', '', 'button--action button--separated')
-        !!}@endif{!! submit_button('icon-floppy') !!}
-    @endcan
+    <div class="form-buttons" id="formButtons">
+        @yield('form_buttons')
+    </div>
+    {!! form_end($form) !!}
 @endsection
