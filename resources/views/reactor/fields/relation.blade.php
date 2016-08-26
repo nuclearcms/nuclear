@@ -5,16 +5,25 @@
 
     <div class="form-group__relation"
          data-searchurl="{{ route($options['search_route']) }}"
-         data-mode="{{ isset($options['mode']) ? $options['mode'] : 'single' }}">
+         data-mode="{{ array_get($options, 'mode', 'single') }}"
+         data-filter="{{ array_get($options, 'filter', 'all') }}">
         <ul class="related-items">
 
-            @if($items = call_user_func($options['getter_method'], $options['value']))
-            @foreach($items as $item)
-            <li class="related-item" data-id="{{ $item->getKey() }}">
-                {{ $item->getTitle() }}
-                <i class="icon-cancel related-item__close"></i>
-            </li>
-            @endforeach
+            @if($items = call_user_func_array($options['getter_method'],
+            array_merge([$options['value']], array_get($options, 'getter_method_params', []))))
+                @if(array_get($options, 'mode', 'single') === 'single')
+                    <li class="related-item" data-id="{{ $items->getKey() }}">
+                        {{ $items->getTitle() }}
+                        <i class="icon-cancel related-item__close"></i>
+                    </li>
+                @else
+                    @foreach($items as $item)
+                    <li class="related-item" data-id="{{ $item->getKey() }}">
+                        {{ $item->getTitle() }}
+                        <i class="icon-cancel related-item__close"></i>
+                    </li>
+                    @endforeach
+                @endif
             @endif
 
         </ul>

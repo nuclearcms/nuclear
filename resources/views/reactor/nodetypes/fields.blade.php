@@ -10,7 +10,7 @@
         @include('nodefields.sublist', ['fields' => $nodetype->getFields()])
     </div>
 
-    <div class="form-buttons" id="formButtons">
+    <div class="form-buttons form-buttons--displaced" id="formButtons">
         {!! action_button(route('reactor.nodefields.create', $nodetype->getKey()), 'icon-plus') !!}
     </div>
 @endsection

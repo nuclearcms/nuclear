@@ -33,6 +33,8 @@ return [
 
     'add_translation' => 'Add Translation',
     'added_translation' => 'Translation was added.',
+    'destroy_translation' => 'Delete Translation',
+    'destroyed_translation' => 'Destroyed translation.',
     'no_available_locales' => 'No available locales for translation.',
 
     'en' => 'English',

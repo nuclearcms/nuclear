@@ -6,7 +6,9 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Nuclear\Hierarchy\Exception\InvalidParentNodeTypeException;
 use Nuclear\Hierarchy\Node;
+use Nuclear\Hierarchy\NodeSource;
 use Reactor\Http\Controllers\Traits\UsesNodeForms;
 use Reactor\Http\Controllers\Traits\UsesNodeHelpers;
 use Reactor\Http\Controllers\Traits\UsesTranslations;
@@ -43,6 +45,36 @@ class NodesController extends ReactorController {
             ->get();
 
         return $this->compileView('nodes.search', compact('nodes'));
+    }
+
+    /**
+     * Returns the collection of retrieved nodes by json response
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function searchJson(Request $request)
+    {
+        $nodes = Node::search($request->input('q'), 20, true)
+            ->groupBy('id')->limit(10);
+
+        $filter = $request->input('filter', 'all');
+
+        if ($filter !== 'all')
+        {
+            $nodes->withType($filter);
+        }
+
+        $nodes = $nodes->get();
+
+        $results = [];
+
+        foreach ($nodes as $node)
+        {
+            $results[$node->getKey()] = $node->getTitle();
+        }
+
+        return response()->json($results);
     }
 
     /**
@@ -246,6 +278,134 @@ class NodesController extends ReactorController {
     }
 
     /**
+     * Deletes a translation
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function destroyTranslation($id)
+    {
+        $this->authorize('EDIT_NODES');
+
+        $source = NodeSource::findOrFail($id);
+        $node = $source->node;
+
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_is_locked', null, null, 'error');
+        } else
+        {
+            $source->delete();
+
+            $node->load('translations');
+
+            $this->notify('general.destroyed_translation', 'deleted_node_translation', $node);
+        }
+
+        return redirect()->route('reactor.nodes.edit', [$node->getKey(), $node->translateOrfirst()->getKey()]);
+    }
+
+    /**
+     * Show the page for resource transformation options
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function transform($id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null, 'EDIT_NODES');
+
+        $form = $this->getTransformForm($id, $node);
+
+        return $this->compileView('nodes.transform', compact('node', 'form', 'source'));
+    }
+
+    /**
+     * Transforms the node into given type
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function transformPut(Request $request, $id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null, 'EDIT_NODES');
+
+        $this->validateTransformForm($request);
+
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_is_locked', null, null, 'error');
+        } else
+        {
+            try {
+                $node->transformInto($request->input('type'));
+
+                $this->notify('nodes.transformed', 'transformed_node', $node);
+            } catch (InvalidParentNodeTypeException $e)
+            {
+                $this->notify('nodes.invalid_parent', null, null, 'error');
+            }
+        }
+
+        return redirect()->route('reactor.nodes.edit', [$id, $source->getKey()]);
+    }
+
+    /**
+     * Show the page for resource moving options
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function move($id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null, 'EDIT_NODES');
+
+        $form = $this->getMoveForm($id);
+
+        return $this->compileView('nodes.move', compact('node', 'form', 'source'));
+    }
+
+    /**
+     * Transforms the node into given type
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function movePut(Request $request, $id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null, 'EDIT_NODES');
+
+        $this->validateMoveForm($request);
+
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_is_locked', null, null, 'error');
+        } else
+        {
+            if ($parent = Node::find(request()->input('parent')))
+            {
+                try
+                {
+                    $node->appendToNode($parent);
+                    $node->save();
+
+                    $this->notify('nodes.moved', 'moved_node', $node);
+                } catch (InvalidParentNodeTypeException $e)
+                {
+                    $this->notify('nodes.invalid_parent', null, null, 'error');
+                }
+            } else
+            {
+                $this->notify('nodes.invalid_parent', null, null, 'error');
+            }
+        }
+
+        return redirect()->route('reactor.nodes.edit', [$id, $source->getKey()]);
+    }
+
+    /**
      * Shows the children nodes of the resourse in tree view
      *
      * @param int $id
@@ -329,12 +489,9 @@ class NodesController extends ReactorController {
             {
                 return response()->json($response);
             }
-        } catch (\Exception $e)
+        } catch (InvalidParentNodeTypeException $e)
         {
-            if (is_a($e, 'Nuclear\Hierarchy\Exception\InvalidParentNodeTypeException'))
-            {
-                $response['message'] = trans('nodes.invalid_parent');
-            }
+            $response['message'] = trans('nodes.invalid_parent');
 
             return response()->json($response);
         }
@@ -349,6 +506,108 @@ class NodesController extends ReactorController {
             'type' => 'success',
             'html' => view('partials.navigation.node_trees', ['leafs' => $leafs])->render()
         ]);
+    }
+
+    /**
+     * Publishes the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function publish($id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $node->publish()->save();
+
+        $this->notify('nodes.published_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Unpublishes the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unpublish($id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $node->unpublish()->save();
+
+        $this->notify('nodes.unpublished_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Locks the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function lock($id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $node->lock()->save();
+
+        $this->notify('nodes.locked_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Unlocks the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unlock($id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $node->unlock()->save();
+
+        $this->notify('nodes.unlocked_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Shows the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $node->show()->save();
+
+        $this->notify('nodes.showed_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Hides the specified resource
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function hide($id)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $node->hide()->save();
+
+        $this->notify('nodes.hid_node');
+
+        return redirect()->back();
     }
 
 }

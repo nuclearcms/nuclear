@@ -77,7 +77,7 @@ class NodesHtmlBuilder {
         ) . '</li>
         <li class="dropdown-sub__item">' . $this->nodeOptionForm(
             $node->isLocked() ? route('reactor.nodes.unlock', $id) : route('reactor.nodes.lock', $id),
-            $node->isLocked() ? 'icon-status-unlocked' : 'icon-status-locked',
+            $node->isLocked() ? 'icon-blank' : 'icon-status-locked',
             $node->isLocked() ? 'nodes.unlock' : 'nodes.lock'
         ) . '</li>';
 

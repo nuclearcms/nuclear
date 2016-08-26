@@ -21,7 +21,7 @@
         @include('nodes.sublist', ['nodes' => $children])
     </div>
 
-    <div class="form-buttons" id="formButtons">
+    <div class="form-buttons form-buttons--displaced" id="formButtons">
         {!! action_button(route('reactor.nodes.create', $node->getKey()), 'icon-plus') !!}
     </div>
 @endsection

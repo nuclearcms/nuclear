@@ -33,6 +33,8 @@ return [
 
     'add_translation' => 'Çeviri ekle',
     'added_translation' => 'Çeviri eklendi.',
+    'destroy_translation' => 'Çeviriyi Sil',
+    'destroyed_translation' => 'Çeviri silindi.',
     'no_available_locales' => 'Kullanılabilir çeviri dili kalmadı.',
 
     'en' => 'İngilizce',

@@ -13,6 +13,8 @@ return [
     'documents_caption' => 'Dosya manşeti.',
     'documents_embed' => 'Yerleştirilebilir medyanın adresi. İzin verilen platformlar: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
 
+    'nodes_parent' => 'Düğümün altına taşınacağı ebeveyn.',
+
     'nodefields_name' => 'Sadece küçük ASCII harfler ve alt tire(_) içermelidir.',
     'nodefields_label' => 'Düğüm alanı için okunaklı isim.',
     'nodefields_rules' => 'Düğüm alanı için onaylama kuralları. | karakteriyle ayrılmış onay kuralları ya da bir dizi tanımı olmalıdır.',

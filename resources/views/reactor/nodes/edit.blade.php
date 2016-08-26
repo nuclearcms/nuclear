@@ -26,9 +26,9 @@
         'currentKey' => $node->getKey()
     ])
 
-    <div class="content-inner{{ (locale_count() > 1) ? ' content-inner--xcompact' : '' }}">
+    <div class="content-inner">
         <div class="content-inner__options{{ (locale_count() > 1) ? ' content-inner__options--displaced' : '' }}">
-            @include('nodes.options')
+            @include('nodes.options', ['_edit' => true])
         </div>
         WHAT HAPPENS WHEN THE COLUMNS ARE HERE<br>
         ESPECIALLY WITH THE OPTION MENU WHEN THERE IS A SINGLE LOCALE

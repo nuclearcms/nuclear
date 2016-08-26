@@ -51,9 +51,12 @@ label
             display: none
 
 .form-buttons
-    +position(fixed, null 2em 1em null)
+    +position(absolute, null 2em -1.25em null)
     box-shadow: $shadowDownLight
     background-color: $colorLightBG1
+
+    &--displaced
+        bottom: 1.75em
 
     @media screen and (max-width: $thresholdMicro)
         right: 1em
@@ -255,6 +258,7 @@ label
         width: 100%
         background-color: $colorLightBG1
         box-shadow: $shadowDownLight
+        z-index: 100
 
         &--hidden
             display: none
@@ -280,3 +284,4 @@ label
         +position(absolute, 0 null null 0)
         +size(100%)
         z-index: -1
+        opacity: 0

@@ -16,27 +16,33 @@ $('.pagination__selector').on('change', function () {
     window.location = $(this).val();
 });
 
-// LOCATE FORM BUTTONS
-var formContainer = $('#content'),
-    formButtons = $('#formButtons');
-
-function locateFormButtons() {
-    var wH = $(window).height(),
-        fcH = formContainer.outerHeight();
-
-    // This 12px thing is because of the content container needs to have an
-    // extra of 12px bottom padding in order to ensure scrollbar not showing
-    if ((wH + 12) > fcH) {
-        formButtons.css('bottom', (wH - fcH + 28) + 'px');
-    } else {
-        formButtons.css('bottom', '');
-    }
-}
+// FORM BUTTONS
+var formButtons = $('#formButtons'),
+    w = $(window),
+    fbT = formButtons.offset().top;
 
 locateFormButtons();
+
 $(window).on('resize.formbuttons', function () {
+    formButtons.css({'bottom': '', 'position': ''});
+    fbT = formButtons.offset().top;
+
     locateFormButtons();
 });
+
+$(window).on('scroll.formbuttons', function() {
+    locateFormButtons();
+});
+
+function locateFormButtons()
+{
+    if((w.height() + w.scrollTop() - 12) < (fbT + 40))
+    {
+        formButtons.css({'bottom': '16px', 'position': 'fixed'});
+    } else {
+        formButtons.css({'bottom': '', 'position': ''});
+    }
+}
 
 // CONTENT FILTERS
 $('#contentFilter').on('change', function () {
@@ -82,7 +88,7 @@ function compileSelectedForBulkAction() {
 }
 
 // FLASH MESSAGE HIDING
-setTimeout(function() {
+setTimeout(function () {
     $('.flash-message').addClass('flash-message--hidden');
 }, 1);
 
@@ -102,7 +108,7 @@ if (Modernizr.touch) {
 }
 
 // CONTENT/FORM SUB TABS
-$('.sub-tab-flaps .tabs__link').on('click', function() {
+$('.sub-tab-flaps .tabs__link').on('click', function () {
     var locale = $(this).data('locale');
 
     $('.sub-tab-flaps .tabs__link').removeClass('tabs__link--active');

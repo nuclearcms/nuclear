@@ -6,6 +6,7 @@ return [
     'search' => 'Search Nodes',
     'all' => 'All Nodes',
     'self' => 'Node',
+    'parent' => 'Parent Node',
 
     'all_nodes' => 'All Nodes',
     'withheld_nodes' => 'Withheld Nodes',
@@ -23,6 +24,10 @@ return [
     'parameters' => 'Parameters',
     'ancestors' => 'Ancestors',
     'children' => 'Children',
+    'transform' => 'Transform Node',
+    'transformed' => 'Transformed node.',
+    'move' => 'Move Node',
+    'moved' => 'Moved node.',
 
     'new' => 'New Node',
     'no_nodes' => 'No nodes were found.',
@@ -54,5 +59,12 @@ return [
 
     'tree_display' => 'Node Tree Mode',
     'list_display' => 'List Mode',
+
+    'published_node' => 'Published node.',
+    'unpublished_node' => 'Unpublished node.',
+    'locked_node' => 'Locked node.',
+    'unlocked_node' => 'Unlocked node.',
+    'hid_node' => 'Hid node.',
+    'showed_node' => 'Showed node.',
 
 ];

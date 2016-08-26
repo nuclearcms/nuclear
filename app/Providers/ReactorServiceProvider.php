@@ -82,7 +82,10 @@ class ReactorServiceProvider extends ServiceProvider {
             return;
         }
 
-        view()->share('home', $nodeRepository->getHome());
+        if ( ! is_request_reactor())
+        {
+            view()->share('home', $nodeRepository->getHome());
+        }
 
         view()->composer('*', function ($view) use ($nodeRepository)
         {

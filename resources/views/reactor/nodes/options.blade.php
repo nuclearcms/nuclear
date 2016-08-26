@@ -15,6 +15,32 @@
 </li>
 @endif
 
+@if(isset($_edit) && $_edit === true && (count($node->translations) > 1))
+<li class="dropdown-sub__item dropdown-sub__item--delete">
+    {!! delete_form(
+        route('reactor.nodes.translation.destroy', $source->getKey()),
+        trans('general.destroy_translation'), '', false, 'icon-blank') !!}
+</li>
+@endif
+
+<li class="dropdown-sub__item dropdown-sub__item--delete">
+    {!! delete_form(
+        route('reactor.nodes.destroy', $node->getKey()),
+        trans('nodes.destroy')) !!}
+</li>
+
+@if( ! $node->isLocked())
+<li class="dropdown-sub__splitter"></li>
+<li class="dropdown-sub__item">
+    <a href="{{ route('reactor.nodes.transform', $node->getKey()) }}">
+        <i class="icon-blank"></i>{{ trans('nodes.transform') }}</a>
+</li>
+<li class="dropdown-sub__item">
+    <a href="{{ route('reactor.nodes.move', $node->getKey()) }}">
+        <i class="icon-blank"></i>{{ trans('nodes.move') }}</a>
+</li>
+@endif
+
 <li class="dropdown-sub__splitter"></li>
 <li class="dropdown-sub__item">{!! node_option_form(
     $node->isPublished() ? route('reactor.nodes.unpublish', $node->getKey()) : route('reactor.nodes.publish', $node->getKey()),
@@ -23,17 +49,13 @@
     ) !!}</li>
 <li class="dropdown-sub__item">{!! node_option_form(
     $node->isLocked() ? route('reactor.nodes.unlock', $node->getKey()) : route('reactor.nodes.lock', $node->getKey()),
-    $node->isLocked() ? 'icon-status-unlocked' : 'icon-status-locked',
+    $node->isLocked() ? 'icon-blank' : 'icon-status-locked',
     $node->isLocked() ? 'nodes.unlock' : 'nodes.lock'
     ) !!}</li>
 <li class="dropdown-sub__item">{!! node_option_form(
     $node->isVisible() ? route('reactor.nodes.hide', $node->getKey()) : route('reactor.nodes.show', $node->getKey()),
-    $node->isVisible() ? 'icon-status-invisible' : 'icon-status-visible',
+    $node->isVisible() ? 'icon-status-invisible' : 'icon-blank',
     $node->isVisible() ? 'nodes.hide' : 'nodes.show'
     ) !!}</li>
 
 {!! content_options_close(false) !!}
-MOVE
-TRANSFORM
-ADDING / DELETING TRANSLATIONS
-APPEND AND SUBMIT FORM

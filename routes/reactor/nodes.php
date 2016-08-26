@@ -12,6 +12,9 @@ Route::group([
     Route::get('search', [
         'uses' => 'NodesController@search',
         'as'   => 'reactor.nodes.search']);
+    Route::post('search', [
+        'uses' => 'NodesController@searchJson',
+        'as'   => 'reactor.nodes.search.json']);
 
     Route::get('create/{id?}', [
         'uses' => 'NodesController@create',
@@ -82,6 +85,20 @@ Route::group([
     Route::delete('translation/{id}', [
         'uses' => 'NodesController@destroyTranslation',
         'as'   => 'reactor.nodes.translation.destroy']);
+
+    Route::get('{id}/transform', [
+        'uses' => 'NodesController@transform',
+        'as'   => 'reactor.nodes.transform']);
+    Route::put('{id}/transform', [
+        'uses' => 'NodesController@transformPut',
+        'as'   => 'reactor.nodes.transform.put']);
+
+    Route::get('{id}/move', [
+        'uses' => 'NodesController@move',
+        'as'   => 'reactor.nodes.move']);
+    Route::put('{id}/move', [
+        'uses' => 'NodesController@movePut',
+        'as'   => 'reactor.nodes.move.put']);
 
     Route::post('tree/locale', [
         'uses' => 'NodesController@changeTreeLocale',

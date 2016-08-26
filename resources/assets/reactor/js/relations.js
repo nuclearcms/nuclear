@@ -16,6 +16,7 @@
         _init: function () {
             this.searchurl = this.el.data('searchurl');
             this.mode = this.el.data('mode');
+            this.filter = this.el.data('filter');
 
             this.items = this.el.find('ul.related-items');
             this.results = this.el.find('ul.related-search__results');
@@ -147,7 +148,6 @@
                     placeholder: 'placeholder',
                     opacity: 0.7,
                     delay: 50,
-                    axis: 'y',
                     stop: function () {
                         self._regenerateValue();
                     }
@@ -158,7 +158,7 @@
             var self = this;
 
             if (!self.searching) {
-                $.post(this.searchurl, {q: keywords}, function (data) {
+                $.post(this.searchurl, {q: keywords, filter: self.filter}, function (data) {
                     self._populateResults(data);
                 });
             }

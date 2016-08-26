@@ -142,4 +142,52 @@ trait UsesNodeForms {
         $this->validateForm('Reactor\Html\Forms\Nodes\EditParametersForm', $request);
     }
 
+    /**
+     * @param int $id
+     * @param Node $node
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getTransformForm($id, Node $node)
+    {
+        $form = $this->form('Reactor\Html\Forms\Nodes\TransformForm', [
+            'url' => route('reactor.nodes.transform.put', $id)
+        ]);
+
+        $nodeTypes = $this->compileAllowedNodeTypes($node->parent);
+        unset($nodeTypes[$node->node_type_id]);
+
+        $form->modify('type', 'select', [
+            'choices' => $nodeTypes
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function validateTransformForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Nodes\TransformForm', $request);
+    }
+
+    /**
+     * @param int $id
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getMoveForm($id)
+    {
+        return $this->form('Reactor\Html\Forms\Nodes\MoveForm', [
+            'url'   => route('reactor.nodes.move.put', $id),
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function validateMoveForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Nodes\MoveForm', $request);
+    }
+
 }

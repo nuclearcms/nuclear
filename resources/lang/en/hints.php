@@ -13,6 +13,8 @@ return [
     'documents_caption' => 'Caption for the document.',
     'documents_embed' => 'The URL of the embeddable media. Allowed platforms: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
 
+    'nodes_parent' => 'The parent which the node is going to be moved under.',
+
     'nodefields_name' => 'Can only contain lowercase ASCII letters and underscores(_).',
     'nodefields_label' => 'Pretty name for the node field.',
     'nodefields_rules' => 'Validation rules for the node field. Should be rules separated with | or an array definition.',

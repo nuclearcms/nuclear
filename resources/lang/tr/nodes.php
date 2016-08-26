@@ -6,6 +6,7 @@ return [
     'search' => 'Düğüm Ara',
     'all' => 'Tüm Düğümler',
     'self' => 'Düğüm',
+    'parent' => 'Ebeveyn Düğüm',
 
     'all_nodes' => 'Tüm Düğümler',
     'withheld_nodes' => 'Yayınlanmamış Düğümler',
@@ -23,6 +24,10 @@ return [
     'parameters' => 'Ayarlar',
     'ancestors' => 'Soy Ağacı',
     'children' => 'Çocuk Düğümler',
+    'transform' => 'Düğümü Dönüştür',
+    'transformed' => 'Düğüm dönüştürüldü.',
+    'move' => 'Düğümü Taşı',
+    'moved' => 'Düğüm taşındı.',
 
     'new' => 'Yeni Düğüm',
     'no_nodes' => 'Düğüm bulunamadı.',
@@ -54,5 +59,12 @@ return [
 
     'tree_display' => 'Düğüm Ağacı Modu',
     'list_display' => 'Liste Modu',
+
+    'published_node' => 'Düğüm yayınlandı.',
+    'unpublished_node' => 'Düğüm yayından çekildi.',
+    'locked_node' => 'Düğüm kitlendi.',
+    'unlocked_node' => 'Düğümün kilidi açıldı.',
+    'hid_node' => 'Düğüm saklandı.',
+    'showed_node' => 'Düğüm gösterildi.',
 
 ];
