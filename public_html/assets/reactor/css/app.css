@@ -140,6 +140,9 @@ body {
     color: #FFFFFF;
     cursor: default;
     background-color: #BDC3C7; }
+  .button--disabled-plain {
+    color: #95A5A6;
+    cursor: default; }
   .button--emphasis {
     color: #FFFFFF;
     background-color: #F1C40F; }

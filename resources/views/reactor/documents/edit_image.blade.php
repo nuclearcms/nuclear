@@ -9,7 +9,7 @@
     <div id="imageEditor" class="image-editor form-column form-column--full">
 
         <ul class="image-editor__toolbar">
-            <li><button title="{{ trans('documents.tool_crop') }}" id="toolCrop" class="button button--disabled"><i class="icon-kk"></i></button></li>
+            <li><button title="{{ trans('documents.tool_crop') }}" id="toolCrop" class="button button--disabled-plain"><i class="icon-kk"></i></button></li>
             <li><button title="{{ trans('documents.tool_rotate_ccw') }}" id="toolRotateCCW" class="button"><i class="icon-kk"></i></button></li>
             <li><button title="{{ trans('documents.tool_rotate_cw') }}" id="toolRotateCW" class="button"><i class="icon-kk"></i></button></li>
             <li><button title="{{ trans('documents.tool_flip_horizontal') }}" id="toolFlipHorizontal" class="button"><i class="icon-kk"></i></button></li>

@@ -99,7 +99,7 @@
             });
 
             this.image.on('cropend.cropper', function () {
-                self.cropButton.removeClass('button--disabled');
+                self.cropButton.removeClass('button--disabled-plain');
                 self._cropEnabled = true;
             });
 
