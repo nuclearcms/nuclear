@@ -100,7 +100,9 @@ function compileSelectedForBulkAction() {
 }
 
 // FLASH MESSAGE HIDING
-$('.flash-message').addClass('flash-message--hidden');
+setTimeout(function() {
+    $('.flash-message').addClass('flash-message--hidden');
+}, 1);
 
 // DOCUMENTS HOVER BIND
 if (Modernizr.touch) {
@@ -557,7 +559,7 @@ function toggleNavigation() {
             });
         },
         _changeTab: function (flap) {
-            if (this.enabled) {
+            if (this.enabled && ! flap.hasClass('nodes-tabs__tab--active') && ! flap.hasClass('tabs__child-link--active')) {
                 var locale = flap.data('locale');
 
                 this.flaps.removeClass('nodes-tabs__tab--active tabs__child-link--active');

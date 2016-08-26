@@ -1,9 +1,5 @@
 @extends('nodes.base_edit')
 
-@section('tab_options')
-    OPT
-@endsection
-
 @section('children_tabs')
     @include('partials.contents.tabs_translations', [
         'translatable' => $node,
@@ -17,7 +13,11 @@
         'currentKey' => $node->getKey()
     ])
 
-    <div class="content-inner content-inner--xcompact">
+    <div class="content-inner{{ (locale_count() > 1) ? ' content-inner--xcompact' : '' }}">
+        <div class="content-inner__options{{ (locale_count() > 1) ? ' content-inner__options--displaced' : '' }}">
+            @include('nodes.options')
+        </div>
+
         @include('nodes.sublist', ['nodes' => $children])
     </div>
 @endsection

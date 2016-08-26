@@ -17,7 +17,7 @@
 @hasSection('tab_options')
     @yield('tab_options')
 @else
-    @if($translatable->canHaveMoreTranslations())
+    @if(isset($translateRoute) && $translatable->canHaveMoreTranslations())
     <div class="tabs__options">
         <a href="{{ route($translateRoute, [$translatable->getKey(), $translation->getKey()]) }}" class="tabs__option-button">
             <i class="icon-plus"></i>

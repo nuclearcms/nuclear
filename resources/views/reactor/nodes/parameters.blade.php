@@ -8,6 +8,9 @@
     ])
 
     <div class="content-inner">
+        <div class="content-inner__options">
+            @include('nodes.options')
+        </div>
         <div class="form-column form-column--full">
             {!! form_rest($form) !!}
         </div>

@@ -1,3 +1,47 @@
+.content-inner
+    box-shadow: $shadowDownLight
+    background-color: $colorLightBG1
+    padding: 3em 2em 3em
+    position: relative
+    +clearfix
+
+    &__heading
+        font-size: 1.5em
+        font-weight: $fontWeightLight
+        margin-bottom: 1em
+
+    &__row
+        margin-top: 3em
+        padding-top: 1.5em
+        border-top: 1px solid $colorLightBG4
+
+    &__options
+        +position(absolute, 0 0.5em null null)
+        +size(4em)
+        padding: 1.25em 0.5em
+        text-align: center
+
+        &--displaced
+            top: -4em
+            right: 1em
+            @media screen and (max-width: $thresholdMicro)
+                right: 0
+            .dropdown-icon
+                color: $colorLightText !important
+
+    &--compact
+        padding-top: 1.5em !important
+    &--xcompact
+        padding-top: 2em !important
+        padding-bottom: 2em !important
+
+    @media screen and (max-width: $thresholdMicro)
+        padding: 3em 1em 3em
+
+.content-inner .content-inner__options .dropdown
+    top: -0.375em !important
+    bottom: auto !important
+
 .content-list-container
     position: relative
     background-color: $colorLightBG1

@@ -82,7 +82,9 @@ function compileSelectedForBulkAction() {
 }
 
 // FLASH MESSAGE HIDING
-$('.flash-message').addClass('flash-message--hidden');
+setTimeout(function() {
+    $('.flash-message').addClass('flash-message--hidden');
+}, 1);
 
 // DOCUMENTS HOVER BIND
 if (Modernizr.touch) {

@@ -14,8 +14,6 @@
             @endforeach
         </ul>
     @endif
-
-    OPT
 @endsection
 
 @section('content')
@@ -24,16 +22,26 @@
         'currentKey' => $node->getKey()
     ])
 
-    <div class="content-inner content-inner--xcompact">
+    <div class="content-inner{{ (locale_count() > 1) ? ' content-inner--xcompact' : '' }}">
+        <div class="content-inner__options{{ (locale_count() > 1) ? ' content-inner__options--displaced' : '' }}">
+            @include('nodes.options')
+        </div>
+
         <div id="childTreeWhiteout" class="navigation-nodes-blackout children-tree-whiteout"></div>
 
         <div class="node-trees-container node-trees-container--sub" data-parentid="{{ $node->getKey() }}">
         @foreach(locales() as $locale)
             <div class="nodes-list-container nodes-list-container--{{ $locale }}
             {{ (session('reactor.tree_locale', app()->getLocale()) === $locale) ? 'nodes-list-container--active' : '' }}">
-                <ul class="nodes-list nodes-list-sub" id="navigationNodesList-{{ $locale }}">
-                    @include('partials.nodes.leaflist', ['locale' => $locale, 'leafs' => $node->getPositionOrderedChildren()])
-                </ul>
+                @if($node->hasTranslatedChildren($locale))
+                    <ul class="nodes-list">
+                        @include('partials.nodes.leaflist', ['locale' => $locale, 'leafs' => $node->getPositionOrderedChildren()])
+                    </ul>
+                @else
+                    <p class="content-message">
+                        {{ trans('nodes.no_nodes') }}
+                    </p>
+                @endif
             </div>
         @endforeach
         </div>

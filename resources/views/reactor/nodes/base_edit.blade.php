@@ -22,3 +22,16 @@
         'headerHint' => link_to_route('reactor.nodetypes.edit', uppercase($node->getNodeTypeName()), $node->getNodeType()->getKey())
     ])
 @endsection
+
+@if(isset($_withForm) && $_withForm === true)
+@section('scripts')
+    @parent
+    <script>
+        $('.button--publisher').on('click', function() {
+            var form = $(this).closest('form');
+            $('<input name="_publish" value="publish">').appendTo(form);
+            form.submit();
+        });
+    </script>
+@endsection
+@endif

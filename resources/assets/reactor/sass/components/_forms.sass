@@ -15,32 +15,6 @@ input:not([type="checkbox"]), textarea
 label
     user-select: none
 
-.content-inner
-    box-shadow: $shadowDownLight
-    background-color: $colorLightBG1
-    padding: 3em 2em 3em
-    position: relative
-    +clearfix
-
-    &__heading
-        font-size: 1.5em
-        font-weight: $fontWeightLight
-        margin-bottom: 1em
-
-    &__row
-        margin-top: 3em
-        padding-top: 1.5em
-        border-top: 1px solid $colorLightBG4
-
-    &--compact
-        padding-top: 1.5em !important
-    &--xcompact
-        padding-top: 1.5em !important
-        padding-bottom: 1.5em !important
-
-    @media screen and (max-width: $thresholdMicro)
-        padding: 3em 1em 3em
-
 .form-column, .form-group-column
     float: left
     vertical-align: top
@@ -91,6 +65,10 @@ label
     &--inline
         display: inline-block
         min-width: 24%
+        @media screen and (max-width: $thresholdCollapse)
+            min-width: 31%
+        @media screen and (max-width: $thresholdMicro)
+            min-width: 48%
 
     &__errors
         text-align: right
