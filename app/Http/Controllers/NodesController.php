@@ -129,7 +129,7 @@ class NodesController extends ReactorController {
      */
     public function edit($id, $source = null)
     {
-        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source, 'EDIT_NODES');
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, $source);
 
         $form = $this->getEditForm($id, $node, $source);
 
@@ -278,6 +278,77 @@ class NodesController extends ReactorController {
     }
 
     /**
+     * Shows the children nodes of the resourse in tree view
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function childrenTree($id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null);
+
+        return $this->compileView('nodes.children_tree', compact('node', 'source'), trans('nodes.children'));
+    }
+
+    /**
+     * Adds a translation to the resource
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function createTranslation($id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null, 'EDIT_NODES');
+
+        if (count($locales = $this->getAvailableLocales($node)) === 0)
+        {
+            flash()->error(trans('general.no_available_locales'));
+
+            return redirect()->back();
+        }
+
+        $form = $this->getCreateTranslationForm($id, $locales);
+
+        return $this->compileView('nodes.translate', compact('form', 'node', 'source'), trans('general.add_translation'));
+    }
+
+    /**
+     * Stores a translation in the resource
+     *
+     * @param Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function storeTranslation(Request $request, $id)
+    {
+        $this->authorize('EDIT_NODES');
+
+        $node = Node::findOrFail($id);
+
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_is_locked', null, null, 'error');
+
+            return redirect()->route('reactor.nodes.edit', $node->getKey());
+        }
+
+        $this->validateCreateTranslationForm($request);
+
+        $locale = $this->validateLocale($request);
+
+        $node->update([
+            $locale => $request->all()
+        ]);
+
+        $this->notify('general.added_translation');
+
+        return redirect()->route('reactor.nodes.edit', [
+            $node->getKey(),
+            $node->translate($locale)->getKey()
+        ]);
+    }
+
+    /**
      * Deletes a translation
      *
      * @param int $id
@@ -403,19 +474,6 @@ class NodesController extends ReactorController {
         }
 
         return redirect()->route('reactor.nodes.edit', [$id, $source->getKey()]);
-    }
-
-    /**
-     * Shows the children nodes of the resourse in tree view
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function childrenTree($id)
-    {
-        list($node, $locale, $source) = $this->authorizeAndFindNode($id, null);
-
-        return $this->compileView('nodes.children_tree', compact('node', 'source'), trans('nodes.children'));
     }
 
     /**

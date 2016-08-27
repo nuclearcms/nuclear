@@ -6,7 +6,7 @@
 @endsection
 
 @section('form_buttons')
-    {!! submit_button('icon-blank') !!}
+    {!! submit_button('icon-language') !!}
 @endsection
 
 @section('content')

@@ -11,10 +11,10 @@
     ])
 @endsection
 
-@section('content')
-    @include('partials.contents.form')
-@endsection
-
 @section('form_buttons')
     {!! submit_button('icon-language') !!}
+@endsection
+
+@section('content')
+    @include('partials.contents.form')
 @endsection

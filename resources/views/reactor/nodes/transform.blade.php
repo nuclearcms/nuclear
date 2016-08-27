@@ -6,9 +6,7 @@
 @endsection
 
 @section('form_buttons')
-    @can('EDIT_NODES')
     {!! submit_button('icon-blank') !!}
-    @endcan
 @endsection
 
 @section('content')

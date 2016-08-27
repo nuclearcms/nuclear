@@ -94,6 +94,8 @@ class TagsController extends ReactorController {
 
         $tag = Tag::findOrFail($id);
 
+        $this->validateCreateTranslationForm($request);
+
         $locale = $this->validateLocale($request);
 
         $tag->update([

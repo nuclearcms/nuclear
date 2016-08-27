@@ -2,9 +2,7 @@
 <?php $_withForm = true; ?>
 
 @section('form_buttons')
-    @can('EDIT_NODES')
     {!! submit_button('icon-floppy') !!}
-    @endcan
 @endsection
 
 @section('content')

@@ -76,7 +76,7 @@ Route::group([
         'uses' => 'NodesController@hide',
         'as' => 'reactor.nodes.hide']);
 
-    Route::get('{id}/translate/{source}', [
+    Route::get('{id}/translate', [
         'uses' => 'NodesController@createTranslation',
         'as'   => 'reactor.nodes.translation.create']);
     Route::post('{id}/translate', [

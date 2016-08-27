@@ -144,6 +144,34 @@ trait UsesNodeForms {
 
     /**
      * @param int $id
+     * @param array $locales
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getCreateTranslationForm($id, array $locales)
+    {
+        $form = $this->form('Nuclear\Hierarchy\Http\Forms\NodeSourceForm', [
+            'url' => route('reactor.nodes.translation.store', $id),
+            'method' => 'POST'
+        ]);
+
+        $form->addBefore('title', 'locale', 'select', [
+            'choices' => $locales,
+            'inline' => true
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function validateCreateTranslationForm(Request $request)
+    {
+        $this->validateForm('Nuclear\Hierarchy\Http\Forms\NodeSourceForm', $request);
+    }
+
+    /**
+     * @param int $id
      * @param Node $node
      * @return \Kris\LaravelFormBuilder\Form
      */

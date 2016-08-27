@@ -69,10 +69,19 @@ trait UsesTagForms {
         ]);
 
         $form->addBefore('title', 'locale', 'select', [
-            'choices' => $locales
+            'choices' => $locales,
+            'inline' => true
         ]);
 
         return $form;
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function validateCreateTranslationForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Tags\CreateEditForm', $request);
     }
 
 }

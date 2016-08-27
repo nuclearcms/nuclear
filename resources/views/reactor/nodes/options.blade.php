@@ -10,7 +10,7 @@
 
 @if($node->canHaveMoreTranslations())
 <li class="dropdown-sub__item">
-    <a href="{{ route('reactor.nodes.translation.create', [$node->getKey(), $source->getKey()]) }}">
+    <a href="{{ route('reactor.nodes.translation.create', $node->getKey()) }}">
         <i class="icon-language"></i>{{ trans('general.add_translation') }}</a>
 </li>
 @endif
