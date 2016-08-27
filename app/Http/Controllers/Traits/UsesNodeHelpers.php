@@ -153,4 +153,23 @@ trait UsesNodeHelpers {
         }
     }
 
+    /**
+     * Checks if the node is locked
+     * if so notifies and returns a response
+     *
+     * @param Node $node
+     * @return response
+     */
+    protected function validateNodeIsNotLocked(Node $node)
+    {
+        if ($node->isLocked())
+        {
+            $this->notify('nodes.node_is_locked', null, null, 'error');
+
+            return redirect()->back();
+        }
+
+        return false;
+    }
+
 }

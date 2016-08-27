@@ -148,27 +148,23 @@ class NodesController extends ReactorController {
     {
         $node = $this->authorizeAndFindNode($id, $source, 'EDIT_NODES', false);
 
-        if ($node->isLocked())
-        {
-            $this->notify('nodes.node_is_locked', null, null, 'error');
-        } else
-        {
-            list($locale, $source) = $this->determineLocaleAndSource($source, $node);
+        if($response = $this->validateNodeIsNotLocked($node)) return $response;
 
-            $this->validateEditForm($request, $node, $source);
+        list($locale, $source) = $this->determineLocaleAndSource($source, $node);
 
-            $this->determinePublish($request, $node);
+        $this->validateEditForm($request, $node, $source);
 
-            // Recording paused for this, otherwise two records are registered
-            chronicle()->pauseRecording();
-            $node->update([
-                $locale => $request->all()
-            ]);
-            // and resume
-            chronicle()->resumeRecording();
+        $this->determinePublish($request, $node);
 
-            $this->notify('nodes.edited', 'updated_node_content', $node);
-        }
+        // Recording paused for this, otherwise two records are registered
+        chronicle()->pauseRecording();
+        $node->update([
+            $locale => $request->all()
+        ]);
+        // and resume
+        chronicle()->resumeRecording();
+
+        $this->notify('nodes.edited', 'updated_node_content', $node);
 
         return redirect()->back();
     }
@@ -225,15 +221,11 @@ class NodesController extends ReactorController {
 
         $node = Node::findOrFail($id);
 
-        if ($node->isLocked())
-        {
-            $this->notify('nodes.node_is_locked', null, null, 'error');
-        } else
-        {
-            $node->delete();
+        if($response = $this->validateNodeIsNotLocked($node)) return $response;
 
-            $this->notify('nodes.destroyed');
-        }
+        $node->delete();
+
+        $this->notify('nodes.destroyed');
 
         return redirect()->back();
     }
@@ -325,12 +317,7 @@ class NodesController extends ReactorController {
 
         $node = Node::findOrFail($id);
 
-        if ($node->isLocked())
-        {
-            $this->notify('nodes.node_is_locked', null, null, 'error');
-
-            return redirect()->route('reactor.nodes.edit', $node->getKey());
-        }
+        if($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         $this->validateCreateTranslationForm($request);
 
@@ -361,17 +348,13 @@ class NodesController extends ReactorController {
         $source = NodeSource::findOrFail($id);
         $node = $source->node;
 
-        if ($node->isLocked())
-        {
-            $this->notify('nodes.node_is_locked', null, null, 'error');
-        } else
-        {
-            $source->delete();
+        if($response = $this->validateNodeIsNotLocked($node)) return $response;
 
-            $node->load('translations');
+        $source->delete();
 
-            $this->notify('general.destroyed_translation', 'deleted_node_translation', $node);
-        }
+        $node->load('translations');
+
+        $this->notify('general.destroyed_translation', 'deleted_node_translation', $node);
 
         return redirect()->route('reactor.nodes.edit', [$node->getKey(), $node->translateOrfirst()->getKey()]);
     }
@@ -404,19 +387,15 @@ class NodesController extends ReactorController {
 
         $this->validateTransformForm($request);
 
-        if ($node->isLocked())
-        {
-            $this->notify('nodes.node_is_locked', null, null, 'error');
-        } else
-        {
-            try {
-                $node->transformInto($request->input('type'));
+        if($response = $this->validateNodeIsNotLocked($node)) return $response;
 
-                $this->notify('nodes.transformed', 'transformed_node', $node);
-            } catch (InvalidParentNodeTypeException $e)
-            {
-                $this->notify('nodes.invalid_parent', null, null, 'error');
-            }
+        try {
+            $node->transformInto($request->input('type'));
+
+            $this->notify('nodes.transformed', 'transformed_node', $node);
+        } catch (InvalidParentNodeTypeException $e)
+        {
+            $this->notify('nodes.invalid_parent', null, null, 'error');
         }
 
         return redirect()->route('reactor.nodes.edit', [$id, $source->getKey()]);
@@ -450,27 +429,23 @@ class NodesController extends ReactorController {
 
         $this->validateMoveForm($request);
 
-        if ($node->isLocked())
-        {
-            $this->notify('nodes.node_is_locked', null, null, 'error');
-        } else
-        {
-            if ($parent = Node::find(request()->input('parent')))
-            {
-                try
-                {
-                    $node->appendToNode($parent);
-                    $node->save();
+        if($response = $this->validateNodeIsNotLocked($node)) return $response;
 
-                    $this->notify('nodes.moved', 'moved_node', $node);
-                } catch (InvalidParentNodeTypeException $e)
-                {
-                    $this->notify('nodes.invalid_parent', null, null, 'error');
-                }
-            } else
+        if ($parent = Node::find(request()->input('parent')))
+        {
+            try
+            {
+                $node->appendToNode($parent);
+                $node->save();
+
+                $this->notify('nodes.moved', 'moved_node', $node);
+            } catch (InvalidParentNodeTypeException $e)
             {
                 $this->notify('nodes.invalid_parent', null, null, 'error');
             }
+        } else
+        {
+            $this->notify('nodes.invalid_parent', null, null, 'error');
         }
 
         return redirect()->route('reactor.nodes.edit', [$id, $source->getKey()]);
