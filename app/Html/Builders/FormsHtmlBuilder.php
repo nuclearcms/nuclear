@@ -152,6 +152,11 @@ class FormsHtmlBuilder {
      */
     public function fieldHelpBlock($name, array $options)
     {
+        if (array_get($options, 'fullWidth', false))
+        {
+            return '';
+        }
+
         $html = '<div class="form-group-column form-group-column--help">';
 
         if ( ! empty($options['help_block']['text']))

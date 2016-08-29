@@ -107,4 +107,14 @@ Route::group([
         'uses' => 'NodesController@sortTree',
         'as'   => 'reactor.nodes.tree.sort']);
 
+    Route::post('{id}/tags', [
+        'uses' => 'NodesController@storeTag',
+        'as'   => 'reactor.nodes.tags.store']);
+    Route::post('{id}/tags/attach', [
+        'uses' => 'NodesController@attachTag',
+        'as'   => 'reactor.nodes.tags.attach']);
+    Route::post('{id}/tags/detach', [
+        'uses' => 'NodesController@detachTag',
+        'as'   => 'reactor.nodes.tags.detach']);
+
 });

@@ -100,11 +100,18 @@ trait UsesNodeForms {
      */
     protected function getEditForm($id, Node $node, NodeSource $source)
     {
-        return $this->form(
+        $form = $this->form(
             source_form_name($node->getNodeTypeName(), true), [
             'url'   => route('reactor.nodes.update', [$id, $source->getKey()]),
             'model' => $source->toArray()
         ]);
+
+        $form->compose('Reactor\Html\Forms\Nodes\EditSEOForm');
+
+        $form->exclude(['meta_title', 'meta_keywords', 'meta_description',
+            'meta_image', 'meta_author']);
+
+        return $form;
     }
 
     /**

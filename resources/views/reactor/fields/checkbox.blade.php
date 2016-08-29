@@ -1,6 +1,6 @@
 {!! field_wrapper_open($options, $name, $errors) !!}
 
-<div class="form-group-column form-group-column--field">
+<div class="form-group-column form-group-column--{{ array_get($options, 'fullWidth', false) ? 'full' : 'field' }} ">
     @if($showLabel && $options['label'] !== false)
         <div class="form-group__label{{ $errors->has($name) ? ' form-group__label--error ' : '' }}">
             {{ trans()->has('validation.attributes.' . $name) ? trans('validation.attributes.' . $name) : trans($options['label']) }}

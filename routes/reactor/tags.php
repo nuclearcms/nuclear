@@ -34,5 +34,8 @@ Route::group(['middleware' => 'can:ACCESS_TAGS'], function ()
     Route::get('tags/search', [
         'uses' => 'TagsController@search',
         'as'   => 'reactor.tags.search']);
+    Route::post('tags/search', [
+        'uses' => 'TagsController@searchJson',
+        'as'   => 'reactor.tags.search.json']);
 
 });

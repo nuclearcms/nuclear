@@ -24,6 +24,7 @@ return [
     'parameters' => 'Ayarlar',
     'ancestors' => 'Soy Ağacı',
     'children' => 'Çocuk Düğümler',
+    'seo' => 'SEO',
     'transform' => 'Düğümü Dönüştür',
     'transformed' => 'Düğüm dönüştürüldü.',
     'move' => 'Düğümü Taşı',

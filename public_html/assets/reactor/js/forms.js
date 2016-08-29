@@ -105,53 +105,28 @@ e.each(n.highlightedPeriods,function(a,n){var i,s,d,u,l,f,c;if(e.isArray(n))i=n[
 ;(function (window) {
     'use strict';
 
-    /**
-     * RelationField Constructor
-     *
-     * @param DOM Object
-     */
-    function RelationField(el) {
-        this.el = el;
-
-        this._init();
+    function Searcher() {
     }
 
-    RelationField.prototype = {
-        _init: function () {
+    Searcher.prototype = {
+        initSearcher: function () {
             this.searchurl = this.el.data('searchurl');
-            this.mode = this.el.data('mode');
-            this.filter = this.el.data('filter');
 
-            this.items = this.el.find('ul.related-items');
             this.results = this.el.find('ul.related-search__results');
             this.search = this.el.find('input[name="_relatedsearch"]');
-            this.value = this.el.find('input[type="hidden"]');
 
             this.searching = false;
 
             this.itemKeys = [];
             this._extractItems();
 
-            this._initEvents();
+            this._initSearcherEvents();
         },
-        _extractItems: function () {
-            var items = this.value.val().trim();
-
-            if (items == '') {
-                return;
-            }
-
-            if (this.mode === 'single') {
-                this.itemKeys.push(parseInt(items));
-            } else {
-                this.itemKeys = JSON.parse(items);
-            }
-        },
-        _initEvents: function () {
+        _initSearcherEvents: function () {
             var self = this;
 
             // Search input
-            this.search.on('keydown', function (e) {
+            this.search.on('keydown.searchable', function (e) {
                 var q = $(this).val().trim(),
                     input = $(this);
 
@@ -178,6 +153,8 @@ e.each(n.highlightedPeriods,function(a,n){var i,s,d,u,l,f,c;if(e.isArray(n))i=n[
                     // Press enter
                 } else if (e.which == 13) {
                     e.preventDefault();
+
+                    self._searchPressReturn(q);
                 }
 
                 if (!self.searching && q.length > 0) {
@@ -203,7 +180,7 @@ e.each(n.highlightedPeriods,function(a,n){var i,s,d,u,l,f,c;if(e.isArray(n))i=n[
             });
 
             // Toggle between results
-            this.results.on('keydown', 'input.related-search__input', function (e) {
+            this.results.on('keydown.searchable', 'input.related-search__input', function (e) {
                 e.stopPropagation();
                 e.preventDefault();
 
@@ -211,10 +188,10 @@ e.each(n.highlightedPeriods,function(a,n){var i,s,d,u,l,f,c;if(e.isArray(n))i=n[
 
                 // Press down
                 if (e.which == 40) {
-                    if ( ! parent.is(':last-child')) {
+                    if (!parent.is(':last-child')) {
                         self._focusResult(parent.index() + 1);
                     }
-                // Press up
+                    // Press up
                 } else if (e.which == 38) {
                     if (parent.is(':first-child')) {
                         self._focusSearch();
@@ -222,49 +199,34 @@ e.each(n.highlightedPeriods,function(a,n){var i,s,d,u,l,f,c;if(e.isArray(n))i=n[
                         self._focusResult(parent.index() - 1);
                     }
 
-                // Press enter
+                    // Press enter
                 } else if (e.which == 13) {
                     self._addItem(parent);
                 }
             });
 
             // Add item
-            this.results.on('click', 'li.related-search__result', function () {
+            this.results.on('click.searchable', 'li.related-search__result', function () {
                 self._addItem($(this));
             });
 
-            // Remove item
-            this.items.on('click', 'i.related-item__close', function (e) {
-                e.stopPropagation();
-
-                self._removeItem($(this).parent());
-            });
-
             // Hover result
-            this.results.on('mouseenter', 'li.related-search__result', function () {
+            this.results.on('mouseenter.searchable', 'li.related-search__result', function () {
                 self._focusResult($(this).index());
             });
-
-            // Sortable
-            if (this.mode !== 'single') {
-                this.items.sortable({
-                    tolerance: 'pointer',
-                    placeholder: 'placeholder',
-                    opacity: 0.7,
-                    delay: 50,
-                    stop: function () {
-                        self._regenerateValue();
-                    }
-                });
-            }
         },
-        _search: function (keywords) {
-            var self = this;
+        _searchPressReturn: function (q) {
+            return;
+        },
+        _populateResults: function (items) {
+            this.results.empty();
 
-            if (!self.searching) {
-                $.post(this.searchurl, {q: keywords, filter: self.filter}, function (data) {
-                    self._populateResults(data);
-                });
+            for (var key in items) {
+                if (this.itemKeys.indexOf(parseInt(key)) == -1) {
+                    var item = this._addResult(key, items[key]);
+
+                    this.results.append(item);
+                }
             }
         },
         _hasResults: function () {
@@ -279,74 +241,10 @@ e.each(n.highlightedPeriods,function(a,n){var i,s,d,u,l,f,c;if(e.isArray(n))i=n[
 
             result.find('input').focus();
         },
-        _focusSearch: function() {
+        _focusSearch: function () {
             $(this.results).find('li.related-search__result').removeClass('related-search__result--selected');
 
             this.search.focus();
-        },
-        _populateResults: function (items) {
-            this.results.empty();
-
-            for (var key in items) {
-                if (this.itemKeys.indexOf(parseInt(key)) == -1) {
-                    var item = this._addResult(key, items[key]);
-
-                    this.results.append(item);
-                }
-            }
-        },
-        _addResult: function (id, title) {
-            return $('<li class="related-search__result">' + title + '<input class="related-search__input" type="text" value="' + id + '"></li>');
-        },
-        _addItem: function(item) {
-            var id = item.find('input').val();
-
-            var item = $('<li class="related-item" data-id="' + id + '">' + item.text() + '<i class="icon-cancel related-item__close"></i></li>');
-
-            if (this.mode === 'single') {
-                this.items.empty();
-                this.itemKeys = [];
-            }
-
-            this.items.append(item);
-
-            this.itemKeys.push(item.data('id'));
-
-            this._regenerateValue();
-
-            this._clearSearch();
-
-            this.search.focus();
-        },
-        _removeItem: function(item) {
-            var i = this.itemKeys.indexOf(item.data('id'));
-            delete this.itemKeys[i];
-
-            item.remove();
-
-            this._regenerateValue();
-        },
-        _regenerateValue: function () {
-            var val = '';
-
-            if (this.mode === 'single') {
-                var item = this.items.find('li.related-item:first-child');
-
-                if (item.length == 1) {
-                    val = item.data('id');
-                }
-            } else {
-                var array = [],
-                    items = this.items.find('li.related-item');
-
-                for (var i = 0; i < items.length; i++) {
-                    array.push($(items[i]).data('id'));
-                }
-
-                val = JSON.stringify(array);
-            }
-
-            this.value.val(val);
         },
         _clearSearch: function () {
             this.results.empty();
@@ -359,6 +257,142 @@ e.each(n.highlightedPeriods,function(a,n){var i,s,d,u,l,f,c;if(e.isArray(n))i=n[
             this.results.addClass('related-search__results--hidden');
         }
     };
+
+    window.Searcher = Searcher;
+
+})(window);
+;(function (window) {
+    'use strict';
+
+    /**
+     * RelationField Constructor
+     *
+     * @param DOM Object
+     */
+    function RelationField(el) {
+        this.el = el;
+
+        this._init();
+    }
+
+    inheritsFrom(RelationField, Searcher);
+
+    RelationField.prototype._init = function () {
+        this.mode = this.el.data('mode');
+        this.filter = this.el.data('filter');
+
+        this.items = this.el.find('ul.related-items');
+        this.value = this.el.find('input[type="hidden"]');
+
+        this.initSearcher();
+
+        this._initEvents();
+    };
+
+    RelationField.prototype._extractItems = function () {
+        var items = this.value.val().trim();
+
+        if (items == '') {
+            return;
+        }
+
+        if (this.mode === 'single') {
+            this.itemKeys.push(parseInt(items));
+        } else {
+            this.itemKeys = JSON.parse(items);
+        }
+    }
+
+    RelationField.prototype._initEvents = function () {
+        var self = this;
+
+        // Remove item
+        this.items.on('click', 'i.related-item__close', function (e) {
+            e.stopPropagation();
+
+            self._removeItem($(this).parent());
+        });
+
+        // Sortable
+        if (this.mode !== 'single') {
+            this.items.sortable({
+                tolerance: 'pointer',
+                placeholder: 'placeholder',
+                opacity: 0.7,
+                delay: 50,
+                stop: function () {
+                    self._regenerateValue();
+                }
+            });
+        }
+    }
+
+    RelationField.prototype._search = function (keywords) {
+        var self = this;
+
+        if (!self.searching) {
+            $.post(this.searchurl, {q: keywords, filter: self.filter}, function (data) {
+                self._populateResults(data);
+            });
+        }
+    }
+
+    RelationField.prototype._addResult = function (id, title) {
+        return $('<li class="related-search__result">' + title + '<input class="related-search__input" type="text" value="' + id + '"></li>');
+    }
+
+    RelationField.prototype._addItem = function(item) {
+        var id = item.find('input').val();
+
+        var item = $('<li class="related-item" data-id="' + id + '">' + item.text() + '<i class="icon-cancel related-item__close"></i></li>');
+
+        if (this.mode === 'single') {
+            this.items.empty();
+            this.itemKeys = [];
+        }
+
+        this.items.append(item);
+
+        this.itemKeys.push(id);
+
+        this._regenerateValue();
+
+        this._clearSearch();
+
+        this.search.focus();
+    }
+
+    RelationField.prototype._removeItem = function(item) {
+        var i = this.itemKeys.indexOf(item.data('id'));
+        delete this.itemKeys[i];
+
+        item.remove();
+
+        this._regenerateValue();
+    }
+
+    RelationField.prototype._regenerateValue = function () {
+        var val = '';
+
+        if (this.mode === 'single') {
+            var item = this.items.find('li.related-item:first-child');
+
+            if (item.length == 1) {
+                val = item.data('id');
+            }
+        } else {
+            var array = [],
+                items = this.items.find('li.related-item');
+
+            for (var i = 0; i < items.length; i++) {
+                array.push($(items[i]).data('id'));
+            }
+
+            val = JSON.stringify(array);
+        }
+
+        this.value.val(val);
+    }
 
     window.RelationField = RelationField;
 

@@ -5,6 +5,7 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Nuclear\Hierarchy\Node;
 use Nuclear\Hierarchy\NodeType;
 use Nuclear\Hierarchy\Repositories\NodeTypeRepository;
 use Reactor\Http\Controllers\Traits\UsesNodeTypeForms;
@@ -86,11 +87,11 @@ class NodeTypesController extends ReactorController {
     }
 
     /**
-     * Searches nodetypes intended for nodes
-     *
-     * @param Request $request
-     * @return Response
-     */
+ * Searches nodetypes intended for nodes
+ *
+ * @param Request $request
+ * @return Response
+ */
     public function searchTypeNodes(Request $request)
     {
         $nodeTypes = NodeType::forNodes()
@@ -115,6 +116,24 @@ class NodeTypesController extends ReactorController {
         $nodetype = NodeType::findOrFail($id);
 
         return $this->compileView('nodetypes.fields', compact('nodetype'));
+    }
+
+    /**
+     * List the specified resource fields.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function nodes($id)
+    {
+        $this->authorize('ACCESS_NODES');
+
+        $nodetype = NodeType::findOrFail($id);
+
+        $nodes = Node::where('node_type_id', $nodetype->getKey())
+            ->sortable()->paginate();
+
+        return $this->compileView('nodetypes.nodes', compact('nodetype', 'nodes'), trans('nodes.title'));
     }
 
 }

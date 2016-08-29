@@ -1,4 +1,4 @@
-@extends('layout.' . ((isset($_withForm) && $_withForm === false) ? 'content' : 'form'))
+@extends('layout.' . ((isset($_withForm) && $_withForm === false) ? 'reactor' : 'form'))
 
 @section('pageSubtitle')
     {!! link_to_route('reactor.tags.index', uppercase(trans('tags.title'))) !!}
@@ -9,8 +9,4 @@
         'headerTitle' => $tag->title,
         'headerHint' => $tag->tag_name
     ])
-@endsection
-
-@section('content')
-    @include('partials.contents.form')
 @endsection

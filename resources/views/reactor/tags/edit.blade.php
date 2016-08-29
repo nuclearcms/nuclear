@@ -9,7 +9,7 @@
 @endsection
 
 @section('form_buttons')
-    @can('EDIT_USERS')
+    @can('EDIT_TAGS')
     {!! submit_button('icon-floppy') !!}
     @endcan
 @endsection
@@ -20,5 +20,5 @@
         'currentKey' => [$tag->getKey(), $translation->getKey()]
     ])
 
-    @parent
+    @include('partials.contents.form')
 @endsection

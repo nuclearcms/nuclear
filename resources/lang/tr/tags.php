@@ -17,5 +17,8 @@ return [
 
     'new' => 'Yeni Etiket',
     'no_tags' => 'Etiket bulunamadı.',
+
+    'type_to_add' => 'Etiket eklemek için yazın...',
+    'use_keys_to_separate' => 'Yeni etiket oluşturmak için enter tuşuna basın.',
     
 ];

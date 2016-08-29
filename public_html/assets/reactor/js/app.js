@@ -35,30 +35,34 @@ $('.pagination__selector').on('change', function () {
 });
 
 // FORM BUTTONS
-var formButtons = $('#formButtons'),
-    w = $(window),
-    fbT = formButtons.offset().top;
+var formButtons = $('#formButtons');
 
-locateFormButtons();
-
-$(window).on('resize.formbuttons', function () {
-    formButtons.css({'bottom': '', 'position': ''});
-    fbT = formButtons.offset().top;
-
-    locateFormButtons();
-});
-
-$(window).on('scroll.formbuttons', function() {
-    locateFormButtons();
-});
-
-function locateFormButtons()
+if(formButtons.length > 0)
 {
-    if((w.height() + w.scrollTop() - 12) < (fbT + 40))
-    {
-        formButtons.css({'bottom': '16px', 'position': 'fixed'});
-    } else {
+    var w = $(window),
+        fbT = formButtons.offset().top;
+
+    locateFormButtons();
+
+    $(window).on('resize.formbuttons', function () {
         formButtons.css({'bottom': '', 'position': ''});
+        fbT = formButtons.offset().top;
+
+        locateFormButtons();
+    });
+
+    $(window).on('scroll.formbuttons', function() {
+        locateFormButtons();
+    });
+
+    function locateFormButtons()
+    {
+        if((w.height() + w.scrollTop() - 16) < (fbT + 40))
+        {
+            formButtons.css({'bottom': '16px', 'position': 'fixed'});
+        } else {
+            formButtons.css({'bottom': '', 'position': ''});
+        }
     }
 }
 
@@ -105,11 +109,6 @@ function compileSelectedForBulkAction() {
     bulkSelectedInput.val(JSON.stringify(compiled));
 }
 
-// FLASH MESSAGE HIDING
-setTimeout(function () {
-    $('.flash-message').addClass('flash-message--hidden');
-}, 1);
-
 // DOCUMENTS HOVER BIND
 if (Modernizr.touch) {
     $('.document').click(function () {
@@ -135,6 +134,11 @@ $('.sub-tab-flaps .tabs__link').on('click', function () {
     $('.sub-tab').removeClass('sub-tab--active');
     $('.sub-tab[data-locale="' + locale + '"]').addClass('sub-tab--active');
 });
+
+// INHERITANCE
+var inheritsFrom = function (child, parent) {
+    child.prototype = Object.create(parent.prototype);
+};
 /**
  * Calculates ajax event load percentage
  *
@@ -189,6 +193,51 @@ function readable_size(bytes) {
 function html_entities(str) {
     return $('<div/>').text(str).html();
 }
+;(function (window) {
+    'use strict';
+
+    /**
+     * Flash Constructor
+     *
+     * @param DOM Object
+     */
+    function Flash(el) {
+        this.el = el;
+
+        this._init();
+    }
+
+    Flash.prototype = {
+        _init: function() {
+            var self = this;
+
+            this.el.find('.flash-message').each(function() {
+                self._hideMessage($(this));
+            });
+        },
+        _hideMessage: function (message) {
+            setTimeout(function() {
+                message.addClass('flash-message--hidden');
+            }, 1);
+
+            setTimeout(function () {
+                message.remove();
+            }, 5000);
+        },
+        addMessage: function(message, level) {
+            var flash = $('<div class="flash-message flash-message--' + level + '">' +
+                message + '<i class="flash-message__icon icon-status-' + (level === 'danger' ? 'withheld' : 'published') + '"></i></div>')
+                .appendTo(this.el);
+
+            this._hideMessage(flash);
+        }
+    };
+
+    window.Flash = Flash;
+
+})(window);
+
+window.flash = new Flash($('#flashContainer'));
 ;
 (function (window) {
     'use strict';
@@ -602,13 +651,10 @@ function toggleNavigation() {
                 if (response.type === 'danger') {
                     sortable.sortable('cancel');
 
-                    var message = $('<div class="flash-message flash-message--' + response.type + '">' +
-                        response.message + '<i class="flash-message__icon icon-status-' + (response.type === 'danger' ? 'withheld' : 'published') + '"></i></div>')
-                        .appendTo($('#flashContainer'));
-
-                    setTimeout(function () {
-                        message.addClass('flash-message--hidden');
-                    }, 1);
+                    window.flash.addMessage(
+                        response.message,
+                        response.type
+                    );
                 } else {
                     self._refreshTrees(parent, response.html);
                 }

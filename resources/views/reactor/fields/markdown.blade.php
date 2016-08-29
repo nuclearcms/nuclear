@@ -1,9 +1,10 @@
 {!! field_wrapper_open($options, $name, $errors) !!}
 
-<div class="form-group-column form-group-column--field">
+<div class="form-group-column form-group-column--full">
     {!! field_label($showLabel, $options, $name, $errors) !!}
 
-    MARKDOWN FIELD HERE
+    MARKDOWN FIELD<br>
+    THIS WILL PROBABLY BE FULL WIDTH, MIND THE TOP
 
     {!! field_errors($errors, $name) !!}
 

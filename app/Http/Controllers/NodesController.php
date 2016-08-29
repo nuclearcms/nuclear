@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Nuclear\Hierarchy\Exception\InvalidParentNodeTypeException;
 use Nuclear\Hierarchy\Node;
 use Nuclear\Hierarchy\NodeSource;
+use Nuclear\Hierarchy\Tags\Tag;
 use Reactor\Http\Controllers\Traits\UsesNodeForms;
 use Reactor\Http\Controllers\Traits\UsesNodeHelpers;
 use Reactor\Http\Controllers\Traits\UsesTranslations;
@@ -549,13 +550,7 @@ class NodesController extends ReactorController {
      */
     public function publish($id)
     {
-        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
-
-        $node->publish()->save();
-
-        $this->notify('nodes.published_node');
-
-        return redirect()->back();
+        return $this->changeNodeStatus($id, 'publish', 'published');
     }
 
     /**
@@ -566,13 +561,7 @@ class NodesController extends ReactorController {
      */
     public function unpublish($id)
     {
-        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
-
-        $node->unpublish()->save();
-
-        $this->notify('nodes.unpublished_node');
-
-        return redirect()->back();
+        return $this->changeNodeStatus($id, 'unpublish', 'unpublished');
     }
 
     /**
@@ -583,13 +572,7 @@ class NodesController extends ReactorController {
      */
     public function lock($id)
     {
-        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
-
-        $node->lock()->save();
-
-        $this->notify('nodes.locked_node');
-
-        return redirect()->back();
+        return $this->changeNodeStatus($id, 'lock', 'locked');
     }
 
     /**
@@ -600,13 +583,7 @@ class NodesController extends ReactorController {
      */
     public function unlock($id)
     {
-        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
-
-        $node->unlock()->save();
-
-        $this->notify('nodes.unlocked_node');
-
-        return redirect()->back();
+        return $this->changeNodeStatus($id, 'unlock', 'unlocked');
     }
 
     /**
@@ -617,13 +594,7 @@ class NodesController extends ReactorController {
      */
     public function show($id)
     {
-        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
-
-        $node->show()->save();
-
-        $this->notify('nodes.showed_node');
-
-        return redirect()->back();
+        return $this->changeNodeStatus($id, 'show', 'showed');
     }
 
     /**
@@ -634,13 +605,68 @@ class NodesController extends ReactorController {
      */
     public function hide($id)
     {
+        return $this->changeNodeStatus($id, 'hide', 'hid');
+    }
+
+    /**
+     * Stores a tag for the resource
+     *
+     * @param Request $request
+     * @param int $id
+     * @return response
+     */
+    public function storeTag(Request $request, $id)
+    {
+        $this->authorize('EDIT_TAGS');
         $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
 
-        $node->hide()->save();
+        if ($node->isLocked())
+        {
+            return response()->json([
+                'type'    => 'danger',
+                'message' => trans('nodes.node_is_locked')
+            ]);
+        }
 
-        $this->notify('nodes.hid_node');
+        $this->validate($request, ['title' => 'required|max:255']);
 
-        return redirect()->back();
+        $tag = Tag::firstByTitleOrCreate($request->input('title'));
+
+        $node->attachTag($tag->getKey());
+
+        return response()->json([
+            'type' => 'success',
+            'tag' =>[
+                'id'   => $tag->getKey(),
+                'title' => $tag->title,
+                'translatable' => $tag->canHaveMoreTranslations(),
+                'editurl' => route('reactor.tags.edit', [$tag->getKey(), $tag->translate()->getKey()]),
+                'translateurl' => route('reactor.tags.translations.create', [$tag->getKey(), $tag->translate()->getKey()])
+        ]]);
+    }
+
+    /**
+     * Attaches a tag to the resource
+     *
+     * @param Request $request
+     * @param int $id
+     * @return response
+     */
+    public function attachTag(Request $request, $id)
+    {
+        return $this->attachOrDetachTag($request, $id, 'attach');
+    }
+
+    /**
+     * Detaches a tag from the resource
+     *
+     * @param Request $request
+     * @param int $id
+     * @return response
+     */
+    public function detachTag(Request $request, $id)
+    {
+        return $this->attachOrDetachTag($request, $id, 'detach');
     }
 
 }

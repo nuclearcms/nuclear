@@ -3,7 +3,7 @@
 <div class="form-group-column form-group-column--{{ array_get($options, 'fullWidth', false) ? 'full' : 'field' }} ">
     {!! field_label($showLabel, $options, $name, $errors) !!}
 
-    {!! Form::textarea($name, $options['value'], $options['attr']) !!}
+    DOCUMENT FIELD
 
     {!! field_errors($errors, $name) !!}
 

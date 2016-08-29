@@ -172,4 +172,48 @@ trait UsesNodeHelpers {
         return false;
     }
 
+    /**
+     * Changes the status of the node
+     *
+     * @param int $id
+     * @param string $status
+     * @param string $message
+     * @return redirect
+     */
+    protected function changeNodeStatus($id, $status, $message)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        $node->{$status}()->save();
+
+        $this->notify('nodes.' . $message . '_node');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Attaches or detaches a tag
+     *
+     * @param Request $request
+     * @param int $id
+     * @param string $mode
+     * @return response
+     */
+    protected function attachOrDetachTag(Request $request, $id, $mode)
+    {
+        $node = $this->authorizeAndFindNode($id, null, 'EDIT_NODES', false);
+
+        if ($node->isLocked())
+        {
+            return response()->json([
+                'type'    => 'danger',
+                'message' => trans('nodes.node_is_locked')
+            ]);
+        }
+
+        $node->{$mode . 'Tag'}($request->input('tagid'));
+
+        return response()->json(['type' => 'success']);
+    }
+
 }

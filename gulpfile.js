@@ -30,6 +30,7 @@ if( ! argv.r) {
                 'vendor/perfect-scrollbar.min.js',
                 'common.js',
                 'helpers.js',
+                'flash.js',
                 'dropdowns.js',
                 'modals.js',
                 'navigation.js',
@@ -39,6 +40,7 @@ if( ! argv.r) {
                 'vendor/minicolors.min.js',
                 'vendor/datetimepicker.min.js',
                 'passwords.js',
+                'searchers.js',
                 'relations.js',
                 'slugs.js',
                 'forms.js'
@@ -50,6 +52,9 @@ if( ! argv.r) {
                 'vendor/cropper.min.js',
                 'image.js'
             ], elixir.config.publicPath + '/js/image.js')
+            .scripts([
+                'tags.js'
+            ], elixir.config.publicPath + '/js/tags.js')
         ;
     });
 

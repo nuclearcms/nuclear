@@ -38,7 +38,8 @@ class NodeTypesTableSeeder extends Seeder {
         $basicPage = $this->nodeTypeRepository->create([
             'name' => 'basicpage',
             'label' => trans('install.type_basicpage_label'),
-            'color' => '#F1C40F'
+            'color' => '#F1C40F',
+            'taggable' => 1
         ]);
 
         $pageContent = $this->nodeFieldRepository->create($basicPage->getKey(), [

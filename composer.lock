@@ -1831,16 +1831,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.44",
+            "version": "v5.2.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546"
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f24b7acfb494437ef00bdd062bed61eb21535546",
-                "reference": "f24b7acfb494437ef00bdd062bed61eb21535546",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2a79f920d5584ec6df7cf996d922a742d11095d1",
+                "reference": "2a79f920d5584ec6df7cf996d922a742d11095d1",
                 "shasum": ""
             },
             "require": {
@@ -1957,7 +1957,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-08-23 13:03:29"
+            "time": "2016-08-26 11:44:52"
         },
         {
             "name": "laravelcollective/html",
@@ -2492,16 +2492,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "2.0.22",
+            "version": "2.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "ee195a646338764b74cf0cf8422742dffc781904"
+                "reference": "3cfe7daa775e4fead706b6125d7171d5dadc896d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/ee195a646338764b74cf0cf8422742dffc781904",
-                "reference": "ee195a646338764b74cf0cf8422742dffc781904",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/3cfe7daa775e4fead706b6125d7171d5dadc896d",
+                "reference": "3cfe7daa775e4fead706b6125d7171d5dadc896d",
                 "shasum": ""
             },
             "require": {
@@ -2560,7 +2560,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-08-25 16:25:33"
+            "time": "2016-08-27 12:53:36"
         },
         {
             "name": "nuclear/synthesizer",

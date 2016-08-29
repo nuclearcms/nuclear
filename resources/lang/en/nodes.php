@@ -24,6 +24,7 @@ return [
     'parameters' => 'Parameters',
     'ancestors' => 'Ancestors',
     'children' => 'Children',
+    'seo' => 'SEO',
     'transform' => 'Transform Node',
     'transformed' => 'Transformed node.',
     'move' => 'Move Node',

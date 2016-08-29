@@ -34,13 +34,19 @@
     &--xcompact
         padding-top: 2em !important
         padding-bottom: 2em !important
+    &--plain
+        padding: 0 !important
 
     @media screen and (max-width: $thresholdMicro)
         padding: 3em 1em 3em
 
-.content-inner .content-inner__options .dropdown
-    top: -0.375em !important
-    bottom: auto !important
+.content-inner .content-inner__options
+    .dropdown-icon
+        position: relative
+        z-index: 50
+    .dropdown
+        top: -0.375em !important
+        bottom: auto !important
 
 .content-list-container
     position: relative

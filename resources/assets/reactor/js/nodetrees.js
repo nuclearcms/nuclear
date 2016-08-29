@@ -99,13 +99,10 @@
                 if (response.type === 'danger') {
                     sortable.sortable('cancel');
 
-                    var message = $('<div class="flash-message flash-message--' + response.type + '">' +
-                        response.message + '<i class="flash-message__icon icon-status-' + (response.type === 'danger' ? 'withheld' : 'published') + '"></i></div>')
-                        .appendTo($('#flashContainer'));
-
-                    setTimeout(function () {
-                        message.addClass('flash-message--hidden');
-                    }, 1);
+                    window.flash.addMessage(
+                        response.message,
+                        response.type
+                    );
                 } else {
                     self._refreshTrees(parent, response.html);
                 }

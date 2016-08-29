@@ -9,7 +9,7 @@
     padding: 1.5em 0
 
     &--compact
-        padding: 1em 0
+        padding: 0
         font-size: 0.625em
 
 .tag
@@ -21,9 +21,17 @@
     height: 2.4em
     border-radius: 0.8em
     margin-right: 0.8em
+    margin-bottom: 1em
     box-shadow: $shadowDownLight
     vertical-align: top
     line-height: 2em
+    +transition(opacity $durationMedium)
+
+    &--disabled
+        opacity: 0.5
+
+    &--placeholder
+        min-width: 4em
 
     a, button
         color: $colorLightText
@@ -36,6 +44,7 @@
         height: 100%
         float: right
         padding: 0.3em 0
+        cursor: pointer
 
     &__text
         padding: 0.2em 0.8em 0.2em 1.2em

@@ -18,7 +18,6 @@
             </span>
             @endif
 
-            </span>
         </li>
         @endforeach
     @else

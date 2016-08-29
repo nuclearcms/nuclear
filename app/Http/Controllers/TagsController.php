@@ -129,4 +129,53 @@ class TagsController extends ReactorController {
         return [$translation->locale, $translation];
     }
 
+    /**
+     * List the specified resource fields.
+     *
+     * @param int $id
+     * @param int $translation
+     * @return Response
+     */
+    public function nodes($id, $translation)
+    {
+        $this->authorize('ACCESS_NODES');
+
+        $tag = Tag::findOrFail($id);
+
+        list($locale, $translation) = $this->determineLocaleAndTranslation($translation, $tag);
+
+        $nodes = $tag->nodes()
+            ->sortable()->paginate();
+
+        return $this->compileView('tags.nodes', compact('tag', 'nodes', 'translation'), trans('nodes.title'));
+    }
+
+    /**
+     * Returns the collection of retrieved nodes by json response
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function searchJson(Request $request)
+    {
+        $tags = Tag::search($request->input('q'), 20, true)
+            ->groupBy('id')->limit(10)->get();
+
+        $locale = $request->input('locale', null);
+
+        $results = [];
+
+        foreach ($tags as $tag)
+        {
+            $results[$tag->getKey()] = [
+                'title' => $tag->translate($locale, true)->title,
+                'translatable' => $tag->canHaveMoreTranslations(),
+                'editurl' => route('reactor.tags.edit', [$tag->getKey(), $tag->translate()->getKey()]),
+                'translateurl' => route('reactor.tags.translations.create', [$tag->getKey(), $tag->translate()->getKey()])
+            ];
+        }
+
+        return response()->json($results);
+    }
+
 }

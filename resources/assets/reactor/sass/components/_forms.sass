@@ -24,19 +24,46 @@ label
     &--full
         width: 100%
     &--primary
-        width: 65%
-        @media screen and (max-width: $thresholdCollapse)
+        width: 67.5%
+        padding: 3em 2em
+        @media screen and (max-width: $thresholdShrink)
             width: 100%
+        @media screen and (max-width: $thresholdMicro)
+            padding: 2em 1em
     &--secondary
-        width: 35%
-        border-left: 1px solid $colorLightBG4
-        background-color: $colorLightBG2
-        @media screen and (max-width: $thresholdCollapse)
+        width: 32.5%
+        position: relative
+        z-index: 2
+        padding: 3em 2em
+        @media screen and (max-width: $thresholdShrink)
             width: 100%
             border-left: 0
             border-top: 1px solid $colorLightBG4
+            background-color: $colorLightBG2
+
+
+.form-column-bg-secondary
+    +position(absolute, 0 0 null null)
+    width: 32.5%
+    border-left: 1px solid $colorLightBG4
+    background-color: $colorLightBG2
+    height: 100%
+    z-index: 1
+
+    @media screen and (max-width: $thresholdShrink)
+        display: none
+
+.form-section
+    margin-bottom: 3em
+    &__heading
+        font-size: 0.875em
+        font-weight: $fontWeightBold
+        font-family: $fontHeading
+        margin-bottom: 0.5em
 
 .form-group-column
+    &--full
+        width: 100%
     &--field
         width: 65%
         @media screen and (max-width: $thresholdMicro)
@@ -54,6 +81,7 @@ label
     +position(absolute, null 2em -1.25em null)
     box-shadow: $shadowDownLight
     background-color: $colorLightBG1
+    z-index: 50
 
     &--displaced
         bottom: 1.75em
@@ -253,6 +281,10 @@ label
     position: relative
     height: 2.5em
 
+    &__hint
+        font-size: 0.625em
+        color: $colorMutedMore
+
     &__results
         +position(absolute, 2.5em null null 0)
         width: 100%
@@ -285,3 +317,6 @@ label
         +size(100%)
         z-index: -1
         opacity: 0
+
+    &__search
+        border-bottom: 1px solid $colorLightBG4

@@ -17,30 +17,34 @@ $('.pagination__selector').on('change', function () {
 });
 
 // FORM BUTTONS
-var formButtons = $('#formButtons'),
-    w = $(window),
-    fbT = formButtons.offset().top;
+var formButtons = $('#formButtons');
 
-locateFormButtons();
-
-$(window).on('resize.formbuttons', function () {
-    formButtons.css({'bottom': '', 'position': ''});
-    fbT = formButtons.offset().top;
-
-    locateFormButtons();
-});
-
-$(window).on('scroll.formbuttons', function() {
-    locateFormButtons();
-});
-
-function locateFormButtons()
+if(formButtons.length > 0)
 {
-    if((w.height() + w.scrollTop() - 12) < (fbT + 40))
-    {
-        formButtons.css({'bottom': '16px', 'position': 'fixed'});
-    } else {
+    var w = $(window),
+        fbT = formButtons.offset().top;
+
+    locateFormButtons();
+
+    $(window).on('resize.formbuttons', function () {
         formButtons.css({'bottom': '', 'position': ''});
+        fbT = formButtons.offset().top;
+
+        locateFormButtons();
+    });
+
+    $(window).on('scroll.formbuttons', function() {
+        locateFormButtons();
+    });
+
+    function locateFormButtons()
+    {
+        if((w.height() + w.scrollTop() - 16) < (fbT + 40))
+        {
+            formButtons.css({'bottom': '16px', 'position': 'fixed'});
+        } else {
+            formButtons.css({'bottom': '', 'position': ''});
+        }
     }
 }
 
@@ -87,11 +91,6 @@ function compileSelectedForBulkAction() {
     bulkSelectedInput.val(JSON.stringify(compiled));
 }
 
-// FLASH MESSAGE HIDING
-setTimeout(function () {
-    $('.flash-message').addClass('flash-message--hidden');
-}, 1);
-
 // DOCUMENTS HOVER BIND
 if (Modernizr.touch) {
     $('.document').click(function () {
@@ -117,3 +116,8 @@ $('.sub-tab-flaps .tabs__link').on('click', function () {
     $('.sub-tab').removeClass('sub-tab--active');
     $('.sub-tab[data-locale="' + locale + '"]').addClass('sub-tab--active');
 });
+
+// INHERITANCE
+var inheritsFrom = function (child, parent) {
+    child.prototype = Object.create(parent.prototype);
+};

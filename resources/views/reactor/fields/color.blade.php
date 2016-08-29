@@ -1,6 +1,6 @@
 {!! field_wrapper_open($options, $name, $errors) !!}
 
-<div class="form-group-column form-group-column--field">
+<div class="form-group-column form-group-column--{{ array_get($options, 'fullWidth', false) ? 'full' : 'field' }} ">
     {!! field_label($showLabel, $options, $name, $errors) !!}
 
     <div class="form-group__color">
