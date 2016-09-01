@@ -62,13 +62,13 @@
             });
         },
         _changeTab: function (flap) {
-            if (this.enabled && ! flap.hasClass('nodes-tabs__tab--active') && ! flap.hasClass('tabs__child-link--active')) {
+            if (this.enabled && ! flap.hasClass('compact-tabs__tab--active') && ! flap.hasClass('tabs__child-link--active')) {
                 var locale = flap.data('locale');
 
-                this.flaps.removeClass('nodes-tabs__tab--active tabs__child-link--active');
+                this.flaps.removeClass('compact-tabs__tab--active tabs__child-link--active');
                 this.tabs.removeClass('nodes-list-container--active');
 
-                $('.nodes-tabs__tab--' + locale).addClass('nodes-tabs__tab--active');
+                $('.nodes-tabs__tab--' + locale).addClass('compact-tabs__tab--active');
                 $('.tabs__nodes-tab--' + locale).addClass('tabs__child-link--active');
                 this.tabs.siblings('.nodes-list-container--' + locale).addClass('nodes-list-container--active');
 

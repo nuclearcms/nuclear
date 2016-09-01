@@ -25,7 +25,7 @@ label
         width: 100%
     &--primary
         width: 67.5%
-        padding: 3em 2em
+        padding: 2em 1em 2em 2em
         @media screen and (max-width: $thresholdShrink)
             width: 100%
         @media screen and (max-width: $thresholdMicro)
@@ -34,7 +34,7 @@ label
         width: 32.5%
         position: relative
         z-index: 2
-        padding: 3em 2em
+        padding: 3em 2em 2em 1.5em
         @media screen and (max-width: $thresholdShrink)
             width: 100%
             border-left: 0
@@ -231,6 +231,98 @@ label
             min-width: 6em
             padding-left: 2em !important
 
+    &__buttons
+        text-align: right
+
+    &__document, &__document-empty, &__gallery, &__gallery-empty
+        background-color: $colorLightBG1
+        box-shadow: $shadowDownLight
+        margin: 0.5em 0
+
+    &__document-empty
+        line-height: 2.85714286em
+        font-size: 0.875em
+        padding: 0 1.5em
+
+    &__document
+        position: relative
+
+        .document-thumbnail
+            +position(absolute, 0 null null 0)
+            +size(2.5em)
+            padding-top: 0
+
+            &__icon
+                font-size: 1.5em
+                top: calc(50% - 0.5em)
+
+    &__document-title
+        line-height: 2.85714286em
+        font-size: 0.875em
+        padding: 0 1.5em 0 3.5em
+        +ellipsis
+
+    &__document-container
+        .form-group__document-empty
+            display: none
+        &.empty
+            .form-group__document-empty
+                display: block
+            .form-group__document
+                display: none
+
+    &__gallery
+        +clearfix
+
+        li.placeholder
+            float: left
+            width: 25%
+            padding-top: 25%
+            background-color: $colorLightBG3
+
+    &__slide
+        float: left
+        width: 25%
+        position: relative
+        cursor: move
+        vertical-align: bottom
+        .icon-cancel
+            background-color: rgba($colorEmphasis, 0.5)
+            padding: 0.375em
+            color: $colorLightText
+            +position(absolute, 0 0 null null)
+            cursor: pointer
+            +transition(opacity $durationShort)
+            opacity: 0
+
+        .document-thumbnail
+            border: 0
+            &__image
+                +size(100%)
+                top: 0
+                left: 0
+
+        &--placeholder
+            padding-top: 25%
+
+    &__gallery-empty
+        font-size: 0.875em
+        padding: 1.5em
+        text-align: center
+        p
+            font-size: 0.875em
+            color: $colorMuted
+
+    &__gallery-container
+        position: relative
+        .form-group__gallery-empty
+            display: none
+        &.empty
+            .form-group__gallery-empty
+                display: block
+            .form-group__gallery
+                display: none
+
     &--error
         input, textarea
             border-bottom-color: $colorDanger
@@ -320,3 +412,7 @@ label
 
     &__search
         border-bottom: 1px solid $colorLightBG4
+
+.no-touch
+    .form-group__slide:hover .icon-cancel
+        opacity: 1

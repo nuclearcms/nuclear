@@ -5,6 +5,8 @@ return [
     'title' => 'Documents',
     'search' => 'Search Documents',
     'all' => 'All Documents',
+    'library' => 'Library',
+    'details' => 'Details',
 
     'index' => 'Manage Documents',
     'upload' => 'Upload Documents',
@@ -24,6 +26,9 @@ return [
 
     'new' => 'New Document',
     'no_documents' => 'No documents were found.',
+    'no_document_selected' => 'No document selected.',
+    'drop_images_to_upload' => 'Drag and drop images to upload.',
+    'drop_documents_to_upload' => 'Drag and drop documents to upload.',
 
     'embed_identifier' => 'Platform Identifier',
 

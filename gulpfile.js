@@ -49,6 +49,12 @@ if( ! argv.r) {
                 'uploader.js'
             ], elixir.config.publicPath + '/js/uploader.js')
             .scripts([
+                'library.js',
+                'galleries.js',
+                'documents.js',
+                'nodesforms.js'
+            ], elixir.config.publicPath + '/js/nodesforms.js')
+            .scripts([
                 'vendor/cropper.min.js',
                 'image.js'
             ], elixir.config.publicPath + '/js/image.js')

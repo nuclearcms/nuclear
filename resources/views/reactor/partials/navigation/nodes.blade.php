@@ -20,10 +20,10 @@
         </div>
 
         @if(locale_count() > 1)
-        <ul class="nodes-tabs">
+        <ul class="compact-tabs nodes-tabs">
             @foreach(locales() as $locale)
-            <li class="nodes-tabs__tab nodes-tabs__tab--{{ $locale }}
-                {{ (session('reactor.tree_locale', app()->getLocale()) === $locale) ? ' nodes-tabs__tab--active' : '' }}"
+            <li class="compact-tabs__tab nodes-tabs__tab nodes-tabs__tab--{{ $locale }}
+                {{ (session('reactor.tree_locale', app()->getLocale()) === $locale) ? ' compact-tabs__tab--active' : '' }}"
                 data-locale="{{ $locale }}"
             >{{ uppercase($locale) }}</li>
             @endforeach

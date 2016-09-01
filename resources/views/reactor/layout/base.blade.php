@@ -17,11 +17,11 @@
 
 @yield('body')
 
-{!! Theme::js('js/app.js') !!}
-
 @yield('modal')
 
 @yield('modules')
+
+{!! Theme::js('js/app.js') !!}
 
 @yield('scripts')
 

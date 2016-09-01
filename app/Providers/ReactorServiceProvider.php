@@ -31,7 +31,7 @@ class ReactorServiceProvider extends ServiceProvider {
     {
         require_once __DIR__ . '/../Support/helpers.php';
 
-        require_once  __DIR__ . '/../Html/Builders/snippets.php';
+        require_once __DIR__ . '/../Html/Builders/snippets.php';
     }
 
     /**
@@ -92,10 +92,14 @@ class ReactorServiceProvider extends ServiceProvider {
             $view->with('user', auth()->user());
         });
 
-        view()->composer('partials.navigation.nodes', function ($view)
+        if (is_request_reactor())
         {
-            $view->with('leafs', Node::whereIsRoot()->defaultOrder()->get());
-        });
+            view()->composer('partials.navigation.nodes', function ($view)
+            {
+                $view->with('leafs', Node::whereIsRoot()->defaultOrder()->get());
+            });
+        }
+
     }
 
 }

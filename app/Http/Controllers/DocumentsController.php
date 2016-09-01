@@ -163,4 +163,76 @@ class DocumentsController extends ReactorController {
         return Downloader::download($document);
     }
 
+    /**
+     * Returns a json list of search results
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function searchJson(Request $request)
+    {
+        $documents = Media::search($request->input('q'), 20, true)
+            ->limit(30)->get();
+
+        $ids = $documents->pluck('id');
+        $documents = $this->summarizeDocuments($documents);
+
+        return response()->json(compact('documents', 'ids'));
+    }
+
+    /**
+     * Returns a json list of resources
+     *
+     * @param Request $request
+     * @return response
+     */
+    public function load(Request $request)
+    {
+        $offset = $request->input('offset', 0);
+
+        $documents = Media::sortable('created_at', 'desc')
+            ->take(30)->skip($offset)->get();
+
+        $documents = $this->summarizeDocuments($documents);
+
+        $remaining = Media::count() - ($offset + 30);
+
+        return response()->json(compact('documents', 'remaining'));
+    }
+
+    /**
+     * Retrieves json list of resources with given ids
+     *
+     * @param Request $request
+     * @return response
+     */
+    public function retrieve(Request $request)
+    {
+        $ids = $request->input('ids');
+
+        $documents = empty($ids) ? [] :
+            Media::find(json_decode($ids));
+
+        $documents = $this->summarizeDocuments($documents);
+
+        return response()->json($documents);
+    }
+
+    /**
+     * Updates a resources from a ajax request
+     *
+     * @param Request $request
+     * @return response
+     */
+    public function updateJson(Request $request)
+    {
+        $this->authorize('EDIT_DOCUMENTS');
+
+        $document = Media::findOrFail($request->input('document'));
+
+        $document->update($request->all());
+
+        return response()->json($document->summarize());
+    }
+
 }

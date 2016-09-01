@@ -25,7 +25,8 @@ class EditSEOForm extends Form {
             'fullWidth' => true
         ]);
         $this->add('meta_image', 'document', [
-            'fullWidth' => true
+            'fullWidth' => true,
+            'filter' => 'image'
         ]);
     }
 

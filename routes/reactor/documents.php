@@ -36,9 +36,23 @@ Route::group(['middleware' => 'can:ACCESS_DOCUMENTS'], function ()
     Route::get('documents/search', [
         'uses' => 'DocumentsController@search',
         'as'   => 'reactor.documents.search']);
+    Route::post('documents/search', [
+        'uses' => 'DocumentsController@searchJson',
+        'as'   => 'reactor.documents.search.json']);
 
     Route::delete('documents/destroy/bulk', [
         'uses' => 'DocumentsController@bulkDestroy',
         'as'   => 'reactor.documents.destroy.bulk']);
+
+    Route::get('documents/load', [
+        'uses' => 'DocumentsController@load',
+        'as'   => 'reactor.documents.load']);
+    Route::get('documents/retrieve', [
+        'uses' => 'DocumentsController@retrieve',
+        'as'   => 'reactor.documents.retrieve']);
+
+    Route::post('documents/update', [
+        'uses' => 'DocumentsController@updateJson',
+        'as'   => 'reactor.documents.update.json']);
 
 });

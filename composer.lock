@@ -1240,16 +1240,16 @@
         },
         {
             "name": "kalnoy/nestedset",
-            "version": "4.1.5",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lazychaser/laravel-nestedset.git",
-                "reference": "712dabd00de4af6685e150fc818809736a0fe00b"
+                "reference": "101a849ae11891de0ff106330ed9f070743e98c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/712dabd00de4af6685e150fc818809736a0fe00b",
-                "reference": "712dabd00de4af6685e150fc818809736a0fe00b",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/101a849ae11891de0ff106330ed9f070743e98c3",
+                "reference": "101a849ae11891de0ff106330ed9f070743e98c3",
                 "shasum": ""
             },
             "require": {
@@ -1290,20 +1290,20 @@
                 "nested sets",
                 "nsm"
             ],
-            "time": "2016-08-23 16:04:46"
+            "time": "2016-08-29 14:32:09"
         },
         {
             "name": "kenarkose/chronicle",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Chronicle.git",
-                "reference": "7b1d929cc6ccdd8467c7c87ac8a479112715603b"
+                "reference": "0cb8f5800e569327ba4f17cfc7ff83757824c822"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/7b1d929cc6ccdd8467c7c87ac8a479112715603b",
-                "reference": "7b1d929cc6ccdd8467c7c87ac8a479112715603b",
+                "url": "https://api.github.com/repos/kenarkose/Chronicle/zipball/0cb8f5800e569327ba4f17cfc7ff83757824c822",
+                "reference": "0cb8f5800e569327ba4f17cfc7ff83757824c822",
                 "shasum": ""
             },
             "require": {
@@ -1346,7 +1346,7 @@
                 "laravel5",
                 "log"
             ],
-            "time": "2016-08-14 12:42:07"
+            "time": "2016-08-29 18:11:51"
         },
         {
             "name": "kenarkose/files",
@@ -2425,16 +2425,16 @@
         },
         {
             "name": "nuclear/documents",
-            "version": "0.9.22",
+            "version": "0.9.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Documents.git",
-                "reference": "09ff2a1581fa454d3f31137a9be8001ae4b64105"
+                "reference": "edf0417fd77020570a4cfcb272fc523549eb0de7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/09ff2a1581fa454d3f31137a9be8001ae4b64105",
-                "reference": "09ff2a1581fa454d3f31137a9be8001ae4b64105",
+                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/edf0417fd77020570a4cfcb272fc523549eb0de7",
+                "reference": "edf0417fd77020570a4cfcb272fc523549eb0de7",
                 "shasum": ""
             },
             "require": {
@@ -2488,7 +2488,7 @@
                 "nuclearcms",
                 "upload"
             ],
-            "time": "2016-08-20 20:09:21"
+            "time": "2016-08-29 20:43:00"
         },
         {
             "name": "nuclear/hierarchy",

@@ -5,6 +5,9 @@ return [
     'thank_you' => 'Thank you',
     'yes' => 'Yes',
     'no' => 'No',
+    'clear' => 'Clear',
+    'insert' => 'Insert',
+    'selected' => 'selected',
 
     'back' => 'Back',
     'page' => 'Page',
@@ -30,6 +33,7 @@ return [
     'confirm_delete' => 'Are you sure you want to delete?',
     'error_saving' => 'There were error(s) while saving!',
     'not_authorized' => 'You are not authorized to take this action.',
+    'save_changes' => 'Save Changes',
 
     'add_translation' => 'Add Translation',
     'added_translation' => 'Translation was added.',

@@ -10,6 +10,24 @@
     &--focus
         background-color: rgba($colorEmphasis, 0.5)
 
+    &--library
+        +position(absolute, 0 null null 0)
+        +size(100%)
+        z-index: -1
+        opacity: 0
+        +transition(opacity $durationMedium, z-index 0ms ease $durationMediumUp)
+        background-color: rgba($colorEmphasis, 0.75) !important
+
+    &--gallery
+        +position(absolute, 0 0 3em 0)
+        margin: auto
+        height: calc(100% - 3em)
+
+    &--library-focus
+        z-index: 130
+        opacity: 1
+        +transition(opacity $durationMedium)
+
     &__heading
         font-size: 3em
         font-weight: $fontWeightBold
@@ -31,6 +49,13 @@
         &--muted
             font-size: 0.75em
             margin-bottom: 0
+
+    &__icon
+        font-size: 4em
+        margin-bottom: 0.5em
+        +position(absolute, 50% null null 50%)
+        +transform(translate(-50%, -50%))
+        color: $colorLightText
 
 .upload
     &--danger

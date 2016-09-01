@@ -54,6 +54,15 @@ $thresholdDoc3: 40em - 0.625em
 
         input
             display: none
+            &:checked + .document__select-label
+                z-index: 10
+                opacity: 1
+                +transition(opacity $durationShort)
+
+                .icon-checkbox-unchecked
+                    display: none
+                .icon-checkbox-checked
+                    display: inline-block
 
     &__select-label
         +position(absolute, 1em null null 1em)
@@ -63,6 +72,7 @@ $thresholdDoc3: 40em - 0.625em
         opacity: 0
         +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
         cursor: pointer
+        user-select: none
 
         .icon-checkbox-checked
             display: none
@@ -120,25 +130,6 @@ $thresholdDoc3: 40em - 0.625em
         +size(calc(100% - 2px))
         vertical-align: bottom
 
-.no-touch
-    .document:hover
-        box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.3)
-
-        .document__select-label
-            z-index: 10
-            opacity: 1
-            +transition(opacity $durationShort)
-
-    .document__select input:checked + .document__select-label
-        z-index: 10
-        opacity: 1
-        +transition(opacity $durationShort)
-
-        .icon-checkbox-unchecked
-            display: none
-        .icon-checkbox-checked
-            display: inline-block
-
 .preview
     text-align: center
     margin-bottom: 1em
@@ -160,3 +151,12 @@ $thresholdDoc3: 40em - 0.625em
 
     iframe
         margin: 0 auto
+
+.no-touch
+    .document:hover
+        box-shadow: 0 0.5em 1em 0 rgba(0, 0, 0, 0.3)
+
+        .document__select-label
+            z-index: 10
+            opacity: 1
+            +transition(opacity $durationShort)

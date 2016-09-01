@@ -1,0 +1,317 @@
+.library
+    +size(calc(100% - 3em))
+    position: relative
+    +position(absolute, 1.5em 1.5em 1.5em 1.5em)
+    +transform(scale(2, 2))
+
+    &.modal__inner--open
+        +transform(scale(1, 1))
+
+    @media screen and (max-width: $thresholdCollapse)
+        +size(calc(100% - 2em))
+        +position(absolute, 1em 1em 1em 1em)
+    @media screen and (max-width: $thresholdMicro)
+        +size(100%)
+        +position(absolute, 0 0 0 0)
+
+    &__close
+        +position(absolute, 0 0 null null)
+        font-size: 1.5em
+        padding: 1em
+        color: $colorOutline
+        +transition(opacity $durationShort)
+        cursor: pointer
+        z-index: 120
+
+    &__columns
+        +position(absolute, 0 null null 0)
+        width: 100%
+        height: calc(100% - 3.5em)
+
+.library-column
+    display: inline-block
+    vertical-align: top
+    height: 100%
+    position: relative
+
+    &__blackout
+        +position(absolute, 4.5em null null 0)
+        height: calc(100% - 4.5em)
+        width: 100%
+        z-index: -1
+        opacity: 0
+        +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
+        background: url(../img/nuclear-loading.svg) center center no-repeat
+        background-color: rgba($colorDarkBG2, 0.7)
+
+        &--details
+            background-color: rgba($colorDarkBG1, 0.7)
+
+        &--active
+            z-index: 100
+            opacity: 1
+            +transition(opacity $durationShort)
+
+    &__message-container
+        +position(absolute, 50% null null 50%)
+        +transform(translate(-50%, -50%))
+        padding: 3em 1.5em
+        z-index: -1
+        opacity: 0
+        +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
+        width: 100%
+
+        &--active
+            z-index: 100
+            opacity: 1
+            +transition(opacity $durationShort)
+
+
+    &__message
+        color: $colorLightText
+        text-align: center
+        &--muted
+            font-size: 0.75em
+
+    &__inner
+        +position(absolute, 4.5em null null 0)
+        height: calc(100% - 4.5em)
+        width: 100%
+
+        &--documents
+            top: 7.5em
+            height: calc(100% - 7.5em)
+
+    &__heading
+        font-size: 1.5em
+        font-family: $fontHeading
+        color: $colorMuted
+        text-align: right
+        padding: 1em
+
+        @media screen and (max-width: $thresholdCollapse)
+            padding-right: 3em
+
+        &--details
+            color: $colorEmphasis
+            text-align: left
+
+    &__toolbar
+        text-align: right
+        padding: 0 1.5em
+
+    &__tool
+        background-color: $colorDarkBG4
+        box-shadow: $shadowDownLight
+        display: inline-block
+        margin-left: 1em
+
+        input
+            color: $colorLightText
+
+        i
+            color: $colorOutline
+
+        &--disabled
+            display: none
+
+        @media screen and (max-width: $thresholdMicro)
+            &--filter
+                display: none
+
+    &--documents
+        background-color: $colorDarkBG2
+        width: calc(100% - 20em)
+
+        @media screen and (max-width: $thresholdCollapse)
+            width: 100%
+
+    &--details
+        width: 20em
+        box-shadow: $shadowLeft
+        background-color: $colorDarkBG1
+        z-index: 101
+
+        @media screen and (max-width: $thresholdCollapse)
+            display: none
+
+.library-documents
+    +clearfix
+    padding: 0.75em 0.5em 0.75em 1em
+
+.library-document
+    width: calc(14.28571429% - 0.5em)
+    margin: 0 0.5em 1.5em 0
+    float: left
+    display: inline-block
+    cursor: pointer
+    position: relative
+    user-select: none
+    +transition(opacity $durationMedium)
+
+    @media screen and (max-width: $thresholdDoc5)
+        width: calc(16.66666667% - 0.5em)
+    @media screen and (max-width: $thresholdDoc4)
+        width: calc(20% - 0.5em)
+    @media screen and (max-width: $thresholdDoc3)
+        width: calc(25% - 0.5em)
+    @media screen and (max-width: $thresholdMicro)
+        width: calc(33.33333333% - 0.5em)
+
+    .document-thumbnail
+        background-color: $colorDarkBG3
+        &__icon
+            top: calc(50% - 0.5em)
+
+    &__name
+        font-size: 0.625em
+        +ellipsis
+
+    &__select-label
+        +position(absolute, 50% null null 50%)
+        padding: 1.5em
+        opacity: 0
+        z-index: -1
+        background-color: rgba($colorEmphasis, 0.7)
+        +transition(opacity $durationShort, z-index 0ms ease $durationShortUp)
+        margin: -3em 0 0 -2.25em
+
+        .icon-checkbox-checked
+            display: none
+
+    &__select-icon
+        font-size: 1.5em
+        display: inline-block
+        +size(1em)
+        vertical-align: bottom
+
+    &--selected
+        .library-document__select-label
+            z-index: 10
+            opacity: 1
+            +transition(opacity $durationShort)
+
+            .icon-checkbox-unchecked
+                display: none
+            .icon-checkbox-checked
+                display: inline-block
+
+    &--filtered
+        opacity: 0.1
+        cursor: default
+
+    &--hidden, &--force-filtered
+        display: none
+
+    &--detailed .document-thumbnail
+        border-color: $colorEmphasis
+        box-shadow: 0 0 0.75em 0 rgba($colorEmphasis, 1)
+
+    &--compact
+        +size(2.5em)
+        margin-right: 0.125em
+        margin-bottom: 0
+        float: none
+
+        .document-thumbnail__icon
+            font-size: 1.5em
+            top: calc(50% - 0.5em)
+
+.library-details
+    padding: 0 1.5em
+
+    &__name
+        font-size: 0.875em
+        +ellipsis
+
+    .preview__meta-description
+        font-size: 0.625em
+        color: $colorMuted
+
+    &__translations
+        padding: 1.5em 0
+        text-align: right
+
+        .compact-tabs
+            border-bottom: 1px solid $colorDarkBG4
+
+    &__empty-message
+        display: none
+        padding: 3em 0
+        text-align: center
+
+    &--empty
+        .library-details__empty-message
+            display: block
+        .library-details__content
+            display: none
+
+.library-footer
+    +position(absolute, null 0 0 null)
+    width: 100%
+    height: 3.5em
+    background-color: $colorDarkBG3
+    box-shadow: $shadowDown
+    z-index: 110
+    padding: 0.5em 1.5em
+
+    &__indicator
+        width: 8em
+        display: inline-block
+        height: 2.5em
+        line-height: 1.25em
+
+        @media screen and (max-width: $thresholdCollapse)
+            display: none
+
+    &__header
+        color: $colorEmphasis
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+        font-size: 0.875em
+
+    &__total
+        font-size: 0.75em
+
+    &__selected-container
+        +position(absolute, 0em null null 8.5em)
+        width: calc(100% - 26em)
+        height: 3.5em
+
+        @media screen and (max-width: $thresholdCollapse)
+            left: 1.5em
+            width: calc(100% - 19em)
+        @media screen and (max-width: $thresholdMicro)
+            display: none
+
+    &__selected
+        white-space: nowrap
+        padding: 0.5em
+        height: 3.5em
+
+        &.ui-sortable li
+            cursor: move
+
+        .placeholder
+            +size(2.5em)
+            margin-right: 0.125em
+            margin-bottom: 0
+            background-color: $colorDarkBG4
+            display: inline-block
+
+    &__buttons
+        +position(absolute, 0.5em 1.5em null null)
+        width: 16em
+        display: inline-block
+        text-align: right
+        height: 2.5em
+
+.no-touch
+    .library__close:hover
+        opacity: 0.7
+
+    .library-document:hover
+        .library-document__select-label
+            z-index: 10
+            opacity: 1
+            +transition(opacity $durationShort)

@@ -5,6 +5,9 @@ return [
     'thank_you' => 'Teşekkürler',
     'yes' => 'Evet',
     'no' => 'Hayır',
+    'clear' => 'Temizle',
+    'insert' => 'Ekle',
+    'selected' => 'seçili',
 
     'back' => 'Geri',
     'page' => 'Sayfa',
@@ -30,6 +33,7 @@ return [
     'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
     'error_saving' => 'Kaydederken hata(lar) oluştu!',
     'not_authorized' => 'Bu işlemi yapmak için yetkiniz yok.',
+    'save_changes' => 'Değişiklikleri Kaydet',
 
     'add_translation' => 'Çeviri ekle',
     'added_translation' => 'Çeviri eklendi.',

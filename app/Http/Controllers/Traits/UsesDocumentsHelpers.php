@@ -4,7 +4,9 @@ namespace Reactor\Http\Controllers\Traits;
 
 
 use Exception;
+use Illuminate\Database\Eloquent\Collection;
 use Kenarkose\Transit\Facade\Uploader;
+use Nuclear\Documents\Media\Image;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait UsesDocumentsHelpers {
@@ -29,13 +31,20 @@ trait UsesDocumentsHelpers {
             ]);
         }
 
+        // Let's reload the model if it is an image
+        if ($media->type === 'image')
+        {
+            $media = Image::findOrFail($media->getKey());
+        }
+
         $this->notify(null, 'created_media', $media);
 
         $upload = $media->toArray();
+        $upload['summary'] = $media->summarize();
         $upload['edit_url'] = route('reactor.documents.edit', $media->getKey());
 
         return response()->json([
-            'type' =>'success',
+            'type'   => 'success',
             'upload' => $upload
         ]);
     }
@@ -51,6 +60,20 @@ trait UsesDocumentsHelpers {
         $exceptionType = class_basename($e);
 
         return trans('documents.' . $exceptionType);
+    }
+
+    /**
+     * Prepares the list of given resources for json response
+     *
+     * @param Collection $documents
+     * @return array
+     */
+    protected function summarizeDocuments(Collection $documents)
+    {
+        return array_map(function ($document)
+        {
+            return $document->summarize();
+        }, $documents->all());
     }
 
 }

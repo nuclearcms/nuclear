@@ -15,17 +15,21 @@
                 uploadInput: false,
                 focusClass: 'dropzone--enter',
                 indicatorClass: 'UploadIndicator',
-                outputList: false
+                outputList: false,
+                outputAppend: true,
+                isDropzoneForm: true
             };
 
             this.options = $.extend(defaults, options);
-            this.uploadurl = this.zone.attr('action');
+            this.uploadurl = this.options.isDropzoneForm ? this.zone.attr('action') : this.zone.data('action');
             this.maxsize = this.zone.data('maxsize');
 
             this.fileQueue = [];
             this.statusUploadIndicators = [];
             this.currentFile = 0;
             this.inProcess = false;
+
+            this.controller = null;
 
             this._initEvents();
         },
@@ -85,7 +89,14 @@
                     var indicator = this._createUploadIndicator(files[i]);
 
                     if (this.options.outputList !== false) {
-                        $(this.options.outputList).append(indicator.getHtml());
+                        var indicator = indicator.getHtml(),
+                            list = $(this.options.outputList);
+
+                        if (this.options.outputAppend) {
+                            list.append(indicator);
+                        } else {
+                            list.prepend(indicator);
+                        }
                     }
                 }
 
@@ -104,7 +115,7 @@
         _createUploadIndicator: function (file) {
             var className = window[this.options.indicatorClass];
 
-            var indicator = new className(file);
+            var indicator = new className(file, this);
 
             this.statusUploadIndicators.push(indicator);
 
@@ -141,17 +152,19 @@
                     indicator.complete(data);
                 }
             })
-            .always(function () {
-                self.currentFile++;
-                self._upload();
-            });
+                .always(function () {
+                    self.currentFile++;
+                    self._upload();
+                });
         }
     };
 
     window.Uploader = Uploader;
 
     // UploadIndicator Constructor
-    function UploadIndicator(file) {
+    function UploadIndicator(file, uploader) {
+        this.uploader = uploader;
+
         this._init(file);
     }
 
@@ -172,7 +185,7 @@
         },
         setProgress: function (percent) {
             var size = percent.toString() + '%';
-            this.progressBar.css({height: size, width: size});
+            this.progressBar.height(size).width(size);
 
             if (percent === 100) {
                 this.progress.remove();

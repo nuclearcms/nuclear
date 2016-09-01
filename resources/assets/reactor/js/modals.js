@@ -114,9 +114,10 @@
                 self = this;
 
             if (!this.isOpen) {
+                $('body').addClass('scroll-disabled');
+
                 el.addClass('modal--open');
                 el.find('.modal__inner').addClass('modal__inner--open');
-                $('body').addClass('scroll-disabled');
 
                 // Bind dynamically to avoid interference with other similar elements
                 $(document).bind('keydown.modal', function (e) {
