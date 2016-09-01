@@ -3,7 +3,7 @@
 <div class="form-group-column form-group-column--{{ array_get($options, 'fullWidth', false) ? 'full' : 'field' }} ">
     {!! field_label($showLabel, $options, $name, $errors) !!}
 
-    <div class="form-group__gallery-container{{ ($gallery = get_nuclear_gallery($options['value'])) ? '' : ' empty' }}">
+    <div class="form-group__gallery-container{{ ($gallery = get_nuclear_gallery(request()->old($name, null) ?: $options['value'])) ? '' : ' empty' }}">
         <div class="dropzone dropzone--library dropzone--gallery"
               data-action="{{ route('reactor.documents.store') }}"
               data-maxsize="{{ max_upload_size() }}">
@@ -31,7 +31,7 @@
             button('icon-image', trans('documents.library'), 'button', 'button--emphasis button--library') !!}
         </div>
 
-        {!! Form::hidden($name, $options['value'], $options['attr']) !!}
+        {!! Form::hidden($name, request()->old($name, null) ?: $options['value'], $options['attr']) !!}
     </div>
 
     {!! field_errors($errors, $name) !!}

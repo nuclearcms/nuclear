@@ -10,7 +10,7 @@
         <ul class="related-items">
 
             @if($items = call_user_func_array($options['getter_method'],
-            array_merge([$options['value']], array_get($options, 'getter_method_params', []))))
+            array_merge([request()->old($name, null) ?: $options['value']], array_get($options, 'getter_method_params', []))))
                 @if(array_get($options, 'mode', 'single') === 'single')
                     <li class="related-item" data-id="{{ $items->getKey() }}">
                         {{ $items->getTitle() }}
@@ -37,7 +37,7 @@
             </ul>
         </div>
 
-        {!! Form::hidden($name, $options['value'], $options['attr']) !!}
+        {!! Form::hidden($name, request()->old($name, null) ?: $options['value'], $options['attr']) !!}
     </div>
     {!! field_errors($errors, $name) !!}
 
