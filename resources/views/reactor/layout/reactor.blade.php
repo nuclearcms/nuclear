@@ -8,7 +8,7 @@
         @include('partials.navigation')
 
         <a href="#" id="hamburger" class="hamburger exclude-ui-events">
-            <i class="icon-hamburger icon-list-bullet"></i>
+            <i class="icon-hamburger"></i>
         </a>
 
         <div class="container-content" id="contentContainer">

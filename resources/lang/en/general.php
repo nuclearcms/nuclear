@@ -49,4 +49,27 @@ return [
     'es' => 'Spanish',
     'zh' => 'Chinese',
     'ja' => 'Japanese',
+
+    'tooltips' => [
+        'bold' => 'Bold',
+        'italic' => 'Italic',
+        'strikethrough' => 'Strikethrough',
+        'heading' => 'Heading',
+        'link' => 'Add Link',
+        'image' => 'Add Image, Document or Gallery',
+        'quote' => 'Quote',
+        'list_unordered' => 'Unordered List',
+        'list_ordered' => 'Ordered List',
+        'code' => 'Code',
+        'subscript' => 'Subscript',
+        'superscript' => 'Superscript',
+        'table' => 'Table',
+        'horizontal_rule' => 'Horizontal Rule',
+        'readmore' => 'Read More Separator',
+        'preview' => 'Toggle Preview',
+        'side_by_side' => 'Toggle Side by Side',
+        'fullscreen' => 'Toggle Fullscreen',
+        'markdown' => 'Markdown Guide',
+    ]
+
 ];

@@ -49,9 +49,11 @@ if( ! argv.r) {
                 'uploader.js'
             ], elixir.config.publicPath + '/js/uploader.js')
             .scripts([
+                'vendor/simplemde.min.js',
                 'library.js',
                 'galleries.js',
                 'documents.js',
+                'markdown.js',
                 'nodesforms.js'
             ], elixir.config.publicPath + '/js/nodesforms.js')
             .scripts([

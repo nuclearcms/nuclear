@@ -19,7 +19,7 @@
 <li class="dropdown-sub__item dropdown-sub__item--delete">
     {!! delete_form(
         route('reactor.nodes.translation.destroy', $source->getKey()),
-        trans('general.destroy_translation'), '', false, 'icon-blank') !!}
+        trans('general.destroy_translation'), '', false, 'icon-trash') !!}
 </li>
 @endif
 
@@ -33,11 +33,11 @@
 <li class="dropdown-sub__splitter"></li>
 <li class="dropdown-sub__item">
     <a href="{{ route('reactor.nodes.transform', $node->getKey()) }}">
-        <i class="icon-blank"></i>{{ trans('nodes.transform') }}</a>
+        <i class="icon-node-transform"></i>{{ trans('nodes.transform') }}</a>
 </li>
 <li class="dropdown-sub__item">
     <a href="{{ route('reactor.nodes.move', $node->getKey()) }}">
-        <i class="icon-blank"></i>{{ trans('nodes.move') }}</a>
+        <i class="icon-node-move"></i>{{ trans('nodes.move') }}</a>
 </li>
 @endif
 
@@ -49,12 +49,12 @@
     ) !!}</li>
 <li class="dropdown-sub__item">{!! node_option_form(
     $node->isLocked() ? route('reactor.nodes.unlock', $node->getKey()) : route('reactor.nodes.lock', $node->getKey()),
-    $node->isLocked() ? 'icon-blank' : 'icon-status-locked',
+    $node->isLocked() ? 'icon-status-unlocked' : 'icon-status-locked',
     $node->isLocked() ? 'nodes.unlock' : 'nodes.lock'
     ) !!}</li>
 <li class="dropdown-sub__item">{!! node_option_form(
     $node->isVisible() ? route('reactor.nodes.hide', $node->getKey()) : route('reactor.nodes.show', $node->getKey()),
-    $node->isVisible() ? 'icon-status-invisible' : 'icon-blank',
+    $node->isVisible() ? 'icon-status-invisible' : 'icon-status-visible',
     $node->isVisible() ? 'nodes.hide' : 'nodes.show'
     ) !!}</li>
 

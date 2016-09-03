@@ -25,7 +25,7 @@ label
         width: 100%
     &--primary
         width: 67.5%
-        padding: 2em 1em 2em 2em
+        padding: 2em
         @media screen and (max-width: $thresholdShrink)
             width: 100%
         @media screen and (max-width: $thresholdMicro)
@@ -322,6 +322,11 @@ label
                 display: block
             .form-group__gallery
                 display: none
+
+    &__markdown
+        border-bottom: 1px solid $colorLightBG4
+        position: relative
+        padding-top: 3.125em
 
     &--error
         input, textarea

@@ -63,7 +63,7 @@ class NavigationHtmlBuilder {
             'icon' => 'icon-user',
             'items' => [
                 ['title' => 'users.index', 'route' => 'reactor.users.index', 'icon' => 'icon-users'],
-                ['title' => 'users.create', 'route' => 'reactor.users.create', 'icon' => 'icon-blank', 'permission' => 'ACCESS_'],
+                ['title' => 'users.create', 'route' => 'reactor.users.create', 'icon' => 'icon-user-create', 'permission' => 'ACCESS_'],
                 'splitter',
                 ['title' => 'roles.index', 'route' => 'reactor.roles.index', 'icon' => 'icon-user-role', 'permission' => 'ACCESS_ROLES'],
                 ['title' => 'permissions.index', 'route' => 'reactor.permissions.index', 'icon' => 'icon-user-permission', 'permission' => 'ACCESS_PERMISSIONS'],

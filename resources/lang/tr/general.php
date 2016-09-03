@@ -49,4 +49,27 @@ return [
     'es' => 'İspanyolca',
     'zh' => 'Çince',
     'ja' => 'Japonca',
+
+    'tooltips' => [
+        'bold' => 'Kalın',
+        'italic' => 'Eğik',
+        'strikethrough' => 'Çizili',
+        'heading' => 'Başlık',
+        'link' => 'Link Ekle',
+        'image' => 'Resim, Dosya ya da Galeri Ekle',
+        'quote' => 'Alıntı',
+        'list_unordered' => 'Sırasız Liste',
+        'list_ordered' => 'Sıralı Liste',
+        'code' => 'Kod',
+        'subscript' => 'Altta Metin',
+        'superscript' => 'Üstte Metin',
+        'table' => 'Tablo',
+        'horizontal_rule' => 'Yatay Çizgi',
+        'readmore' => 'Devamını Oku Ayracı',
+        'preview' => 'Önizleme',
+        'side_by_side' => 'Yan Yana',
+        'fullscreen' => 'Tam Ekran',
+        'markdown' => 'Markdown Kılavuzu',
+    ]
+
 ];

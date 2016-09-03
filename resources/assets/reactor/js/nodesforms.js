@@ -13,3 +13,8 @@ $('.form-group--gallery').each(function () {
 $('.form-group--document').each(function () {
     new Document($(this), window.documentsLibrary, window.documentsBag);
 });
+
+// MARKDOWN FIELDS
+$('.form-group__markdown').each(function () {
+    new MarkdownEditor($(this));
+});

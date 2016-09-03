@@ -3,8 +3,9 @@
 <div class="form-group-column form-group-column--full">
     {!! field_label($showLabel, $options, $name, $errors) !!}
 
-    MARKDOWN FIELD<br>
-    THIS WILL PROBABLY BE FULL WIDTH, MIND THE TOP
+    <div class="form-group__markdown">
+        {!! Form::textarea($name, $options['value'], $options['attr']) !!}
+    </div>
 
     {!! field_errors($errors, $name) !!}
 

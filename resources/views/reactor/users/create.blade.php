@@ -5,7 +5,7 @@
 @endsection
 
 @section('form_buttons')
-    {!! submit_button('icon-blank') !!}
+    {!! submit_button('icon-user-create') !!}
 @endsection
 
 @section('content')
