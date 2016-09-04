@@ -40,9 +40,13 @@ class NodesController extends ReactorController {
      */
     public function search(Request $request)
     {
-        $nodes = Node::search($request->input('q'), 20, true)
+        // Because of the searchable trait we are adding the global scopes from scratch
+        $nodes = Node::withoutGlobalScopes()
+            ->typeMailing()
             ->filteredByStatus()
             ->groupBy('id')
+            // Search should be the last
+            ->search($request->input('q'), 20, true)
             ->get();
 
         return $this->compileView('nodes.search', compact('nodes'));
@@ -56,7 +60,10 @@ class NodesController extends ReactorController {
      */
     public function searchJson(Request $request)
     {
+        // Because of the searchable trait we are adding the global scopes from scratch
         $nodes = Node::search($request->input('q'), 20, true)
+            ->withoutGlobalScopes()
+            ->typeMailing()
             ->groupBy('id')->limit(10);
 
         $filter = $request->input('filter', 'all');

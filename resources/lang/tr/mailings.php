@@ -2,11 +2,20 @@
 
 return [
 
-    'title' => 'Posta',
+    'title' => 'Postalar',
+    'search' => 'Posta Ara',
+    'all' => 'Tüm Postalar',
+    'self' => 'Posta',
     
     'index' => 'Postaları Yönet',
     'create' => 'Posta Oluştur',
+    'created' => 'Posta oluşturuldu.',
+    'edit' => 'Postayı Düzenle',
+    'edited' => 'Posta düzenlendi.',
+    'destroy' => 'Postayı Sil',
+    'destroyed' => 'Posta(lar) silindi.',
 
-    'lists' => 'Posta Listeleri'
+    'new' => 'Yeni Posta',
+    'no_mailings' => 'Posta bulunamadı.',
 
 ];

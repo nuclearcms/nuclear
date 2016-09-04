@@ -21,6 +21,7 @@ class HierarchyCreateNodesTable extends Migration {
 
             NestedSet::columns($table);
 
+            $table->boolean('mailing')->default(0);
             $table->boolean('visible')->default(1);
             $table->boolean('sterile')->default(0);
             $table->boolean('home')->default(0);
@@ -35,6 +36,10 @@ class HierarchyCreateNodesTable extends Migration {
             $table->enum('children_display_mode', ['tree', 'list'])->default('list');
 
             $table->timestamps();
+
+            $table->index('mailing');
+            $table->index('home');
+            $table->index('node_type_id');
 
             $table->foreign('node_type_id')
                 ->references('id')

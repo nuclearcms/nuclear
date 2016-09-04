@@ -171,7 +171,7 @@ trait BasicResource {
 
         $this->notify($resourceMultiple . '.destroyed');
 
-        return redirect()->route('reactor.' . $resourceMultiple . '.index');
+        return redirect()->back();
     }
 
     /**
@@ -208,7 +208,7 @@ trait BasicResource {
 
         $this->notify($resourceMultiple . '.destroyed');
 
-        return redirect()->route('reactor.' . $resourceMultiple . '.index');
+        return redirect()->back();
     }
 
     /**

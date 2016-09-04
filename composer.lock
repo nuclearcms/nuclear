@@ -2492,16 +2492,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "2.0.25",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "3cfe7daa775e4fead706b6125d7171d5dadc896d"
+                "reference": "a7cb80d95dc74f9b3394fc791bb23fb51fb98749"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/3cfe7daa775e4fead706b6125d7171d5dadc896d",
-                "reference": "3cfe7daa775e4fead706b6125d7171d5dadc896d",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/a7cb80d95dc74f9b3394fc791bb23fb51fb98749",
+                "reference": "a7cb80d95dc74f9b3394fc791bb23fb51fb98749",
                 "shasum": ""
             },
             "require": {
@@ -2560,20 +2560,20 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-08-27 12:53:36"
+            "time": "2016-09-04 18:26:31"
         },
         {
             "name": "nuclear/synthesizer",
-            "version": "0.9.1",
+            "version": "0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Synthesizer.git",
-                "reference": "14644743739be3588c9f48a8b84bd1da86af5956"
+                "reference": "147f9f4a3a439db35852431a40e06778d701dda2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Synthesizer/zipball/14644743739be3588c9f48a8b84bd1da86af5956",
-                "reference": "14644743739be3588c9f48a8b84bd1da86af5956",
+                "url": "https://api.github.com/repos/NuclearCMS/Synthesizer/zipball/147f9f4a3a439db35852431a40e06778d701dda2",
+                "reference": "147f9f4a3a439db35852431a40e06778d701dda2",
                 "shasum": ""
             },
             "require": {
@@ -2619,7 +2619,7 @@
                 "nuclearcms",
                 "synthesizer"
             ],
-            "time": "2016-07-30 12:37:30"
+            "time": "2016-09-04 12:07:13"
         },
         {
             "name": "nuclear/users",

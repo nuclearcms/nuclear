@@ -22,6 +22,12 @@ class CreateForm extends Form {
             'rules'      => ['required', 'between:3,20', 'regex:/^([a-z])+$/', 'unique:node_types'],
             'help_block' => ['text' => trans('hints.nodetype_name')]
         ]);
+
         $this->compose('Reactor\Html\Forms\NodeTypes\EditForm');
+
+        $this->addAfter('taggable', 'mailing', 'checkbox', [
+            'inline' => true,
+            'label'  => 'nodetypes.mailing_type'
+        ]);
     }
 }

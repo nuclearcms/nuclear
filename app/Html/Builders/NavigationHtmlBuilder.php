@@ -54,7 +54,8 @@ class NavigationHtmlBuilder {
             'items' => [
                 ['title' => 'mailings.index', 'route' => 'reactor.mailings.index', 'icon' => 'icon-envelopes'],
                 ['title' => 'mailings.create', 'route' => 'reactor.mailings.create', 'icon' => 'icon-envelope'],
-                ['title' => 'mailings.lists', 'route' => 'reactor.mailings.lists', 'icon' => 'icon-list-linear'],
+                ['title' => 'mailing_lists.index', 'route' => 'reactor.mailing_lists.index', 'icon' => 'icon-list-linear'],
+                ['title' => 'mailing_subscribers.index', 'route' => 'reactor.mailing_subscribers.index', 'icon' => 'icon-users'],
             ]
         ],
         'users' => [

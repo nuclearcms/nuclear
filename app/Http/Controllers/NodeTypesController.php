@@ -5,6 +5,7 @@ namespace Reactor\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Nuclear\Hierarchy\MailingNode;
 use Nuclear\Hierarchy\Node;
 use Nuclear\Hierarchy\NodeType;
 use Nuclear\Hierarchy\Repositories\NodeTypeRepository;
@@ -130,7 +131,9 @@ class NodeTypesController extends ReactorController {
 
         $nodetype = NodeType::findOrFail($id);
 
-        $nodes = Node::where('node_type_id', $nodetype->getKey())
+        $modelName = $nodetype->isTypeMailing() ? MailingNode::class : Node::class;
+
+        $nodes = $modelName::where('node_type_id', $nodetype->getKey())
             ->sortable()->paginate();
 
         return $this->compileView('nodetypes.nodes', compact('nodetype', 'nodes'), trans('nodes.title'));

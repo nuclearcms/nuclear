@@ -28,7 +28,11 @@
                     {{ $node->created_at->formatLocalized('%b %e, %Y') }}
                 </td>
 
+                @if($node->isMailing())
+                {!! content_options('mailings', $node->getKey()) !!}
+                @else
                 {!! node_options($node) !!}
+                @endif
 
             </tr>
         @endforeach
