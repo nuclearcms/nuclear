@@ -58,6 +58,27 @@
                 this.toolbar.css('top', 0);
             }
         },
+        markdown: function (plain) {
+            // We need to do superscripts like this since
+            // the ^ character is not received well by js
+            var re = /[\^]((?:\\\\\^|[^\^\n\r])+?)[\^]/g, m;
+            while ((m = re.exec(plain)) !== null) {
+                if (m.index === re.lastIndex) {
+                    re.lastIndex++;
+                }
+
+                plain = plain.replace(m[0], '<sup>' + m[1] + '</sup>');
+            }
+
+            // Next we switch to regular subscript adding
+            // and before we let codemirror handle things
+            // we just have to convert target="_blank" links
+            plain = plain
+                .replace(/[~]((?:\\\\\~|[^~\n\r])+?)[~](?![~])/g, '<sub>$1</sub>')
+                .replace(/\[([^\]]+)\]\(([^)]+)\)\{blank\}/g, '<a href="$2" target="_blank">$1</a>');
+
+            return this.mde.markdown(plain);
+        },
         _initEditor: function () {
             var self = this;
 
@@ -65,6 +86,9 @@
                 element: this.textarea,
                 spellChecker: false,
                 status: false,
+                previewRender: function (plain) {
+                    return self.markdown(plain);
+                },
                 toolbar: [
                     {
                         name: 'bold',
@@ -215,7 +239,6 @@
     };
 
     window.MarkdownEditor = MarkdownEditor;
-
 
 
     /**
