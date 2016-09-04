@@ -51,6 +51,9 @@ return [
     'tool_flip_vertical' => 'Dikey Takla Attır',
     'tool_grayscale' => 'Siyah-beyaza Çevir',
     'tool_sharpen' => 'Keskinleştir',
-    'tool_blur' => 'Bulanıklaştır'
+    'tool_blur' => 'Bulanıklaştır',
+
+    'gallery' => 'Galeri',
+    'image_or_document' => 'Resim ya da Dosya'
 
 ];

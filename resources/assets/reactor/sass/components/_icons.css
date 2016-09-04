@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'nuclear-icons';
-    src:  url('fonts/nuclear-icons.eot?pplup8');
-    src:  url('fonts/nuclear-icons.eot?pplup8#iefix') format('embedded-opentype'),
-    url('fonts/nuclear-icons.ttf?pplup8') format('truetype'),
-    url('fonts/nuclear-icons.woff?pplup8') format('woff'),
-    url('fonts/nuclear-icons.svg?pplup8#nuclear-icons') format('svg');
+    src:  url('fonts/nuclear-icons.eot?6f63x4');
+    src:  url('fonts/nuclear-icons.eot?6f63x4#iefix') format('embedded-opentype'),
+    url('fonts/nuclear-icons.ttf?6f63x4') format('truetype'),
+    url('fonts/nuclear-icons.woff?6f63x4') format('woff'),
+    url('fonts/nuclear-icons.svg?6f63x4#nuclear-icons') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,6 +24,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-bold:before {
+    content: "\e908";
+}
 .icon-anchor:before {
     content: "\e900";
 }
@@ -47,9 +50,6 @@
 }
 .icon-blur:before {
     content: "\e907";
-}
-.icon-bold:before {
-    content: "\e908";
 }
 .icon-cancel:before {
     content: "\e909";

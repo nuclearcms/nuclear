@@ -162,6 +162,10 @@ function ajax_loaded(e) {
  * @return string
  */
 function add_http(url) {
+    if (url.slice(0, 1) === '#' || url.slice(0, 7) === 'mailto:') {
+        return url;
+    }
+
     // Set pattern
     var pattern = /^(f|ht)tps?:\/\//;
     // Add http if the url does not have any protocol prefix

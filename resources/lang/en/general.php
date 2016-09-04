@@ -8,6 +8,7 @@ return [
     'clear' => 'Clear',
     'insert' => 'Insert',
     'selected' => 'selected',
+    'or' => 'or',
 
     'back' => 'Back',
     'page' => 'Page',
@@ -50,13 +51,21 @@ return [
     'zh' => 'Chinese',
     'ja' => 'Japanese',
 
+    'insert_link' => 'Insert Link',
+    'insert_media' => 'Insert Media',
+
+    'enter_link_information' => 'Enter link information:',
+    'open_in_new_window' => 'Open link in new window?',
+    'insert_from_library' => 'Insert from library:',
+    'enter_image_information' => 'Enter image information:',
+
     'tooltips' => [
         'bold' => 'Bold',
         'italic' => 'Italic',
         'strikethrough' => 'Strikethrough',
         'heading' => 'Heading',
         'link' => 'Add Link',
-        'image' => 'Add Image, Document or Gallery',
+        'media' => 'Add Image, Document or Gallery',
         'quote' => 'Quote',
         'list_unordered' => 'Unordered List',
         'list_ordered' => 'Ordered List',

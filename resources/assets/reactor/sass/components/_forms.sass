@@ -418,6 +418,22 @@ label
     &__search
         border-bottom: 1px solid $colorLightBG4
 
+.editor-modal
+    &__heading, &__dialog
+        display: none
+
+    &--link
+        .editor-modal__heading--link
+            display: inline
+        .editor-modal__dialog--link
+            display: block
+
+    &--media
+        .editor-modal__heading--media
+            display: inline
+        .editor-modal__dialog--media
+            display: block
+
 .no-touch
     .form-group__slide:hover .icon-cancel
         opacity: 1

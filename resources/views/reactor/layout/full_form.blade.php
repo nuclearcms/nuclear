@@ -11,8 +11,5 @@
     @parent
 
     @include('documents.library')
-
-    {{-- THESE ONLY SHOULD BE ON NODES FORM BASE
-    @include('modal.editor', ['containerClass' => 'modal--editor'])
-    --}}
+    @include('partials.modals.editor')
 @endsection

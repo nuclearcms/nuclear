@@ -1094,6 +1094,21 @@ label {
   .related-search__search {
     border-bottom: 1px solid #E5E7E9; }
 
+.editor-modal__heading, .editor-modal__dialog {
+  display: none; }
+
+.editor-modal--link .editor-modal__heading--link {
+  display: inline; }
+
+.editor-modal--link .editor-modal__dialog--link {
+  display: block; }
+
+.editor-modal--media .editor-modal__heading--media {
+  display: inline; }
+
+.editor-modal--media .editor-modal__dialog--media {
+  display: block; }
+
 .no-touch .form-group__slide:hover .icon-cancel {
   opacity: 1; }
 
@@ -1229,8 +1244,8 @@ label {
 
 @font-face {
   font-family: 'nuclear-icons';
-  src: url("fonts/nuclear-icons.eot?pplup8");
-  src: url("fonts/nuclear-icons.eot?pplup8#iefix") format("embedded-opentype"), url("fonts/nuclear-icons.ttf?pplup8") format("truetype"), url("fonts/nuclear-icons.woff?pplup8") format("woff"), url("fonts/nuclear-icons.svg?pplup8#nuclear-icons") format("svg");
+  src: url("fonts/nuclear-icons.eot?6f63x4");
+  src: url("fonts/nuclear-icons.eot?6f63x4#iefix") format("embedded-opentype"), url("fonts/nuclear-icons.ttf?6f63x4") format("truetype"), url("fonts/nuclear-icons.woff?6f63x4") format("woff"), url("fonts/nuclear-icons.svg?6f63x4#nuclear-icons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -1246,6 +1261,9 @@ label {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.icon-bold:before {
+  content: "\e908"; }
 
 .icon-anchor:before {
   content: "\e900"; }
@@ -1270,9 +1288,6 @@ label {
 
 .icon-blur:before {
   content: "\e907"; }
-
-.icon-bold:before {
-  content: "\e908"; }
 
 .icon-cancel:before {
   content: "\e909"; }
@@ -1623,6 +1638,15 @@ label {
     font-weight: 300;
     color: #F1C40F;
     margin-bottom: 1.5em; }
+  .modal__message {
+    margin-bottom: 1em; }
+  .modal__buttons {
+    text-align: center; }
+  .modal__separator {
+    text-align: center;
+    border-bottom: 1px solid #4A4F55;
+    padding-bottom: 1em;
+    margin: 1em 0; }
 
 .modal-buttons {
   text-align: right;

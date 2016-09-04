@@ -8,6 +8,7 @@ return [
     'clear' => 'Temizle',
     'insert' => 'Ekle',
     'selected' => 'seçili',
+    'or' => 'ya da',
 
     'back' => 'Geri',
     'page' => 'Sayfa',
@@ -50,13 +51,21 @@ return [
     'zh' => 'Çince',
     'ja' => 'Japonca',
 
+    'insert_link' => 'Link Ekle',
+    'insert_media' => 'Medya Ekle',
+
+    'enter_link_information' => 'Link bilgilerini girin:',
+    'open_in_new_window' => 'Yeni pencerede açılsın?',
+    'insert_from_library' => 'Kütüphaneden ekle:',
+    'enter_image_information' => 'Görsel bilgilerini girin:',
+
     'tooltips' => [
         'bold' => 'Kalın',
         'italic' => 'Eğik',
         'strikethrough' => 'Çizili',
         'heading' => 'Başlık',
         'link' => 'Link Ekle',
-        'image' => 'Resim, Dosya ya da Galeri Ekle',
+        'media' => 'Resim, Dosya ya da Galeri Ekle',
         'quote' => 'Alıntı',
         'list_unordered' => 'Sırasız Liste',
         'list_ordered' => 'Sıralı Liste',

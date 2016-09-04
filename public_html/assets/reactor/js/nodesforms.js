@@ -972,6 +972,7 @@ header:o[1].replace(/^ *| *\| *$/g,"").split(/ *\| */),align:o[2].replace(/^ *|\
             this.textarea = this.el.children('textarea')[0];
 
             this._initEditor();
+            this._initDialog();
 
             this.toolbar = this.el.children('.editor-toolbar');
 
@@ -993,6 +994,9 @@ header:o[1].replace(/^ *| *\| *$/g,"").split(/ *\| */),align:o[2].replace(/^ *|\
                     }, 0);
                 }
             });
+        },
+        _initDialog: function () {
+            this.dialog = new MarkdownEditorDialog();
         },
         _locateToolbar: function () {
             if (this.toolbar.hasClass('fullscreen')) {
@@ -1048,15 +1052,15 @@ header:o[1].replace(/^ *| *\| *$/g,"").split(/ *\| */),align:o[2].replace(/^ *|\
                         className: 'icon-anchor',
                         title: window.editorTooltips.link,
                         action: function mdeLink(editor) {
-                            alert('special link');
+                            self.dialog.run('link', editor);
                         },
                     },
                     {
-                        name: 'image',
+                        name: 'media',
                         className: 'icon-image',
-                        title: window.editorTooltips.image,
+                        title: window.editorTooltips.media,
                         action: function mdeImage(editor) {
-                            alert('special document, separate with gallery?');
+                            self.dialog.run('media', editor);
                         },
                     },
                     "|",
@@ -1167,6 +1171,192 @@ header:o[1].replace(/^ *| *\| *$/g,"").split(/ *\| */),align:o[2].replace(/^ *|\
     };
 
     window.MarkdownEditor = MarkdownEditor;
+
+
+
+    /**
+     * MarkdownEditor Constructor
+     */
+    function MarkdownEditorDialog() {
+        this._init();
+    }
+
+    // Prototype
+    MarkdownEditorDialog.prototype = {
+        _init: function () {
+            var self = this;
+
+            this.el = $('.modal--editor').first();
+            this.modalInner = this.el.find('.modal__inner').first();
+
+            this.link_url = this.modalInner.find('input[name="link_url"]').first();
+            this.link_title = this.modalInner.find('input[name="link_title"]').first();
+            this.link_blank = this.modalInner.find('input[name="link_blank"]').first();
+
+            this.image_url = this.modalInner.find('input[name="image_url"]').first();
+            this.image_alttext = this.modalInner.find('input[name="image_alttext"]').first();
+
+            this.gallery_button = this.modalInner.find('button.button--gallery');
+            this.document_button = this.modalInner.find('button.button--document');
+
+            this.gallery_controller = new MarkdownEditorGallery(window.documentsLibrary);
+            this.document_controller = new MarkdownEditorDocument(window.documentsLibrary);
+
+            this.modal = new Modal(this.el, {
+                onConfirmEvent: function (dialog) {
+                    self._insert();
+                }
+            });
+
+            this.mode = null;
+            this.editor = null;
+
+            this._initEvents();
+        },
+        _initEvents: function () {
+            var self = this;
+
+            this.gallery_button.on('click', function () {
+                self.modal.closeModal();
+
+                self.gallery_controller.run(self.editor);
+            });
+
+            this.document_button.on('click', function () {
+                self.modal.closeModal();
+
+                self.document_controller.run(self.editor);
+            });
+        },
+        run: function (mode, editor) {
+            this._reset();
+            this._setMode(mode);
+
+            this.editor = editor;
+
+            this.modal.openModal();
+
+            this._populateByMode();
+        },
+        _reset: function () {
+            this.modalInner.removeClass('editor-modal--link editor-modal--media');
+
+            this.link_url.val('');
+            this.link_title.val('');
+            this.link_blank.attr('checked', false);
+
+            this.image_url.val('');
+            this.image_alttext.val('');
+        },
+        _setMode: function (mode) {
+            this.mode = mode;
+            this.modalInner.addClass('editor-modal--' + mode);
+        },
+        _populateByMode: function () {
+            var cm = this.editor.codemirror;
+
+            if (this.mode === 'link') {
+                this.link_title.val(cm.getSelection());
+
+                this.link_url.focus();
+            } else if (this.mode === 'media') {
+                this.image_url.val(cm.getSelection());
+
+                this.image_alttext.focus();
+            }
+        },
+        _insert: function () {
+            if (this.mode === 'link') {
+                this._insertLink();
+            } else if (this.mode === 'media') {
+                this._insertImage();
+            }
+        },
+        _insertLink: function () {
+            var url = add_http(this.link_url.val());
+
+            var text = (this.link_title.val().length > 0) ? this.link_title.val() : this.link_url.val();
+
+            var link = '[' + text + '](' + url + ')';
+
+            if (this.link_blank.is(':checked')) {
+                link += '{blank}';
+            }
+
+            this.editor.codemirror.replaceSelection(link);
+        },
+        _insertImage: function () {
+            this.editor.codemirror.replaceSelection('![' + this.image_alttext.val() + '](' + this.image_url.val() + ')');
+        }
+    };
+
+    window.MarkdownEditorDialog = MarkdownEditorDialog;
+
+
+    /**
+     * MarkdownEditorGallery constructor
+     */
+    function MarkdownEditorGallery(library) {
+        this._init(library);
+    }
+
+    // Prototype
+    MarkdownEditorGallery.prototype = {
+        _init: function (library) {
+            this.library = library;
+            this.editor = null;
+
+            this.mode = 'gallery';
+            this.filter = 'image';
+        },
+        run: function (editor) {
+            this.editor = editor;
+
+            this.library.run(this);
+        },
+        getValue: function () {
+            return '';
+        },
+        setValue: function (images) {
+            this.editor.codemirror.replaceSelection('\n[gallery ids="' + images.join(',') + '"]\n');
+        }
+    };
+
+    // Register editor gallery to window namespace
+    window.MarkdownEditorGallery = MarkdownEditorGallery;
+
+
+    /**
+     * MarkdownEditorDocument constructor
+     */
+    function MarkdownEditorDocument(library) {
+        this._init(library);
+    }
+
+    // Prototype
+    MarkdownEditorDocument.prototype = {
+        _init: function (library) {
+            this.library = library;
+            this.editor = null;
+
+            this.mode = 'document';
+            this.filter = 'all';
+        },
+        run: function (editor) {
+            this.editor = editor;
+
+            this.library.run(this);
+        },
+        getValue: function () {
+            return '';
+        },
+        setValue: function (document) {
+            this.editor.codemirror.replaceSelection('\n[document id="' + document + '"]\n');
+        }
+    };
+
+    // Register editor media to window namespace
+    window.MarkdownEditorDocument = MarkdownEditorDocument;
 
 })(window);
 // DOCUMENTS BAG

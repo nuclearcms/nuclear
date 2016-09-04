@@ -51,6 +51,9 @@ return [
     'tool_flip_vertical' => 'Flip Vertical',
     'tool_grayscale' => 'Convert to Grayscale',
     'tool_sharpen' => 'Sharpen',
-    'tool_blur' => 'Blur'
+    'tool_blur' => 'Blur',
+
+    'gallery' => 'Gallery',
+    'image_or_document' => 'Image or Document'
 
 ];
