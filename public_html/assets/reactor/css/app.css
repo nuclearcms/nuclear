@@ -88,6 +88,10 @@ blockquote {
 code {
   font-family: monospace; }
 
+hr {
+  border-bottom: 1px solid #95A5A6;
+  margin: 1em 0; }
+
 html {
   height: 100%; }
 

@@ -19,31 +19,34 @@ $('.pagination__selector').on('change', function () {
 // FORM BUTTONS
 var formButtons = $('#formButtons');
 
-if(formButtons.length > 0)
-{
+if (formButtons.length > 0) {
     var w = $(window),
-        fbT = formButtons.offset().top;
+        d = $(document),
+        fbT = formButtons.offset().top,
+        dH = 0;
 
     locateFormButtons();
 
-    $(window).on('resize.formbuttons', function () {
-        formButtons.css({'bottom': '', 'position': ''});
-        fbT = formButtons.offset().top;
-
+    w.on('scroll.formbuttons resize.formbuttons', function () {
         locateFormButtons();
     });
 
-    $(window).on('scroll.formbuttons', function() {
-        locateFormButtons();
-    });
+    function locateFormButtons() {
+        refreshFormButtonsOffset();
 
-    function locateFormButtons()
-    {
-        if((w.height() + w.scrollTop() - 16) < (fbT + 40))
-        {
+        if ((w.outerHeight() + w.scrollTop() - 16) < (fbT + 40)) {
             formButtons.css({'bottom': '16px', 'position': 'fixed'});
         } else {
             formButtons.css({'bottom': '', 'position': ''});
+        }
+    }
+
+    function refreshFormButtonsOffset() {
+        if (d.outerHeight() !== dH) {
+            dH = d.outerHeight();
+
+            formButtons.css({'bottom': '', 'position': ''});
+            fbT = formButtons.offset().top;
         }
     }
 }
