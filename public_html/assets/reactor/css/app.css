@@ -73,6 +73,21 @@ strong {
 a {
   text-decoration: none; }
 
+sup {
+  vertical-align: super;
+  font-size: 75%; }
+
+sub {
+  vertical-align: sub;
+  font-size: 75%; }
+
+blockquote {
+  padding: 1.25em 1.5em 0.25em;
+  margin: 1em 0; }
+
+code {
+  font-family: monospace; }
+
 html {
   height: 100%; }
 
@@ -4315,5 +4330,43 @@ span.CodeMirror-selectedtext {
 
 .CodeMirror .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
   background: rgba(255, 0, 0, 0.15); }
+
+.editor-preview p, .editor-preview-side p {
+  margin-bottom: 1em; }
+
+.editor-preview a, .editor-preview-side a {
+  color: #F1C40F; }
+
+.editor-preview h3, .editor-preview-side h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 0.5em; }
+
+.editor-preview img, .editor-preview-side img {
+  max-width: 100%; }
+
+.editor-preview blockquote, .editor-preview-side blockquote {
+  background-color: #F5F5F5;
+  border-left: 0.5em solid #E5E7E9; }
+
+.editor-preview ul, .editor-preview ol, .editor-preview-side ul, .editor-preview-side ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em; }
+
+.editor-preview ol, .editor-preview-side ol {
+  list-style: decimal; }
+
+.editor-preview ul, .editor-preview-side ul {
+  list-style: circle; }
+
+.editor-preview code, .editor-preview-side code {
+  background-color: #E5E7E9;
+  padding: 0 0.25em; }
+
+.editor-preview table, .editor-preview-side table {
+  margin-bottom: 1em; }
+
+.no-touch .editor-preview a:hover, .no-touch .editor-preview-side a:hover {
+  text-decoration: underline; }
 
 /*# sourceMappingURL=app.css.map */

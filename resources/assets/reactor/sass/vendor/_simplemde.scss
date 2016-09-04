@@ -617,3 +617,58 @@ span.CodeMirror-selectedtext {
 .CodeMirror .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
     background: rgba(255, 0, 0, .15)
 }
+
+.editor-preview, .editor-preview-side {
+    p {
+        margin-bottom: 1em;
+    }
+
+    a {
+        color: $colorEmphasis;
+    }
+
+    h3 {
+        font-size: 1.5em;
+        font-weight: $fontWeightBold;
+        margin-bottom: 0.5em;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    blockquote {
+        background-color: $colorLightBG3;
+        border-left: 0.5em solid $colorLightBG4;
+    }
+
+    ul, ol {
+        padding-left: 1.5em;
+        margin-bottom: 1em;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    ul {
+        list-style: circle;
+    }
+
+    code {
+        background-color: $colorLightBG4;
+        padding: 0 0.25em
+    }
+
+    table {
+        margin-bottom: 1em
+    }
+}
+
+.no-touch {
+    .editor-preview, .editor-preview-side {
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
