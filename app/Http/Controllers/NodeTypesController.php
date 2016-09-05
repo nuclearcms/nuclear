@@ -77,7 +77,7 @@ class NodeTypesController extends ReactorController {
 
         $ids = json_decode($request->input('_bulkSelected', '[]'));
 
-        foreach($ids as $id)
+        foreach ($ids as $id)
         {
             $nodeTypeRepository->destroy($id);
         }
@@ -88,11 +88,11 @@ class NodeTypesController extends ReactorController {
     }
 
     /**
- * Searches nodetypes intended for nodes
- *
- * @param Request $request
- * @return Response
- */
+     * Searches nodetypes intended for nodes
+     *
+     * @param Request $request
+     * @return Response
+     */
     public function searchTypeNodes(Request $request)
     {
         $nodeTypes = NodeType::forNodes()

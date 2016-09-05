@@ -37,7 +37,7 @@
             </tr>
         @endforeach
     @else
-        {!! no_results_row('nodes.no_nodes') !!}
+        {!! no_results_row(isset($noResultsMessage) ? $noResultsMessage : 'nodes.no_nodes') !!}
     @endif
 
 {!! content_table_close(true) !!}

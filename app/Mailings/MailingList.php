@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Kenarkose\Chronicle\RecordsActivity;
 use Kenarkose\Sortable\Sortable;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Nuclear\Hierarchy\MailingNode;
 
 class MailingList extends Model {
 
@@ -51,5 +52,15 @@ class MailingList extends Model {
             'name'  => 10
         ]
     ];
+
+    /**
+     * Lists relation
+     *
+     * @return Relation
+     */
+    public function mailings()
+    {
+        return $this->belongsToMany(MailingNode::class, 'mailing_list_node', 'mailing_list_id', 'node_id');
+    }
 
 }

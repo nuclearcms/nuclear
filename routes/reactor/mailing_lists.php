@@ -16,3 +16,7 @@ Route::get('lists/search', [
 Route::delete('lists/destroy/bulk', [
     'uses' => 'MailingListsController@bulkDestroy',
     'as'   => 'reactor.mailing_lists.destroy.bulk']);
+
+Route::get('lists/{id}/mailings', [
+    'uses' => 'MailingListsController@mailings',
+    'as'   => 'reactor.mailing_lists.mailings']);

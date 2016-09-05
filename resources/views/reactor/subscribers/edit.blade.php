@@ -3,7 +3,7 @@
 
 @section('form_buttons')
     @can('EDIT_SUBSCRIBERS')
-        {!! submit_button('icon-floppy') !!}
+    {!! submit_button('icon-floppy') !!}
     @endcan
 @endsection
 
