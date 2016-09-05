@@ -168,5 +168,18 @@ return [
         'link'                     => 'Link',
         'cover'                    => 'Kapak',
         'indexed'                  => 'Endeksli',
+        'external_id'              => 'Harici Tanımlayıcı',
+        'from_name'                => 'Gelen İsmi',
+        'reply_to'                 => 'Yanıt Adresi',
+        'tel'                      => 'Telefon',
+        'tel_mobile'               => 'Cep Telefonu',
+        'fax'                      => 'Faks',
+        'address'                  => 'Adres',
+        'city'                     => 'Şehir',
+        'country'                  => 'Ülke',
+        'postal_code'              => 'Posta Kodu',
+        'nationality'              => 'Uyruk',
+        'national_id'              => 'Vatandaşlık Numarası',
+        'additional'               => 'İlave Bilgi',
     ]
 ];

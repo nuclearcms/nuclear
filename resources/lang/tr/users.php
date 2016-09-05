@@ -28,7 +28,7 @@ return [
     'associated' => 'Kullanıcı eklendi.',
     'dissociate' => 'Kullanıcıyı Ayır',
     'dissociated' => 'Kullanıcı ayrıldı.',
+    'confirm_dissociate' => 'Bu kullanıcıyı ayırmak istediğinizden emin misiniz?',
     'no_users' => 'Kullanıcı bulunamadı.',
-    'confirm_dissociate' => 'Bu kullanıcıyı ayırmak istediğinizden emin misiniz?'
 
 ];

@@ -13,6 +13,10 @@ return [
     'documents_caption' => 'Caption for the document.',
     'documents_embed' => 'The URL of the embeddable media. Allowed platforms: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
 
+    'mailing_lists_type' => 'The provider that handles mailing.',
+    'mailing_lists_options' => 'Additional options for the mailing list. Has to be in JSON format.',
+    'mailing_lists_external_id' => 'External identifier for the mailing list. Required when the mailing is handled by an external service like Mailchimp.',
+
     'nodes_parent' => 'The parent which the node is going to be moved under.',
 
     'nodefields_name' => 'Can only contain lowercase ASCII letters and underscores(_).',

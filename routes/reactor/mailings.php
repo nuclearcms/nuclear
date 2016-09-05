@@ -24,7 +24,7 @@ Route::group(['middleware' => 'can:ACCESS_MAILINGS'], function ()
     Route::group(['prefix' => 'mailings'], function ()
     {
         require 'mailing_lists.php';
-        require 'mailing_subscribers.php';
+        require 'subscribers.php';
     });
 
 });

@@ -20,7 +20,7 @@ return [
     'added' => 'İzin eklendi.',
     'revoke' => 'İzni İptal Et',
     'revoked' => 'İzin iptal edildi.',
+    'confirm_revoke' => 'Bu izni iptal etmek istediğinizden emin misiniz?',
     'no_permissions' => 'İzin bulunamadı.',
-    'confirm_revoke' => 'Bu izni iptal etmek istediğinizden emin misiniz?'
 
 ];

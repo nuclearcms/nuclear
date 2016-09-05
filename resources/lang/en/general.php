@@ -9,6 +9,7 @@ return [
     'insert' => 'Insert',
     'selected' => 'selected',
     'or' => 'or',
+    'default' => 'Default',
 
     'back' => 'Back',
     'page' => 'Page',

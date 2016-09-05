@@ -9,6 +9,7 @@ return [
     'insert' => 'Ekle',
     'selected' => 'seçili',
     'or' => 'ya da',
+    'default' => 'Öntanımlı',
 
     'back' => 'Geri',
     'page' => 'Sayfa',

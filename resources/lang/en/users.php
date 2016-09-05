@@ -28,7 +28,7 @@ return [
     'associated' => 'Associated user.',
     'dissociate' => 'Dissociate User',
     'dissociated' => 'Dissociated user.',
+    'confirm_dissociate' => 'Are you sure you want to dissociate this user?',
     'no_users' => 'No users were found.',
-    'confirm_dissociate' => 'Are you sure you want to revoke this user?'
 
 ];

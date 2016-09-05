@@ -20,7 +20,7 @@ return [
     'associated' => 'Rol verildi.',
     'dissociate' => 'Rolü Çek',
     'dissociated' => 'Rol çekildi.',
+    'confirm_dissociate' => 'Bu rolü ayırmak istediğinizden emin misiniz?',
     'no_roles' => 'Rol bulunamadı.',
-    'confirm_dissociate' => 'Bu rolü çekmek istediğinizden emin misiniz?'
 
 ];

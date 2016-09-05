@@ -168,5 +168,18 @@ return [
         'link'                     => 'Link',
         'cover'                    => 'Cover',
         'indexed'                  => 'Indexed',
+        'external_id'              => 'External Identifier',
+        'from_name'                => 'From Name',
+        'reply_to'                 => 'Reply To Address',
+        'tel'                      => 'Telephone',
+        'tel_mobile'               => 'Mobile Phone',
+        'fax'                      => 'Fax',
+        'address'                  => 'Address',
+        'city'                     => 'City',
+        'country'                  => 'Country',
+        'postal_code'              => 'Postal Code',
+        'nationality'              => 'Nationality',
+        'national_id'              => 'National Identifier',
+        'additional'               => 'Additional Information',
     ]
 ];

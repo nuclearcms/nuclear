@@ -54,8 +54,8 @@ class NavigationHtmlBuilder {
             'items' => [
                 ['title' => 'mailings.index', 'route' => 'reactor.mailings.index', 'icon' => 'icon-envelopes'],
                 ['title' => 'mailings.create', 'route' => 'reactor.mailings.create', 'icon' => 'icon-envelope'],
-                ['title' => 'mailing_lists.index', 'route' => 'reactor.mailing_lists.index', 'icon' => 'icon-list-linear'],
-                ['title' => 'mailing_subscribers.index', 'route' => 'reactor.mailing_subscribers.index', 'icon' => 'icon-users'],
+                ['title' => 'mailing_lists.index', 'route' => 'reactor.mailing_lists.index', 'icon' => 'icon-list-linear', 'permission' => 'ACCESS_MAILINGLISTS'],
+                ['title' => 'subscribers.index', 'route' => 'reactor.subscribers.index', 'icon' => 'icon-users', 'permission' => 'ACCESS_SUBSCRIBERS'],
             ]
         ],
         'users' => [
@@ -64,7 +64,7 @@ class NavigationHtmlBuilder {
             'icon' => 'icon-user',
             'items' => [
                 ['title' => 'users.index', 'route' => 'reactor.users.index', 'icon' => 'icon-users'],
-                ['title' => 'users.create', 'route' => 'reactor.users.create', 'icon' => 'icon-user-create', 'permission' => 'ACCESS_'],
+                ['title' => 'users.create', 'route' => 'reactor.users.create', 'icon' => 'icon-user-create', 'permission' => 'EDIT_USERS'],
                 'splitter',
                 ['title' => 'roles.index', 'route' => 'reactor.roles.index', 'icon' => 'icon-user-role', 'permission' => 'ACCESS_ROLES'],
                 ['title' => 'permissions.index', 'route' => 'reactor.permissions.index', 'icon' => 'icon-user-permission', 'permission' => 'ACCESS_PERMISSIONS'],

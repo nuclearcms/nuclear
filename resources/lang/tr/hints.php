@@ -13,6 +13,10 @@ return [
     'documents_caption' => 'Dosya manşeti.',
     'documents_embed' => 'Yerleştirilebilir medyanın adresi. İzin verilen platformlar: eBay, Facebook, Flickr, Giphy, GitHub, Google, Pastebin, Soundcloud, Twitter, Vimeo, Wikipedia, Youtube.',
 
+    'mailing_lists_type' => 'Postalamayı uygulayacak servis.',
+    'mailing_lists_options' => 'Posta listesi için ilave seçenekler. JSON formatında olmalıdır.',
+    'mailing_lists_external_id' => 'Posta listesi için harici tanımlayıcı. Postalama harici bir servis tarafından uygulandığında gereklidir.',
+
     'nodes_parent' => 'Düğümün altına taşınacağı ebeveyn.',
 
     'nodefields_name' => 'Sadece küçük ASCII harfler ve alt tire(_) içermelidir.',

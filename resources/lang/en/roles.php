@@ -20,7 +20,7 @@ return [
     'associated' => 'Associated role.',
     'dissociate' => 'Dissociate Role',
     'dissociated' => 'Dissociated role.',
+    'confirm_dissociate' => 'Are you sure you want to dissociate this role?',
     'no_roles' => 'No roles were found.',
-    'confirm_dissociate' => 'Are you sure you want to dissociate this role?'
 
 ];

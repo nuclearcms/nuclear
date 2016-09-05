@@ -16,6 +16,11 @@ return [
     'destroyed' => 'Deleted mailing lists(s).',
 
     'new' => 'New List',
-    'no_mailings' => 'No mailing lists were found.',
+    'associate' => 'Associate List',
+    'associated' => 'Associated list.',
+    'dissociate' => 'Dissociate List',
+    'dissociated' => 'Dissociated list.',
+    'confirm_dissociate' => 'Are you sure you want to dissociate this list?',
+    'no_mailing_lists' => 'No mailing lists were found.',
 
 ];

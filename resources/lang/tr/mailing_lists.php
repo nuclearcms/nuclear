@@ -16,6 +16,11 @@ return [
     'destroyed' => 'Posta liste(ler)i silindi.',
 
     'new' => 'Yeni Liste',
+    'associate' => 'Liste Ekle',
+    'associated' => 'Liste eklendi.',
+    'dissociate' => 'Listeyi Ayır',
+    'dissociated' => 'Liste ayrıldı.',
+    'confirm_dissociate' => 'Bu listeyi ayırmak istediğinizden emin misiniz?',
     'no_mailings' => 'Posta listesi bulunamadı.',
 
 ];

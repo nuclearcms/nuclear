@@ -16,6 +16,6 @@ return [
     'destroyed' => 'Abone(ler) silindi.',
 
     'new' => 'Yeni Abone',
-    'no_mailings' => 'Abone bulunamadı.',
+    'no_subscribers' => 'Abone bulunamadı.',
 
 ];

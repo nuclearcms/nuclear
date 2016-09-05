@@ -102,6 +102,10 @@ class PermissionsTableSeeder extends Seeder
             'ACCESS_HISTORY',
             'ACCESS_MAILINGS',
             'EDIT_MAILINGS',
+            'ACCESS_MAILINGLISTS',
+            'EDIT_MAILINGLISTS',
+            'ACCESS_SUBSCRIBERS',
+            'EDIT_SUBSCRIBERS',
             'ACCESS_TAGS',
             'EDIT_TAGS'
         ];

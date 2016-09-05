@@ -16,6 +16,6 @@ return [
     'destroyed' => 'Deleted subscriber(s).',
 
     'new' => 'New Subscriber',
-    'no_mailings' => 'No subscribers were found.',
+    'no_subscribers' => 'No subscribers were found.',
 
 ];

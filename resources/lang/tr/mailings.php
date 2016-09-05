@@ -16,6 +16,6 @@ return [
     'destroyed' => 'Posta(lar) silindi.',
 
     'new' => 'Yeni Posta',
-    'no_mailings' => 'Posta bulunamadı.',
+    'no_mailing_lists' => 'Posta bulunamadı.',
 
 ];
