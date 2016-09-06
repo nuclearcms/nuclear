@@ -4,14 +4,14 @@
 
 @section('header_content')
     @include('partials.contents.header', [
-        'headerTitle' => $profile->present()->fullName
+        'headerTitle' => $user->present()->fullName
     ])
 @endsection
 
 @section('content')
     @include('users.tabs', [
         'currentRoute' => 'reactor.users.history',
-        'currentKey' => $profile->getKey()
+        'currentKey' => $user->getKey()
     ])
 
     <div class="content-inner content-inner--compact">

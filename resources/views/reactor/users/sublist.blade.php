@@ -5,11 +5,11 @@
 {!! content_table_middle() !!}
 
 @if($users->count())
-    @foreach ($users as $profile)
+    @foreach ($users as $user)
         <tr class="content-list__row--body">
 
             <td class="content-list__cell">
-                {!! link_to_route('reactor.users.edit', $profile->present()->fullName, $profile->getKey()) !!}
+                {!! link_to_route('reactor.users.edit', $user->present()->fullName, $user->getKey()) !!}
             </td>
 
             {!! content_options_open() !!}
@@ -17,7 +17,7 @@
                 {!! delete_form(
                     route('reactor.roles.users.dissociate', $role->getKey()),
                     trans('users.dissociate'),
-                    '<input type="hidden" name="user" value="' . $profile->getKey() . '">',
+                    '<input type="hidden" name="user" value="' . $user->getKey() . '">',
                     true
                 ) !!}
             </li>

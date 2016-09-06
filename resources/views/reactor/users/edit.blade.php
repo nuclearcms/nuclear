@@ -9,7 +9,7 @@
 @section('content')
     @include('users.tabs', [
         'currentRoute' => 'reactor.users.edit',
-        'currentKey' => $profile->getKey()
+        'currentKey' => $user->getKey()
     ])
     @parent
 @endsection

@@ -89,7 +89,7 @@ class ReactorServiceProvider extends ServiceProvider {
 
         view()->composer('*', function ($view) use ($nodeRepository)
         {
-            $view->with('user', auth()->user());
+            $view->with('currentUser', auth()->user());
         });
 
         if (is_request_reactor())

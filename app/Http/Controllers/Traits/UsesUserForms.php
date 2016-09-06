@@ -29,25 +29,25 @@ trait UsesUserForms {
 
     /**
      * @param int $id
-     * @param User $profile
+     * @param User $user
      * @return \Kris\LaravelFormBuilder\Form
      */
-    protected function getEditForm($id, User $profile)
+    protected function getEditForm($id, User $user)
     {
         return $this->form('Reactor\Html\Forms\Users\EditForm', [
             'url'   => route('reactor.users.update', $id),
-            'model' => $profile
+            'model' => $user
         ]);
     }
 
     /**
      * @param Request $request
-     * @param User $profile
+     * @param User $user
      */
-    protected function validateEditForm(Request $request, User $profile)
+    protected function validateEditForm(Request $request, User $user)
     {
         $this->validateForm('Reactor\Html\Forms\Users\EditForm', $request, [
-            'email' => 'required|email|max:255|unique:users,email,' . $profile->getKey()
+            'email' => 'required|email|max:255|unique:users,email,' . $user->getKey()
         ]);
     }
 

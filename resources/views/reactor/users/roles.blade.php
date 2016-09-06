@@ -4,11 +4,11 @@
 @section('content')
     @include('users.tabs', [
         'currentRoute' => 'reactor.users.roles',
-        'currentKey' => $profile->getKey()
+        'currentKey' => $user->getKey()
     ])
 
     <div class="content-inner content-inner--compact">
-        @include('roles.sublist', ['roles' => $profile->roles])
+        @include('roles.sublist', ['roles' => $user->roles])
 
         @if($count > 0)
         @include('roles.add')

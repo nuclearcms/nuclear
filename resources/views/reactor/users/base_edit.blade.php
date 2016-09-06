@@ -6,7 +6,7 @@
 
 @section('header_content')
     @include('partials.contents.header', [
-        'headerTitle' => $profile->present()->fullName
+        'headerTitle' => $user->present()->fullName
     ])
 @endsection
 

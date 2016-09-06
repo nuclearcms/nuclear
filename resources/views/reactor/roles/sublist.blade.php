@@ -15,7 +15,7 @@
             {!! content_options_open() !!}
             <li class="dropdown-sub__item dropdown-sub__item--delete">
                 {!! delete_form(
-                    route('reactor.users.roles.dissociate', $profile->getKey()),
+                    route('reactor.users.roles.dissociate', $user->getKey()),
                     trans('roles.dissociate'),
                     '<input type="hidden" name="role" value="' . $role->name . '">',
                     true

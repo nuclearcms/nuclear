@@ -1,21 +1,21 @@
-@foreach($users as $profile)
+@foreach($users as $user)
     <tr class="content-list__row--body">
 
-        {!! content_list_thumbnail($profile->getKey(), '<span class="navigation-user__avatar">' . $profile->present()->avatar . '</span>') !!}
+        {!! content_list_thumbnail($user->getKey(), '<span class="navigation-user__avatar">' . $user->present()->avatar . '</span>') !!}
 
         <td class="content-list__cell">
-            {!! link_to_route('reactor.users.edit', $profile->present()->fullName, $profile->getKey()) !!}
+            {!! link_to_route('reactor.users.edit', $user->present()->fullName, $user->getKey()) !!}
         </td>
         <td class="content-list__cell content-list__cell--secondary">
-            <a href="mailto:{{ $profile->email }}">
-                {{ $profile->email }}
+            <a href="mailto:{{ $user->email }}">
+                {{ $user->email }}
             </a>
         </td>
         <td class="content-list__cell content-list__cell--secondary">
-            {{ $profile->present()->joinedAt }}
+            {{ $user->present()->joinedAt }}
         </td>
 
-        {!! content_options('users', $profile->getKey()) !!}
+        {!! content_options('users', $user->getKey()) !!}
 
     </tr>
 @endforeach

@@ -20,7 +20,7 @@ class UsersController extends ReactorController {
      */
     protected $modelPath = User::class;
     protected $resourceMultiple = 'users';
-    protected $resourceSingular = 'profile';
+    protected $resourceSingular = 'user';
     protected $permissionKey = 'USERS';
 
     /**
@@ -33,11 +33,11 @@ class UsersController extends ReactorController {
     {
         $this->authorize('EDIT_USERS');
 
-        $profile = User::findOrFail($id);
+        $user = User::findOrFail($id);
 
         $form = $this->getPasswordForm($id);
 
-        return $this->compileView('users.password', compact('form', 'profile'), trans('users.change_password'));
+        return $this->compileView('users.password', compact('form', 'user'), trans('users.change_password'));
     }
 
     /**
@@ -51,13 +51,13 @@ class UsersController extends ReactorController {
     {
         $this->authorize('EDIT_USERS');
 
-        $profile = User::findOrFail($id);
+        $user = User::findOrFail($id);
 
         $this->validateForm('Reactor\Html\Forms\Users\PasswordForm', $request);
 
-        $profile->setPassword($request->input('password'))->save();
+        $user->setPassword($request->input('password'))->save();
 
-        $this->notify('users.changed_password', 'changed_user_password', $profile);
+        $this->notify('users.changed_password', 'changed_user_password', $user);
 
         return redirect()->route('reactor.users.password', $id);
     }
@@ -70,11 +70,11 @@ class UsersController extends ReactorController {
      */
     public function roles($id)
     {
-        $profile = User::with('roles')->findOrFail($id);
+        $user = User::with('roles')->findOrFail($id);
 
-        list($form, $count) = $this->getAddRoleForm($id, $profile);
+        list($form, $count) = $this->getAddRoleForm($id, $user);
 
-        return $this->compileView('users.roles', compact('profile', 'form', 'count'), trans('roles.title'));
+        return $this->compileView('users.roles', compact('user', 'form', 'count'), trans('roles.title'));
     }
 
     /**
@@ -127,11 +127,11 @@ class UsersController extends ReactorController {
      */
     public function history($id)
     {
-        $profile = User::findOrFail($id);
+        $user = User::findOrFail($id);
 
         $activities = chronicle()->getUserActivity($id, 20);
 
-        return $this->compileView('users.history', compact('profile', 'activities'), trans('general.history'));
+        return $this->compileView('users.history', compact('user', 'activities'), trans('general.history'));
     }
 
 }
