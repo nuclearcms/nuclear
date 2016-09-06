@@ -106,4 +106,43 @@ class MailingsController extends ReactorController {
         return [$translation->locale, $translation];
     }
 
+    /**
+     * Show the page for resource transformation options
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function transform($id)
+    {
+        $this->authorize('EDIT_MAILINGS');
+
+        $mailing = MailingNode::findOrFail($id);
+
+        $form = $this->getTransformForm($id, $mailing);
+
+        return $this->compileView('mailings.transform', compact('mailing', 'form'));
+    }
+
+    /**
+     * Transforms the node into given type
+     *
+     * @param Request $request
+     * @param int $id
+     * @return Response
+     */
+    public function transformPut(Request $request, $id)
+    {
+        $this->authorize('EDIT_MAILINGS');
+
+        $mailing = MailingNode::findOrFail($id);
+
+        $this->validateTransformForm($request);
+
+        $mailing->transformInto($request->input('type'));
+
+        $this->notify('mailings.transformed', 'transformed_mailing', $mailing);
+
+        return redirect()->route('reactor.mailings.edit', $id);
+    }
+
 }

@@ -1,8 +1,8 @@
-@extends('nodes.base_edit')
+@extends('mailings.base_edit')
 <?php $_withForm = true; ?>
 
 @section('pageSubtitle')
-    {!! link_to($node->getDefaultEditUrl(), uppercase($node->getTitle())) !!}
+    {!! link_to($mailing->getDefaultEditUrl(), uppercase($mailing->translateOrFirst()->title)) !!}
 @endsection
 
 @section('form_buttons')

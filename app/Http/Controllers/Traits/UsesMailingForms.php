@@ -6,6 +6,7 @@ namespace Reactor\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
+use Nuclear\Hierarchy\MailingNode;
 use Nuclear\Hierarchy\NodeSource;
 use Nuclear\Hierarchy\NodeType;
 
@@ -95,6 +96,35 @@ trait UsesMailingForms {
             $request, [
             'node_name' => 'max:255|alpha_dash|unique:node_sources,node_name,' . $source->getKey()
         ]);
+    }
+
+    /**
+     * @param int $id
+     * @param MailingNode $mailing
+     * @return \Kris\LaravelFormBuilder\Form
+     */
+    protected function getTransformForm($id, MailingNode $mailing)
+    {
+        $form = $this->form('Reactor\Html\Forms\Nodes\TransformForm', [
+            'url' => route('reactor.mailings.transform.put', $id)
+        ]);
+
+        $nodeTypes = $this->compileAllowedNodeTypes();
+        unset($nodeTypes[$mailing->node_type_id]);
+
+        $form->modify('type', 'select', [
+            'choices' => $nodeTypes
+        ]);
+
+        return $form;
+    }
+
+    /**
+     * @param Request $request
+     */
+    protected function validateTransformForm(Request $request)
+    {
+        $this->validateForm('Reactor\Html\Forms\Nodes\TransformForm', $request);
     }
 
 }
