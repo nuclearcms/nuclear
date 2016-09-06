@@ -2,6 +2,7 @@
 
 namespace Reactor\Exceptions;
 
+
 use Exception;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -9,8 +10,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
-class Handler extends ExceptionHandler
-{
+class Handler extends ExceptionHandler {
+
     /**
      * A list of the exception types that should not be reported.
      *
@@ -28,7 +29,7 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $e
+     * @param  \Exception $e
      * @return void
      */
     public function report(Exception $e)
@@ -39,12 +40,25 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception $e
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $e)
     {
+        if (is_a($e, ModelNotFoundException::class) && is_request_reactor())
+        {
+            $request->session()->reflash();
+
+            if ($e->getModel() === 'Nuclear\Hierarchy\Node')
+            {
+                return redirect()->route('reactor.nodes.index');
+            } elseif ($e->getModel() === 'Nuclear\Hierarchy\MailingNode')
+            {
+                return redirect()->route('reactor.mailings.index');
+            }
+        }
+
         return parent::render($request, $e);
     }
 }

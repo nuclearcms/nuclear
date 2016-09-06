@@ -6,7 +6,7 @@ namespace Reactor\Http\Controllers;
 
 use Reactor\Http\Controllers\Traits\BasicResource;
 use Reactor\Http\Controllers\Traits\UsesMailingListForms;
-use Reactor\Mailings\MailingList;
+use Nuclear\Hierarchy\Mailings\MailingList;
 
 class MailingListsController extends ReactorController {
 

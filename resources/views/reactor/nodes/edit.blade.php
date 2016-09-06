@@ -13,7 +13,7 @@
         {!! button('icon-lock', '', 'button', 'button--disabled') !!}
     @else
         @can('EDIT_NODES')
-            @if( ! $node->isPublished()){!!
+        @if( ! $node->isPublished()){!!
         button('icon-status-published', '', 'button', 'button--action button--publisher')
         !!}@endif{!! submit_button('icon-floppy') !!}
         @endcan

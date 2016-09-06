@@ -6,12 +6,13 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Reactor\Http\Controllers\Traits\BasicResource;
+use Reactor\Http\Controllers\Traits\ModifiesMailingLists;
 use Reactor\Http\Controllers\Traits\UsesSubscriberForms;
-use Reactor\Mailings\Subscriber;
+use Nuclear\Hierarchy\Mailings\Subscriber;
 
 class SubscribersController extends ReactorController {
 
-    use BasicResource, UsesSubscriberForms;
+    use BasicResource, UsesSubscriberForms, ModifiesMailingLists;
 
     /**
      * Names for the BasicResource trait
@@ -22,43 +23,6 @@ class SubscribersController extends ReactorController {
     protected $resourceMultiple = 'subscribers';
     protected $resourceSingular = 'subscriber';
     protected $permissionKey = 'SUBSCRIBERS';
-
-    /**
-     * List the specified resource lists.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function lists($id)
-    {
-        $subscriber = Subscriber::with('lists')->findOrFail($id);
-
-        list($form, $count) = $this->getAddListForm($id, $subscriber);
-
-        return $this->compileView('subscribers.lists', compact('subscriber', 'form', 'count'), trans('mailing_lists.title'));
-    }
-
-    /**
-     * Add a list to the specified resource.
-     *
-     * @param Request $request
-     * @param int $id
-     * @return Response
-     */
-    public function associateList(Request $request, $id)
-    {
-        $this->authorize('EDIT_MAILINGLISTS');
-
-        $this->validateForm('Reactor\Html\Forms\MailingLists\AddMailingListForm', $request);
-
-        $subscriber = Subscriber::findOrFail($id);
-
-        $subscriber->associateList($request->input('list'));
-
-        $this->notify('mailing_lists.associated', 'associated_list_to_subscriber', $subscriber);
-
-        return redirect()->back();
-    }
 
     /**
      * Remove an list from the specified resource.

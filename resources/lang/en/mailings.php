@@ -14,6 +14,8 @@ return [
     'edited' => 'Mailing was edited.',
     'destroy' => 'Delete Mailing',
     'destroyed' => 'Deleted mailing(s).',
+    'transform' => 'Transform Mailing Node',
+    'transformed' => 'Transformed mailing node.',
 
     'new' => 'New Mailing',
     'no_mailings' => 'No mailings were found.',

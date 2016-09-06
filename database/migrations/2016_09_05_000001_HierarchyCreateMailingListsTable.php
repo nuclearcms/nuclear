@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMailingListsTable extends Migration {
+class HierarchyCreateMailingListsTable extends Migration {
 
     /**
      * Run the migrations.

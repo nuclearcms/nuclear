@@ -6,6 +6,7 @@ namespace Reactor\Http\Controllers\Traits;
 
 use Illuminate\Http\Request;
 use Kris\LaravelFormBuilder\Form;
+use Nuclear\Hierarchy\NodeSource;
 use Nuclear\Hierarchy\NodeType;
 
 trait UsesMailingForms {
@@ -67,6 +68,33 @@ trait UsesMailingForms {
     protected function validateCreateForm(Request $request)
     {
         $this->validateForm('Reactor\Html\Forms\Nodes\CreateForm', $request);
+    }
+
+    /**
+     * @param int|null $id
+     * @param NodeSource $source
+     * @return Form
+     */
+    protected function getEditForm($id, NodeSource $source)
+    {
+        return $this->form(
+            source_form_name($source->source_type, true), [
+            'url'   => route('reactor.mailings.update', $id),
+            'model' => $source->toArray()
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param NodeSource $source
+     */
+    protected function validateEditForm(Request $request, NodeSource $source)
+    {
+        $this->validateForm(
+            source_form_name($source->source_type, true),
+            $request, [
+            'node_name' => 'max:255|alpha_dash|unique:node_sources,node_name,' . $source->getKey()
+        ]);
     }
 
 }

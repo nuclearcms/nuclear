@@ -21,7 +21,7 @@
             {!! content_options_open() !!}
             <li class="dropdown-sub__item dropdown-sub__item--delete">
                 {!! delete_form(
-                    route('reactor.subscribers.lists.dissociate', $subscriber->getKey()),
+                    $dissociateRoute,
                     trans('mailing_lists.dissociate'),
                     '<input type="hidden" name="list" value="' . $mailing_list->getKey() . '">',
                     true

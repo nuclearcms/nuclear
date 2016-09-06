@@ -7,7 +7,10 @@
     ])
 
     <div class="content-inner content-inner--compact">
-        @include('mailing_lists.sublist', ['mailing_lists' => $subscriber->lists])
+        @include('mailing_lists.sublist', [
+            'mailing_lists' => $subscriber->lists,
+            'dissociateRoute' => route('reactor.subscribers.lists.dissociate', $subscriber->getKey())
+        ])
 
         @if($count > 0)
         @include('mailing_lists.add')

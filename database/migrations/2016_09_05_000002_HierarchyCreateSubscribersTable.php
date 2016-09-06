@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubscribersTable extends Migration {
+class HierarchyCreateSubscribersTable extends Migration {
 
     /**
      * Run the migrations.

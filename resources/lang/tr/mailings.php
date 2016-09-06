@@ -14,6 +14,8 @@ return [
     'edited' => 'Posta düzenlendi.',
     'destroy' => 'Postayı Sil',
     'destroyed' => 'Posta(lar) silindi.',
+    'transform' => 'Posta Düğümünü Dönüştür',
+    'transformed' => 'Posta düğümü dönüştürüldü.',
 
     'new' => 'Yeni Posta',
     'no_mailing_lists' => 'Posta bulunamadı.',

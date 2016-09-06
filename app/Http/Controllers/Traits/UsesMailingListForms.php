@@ -5,7 +5,7 @@ namespace Reactor\Http\Controllers\Traits;
 
 
 use Illuminate\Http\Request;
-use Reactor\Mailings\MailingList;
+use Nuclear\Hierarchy\Mailings\MailingList;
 
 trait UsesMailingListForms {
 

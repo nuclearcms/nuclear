@@ -5,8 +5,7 @@ namespace Reactor\Http\Controllers\Traits;
 
 
 use Illuminate\Http\Request;
-use Reactor\Mailings\MailingList;
-use Reactor\Mailings\Subscriber;
+use Nuclear\Hierarchy\Mailings\Subscriber;
 
 trait UsesSubscriberForms {
 
@@ -52,31 +51,6 @@ trait UsesSubscriberForms {
         $this->validateForm('Reactor\Html\Forms\Subscribers\CreateEditForm', $request, [
             'email' => 'required|email|max:255|unique:subscribers,email,' . $subscriber->getKey()
         ]);
-    }
-
-    /**
-     * Creates a form for adding permissions
-     *
-     * @param int $id
-     * @param Subscriber $subscriber
-     * @return \Kris\LaravelFormBuilder\Form
-     */
-    protected function getAddListForm($id, Subscriber $subscriber)
-    {
-        $form = $this->form('Reactor\Html\Forms\MailingLists\AddMailingListForm', [
-            'url' => route('reactor.subscribers.lists.associate', $id)
-        ]);
-
-        $choices = MailingList::all()
-            ->diff($subscriber->lists)
-            ->pluck('name', 'id')
-            ->toArray();
-
-        $form->modify('list', 'select', [
-            'choices' => $choices
-        ]);
-
-        return [$form, count($choices)];
     }
 
 }
