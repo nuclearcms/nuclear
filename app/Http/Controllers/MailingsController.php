@@ -124,7 +124,7 @@ class MailingsController extends ReactorController {
     }
 
     /**
-     * Transforms the node into given type
+     * Transforms the resource into given type
      *
      * @param Request $request
      * @param int $id
@@ -143,6 +143,21 @@ class MailingsController extends ReactorController {
         $this->notify('mailings.transformed', 'transformed_mailing', $mailing);
 
         return redirect()->route('reactor.mailings.edit', $id);
+    }
+
+    /**
+     * Previews the resource
+     *
+     * @param string $name
+     * @return view
+     */
+    public function preview($name)
+    {
+        $mailing = MailingNode::withName($name)->firstOrFail();
+        $translation = $mailing->translateOrFirst();
+        $_inBrowser = true;
+
+        return view($mailing->getNodeTypeName(), compact('mailing', 'translation', '_inBrowser'));
     }
 
 }

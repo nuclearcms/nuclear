@@ -23,11 +23,12 @@
         <div class="form-column form-column--full">
             {!! form_rest($form) !!}
         </div>
-        {!! form_end($form) !!}
 
         <div class="form-buttons" id="formButtons">
             @yield('form_buttons')
         </div>
+        {!! form_end($form) !!}
+
     </div>
 @endsection
 

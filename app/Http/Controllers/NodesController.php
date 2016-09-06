@@ -383,7 +383,7 @@ class NodesController extends ReactorController {
     }
 
     /**
-     * Transforms the node into given type
+     * Transforms the resource into given type
      *
      * @param Request $request
      * @param int $id

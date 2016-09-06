@@ -19,5 +19,7 @@ return [
 
     'new' => 'Yeni Posta',
     'no_mailing_lists' => 'Posta bulunamadı.',
+    'preview' => 'Postayı Önizle',
+    'preview_in_browser' => 'İletiyi tarayıcıda görüntüle.',
 
 ];

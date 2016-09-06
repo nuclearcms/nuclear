@@ -37,9 +37,10 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'active'         => 'site',
-    'active_reactor' => 'reactor',
-    'active_install' => 'install',
+    'active'          => 'site',
+    'active_reactor'  => 'reactor',
+    'active_install'  => 'install',
+    'active_mailings' => 'mailings',
 
     /*
     |--------------------------------------------------------------------------
@@ -48,20 +49,25 @@ return [
     */
 
     'themes' => [
-        'site'    => [
+        'site'     => [
             'extends'    => null,
             'views-path' => 'site',
             'asset-path' => 'assets/site',
         ],
-        'reactor' => [
+        'reactor'  => [
             'extends'    => null,
             'views-path' => 'reactor',
             'asset-path' => 'assets/reactor',
         ],
-        'install' => [
+        'install'  => [
             'extends'    => null,
             'views-path' => 'install',
             'asset-path' => 'assets/reactor'
+        ],
+        'mailings' => [
+            'extends'    => null,
+            'views-path' => 'mailings',
+            'asset-path' => 'assets/mailings'
         ]
     ],
 
