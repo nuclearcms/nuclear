@@ -58,6 +58,8 @@ class HierarchyCreateSubscribersTable extends Migration {
             $table->integer('mailing_list_id')->unsigned();
             $table->integer('node_id')->unsigned();
 
+            $table->string('external_mailing_id')->nullable();
+
             $table->foreign('mailing_list_id')
                 ->references('id')
                 ->on('mailing_lists')

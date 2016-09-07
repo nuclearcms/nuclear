@@ -4,6 +4,7 @@
 namespace Reactor\Http\Controllers;
 
 
+use igaster\laravelTheme\Facades\Theme;
 use Illuminate\Http\Request;
 use Nuclear\Hierarchy\MailingNode;
 use Nuclear\Hierarchy\Mailings\MailingList;
@@ -177,13 +178,14 @@ class MailingsController extends ReactorController {
         $mailing = MailingNode::findOrFail($id);
         $list = MailingList::findOrFail($list);
 
-        switch ($list->type)
+        // Before this we are in the reactor theme by default
+        Theme::set(config('themes.active_mailings'));
+
+        if($list->type === 'mailchimp')
         {
-            case 'mailchimp':
-                $this->dispatchMailchimpMailing($mailing, $list);
-            case 'default':
-            default:
-                $this->dispatchDefaultMailing($mailing, $list);
+            $this->dispatchMailchimpMailing($mailing, $list);
+        } else {
+            $this->dispatchDefaultMailing($mailing, $list);
         }
 
         $this->notify('mailings.dispatched', 'dispatched_mailing', $mailing);

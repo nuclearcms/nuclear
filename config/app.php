@@ -194,7 +194,6 @@ return [
         /*
          * Other Vendor Service Providers...
          */
-        Kenarkose\Settlement\Provider\Laravel\SettlementServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,

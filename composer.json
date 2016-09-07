@@ -31,10 +31,10 @@
         "laravel/framework": "5.2.*",
         "nuclear/hierarchy": "~2.0",
         "nuclear/users": "~0.9",
-        "kenarkose/settlement": "~1.1",
         "igaster/laravel-theme": "^1.0",
         "barryvdh/laravel-debugbar": "~2.0",
-        "laracasts/flash": "^2.0"
+        "laracasts/flash": "^2.0",
+        "guzzlehttp/guzzle": "~5.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
