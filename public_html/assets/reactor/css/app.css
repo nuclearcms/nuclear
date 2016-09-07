@@ -175,6 +175,9 @@ body {
   .button--action {
     padding: 0 1.5em;
     color: #95A5A6; }
+  .button--maintenance {
+    margin: 0 0.5em 0.5em 0;
+    float: left; }
   .button__icon {
     position: relative;
     top: 0.0625em;
@@ -207,6 +210,19 @@ body {
     margin-top: 3em;
     padding-top: 1.5em;
     border-top: 1px solid #E5E7E9; }
+  .content-inner__message {
+    margin-bottom: 1em;
+    margin-top: -1em; }
+    .content-inner__message--muted {
+      color: #95A5A6; }
+  .content-inner__section {
+    border-bottom: 1px solid #E5E7E9;
+    margin-bottom: 3em;
+    padding-bottom: 1.5em; }
+    .content-inner__section::after {
+      clear: both;
+      content: "";
+      display: table; }
   .content-inner__options {
     position: absolute;
     top: 0;
