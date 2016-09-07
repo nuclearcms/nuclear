@@ -30,6 +30,10 @@ return [
     'cleared_cache' => 'Nuclear önbelleği temizlendi.',
     'clear_password_resets' => 'Şifre Sıfırlama Tokenlerini Temizle',
     'cleared_password_resets' => 'Şifre sıfırlama tokenleri temizlendi.',
+    'clear_compiled' => 'Derlenmiş Sınıfları Temizle',
+    'cleared_compiled' => 'Derlenmiş sınıflar temizlendi.',
+    'clear_routes_cache' => 'Rota Önbelleğini Temizle',
+    'cleared_routes_cache' => 'Rota önbelleği temizlendi.',
 
     'statistics' => 'İstatistikler',
     'statistics_hint' => 'Site görüntülenme istatistiklerini temizle.',

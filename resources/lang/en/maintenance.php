@@ -30,6 +30,10 @@ return [
     'cleared_cache' => 'Cleared Nuclear cache.',
     'clear_password_resets' => 'Clear Password Reset Tokens',
     'cleared_password_resets' => 'Cleared password reset tokens.',
+    'clear_compiled' => 'Clear Compiled Classes',
+    'cleared_compiled' => 'Cleared compiled classes.',
+    'clear_routes_cache' => 'Clear Routes Cache',
+    'cleared_routes_cache' => 'Cleared routes cache.',
 
     'statistics' => 'Statistics',
     'statistics_hint' => 'Clean site view statistics.',

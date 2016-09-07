@@ -40,7 +40,14 @@ Route::group([
     Route::post('clear/password', [
         'as' => 'reactor.maintenance.clear.password',
         'uses' => 'MaintenanceController@clearPasswords']);
+    Route::post('clear/compiled', [
+        'as' => 'reactor.maintenance.clear.compiled',
+        'uses' => 'MaintenanceController@clearCompiled']);
+    Route::post('clear/routes', [
+        'as' => 'reactor.maintenance.clear.routes',
+        'uses' => 'MaintenanceController@clearRoutesCache']);
 
+    // Statistics
     Route::post('clear/statistics', [
         'as' => 'reactor.maintenance.clear.statistics',
         'uses' => 'MaintenanceController@clearAllTrackerViews']);
@@ -51,14 +58,13 @@ Route::group([
         'as' => 'reactor.maintenance.clear.statistics.month',
         'uses' => 'MaintenanceController@clearTrackerViewsOlderMonth']);
 
+    // Activities
     Route::post('clear/activities', [
         'as' => 'reactor.maintenance.clear.activities',
         'uses' => 'MaintenanceController@clearActivities']);
-
     Route::post('clear/activities/year', [
         'as' => 'reactor.maintenance.clear.activities.year',
         'uses' => 'MaintenanceController@clearActivitiesOlderYear']);
-
     Route::post('clear/activities/month', [
         'as' => 'reactor.maintenance.clear.activities.month',
         'uses' => 'MaintenanceController@clearActivitiesOlderMonth']);

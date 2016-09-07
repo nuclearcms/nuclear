@@ -121,6 +121,26 @@ class MaintenanceController extends ReactorController {
     }
 
     /**
+     * Clears cache
+     *
+     * @return Redirect
+     */
+    public function clearRoutesCache()
+    {
+        return $this->action('route:clear', 'cleared_routes_cache');
+    }
+
+    /**
+     * Clears cache
+     *
+     * @return Redirect
+     */
+    public function clearCompiled()
+    {
+        return $this->action('clear-compiled', 'cleared_compiled');
+    }
+
+    /**
      * Flushes all site views
      *
      * @return Redirect

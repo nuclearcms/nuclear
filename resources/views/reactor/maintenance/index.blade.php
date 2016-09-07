@@ -58,6 +58,17 @@
                         data-action="{{ route('reactor.maintenance.clear.password') }}" type="button">
                     {{ uppercase(trans('maintenance.clear_password_resets')) }}
                 </button>
+
+                <button class="button button--emphasis button--maintenance"
+                        data-action="{{ route('reactor.maintenance.clear.compiled') }}" type="button">
+                    {{ uppercase(trans('maintenance.clear_compiled')) }}
+                </button>
+
+                <button class="button button--emphasis button--maintenance"
+                        data-action="{{ route('reactor.maintenance.clear.routes') }}" type="button">
+                    {{ uppercase(trans('maintenance.clear_routes_cache')) }}
+                </button>
+
             </div>
 
             <div class="content-inner__section">
