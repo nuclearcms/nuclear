@@ -30,7 +30,6 @@ class CreateEditForm extends Form {
             'help_block' => ['text' => trans('hints.mailing_lists_options')]
         ]);
         $this->add('external_id', 'text', [
-            'rules' => 'required_if:type,mailchimp',
             'help_block' => ['text' => trans('hints.mailing_lists_external_id')]
         ]);
     }

@@ -40,6 +40,9 @@ Route::group(['middleware' => 'can:ACCESS_MAILINGS'], function ()
             'uses' => 'MailingsController@dissociateList',
             'as'   => 'reactor.mailings.lists.dissociate']);
 
+        Route::put('{id}/dispatch/{list}', [
+            'uses' => 'MailingsController@dispatchMailing',
+            'as'   => 'reactor.mailings.dispatch']);
 
         require 'mailing_lists.php';
         require 'subscribers.php';

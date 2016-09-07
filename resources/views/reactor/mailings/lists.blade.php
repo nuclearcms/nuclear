@@ -11,7 +11,7 @@
             @include('mailings.options')
         </div>
 
-        @include('mailing_lists.sublist', [
+        @include('mailing_lists.sublist_dispatch', [
             'mailing_lists' => $mailing->lists,
             'dissociateRoute' => route('reactor.mailings.lists.dissociate', $mailing->getKey())
         ])

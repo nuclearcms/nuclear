@@ -6,7 +6,9 @@ namespace Reactor\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Nuclear\Hierarchy\MailingNode;
+use Nuclear\Hierarchy\Mailings\MailingList;
 use Reactor\Http\Controllers\Traits\BasicResource;
+use Reactor\Http\Controllers\Traits\DispatchesMailings;
 use Reactor\Http\Controllers\Traits\ModifiesMailingLists;
 use Reactor\Http\Controllers\Traits\UsesMailingForms;
 use Reactor\Http\Controllers\Traits\UsesMailingHelpers;
@@ -14,7 +16,8 @@ use Reactor\Http\Controllers\Traits\UsesTranslations;
 
 class MailingsController extends ReactorController {
 
-    use UsesMailingForms, UsesMailingHelpers, UsesTranslations, BasicResource, ModifiesMailingLists;
+    use UsesMailingForms, UsesMailingHelpers, UsesTranslations, BasicResource,
+        ModifiesMailingLists, DispatchesMailings;
 
     /**
      * Names for the BasicResource trait
@@ -158,6 +161,34 @@ class MailingsController extends ReactorController {
         $_inBrowser = true;
 
         return view($mailing->getNodeTypeName(), compact('mailing', 'translation', '_inBrowser'));
+    }
+
+    /**
+     * Dispatches the mailing
+     *
+     * @param int $id
+     * @param int $list
+     * @return response
+     */
+    public function dispatchMailing($id, $list)
+    {
+        $this->authorize('EDIT_MAILINGS');
+
+        $mailing = MailingNode::findOrFail($id);
+        $list = MailingList::findOrFail($list);
+
+        switch ($list->type)
+        {
+            case 'mailchimp':
+                $this->dispatchMailchimpMailing($mailing, $list);
+            case 'default':
+            default:
+                $this->dispatchDefaultMailing($mailing, $list);
+        }
+
+        $this->notify('mailings.dispatched', 'dispatched_mailing', $mailing);
+
+        return redirect()->back();
     }
 
 }

@@ -7,7 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Oxygen:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <style type="text/css">
         body{font:16px/20px 'Oxygen',sans-serif;color:#FFFFFF;padding:64px;}
-        table{max-width:600px;width:100%;background-color:#272E36;border:1px solid #95A5A6;padding:32px;}
+        table{max-width:768px;width:100%;background-color:#272E36;border:1px solid #95A5A6;padding:32px;}
         h1{font:32px/32px 'Oxygen',sans-serif;margin-bottom:16px;}
         h4{color:#F1C40F;font:12px/14px 'Lato', sans-serif;margin-bottom:0;}
         a{font-size:12px;color:#F1C40F;}
