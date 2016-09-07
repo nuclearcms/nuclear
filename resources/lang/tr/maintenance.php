@@ -12,8 +12,8 @@ return [
     'optimized_app' => 'Nuclear optimize edildi.',
     'cache_routes' => 'Rotaları Önbelleğe Al',
     'cached_routes' => 'Rotalar önbelleğe alındı.',
-    'fix_node_tree' => 'Düğüm Ağacını Onar',
-    'fixed_node_tree' => 'Düğüm ağacı onarıldı.',
+    'fix_nodes_tree' => 'Düğüm Ağacını Onar',
+    'fixed_nodes_tree' => 'Düğüm ağacı onarıldı.',
     'regenerate_key' => 'Yeniden Anahtar Oluştur',
     'regenerated_key' => 'Anahtar yeniden oluşturuldu.',
 
@@ -38,8 +38,8 @@ return [
     'statistics' => 'İstatistikler',
     'statistics_hint' => 'Site görüntülenme istatistiklerini temizle.',
     'clear_tracker_all' => 'Tüm İstatistikleri Temizle',
-    'clear_tracker_year_older' => 'Bir Yıldan Eski İstatistikleri Temizle',
-    'clear_tracker_month_older' => 'Bir Aydan Eski İstatistikleri Temizle',
+    'clear_tracker_older_year' => 'Bir Yıldan Eski İstatistikleri Temizle',
+    'clear_tracker_older_month' => 'Bir Aydan Eski İstatistikleri Temizle',
     'cleared_tracker' => 'İstatistikler temizlendi.',
 
     'activity_feed' => 'Etkinlikler',
