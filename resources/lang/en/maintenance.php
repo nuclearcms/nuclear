@@ -20,7 +20,7 @@ return [
     'backup' => 'Backup',
     'backup_hint' => 'Backup your website. Please wait as this may take a while.',
     'create_backup' => 'Create Backup',
-    'created_backup' => 'Created a backup in the "backups" directory.',
+    'created_backup' => 'Created the backup in the "backups" directory.',
 
     'cleanup' => 'Cleanup',
     'cleanup_hint' => 'Clean accumulating information in Nuclear.',

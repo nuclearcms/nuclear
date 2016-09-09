@@ -87,7 +87,7 @@ class MaintenanceController extends ReactorController {
      */
     public function createBackup()
     {
-        // @todo
+        return $this->action('reactor:backup', 'created_backup');
     }
 
     /**

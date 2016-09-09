@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6fe3a61e21586659b1ba10157ee24422",
-    "content-hash": "b7601cfc203c4be06d737006c479b683",
+    "hash": "936666081997ebd87d71da9582598ed9",
+    "content-hash": "852283fe215c29366cf6b577947b1ca0",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -60,6 +60,56 @@
                 "webprofiler"
             ],
             "time": "2016-07-29 15:00:36"
+        },
+        {
+            "name": "chumper/zipper",
+            "version": "0.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Chumper/Zipper.git",
+                "reference": "313e364259398557bdcc2f68e6ff20d71aaea811"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Chumper/Zipper/zipball/313e364259398557bdcc2f68e6ff20d71aaea811",
+                "reference": "313e364259398557bdcc2f68e6ff20d71aaea811",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/filesystem": "5.x",
+                "illuminate/support": "5.x",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Chumper\\Zipper": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "Nils Plaschke",
+                    "email": "github@nilsplaschke.de",
+                    "homepage": "http://nilsplaschke.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is a little neat helper for the ZipArchive methods with handy functions",
+            "homepage": "http://github.com/Chumper/zipper",
+            "keywords": [
+                "archive",
+                "laravel",
+                "zip"
+            ],
+            "time": "2015-02-16 11:38:11"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -3008,6 +3058,56 @@
                 "simexis"
             ],
             "time": "2016-02-25 08:52:29"
+        },
+        {
+            "name": "spatie/db-dumper",
+            "version": "1.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/db-dumper.git",
+                "reference": "efdf41891a9dd4bb63fb6253044c9e51f34fff41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/efdf41891a9dd4bb63fb6253044c9e51f34fff41",
+                "reference": "efdf41891a9dd4bb63fb6253044c9e51f34fff41",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5|^7.0",
+                "symfony/process": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\DbDumper\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Dump databases",
+            "homepage": "https://github.com/spatie/db-dumper",
+            "keywords": [
+                "database",
+                "db-dumper",
+                "dump",
+                "mysqldump",
+                "spatie"
+            ],
+            "time": "2016-06-14 13:23:01"
         },
         {
             "name": "swiftmailer/swiftmailer",

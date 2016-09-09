@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Reactor\Support;
+namespace Reactor\Support\Validation;
 
 
 class FormValidator {

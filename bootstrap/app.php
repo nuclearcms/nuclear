@@ -15,6 +15,11 @@ $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
 
+// Let us make the public directory configurable
+$app->bind('path.public', function() {
+    return base_path(env('PUBLIC_DIR', 'public_html'));
+});
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

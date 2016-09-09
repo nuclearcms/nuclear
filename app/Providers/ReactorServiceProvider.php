@@ -66,7 +66,7 @@ class ReactorServiceProvider extends ServiceProvider {
 
         foreach ($rules as $name => $rule)
         {
-            Validator::extend($name, 'Reactor\Support\FormValidator@validate' . $rule);
+            Validator::extend($name, 'Reactor\Support\Validation\FormValidator@validate' . $rule);
         }
     }
 

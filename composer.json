@@ -34,7 +34,9 @@
         "igaster/laravel-theme": "^1.0",
         "barryvdh/laravel-debugbar": "~2.0",
         "laracasts/flash": "^2.0",
-        "guzzlehttp/guzzle": "~5.3"
+        "guzzlehttp/guzzle": "~5.3",
+        "chumper/zipper": "^0.6.1",
+        "spatie/db-dumper": "^1.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -49,7 +51,8 @@
         ],
         "psr-4": {
             "Reactor\\": "app/",
-            "gen\\": "gen/"
+            "gen\\": "gen/",
+            "extension\\": "extension/"
         }
     },
     "autoload-dev": {

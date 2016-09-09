@@ -197,6 +197,7 @@ return [
         Laracasts\Flash\FlashServiceProvider::class,
         igaster\laravelTheme\themeServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Chumper\Zipper\ZipperServiceProvider::class,
 
         /*
          * Site Service Providers...
@@ -252,7 +253,6 @@ return [
          * Other Facades
          */
         'Chronicle'   => Kenarkose\Chronicle\ChronicleFacade::class,
-        'Settings'    => Kenarkose\Settlement\Provider\Laravel\Settings::class,
         'Downloader'  => Kenarkose\Transit\Facade\Downloader::class,
         'Uploader'    => Kenarkose\Transit\Facade\Uploader::class,
         'Tracker'     => Kenarkose\Tracker\TrackerFacade::class,
@@ -261,7 +261,8 @@ return [
         'Image'       => Intervention\Image\Facades\Image::class,
         'Theme'       => igaster\laravelTheme\Facades\Theme::class,
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
-        'Oembed'      => Simexis\Oembed\OembedFacade::class
+        'Oembed'      => Simexis\Oembed\OembedFacade::class,
+        'Zipper'      => Chumper\Zipper\Zipper::class,
 
     ],
 
