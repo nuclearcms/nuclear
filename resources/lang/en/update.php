@@ -7,7 +7,7 @@ return [
     'index' => 'Update Nuclear',
 
     'nuclear_is_up_to_date' => 'Nuclear is up to date!',
-    'up_to_date_description' => 'Current version in: :version.',
+    'up_to_date_description' => 'Current version is <strong>:version</strong>.',
     'nuclear_is_not_up_to_date' => 'Nuclear is not up to date!',
     'not_up_to_date_description' => 'Installed version is <strong>:version</strong>, compared to the latest version <strong>:latest</strong>.',
 
