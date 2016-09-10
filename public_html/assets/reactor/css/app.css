@@ -206,10 +206,6 @@ body {
     font-size: 1.5em;
     font-weight: 300;
     margin-bottom: 1em; }
-    .content-inner__heading--secondary {
-      font-size: 1em;
-      font-family: "Lato", Helvetica, sans-serif;
-      font-weight: 700; }
     .content-inner__heading--success {
       color: #F1C40F; }
     .content-inner__heading--danger {
@@ -2068,6 +2064,16 @@ label {
       border: 0;
       background-color: #F1C40F; }
 
+.progress-bar {
+  height: 2em;
+  background-color: #F5F5F5; }
+  .progress-bar__rail {
+    height: 100%;
+    width: 0%;
+    background-color: #F1C40F;
+    box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.25);
+    transition: width 250ms; }
+
 .tabs-outer {
   text-align: center;
   position: relative;
@@ -2898,6 +2904,19 @@ h1 {
   z-index: 10;
   opacity: 1;
   transition: opacity 250ms; }
+
+/*
+   Animation example, for spinners
+*/
+.animate-spin {
+  animation: spin 2s infinite linear;
+  display: inline-block; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(359deg); } }
 
 /*!
  * Cropper v2.3.3

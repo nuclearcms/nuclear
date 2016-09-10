@@ -63,6 +63,9 @@ if( ! argv.r) {
             .scripts([
                 'tags.js'
             ], elixir.config.publicPath + '/js/tags.js')
+            .scripts([
+                'updater.js'
+            ], elixir.config.publicPath + '/js/updater.js')
         ;
     });
 

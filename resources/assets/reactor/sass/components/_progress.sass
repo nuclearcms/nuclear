@@ -16,3 +16,14 @@
         &--active
             border: 0
             background-color: $colorEmphasis
+
+.progress-bar
+    height: 2em
+    background-color: $colorLightBG3
+
+    &__rail
+        height: 100%
+        width: 0%
+        background-color: $colorEmphasis
+        box-shadow: $shadowDownLight
+        +transition(width $durationShort)
