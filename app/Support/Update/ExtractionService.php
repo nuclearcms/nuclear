@@ -25,7 +25,7 @@ class ExtractionService {
      *
      * @var string
      */
-    const UPDATE_DESTINATION_DIR = '/updatetest';
+    const UPDATE_DESTINATION_DIR = '';
 
     /**
      * The folder name when archive is extracted.
