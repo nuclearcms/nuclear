@@ -7,6 +7,6 @@
     ])
 
     <div class="content-inner content-inner--xcompact">
-        @include('nodes.sublist', ['locale' => null, 'nodes' => $mailings, 'noResultsMessage' => 'mailing_lists.no_mailing_lists'])
+        @include('nodes.sublist', ['locale' => null, 'nodes' => $mailings, 'noResultsMessage' => 'mailings.no_mailings'])
     </div>
 @endsection

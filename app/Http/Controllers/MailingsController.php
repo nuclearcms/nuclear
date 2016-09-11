@@ -142,7 +142,11 @@ class MailingsController extends ReactorController {
 
         $this->validateTransformForm($request);
 
+        // Recording paused for this, otherwise two records are registered
+        chronicle()->pauseRecording();
         $mailing->transformInto($request->input('type'));
+        // and resume
+        chronicle()->resumeRecording();
 
         $this->notify('mailings.transformed', 'transformed_mailing', $mailing);
 
