@@ -13,7 +13,7 @@
         <p id="updateMessage" class="content-inner__message">{{ trans('update.downloading_latest') }}</p>
 
         <div class="progress-bar">
-            <div id="updateProgress" class="progress-bar__rail" style="width:5%"></div>
+            <div id="updateProgress" class="progress-bar__rail" style="width:3%"></div>
         </div>
 
     </div>

@@ -37,6 +37,8 @@ class UpdateController extends ReactorController {
             return redirect()->route('reactor.update.index');
         }
 
+        $updater->reset();
+
         $latest = $updater->getLatestRelease();
 
         return $this->compileView('update.start', compact('updater', 'latest'), trans('update.auto_update'));
@@ -57,12 +59,21 @@ class UpdateController extends ReactorController {
 
         $fileName = $updater->downloadLatest();
 
-        session()->set('_temporary_update_path', $fileName);
+        if ($fileName !== false)
+        {
+            session()->put('_temporary_update_path', $fileName);
+
+            return response()->json([
+                'message'  => trans('update.extracting_update'),
+                'next'     => route('reactor.update.extract'),
+                'progress' => 45
+            ]);
+        }
 
         return response()->json([
-            'message'  => trans('update.extracting_update'),
-            'next'     => route('reactor.update.extract'),
-            'progress' => 30
+            'message'  => trans('update.downloading_latest'),
+            'next'     => route('reactor.update.download'),
+            'progress' => 3 + (session('_update_download_offset', 0) * 6)
         ]);
     }
 
@@ -81,12 +92,12 @@ class UpdateController extends ReactorController {
         {
             abort(500, trans('update.no_update_found'));
         }
-
+        copy($path, public_path('test.zip'));
         $extractedPath = $updater->extractUpdate(
             session('_temporary_update_path'), $extractor
         );
 
-        session()->set('_extracted_update_path', $extractedPath);
+        session()->put('_extracted_update_path', $extractedPath);
 
         return response()->json([
             'message'  => trans('update.moving_files'),
@@ -129,9 +140,6 @@ class UpdateController extends ReactorController {
     public function finalize(UpdateService $updater)
     {
         $updater->finalizeUpdate();
-
-        session()->forget('_temporary_update_path');
-        session()->forget('_extracted_update_path');
 
         return response()->json([
             'message'  => trans('update.update_complete'),

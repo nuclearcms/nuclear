@@ -6,7 +6,6 @@ namespace Reactor\Support\Update;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Stream\Stream;
 use Symfony\Component\HttpFoundation\Response;
 
 class UpdateService {
@@ -94,7 +93,12 @@ class UpdateService {
      */
     public function downloadLatest()
     {
-        $downloadURL = $this->getLatestDownloadLink();
+        if ( ! ($downloadURL = session('_update_download_link', null)))
+        {
+            $downloadURL = $this->getLatestDownloadLink();
+
+            session()->put('_update_download_link', $downloadURL);
+        }
 
         return $this->downloadUpdateFromURL($downloadURL);
     }
@@ -104,7 +108,7 @@ class UpdateService {
      *
      * @return string
      */
-    protected function getLatestDownloadLink()
+    public function getLatestDownloadLink()
     {
         $latest = $this->getLatestRelease();
 
@@ -124,13 +128,56 @@ class UpdateService {
      */
     protected function downloadUpdateFromURL($downloadURL)
     {
-        $fileName = tempnam(sys_get_temp_dir(), 'nuclear_update.zip');
-        $resource = fopen($fileName, 'w');
-        $stream = Stream::factory($resource);
+        if ( ! ($fileName = session('_update_download_filename', null)))
+        {
+            $fileName = tempnam(sys_get_temp_dir(), 'nuclear_update.zip');
 
-        with(new Client())->get($downloadURL, ['save_to' => $stream]);
+            session()->put('_update_download_filename', $fileName);
+        }
 
-        return $fileName;
+        $readOffset = session('_update_download_offset', 0);
+        $download = fopen($fileName, 'a');
+
+        $eof = $this->downloadRange($download, $downloadURL, $readOffset);
+        fclose($download);
+
+        return $eof ? $fileName : false;
+    }
+
+    /**
+     * Downloads a chunk of the update
+     *
+     * @param $download
+     * @param string $downloadURL
+     * @param int $readOffset
+     * @return bool
+     */
+    protected function downloadRange($download, $downloadURL, $readOffset)
+    {
+        $ch = curl_init();
+
+        curl_setopt_array($ch, [
+            CURLOPT_URL            => $downloadURL,
+            CURLOPT_RANGE          => 2097152 * $readOffset . '-' . (2097152 * ($readOffset + 1)-1),
+            CURLOPT_BINARYTRANSFER => 1,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_FOLLOWLOCATION => 1,
+        ]);
+
+        $result = curl_exec($ch);
+        $info = curl_getinfo($ch);
+        curl_close($ch);
+
+        if ($info['http_code'] == '206')
+        {
+            fwrite($download, $result);
+
+            session()->put('_update_download_offset', $readOffset + 1);
+
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -169,6 +216,20 @@ class UpdateService {
         \Artisan::call('route:cache');
         \Artisan::call('migrate');
         \Artisan::call('optimize', ['--force' => true]);
+
+        $this->reset();
+    }
+
+    /**
+     * Resets the sessions that updater uses
+     */
+    public function reset()
+    {
+        session()->forget('_update_download_link');
+        session()->forget('_update_download_filename');
+        session()->forget('_update_download_offset');
+        session()->forget('_temporary_update_path');
+        session()->forget('_extracted_update_path');
     }
 
 }
