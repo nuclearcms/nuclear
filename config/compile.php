@@ -37,7 +37,6 @@ return [
         base_path('vendor/kenarkose/files/src/Provider/FilesServiceProvider.php'),
         base_path('vendor/kenarkose/transit/src/Provider/TransitServiceProvider.php'),
         base_path('vendor/simexis/oembed/OembedServiceProvider.php'),
-        base_path('vendor/simexis/oembed/OembedServiceProvider.php'),
         base_path('vendor/intervention/image/src/Intervention/Image/ImageServiceProvider.php'),
 
         // Other Vendor Service Providers
