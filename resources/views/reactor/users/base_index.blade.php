@@ -6,7 +6,7 @@
 
     @can('EDIT_USERS')
         {!! header_action_open('users.new', 'header__action--right') !!}
-        {!! action_button(route('reactor.users.create'), 'icon-blank') !!}
+        {!! action_button(route('reactor.users.create'), 'icon-user-create') !!}
         {!! header_action_close() !!}
     @endcan
 @endsection

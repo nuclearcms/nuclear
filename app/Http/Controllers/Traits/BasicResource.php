@@ -206,7 +206,7 @@ trait BasicResource {
 
         $modelPath::whereIn('id', $ids)->delete();
 
-        $this->notify($resourceMultiple . '.destroyed');
+        $this->notify($resourceMultiple . '.destroyed', 'deleted_' . $resourceMultiple);
 
         return redirect()->back();
     }
