@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider {
     protected function registerPatternFilters(Router $router)
     {
         $router->pattern('id', '[0-9]+');
+        $router->pattern('slug', '[\pL\pM\pN_-]+');
     }
 
     /**

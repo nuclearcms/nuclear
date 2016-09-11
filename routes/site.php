@@ -7,7 +7,7 @@ Route::group(['middleware' => ['track']], function ()
         'as'   => 'site.home',
         'uses' => '\Extension\Site\Http\SiteController@getHome']);
 
-    Route::get('{node}', [
+    Route::get('{slug}', [
         'as'   => 'site.page',
         'uses' => '\Extension\Site\Http\SiteController@getPage']);
 
