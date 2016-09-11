@@ -61,8 +61,7 @@ class NodesController extends ReactorController {
     public function searchJson(Request $request)
     {
         // Because of the searchable trait we are adding the global scopes from scratch
-        $nodes = Node::search($request->input('q'), 20, true)
-            ->withoutGlobalScopes()
+        $nodes = Node::withoutGlobalScopes()
             ->typeMailing()
             ->groupBy('id')->limit(10);
 
@@ -73,7 +72,8 @@ class NodesController extends ReactorController {
             $nodes->withType($filter);
         }
 
-        $nodes = $nodes->get();
+        // Search must be last
+        $nodes = $nodes->search($request->input('q'), 20, true)->get();
 
         $results = [];
 
@@ -253,7 +253,7 @@ class NodesController extends ReactorController {
         Node::whereIn('id', $ids)
             ->whereLocked(0)->delete();
 
-        $this->notify('nodes.destroyed');
+        $this->notify('nodes.destroyed', 'deleted_nodes');
 
         return redirect()->back();
     }
@@ -331,11 +331,15 @@ class NodesController extends ReactorController {
 
         $locale = $this->validateLocale($request);
 
+        // Recording paused for this, otherwise two records are registered
+        chronicle()->pauseRecording();
         $node->update([
             $locale => $request->all()
         ]);
+        // and resume
+        chronicle()->resumeRecording();
 
-        $this->notify('general.added_translation');
+        $this->notify('general.added_translation', 'created_node_translation', $node);
 
         return redirect()->route('reactor.nodes.edit', [
             $node->getKey(),
@@ -398,7 +402,11 @@ class NodesController extends ReactorController {
         if($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         try {
+            // Recording paused for this, otherwise two records are registered
+            chronicle()->pauseRecording();
             $node->transformInto($request->input('type'));
+            // and resume
+            chronicle()->resumeRecording();
 
             $this->notify('nodes.transformed', 'transformed_node', $node);
         } catch (InvalidParentNodeTypeException $e)
@@ -443,8 +451,12 @@ class NodesController extends ReactorController {
         {
             try
             {
+                // Recording paused for this, otherwise two records are registered
+                chronicle()->pauseRecording();
                 $node->appendToNode($parent);
                 $node->save();
+                // and resume
+                chronicle()->resumeRecording();
 
                 $this->notify('nodes.moved', 'moved_node', $node);
             } catch (InvalidParentNodeTypeException $e)

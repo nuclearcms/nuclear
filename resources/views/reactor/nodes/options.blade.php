@@ -1,13 +1,5 @@
 {!! content_options_open(null, false) !!}
 
-@if($node->canHaveChildren())
-<li class="dropdown-sub__item">
-    <a href="{{ route('reactor.nodes.create', $node->getKey()) }}">
-        <i class="icon-plus"></i>{{ trans('nodes.add_child') }}</a>
-</li>
-<li class="dropdown-sub__splitter"></li>
-@endif
-
 @if($node->canHaveMoreTranslations())
 <li class="dropdown-sub__item">
     <a href="{{ route('reactor.nodes.translation.create', $node->getKey()) }}">
@@ -28,6 +20,14 @@
         route('reactor.nodes.destroy', $node->getKey()),
         trans('nodes.destroy')) !!}
 </li>
+
+@if($node->canHaveChildren())
+<li class="dropdown-sub__splitter"></li>
+<li class="dropdown-sub__item">
+    <a href="{{ route('reactor.nodes.create', $node->getKey()) }}">
+        <i class="icon-plus"></i>{{ trans('nodes.add_child') }}</a>
+</li>
+@endif
 
 @if( ! $node->isLocked())
 <li class="dropdown-sub__splitter"></li>

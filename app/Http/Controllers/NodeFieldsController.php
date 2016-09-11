@@ -46,7 +46,7 @@ class NodeFieldsController extends ReactorController {
 
         $nodeField = $nodeFieldRepository->create($id, $request->all());
 
-        $this->notify('nodefields.created', 'created_nodefield', $nodeField);
+        $this->notify('nodefields.created');
 
         return redirect()->route('reactor.nodefields.edit', $nodeField->getKey());
     }
