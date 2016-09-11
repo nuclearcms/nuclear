@@ -10,7 +10,7 @@ use Nuclear\Hierarchy\NodeRepository;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '3.0-alpha.1';
+    const VERSION = '3.0-alpha.2';
 
     /**
      * Register any application services.

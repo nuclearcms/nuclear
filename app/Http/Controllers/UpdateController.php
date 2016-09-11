@@ -92,7 +92,7 @@ class UpdateController extends ReactorController {
         {
             abort(500, trans('update.no_update_found'));
         }
-        copy($path, public_path('test.zip'));
+
         $extractedPath = $updater->extractUpdate(
             session('_temporary_update_path'), $extractor
         );
