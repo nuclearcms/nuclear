@@ -2,11 +2,12 @@
 
 namespace Reactor\Http;
 
+
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Reactor\Http\Middleware\DetermineLocale;
 
-class Kernel extends HttpKernel
-{
+class Kernel extends HttpKernel {
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -47,12 +48,13 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Reactor\Http\Middleware\Authenticate::class,
+        'auth'       => \Reactor\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
-        'guest' => \Reactor\Http\Middleware\RedirectIfAuthenticated::class,
-        'secure' => \Reactor\Http\Middleware\ForceSecure::class,
-        'set-theme' => \igaster\laravelTheme\Middleware\setTheme::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'can'        => \Illuminate\Foundation\Http\Middleware\Authorize::class,
+        'guest'      => \Reactor\Http\Middleware\RedirectIfAuthenticated::class,
+        'secure'     => \Reactor\Http\Middleware\ForceSecure::class,
+        'set-theme'  => \igaster\laravelTheme\Middleware\setTheme::class,
+        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'track'      => \Kenarkose\Tracker\TrackerMiddleware::class
     ];
 }

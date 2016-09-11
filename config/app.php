@@ -202,6 +202,7 @@ return [
         /*
          * Site Service Providers...
          */
+        Extension\Site\Providers\SiteExtensionServiceProvider::class,
 
     ],
 

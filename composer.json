@@ -52,7 +52,7 @@
         "psr-4": {
             "Reactor\\": "app/",
             "gen\\": "gen/",
-            "extension\\": "extension/"
+            "Extension\\": "extension/"
         }
     },
     "autoload-dev": {
