@@ -73,12 +73,15 @@ if ( ! function_exists('uppercase'))
      * This helper mainly resolves the issue for Turkish i => İ
      * This should otherwise be done with CSS
      *
-     * @param string
+     * @param string $string
+     * @param string $locale
      * @return string
      */
-    function uppercase($string)
+    function uppercase($string, $locale = null)
     {
-        if (App::getLocale() === 'tr')
+        $locale = $locale ?: App::getLocale();
+
+        if ($locale === 'tr')
         {
             return mb_strtoupper(str_replace('i', 'İ', $string), 'UTF-8');
         }

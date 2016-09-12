@@ -11,9 +11,9 @@
         <div class="navigation__links footer__links">
             @foreach(locales() as $locale)
                 @if($locale === app()->getLocale())
-                    <span class="navigation__link footer__link footer__link--active">{{ uppercase(trans('general.' . $locale, [], 'messages', $locale)) }}</span>
+                    <span class="navigation__link footer__link footer__link--active">{{ uppercase(trans('general.' . $locale, [], 'messages', $locale), $locale) }}</span>
                 @else
-                    <a class="navigation__link footer__link" href="{{ route('locale.set.home', $locale) }}">{{ uppercase(trans('general.' . $locale, [], 'messages', $locale)) }}</a>
+                    <a class="navigation__link footer__link" href="{{ route('locale.set.home', $locale) }}">{{ uppercase(trans('general.' . $locale, [], 'messages', $locale), $locale) }}</a>
                 @endif
             @endforeach
         </div>
