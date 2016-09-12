@@ -42,6 +42,7 @@ return [
     'unlock' => 'Kilidi Aç',
     'hide' => 'Düğümü Göster',
     'show' => 'Düğümü Sakla',
+    'preview_on_site' => 'Sitede Önizle',
 
     'filter_all' => 'Tüm Düğümler',
     'filter_withheld' => 'Yayınlanmamış',

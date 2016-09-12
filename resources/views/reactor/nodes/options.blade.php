@@ -1,5 +1,11 @@
 {!! content_options_open(null, false) !!}
 
+<li class="dropdown-sub__item dropdown-sub__item--delete">
+    <a href="{{ $node->getPreviewURL($source->locale) }}" target="_blank">
+        <i class="icon-globe"></i>{{ trans('nodes.preview_on_site') }}</a>
+</li>
+<li class="dropdown-sub__splitter"></li>
+
 @if($node->canHaveMoreTranslations())
 <li class="dropdown-sub__item">
     <a href="{{ route('reactor.nodes.translation.create', $node->getKey()) }}">

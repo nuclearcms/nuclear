@@ -14,7 +14,7 @@
 
     @section('metaAlternateLinks')
         @foreach($node->translations as $translation)
-        <link rel="alternate" href="{{ $node->getPreviewURL($translation->locale) }}" hreflang="{{ $translation->locale }}">
+        <link rel="alternate" href="{{ $node->getSiteURL($translation->locale) }}" hreflang="{{ $translation->locale }}">
         @endforeach
     @endsection
 @endif

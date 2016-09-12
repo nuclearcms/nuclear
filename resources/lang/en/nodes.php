@@ -42,6 +42,7 @@ return [
     'unlock' => 'Unlock Node',
     'hide' => 'Hide Node',
     'show' => 'Show Node',
+    'preview_on_site' => 'Preview on Site',
 
     'filter_all' => 'All Nodes',
     'filter_withheld' => 'Withheld',
