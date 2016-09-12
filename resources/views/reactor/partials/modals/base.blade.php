@@ -13,7 +13,7 @@
 
             <div class="modal-buttons">
                 @if(isset($modalButtons))
-                    {{ $modalButtons }}
+                    {!! $modalButtons !!}
                 @else
                     @yield('modalButtons')
                 @endif
