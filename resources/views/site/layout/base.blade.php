@@ -15,6 +15,8 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300|Lato:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
     {!! Theme::css('css/app.css') !!}
     @yield('styles')
 
@@ -26,7 +28,7 @@
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];
         e.src='https://www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','{{ $home->getTranslationAttribute('google_analytics_key') }}','auto');ga('send','pageview');
+        ga('create','{{ env('API_ANALYTICS') }}','auto');ga('send','pageview');
     </script>
 
 </head>

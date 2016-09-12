@@ -1,0 +1,91 @@
+.container
+    width: 100%
+    max-width: 40em
+    margin: 0 auto
+    padding: 0 1.5em
+
+h1
+    font-size: 3em
+    font-weight: $fontWeightBold
+    line-height: 1em
+    letter-spacing: -1px
+
+.navigation
+    padding-top: 1em
+    margin-bottom: 8em
+    +clearfix
+
+    &__home
+        float: left
+
+    &__logo
+        +size(2.5em)
+
+    &__links
+        padding-top: 0.25em
+        float: right
+
+    &__link
+        margin-left: 1em
+        font-size: 0.75em
+        font-weight: $fontWeightBold
+        font-family: $fontHeading
+        color: inherit
+        position: relative
+        +transition(opacity $durationShort)
+
+
+.markdown-preview
+    line-height: 1.75em
+
+    a
+        color: inherit
+        position: relative
+
+        &:after
+            +position(absolute, null null 0 0)
+            height: 0.375em
+            width: 100%
+            background-color: rgba($colorEmphasis, 0.5)
+            +transition(height $durationShort)
+            display: block
+            content: ''
+            z-index: -1
+
+.footer
+    margin-top: 8em
+    margin-bottom: 4em
+    background-color: $colorEmphasis
+    padding: 0.5em 0
+
+    &__inner
+        +clearfix
+
+    &__kk
+        float: left
+        display: inline-block
+        +size(1em)
+        padding: 0.25em 0
+
+        svg
+            width: 100%
+            vertical-align: top
+
+    &__links
+        padding-top: 0
+
+    &__link
+        color: $colorBG
+        vertical-align: top
+        font-size: 0.625em
+
+        &--active
+            opacity: 0.7
+
+
+.no-touch
+    .markdown-preview a:hover:after
+        height: 1.25em
+
+    .navigation__link:hover
+        opacity: 0.7
