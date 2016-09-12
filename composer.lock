@@ -2526,16 +2526,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "2.2.7",
+            "version": "2.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "c8de0998a35549febc3486d06d9038d13c6b4667"
+                "reference": "42148f879d0519f17a7336f9ac874f3a1521886e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/c8de0998a35549febc3486d06d9038d13c6b4667",
-                "reference": "c8de0998a35549febc3486d06d9038d13c6b4667",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/42148f879d0519f17a7336f9ac874f3a1521886e",
+                "reference": "42148f879d0519f17a7336f9ac874f3a1521886e",
                 "shasum": ""
             },
             "require": {
@@ -2594,7 +2594,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-09-12 10:24:29"
+            "time": "2016-09-12 11:23:14"
         },
         {
             "name": "nuclear/synthesizer",

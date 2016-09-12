@@ -31,11 +31,10 @@ class DetermineLocale {
         }
 
         // Else set site locale
-        $locale = session()->has('_locale') ?
-            session('_locale') :
+        $locale = session('_locale', null) ?:
             mb_substr($request->getPreferredLanguage(), 0, 2);
 
-        if (in_array($locale, config('translatable.locales')))
+        if (in_array($locale, locales()))
         {
             set_app_locale($locale);
         }

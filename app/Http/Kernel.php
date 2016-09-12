@@ -4,7 +4,6 @@ namespace Reactor\Http;
 
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Reactor\Http\Middleware\DetermineLocale;
 
 class Kernel extends HttpKernel {
 
@@ -16,8 +15,7 @@ class Kernel extends HttpKernel {
      * @var array
      */
     protected $middleware = [
-        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        DetermineLocale::class
+        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class
     ];
 
     /**
@@ -33,6 +31,7 @@ class Kernel extends HttpKernel {
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Reactor\Http\Middleware\VerifyCsrfToken::class,
             \Reactor\Http\Middleware\RedirectIfNotInstalled::class,
+            \Reactor\Http\Middleware\DetermineLocale::class
         ],
 
         'api' => [
