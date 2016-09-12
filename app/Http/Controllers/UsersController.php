@@ -120,18 +120,18 @@ class UsersController extends ReactorController {
     }
 
     /**
-     * Shows the history for the user
+     * Shows the activity for the user
      *
      * @param int $id
      * @return Response
      */
-    public function history($id)
+    public function activity($id)
     {
         $user = User::findOrFail($id);
 
-        $activities = chronicle()->getUserActivity($id, 20);
+        $activities = chronicle()->getUserActivity($id, 30);
 
-        return $this->compileView('users.history', compact('user', 'activities'), trans('general.history'));
+        return $this->compileView('users.activity', compact('user', 'activities'), trans('general.activity'));
     }
 
 }

@@ -47,8 +47,8 @@ Route::group(['middleware' => 'can:ACCESS_USERS'], function ()
         'uses' => 'UsersController@revokePermission',
         'as'   => 'reactor.users.permissions.revoke']);
 
-    Route::get('users/{id}/history', [
-        'uses' => 'UsersController@history',
-        'as'   => 'reactor.users.history']);
+    Route::get('users/{id}/activity', [
+        'uses' => 'UsersController@activity',
+        'as'   => 'reactor.users.activity']);
 
 });

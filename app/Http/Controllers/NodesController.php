@@ -13,6 +13,7 @@ use Nuclear\Hierarchy\Tags\Tag;
 use Reactor\Http\Controllers\Traits\UsesNodeForms;
 use Reactor\Http\Controllers\Traits\UsesNodeHelpers;
 use Reactor\Http\Controllers\Traits\UsesTranslations;
+use Reactor\Statistics\NodeStatisticsCompiler;
 
 class NodesController extends ReactorController {
 
@@ -686,6 +687,22 @@ class NodesController extends ReactorController {
     public function detachTag(Request $request, $id)
     {
         return $this->attachOrDetachTag($request, $id, 'detach');
+    }
+
+    /**
+     * Shows the statistics for the resource
+     *
+     * @param NodeStatisticsCompiler $compiler
+     * @param int $id
+     * @return view
+     */
+    public function statistics(NodeStatisticsCompiler $compiler, $id)
+    {
+        list($node, $locale, $source) = $this->authorizeAndFindNode($id);
+
+        $statistics = $compiler->compileStatistics($node);
+
+        return $this->compileView('nodes.statistics', compact('node', 'locale', 'source', 'statistics'), trans('general.statistics'));
     }
 
 }

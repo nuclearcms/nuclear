@@ -10,6 +10,7 @@ return [
     'selected' => 'seçili',
     'or' => 'ya da',
     'default' => 'Öntanımlı',
+    'never' => 'Asla',
 
     'back' => 'Geri',
     'page' => 'Sayfa',
@@ -22,15 +23,25 @@ return [
     'dismiss' => 'Kapat',
 
     'dashboard' => 'Dashboard',
+    'recent_activity' => 'Son Etkinlikler',
+    'dashboard_hint' => 'Burada sitenizin yakın zamandaki hareketlerini görebilirsiniz.',
+
     'home' => 'Anasayfa',
-    'history' => 'Geçmiş',
+    'activity' => 'Etkinlikler',
     'content' => 'İçerik',
     'search' => 'Arama',
     'options' => 'Seçenekler',
     'bulk_actions' => 'Toplu Eylemler',
     'search_no_results' => 'Aramanız herhangi bir sonuç getirmedi.',
     'filter' => 'Filtre',
+
     'statistics' => 'İstatistikler',
+    'daily' => 'Günlük',
+    'weekly' => 'Haftalık',
+    'monthly' => 'Aylık',
+    'total_visits' => 'Toplam Görüntülenme',
+    'visits_today' => 'Bugünkü Görüntülenme',
+    'last_visited' => 'En Son Görüntülenme',
 
     'confirm_delete' => 'Silmek istediğinizden emin misiniz?',
     'error_saving' => 'Kaydederken hata(lar) oluştu!',

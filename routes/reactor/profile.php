@@ -17,8 +17,8 @@ Route::group(['prefix' => 'profile'], function ()
         'uses' => 'ProfileController@updatePassword',
         'as'   => 'reactor.profile.password.post']);
 
-    Route::get('history', [
-        'uses' => 'ProfileController@history',
-        'as'   => 'reactor.profile.history']);
+    Route::get('activity', [
+        'uses' => 'ProfileController@activity',
+        'as'   => 'reactor.profile.activity']);
 
 });

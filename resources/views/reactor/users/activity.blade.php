@@ -4,17 +4,17 @@
 
 @section('header_content')
     @include('partials.contents.header', [
-        'headerTitle' => $profile->present()->fullName
+        'headerTitle' => $user->present()->fullName
     ])
 @endsection
 
 @section('content')
-    @include('profile.tabs', [
-        'currentRoute' => 'reactor.profile.history',
-        'currentKey' => []
+    @include('users.tabs', [
+        'currentRoute' => 'reactor.users.activity',
+        'currentKey' => $user->getKey()
     ])
 
     <div class="content-inner content-inner--compact">
-    @include('activities.list')
+        @include('activities.list')
     </div>
 @endsection

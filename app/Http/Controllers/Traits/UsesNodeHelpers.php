@@ -72,7 +72,7 @@ trait UsesNodeHelpers {
      * @param bool $withSource
      * @return array
      */
-    protected function authorizeAndFindNode($id, $source, $permission = null, $withSource = true)
+    protected function authorizeAndFindNode($id, $source = null, $permission = null, $withSource = true)
     {
         if ( ! is_null($permission))
         {

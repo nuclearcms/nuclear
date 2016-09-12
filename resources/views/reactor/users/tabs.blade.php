@@ -5,5 +5,5 @@
     'reactor.users.password' => 'validation.attributes.password',
     'reactor.users.roles' => 'roles.title',
     'reactor.users.permissions' => 'permissions.title',
-    'reactor.users.history' => 'general.history'
+    'reactor.users.activity' => 'general.activity'
 ]; ?>

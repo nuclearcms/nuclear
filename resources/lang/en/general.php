@@ -10,6 +10,7 @@ return [
     'selected' => 'selected',
     'or' => 'or',
     'default' => 'Default',
+    'never' => 'Never',
 
     'back' => 'Back',
     'page' => 'Page',
@@ -22,15 +23,25 @@ return [
     'dismiss' => 'Dismiss',
 
     'dashboard' => 'Dashboard',
+    'recent_activity' => 'Recent Activity',
+    'dashboard_hint' => 'Here are some of the recent activity on your website.',
+
     'home' => 'Home',
-    'history' => 'History',
+    'activity' => 'Activity',
     'content' => 'Content',
     'search' => 'Search',
     'options' => 'Options',
     'bulk_actions' => 'Bulk Actions',
     'search_no_results' => 'Your search returned no results.',
     'filter' => 'Filter',
+
     'statistics' => 'Statistics',
+    'daily' => 'Daily',
+    'weekly' => 'Weekly',
+    'monthly' => 'Monthly',
+    'total_visits' => 'Total Visits',
+    'visits_today' => 'Visits Today',
+    'last_visited' => 'Last Visited',
 
     'confirm_delete' => 'Are you sure you want to delete?',
     'error_saving' => 'There were error(s) while saving!',

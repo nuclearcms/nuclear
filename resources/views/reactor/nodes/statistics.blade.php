@@ -1,4 +1,4 @@
-@extends('dashboard.base_index')
+@extends('nodes.base_edit')
 
 @section('children_tabs')
     <ul class="tabs">
@@ -15,12 +15,16 @@
 @endsection
 
 @section('content')
-    @include('dashboard.tabs', [
-        'currentRoute' => 'reactor.dashboard',
-        'currentKey' => []
+    @include('nodes.tabs', [
+        'currentRoute' => 'reactor.nodes.statistics',
+        'currentKey' => $node->getKey()
     ])
 
     <div class="content-inner content-inner--plain content-inner--shadow-displaced">
+        <div class="content-inner__options content-inner__options--displaced">
+            @include('nodes.options')
+        </div>
+
         <div class="chart">
             @include('partials.statistics.information')
 
