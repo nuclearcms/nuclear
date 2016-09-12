@@ -28,6 +28,7 @@ if( ! argv.r) {
                 'vendor/jquery.min.js',
                 'vendor/jquery-ui.min.js',
                 'vendor/perfect-scrollbar.min.js',
+                'vendor/jquery.ui.touch-punch.min.js',
                 'common.js',
                 'helpers.js',
                 'flash.js',
