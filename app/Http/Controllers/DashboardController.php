@@ -4,6 +4,7 @@
 namespace Reactor\Http\Controllers;
 
 
+use Nuclear\Hierarchy\Node;
 use Reactor\Statistics\DashboardStatisticsCompiler;
 
 class DashboardController extends ReactorController {
@@ -17,7 +18,12 @@ class DashboardController extends ReactorController {
     {
         $statistics = $compiler->compileStatistics();
 
-        return $this->compileView('dashboard.index', compact('statistics'), trans('general.dashboard'));
+        $mostVisited = Node::mostVisited(10)->get();
+        $recentlyVisited = Node::recentlyVisited(10)->get();
+        $recentlyEdited = Node::recentlyEdited(10)->get();
+        $recentlyCreated = Node::recentlyCreated(10)->get();
+
+        return $this->compileView('dashboard.index', compact('statistics', 'mostVisited', 'recentlyVisited', 'recentlyEdited', 'recentlyCreated'), trans('general.dashboard'));
     }
 
     /**

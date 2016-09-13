@@ -1,0 +1,40 @@
+.columns
+    padding: 2em 1em 2em 2em
+    +clearfix
+
+    @media screen and (max-width: $thresholdMicro)
+        padding-left: 1em
+
+.column
+    float: left
+    padding-right: 1em
+    width: 33.33333333%
+    margin-bottom: 2em
+
+    @media screen and (max-width: $thresholdShrink)
+        width: 50%
+    @media screen and (max-width: $thresholdMicro)
+        width: 100%
+        padding-right: 0
+
+    &__heading
+        font-size: 0.875em
+        font-family: $fontHeading
+        font-weight: $fontWeightBold
+        color: $colorEmphasis
+        padding-bottom: 0.5em
+        border-bottom: 2px solid $colorEmphasis
+
+.column-list
+    &__item
+        font-size: 0.75em
+        line-height: 2.75em
+        +ellipsis
+        color: inherit
+        +transition(color $durationShort)
+        border-bottom: 1px solid $colorLightBG4
+        display: block
+
+.no-touch
+    .column-list__item:hover
+        color: $colorEmphasis

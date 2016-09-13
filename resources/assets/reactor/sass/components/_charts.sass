@@ -2,6 +2,8 @@
     background-color: $colorEmphasis
     color: $colorLightText
     padding-bottom: 1em
+    position: relative
+    padding-bottom: 27.5%
 
     &__info
         text-align: center
@@ -12,12 +14,19 @@
         margin-bottom: 2em
 
     &__container
+        +position(absolute, 2em null null 0)
+        width: 100%
         padding: 0 3em
-        display: none
+        opacity: 0
+        z-index: -1
+        +transition(opacity $durationMedium, z-index 0ms ease $durationMediumUp)
+
         @media screen and (max-width: $thresholdCollapse)
             padding: 0 2em
         @media screen and (max-width: $thresholdMicro)
             padding: 0 1em
 
         &--active
-            display: block
+            opacity: 1
+            z-index: 1
+            +transition(opacity $durationMedium)

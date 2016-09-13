@@ -69,4 +69,9 @@ return [
     'hid_node' => 'Düğüm saklandı.',
     'showed_node' => 'Düğüm gösterildi.',
 
+    'most_visited' => 'En Çok Görüntülenen',
+    'recently_visited' => 'En Son Görüntülenen',
+    'recently_edited' => 'En Son Düzenlenen',
+    'recently_created' => 'En Son Oluşturulan',
+
 ];

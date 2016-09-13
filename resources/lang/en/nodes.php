@@ -69,4 +69,9 @@ return [
     'hid_node' => 'Hid node.',
     'showed_node' => 'Showed node.',
 
+    'most_visited' => 'Most Viewed',
+    'recently_visited' => 'Recently Viewed',
+    'recently_edited' => 'Recently Edited',
+    'recently_created' => 'Recently Created',
+
 ];
