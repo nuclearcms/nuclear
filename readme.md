@@ -1,7 +1,7 @@
 # Nuclear
 Polymorphic and multilingual content management system.
 
-![Nuclear Dashboard](https://cloud.githubusercontent.com/assets/5340560/18488879/f9cf7902-7a03-11e6-97f5-c15d702705c0.png)
+![Nuclear Dashboard](https://cloud.githubusercontent.com/assets/5340560/18489378/e96f4ae0-7a05-11e6-832e-dba55d48bc7c.png)
 
 Nuclear is a polymorphic and multilingual content management system powered by [Laravel](https://laravel.com).
 **Important:** Nuclear is still in alpha versions of the V3 family and is still being developed, use it at your own risk!
