@@ -50,7 +50,7 @@ class DashboardStatisticsCompiler extends StatisticsCompiler {
 
         foreach(locales() as $locale)
         {
-            $compilation[$locale] = $this->compileTableLocaleStatistics($cruncher, $locale, $cacheKey);
+            $compilation = $this->compileTableLocaleStatistics($cruncher, $locale, $cacheKey, $compilation);
         }
 
         return $compilation;
@@ -58,27 +58,26 @@ class DashboardStatisticsCompiler extends StatisticsCompiler {
 
     /**
      * @param Cruncher $cruncher
-     * @param $locale
-     * @param $cacheKey
+     * @param string $locale
+     * @param string $cacheKey
+     * @param array $compilation
      * @return array
      */
-    protected function compileTableLocaleStatistics(Cruncher $cruncher, $locale, $cacheKey)
+    protected function compileTableLocaleStatistics(Cruncher $cruncher, $locale, $cacheKey, array $compilation)
     {
-        $statistics = [];
-
         list($last_year_stats, $last_year_labels) = $cruncher
             ->getCountPerMonth(Carbon::today()->subYear(), null, $locale, null, $cacheKey);
-        $statistics = $this->compileYearStatistics($last_year_stats, $last_year_labels, $statistics);
+        $compilation = $this->compileYearStatistics($last_year_stats, $last_year_labels, $compilation, $locale);
 
         list($last_month_stats, $last_month_labels) = $cruncher
             ->getCountPerWeek(Carbon::today()->subMonth(), null, $locale, null, $cacheKey);
-        $statistics = $this->compileMonthStatistics($last_month_stats, $last_month_labels, $statistics);
+        $compilation = $this->compileMonthStatistics($last_month_stats, $last_month_labels, $compilation, $locale);
 
         list($last_week_stats, $last_week_labels) = $cruncher
             ->getCountPerDay(Carbon::today()->subWeek(), null, $locale, null, $cacheKey);
-        $statistics = $this->compileWeekStatistics($last_week_stats, $last_week_labels, $statistics);
+        $compilation = $this->compileWeekStatistics($last_week_stats, $last_week_labels, $compilation, $locale);
 
-        return $statistics;
+        return $compilation;
     }
 
 }

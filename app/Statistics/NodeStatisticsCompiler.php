@@ -53,7 +53,7 @@ class NodeStatisticsCompiler extends StatisticsCompiler {
 
         foreach($node->translations as $translation)
         {
-            $compilation[$translation->locale] = $this->compileTableLocaleStatistics($cruncher, $node, $translation->locale, $cacheKey);
+            $compilation = $this->compileTableLocaleStatistics($cruncher, $node, $translation->locale, $cacheKey, $compilation);
         }
 
         return $compilation;
@@ -62,27 +62,26 @@ class NodeStatisticsCompiler extends StatisticsCompiler {
     /**
      * @param Cruncher $cruncher
      * @param Node $node
-     * @param $locale
-     * @param $cacheKey
+     * @param string $locale
+     * @param string $cacheKey
+     * @param array $compilation
      * @return array
      */
-    protected function compileTableLocaleStatistics(Cruncher $cruncher, Node $node, $locale, $cacheKey)
+    protected function compileTableLocaleStatistics(Cruncher $cruncher, Node $node, $locale, $cacheKey, array $compilation)
     {
-        $statistics = [];
-
         list($last_year_stats, $last_year_labels) = $cruncher
             ->getCountPerMonth(Carbon::today()->subYear(), null, $locale, $node->trackerViews(), $cacheKey);
-        $statistics = $this->compileYearStatistics($last_year_stats, $last_year_labels, $statistics);
+        $compilation = $this->compileYearStatistics($last_year_stats, $last_year_labels, $compilation, $locale);
 
         list($last_month_stats, $last_month_labels) = $cruncher
             ->getCountPerWeek(Carbon::today()->subMonth(), null, $locale, $node->trackerViews(), $cacheKey);
-        $statistics = $this->compileMonthStatistics($last_month_stats, $last_month_labels, $statistics);
+        $compilation = $this->compileMonthStatistics($last_month_stats, $last_month_labels, $compilation, $locale);
 
         list($last_week_stats, $last_week_labels) = $cruncher
             ->getCountPerDay(Carbon::today()->subWeek(), null, $locale, $node->trackerViews(), $cacheKey);
-        $statistics = $this->compileWeekStatistics($last_week_stats, $last_week_labels, $statistics);
+        $compilation = $this->compileWeekStatistics($last_week_stats, $last_week_labels, $compilation, $locale);
 
-        return $statistics;
+        return $compilation;
     }
 
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "76f5eb081e0c63ab3d684915b7c403c9",
-    "content-hash": "852283fe215c29366cf6b577947b1ca0",
+    "hash": "5276d2607bdc9d30b1b3bd0312b52320",
+    "content-hash": "58e3fb802b18de6b753d7f4f30798c86",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1606,16 +1606,16 @@
         },
         {
             "name": "kenarkose/tracker",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Tracker.git",
-                "reference": "88913183428ee2e7e986720c49a370f2fcdd23c0"
+                "reference": "47ecede441b185727110f522758465081ba12908"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/88913183428ee2e7e986720c49a370f2fcdd23c0",
-                "reference": "88913183428ee2e7e986720c49a370f2fcdd23c0",
+                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/47ecede441b185727110f522758465081ba12908",
+                "reference": "47ecede441b185727110f522758465081ba12908",
                 "shasum": ""
             },
             "require": {
@@ -1659,7 +1659,7 @@
                 "tracker",
                 "visitor"
             ],
-            "time": "2016-07-29 19:17:08"
+            "time": "2016-09-13 09:24:34"
         },
         {
             "name": "kenarkose/transit",

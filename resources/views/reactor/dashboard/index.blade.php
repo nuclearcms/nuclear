@@ -1,18 +1,6 @@
 @extends('dashboard.base_index')
 
-@section('children_tabs')
-    <ul class="tabs">
-        <li class="tabs__flap">
-            <span class="tabs__child-link tabs__child-link--active" data-mode="daily">{{ uppercase(trans('general.daily')) }}</span>
-        </li>
-        <li class="tabs__flap">
-            <span class="tabs__child-link" data-mode="weekly">{{ uppercase(trans('general.weekly')) }}</span>
-        </li>
-        <li class="tabs__flap">
-            <span class="tabs__child-link" data-mode="monthly">{{ uppercase(trans('general.monthly')) }}</span>
-        </li>
-    </ul>
-@endsection
+@include('partials.statistics.tabs')
 
 @section('content')
     @include('dashboard.tabs', [
@@ -21,9 +9,8 @@
     ])
 
     <div class="content-inner content-inner--plain content-inner--shadow-displaced">
-        <div class="chart">
-            @include('partials.statistics.information')
+        @include('partials.statistics.chart')
 
-        </div>
+        Other tables here
     </div>
 @endsection

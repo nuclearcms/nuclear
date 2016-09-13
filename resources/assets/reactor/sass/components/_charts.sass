@@ -9,4 +9,15 @@
         color: $colorEmphasisDarker
         font-family: $fontHeading
         font-weight: $fontWeightBold
-        margin-bottom: 1em
+        margin-bottom: 2em
+
+    &__container
+        padding: 0 3em
+        display: none
+        @media screen and (max-width: $thresholdCollapse)
+            padding: 0 2em
+        @media screen and (max-width: $thresholdMicro)
+            padding: 0 1em
+
+        &--active
+            display: block

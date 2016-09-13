@@ -67,6 +67,10 @@ if( ! argv.r) {
             .scripts([
                 'updater.js'
             ], elixir.config.publicPath + '/js/updater.js')
+            .scripts([
+                'vendor/Chart.bundle.min.js',
+                'charts.js'
+            ], elixir.config.publicPath + '/js/charts.js')
         ;
     });
 

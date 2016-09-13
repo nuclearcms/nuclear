@@ -10,7 +10,7 @@ use Nuclear\Hierarchy\NodeRepository;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '3.0-alpha.2';
+    const VERSION = '3.0-alpha.3';
 
     /**
      * Register any application services.
@@ -84,7 +84,7 @@ class ReactorServiceProvider extends ServiceProvider {
 
         if ( ! is_request_reactor())
         {
-            view()->share('home', $nodeRepository->getHome());
+            view()->share('home', $nodeRepository->getHome(false));
         }
 
         view()->composer('*', function ($view) use ($nodeRepository)

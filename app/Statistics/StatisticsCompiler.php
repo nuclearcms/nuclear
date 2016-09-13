@@ -38,17 +38,20 @@ abstract class StatisticsCompiler {
      * @param array $stats
      * @param array $labels
      * @param array $compilation
+     * @param string $locale
      * @return array
      */
-    public function compileYearStatistics($stats, $labels, $compilation)
+    public function compileYearStatistics($stats, $labels, array $compilation, $locale)
     {
-        $labels = array_map(function ($date)
+        if ( ! isset($compilation['chart']['labels']['last_year_labels']))
         {
-            return $date->formatLocalized('%b');
-        }, $labels);
+            $compilation['chart']['labels']['last_year_labels'] = array_map(function ($date)
+            {
+                return $date->formatLocalized('%b');
+            }, $labels);
+        }
 
-        $compilation['last_year_stats'] = $stats;
-        $compilation['last_year_labels'] = $labels;
+        $compilation['chart']['statistics'][$locale]['last_year_stats'] = $stats;
 
         return $compilation;
     }
@@ -59,17 +62,20 @@ abstract class StatisticsCompiler {
      * @param array $stats
      * @param array $labels
      * @param array $compilation
+     * @param string $locale
      * @return array
      */
-    public function compileMonthStatistics($stats, $labels, $compilation)
+    public function compileMonthStatistics($stats, $labels, array $compilation, $locale)
     {
-        $labels = array_map(function ($date)
+        if ( ! isset($compilation['chart']['labels']['last_month_labels']))
         {
-            return $date->formatLocalized('%d %b');
-        }, $labels);
+            $compilation['chart']['labels']['last_month_labels'] = array_map(function ($date)
+            {
+                return $date->formatLocalized('%d %b');
+            }, $labels);
+        }
 
-        $compilation['last_month_stats'] = $stats;
-        $compilation['last_month_labels'] = $labels;
+        $compilation['chart']['statistics'][$locale]['last_month_stats'] = $stats;
 
         return $compilation;
     }
@@ -80,17 +86,20 @@ abstract class StatisticsCompiler {
      * @param array $stats
      * @param array $labels
      * @param array $compilation
+     * @param string $locale
      * @return array
      */
-    public function compileWeekStatistics($stats, $labels, $compilation)
+    public function compileWeekStatistics($stats, $labels, array $compilation, $locale)
     {
-        $labels = array_map(function ($date)
+        if ( ! isset($compilation['chart']['labels']['last_week_labels']))
         {
-            return $date->formatLocalized('%d %b');
-        }, $labels);
+            $compilation['chart']['labels']['last_week_labels'] = array_map(function ($date)
+            {
+                return $date->formatLocalized('%d %b');
+            }, $labels);
+        }
 
-        $compilation['last_week_stats'] = $stats;
-        $compilation['last_week_labels'] = $labels;
+        $compilation['chart']['statistics'][$locale]['last_week_stats'] = $stats;
 
         return $compilation;
     }
