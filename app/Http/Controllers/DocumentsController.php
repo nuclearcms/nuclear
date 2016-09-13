@@ -79,6 +79,51 @@ class DocumentsController extends ReactorController {
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $this->authorize('EDIT_DOCUMENTS');
+
+        $document = Media::findOrFail($id);
+
+        $this->validateEditForm($request, $document);
+
+        $document->update($request->all());
+
+        // This method is overridden because we need to register the activity
+        $this->notify('documents.edited', 'updated_media', $document);
+
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        extract($this->getResourceNames());
+
+        $this->authorize('EDIT_DOCUMENTS');
+
+        $document = Media::findOrFail($id);
+
+        $document->delete();
+
+        // This method is overridden because we need to register the activity
+        $this->notify('documents.destroyed', 'deleted_media');
+
+        return redirect()->back();
+    }
+
+    /**
      * Show the form for embedding external resource
      *
      * @return Response
@@ -231,6 +276,8 @@ class DocumentsController extends ReactorController {
         $document = Media::findOrFail($request->input('document'));
 
         $document->update($request->all());
+
+        $this->notify(null, 'updated_media', $document);
 
         return response()->json($document->summarize());
     }

@@ -1,4 +1,4 @@
-{!! activity_open($activity, false) !!}
+{!! activity_open($activity, false, ($activity->subject && ($cover = $activity->subject->getCoverImage())) ? $cover->present()->thumbnail : '') !!}
 
 {!! trans('activities.created_mailingnode', [
     'actorLink' => route('reactor.users.edit', $activity->user->getKey()),

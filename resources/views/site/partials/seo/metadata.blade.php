@@ -14,4 +14,5 @@
 <meta property="twitter:site" content="{{ $home->getTranslationAttribute('meta_title') }}">
 <meta property="twitter:url" content="{{ request()->url() }}">
 
+@yield('metaImage')
 @yield('metaAlternateLinks')

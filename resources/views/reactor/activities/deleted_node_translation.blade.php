@@ -1,4 +1,4 @@
-{!! activity_open($activity, false) !!}
+{!! activity_open($activity, false, ($activity->subject && ($cover = $activity->subject->getCoverImage())) ? $cover->present()->thumbnail : '') !!}
 
 {!! trans('activities.deleted_node_translation', [
     'actorLink' => route('reactor.users.edit', $activity->user->getKey()),

@@ -12,9 +12,10 @@ class ActivitiesHtmlBuilder {
      *
      * @param Activity $activity
      * @param bool $minor
+     * @param string $thumbnail
      * @return string
      */
-    public function activityOpen(Activity $activity, $minor = true)
+    public function activityOpen(Activity $activity, $minor = true, $thumbnail = '')
     {
         if ($minor)
         {
@@ -24,7 +25,7 @@ class ActivitiesHtmlBuilder {
             $html = '<li class="activity">
                 <div class="activity__actor"><span class="navigation-user__avatar">' .
                 $activity->user->present()->avatar .
-                '</span></div>';
+                '</span>' . (empty($thumbnail) ? '' : '<div class="activity__thumbnail">' . $thumbnail . '</div>') . '</div>';
         }
 
         return $html .= '<div class="activity__subject">

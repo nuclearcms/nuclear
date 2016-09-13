@@ -1,4 +1,4 @@
-{!! activity_open($activity, false) !!}
+{!! activity_open($activity, false, ($subject = $activity->subject) ? $subject->present()->thumbnail : '') !!}
 
 {!! trans('activities.edited_image', [
     'actorLink' => route('reactor.users.edit', $activity->user->getKey()),

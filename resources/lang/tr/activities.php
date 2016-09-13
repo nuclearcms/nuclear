@@ -18,6 +18,7 @@ return [
     'created_role' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">rol</a> oluşturdu.',
     'created_subscriber' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">abone</a> oluşturdu.',
     'created_user' => '<a href=":actorLink">:actorName</a> bir <a href=":subjectLink">kullanıcı</a> oluşturdu.',
+    'deleted_documents' => '<a href=":actorLink">:actorName</a> dosyalar sildi.',
     'deleted_mailinglist' => '<a href=":actorLink">:actorName</a> bir posta listesi sildi.',
     'deleted_mailinglists' => '<a href=":actorLink">:actorName</a> posta listeleri sildi.',
     'deleted_mailingnode' => '<a href=":actorLink">:actorName</a> bir posta sildi.',

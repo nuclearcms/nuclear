@@ -1,7 +1,7 @@
 @foreach($nodes as $node)
     <tr class="content-list__row--body">
 
-        {!! content_list_thumbnail($node->getKey()) !!}
+        {!! content_list_thumbnail($node->getKey(), (($cover = $node->getCoverImage()) ? $cover->present()->filteredImageWith('rthumb') : '')) !!}
 
         <td class="content-list__cell">
             {!! link_to($node->getDefaultEditUrl(), $node->getTitle()) !!}

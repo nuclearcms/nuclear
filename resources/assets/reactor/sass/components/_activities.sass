@@ -16,6 +16,31 @@
     &__actor, &__subject
         display: inline-block
         vertical-align: top
+        position: relative
+
+    &__thumbnail
+        +position(absolute, 0.625em null null -0.625em)
+        +size(2em)
+        border-radius: 50%
+        overflow: hidden
+        z-index: 10
+        background-color: $colorDarkBG3
+        border: 0.125em solid $colorLightBG1
+
+        .document-thumbnail
+            border: 0
+            padding: 0
+        .document-thumbnail__image
+            position: static
+            +size(100%)
+        .document-thumbnail__icon
+            position: static
+            background-color: $colorDarkBG3
+            font-size: 1em
+            padding: 0.375em
+            top: 0
+            left: 0
+            display: inline-block
 
     &__subject
         width: calc(100% - 4em)

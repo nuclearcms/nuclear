@@ -10,11 +10,12 @@ if ( ! function_exists('activity_open'))
      *
      * @param Activity $activity
      * @param bool $minor
+     * @param string $thumbnail
      * @return string
      */
-    function activity_open($activity, $minor = true)
+    function activity_open($activity, $minor = true, $thumbnail = '')
     {
-        return app('reactor.builders.activities')->activityOpen($activity, $minor);
+        return app('reactor.builders.activities')->activityOpen($activity, $minor, $thumbnail);
     }
 }
 

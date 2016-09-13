@@ -18,6 +18,7 @@ return [
     'created_role' => '<a href=":actorLink">:actorName</a> created a <a href=":subjectLink">role</a>.',
     'created_subscriber' => '<a href=":actorLink">:actorName</a> created a <a href=":subjectLink">subscriber</a>.',
     'created_user' => '<a href=":actorLink">:actorName</a> created a <a href=":subjectLink">user</a>.',
+    'deleted_documents' => '<a href=":actorLink">:actorName</a> deleted a documents.',
     'deleted_mailinglist' => '<a href=":actorLink">:actorName</a> deleted a mailing list.',
     'deleted_mailinglists' => '<a href=":actorLink">:actorName</a> deleted mailing lists.',
     'deleted_mailingnode' => '<a href=":actorLink">:actorName</a> deleted a mailing.',

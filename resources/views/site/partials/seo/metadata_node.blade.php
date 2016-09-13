@@ -18,3 +18,11 @@
         @endforeach
     @endsection
 @endif
+
+@section('metaImage')
+@if($cover = $node->getMetaImage())
+<meta property="og:image" content="{{ $cover->getFilteredImageUrlFor('rcompact') }}">
+<meta property="twitter:image" content="{{ $cover->getFilteredImageUrlFor('rcompact') }}">
+<link rel="image_src" href="{{ $cover->getFilteredImageUrlFor('rcompact') }}">
+@endif
+@endsection
