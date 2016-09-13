@@ -33,14 +33,6 @@ class EditForm extends Form {
             'inline'  => true
         ]);
 
-        $this->add('search_priority', 'number', [
-            'default_value' => 0,
-            'attr' => [
-                'step' => 'any'
-            ],
-            'inline'  => true
-        ]);
-
         $this->add('visible', 'checkbox', [
             'inline' => true,
             'default_value' => true
