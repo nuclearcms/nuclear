@@ -8,7 +8,7 @@ return [
 
     'nuclear_is_up_to_date' => 'Nuclear güncel!',
     'up_to_date_description' => 'Güncel version: <strong>:version</strong>.',
-    'nuclear_is_up_to_date' => 'Nuclear güncel değil!',
+    'nuclear_is_not_up_to_date' => 'Nuclear güncel değil!',
     'not_up_to_date_description' => 'Şu an yüklü version <strong>:version</strong>, en güncel ise <strong>:latest</strong>.',
 
     'changelog' => 'Değişiklikler',
