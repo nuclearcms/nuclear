@@ -212,7 +212,6 @@ class UpdateService {
      */
     public function finalizeUpdate()
     {
-        \Artisan::call('cache:clear');
         \Artisan::call('route:cache');
         \Artisan::call('migrate');
         \Artisan::call('optimize', ['--force' => true]);
@@ -230,6 +229,9 @@ class UpdateService {
         session()->forget('_update_download_offset');
         session()->forget('_temporary_update_path');
         session()->forget('_extracted_update_path');
+
+        \Artisan::call('cache:clear');
+        \Artisan::call('route:clear');
     }
 
 }

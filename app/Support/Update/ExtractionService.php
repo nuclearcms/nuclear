@@ -138,9 +138,7 @@ class ExtractionService {
 
         $this->validateDirectories($fs, $extractedPath, $root);
 
-        $trashPath = $this->emptyTrash($fs);
-
-        $this->replaceFiles($fs, $root, $extractedPath, $trashPath);
+        $this->replaceFiles($fs, $root, $extractedPath);
     }
 
     /**
@@ -162,11 +160,14 @@ class ExtractionService {
     }
 
     /**
-     * @param Filesystem $fs
+     * Empties the trash
+     *
      * @return string
      */
-    protected function emptyTrash(Filesystem $fs)
+    public function emptyTrash()
     {
+        $fs = new Filesystem();
+
         $trashDir = base_path(static::UPDATE_TRASH_DIR);
 
         if ($fs->exists($trashDir))
@@ -183,10 +184,11 @@ class ExtractionService {
      * @param Filesystem $fs
      * @param $root
      * @param $extractedPath
-     * @param $trashPath
      */
-    protected function replaceFiles(Filesystem $fs, $root, $extractedPath, $trashPath)
+    protected function replaceFiles(Filesystem $fs, $root, $extractedPath)
     {
+        $trashPath = base_path(static::UPDATE_TRASH_DIR);
+
         $files = $this->getUpdateableFiles();
 
         foreach ($files as $file)

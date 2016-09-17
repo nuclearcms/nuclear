@@ -100,9 +100,26 @@ class UpdateController extends ReactorController {
         session()->put('_extracted_update_path', $extractedPath);
 
         return response()->json([
-            'message'  => trans('update.moving_files'),
+            'message'  => trans('update.moving_files', ['part' => 1]),
+            'next'     => route('reactor.update.empty'),
+            'progress' => 60
+        ]);
+    }
+
+    /**
+     * Empties the trash
+     *
+     * @param ExtractionService $extractor
+     * @return Response
+     */
+    public function emptyTrash(ExtractionService $extractor)
+    {
+        $extractor->emptyTrash($extractor);
+
+        return response()->json([
+            'message'  => trans('update.moving_files', ['part' => 2]),
             'next'     => route('reactor.update.move'),
-            'progress' => 55
+            'progress' => 75
         ]);
     }
 
@@ -127,7 +144,7 @@ class UpdateController extends ReactorController {
         return response()->json([
             'message'  => trans('update.finalizing_update'),
             'next'     => route('reactor.update.finalize'),
-            'progress' => 80
+            'progress' => 90
         ]);
     }
 
