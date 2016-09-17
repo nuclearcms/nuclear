@@ -12,7 +12,10 @@ if( ! argv.r) {
     elixir(function (mix) {
         mix
             .sass('app.sass', elixir.config.publicPath + '/css/app.css')
-            .scripts('app.js', elixir.config.publicPath + '/js/app.js');
+            .scripts([
+                'vendor/perfect-scrollbar.min.js',
+                'app.js'
+            ], elixir.config.publicPath + '/js/app.js');
     });
 
 } else {
