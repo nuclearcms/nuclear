@@ -118,8 +118,33 @@ class UpdateController extends ReactorController {
 
         return response()->json([
             'message'  => trans('update.moving_files', ['part' => 2]),
+            'next'     => route('reactor.update.move.vendor'),
+            'progress' => 70
+        ]);
+    }
+
+    /**
+     * Moves the extracted update files
+     *
+     * @param UpdateService $updater
+     * @param ExtractionService $extractor
+     * @return Response
+     */
+    public function moveVendor(UpdateService $updater, ExtractionService $extractor)
+    {
+        $path = session('_extracted_update_path');
+
+        if (empty($path))
+        {
+            abort(500, trans('update.extracted_files_not_found'));
+        }
+
+        $updater->moveVendor($path, $extractor);
+
+        return response()->json([
+            'message'  => trans('update.moving_files', ['part' => 3]),
             'next'     => route('reactor.update.move'),
-            'progress' => 75
+            'progress' => 80
         ]);
     }
 

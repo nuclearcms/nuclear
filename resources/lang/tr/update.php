@@ -20,7 +20,7 @@ return [
     'update_in_progress' => 'Güncelleme Sürüyor',
     'downloading_latest' => 'En son güncelleme indiriliyor... Bu biraz zaman alabilir...',
     'extracting_update' => 'Güncelleme yükleniyor...',
-    'moving_files' => 'Dosyalar taşınıyor [:part/2]...',
+    'moving_files' => 'Dosyalar taşınıyor [:part/3]...',
     'finalizing_update' => 'Güncelleme tamamlanıyor...',
     'update_complete' => 'Güncelleme tamamlandı!',
 

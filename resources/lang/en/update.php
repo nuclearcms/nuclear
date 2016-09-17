@@ -20,7 +20,7 @@ return [
     'update_in_progress' => 'Update in Progress',
     'downloading_latest' => 'Downloading the latest package... This might take a while...',
     'extracting_update' => 'Extracting update...',
-    'moving_files' => 'Moving files [:part/2]...',
+    'moving_files' => 'Moving files [:part/3]...',
     'finalizing_update' => 'Finalizing update...',
     'update_complete' => 'Update complete!',
 

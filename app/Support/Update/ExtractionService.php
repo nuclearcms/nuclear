@@ -55,7 +55,6 @@ class ExtractionService {
         'routes/common.php',
         'routes/install.php',
         'routes/reactor.php',
-        'vendor',
         'artisan',
         'composer.json',
         'composer.lock',
@@ -131,6 +130,21 @@ class ExtractionService {
      *
      * @param string $extractedPath
      */
+    public function moveVendor($extractedPath)
+    {
+        $root = base_path(static::UPDATE_DESTINATION_DIR);
+        $fs = new Filesystem();
+
+        $this->validateDirectories($fs, $extractedPath, $root);
+
+        $this->replaceFiles($fs, $root, $extractedPath, true);
+    }
+
+    /**
+     * Moves the update from the extracted path
+     *
+     * @param string $extractedPath
+     */
     public function move($extractedPath)
     {
         $root = base_path(static::UPDATE_DESTINATION_DIR);
@@ -182,14 +196,15 @@ class ExtractionService {
 
     /**
      * @param Filesystem $fs
-     * @param $root
-     * @param $extractedPath
+     * @param string $root
+     * @param string $extractedPath
+     * @param bool $vendor
      */
-    protected function replaceFiles(Filesystem $fs, $root, $extractedPath)
+    protected function replaceFiles(Filesystem $fs, $root, $extractedPath, $vendor = false)
     {
         $trashPath = base_path(static::UPDATE_TRASH_DIR);
 
-        $files = $this->getUpdateableFiles();
+        $files = $vendor ? ['vendor'] : $this->getUpdateableFiles();
 
         foreach ($files as $file)
         {

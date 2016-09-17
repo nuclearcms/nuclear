@@ -193,7 +193,22 @@ class UpdateService {
     }
 
     /**
-     * Moves the extracted files in the supplied path
+     * Moves the extracted vendor files in the supplied path
+     *
+     * @param string $path
+     * @param ExtractionService $extractor
+     */
+    public function moveVendor($path, ExtractionService $extractor)
+    {
+        \Artisan::call('down');
+
+        $extractor->moveVendor($path);
+
+        \Artisan::call('up');
+    }
+
+    /**
+     * Moves the extracted app files in the supplied path
      *
      * @param string $path
      * @param ExtractionService $extractor

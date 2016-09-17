@@ -27,6 +27,10 @@ Route::group([
         'uses' => 'UpdateController@emptyTrash'
     ]);
 
+    Route::post('move/vendor', [
+        'as' => 'reactor.update.move.vendor',
+        'uses' => 'UpdateController@moveVendor']);
+
     Route::post('move', [
         'as' => 'reactor.update.move',
         'uses' => 'UpdateController@move']);
