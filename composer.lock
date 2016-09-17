@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5276d2607bdc9d30b1b3bd0312b52320",
-    "content-hash": "58e3fb802b18de6b753d7f4f30798c86",
+    "hash": "3f530f65d43f32a2128099e0409c93ff",
+    "content-hash": "18f19102796c3c237a37d66c14e721d9",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2408,16 +2408,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v2.1.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
+                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
-                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4dd659edadffdc2143e4753df655d866dbfeedf0",
+                "reference": "4dd659edadffdc2143e4753df655d866dbfeedf0",
                 "shasum": ""
             },
             "require": {
@@ -2455,7 +2455,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-04-19 13:41:41"
+            "time": "2016-09-16 12:04:44"
         },
         {
             "name": "nuclear/documents",
@@ -2526,16 +2526,16 @@
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "cddd24b41bf5fb55c1fa79d0e5673b5a62be4b00"
+                "reference": "c442932b36af2443858c0b333e6a4d0998ab2d89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/cddd24b41bf5fb55c1fa79d0e5673b5a62be4b00",
-                "reference": "cddd24b41bf5fb55c1fa79d0e5673b5a62be4b00",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/c442932b36af2443858c0b333e6a4d0998ab2d89",
+                "reference": "c442932b36af2443858c0b333e6a4d0998ab2d89",
                 "shasum": ""
             },
             "require": {
@@ -2594,7 +2594,7 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-09-13 14:21:52"
+            "time": "2016-09-16 19:38:27"
         },
         {
             "name": "nuclear/synthesizer",
