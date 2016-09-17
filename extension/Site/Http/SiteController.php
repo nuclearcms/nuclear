@@ -4,7 +4,9 @@
 namespace Extension\Site\Http;
 
 
+use Illuminate\Http\Request;
 use Nuclear\Hierarchy\NodeRepository;
+use Nuclear\Hierarchy\Tags\Tag;
 use Reactor\Http\Controllers\Controller;
 
 class SiteController extends Controller {
@@ -34,6 +36,39 @@ class SiteController extends Controller {
         $node = $nodeRepository->getNodeAndSetLocale($name);
 
         return view('page', compact('node'));
+    }
+
+    /**
+     * Shows the search page
+     *
+     * @param string $slug
+     * @param NodeRepository $nodeRepository
+     * @param Request $request
+     * @return View
+     */
+    public function getSearch($search, NodeRepository $nodeRepository, Request $request)
+    {
+        set_app_locale_with('search', $search);
+
+        $results = $nodeRepository->searchNodes($request->input('q'));
+
+        return view('search', compact('results'));
+    }
+
+    /**
+     * Shows the tag page
+     *
+     * @param string $tags
+     * @param string $name
+     * @return View
+     */
+    public function getTag($tags, $name)
+    {
+        set_app_locale_with('tags', $tags);
+
+        $tag = Tag::withName($name)->firstOrFail();
+
+        return view('tag', compact('tag'));
     }
 
 }

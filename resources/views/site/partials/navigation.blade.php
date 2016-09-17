@@ -5,9 +5,11 @@
 
     <div class="navigation__links">
         @foreach($home->getPositionOrderedChildren() as $section)
-        <a class="navigation__link" href="{{ $section->getSiteURL() }}">
-            {{ uppercase($section->getTitle()) }}
-        </a>
+            @if( ! $section->isArchived() && $section->hasTranslation())
+            <a class="navigation__link" href="{{ $section->getSiteURL() }}">
+                {{ uppercase($section->getTitle()) }}
+            </a>
+            @endif
         @endforeach
     </div>
 </nav>

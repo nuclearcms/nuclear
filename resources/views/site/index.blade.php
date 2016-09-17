@@ -1,6 +1,7 @@
 @extends('layout.site')
 
-@include('partials.seo.metadata_node', ['node' => $home, 'isHome' => true])
+<?php $isHome = true; ?>
+@include('partials.seo.metadata_node', ['node' => $home])
 
 @section('content')
     <h1>{{ $home->getTranslationAttribute('meta_title') }}</h1>

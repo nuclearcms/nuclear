@@ -1,5 +1,6 @@
 @extends('layout.site')
 
+<?php $isNode = true; ?>
 @include('partials.seo.metadata_node')
 
 @section('content')

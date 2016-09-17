@@ -13,7 +13,11 @@
                 @if($locale === app()->getLocale())
                     <span class="navigation__link footer__link footer__link--active">{{ uppercase(trans('general.' . $locale, [], 'messages', $locale), $locale) }}</span>
                 @else
-                    <a class="navigation__link footer__link" href="{{ route('locale.set.home', $locale) }}">{{ uppercase(trans('general.' . $locale, [], 'messages', $locale), $locale) }}</a>
+                    <a class="navigation__link footer__link" href="{{
+                    (isset($isNode) && $isNode && $node->hasTranslation($locale)) ?
+                        $node->getSiteURL($locale) :
+                        route('locale.set.home', $locale)
+                    }}">{{ uppercase(trans('general.' . $locale, [], 'messages', $locale), $locale) }}</a>
                 @endif
             @endforeach
         </div>
