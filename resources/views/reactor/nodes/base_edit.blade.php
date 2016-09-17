@@ -19,7 +19,7 @@
 
     @include('partials.contents.header', [
         'headerTitle' => $source->title,
-        'headerHint' => link_to_route('reactor.nodetypes.edit', uppercase($node->getNodeTypeName()), $node->getNodeType()->getKey())
+        'headerHint' => link_to_route('reactor.nodetypes.edit', uppercase($node->getNodeType()->label), $node->getNodeType()->getKey())
     ])
 @endsection
 

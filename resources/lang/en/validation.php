@@ -136,6 +136,7 @@ return [
         'description'              => 'Description',
         'visible'                  => 'Visible',
         'hides_children'           => 'Hides Child Nodes',
+        'allowed_children'         => 'Allowed Children Types',
         'color'                    => 'Color',
         'sterile'                  => 'Sterile',
         'home'                     => 'Homepage Node',

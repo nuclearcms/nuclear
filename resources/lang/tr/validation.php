@@ -136,6 +136,7 @@ return [
         'description'              => 'Açıklama',
         'visible'                  => 'Görünür',
         'hides_children'           => 'Çocuk Düğümleri Saklar',
+        'allowed_children'         => 'İzin Verilen Çocuk Tipleri',
         'color'                    => 'Renk',
         'sterile'                  => 'Çocuk Düğümleri Engelle',
         'home'                     => 'Anasayfa Düğümü',

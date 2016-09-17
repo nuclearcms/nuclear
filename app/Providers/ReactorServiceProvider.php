@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Nuclear\Hierarchy\Node;
 use Nuclear\Hierarchy\NodeRepository;
+use Reactor\Support\Routing\RouteFilterMaker;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '3.0-alpha.3';
+    const VERSION = '3.0-alpha.4';
 
     /**
      * Register any application services.
@@ -22,6 +23,8 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->registerHelpers();
 
         $this->registerPaths();
+
+        $this->registerFilterMaker();
     }
 
     /**
@@ -40,6 +43,17 @@ class ReactorServiceProvider extends ServiceProvider {
     protected function registerPaths()
     {
         $this->app['path.routes'] = base_path('routes');
+    }
+
+    /**
+     * Registers the filter maker
+     */
+    protected function registerFilterMaker()
+    {
+        $this->app['reactor.routing.filtermaker'] = $this->app->share(function ()
+        {
+            return new RouteFilterMaker;
+        });
     }
 
     /**
