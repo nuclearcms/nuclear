@@ -41,7 +41,7 @@ class SiteController extends Controller {
     /**
      * Shows the search page
      *
-     * @param string $slug
+     * @param string $search
      * @param NodeRepository $nodeRepository
      * @param Request $request
      * @return View
