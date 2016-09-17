@@ -28,7 +28,7 @@ return [
     'no_documents' => 'Dosya bulunamadı.',
     'no_document_selected' => 'Seçili dosya yok.',
     'drop_images_to_upload' => 'Resimleri yüklemek için sürükleyip bırakın.',
-    'drop_documents_to_upload' => 'Resimleri yüklemek için sürükleyip bırakın.',
+    'drop_documents_to_upload' => 'Dosyaları yüklemek için sürükleyip bırakın.',
 
     'embed_identifier' => 'Platform Tanımlayıcısı',
 
