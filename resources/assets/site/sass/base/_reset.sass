@@ -13,6 +13,25 @@
 html
     -webkit-text-size-adjust: 100%
 
+/* Reset inputs */
+input:not([type="checkbox"]), textarea
+    width: 100%
+    height: 2.5em
+    background-color: transparent
+    font-size: 1em
+    color: $colorText
+    outline: none
+    font-family: $fontText
+    -webkit-appearance: none
+    border-radius: 0
+
+    +placeholder
+        color: $colorOutline
+
+button
+    background-color: transparent
+    cursor: pointer
+
 /* Normalize search input */
 input[type="search"]
     -webkit-appearance: none
