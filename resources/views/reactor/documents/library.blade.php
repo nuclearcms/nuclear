@@ -45,7 +45,7 @@
 
                     <div class="library-column__message-container" id="libraryDocumentsMessage">
                         <p class="library-column__message">{{ trans('documents.no_documents') }}</p>
-                        <p class="library-column__message library-column__message--muted">{{ trans('documents.drop_images_to_upload') }}</p>
+                        <p class="library-column__message library-column__message--muted">{{ trans('documents.drop_documents_to_upload') }}</p>
                     </div>
 
                     <div class="library-column__blackout" id="libraryDocumentsBlackout"></div>
