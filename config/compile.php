@@ -20,6 +20,7 @@ return [
         app_path('Providers/EventServiceProvider.php'),
         app_path('Providers/HtmlBuildersServiceProvider.php'),
         app_path('Providers/RouteServiceProvider.php'),
+        app_path('Support/Routing/RouteFilterMaker.php'),
 
         // Hierarchy Service Providers
         base_path('vendor/nuclear/hierarchy/src/Providers/HierarchyServiceProvider.php'),

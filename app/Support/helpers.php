@@ -106,3 +106,46 @@ if ( ! function_exists('get_full_locale_for'))
         return $trim ? rtrim($locale, '.UTF-8') : $locale;
     }
 }
+
+if ( ! function_exists('get_route_parameter_for'))
+{
+    /**
+     * Getter for the translated slug
+     *
+     * @param string $key
+     * @param string $locale
+     * @return string
+     */
+    function get_route_parameter_for($key, $locale = null)
+    {
+        return app('reactor.routing.filtermaker')->getRouteParameterFor($key, $locale);
+    }
+}
+
+if ( ! function_exists('is_route_parameter'))
+{
+    /**
+     * Checks if the given key is a route parameter
+     *
+     * @param string $key
+     * @return bool
+     */
+    function is_route_parameter($key)
+    {
+        return app('reactor.routing.filtermaker')->isRouteParameter($key);
+    }
+}
+
+if ( ! function_exists('set_app_locale_with'))
+{
+    /**
+     * Sets the app locale with given key and slug
+     *
+     * @param string $key
+     * @param string $slug
+     */
+    function set_app_locale_with($key, $slug)
+    {
+        app('reactor.routing.filtermaker')->setAppLocaleWith($key, $slug);
+    }
+}

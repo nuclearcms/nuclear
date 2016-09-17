@@ -5,6 +5,7 @@ namespace Reactor\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Reactor\Support\Routing\RouteFilterMaker;
 
 class RouteServiceProvider extends ServiceProvider {
 
@@ -26,6 +27,9 @@ class RouteServiceProvider extends ServiceProvider {
     public function boot(Router $router)
     {
         $this->registerPatternFilters($router);
+
+        $this->app['reactor.routing.filtermaker']
+            ->registerPatternFilters($router);
 
         parent::boot($router);
     }
@@ -50,8 +54,6 @@ class RouteServiceProvider extends ServiceProvider {
     public function map(Router $router)
     {
         $this->mapWebRoutes($router);
-
-        //
     }
 
     /**
