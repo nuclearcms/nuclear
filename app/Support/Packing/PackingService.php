@@ -4,9 +4,7 @@
 namespace Reactor\Support\Packing;
 
 
-use Chumper\Zipper\Facades\Zipper as ZipperFacade;
 use Chumper\Zipper\Zipper;
-use Illuminate\Support\Facades\File;
 use Spatie\DbDumper\Databases\MySql;
 
 class PackingService {
@@ -112,7 +110,9 @@ class PackingService {
      */
     protected function getNewZipper($tag)
     {
-        return ZipperFacade::make('backups/' . date('Y-m-d_His') . '-' . $tag . '.zip');
+        $zipper = new Zipper(new Filesystem);
+
+        return $zipper->make('backups/' . date('Y-m-d_His') . '-' . $tag . '.zip');
     }
 
     /**
