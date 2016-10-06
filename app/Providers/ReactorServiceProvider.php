@@ -11,7 +11,7 @@ use Reactor\Support\Routing\RouteFilterMaker;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '3.0-alpha.5';
+    const VERSION = '3.0-alpha.6';
 
     /**
      * Register any application services.
@@ -98,10 +98,12 @@ class ReactorServiceProvider extends ServiceProvider {
 
         if ( ! is_request_reactor())
         {
-            view()->share('home', $nodeRepository->getHome(false));
+            $home = $nodeRepository->getHome(false);
+
+            view()->share('home', $home);
         }
 
-        view()->composer('*', function ($view) use ($nodeRepository)
+        view()->composer('*', function ($view)
         {
             $view->with('currentUser', auth()->user());
         });

@@ -11,7 +11,7 @@ return [
     'index' => 'Dosyaları Yönet',
     'upload' => 'Dosya Yükle',
     'embed' => 'Dosya Yerleştir',
-    'embed' => 'Dosya yerleştirildi.',
+    'embedded' => 'Dosya yerleştirildi.',
     'edit' => 'Dosyayı Düzenle',
     'edited' => 'Dosya düzenlendi.',
     'destroy' => 'Dosyayı Sil',

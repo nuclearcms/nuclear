@@ -14,7 +14,7 @@ Route::group(['middleware' => ['track']], function ()
         'uses' => '\Extension\Site\Http\SiteController@getSearch']);
 
     Route::get('{tags}/{slug}', [
-        'as' => 'site.tags',
+        'as' => 'site.tag',
         'uses' => '\Extension\Site\Http\SiteController@getTag']);
 
     Route::get('{slug}', [

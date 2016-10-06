@@ -23,7 +23,7 @@
         _hideMessage: function (message) {
             setTimeout(function() {
                 message.addClass('flash-message--hidden');
-            }, 1);
+            }, 2500);
 
             setTimeout(function () {
                 message.remove();

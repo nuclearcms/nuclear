@@ -4,33 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3f530f65d43f32a2128099e0409c93ff",
-    "content-hash": "18f19102796c3c237a37d66c14e721d9",
+    "hash": "170784c4c727584813ad5214073f443b",
+    "content-hash": "4623732662a3a17d1e1062d4689d1f03",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "V2.2.3",
+            "version": "v2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "ecd1ce5c4a827e2f6a8fb41bcf67713beb1c1cbd"
+                "reference": "0c87981df959c7c1943abe227baf607c92f204f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/ecd1ce5c4a827e2f6a8fb41bcf67713beb1c1cbd",
-                "reference": "ecd1ce5c4a827e2f6a8fb41bcf67713beb1c1cbd",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/0c87981df959c7c1943abe227baf607c92f204f9",
+                "reference": "0c87981df959c7c1943abe227baf607c92f204f9",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "5.1.*|5.2.*|5.3.*",
-                "maximebf/debugbar": "~1.11.0|~1.12.0",
+                "maximebf/debugbar": "~1.13.0",
                 "php": ">=5.5.9",
                 "symfony/finder": "~2.7|~3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -59,7 +59,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-07-29 15:00:36"
+            "time": "2016-09-15 14:05:56"
         },
         {
             "name": "chumper/zipper",
@@ -1606,16 +1606,16 @@
         },
         {
             "name": "kenarkose/tracker",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kenarkose/Tracker.git",
-                "reference": "47ecede441b185727110f522758465081ba12908"
+                "reference": "8254ed559f9ec92c18a6090e97ad21ade2aeee40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/47ecede441b185727110f522758465081ba12908",
-                "reference": "47ecede441b185727110f522758465081ba12908",
+                "url": "https://api.github.com/repos/kenarkose/Tracker/zipball/8254ed559f9ec92c18a6090e97ad21ade2aeee40",
+                "reference": "8254ed559f9ec92c18a6090e97ad21ade2aeee40",
                 "shasum": ""
             },
             "require": {
@@ -1659,7 +1659,7 @@
                 "tracker",
                 "visitor"
             ],
-            "time": "2016-09-13 09:24:34"
+            "time": "2016-10-05 14:54:36"
         },
         {
             "name": "kenarkose/transit",
@@ -2132,16 +2132,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.12.0",
+            "version": "v1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "e634fbd32cd6bc3fa0e8c972b52d4bf49bab3988"
+                "reference": "5f49a5ed6cfde81d31d89378806670d77462526e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e634fbd32cd6bc3fa0e8c972b52d4bf49bab3988",
-                "reference": "e634fbd32cd6bc3fa0e8c972b52d4bf49bab3988",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/5f49a5ed6cfde81d31d89378806670d77462526e",
+                "reference": "5f49a5ed6cfde81d31d89378806670d77462526e",
                 "shasum": ""
             },
             "require": {
@@ -2160,7 +2160,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -2189,7 +2189,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2016-05-15 13:11:34"
+            "time": "2016-09-15 14:01:59"
         },
         {
             "name": "monolog/monolog",
@@ -2459,16 +2459,16 @@
         },
         {
             "name": "nuclear/documents",
-            "version": "0.9.27",
+            "version": "0.9.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Documents.git",
-                "reference": "7df1afb324d5c872c3fe2a390a33fde11f0d43f7"
+                "reference": "6bc6211a0b9ff07abf23e2e650562123ded87292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/7df1afb324d5c872c3fe2a390a33fde11f0d43f7",
-                "reference": "7df1afb324d5c872c3fe2a390a33fde11f0d43f7",
+                "url": "https://api.github.com/repos/NuclearCMS/Documents/zipball/6bc6211a0b9ff07abf23e2e650562123ded87292",
+                "reference": "6bc6211a0b9ff07abf23e2e650562123ded87292",
                 "shasum": ""
             },
             "require": {
@@ -2522,20 +2522,20 @@
                 "nuclearcms",
                 "upload"
             ],
-            "time": "2016-09-17 20:28:09"
+            "time": "2016-10-05 10:45:18"
         },
         {
             "name": "nuclear/hierarchy",
-            "version": "2.3.2",
+            "version": "2.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Hierarchy.git",
-                "reference": "c442932b36af2443858c0b333e6a4d0998ab2d89"
+                "reference": "5f2093fe46f9b95f81af9d23d8fb6e56b1b5e01f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/c442932b36af2443858c0b333e6a4d0998ab2d89",
-                "reference": "c442932b36af2443858c0b333e6a4d0998ab2d89",
+                "url": "https://api.github.com/repos/NuclearCMS/Hierarchy/zipball/5f2093fe46f9b95f81af9d23d8fb6e56b1b5e01f",
+                "reference": "5f2093fe46f9b95f81af9d23d8fb6e56b1b5e01f",
                 "shasum": ""
             },
             "require": {
@@ -2594,20 +2594,20 @@
                 "nuclearcms",
                 "polymorphic"
             ],
-            "time": "2016-09-16 19:38:27"
+            "time": "2016-10-04 20:31:50"
         },
         {
             "name": "nuclear/synthesizer",
-            "version": "0.9.3",
+            "version": "0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Synthesizer.git",
-                "reference": "2b61f6fb4e650cd71fca39b80dba3402d71e5a23"
+                "reference": "750e24b7ab5d625af5471584108d2fad0443dbca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Synthesizer/zipball/2b61f6fb4e650cd71fca39b80dba3402d71e5a23",
-                "reference": "2b61f6fb4e650cd71fca39b80dba3402d71e5a23",
+                "url": "https://api.github.com/repos/NuclearCMS/Synthesizer/zipball/750e24b7ab5d625af5471584108d2fad0443dbca",
+                "reference": "750e24b7ab5d625af5471584108d2fad0443dbca",
                 "shasum": ""
             },
             "require": {
@@ -2653,7 +2653,7 @@
                 "nuclearcms",
                 "synthesizer"
             ],
-            "time": "2016-09-13 13:01:43"
+            "time": "2016-10-04 19:38:44"
         },
         {
             "name": "nuclear/users",
@@ -2813,22 +2813,30 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
+                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
                 "shasum": ""
             },
+            "require": {
+                "php": ">=5.3.0"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
             "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -2842,12 +2850,13 @@
                 }
             ],
             "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
             "keywords": [
                 "log",
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2016-09-19 16:02:08"
         },
         {
             "name": "psy/psysh",
@@ -3281,7 +3290,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v3.1.4",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -4261,16 +4270,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd"
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9270140b940ff02e58ec577c237274e92cd40cdd",
-                "reference": "9270140b940ff02e58ec577c237274e92cd40cdd",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/8331b5efe816ae05461b7ca1e721c01b46bafb3e",
+                "reference": "8331b5efe816ae05461b7ca1e721c01b46bafb3e",
                 "shasum": ""
             },
             "require": {
@@ -4302,7 +4311,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2016-06-10 09:48:41"
+            "time": "2016-09-30 07:12:33"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -5267,16 +5276,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.1.4",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d"
+                "reference": "368b9738d4033c8b93454cb0dbd45d305135a6d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/f291ed25eb1435bddbe8a96caaef16469c2a092d",
-                "reference": "f291ed25eb1435bddbe8a96caaef16469c2a092d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/368b9738d4033c8b93454cb0dbd45d305135a6d3",
+                "reference": "368b9738d4033c8b93454cb0dbd45d305135a6d3",
                 "shasum": ""
             },
             "require": {
@@ -5312,7 +5321,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-02 02:12:52"
+            "time": "2016-09-25 08:27:07"
         },
         {
             "name": "webmozart/assert",

@@ -554,7 +554,12 @@
             this.detailsTabs.removeClass('sub-tab--active');
 
             this.detailsFlaps.siblings('.compact-tabs__tab--' + locale).addClass('compact-tabs__tab--active');
-            this.detailsTabs.siblings('.sub-tab--' + locale).addClass('sub-tab--active');
+
+            if (this.locales.length > 1) {
+                this.detailsTabs.siblings('.sub-tab--' + locale).addClass('sub-tab--active');
+            } else {
+                this.detailsTabs.addClass('sub-tab--active');
+            }
         },
         _editDocumentTranslations: function (info) {
             var self = this;
