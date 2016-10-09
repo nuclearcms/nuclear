@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Reactor\Http\Controllers\Traits;
+namespace Reactor\Mailings;
 
 
 use GuzzleHttp\Client;
@@ -17,7 +16,7 @@ trait DispatchesMailings {
      * @param MailingNode $mailing
      * @param MailingList $list
      */
-    protected function dispatchDefaultMailing(MailingNode $mailing, MailingList $list)
+    public function dispatchDefaultMailing(MailingNode $mailing, MailingList $list)
     {
         $translation = $mailing->translateOrFirst();
         $_inBrowser = false;
@@ -42,7 +41,7 @@ trait DispatchesMailings {
      * @param MailingNode $mailing
      * @param MailingList $list
      */
-    protected function dispatchMailchimpMailing(MailingNode $mailing, MailingList $list)
+    public function dispatchMailchimpMailing(MailingNode $mailing, MailingList $list)
     {
         $client = $this->getNewMailchimpGuzzleClient();
 
@@ -58,21 +57,6 @@ trait DispatchesMailings {
         }
 
         $this->makeUpdateMailchimpCampaignContentRequest($client, $mailingId, $mailing, $list);
-    }
-
-    /**
-     * Creates a new Guzzle client to communicate with mailchimp
-     *
-     * @return Client
-     */
-    protected function getNewMailchimpGuzzleClient()
-    {
-        return new Client([
-            'base_url' => env('MAILCHIMP_API_URL'),
-            'defaults' => [
-                'auth' => ['anystring', env('MAILCHIMP_API_KEY')]
-            ]
-        ]);
     }
 
     /**
@@ -134,7 +118,7 @@ trait DispatchesMailings {
             $data['json']['recipients']['list_id'] = $list->external_id;
         }
 
-        $additional = (array) json_decode($list->additional, true);
+        $additional = (array)json_decode($list->additional, true);
         $data = array_merge_recursive($data, $additional);
 
         return $data;
@@ -160,9 +144,9 @@ trait DispatchesMailings {
             'headers' => [
                 'X-HTTP-Method-Override' => 'PUT'
             ],
-            'json' => [
+            'json'    => [
                 'html' => $mail,
-                'url' => route('reactor.mailings.preview', $mailing->translateOrFirst()->node_name)
+                'url'  => route('reactor.mailings.preview', $mailing->translateOrFirst()->node_name)
             ]
         ]);
     }

@@ -18,7 +18,7 @@ return [
     'transformed' => 'Posta düğümü dönüştürüldü.',
 
     'new' => 'Yeni Posta',
-    'no_mailing_lists' => 'Posta bulunamadı.',
+    'no_mailings' => 'Posta bulunamadı.',
     'preview' => 'Postayı Önizle',
     'preview_in_browser' => 'Bu iletiyi tarayıcınızda görüntüleyin.',
     'dispatch' => 'Postayı Yolla',

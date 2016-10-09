@@ -11,7 +11,7 @@ use Reactor\Support\Routing\RouteFilterMaker;
 
 class ReactorServiceProvider extends ServiceProvider {
 
-    const VERSION = '3.0-alpha.7';
+    const VERSION = '3.0-alpha.8';
 
     /**
      * Register any application services.

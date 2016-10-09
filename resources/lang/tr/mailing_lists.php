@@ -21,6 +21,6 @@ return [
     'dissociate' => 'Listeyi Ayır',
     'dissociated' => 'Liste ayrıldı.',
     'confirm_dissociate' => 'Bu listeyi ayırmak istediğinizden emin misiniz?',
-    'no_mailings' => 'Posta listesi bulunamadı.',
+    'no_mailings_lists' => 'Posta listesi bulunamadı.',
 
 ];

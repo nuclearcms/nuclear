@@ -14,11 +14,11 @@ use Reactor\Http\Controllers\Traits\ModifiesMailingLists;
 use Reactor\Http\Controllers\Traits\UsesMailingForms;
 use Reactor\Http\Controllers\Traits\UsesMailingHelpers;
 use Reactor\Http\Controllers\Traits\UsesTranslations;
+use Reactor\Mailings\MailingService;
 
 class MailingsController extends ReactorController {
 
-    use UsesMailingForms, UsesMailingHelpers, UsesTranslations, BasicResource,
-        ModifiesMailingLists, DispatchesMailings;
+    use UsesMailingForms, UsesMailingHelpers, UsesTranslations, BasicResource, ModifiesMailingLists;
 
     /**
      * Names for the BasicResource trait
@@ -171,11 +171,12 @@ class MailingsController extends ReactorController {
     /**
      * Dispatches the mailing
      *
+     * @param MailingService $mailingService
      * @param int $id
      * @param int $list
      * @return response
      */
-    public function dispatchMailing($id, $list)
+    public function dispatchMailing(MailingService $mailingService, $id, $list)
     {
         $this->authorize('EDIT_MAILINGS');
 
@@ -187,9 +188,9 @@ class MailingsController extends ReactorController {
 
         if($list->type === 'mailchimp')
         {
-            $this->dispatchMailchimpMailing($mailing, $list);
+            $mailingService->dispatchMailchimpMailing($mailing, $list);
         } else {
-            $this->dispatchDefaultMailing($mailing, $list);
+            $mailingService->dispatchDefaultMailing($mailing, $list);
         }
 
         $this->notify('mailings.dispatched', 'dispatched_mailing', $mailing);
