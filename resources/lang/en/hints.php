@@ -16,6 +16,8 @@ return [
     'mailing_lists_type' => 'The provider that handles mailing.',
     'mailing_lists_options' => 'Additional options for the mailing list. Has to be in JSON format.',
     'mailing_lists_external_id' => 'External identifier for the mailing list. Required when the mailing is handled by an external service like Mailchimp.',
+    'mailing_lists_from_name' => 'The name from which the mail is being sent from. Required when undefined in the environment file.',
+    'mailing_lists_reply_to' => 'The address to which replies will be sent to. Required when undefined in the environment file.',
 
     'nodes_parent' => 'The parent which the node is going to be moved under.',
 

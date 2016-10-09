@@ -3,6 +3,7 @@
 namespace Reactor\Mailings;
 
 
+use GuzzleHttp\Client;
 use Nuclear\Hierarchy\Mailings\MailingList;
 use Nuclear\Hierarchy\Mailings\Subscriber;
 

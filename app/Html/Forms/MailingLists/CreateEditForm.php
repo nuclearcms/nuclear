@@ -23,8 +23,12 @@ class CreateEditForm extends Form {
             'help_block' => ['text' => trans('hints.mailing_lists_type')]
         ]);
 
-        $this->add('from_name', 'text');
-        $this->add('reply_to', 'text');
+        $this->add('from_name', 'text', [
+            'help_block' => ['text' => trans('hints.mailing_lists_from_name')]
+        ]);
+        $this->add('reply_to', 'text', [
+            'help_block' => ['text' => trans('hints.mailing_lists_reply_to')]
+        ]);
         $this->add('options', 'textarea', [
             'rules' => 'json',
             'help_block' => ['text' => trans('hints.mailing_lists_options')]

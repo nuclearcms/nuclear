@@ -16,6 +16,8 @@ return [
     'mailing_lists_type' => 'Postalamayı uygulayacak servis.',
     'mailing_lists_options' => 'Posta listesi için ilave seçenekler. JSON formatında olmalıdır.',
     'mailing_lists_external_id' => 'Posta listesi için harici tanımlayıcı. Postalama harici bir servis tarafından uygulandığında gereklidir.',
+    'mailing_lists_from_name' => 'Postanın gönderildiği isim. Çevre dosyasında tanımlanmadığında gereklidir.',
+    'mailing_lists_reply_to' => 'Cevapların gönderileceği adres. Çevre dosyasında tanımlanmadığında gereklidir.',
 
     'nodes_parent' => 'Düğümün altına taşınacağı ebeveyn.',
 
