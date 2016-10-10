@@ -38,7 +38,12 @@ class MailingService {
         $subscriber = Subscriber::firstOrCreate(compact('email'));
         $list = MailingList::findOrFail($list);
 
-        $list->subscribers()->associate($subscriber);
+        if ($this->isMemberSubscribedTo($subscriber, $list))
+        {
+            return;
+        }
+
+        $list->subscribers()->attach($subscriber);
 
         if ($list->type === 'mailchimp')
         {
@@ -62,6 +67,17 @@ class MailingService {
                 'status' => 'subscribed'
             ]
         ]);
+    }
+
+    /**
+     * Checks if a member is subscribed to a list
+     *
+     * @param Subscriber $subscriber
+     * @param MailingList $list
+     */
+    protected function isMemberSubscribedTo(Subscriber $subscriber, MailingList $list)
+    {
+        return $subscriber->lists->contains($list->getKey());
     }
 
 }
