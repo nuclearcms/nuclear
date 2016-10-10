@@ -58,7 +58,7 @@ class CreateDeployPackage extends Command {
             $this->comment('Creating the deploy package...');
             $this->packager->createDeployPackage();
 
-            $this->info('Created the deploy package in the "backups directory.' . PHP_EOL);
+            $this->info('Created the deploy package in the "backups" directory.' . PHP_EOL);
         }
     }
 }
