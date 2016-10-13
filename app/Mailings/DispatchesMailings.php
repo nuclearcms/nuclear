@@ -45,7 +45,9 @@ trait DispatchesMailings {
     {
         $client = $this->getNewMailchimpGuzzleClient();
 
-        if ($mailingId = $mailing->getExternalId($list->getKey()))
+        $mailingId = $mailing->getExternalId($list->getKey());
+
+        if ($this->isMailchimpCampaignUpdateable($client, $mailingId))
         {
             $this->makeUpdateMailchimpCampaignRequest($client, $mailingId, $mailing, $list);
         } else
@@ -57,6 +59,37 @@ trait DispatchesMailings {
         }
 
         $this->makeUpdateMailchimpCampaignContentRequest($client, $mailingId, $mailing, $list);
+    }
+
+    /**
+     * Checks if a campaign is sent
+     *
+     * @param Client $client
+     * @param string $mailingId
+     * @return bool
+     */
+    protected function isMailchimpCampaignUpdateable(Client $client, $mailingId)
+    {
+        if (empty($mailingId))
+        {
+            return false;
+        }
+
+        try
+        {
+            $response = $client->get('campaigns/' . $mailingId);
+        } catch (\Exception $e)
+        {
+            // If it is a bad request or not found that means the campaign is deleted
+            return false;
+        }
+
+        if ($response->json()['status'] === 'save')
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /**
