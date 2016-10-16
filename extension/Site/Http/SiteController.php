@@ -28,7 +28,7 @@ class SiteController extends Controller {
      * Shows a page
      *
      * @param NodeRepository $nodeRepository
-     * @param $name
+     * @param string $name
      * @return View
      */
     public function getPage(NodeRepository $nodeRepository, $name)
