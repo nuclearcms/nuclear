@@ -1,7 +1,7 @@
 {!! content_options_open(null, false) !!}
 
 <li class="dropdown-sub__item">
-    <a href="{{ route('reactor.mailings.preview', $mailing->node_name) }}" target="_blank">
+    <a href="{{ route('reactor.mailings.preview', $translation->node_name) }}" target="_blank">
         <i class="icon-globe"></i>{{ trans('mailings.preview') }}</a>
 </li>
 

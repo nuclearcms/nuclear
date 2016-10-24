@@ -169,6 +169,8 @@ trait DispatchesMailings {
     protected function makeUpdateMailchimpCampaignContentRequest(Client $client, $mailingId, MailingNode $mailing, MailingList $list)
     {
         $translation = $mailing->translateOrFirst();
+        set_app_locale($translation->locale);
+
         $_inBrowser = false;
 
         $mail = view($mailing->getNodeTypeName(), compact('mailing', 'list', 'translation', '_inBrowser'))->render();

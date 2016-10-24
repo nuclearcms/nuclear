@@ -61,7 +61,7 @@ class PackingService {
     {
         $dirs = ['config/', 'database/', 'extension/', 'gen/', 'resources/', 'routes/'];
 
-        $dirs[] = ltrim(public_path(), base_path()) . '/';
+        $dirs[] = basename(public_path()) . '/';
 
         return $dirs;
     }
