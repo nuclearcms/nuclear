@@ -107,7 +107,7 @@ if ( ! function_exists('get_full_locale_for'))
     }
 }
 
-if ( ! function_exists('get_route_parameter_for'))
+if ( ! function_exists('route_parameter'))
 {
     /**
      * Getter for the translated slug
@@ -116,9 +116,26 @@ if ( ! function_exists('get_route_parameter_for'))
      * @param string $locale
      * @return string
      */
-    function get_route_parameter_for($key, $locale = null)
+    function route_parameter($key, $locale = null)
     {
         return app('reactor.routing.filtermaker')->getRouteParameterFor($key, $locale);
+    }
+}
+
+if ( ! function_exists('get_route_parameter_for'))
+{
+    /**
+     * Alias for route_parameter
+     *
+     * @deprecated
+     *
+     * @param string $key
+     * @param string $locale
+     * @return string
+     */
+    function get_route_parameter_for($key, $locale = null)
+    {
+        return route_parameter($key, $locale);
     }
 }
 
