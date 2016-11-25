@@ -32,7 +32,10 @@ class DetermineLocale {
 
         // Else set site locale
         $locale = session('_locale', null) ?:
-            mb_substr($request->getPreferredLanguage(), 0, 2);
+            (env('APP_AUTO_LOCALE', true) ?
+                mb_substr($request->getPreferredLanguage(), 0, 2) :
+                env('REACTOR_LOCALE')
+            );
 
         if (in_array($locale, locales()))
         {
