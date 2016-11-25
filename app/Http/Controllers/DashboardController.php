@@ -16,14 +16,19 @@ class DashboardController extends ReactorController {
      */
     public function index(DashboardStatisticsCompiler $compiler)
     {
-        $statistics = $compiler->compileStatistics();
+        $params = [
+            'recentlyCreated' => Node::recentlyCreated(10)->get(),
+            'recentlyEdited'  => Node::recentlyEdited(10)->get()
+        ];
 
-        $mostVisited = Node::mostVisited(10)->get();
-        $recentlyVisited = Node::recentlyVisited(10)->get();
-        $recentlyEdited = Node::recentlyEdited(10)->get();
-        $recentlyCreated = Node::recentlyCreated(10)->get();
+        if (tracker()->saveEnabled())
+        {
+            $params['statistics'] = $compiler->compileStatistics();
+            $params['mostVisited'] = Node::mostVisited(10)->get();
+            $params['recentlyVisited'] = Node::recentlyVisited(10)->get();
+        }
 
-        return $this->compileView('dashboard.index', compact('statistics', 'mostVisited', 'recentlyVisited', 'recentlyEdited', 'recentlyCreated'), trans('general.dashboard'));
+        return $this->compileView('dashboard.index', $params, trans('general.dashboard'));
     }
 
     /**

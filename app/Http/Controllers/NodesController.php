@@ -157,7 +157,7 @@ class NodesController extends ReactorController {
     {
         $node = $this->authorizeAndFindNode($id, $source, 'EDIT_NODES', false);
 
-        if($response = $this->validateNodeIsNotLocked($node)) return $response;
+        if ($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         list($locale, $source) = $this->determineLocaleAndSource($source, $node);
 
@@ -230,7 +230,7 @@ class NodesController extends ReactorController {
 
         $node = Node::findOrFail($id);
 
-        if($response = $this->validateNodeIsNotLocked($node)) return $response;
+        if ($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         $node->delete();
 
@@ -326,7 +326,7 @@ class NodesController extends ReactorController {
 
         $node = Node::findOrFail($id);
 
-        if($response = $this->validateNodeIsNotLocked($node)) return $response;
+        if ($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         $this->validateCreateTranslationForm($request);
 
@@ -361,7 +361,7 @@ class NodesController extends ReactorController {
         $source = NodeSource::findOrFail($id);
         $node = $source->node;
 
-        if($response = $this->validateNodeIsNotLocked($node)) return $response;
+        if ($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         $source->delete();
 
@@ -400,9 +400,10 @@ class NodesController extends ReactorController {
 
         $this->validateTransformForm($request);
 
-        if($response = $this->validateNodeIsNotLocked($node)) return $response;
+        if ($response = $this->validateNodeIsNotLocked($node)) return $response;
 
-        try {
+        try
+        {
             // Recording paused for this, otherwise two records are registered
             chronicle()->pauseRecording();
             $node->transformInto($request->input('type'));
@@ -446,7 +447,7 @@ class NodesController extends ReactorController {
 
         $this->validateMoveForm($request);
 
-        if($response = $this->validateNodeIsNotLocked($node)) return $response;
+        if ($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         if ($parent = Node::find(request()->input('parent')))
         {
@@ -656,13 +657,13 @@ class NodesController extends ReactorController {
 
         return response()->json([
             'type' => 'success',
-            'tag' =>[
-                'id'   => $tag->getKey(),
-                'title' => $tag->title,
+            'tag'  => [
+                'id'           => $tag->getKey(),
+                'title'        => $tag->title,
                 'translatable' => $tag->canHaveMoreTranslations(),
-                'editurl' => route('reactor.tags.edit', [$tag->getKey(), $tag->translate()->getKey()]),
+                'editurl'      => route('reactor.tags.edit', [$tag->getKey(), $tag->translate()->getKey()]),
                 'translateurl' => route('reactor.tags.translations.create', [$tag->getKey(), $tag->translate()->getKey()])
-        ]]);
+            ]]);
     }
 
     /**
@@ -698,6 +699,11 @@ class NodesController extends ReactorController {
      */
     public function statistics(NodeStatisticsCompiler $compiler, $id)
     {
+        if ( ! tracker()->saveEnabled())
+        {
+            return abort(404);
+        }
+
         list($node, $locale, $source) = $this->authorizeAndFindNode($id);
 
         $statistics = $compiler->compileStatistics($node);

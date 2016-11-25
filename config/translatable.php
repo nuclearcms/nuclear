@@ -62,7 +62,7 @@ return [
     | set it to false.
     |
     */
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('REACTOR_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------

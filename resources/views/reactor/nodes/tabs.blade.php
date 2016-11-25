@@ -2,9 +2,14 @@
 
 <?php $flaps = [
     'reactor.nodes.edit' => 'nodes.self',
-    'reactor.nodes.parameters.edit' => 'nodes.parameters',
-    'reactor.nodes.statistics' => 'general.statistics'
-]; ?>
+    'reactor.nodes.parameters.edit' => 'nodes.parameters'
+];
+
+if (tracker()->saveEnabled())
+{
+    $flaps['reactor.nodes.statistics'] = 'general.statistics';
+}
+?>
 
 @if($node->hidesChildren())
 @section('tabs_prepended')
