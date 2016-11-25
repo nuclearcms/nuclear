@@ -79,7 +79,7 @@
     }
 
     RelationField.prototype._addItem = function(item) {
-        var id = item.find('input').val();
+        var id = parseInt(item.find('input').val());
 
         var item = $('<li class="related-item" data-id="' + id + '">' + item.text() + '<i class="icon-cancel related-item__close"></i></li>');
 
