@@ -112,7 +112,11 @@ class ReactorServiceProvider extends ServiceProvider {
         {
             view()->composer('partials.navigation.nodes', function ($view)
             {
-                $view->with('leafs', Node::whereIsRoot()->defaultOrder()->get());
+                $leafs = empty($id = auth()->user()->home) ?
+                    Node::whereIsRoot()->defaultOrder()->get() :
+                    [Node::find($id)];
+
+                $view->with('leafs', $leafs);
             });
         }
 

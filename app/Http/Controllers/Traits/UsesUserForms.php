@@ -34,10 +34,14 @@ trait UsesUserForms {
      */
     protected function getEditForm($id, User $user)
     {
-        return $this->form('Reactor\Html\Forms\Users\EditForm', [
+        $form = $this->form('Reactor\Html\Forms\Users\EditForm', [
             'url'   => route('reactor.users.update', $id),
             'model' => $user
         ]);
+
+        $form->add('home', 'node');
+
+        return $form;
     }
 
     /**

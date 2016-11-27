@@ -2661,16 +2661,16 @@
         },
         {
             "name": "nuclear/users",
-            "version": "0.9.8",
+            "version": "0.9.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/NuclearCMS/Users.git",
-                "reference": "ed307b758b7956c537033b0aac3f5b941f19391c"
+                "reference": "c1536f5da9e4e29394c97510b2497e9a4fad6fc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/ed307b758b7956c537033b0aac3f5b941f19391c",
-                "reference": "ed307b758b7956c537033b0aac3f5b941f19391c",
+                "url": "https://api.github.com/repos/NuclearCMS/Users/zipball/c1536f5da9e4e29394c97510b2497e9a4fad6fc6",
+                "reference": "c1536f5da9e4e29394c97510b2497e9a4fad6fc6",
                 "shasum": ""
             },
             "require": {
@@ -2715,7 +2715,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2016-09-05 07:56:34"
+            "time": "2016-11-27 20:49:21"
         },
         {
             "name": "paragonie/random_compat",
