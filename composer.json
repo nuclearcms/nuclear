@@ -15,7 +15,7 @@
         "laravel",
         "laravel5"
     ],
-    "version": "3.0-alpha.12",
+    "version": "3.0-alpha.13",
     "authors": [
         {
             "name": "Hyleeh",
@@ -39,8 +39,6 @@
         "spatie/db-dumper": "^1.5"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
-        "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*"

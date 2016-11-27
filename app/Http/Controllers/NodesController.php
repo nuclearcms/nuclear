@@ -364,7 +364,7 @@ class NodesController extends ReactorController {
         if ($response = $this->validateNodeIsNotLocked($node)) return $response;
 
         // Prevent deletion if there is only one translation
-        if (count($node->translations()) > 1)
+        if (count($node->translations) > 1)
         {
             $source->delete();
         }
