@@ -72,6 +72,22 @@
             </div>
 
             <div class="content-inner__section">
+                <h3 class="content-inner__heading">{{ trans('maintenance.viewcache') }}</h3>
+                <p class="content-inner__message content-inner__message--muted">{{ trans('maintenance.viewcache_hint') }}</p>
+
+                <button class="button button--emphasis button--maintenance"
+                        data-action="{{ route('reactor.maintenance.viewcache.flush') }}" type="button">
+                    {{ uppercase(trans('maintenance.viewcache_flush')) }}
+                </button>
+
+                <button class="button button--emphasis button--maintenance"
+                        data-action="{{ route('reactor.maintenance.viewcache.flush.reactor') }}" type="button">
+                    {{ uppercase(trans('maintenance.viewcache_reactor_flush')) }}
+                </button>
+
+            </div>
+
+            <div class="content-inner__section">
                 <h3 class="content-inner__heading">{{ trans('maintenance.statistics') }}</h3>
                 <p class="content-inner__message content-inner__message--muted">{{ trans('maintenance.statistics_hint') }}</p>
 

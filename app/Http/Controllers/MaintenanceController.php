@@ -141,6 +141,34 @@ class MaintenanceController extends ReactorController {
     }
 
     /**
+     * Flushes viewcache
+     *
+     * @return Redirect
+     */
+    public function viewcacheFlush()
+    {
+        app('reactor.viewcache')->flush();
+
+        $this->notify('maintenance.viewcache_flushed');
+
+        return redirect()->back();
+    }
+
+    /**
+     * Flushes Reactor viewcache
+     *
+     * @return Redirect
+     */
+    public function viewcacheFlushReactor()
+    {
+        app('reactor.viewcache')->flushReactor();
+
+        $this->notify('maintenance.viewcache_reactor_flushed');
+
+        return redirect()->back();
+    }
+
+    /**
      * Flushes all site views
      *
      * @return Redirect

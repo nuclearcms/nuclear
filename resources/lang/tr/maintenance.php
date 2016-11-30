@@ -35,6 +35,13 @@ return [
     'clear_routes_cache' => 'Rota Önbelleğini Temizle',
     'cleared_routes_cache' => 'Rota önbelleği temizlendi.',
 
+    'viewcache' => 'Görüntü Önbelleği',
+    'viewcache_hint' => 'Önbellekte depolanan parça görüntüleri temizle.',
+    'viewcache_flush' => 'Tüm önbellek görüntülerini temizle',
+    'viewcache_flushed' => 'Tüm önbellek görüntüleri temizlendi.',
+    'viewcache_reactor_flush' => 'Nuclear önbellek görüntülerini temizle.',
+    'viewcache_reactor_flushed' => 'Nuclear önbellek görüntüleri temizlendi.',
+
     'statistics' => 'İstatistikler',
     'statistics_hint' => 'Site görüntülenme istatistiklerini temizle.',
     'clear_tracker_all' => 'Tüm İstatistikleri Temizle',

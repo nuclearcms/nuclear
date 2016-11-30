@@ -47,6 +47,14 @@ Route::group([
         'as' => 'reactor.maintenance.clear.routes',
         'uses' => 'MaintenanceController@clearRoutesCache']);
 
+    // View cache
+    Route::post('viewcache/flush', [
+        'as' => 'reactor.maintenance.viewcache.flush',
+        'uses' => 'MaintenanceController@viewcacheFlush']);
+    Route::post('viewcache/flush/reactor', [
+        'as' => 'reactor.maintenance.viewcache.flush.reactor',
+        'uses' => 'MaintenanceController@viewcacheFlushReactor']);
+
     // Statistics
     Route::post('clear/statistics', [
         'as' => 'reactor.maintenance.clear.statistics',

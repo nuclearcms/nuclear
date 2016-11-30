@@ -35,6 +35,13 @@ return [
     'clear_routes_cache' => 'Clear Routes Cache',
     'cleared_routes_cache' => 'Cleared routes cache.',
 
+    'viewcache' => 'View Cache',
+    'viewcache_hint' => 'Flush cached partial views.',
+    'viewcache_flush' => 'Flush all cached views',
+    'viewcache_flushed' => 'Flushed all cached views.',
+    'viewcache_reactor_flush' => 'Flush cached Nuclear views.',
+    'viewcache_reactor_flushed' => 'Flushed cached Nuclear views.',
+
     'statistics' => 'Statistics',
     'statistics_hint' => 'Clean site view statistics.',
     'clear_tracker_all' => 'Clear All Statistics',
