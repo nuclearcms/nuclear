@@ -166,3 +166,48 @@ if ( ! function_exists('set_app_locale_with'))
         app('reactor.routing.filtermaker')->setAppLocaleWith($key, $slug);
     }
 }
+
+if ( ! function_exists('cached_view'))
+{
+    /**
+     * Returns a view either from cache or generating it fresh then caching it
+     *
+     * @param string $view
+     * @param array $params
+     * @param array $keywords
+     * @param int $user
+     * @param string $key
+     * @param int $time
+     * @return string
+     */
+    function cached_view($view, array $params = [], array $keywords = ['reactor.views'], $user = null, $key = null, $time = null)
+    {
+        return app('reactor.viewcache')->getView($view, $params, $keywords, $user, $key, $time);
+    }
+}
+
+if( ! function_exists('cached_view_modules'))
+{
+    /**
+     * Returns the modules view
+     *
+     * @return string
+     */
+    function cached_view_modules()
+    {
+        return app('reactor.viewcache')->getModulesView();
+    }
+}
+
+if( ! function_exists('cached_view_nodes'))
+{
+    /**
+     * Returns the nodes view
+     *
+     * @return string
+     */
+    function cached_view_nodes()
+    {
+        return app('reactor.viewcache')->getNodesView();
+    }
+}

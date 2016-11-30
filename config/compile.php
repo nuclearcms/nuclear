@@ -14,13 +14,14 @@ return [
     */
 
     'files' => [
-        // Reactor Service Providers
+        // Reactor Service Providers and Support
         app_path('Providers/ReactorServiceProvider.php'),
         app_path('Providers/AuthServiceProvider.php'),
         app_path('Providers/EventServiceProvider.php'),
         app_path('Providers/HtmlBuildersServiceProvider.php'),
         app_path('Providers/RouteServiceProvider.php'),
         app_path('Support/Routing/RouteFilterMaker.php'),
+        app_path('Support/ViewCache/ReactorViewCache.php'),
 
         // Hierarchy Service Providers
         base_path('vendor/nuclear/hierarchy/src/Providers/HierarchyServiceProvider.php'),
@@ -43,6 +44,7 @@ return [
         // Other Vendor Service Providers
         base_path('vendor/laracasts/flash/src/Laracasts/Flash/FlashServiceProvider.php'),
         base_path('vendor/igaster/laravel-theme/src/themeServiceProvider.php'),
+        base_path('vendor/propaganistas/laravel-cache-keywords/src/CacheKeywordsServiceProvider.php'),
 
         // Extension Classes
         base_path('extension/Site/Providers/SiteExtensionServiceProvider.php'),

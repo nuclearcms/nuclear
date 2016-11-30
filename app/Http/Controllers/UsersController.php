@@ -94,6 +94,8 @@ class UsersController extends ReactorController {
 
         $user->assignRoleById($request->input('role'));
 
+        app('reactor.viewcache')->flushReactor();
+
         $this->notify('roles.associated', 'assigned_role_to_user', $user);
 
         return redirect()->back();
@@ -113,6 +115,8 @@ class UsersController extends ReactorController {
         $user = User::findOrFail($id);
 
         $user->retractRole($request->input('role'));
+
+        app('reactor.viewcache')->flushReactor();
 
         $this->notify('roles.dissociated', 'retracted_role_from_user', $user);
 

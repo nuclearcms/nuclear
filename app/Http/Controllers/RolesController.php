@@ -56,6 +56,8 @@ class RolesController extends ReactorController {
 
         $role->associateUser($request->input('user'));
 
+        app('reactor.viewcache')->flushReactor();
+
         $this->notify('users.associated', 'associated_user_to_role', $role);
 
         return redirect()->back();
@@ -75,6 +77,8 @@ class RolesController extends ReactorController {
         $role = Role::findOrFail($id);
 
         $role->dissociateUser($request->input('user'));
+
+        app('reactor.viewcache')->flushReactor();
 
         $this->notify('users.dissociated', 'dissociated_user_from_role', $role);
 

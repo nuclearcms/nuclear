@@ -1,6 +1,6 @@
 <nav id="navigationContainer" class="container-navigation">
 
-    @include('partials.navigation.modules')
-    @include('partials.navigation.nodes')
+    {!! cached_view_modules() !!}
+    {!! cached_view_nodes() !!}
 
 </nav>

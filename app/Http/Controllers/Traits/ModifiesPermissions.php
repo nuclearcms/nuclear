@@ -75,6 +75,8 @@ trait ModifiesPermissions {
 
         $model->givePermissionById($request->input('permission'));
 
+        app('reactor.viewcache')->flushReactor();
+
         $this->notify('permissions.added', 'added_permission', $model);
 
         return redirect()->back();
@@ -96,6 +98,8 @@ trait ModifiesPermissions {
         $model = $modelPath::findOrFail($id);
 
         $model->revokePermission($request->input('permission'));
+
+        app('reactor.viewcache')->flushReactor();
 
         $this->notify('permissions.revoked', 'revoked_permission', $model);
 

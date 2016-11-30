@@ -36,7 +36,8 @@
         "laracasts/flash": "^2.0",
         "guzzlehttp/guzzle": "~5.3",
         "chumper/zipper": "^0.6.1",
-        "spatie/db-dumper": "^1.5"
+        "spatie/db-dumper": "^1.5",
+        "propaganistas/laravel-cache-keywords": "~1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",

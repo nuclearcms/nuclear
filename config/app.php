@@ -198,6 +198,7 @@ return [
         igaster\laravelTheme\themeServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Chumper\Zipper\ZipperServiceProvider::class,
+        Propaganistas\LaravelCacheKeywords\CacheKeywordsServiceProvider::class,
 
         /*
          * Site Service Providers...

@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Nuclear\Hierarchy\Node;
 use Nuclear\Hierarchy\NodeRepository;
+use Nuclear\Users\Permission;
+use Nuclear\Users\Role;
+use Nuclear\Users\User;
 use Reactor\Support\Routing\RouteFilterMaker;
 
 class ReactorServiceProvider extends ServiceProvider {
@@ -25,6 +28,8 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->registerPaths();
 
         $this->registerFilterMaker();
+
+        $this->registerViewCache();
     }
 
     /**
@@ -66,6 +71,8 @@ class ReactorServiceProvider extends ServiceProvider {
         $this->registerValidationRules();
 
         $this->registerViewBindings($nodeRepository);
+
+        $this->registerEventListeners();
     }
 
     /**
@@ -120,6 +127,63 @@ class ReactorServiceProvider extends ServiceProvider {
             });
         }
 
+    }
+
+    /**
+     * Registers the view cache
+     */
+    protected function registerViewCache()
+    {
+        $this->app['reactor.viewcache'] = $this->app->share(function ()
+        {
+            return $this->app->make('Reactor\Support\ViewCache\ReactorViewCache');
+        });
+    }
+
+    /**
+     * Registers event listeners
+     * (mostly for view cache model events)
+     */
+    protected function registerEventListeners()
+    {
+        User::saved(function ($user)
+        {
+            $this->app['reactor.viewcache']
+                ->flushKeywords(['userview' . $user->getKey()]);
+        });
+
+        foreach (['saved', 'deleted'] as $event)
+        {
+            Node::$event(function ($node)
+            {
+                $parent = $node->parent;
+
+                while ($parent)
+                {
+                    if ($parent->hidesChildren())
+                    {
+                        return;
+                    }
+
+                    $parent = $parent->parent;
+                }
+
+                $this->app['reactor.viewcache']
+                    ->flushKeywords(['reactor.views.navigation.nodes']);
+            });
+
+            Permission::$event(function ($permission)
+            {
+                $this->app['reactor.viewcache']
+                    ->flushReactor();
+            });
+
+            Role::$event(function ($role)
+            {
+                $this->app['reactor.viewcache']
+                    ->flushReactor();
+            });
+        }
     }
 
 }
