@@ -1,7 +1,7 @@
 <meta name="description" content="@yield('metaDescription', $home->getTranslationAttribute('meta_description'))">
 <meta name="keywords" content="@yield('metaKeywords', $home->getTranslationAttribute('meta_keywords'))">
 
-<meta property="og:locale" content="{{ get_full_locale_for(App::getLocale(), true) }}">
+<meta property="og:locale" content="{{ App::getLocale() }}">
 <meta property="og:title" content="@yield('pageTitle')">
 <meta property="og:site_name" content="{{ $home->getTranslationAttribute('meta_title') }}">
 <meta property="og:description" content="@yield('metaDescription', $home->getTranslationAttribute('meta_description'))">

@@ -6,7 +6,9 @@
 
     @section('metaAlternateLinks')
         @foreach($node->translations as $translation)
+            @if($translation->locale !== App::getLocale())
             <link rel="alternate" href="{{ $node->getSiteURL($translation->locale) }}" hreflang="{{ $translation->locale }}">
+            @endif
         @endforeach
     @endsection
 @else
@@ -14,7 +16,9 @@
 
     @section('metaAlternateLinks')
         @foreach(locales() as $locale)
+            @if($locale !== App::getLocale())
             <link rel="alternate" href="{{ route('locale.set.home', $locale) }}" hreflang="{{ $locale }}">
+            @endif
         @endforeach
     @endsection
 @endif
