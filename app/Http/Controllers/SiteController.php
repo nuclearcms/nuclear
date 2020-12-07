@@ -17,7 +17,7 @@ class SiteController extends Controller {
 	{
 		$content = $contentsRepository->getHome();
 
-		return view('home', compact('content', 'category', 'post'));
+		return view('home', compact('content'));
 	}
 
 	/**
