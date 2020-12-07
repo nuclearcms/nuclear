@@ -13,7 +13,7 @@
         "content management",
         "laravel"
     ],
-    "version": "4.0.1",
+    "version": "4.0.2",
     "authors": [
         {
             "name": "Egemen Kızılcan",
@@ -62,7 +62,6 @@
             "Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
