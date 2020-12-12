@@ -198,7 +198,9 @@ return [
         'gallery' => 'Gallery',
         'content.*' => 'Content',
         'cover.*' => 'Cover',
-        'gallery.*' => 'Gallery'
+        'gallery.*' => 'Gallery',
+        'code' => 'Code',
+        'code.*' => 'Code',
     ],
 
 ];

@@ -198,7 +198,9 @@ return [
         'gallery' => 'Galeri',
         'content.*' => 'İçerik',
         'cover.*' => 'Kapak',
-        'gallery.*' => 'Galeri'
+        'gallery.*' => 'Galeri',
+        'code' => 'Kod',
+        'code.*' => 'Kod'
     ],
 
 ];
