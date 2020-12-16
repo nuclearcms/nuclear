@@ -164,6 +164,7 @@ return [
         'new_password' => 'New Password',
         'created_at' => 'Created At',
         'type' => 'Type',
+        'content_type_id' => 'Type',
         'locale' => 'Locale',
         'url' => 'URL',
         'public_url' => 'Public URL',

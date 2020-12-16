@@ -164,6 +164,7 @@ return [
         'new_password' => 'Yeni Şifre',
         'created_at' => 'Oluşturulma',
         'type' => 'Tip',
+        'content_type_id' => 'Tip',
         'locale' => 'Dil',
         'url' => 'URL',
         'public_url' => 'Kamusal URL',

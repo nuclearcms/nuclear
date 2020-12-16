@@ -36,7 +36,7 @@
     @if(config('app.analytics_id'))
     <script>
         window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', {{ config('app.analytics_id') }}, 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+        ga('create', '{{ config('app.analytics_id') }}', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
     @endif
