@@ -13,7 +13,7 @@
         "content management",
         "laravel"
     ],
-    "version": "4.0.17",
+    "version": "4.1.0",
     "authors": [
         {
             "name": "Egemen Kızılcan",
@@ -78,7 +78,8 @@
             "@php artisan vendor:publish --provider=\"Nuclear\\Reactor\\Providers\\ReactorServiceProvider\" --tag=public --force"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --provider=\"Nuclear\\Reactor\\Providers\\ReactorServiceProvider\" --tag=public --force"
+            "@php artisan vendor:publish --provider=\"Nuclear\\Reactor\\Providers\\ReactorServiceProvider\" --tag=public --force",
+            "@php artisan reactor:optimize"
         ]
     }
 }

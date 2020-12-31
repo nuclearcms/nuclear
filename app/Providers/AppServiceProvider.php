@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (!is_installed()) return;
         
-        if (!is_request_reactor())
+        if (!is_request_reactor() && !is_request_api() && !is_request_install())
         {
             $home = $contentsRepository->getHome(false, false);
 
