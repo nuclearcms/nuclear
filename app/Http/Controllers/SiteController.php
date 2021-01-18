@@ -20,15 +20,4 @@ class SiteController extends Controller {
 		return view('home', compact('content'));
 	}
 
-	/**
-	 * Records a view
-	 *
-	 * @param SiteContent $content
-	 */
-	protected function recordView(SiteContent $content)
-	{
-		views($content)->collection(app()->getLocale())
-			->cooldown(now()->addHours(2))->record();
-	}
-
 }
