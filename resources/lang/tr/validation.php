@@ -201,7 +201,11 @@ return [
         'cover.*' => 'Kapak',
         'gallery.*' => 'Galeri',
         'code' => 'Kod',
-        'code.*' => 'Kod'
+        'code.*' => 'Kod',
+        'notes' => 'Notlar',
+        'notes.*' => 'Notlar',
+        'ip_address' => 'IP Adresi',
+        'ip_address.*' => 'IP Adresi'
     ],
 
 ];

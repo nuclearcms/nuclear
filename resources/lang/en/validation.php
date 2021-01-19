@@ -202,6 +202,10 @@ return [
         'gallery.*' => 'Gallery',
         'code' => 'Code',
         'code.*' => 'Code',
+        'notes' => 'Notes',
+        'notes.*' => 'Notes',
+        'ip_address' => 'IP Address',
+        'ip_address.*' => 'IP Address'
     ],
 
 ];
