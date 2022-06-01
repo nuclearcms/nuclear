@@ -13,7 +13,7 @@
         "content management",
         "laravel"
     ],
-    "version": "4.2.3",
+    "version": "4.2.4",
     "authors": [
         {
             "name": "Egemen Kızılcan",
@@ -30,7 +30,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.5",
-        "nuclear/reactor": "^1.2.3",
+        "nuclear/reactor": "^1.2.4",
         "spatie/laravel-cookie-consent": "^2.12"
     },
     "require-dev": {

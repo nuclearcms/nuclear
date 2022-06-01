@@ -12,7 +12,7 @@
 @endforeach
 @endif
 
-@if($cover = $content->cover)
+@if($cover = $content->cover_image)
 <meta property="og:image" content="{{ $cover->public_url }}">
 @endif
 @endpush
