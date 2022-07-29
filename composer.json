@@ -13,7 +13,7 @@
         "content management",
         "laravel"
     ],
-    "version": "4.2.6",
+    "version": "4.2.7",
     "authors": [
         {
             "name": "Egemen Kızılcan",
@@ -28,16 +28,16 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.0",
+        "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
         "nuclear/reactor": "^1.2.4",
         "spatie/laravel-cookie-consent": "^2.12"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
+        "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.3.3"
     },
     "config": {
