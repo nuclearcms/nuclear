@@ -13,7 +13,7 @@
         "content management",
         "laravel"
     ],
-    "version": "4.2.8",
+    "version": "4.3.0",
     "authors": [
         {
             "name": "Egemen Kızılcan",
@@ -24,21 +24,22 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
-        "fideloper/proxy": "^4.4",
+        "php": "^8.0",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
-        "nuclear/reactor": "^1.2.4",
+        "nuclear/reactor": "^1.3.0",
         "spatie/laravel-cookie-consent": "^3.0"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
-        "mockery/mockery": "^1.4.2",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.3.3"
+        "phpunit/phpunit": "^9.5.10",
+        "spatie/laravel-ignition": "^1.0"
     },
     "config": {
         "optimize-autoloader": true,

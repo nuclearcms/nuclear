@@ -27,7 +27,7 @@
 <body>
     @yield('content')
 
-    @include('cookieConsent::index')
+    @include('cookie-consent::index')
     
     <script src="{{ mix('/js/app.js') }}"></script>
 
