@@ -3536,16 +3536,16 @@
         },
         {
             "name": "nuclear/reactor",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuclearcms/reactor.git",
-                "reference": "68a742c2de392929393bd70134bb97a01894dddc"
+                "reference": "ae2041f8ce83688c5896739cc09f909e953ce852"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuclearcms/reactor/zipball/68a742c2de392929393bd70134bb97a01894dddc",
-                "reference": "68a742c2de392929393bd70134bb97a01894dddc",
+                "url": "https://api.github.com/repos/nuclearcms/reactor/zipball/ae2041f8ce83688c5896739cc09f909e953ce852",
+                "reference": "ae2041f8ce83688c5896739cc09f909e953ce852",
                 "shasum": ""
             },
             "require": {
@@ -3559,8 +3559,8 @@
                 "umomega/auth": "^1.2",
                 "umomega/former": "^1.1",
                 "umomega/foundation": "^1.1",
-                "umomega/media": "^1.1",
-                "umomega/tags": "^1.1"
+                "umomega/media": "^1.2",
+                "umomega/tags": "^1.2"
             },
             "type": "library",
             "extra": {
@@ -3597,9 +3597,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nuclearcms/reactor/issues",
-                "source": "https://github.com/nuclearcms/reactor/tree/1.3.0"
+                "source": "https://github.com/nuclearcms/reactor/tree/1.4.0"
             },
-            "time": "2022-07-30T13:40:48+00:00"
+            "time": "2022-11-29T14:47:26+00:00"
         },
         {
             "name": "nunomaduro/termwind",
