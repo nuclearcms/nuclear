@@ -25,51 +25,23 @@
  */
 
 /*!
- * Vue.js v2.6.14
- * (c) 2014-2021 Evan You
+ * Vue.js v2.7.14
+ * (c) 2014-2022 Evan You
  * Released under the MIT License.
  */
 
 /*! For license information please see editor.js.LICENSE.txt */
-
-/*! exports provided: default */
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
 /*! modernizr 3.6.0 (Custom Build) | MIT *
  * https://modernizr.com/download/?-touchevents-setclasses !*/
 
-/*! no static exports found */
-
-/*! vue-page-title v1.2.10
+/*! vue-page-title v1.3.0
  * Vue.js html/page title manager
  * https://github.com/vinicius73/vue-page-title
  * (c) 2018-2022 Vinicius Reis <luiz.vinicius73@gmail.com>
  */
-
-/*!**************************!*\
-  !*** ./src/Hyperlink.js ***!
-  \**************************/
-
-/*!***************************!*\
-  !*** ./src/Hyperlink.css ***!
-  \***************************/
-
-/*!*******************************!*\
-  !*** ./src/SelectionUtils.js ***!
-  \*******************************/
-
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-
-/*!*****************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/Hyperlink.css ***!
-  \*****************************************************************/
-
-/*!****************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \****************************************************************************/
 
 /**
  * Base Paragraph Block for the Editor.js.
