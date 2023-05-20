@@ -19,6 +19,12 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
 
+    @if(Str::startsWith($current = url()->current(), 'https://www'))
+    <link rel="canonical" href="{{ str_replace('https://www.', 'https://', $current) }}">
+    @else
+    <link rel="canonical" href="{{ str_replace('https://', 'https://www.', $current) }}">
+    @endif
+
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 
     @stack('styles')
