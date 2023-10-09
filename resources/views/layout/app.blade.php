@@ -29,6 +29,17 @@
 
     @stack('styles')
     
+    @if(config('app.analytics_id'))
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('app.analytics_id') }}"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ config('app.analytics_id') }}');
+    </script>
+    @endif
 </head>
 <body>
     @yield('content')
@@ -38,14 +49,6 @@
     <script src="{{ mix('/js/app.js') }}"></script>
 
     @stack('scripts')
-
-    @if(config('app.analytics_id'))
-    <script>
-        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-        ga('create', '{{ config('app.analytics_id') }}', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
-    @endif
 </body>
 
 </html>
