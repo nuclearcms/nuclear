@@ -8,22 +8,11 @@
 
     <meta name="description" content="@yield('page-description')">
     <meta name="robots" content="index, follow">
+    
     @stack('meta')
-    <meta property="og:site_name" content="{{ config('app.name') }}">
-    <meta property="og:title" content="@yield('page-title')">
-    <meta property="og:description" content="@yield('page-description')">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ request()->url() }}">
-    <meta property="og:locale"content="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+    
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-
-    @if(Str::startsWith($current = url()->current(), 'https://www'))
-    <link rel="canonical" href="{{ str_replace('https://www.', 'https://', $current) }}">
-    @else
-    <link rel="canonical" href="{{ str_replace('https://', 'https://www.', $current) }}">
-    @endif
+    <link rel="apple-touch-icon" href="{{ asset('icon.png') }}">
 
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 

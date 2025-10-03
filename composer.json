@@ -13,7 +13,7 @@
         "content management",
         "laravel"
     ],
-    "version": "4.7.3",
+    "version": "4.8.0",
     "authors": [
         {
             "name": "Egemen Kızılcan",
@@ -24,12 +24,12 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.0",
+        "php": "^8.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.5",
-        "nuclear/reactor": "^1.7.0",
+        "nuclear/reactor": "^1.8.0",
         "spatie/laravel-cookie-consent": "^3.0"
     },
     "require-dev": {
