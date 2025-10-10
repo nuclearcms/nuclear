@@ -1,11 +1,11 @@
-<div class="js-cookie-consent cookie-consent fixed bottom-0 left-0 p-3 sm:p-6 w-full">
+<div class="js-cookie-consent cookie-consent fixed bottom-0 right-0 p-2 w-full flex justify-center z-50">
 
-	<div class="cookie-consent__inner py-3 px-3 bg-white rounded-md justify-between shadow-lg clearfix flex items-center">
-	    <p class="cookie-consent__message inline-block pl-2 pr-3 sm:p-3 flex-grow">
+	<div class="cookie-consent__inner p-1 bg-white rounded-md justify-between shadow-lg flex items-center sm:max-w-md gap-4">
+	    <p class="cookie-consent__message inline-block text-sm leading-tight pl-2">
 	        {!! trans('cookie-consent::texts.message') !!}
 	    </p>
 
-	    <button class="js-cookie-consent-agree cookie-consent__agree uppercase bg-yellow-500 text-xs font-bold tracking-wide shadow-sm rounded-md px-6 py-4 duration-200 transition-colors hover:bg-yellow-400 flex-initial">
+	    <button class="js-cookie-consent-agree cookie-consent__agree uppercase bg-yellow-500 text-xs font-bold tracking-widest text-2xs shadow-sm rounded-md p-2 duration-300 transition-colors hover:bg-yellow-300 flex-initial cursor-pointer">
 	        {{ trans('cookie-consent::texts.agree') }}
 	    </button>
     </div>

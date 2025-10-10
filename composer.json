@@ -27,7 +27,7 @@
         "php": "^8.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^9.19",
         "laravel/tinker": "^2.5",
         "nuclear/reactor": "^1.8.0",
         "spatie/laravel-cookie-consent": "^3.0"
@@ -44,7 +44,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "laravel": {
@@ -64,6 +67,7 @@
         }
     },
     "prefer-stable": true,
+    "minimum-stability": "stable",
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

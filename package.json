@@ -1,30 +1,19 @@
 {
+    "$schema": "https://json.schemastore.org/package.json",
     "private": true,
+    "type": "module",
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
+        "build": "vite build",
+        "dev": "vite"
     },
     "devDependencies": {
+        "@tailwindcss/vite": "^4.0.0",
         "@tailwindcss/typography": "^0.5.0",
-        "@tailwindcss/line-clamp": "^0.4.0",
-        "@tailwindcss/aspect-ratio": "^0.4.0",
-        "@tailwindcss/forms": "^0.5.2",
-        "autoprefixer": "^10.0.2",
-        "browser-sync": "^2.27.1",
-        "browser-sync-webpack-plugin": "^2.3.0",
-        "cross-env": "^7.0",
-        "jquery": "^3.5.1",
-        "laravel-mix": "^6.0.42",
-        "postcss": "^8.0.9",
-        "resolve-url-loader": "^5.0.0",
-        "sass": "^1.29.0",
-        "sass-loader": "^8.0.2",
-        "tailwindcss": "^3.0.0",
-        "vue-template-compiler": "^2.6.12"
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "gsap": "^3.0.0",
+        "laravel-vite-plugin": "^2.0.0",
+        "tailwindcss": "^4.0.0",
+        "vite": "^7.0.7"
     }
 }

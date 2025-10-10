@@ -3,11 +3,13 @@
 @isset($content) @include('utilities.seo') @endisset
 
 @section('content')
-<div class="min-h-screen bg-gray-900 flex text-white items-center justify-center">
+<div class="min-h-screen bg-stone-950 flex text-white items-center justify-center">
 	<div class="p-8 text-center w-full">
-		<svg class="m-auto mb-8" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29.785" height="32" viewBox="0 0 29.785 32"><defs><style>.a{fill:none;}.b{clip-path:url(#a);}.c{fill:#ffffff;}</style><clipPath id="a"><rect class="a" width="29.785" height="32"/></clipPath></defs><g class="b"><path class="c" d="M640.781,384.742h7.556v-2.56a11.915,11.915,0,0,1-9.842-12.448,13.6,13.6,0,0,1,4.522-10.688,15.21,15.21,0,0,1,10.4-4.046,15.371,15.371,0,0,1,7.478,1.908,13.446,13.446,0,0,1,5.43,5.416,15.23,15.23,0,0,1,1.936,7.474,12.317,12.317,0,0,1-2.486,7.812,13.839,13.839,0,0,1-7.46,4.576v2.56h7.556V383.4a2.828,2.828,0,0,1,.3-1.616,1.063,1.063,0,0,1,.864-.35,1.043,1.043,0,0,1,.62.19.922.922,0,0,1,.362.442,4.961,4.961,0,0,1,.066,1.332V387H656.112v-6.578a11.85,11.85,0,0,0,7.4-3.7,10.8,10.8,0,0,0,2.544-7.286,11.173,11.173,0,0,0-3.942-9.106,13.213,13.213,0,0,0-8.562-3.278,13,13,0,0,0-8.094,2.8,11.627,11.627,0,0,0-4.706,9.736,10.586,10.586,0,0,0,2.57,7.45,11.221,11.221,0,0,0,7.218,3.36v6.576H638.62V383.4a6.076,6.076,0,0,1,.078-1.32.989.989,0,0,1,.39-.48,1.1,1.1,0,0,1,.6-.188.868.868,0,0,1,.54.16,1.092,1.092,0,0,1,.412.5,5.029,5.029,0,0,1,.106,1.33Zm12.6-17.656a2.5,2.5,0,1,1-2.5,2.5A2.5,2.5,0,0,1,653.376,367.086Z" transform="translate(-638.483 -355)"/></g></svg>
-		<h1 class="text-4xl mb-2">{{ config('app.name') }}</h1>
-		<p>Welcome to Nuclear.</p>
+
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="32" viewBox="0 0 28 32" class="mx-auto mb-4 reveal">
+			<path d="M20,26.636l-.011-.008a14,14,0,1,0-11.978,0L8,26.636V28H0v4H12V23.8a10,10,0,1,1,4,0V32H28V28H20ZM18,14a4,4,0,1,1-4-4,4,4,0,0,1,4,4" transform="translate(0 0)" fill="#fff"/>
+		</svg>
+		<h1 class="text-3xl reveal">Welcome to Nuclear.</h1>
 	</div>
 </div>
 @endsection
