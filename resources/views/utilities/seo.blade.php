@@ -1,4 +1,5 @@
-@section('page-title', !empty($content->meta_title) ? $content->meta_title : $content->title)
+@section('head-title', !empty($content->meta_title) ? $content->meta_title : $content->title)
+@section('page-title', $content->title)
 @section('page-description', $content->meta_description)
 
 @push('meta')
@@ -15,16 +16,23 @@
 @if($content->id != config('app.home_content'))
     @foreach($content->site_urls as $locale => $url)
         @if($locale === config('app.fallback_locale'))
-            <link rel="alternate" hreflang="x-default" href="{{ str_replace('www.', '', url($url)) }}">
-            <link rel="canonical" href="{{ str_replace('www.', '', url($url)) }}">
+        <link rel="alternate" hreflang="x-default" href="{{ str_replace('www.', '', url($url)) }}">
         @endif
+
+        @if($locale === app()->getLocale())
+        <link rel="canonical" href="{{ str_replace('www.', '', url($url)) }}">
+        @endif
+
         <link rel="alternate" hreflang="{{ $locale }}" href="{{ url($url) }}">
     @endforeach
 @else
     <link rel="alternate" hreflang="x-default" href="{{ str_replace('www.', '', route('home')) }}">
-    <link rel="canonical" href="{{ str_replace('www.', '', route('home')) }}">
     @foreach(config('app.locales') as $locale)
-        <link rel="alternate" hreflang="{{ $locale }}" href="{{ str_replace('www.', '', route($locale .'.home')) }}">
+    @if($locale === app()->getLocale())
+    <link rel="canonical" href="{{ str_replace('www.', '', route($locale .'.home')) }}">
+    @endif
+
+    <link rel="alternate" hreflang="{{ $locale }}" href="{{ str_replace('www.', '', route($locale .'.home')) }}">
     @endforeach
 @endif
 @endpush

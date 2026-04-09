@@ -1,5 +1,14 @@
 import './bootstrap';
 
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import barba from '@barba/core';
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin)
+gsap.defaults({ ease: 'expo' })
+
 const body = document.body
 
 const smoothWrapper = document.getElementById('smooth-wrapper')
@@ -26,16 +35,5 @@ smoothTriggers.forEach(item => {
     item.addEventListener('click', e => {
         e.preventDefault()
         gsap.to(window, { duration: 1, scrollTo: { y: item.dataset.target, offsetY: 64 } })
-    })
-})
-
-const smoothScrollNext = document.querySelectorAll('a.smooth-scroll-next')
-smoothScrollNext.forEach(item => {
-    item.addEventListener('click', e => {
-        e.preventDefault()
-        const next = item.closest('.scroll-next').nextElementSibling
-        if (next) {
-            gsap.to(window, { duration: 1, scrollTo: { y: next, offsetY: 64 } })
-        }
     })
 })
